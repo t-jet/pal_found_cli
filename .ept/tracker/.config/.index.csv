@@ -1,5 +1,36 @@
 id,type,title,status,priority,assignee,reporter,parent,addressed_to,path,created,updated
-FEATURE-001,feature,Foundry CLI: Requirements Analysis and Open Questions,Analysis,High,architect,architect,,,FEATURE-001,2026-04-09,2026-04-13
+FEATURE-001,feature,Foundry CLI: Requirements Analysis and Open Questions,In Development,High,architect,architect,,,FEATURE-001,2026-04-09,2026-04-13
 QUESTION-001,question,Foundry CLI Round 3: 10 open questions requiring Product Owner answers,Closed,High,,architect,FEATURE-001,product_owner,FEATURE-001/QUESTION-001,2026-04-10,2026-04-10
-BA-ANA-001,ba_subtask_analysis,Foundry CLI: Business Requirements Analysis,Open,Medium,ba,ba,FEATURE-001,,FEATURE-001/BA-ANA-001,2026-04-13,2026-04-13
-SA-ANA-001,sa_subtask_analysis,Foundry CLI: Solution Architecture Analysis,In Progress,Medium,architect,architect,FEATURE-001,,FEATURE-001/SA-ANA-001,2026-04-13,2026-04-13
+BA-ANA-001,ba_subtask_analysis,Foundry CLI: Business Requirements Analysis,Closed,Medium,ba,ba,FEATURE-001,,FEATURE-001/BA-ANA-001,2026-04-13,2026-04-13
+SA-ANA-001,sa_subtask_analysis,Foundry CLI: Solution Architecture Analysis,Closed,Medium,architect,architect,FEATURE-001,,FEATURE-001/SA-ANA-001,2026-04-13,2026-04-13
+EPIC-001,epic,Core CLI Infrastructure,New,Critical,architect,architect,,,EPIC-001,2026-04-13,2026-04-13
+EPIC-002,epic,Datasets & Filesystem Skills,New,Critical,architect,architect,,,EPIC-002,2026-04-13,2026-04-13
+EPIC-003,epic,Ontology & Functions Skills,New,Critical,architect,architect,,,EPIC-003,2026-04-13,2026-04-13
+EPIC-004,epic,Admin & Security Skills,New,High,architect,architect,,,EPIC-004,2026-04-13,2026-04-13
+EPIC-005,epic,AI & Models Skills,New,High,architect,architect,,,EPIC-005,2026-04-13,2026-04-13
+EPIC-006,epic,Data Pipeline Skills,New,High,architect,architect,,,EPIC-006,2026-04-13,2026-04-13
+EPIC-007,epic,Remaining Namespace Skills,New,Medium,architect,architect,,,EPIC-007,2026-04-13,2026-04-13
+EPIC-008,epic,Foundry Knowledge Skill,New,High,architect,architect,,,EPIC-008,2026-04-13,2026-04-13
+DEV-STORY-001,dev_story,"Implement ConfigLoader, AuthProvider, AsyncClientFactory",New,Critical,architect,architect,,,DEV-STORY-001,2026-04-13,2026-04-13
+DEV-STORY-002,dev_story,"Implement RetryHandler, ErrorSerializer, OutputFormatter, LogSetup",New,Critical,architect,architect,,,DEV-STORY-002,2026-04-13,2026-04-13
+DEV-STORY-003,dev_story,"Implement AccessControlGuard, PaginationHelper",New,Critical,architect,architect,,,DEV-STORY-003,2026-04-13,2026-04-13
+DEV-STORY-004,dev_story,"Implement BinaryDownloadHandler, SessionManager, TracingProvider",New,High,architect,architect,,,DEV-STORY-004,2026-04-13,2026-04-13
+DEV-STORY-005,dev_story,foundry-datasets skill (26 operations),New,Critical,architect,architect,,,DEV-STORY-005,2026-04-13,2026-04-13
+DEV-STORY-006,dev_story,foundry-filesystem skill (31 operations),New,High,architect,architect,,,DEV-STORY-006,2026-04-13,2026-04-13
+DEV-STORY-007,dev_story,foundry-ontologies skill (55 operations),New,Critical,architect,architect,,,DEV-STORY-007,2026-04-13,2026-04-13
+DEV-STORY-008,dev_story,foundry-functions skill (7 operations),New,High,architect,architect,,,DEV-STORY-008,2026-04-13,2026-04-13
+DEV-STORY-009,dev_story,foundry-admin skill (66 operations),New,High,architect,architect,,,DEV-STORY-009,2026-04-13,2026-04-13
+DEV-STORY-010,dev_story,foundry-audit skill (2 operations),New,Medium,architect,architect,,,DEV-STORY-010,2026-04-13,2026-04-13
+DEV-STORY-011,dev_story,foundry-aip-agents skill (13 operations + session management),New,High,architect,architect,,,DEV-STORY-011,2026-04-13,2026-04-13
+DEV-STORY-012,dev_story,foundry-language-models skill (2 operations),New,High,architect,architect,,,DEV-STORY-012,2026-04-13,2026-04-13
+DEV-STORY-013,dev_story,foundry-models skill (23 operations),New,Medium,architect,architect,,,DEV-STORY-013,2026-04-13,2026-04-13
+DEV-STORY-014,dev_story,foundry-orchestration skill (20 operations),New,High,architect,architect,,,DEV-STORY-014,2026-04-13,2026-04-13
+DEV-STORY-015,dev_story,foundry-sql-queries skill (5 operations),New,High,architect,architect,,,DEV-STORY-015,2026-04-13,2026-04-13
+DEV-STORY-016,dev_story,"foundry-streams skill (17 operations, batch strategy ADR-003)",New,High,architect,architect,,,DEV-STORY-016,2026-04-13,2026-04-13
+DEV-STORY-017,dev_story,foundry-connectivity skill (15 operations),New,Medium,architect,architect,,,DEV-STORY-017,2026-04-13,2026-04-13
+DEV-STORY-018,dev_story,foundry-media-sets skill (19 operations),New,Medium,architect,architect,,,DEV-STORY-018,2026-04-13,2026-04-13
+DEV-STORY-019,dev_story,foundry-checkpoints skill (3 operations),New,Medium,architect,architect,,,DEV-STORY-019,2026-04-13,2026-04-13
+DEV-STORY-020,dev_story,foundry-data-health skill (4 operations),New,Medium,architect,architect,,,DEV-STORY-020,2026-04-13,2026-04-13
+DEV-STORY-021,dev_story,foundry-third-party-applications skill (9 operations),New,Low,architect,architect,,,DEV-STORY-021,2026-04-13,2026-04-13
+DEV-STORY-022,dev_story,foundry-widgets skill (12 operations),New,Low,architect,architect,,,DEV-STORY-022,2026-04-13,2026-04-13
+DEV-STORY-023,dev_story,Author foundry/ knowledge skill content,New,High,architect,architect,,,DEV-STORY-023,2026-04-13,2026-04-13

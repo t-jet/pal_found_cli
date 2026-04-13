@@ -196,6 +196,33 @@ python .ept/skills/tracking-system/tracker/tracker_cli.py link remove <link-id> 
 
 ## Workflow Commands (read-only)
 
+### `type-info`
+
+```bash
+python .ept/skills/tracking-system/tracker/tracker_cli.py type-info <type> [--author <role>]
+```
+
+Prints the full YAML information for a single ticket type. Useful for inspecting the full type
+definition that the workflow is built from.
+
+| Top-level key | Description |
+|---|---|
+| `type` | Ticket type key (e.g. `feature`, `task`) |
+| `id_prefix` | Ticket ID prefix used when generating IDs (e.g. `FEATURE`, `TASK`) |
+| `description` | Human-readable summary of the ticket type's purpose |
+| `required_fields` | Fields that must be set on every ticket of this type |
+| `optional_fields` | Fields that may be set but are not mandatory |
+| `initial_status` | Status assigned automatically when the ticket is created |
+| `terminal_statuses` | Statuses from which no further transitions are allowed |
+| `statuses` | Full status catalogue — each entry carries `description`, `stage_goal`, and `responsible_roles` |
+| `allowed_transitions` | Explicit per-status transition map: `status → [allowed next statuses]` |
+| `automatic_transitions` | Optional list of trigger-based transitions executed without a manual update |
+| `ticket_instructions` | Per-status instructions for agents acting on tickets of this type |
+
+Valid type keys are configuration-driven — run `workflow types` to list all registered values.
+
+---
+
 ### `workflow types`
 
 ```bash

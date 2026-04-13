@@ -26,20 +26,32 @@ This project follows a structured documentation approach organized into logical 
 ## Customer Input Documents
 
 - [Initial Task](customer_input/initial_task.md) - Core task description and basic requirements
+- [Task Description / Requirements Completeness Assessment](customer_input/task_description.md) - Full requirements specification including all decisions resolved during Q&A
+- [Open Questions — Round 1](customer_input/open_questions.md) - 25 questions across 6 domains; all answered
+- [Open Questions — Round 2](customer_input/open_questions_2.md) - 12 follow-up questions on attribution, async, TOON stability; all answered
+- [Open Questions — Round 3](customer_input/open_questions_3.md) - 10 critical/high/medium questions; all answered by Product Owner (QUESTION-001 Closed)
 
 ## Deliverables
 
 ### Requirements Documentation
 
-(not yet introduced)
+- [SRS-001 — Software Requirements Specification](deliverables/business_analysis/SRS-001-foundry-cli.md) — Complete functional and non-functional requirements for the Foundry CLI Agentic Toolset. Status: Draft — Pending BA Sign-off. Traceable to FEATURE-001, BA-ANA-001, SA-ANA-001 and all 3 Q&A rounds.
 
 ### Architecture Documentation
 
-(not yet introduced)
+- [SAD-001 — Solution Architecture Document](deliverables/architecture/SAD-001-foundry-cli.md) — Full architectural design including C4 L1–L4 diagrams, sequence flows, technology stack, deployment topology, and implementation roadmap (8 EPICs, 23 DEV-STORYs). Status: Draft.
+- [Canonical Environment Variable Reference](deliverables/architecture/canonical-env-var-reference.md) — Complete reference table for all environment variables used across the 21 CLI skills (500+ entries).
+- [Metadata Allow-list](deliverables/architecture/metadata-allow-list.md) — Approved metadata field allow-list for the access control subsystem. Defines which dataset/object metadata fields may be exposed per access tier.
 
 #### Architecture Decision Records (ADRs)
 
-(not yet introduced)
+- [ADR-001 — Exit Code Taxonomy](deliverables/architecture/adr/ADR-001-exit-code-taxonomy.md) — Defines the structured exit-code scheme for all CLI operations.
+- [ADR-002 — Call Timeout Defaults](deliverables/architecture/adr/ADR-002-call-timeout-defaults.md) — Default and configurable timeout values for API calls.
+- [ADR-003 — Streams Batch Strategy](deliverables/architecture/adr/ADR-003-streams-batch-strategy.md) — Batch vs. streaming approach for the `foundry-streams` namespace skill (17 operations).
+- [ADR-004 — Format Auto-Selection Algorithm](deliverables/architecture/adr/ADR-004-format-auto-algorithm.md) — Rules for auto-selecting JSON vs. TOON output format based on response shape.
+- [ADR-005 — Log Format](deliverables/architecture/adr/ADR-005-log-format.md) — Structured logging format for stderr output across all skills.
+- [ADR-006 — .env File Search Path](deliverables/architecture/adr/ADR-006-env-file-search-path.md) — Search path order for `.env` file loading.
+- [ADR-007 — Operation-Level READONLY Independence](deliverables/architecture/adr/ADR-007-operation-level-readonly.md) — Decision on per-operation READONLY flag independence from namespace-level control.
 
 ### Development Documentation
 
@@ -60,5 +72,5 @@ This project follows a structured documentation approach organized into logical 
 
 ---
 
-**Last Updated:** February 22, 2026  
-**Major Change:** Migrated to .ept folder structure
+**Last Updated:** 2026-04-13  
+**Major Change:** Added all analysis-phase deliverables: SRS-001, SAD-001, 7 ADRs, canonical-env-var-reference, metadata-allow-list; added all 3 rounds of Q&A customer input documents.

@@ -13,7 +13,7 @@ name: ticket-helper
 argument-hint: Describe the tracking operation to perform (create/get/update/list/search tickets, comments, links, or query workflow)
 tools: execute, read, search, todo
 model: Claude Sonnet 4.6 (copilot)
-user-invocable: false
+user-invocable: true
 ---
 
 <role>
@@ -58,7 +58,13 @@ Full syntax and exit codes: `.ept/skills/tracking-system/references/REFERENCE.md
 2. **Validate** (write ops only):
    - Before any write operations: verify that all required parameters are present and valid.
    - Before `update --status`: run `workflow transitions <type> "<current-status>"` to confirm the transition is allowed.
-   - Before `create` with unknown type: run `workflow types` to confirm it exists.
+   - Before updating to the next status: verify that DoD for the moving to the target status from current status by checking applicable criterias:
+      - work documented in comments
+      - evidence provided
+      - approvals obtained
+      - reason to move to the next status documented
+      - other defined criteria in the workflow documentation
+   - Before `create`: run `workflow types` to confirm it exists.
 3. If validation fails, return an error message with the reason, description, and suggested corrective action. Then stop without executing any CLI command.
 4. **Construct** the exact CLI command based on the requested operation and parameters.
 5. **Execute** from workspace root. Capture stdout and exit code.
@@ -68,13 +74,16 @@ Full syntax and exit codes: `.ept/skills/tracking-system/references/REFERENCE.md
 - **Operation**: <what was executed>
 - **Exit code with description**: <0|2|3|4|5> - <success|validation error|config error|file error|unexpected error>
 - **Output**:
-<full CLI output>
+<full CLI output — copy verbatim, do NOT summarize, reformat, or omit any fields>
 ```
 Non-zero exit codes: `2` validation error · `3` config error · `4` file error · `5` unexpected error
+
+**Output fidelity rule**: Always paste the raw CLI output in full. Never summarize, paraphrase, or reformat it. Every field the CLI prints — including `status_description`, `status_goal`, `status_responsible_roles`, `allowed_transitions`, `instructions`, `definitions_of_done`, ticket body, and any other fields — must appear verbatim in the Output block. The same is true for all information-retrieval activities like listing tickets, searching, or getting details. This ensures the calling agent has the complete context to make informed decisions and prevents information loss that could lead to incorrect assumptions about the workflow state or next steps.
 </protocol>
 
 <multi-step>
 Execute compound operations sequentially. On intermediate failure, stop and report — do not continue with dependent steps.
+Return a separate **Result** block (per the protocol format above, with full verbatim output) for every step executed. Do not collapse or merge results from multiple steps into a single block.
 </multi-step>
 
 <env>

@@ -32,7 +32,7 @@ from typing import Any
 import yaml
 
 from .comments import create_comment, get_comment, list_comments, update_comment
-from .config import get_runtime_config
+from .config import get_paths, get_runtime_config
 from .constants import (
     EXIT_CONFIG_ERROR,
     EXIT_FILE_ERROR,
@@ -307,6 +307,14 @@ def _build_help_data() -> dict[str, Any]:
                     },
                 },
             },
+            "type-info": {
+                "help": "Print the full raw YAML configuration for a ticket type",
+                "author": "optional",
+                "arguments": {
+                    "ticket_type": _arg("Ticket type key", values=ticket_types),
+                },
+                "options": {"--author": _author_opt},
+            },
             "workflow": {
                 "help": "Inspect workflow definitions (all subcommands are read-only)",
                 "author": "optional",
@@ -410,6 +418,10 @@ Examples:
 
   # Search tickets
   %(prog)s search "feature X" --in-title --in-content
+
+  # Show full configuration for a ticket type
+  %(prog)s type-info feature
+  %(prog)s type-info task
         """,
     )
 
@@ -525,6 +537,13 @@ Examples:
     search_p.add_argument("query")
     search_p.add_argument("--in-title", action="store_true", default=True)
     search_p.add_argument("--in-content", action="store_true")
+
+    # ── type-info (read-only) ────────────────────────────────────────────
+    type_info_p = subparsers.add_parser(
+        "type-info", help="Print full YAML configuration for a ticket type",
+    )
+    _add_author(type_info_p, required=False)
+    type_info_p.add_argument("ticket_type", help="Ticket type key (e.g. feature, task)")
 
     # ── workflow (read-only) ─────────────────────────────────────────────
     wf_p = subparsers.add_parser("workflow", help="Inspect workflow definitions")
@@ -747,6 +766,34 @@ Examples:
             print("-" * 100)
             for t in tickets:
                 print(format_ticket(t))
+
+        elif args.command == "type-info":
+            validate_ticket_type(args.ticket_type)
+            paths = get_paths()
+            # Find the $ref path for this ticket type in the raw workflow file
+            with open(paths.workflow_file, "r", encoding="utf-8") as _wf:
+                raw_workflow = yaml.safe_load(_wf) or {}
+            ref_file: Path | None = None
+            for _entry in raw_workflow.get("ticket_types", []):
+                if not isinstance(_entry, dict):
+                    continue
+                _ref = _entry.get("$ref")
+                if _ref:
+                    _candidate = paths.config_dir / _ref
+                    try:
+                        with open(_candidate, "r", encoding="utf-8") as _tf:
+                            _loaded = yaml.safe_load(_tf)
+                        if isinstance(_loaded, dict) and _loaded.get("type") == args.ticket_type:
+                            ref_file = _candidate
+                            break
+                    except Exception:
+                        continue
+            if ref_file is None:
+                raise ConfigurationError(
+                    f"No configuration file found for ticket type '{args.ticket_type}'. "
+                    "Fix: ensure the type has a $ref entry in ticket_types in .workflow.yaml"
+                )
+            print(ref_file.read_text(encoding="utf-8"), end="")
 
         elif args.command == "workflow":
             _handle_workflow(args, cfg, wf_p)

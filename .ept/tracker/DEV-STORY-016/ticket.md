@@ -1,0 +1,31 @@
+---
+id: DEV-STORY-016
+type: dev_story
+title: foundry-streams skill (17 operations, batch strategy ADR-003)
+status: New
+feature_request: FEATURE-001
+epic: EPIC-006
+created: 2026-04-13
+updated: 2026-04-13
+priority: High
+assignee: architect
+reporter: architect
+---
+
+# DEV-STORY-016: foundry-streams skill (17 operations, batch strategy ADR-003)
+
+## Description
+
+Generate and validate all 17 streams namespace operations. Implements batch read strategy per ADR-003 (no server-sent event streaming in MVP). Operations cover stream creation, view management, record batch read/write.
+
+## Acceptance Criteria
+
+- [ ] TODO: Define acceptance criteria
+
+## Related Documentation
+
+TODO: Add links to related documentation
+
+## Notes
+
+TODO: Add any additional notes

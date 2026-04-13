@@ -5,12 +5,12 @@ counters:
   bug_subtask: 0
   codereview: 0
   design: 0
-  dev_story: 0
+  dev_story: 23
   development: 0
   devops: 0
-  epic: 0
+  epic: 8
   feature: 1
-  link: 2
+  link: 56
   question: 1
   resource_req: 0
   sa_subtask_analysis: 1

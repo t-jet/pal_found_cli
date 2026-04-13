@@ -18,13 +18,15 @@ This skill guides AI agents on how to organize development work, move features t
 ## Development Phases and Stages
 
 The project lifecycle has four phases. Each phase produces specific ticket states and artifacts.
+Below definition is the only high-level reference for the workflow. Agents must follow exact requirements provided for each status provided for each ticket type, which is accessible with help of the `ticket-helper` subagent.
 
 ### Phase 1 — Discovery and project Backlog Filling
 
 | Stage | Action | Ticket states |
 |---|---|---|
 | 0 | Register Feature request | `FEATURE` → New |
-| 1 | Prioritize into backlog | `FEATURE` → Open |
+| 1 | Match DoD for the new feature's New status | `FEATURE` → Open |
+
 
 ### Phase 2 — Requirements & Scope Refinement
 

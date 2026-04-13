@@ -2,14 +2,22 @@
 
 from __future__ import annotations
 
+import csv
 from pathlib import Path
+from typing import Generator
 from unittest.mock import patch
 
 import pytest
 
 from tests.conftest import make_task, make_workitem, run_main
-from tracker.config import get_paths, invalidate_config
-from tracker.constants import EXIT_CONFIG_ERROR, EXIT_OK, EXIT_VALIDATION_ERROR
+from tracker.config import TrackerPaths, get_paths, invalidate_config, reset, set_paths
+from tracker.constants import (
+    EXIT_CONFIG_ERROR,
+    EXIT_OK,
+    EXIT_VALIDATION_ERROR,
+    INDEX_FIELDNAMES,
+    LINK_INDEX_FIELDNAMES,
+)
 
 
 # ── Create ───────────────────────────────────────────────────────────────────
@@ -327,7 +335,203 @@ class TestHelpToon:
         assert "commands:" in output
 
 
+# ── Type-info ─────────────────────────────────────────────────────────────────
+
+# Workflow YAML that uses $ref-style ticket-type entries.
+_REF_WORKFLOW_YAML = """\
+fields:
+  - name: id
+    type: string
+  - name: type
+    type: enum
+    values: [task, workitem]
+  - name: title
+    type: string
+  - name: status
+    type: string
+  - name: priority
+    type: enum
+    values: [Low, Medium, High, Critical]
+  - name: assignee
+    type: string
+  - name: reporter
+    type: string
+  - name: parent
+    type: string
+  - name: addressed_to
+    type: string
+  - name: created
+    type: date
+  - name: updated
+    type: date
+
+ticket_types:
+  - $ref: tickets/task.yaml
+  - $ref: tickets/workitem.yaml
+
+link_types:
+  - type: Blocks
+    source_role: Blocks
+    target_role: Is Blocked By
+
+type_registry:
+  task:     { id_prefix: TASK, content_file: ticket.md, initial_status: New }
+  workitem: { id_prefix: WORK, content_file: ticket.md, initial_status: New }
+"""
+
+_TASK_TYPE_YAML = """\
+type: task
+id_prefix: TASK
+description: A basic task ticket used in tests.
+required_fields: [id, type, title, status, created, updated]
+optional_fields: [priority, assignee]
+initial_status: New
+terminal_statuses: [Closed]
+statuses:
+  New:
+    description: "Just created."
+    stage_goal: "Capture the task."
+    responsible_roles: [Developer]
+  Closed:
+    description: "Done."
+    stage_goal: "Archive."
+    responsible_roles: []
+allowed_transitions:
+  New: [Closed]
+  Closed: []
+"""
+
+_WORKITEM_TYPE_YAML = """\
+type: workitem
+id_prefix: WORK
+description: A child work item.
+required_fields: [id, type, title, status, created, updated]
+optional_fields: [parent]
+initial_status: New
+terminal_statuses: [Closed]
+statuses:
+  New:
+    description: "Created."
+    stage_goal: "Start work."
+    responsible_roles: [Developer]
+  Closed:
+    description: "Done."
+    stage_goal: "Archive."
+    responsible_roles: []
+allowed_transitions:
+  New: [Closed]
+  Closed: []
+"""
+
+
+class TestTypeInfo:
+    """Tests for the ``type-info`` command."""
+
+    @pytest.fixture()
+    def ref_tracker_env(self, tmp_path: Path) -> Generator[Path, None, None]:
+        """Tracker env where ticket types are defined via ``$ref`` YAML files."""
+        tracker = tmp_path / ".ept" / "tracker"
+        tracker.mkdir(parents=True)
+        config = tracker / ".config"
+        config.mkdir()
+        tickets_dir = config / "tickets"
+        tickets_dir.mkdir()
+
+        (config / ".workflow.yaml").write_text(_REF_WORKFLOW_YAML, encoding="utf-8")
+        (config / ".id-counters.yaml").write_text(
+            "counters:\n  task: 0\n  workitem: 0\n  link: 0\n"
+            "padding:\n  ticket: 3\n  link: 5\n",
+            encoding="utf-8",
+        )
+        (tickets_dir / "task.yaml").write_text(_TASK_TYPE_YAML, encoding="utf-8")
+        (tickets_dir / "workitem.yaml").write_text(_WORKITEM_TYPE_YAML, encoding="utf-8")
+
+        with (config / ".index.csv").open("w", encoding="utf-8", newline="") as f:
+            csv.DictWriter(f, fieldnames=INDEX_FIELDNAMES).writeheader()
+        with (config / ".link-index.csv").open("w", encoding="utf-8", newline="") as f:
+            csv.DictWriter(f, fieldnames=LINK_INDEX_FIELDNAMES).writeheader()
+
+        set_paths(TrackerPaths(tracker_root=tracker))
+        yield tmp_path
+        reset()
+
+    # ── Happy-path ────────────────────────────────────────────────────────────
+
+    def test_returns_raw_yaml_content(self, ref_tracker_env: Path) -> None:
+        """type-info should print the raw content of the ticket-type YAML file."""
+        output, rc = run_main(["type-info", "task"])
+        assert rc == EXIT_OK
+        assert "type: task" in output
+
+    def test_content_includes_expected_fields(self, ref_tracker_env: Path) -> None:
+        """Output should contain key fields written to the type YAML file."""
+        output, rc = run_main(["type-info", "task"])
+        assert rc == EXIT_OK
+        assert "id_prefix: TASK" in output
+        assert "terminal_statuses" in output
+        assert "allowed_transitions" in output
+        assert "A basic task ticket used in tests." in output
+
+    def test_second_type_returns_its_own_content(self, ref_tracker_env: Path) -> None:
+        """Requesting a different type returns that type's file, not the first."""
+        output, rc = run_main(["type-info", "workitem"])
+        assert rc == EXIT_OK
+        assert "type: workitem" in output
+        assert "id_prefix: WORK" in output
+        assert "A child work item." in output
+
+    def test_types_do_not_bleed_into_each_other(self, ref_tracker_env: Path) -> None:
+        """Output for 'task' must not contain workitem-specific content."""
+        output_task, _ = run_main(["type-info", "task"])
+        output_work, _ = run_main(["type-info", "workitem"])
+        assert "A child work item." not in output_task
+        assert "A basic task ticket used in tests." not in output_work
+
+    def test_output_contains_statuses_block(self, ref_tracker_env: Path) -> None:
+        """The raw YAML output should include the statuses mapping."""
+        output, rc = run_main(["type-info", "task"])
+        assert rc == EXIT_OK
+        assert "statuses:" in output
+        assert "New:" in output
+        assert "Closed:" in output
+
+    # ── Error-path ────────────────────────────────────────────────────────────
+
+    def test_invalid_type_exits_validation_error(self, ref_tracker_env: Path) -> None:
+        """An unrecognised ticket type should exit with EXIT_VALIDATION_ERROR."""
+        output, rc = run_main(["type-info", "bogus"])
+        assert rc == EXIT_VALIDATION_ERROR
+        assert "Invalid ticket type" in output
+
+    def test_inline_type_definition_exits_config_error(self, tracker_env: Path) -> None:
+        """When ticket_types use inline dicts (no $ref), ConfigurationError is raised."""
+        output, rc = run_main(["type-info", "task"])
+        assert rc == EXIT_CONFIG_ERROR
+        assert "No configuration file found" in output
+
+    # ── Help visibility ───────────────────────────────────────────────────────
+
+    def test_command_appears_in_help(self, ref_tracker_env: Path) -> None:
+        """``type-info`` must be listed in the standard ``--help`` output."""
+        output, rc = run_main(["--help"])
+        assert rc == EXIT_OK
+        assert "type-info" in output
+
+    def test_command_appears_in_help_toon(self, ref_tracker_env: Path) -> None:
+        """``type-info`` must appear in the TOON-format help output."""
+        output, rc = run_main(["--help-toon"])
+        assert rc == EXIT_OK
+        assert "type-info" in output
+
+    def test_subcommand_help_describes_argument(self, ref_tracker_env: Path) -> None:
+        """``type-info --help`` should describe the ticket_type positional arg."""
+        output, rc = run_main(["type-info", "--help"])
+        assert rc == EXIT_OK
+        assert "ticket_type" in output
+
+
 # ── Error handling / BUG regressions ─────────────────────────────────────────
+
 
 
 class TestErrorHandling:
