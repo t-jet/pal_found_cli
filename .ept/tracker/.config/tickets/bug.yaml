@@ -1,0 +1,143 @@
+type: bug
+id_prefix: BUG
+description: >
+  Production or UAT defect requiring root cause investigation, fix, and QA
+  verification before closing.
+required_fields: [id, type, title, status, affected_version, created, updated]
+optional_fields: [priority, resolution, assignee, reporter, component, labels, due_date, fix_version]
+initial_status: New
+terminal_statuses: [Closed, Canceled, Rejected, Duplicated]
+statuses:
+  New:
+    description: "Registered; triage pending."
+    stage_goal: "Triage the bug, ensure readiness, and move to Open."
+    responsible_roles:
+      - Creator (Assignee)
+  Open:
+    description: "Defect confirmed; prerequisites validated."
+    stage_goal: "Capture defect details and prepare to investigate."
+    responsible_roles:
+      - QA Engineer
+      - Developer (Assignee)
+  In Progress:
+    description: "Root cause investigation and fix implementation."
+    stage_goal: "Investigate, implement fix, and document root cause."
+    responsible_roles:
+      - Developer (Assignee)
+  Resolved:
+    description: "QA verification and blocker management."
+    stage_goal: "QA verification, manage blockers, and prepare for closure."
+    responsible_roles:
+      - QA Engineer
+      - Developer (Assignee)
+  Closed:
+    description: "Verified; archived."
+    stage_goal: "Archive the verified bug."
+    responsible_roles:
+      - QA Engineer
+  Canceled:
+    description: "Bug canceled; no longer relevant or reproducible."
+    stage_goal: "Record cancellation rationale and archive."
+    responsible_roles:
+      - QA Engineer
+      - Reporter
+  Rejected:
+    description: "Bug rejected as not a defect or out of scope."
+    stage_goal: "Record rejection reason and archive."
+    responsible_roles:
+      - QA Engineer
+      - Developer (Assignee)
+  Duplicated:
+    description: "Bug is a duplicate of another ticket."
+    stage_goal: "Link to original ticket and archive."
+    responsible_roles:
+      - QA Engineer
+      - Reporter
+allowed_transitions:
+  New:         [Open, Canceled, Rejected, Duplicated]
+  Open:        [In Progress, Canceled, Rejected, Duplicated]
+  In Progress: [Resolved, Canceled, Rejected, Duplicated]
+  Resolved:    [Closed, Canceled, Rejected, Duplicated]
+  Closed:      []
+  Canceled:    []
+  Rejected:    []
+  Duplicated:  []
+automatic_transitions: []
+
+ticket_instructions:
+  New:
+    instructions:
+      - Set assignee to ticket creator.
+      - Review related documentation and similar defects.
+      - Apply critical thinking and ask questions.
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - Identify blockers and add a blocking link via the CLI.
+      - Move to Open.
+    transition_dods:
+      - target_statuses: [Open]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - Assignee set to creator
+          - Related documentation and similar defects reviewed
+          - Blockers identified and recorded (links or question)
+          - "Required fields validated (status, assignee, priority, dates)"
+
+  Open:
+    instructions:
+      - Apply critical thinking and ask questions.
+      - "IF ticket missing THEN create BUG-XXX at tracker root."
+      - Set required fields for the new Bug via the CLI.
+      - "Add required links (goes-to/comes-from, relates-to, blocks/is-blocked-by as applicable) and ensure links are created via the CLI."
+      - IF required fields missing THEN complete them.
+      - IF link needs to be created THEN create it.
+      - IF bug leads to new capability THEN add goes to / comes from links to Feature.
+      - IF documentation exists THEN link as a comment on this ticket.
+    transition_dods:
+      - target_statuses: [In Progress]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - Repro steps documented
+          - Environment identified
+          - Expected vs actual behavior described
+          - "Application logs attached (when available)"
+
+  "In Progress":
+    instructions:
+      - Apply critical thinking and ask questions.
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - IF blocked by dependency THEN add a blocking link via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket.
+      - IF lower-priority blocker blocks higher-priority Bug THEN raise blocker priority.
+      - ELSE investigate root cause and document as a comment on this ticket.
+      - Apply fix and document implementation.
+    transition_dods:
+      - target_statuses: [Resolved]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - Root cause identified and documented
+          - Fix implemented and documented
+          - Fix tested and verified
+
+  Resolved:
+    instructions:
+      - "Review answers from linked QUESTION tickets: Query Question links on this ticket via the CLI. For each linked QUESTION ticket found: retrieve it via the CLI, read its Answer section and comments, and incorporate findings/decisions into current work."
+      - IF blocker link exists AND blocker resolved THEN remove the blocking link via the CLI.
+      - QA verifies fix and records verification evidence.
+      - IF not blocked AND doesn't block others AND fix verified THEN ready to move to Closed.
+      - "Set resolution: Done/Rejected/Canceled/Duplicated."
+    transition_dods:
+      - target_statuses: [Closed]
+        dod_criteria:
+          - Ticket not blocked (no active is-blocked-by links)
+          - Ticket doesn't block others (all dependent tickets unblocked or resolved)
+          - Fix verified by QA
+
+  Closed:
+    instructions:
+      - Archive only; no edits.
+    transition_dods: []

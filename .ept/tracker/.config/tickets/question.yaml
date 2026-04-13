@@ -1,0 +1,226 @@
+type: question
+id_prefix: QUESTION
+description: >
+  Question sub-task to clarify ambiguities. Automatically blocks parent ticket.
+  Can be child of any ticket or sub-task. Resolved Q&A must be copied to project_qa.md.
+required_fields: [id, type, title, status, parent, addressed_to, created, updated]
+optional_fields: [priority, assignee, reporter, due_date, estimated_hours, time_spent_hours]
+initial_status: New
+terminal_statuses: [Closed, Canceled, Rejected, Duplicated]
+statuses:
+  New:
+    description: "Created; triage and readiness validation."
+    stage_goal: "Triage the question and ensure readiness to research."
+    responsible_roles:
+      - Creator (Assignee)
+  Open:
+    description: "Question formulated; awaiting research and answer."
+    stage_goal: "Formulate and document the question with required research."
+    responsible_roles:
+      - Requester
+      - Addressee
+  In Progress:
+    description: "Being researched or answered."
+    stage_goal: "Research and draft a complete answer, or request clarification if question is unclear."
+    responsible_roles:
+      - Addressee
+  Clarification:
+    description: "Requester providing additional context."
+    stage_goal: "Requester provides additional context or clarification requested by addressee."
+    responsible_roles:
+      - Requester (original question creator)
+  Clarified:
+    description: "Addressee reviewing clarification."
+    stage_goal: "Addressee re-reviews the question with new context and provides answer or requests more clarification."
+    responsible_roles:
+      - Addressee
+  Resolved:
+    description: "Answer provided and accepted."
+    stage_goal: "Finalize answer and return the parent ticket to its prior status."
+    responsible_roles:
+      - Addressee
+      - Requester
+  Closed:
+    description: "Q&A archived to project_qa.md."
+    stage_goal: "Archive the completed question."
+    responsible_roles:
+      - Requester
+  Canceled:
+    description: "No longer relevant."
+    stage_goal: "Record cancellation rationale and return parent to prior status if needed."
+    responsible_roles:
+      - Requester
+      - Addressee
+  Blocked:
+    description: "Blocked by another question or dependency."
+    stage_goal: "Verify blocking condition remains, maintain blocker links and priorities, and return to prior status when unblocked."
+    responsible_roles:
+      - Current assignee
+  Rejected:
+    description: "Question rejected as invalid or already answered."
+    stage_goal: "Record rejection reason and return parent to prior status if needed."
+    responsible_roles:
+      - Addressee
+      - Requester
+  Duplicated:
+    description: "Question is a duplicate of another ticket."
+    stage_goal: "Link to original ticket, return parent to prior status, and archive."
+    responsible_roles:
+      - Requester
+      - Addressee
+allowed_transitions:
+  New:           [Open, Blocked, Canceled, Rejected, Duplicated]
+  Open:          [In Progress, Blocked, Canceled, Rejected, Duplicated]
+  In Progress:   [Clarification, Resolved, Canceled, Blocked, Rejected, Duplicated]
+  Clarification: [Clarified, Blocked, Canceled, Rejected, Duplicated]
+  Clarified:     [Clarification, Resolved, Blocked, Canceled, Rejected, Duplicated]
+  Resolved:      [Closed, Canceled, Rejected, Duplicated]
+  Blocked:       [Open, In Progress, Clarification, Clarified, Canceled, Rejected, Duplicated]
+  Closed:        []
+  Canceled:      []
+  Rejected:      []
+  Duplicated:    []
+automatic_transitions:
+  - trigger: "Question ticket created under a parent ticket"
+    action:  "Parent ticket status -> Blocked"
+  - trigger: "Question ticket transitions to Resolved or Canceled"
+    action:  "Parent ticket: Blocked -> previous status (restored)"
+  - trigger: "Question ticket transitions to Closed"
+    action:  "Copy Q&A to project_qa.md"
+
+ticket_instructions:
+  New:
+    instructions:
+      - Set assignee to ticket creator.
+      - Review related documentation and parent context.
+      - "Apply critical thinking; if ambiguity exists, refine the question."
+      - Identify blockers and add a blocking link via the CLI.
+      - Move to Open.
+    transition_dods:
+      - target_statuses: [Open, Blocked]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - Assignee set to creator
+          - Parent ticket context reviewed
+          - Blockers identified and recorded (links or question)
+          - "Required fields validated (status, assignee, priority, dates, addressed_to)"
+
+  Open:
+    instructions:
+      - "IF ticket missing THEN create QUESTION-XXX under parent ticket."
+      - Set required fields for the new Question via the CLI.
+      - Add required links to parent (is-blocked-by/blocks in the link index (via the CLI)).
+      - Apply critical thinking before asking.
+      - Document ALL research done in "Research Done" section.
+      - "Set required fields (title, description, addressed_to, assignee) via the CLI."
+      - "Create blocking link in the link index (via the CLI) (source_ticket=this question, target_ticket=parent, link_type=Blocks)."
+      - Parent ticket automatically Blocked until question resolved.
+      - IF addressee is "Project Owner" THEN notify human required.
+      - Move to In Progress when research documented.
+    transition_dods:
+      - target_statuses: ["In Progress", Blocked]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - Question clearly formulated
+          - Reviewed open QUESTION-XXX folders for duplicates
+          - Checked relevant documentation in docs/ folder
+          - Reviewed relevant code/implementation files
+          - Reviewed parent ticket comments and links
+          - "Addressee identified (specific agent/role or \"Project Owner\")"
+          - Research documented in "Research Done" section
+
+  "In Progress":
+    instructions:
+      - Addressee reviews question and research done.
+      - Apply critical thinking and ask questions.
+      - "IF question is clear AND answer can be formulated: Formulate complete answer with additional context or references; Add answer as a comment on this ticket or \"Answer\" section; Move to Resolved."
+      - "IF question is unclear OR needs more context from requester: Document what clarification is needed as a comment on this ticket; Reassign to requester (original creator); Move to Clarification."
+      - "IF you need more context from other team members listed in the `.ept/docs/resources/available_resources.md` (not requester) THEN create QUESTION-XXX, add a blocking link via the CLI, add a Question link from the question to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - "IF question no longer relevant: Document rationale as a comment on this ticket; Move to Canceled."
+    transition_dods:
+      - target_statuses: [Clarification, Resolved, Canceled, Blocked]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - "IF answer can be provided: Answer formulated with sufficient context"
+          - "IF answer can be provided: Answer documented as a comment on this ticket or \"Answer\" section"
+          - "IF answer can be provided: Supporting references provided (when applicable)"
+          - "IF clarification needed: Clarification request documented as a comment on this ticket"
+          - Time reported in subtask frontmatter
+
+  Clarification:
+    instructions:
+      - Assignee is the original question creator (requester).
+      - Review addressee's clarification request as a comment on this ticket.
+      - Provide additional context, examples, or information requested.
+      - Add response as a comment on this ticket with timestamp.
+      - Reassign to addressee.
+      - Move to Clarified.
+    transition_dods:
+      - target_statuses: [Clarified, Blocked]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - Clarification request reviewed
+          - Additional context/information provided as a comment on this ticket
+          - All addressee questions answered
+          - Time reported in subtask frontmatter
+
+  Clarified:
+    instructions:
+      - Addressee reviews new context provided by requester.
+      - "IF sufficient information now available: Formulate complete answer with references; Add answer as a comment on this ticket or \"Answer\" section; Move to Resolved."
+      - "IF still need more clarification: Document additional clarification needed as a comment on this ticket; Reassign to requester; Move back to Clarification."
+    transition_dods:
+      - target_statuses: [Clarification, Resolved, Blocked]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - Additional context reviewed
+          - "IF answer can be provided: Answer formulated with sufficient context"
+          - "IF answer can be provided: Answer documented as a comment on this ticket or \"Answer\" section"
+          - "IF more clarification needed: New clarification request documented"
+          - Time reported in subtask frontmatter
+
+  Resolved:
+    instructions:
+      - "Review answers from linked nested QUESTION tickets: Query Question links on this ticket via the CLI. For each linked QUESTION ticket found: retrieve it via the CLI, read its Answer section and comments, and incorporate findings/decisions into current work."
+      - Remove the blocking link from this question to its parent via the CLI.
+      - Parent ticket returns to its prior status.
+      - Set resolution (Done/Canceled).
+      - Move to Closed.
+    transition_dods:
+      - target_statuses: [Closed]
+        dod_criteria:
+          - Answer documented as a comment on this ticket or Answer section
+          - "Parent ticket returned to prior status (blocking link removed from .link-index.csv)"
+
+  Closed:
+    instructions:
+      - Terminal status. Archive only; no edits.
+    transition_dods: []
+
+  Canceled:
+    instructions:
+      - Question no longer relevant or duplicate found.
+      - Record rationale as a comment on this ticket.
+      - Remove the blocking link from this question to its parent via the CLI.
+      - Return parent ticket to its prior status.
+    transition_dods: []
+
+  Blocked:
+    instructions:
+      - Confirm blocker and prior status are documented as a comment on this ticket (include blocker ID and prior status).
+      - Verify blocking link exists on this ticket via the CLI.
+      - Do not create new blocker links in this status; they must be created when the block is identified.
+      - "IF blocking link missing THEN create QUESTION-XXX addressed_to appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, and remain Blocked."
+      - "Query blocking links on this ticket via the CLI. For each blocker found: IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated` THEN remove the blocking link via the CLI and return to prior status; IF blocker still active AND blocker priority lower than this ticket priority THEN raise blocker priority to match."
+      - IF all blocking links removed THEN return to prior status documented in comments.
+    transition_dods: []

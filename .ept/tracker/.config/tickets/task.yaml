@@ -1,0 +1,167 @@
+type: task
+id_prefix: TASK
+description: >
+  General-purpose catch-all ticket for ad-hoc work requested by users or
+  agents. Not tied to a Feature/Epic. Use Developer Story for implementation work.
+required_fields: [id, type, title, status, priority, assignee, reporter, created, updated]
+optional_fields: [parent, component, labels, due_date]
+initial_status: New
+terminal_statuses: [Closed, Canceled, Rejected, Duplicated]
+statuses:
+  New:
+    description: "Ticket registered; metadata and scope being captured."
+    stage_goal: "Register the task and capture required metadata and links."
+    responsible_roles:
+      - Requester
+      - Assignee
+  Open:
+    description: "Work planned; execution plan created, scope defined."
+    stage_goal: "Plan the work and prepare to start execution."
+    responsible_roles:
+      - Assignee
+  In Progress:
+    description: "Active execution; work items being completed."
+    stage_goal: "Execute task work and report progress."
+    responsible_roles:
+      - Assignee
+  Blocked:
+    description: "Cannot proceed; blocker recorded in comments."
+    stage_goal: "Verify blocking condition remains, maintain blocker links and priorities, and return to prior status when unblocked."
+    responsible_roles:
+      - Current assignee
+  Resolved:
+    description: "Work complete; acceptance criteria met."
+    stage_goal: "Manage blockers and prepare for closure."
+    responsible_roles:
+      - Assignee
+  Closed:
+    description: "Verified and archived."
+    stage_goal: "Archive the completed task."
+    responsible_roles:
+      - Assignee
+  Canceled:
+    description: "Task canceled before completion."
+    stage_goal: "Record cancellation rationale and archive."
+    responsible_roles:
+      - Assignee
+      - Reporter
+  Rejected:
+    description: "Task rejected as invalid or out of scope."
+    stage_goal: "Record rejection reason and archive."
+    responsible_roles:
+      - Assignee
+      - Reporter
+  Duplicated:
+    description: "Task is a duplicate of another ticket."
+    stage_goal: "Link to original ticket and archive."
+    responsible_roles:
+      - Assignee
+      - Reporter
+allowed_transitions:
+  New:         [Open, Canceled, Rejected, Duplicated]
+  Open:        [In Progress, Blocked, Canceled, Rejected, Duplicated]
+  In Progress: [Resolved, Blocked, Canceled, Rejected, Duplicated]
+  Blocked:     [Open, In Progress, Canceled, Rejected, Duplicated]
+  Resolved:    [Closed, Canceled, Rejected, Duplicated]
+  Closed:      []
+  Canceled:    []
+  Rejected:    []
+  Duplicated:  []
+automatic_transitions: []
+
+ticket_instructions:
+  New:
+    instructions:
+      - Set assignee to ticket creator.
+      - Review related documentation and similar tasks.
+      - Apply critical thinking and ask questions.
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - Analyze and split into child tickets when possible.
+      - Identify blockers and add a blocking link via the CLI.
+      - "IF ticket missing THEN create the task via the CLI (omit parent for root-level tasks)."
+      - "Add required links via the CLI (type options: Blocks, RelatesTo, Duplicates, Question, Contains, etc.)."
+      - IF required fields missing THEN complete them.
+      - IF link needs to be created THEN create it.
+      - IF related tickets exist THEN add links via the CLI.
+      - IF documentation exists THEN link as a comment on this ticket.
+      - Move to Open when DoD is met.
+    transition_dods:
+      - target_statuses: [Open]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - Assignee set to creator
+          - Related documentation and similar tasks reviewed
+          - Blockers identified and recorded (links or question)
+          - "Required fields validated (status, assignee, priority, dates)"
+          - Task scope clearly defined
+
+  Open:
+    instructions:
+      - Apply critical thinking and ask questions.
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - ELSE create an execution plan as a comment on this ticket.
+      - "IF work too large (> 4-8 hours) THEN decompose into WORK-XXX sub-tasks."
+      - For each new Work Item, create and link them via the CLI.
+      - IF work needs Developer Story (implementation) THEN create Developer Story instead.
+      - Assign owner (required).
+    transition_dods:
+      - target_statuses: [In Progress]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - Clear request and scope defined
+          - Acceptance criteria prepared
+          - Execution plan created as a comment on this ticket
+          - "Work items created (if work > 2-4 hours)"
+          - Related documentation linked as a comment on this ticket (when exists)
+          - List of deliverables defined in the Acceptance Criteria
+
+  "In Progress":
+    instructions:
+      - Execute work and update progress as a comment on this ticket.
+      - IF work items exist THEN monitor their progress.
+      - IF ALL work items Closed THEN prepare for resolution.
+    transition_dods:
+      - target_statuses: [Resolved]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - Acceptance criteria met and documented
+          - All required deliverables completed
+          - "Related documents in the `.ept/docs/document_index.md` analyzed and modified to incorporate ticket results"
+          - "`.ept/docs/document_index.md` updated for changes in deliverables"
+          - All document changes documented as a comment on this ticket
+          - All work items (if any) Closed
+          - Work results documented as a comment on this ticket
+
+  Resolved:
+    instructions:
+      - "Review answers from linked QUESTION tickets: Query Question links on this ticket via the CLI. For each linked QUESTION ticket found: retrieve it via the CLI, read its Answer section and comments, and incorporate findings/decisions into current work."
+      - IF blocker link exists AND blocker resolved THEN remove the blocking link via the CLI.
+      - Verify acceptance criteria and work items completion.
+      - IF not blocked AND doesn't block others THEN ready to move to Closed.
+      - Set resolution.
+    transition_dods:
+      - target_statuses: [Closed]
+        dod_criteria:
+          - Ticket not blocked (no active is-blocked-by links)
+          - Ticket doesn't block others (all dependent tickets unblocked or resolved)
+
+  Closed:
+    instructions:
+      - Archive only; no edits.
+    transition_dods: []
+
+  Blocked:
+    instructions:
+      - Confirm blocker and prior status are documented as a comment on this ticket (include blocker ID and prior status).
+      - Verify blocking link exists on this ticket via the CLI.
+      - Do not create new blocker links in this status; they must be created when the block is identified.
+      - "IF blocking link missing THEN create QUESTION-XXX addressed_to appropriate role, add a Blocks link from the question to this ticket via the CLI, and remain Blocked."
+      - "Query blocking links on this ticket via the CLI. For each blocker found: IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated` THEN remove the blocking link via the CLI and return to prior status; IF blocker still active AND blocker priority lower than this ticket priority THEN raise blocker priority to match."
+      - IF all blocking links removed THEN return to prior status documented in comments.
+    transition_dods: []

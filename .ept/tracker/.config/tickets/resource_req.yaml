@@ -1,0 +1,199 @@
+type: resource_req
+id_prefix: RESOURCE-REQ
+description: >
+  Request to create or provision a new agent/resource role for the project.
+required_fields: [id, type, title, status, reporter, created, updated]
+optional_fields: [priority, resolution, assignee, due_date, component]
+pre_approval_required: [role_definition, responsibilities, required_skills, deliverables, context]
+initial_status: New
+terminal_statuses: [Closed, Rejected, Canceled, Duplicated]
+statuses:
+  New:
+    description: "Request submitted."
+    stage_goal: "Register the resource need and complete request details."
+    responsible_roles:
+      - Requester
+      - Architect
+  Open:
+    description: "Triage and readiness validation."
+    stage_goal: "Validate readiness and prepare request for review."
+    responsible_roles:
+      - Architect
+  Under Review:
+    description: "HR/Architect reviewing the request."
+    stage_goal: "Validate request completeness and feasibility."
+    responsible_roles:
+      - Architect
+      - HR
+  Approved:
+    description: "Request approved; resource creation starting."
+    stage_goal: "Confirm approval and delivery approach."
+    responsible_roles:
+      - Architect
+      - HR
+  In Progress:
+    description: "Resource being created and configured."
+    stage_goal: "Create/configure the requested resource."
+    responsible_roles:
+      - HR
+  Blocked:
+    description: "Cannot proceed; blocker documented."
+    stage_goal: "Verify blocking condition remains, maintain blocker links and priorities, and return to prior status when unblocked."
+    responsible_roles:
+      - Current assignee
+  Resolved:
+    description: "Resource ready and deployed."
+    stage_goal: "Register the resource and prepare for closure."
+    responsible_roles:
+      - HR
+      - Architect
+  Closed:
+    description: "Request fulfilled and archived."
+    stage_goal: "Archive the fulfilled request."
+    responsible_roles:
+      - HR
+  Rejected:
+    description: "Request denied."
+    stage_goal: "Record rejection reason and archive."
+    responsible_roles:
+      - Architect
+      - HR
+  Canceled:
+    description: "Request canceled before fulfillment."
+    stage_goal: "Record cancellation rationale and archive."
+    responsible_roles:
+      - Requester
+      - Architect
+  Duplicated:
+    description: "Request is a duplicate of another ticket."
+    stage_goal: "Link to original ticket and archive."
+    responsible_roles:
+      - Requester
+      - Architect
+allowed_transitions:
+  New:          [Open, Blocked, Canceled, Rejected, Duplicated]
+  Open:         [Under Review, Blocked, Canceled, Rejected, Duplicated]
+  Under Review: [Approved, Rejected, Blocked, Canceled, Duplicated]
+  Approved:     [In Progress, Blocked, Canceled, Rejected, Duplicated]
+  In Progress:  [Resolved, Blocked, Canceled, Rejected, Duplicated]
+  Blocked:      [New, Open, Under Review, Approved, In Progress, Canceled, Rejected, Duplicated]
+  Resolved:     [Closed, Canceled, Rejected, Duplicated]
+  Rejected:     []
+  Closed:       []
+  Canceled:     []
+  Duplicated:   []
+automatic_transitions: []
+
+ticket_instructions:
+  New:
+    instructions:
+      - Set assignee to ticket creator.
+      - Review related documentation and resource requests.
+      - Apply critical thinking and ask questions.
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - Identify blockers and add a blocking link via the CLI.
+      - "IF ticket missing THEN create RESOURCE-REQ-XXX at tracker root."
+      - Set required fields for the new request via the CLI.
+      - "Add required links (relates-to, requested-by) and ensure links are created via the CLI."
+      - "Use the RESOURCE-REQ template (retrieve it via the CLI or consult the tracker README)."
+      - IF link needs to be created THEN create it.
+      - IF request driven by parent ticket THEN add links via the CLI.
+      - IF documentation exists THEN link as a comment on this ticket.
+      - Move to Open when DoD is met.
+    transition_dods:
+      - target_statuses: [Open, Blocked]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - Role definition complete
+          - Responsibilities listed (minimum 3)
+          - Required skills defined with proficiency levels
+          - Expected deliverables defined
+          - Context explaining need documented
+
+  Open:
+    instructions:
+      - Review request completeness and required fields.
+      - Apply critical thinking and ask questions.
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - Identify blockers and add a blocking link via the CLI.
+      - WHEN DoD to move to Under Review met THEN move to Under Review.
+    transition_dods:
+      - target_statuses: [Under Review]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - Request completeness validated
+          - All required fields completed
+          - Blockers resolved
+
+  "Under Review":
+    instructions:
+      - Apply critical thinking and ask questions.
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - ELSE assign to HR or Architect and validate completeness.
+    transition_dods:
+      - target_statuses: [Approved, Rejected]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - Request feasibility assessed
+          - Resource requirements validated
+          - Approval decision documented as a comment on this ticket
+
+  Approved:
+    instructions:
+      - Confirm scope and delivery approach.
+    transition_dods:
+      - target_statuses: [In Progress]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - Scope and delivery approach confirmed
+          - Resource creation plan documented as a comment on this ticket
+
+  "In Progress":
+    instructions:
+      - HR creates/configures resource.
+    transition_dods:
+      - target_statuses: [Resolved]
+        dod_criteria:
+          - Resource created and configured
+          - Resource capabilities validated
+
+  Resolved:
+    instructions:
+      - "Review answers from linked QUESTION tickets: Query Question links on this ticket via the CLI. For each linked QUESTION ticket found: retrieve it via the CLI, read its Answer section and comments, and incorporate findings/decisions into current work."
+      - Register resource in available_resources.md.
+      - IF not blocked AND doesn't block others THEN ready to move to Closed.
+      - Set resolution.
+    transition_dods:
+      - target_statuses: [Closed]
+        dod_criteria:
+          - Ticket not blocked (no active is-blocked-by links)
+          - Ticket doesn't block others (all dependent tickets unblocked or resolved)
+          - Resource registered in available_resources.md
+
+  Closed:
+    instructions:
+      - Archive only; no edits.
+    transition_dods: []
+
+  Blocked:
+    instructions:
+      - Confirm blocker and prior status are documented as a comment on this ticket (include blocker ID and prior status).
+      - Verify blocking link exists on this ticket via the CLI.
+      - Do not create new blocker links in this status; they must be created when the block is identified.
+      - "IF blocking link missing THEN create QUESTION-XXX addressed_to appropriate role, add a Blocks link from the question to this ticket via the CLI, and remain Blocked."
+      - "Query blocking links on this ticket via the CLI. For each blocker found: IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated` THEN remove the blocking link via the CLI and return to prior status; IF blocker still active AND blocker priority lower than this ticket priority THEN raise blocker priority to match."
+      - IF all blocking links removed THEN return to prior status documented in comments.
+    transition_dods: []
+
+  Rejected:
+    instructions:
+      - Record rationale as a comment on this ticket.
+    transition_dods: []

@@ -1,0 +1,238 @@
+# Tracking System Workflow Specification
+# Version: 2.1
+# Created: 2026-02-22
+# Updated: 2026-02-22
+# Source: Derived from .config/.tracker-config.md and .instructions/ algorithms
+# Change: Added Canceled/Rejected/Duplicated terminal statuses to all types;
+#         allowed transitions to these from every non-terminal status;
+#         status entries enriched with stage_goal and responsible_roles.
+
+---
+
+# ─────────────────────────────────────────
+# FIELDS
+# ─────────────────────────────────────────
+fields:
+  - name: id
+    type: string
+    description: "Unique ticket identifier (e.g. TASK-009, FEATURE-001). Immutable after creation."
+
+  - name: type
+    type: enum
+    description: "Ticket type key. Determines workflow, file prefix, and folder name."
+    values: [task, feature, epic, dev_story, bug, resource_req, workitem,
+             ba_subtask_analysis, ba_subtask_design,
+             sa_subtask_analysis, sa_subtask_design,
+             ux_subtask_analysis, ux_subtask_design,
+             design, development,
+             unittest, codereview, testcase, testexec, devops, bug_subtask, question]
+
+  - name: title
+    type: string
+    description: "Short, descriptive summary of the ticket. Immutable after creation."
+
+  - name: status
+    type: string
+    description: "Current lifecycle status. Valid values depend on ticket type (see ticket_types)."
+
+  - name: priority
+    type: enum
+    description: "Urgency and importance of the ticket."
+    values: [Low, Medium, High, Critical]
+
+  - name: assignee
+    type: string
+    description: "Agent or role responsible for current status activities."
+
+  - name: reporter
+    type: string
+    description: "Agent or role who created the ticket."
+
+  - name: parent
+    type: string
+    description: >-
+      Parent ticket ID. Derived from physical folder nesting — NOT stored in ticket.md
+      frontmatter. Persisted only in .config/.index.csv for fast lookup. Folder location
+      is the authoritative source of parentage.
+
+  - name: addressed_to
+    type: string
+    description: "Target agent or role for Question tickets."
+
+  - name: epic
+    type: string
+    description: "Epic ticket ID this Dev Story belongs to (logical grouping)."
+
+  - name: feature_request
+    type: string
+    description: "Feature Request ID this ticket implements or belongs to."
+
+  - name: component
+    type: string
+    description: "Functional component or module the ticket relates to."
+
+  - name: labels
+    type: list
+    description: "Free-form classification tags (e.g. backend, ui, security)."
+
+  - name: sprint
+    type: string
+    description: "Sprint name or identifier this ticket is scheduled for."
+
+  - name: story_points
+    type: integer
+    description: "Effort estimate in Fibonacci points (Developer Stories only)."
+
+  - name: estimated_hours
+    type: float
+    description: "Estimated hours to complete (Sub-Tasks only)."
+
+  - name: time_spent_hours
+    type: float
+    description: "Actual hours spent (Sub-Tasks only)."
+
+  - name: due_date
+    type: date
+    description: "Target completion date (ISO 8601)."
+
+  - name: affected_version
+    type: string
+    description: "Product version where the bug was observed (Bug tickets only)."
+
+  - name: fix_version
+    type: string
+    description: "Product version where the fix will be delivered."
+
+  - name: release_notes
+    type: string
+    description: "Human-readable description of what changed (Developer Story only)."
+
+  - name: resolution
+    type: enum
+    description: "How the ticket was resolved."
+    values: [Done, Rejected, Canceled, Duplicated, Fixed, WontFix]
+
+  - name: created
+    type: date
+    description: "Date ticket was created (ISO 8601). Immutable."
+
+  - name: updated
+    type: date
+    description: "Date ticket was last modified (ISO 8601)."
+
+
+# ─────────────────────────────────────────
+# TICKET TYPES
+# ─────────────────────────────────────────
+ticket_types:
+  - $ref: tickets/task.yaml
+  - $ref: tickets/feature.yaml
+  - $ref: tickets/epic.yaml
+  - $ref: tickets/dev_story.yaml
+  - $ref: tickets/bug.yaml
+  - $ref: tickets/resource_req.yaml
+  - $ref: tickets/workitem.yaml
+  - $ref: tickets/ba_subtask_analysis.yaml
+  - $ref: tickets/ba_subtask_design.yaml
+  - $ref: tickets/sa_subtask_analysis.yaml
+  - $ref: tickets/sa_subtask_design.yaml
+  - $ref: tickets/ux_subtask_analysis.yaml
+  - $ref: tickets/ux_subtask_design.yaml
+  - $ref: tickets/design.yaml
+  - $ref: tickets/development.yaml
+  - $ref: tickets/unittest.yaml
+  - $ref: tickets/codereview.yaml
+  - $ref: tickets/testcase.yaml
+  - $ref: tickets/testexec.yaml
+  - $ref: tickets/devops.yaml
+  - $ref: tickets/bug_subtask.yaml
+  - $ref: tickets/question.yaml
+# ─────────────────────────────────────────
+# LINK TYPES
+# ─────────────────────────────────────────
+link_types:
+
+  - type: Blocks
+    source_role: "Blocks"
+    target_role: "Is Blocked By"
+    description: "Blocking relationship. Source ticket prevents progress on target ticket."
+    usage: "Any ticket can block any other ticket."
+
+  - type: DependsOn
+    source_role: "Depends On"
+    target_role: "Is Dependency For"
+    description: "Dependency relationship. Source must wait for target to complete first."
+    usage: "Ticket requires another ticket to be completed before it can proceed."
+
+  - type: RelatesTo
+    source_role: "Relates To"
+    target_role: "Relates To"
+    description: "General symmetric relationship with no ordering implication."
+    usage: "Any loosely related tickets that share context."
+
+  - type: Contains
+    source_role: "Contains"
+    target_role: "Contained In"
+    description: "Containment/parent-child relationship mirroring folder structure."
+    usage: "Feature Request → Developer Story; Developer Story → Sub-Task."
+
+  - type: EpicLink
+    source_role: "Epic Link"
+    target_role: "Epic Link"
+    description: "Symmetric association between an Epic and a Developer Story."
+    usage: "Links a Developer Story to its organizing Epic (logical grouping)."
+
+  - type: FeatureContains
+    source_role: "Feature Contains"
+    target_role: "Is Contained In Feature"
+    description: "Feature-to-Epic organizational relationship."
+    usage: "Feature Request ↔ Epic (many-to-many, bidirectional)."
+
+  - type: BugFeature
+    source_role: "Comes From"
+    target_role: "Goes To"
+    description: "A bug that requires a new Feature Request to address it properly."
+    usage: "Bug → Feature Request when bug resolution requires a feature."
+
+  - type: Question
+    source_role: "Asks About"
+    target_role: "Has Question"
+    description: "Links a Question sub-task to the ticket it asks about."
+    usage: "Automatically created when a Question sub-task is created under a parent."
+    auto_created: true
+
+  - type: ParentChild
+    source_role: "Is Parent Of"
+    target_role: "Is Child Of"
+    description: "Explicit parent-child relationship, mirrors folder nesting."
+    usage: "Any parent ticket → child ticket (supplements folder structure)."
+
+
+# ─────────────────────────────────────────
+# TYPE REGISTRY
+# Flat lookup table: type key → id_prefix, content_file, initial_status.
+# Use this section to drive tooling — avoids hardcoding in CLI / agents.
+# ─────────────────────────────────────────
+type_registry:
+  task:         { id_prefix: TASK,         content_file: ticket.md, initial_status: New }
+  feature:      { id_prefix: FEATURE,      content_file: ticket.md, initial_status: New }
+  epic:         { id_prefix: EPIC,         content_file: ticket.md, initial_status: New }
+  dev_story:    { id_prefix: DEV-STORY,    content_file: ticket.md, initial_status: New }
+  bug:          { id_prefix: BUG,          content_file: ticket.md, initial_status: New }
+  resource_req: { id_prefix: RESOURCE-REQ, content_file: ticket.md, initial_status: New }
+  workitem:     { id_prefix: WORK,         content_file: ticket.md, initial_status: New }
+  ba_subtask_analysis: { id_prefix: BA-ANA,  content_file: ticket.md, initial_status: New }
+  ba_subtask_design:   { id_prefix: BA-DES,  content_file: ticket.md, initial_status: New }
+  sa_subtask_analysis: { id_prefix: SA-ANA,  content_file: ticket.md, initial_status: New }
+  sa_subtask_design:   { id_prefix: SA-DES,  content_file: ticket.md, initial_status: New }
+  ux_subtask_analysis: { id_prefix: UX-ANA,  content_file: ticket.md, initial_status: New }
+  ux_subtask_design:   { id_prefix: UX-DES,  content_file: ticket.md, initial_status: New }
+  design:       { id_prefix: DESIGN,       content_file: ticket.md, initial_status: New }
+  development:  { id_prefix: DEV,          content_file: ticket.md, initial_status: New }
+  unittest:     { id_prefix: UNITTEST,     content_file: ticket.md, initial_status: New }
+  codereview:   { id_prefix: CODEREVIEW,   content_file: ticket.md, initial_status: New }
+  testcase:     { id_prefix: TESTCASE,     content_file: ticket.md, initial_status: New }
+  testexec:     { id_prefix: TESTEXEC,     content_file: ticket.md, initial_status: New }
+  devops:       { id_prefix: DEVOPS,       content_file: ticket.md, initial_status: New }
+  bug_subtask:  { id_prefix: BUG-SUB,      content_file: ticket.md, initial_status: New }
+  question:     { id_prefix: QUESTION,     content_file: ticket.md, initial_status: New }

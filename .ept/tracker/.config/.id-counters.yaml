@@ -1,0 +1,27 @@
+counters:
+  ba_subtask_analysis: 1
+  ba_subtask_design: 0
+  bug: 0
+  bug_subtask: 0
+  codereview: 0
+  design: 0
+  dev_story: 0
+  development: 0
+  devops: 0
+  epic: 0
+  feature: 1
+  link: 2
+  question: 1
+  resource_req: 0
+  sa_subtask_analysis: 1
+  sa_subtask_design: 0
+  task: 0
+  testcase: 0
+  testexec: 0
+  unittest: 0
+  ux_subtask_analysis: 0
+  ux_subtask_design: 0
+  workitem: 0
+padding:
+  link: 5
+  ticket: 3

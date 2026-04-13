@@ -1,0 +1,162 @@
+type: testexec
+id_prefix: TESTEXEC
+description: >-
+  Test execution sub-task: running defined test cases and reporting results.
+required_fields: [id, type, title, status, parent, created, updated]
+optional_fields: [priority, resolution, assignee, reporter, component, labels,
+                  estimated_hours, time_spent_hours, due_date]
+initial_status: New
+terminal_statuses: [Closed, Canceled, Rejected, Duplicated]
+statuses:
+  New:
+    description: "Created; triage and prerequisites validation."
+    stage_goal: "Triage the sub-task, validate readiness, and move to Open."
+    responsible_roles:
+      - Creator (Assignee)
+  Open:
+    description: "Prerequisites validated; ready to start work."
+    stage_goal: "Prepare for work once prerequisites are met."
+    responsible_roles:
+      - Assignee
+  In Progress:
+    description: "Test execution in progress; test cases being run and results recorded."
+    stage_goal: "Execute test cases, record results, and report defects."
+    responsible_roles:
+      - QA Engineer
+  Blocked:
+    description: "Cannot proceed; blocker documented."
+    stage_goal: "Verify blocking condition remains, maintain blocker links and priorities, and return to prior status when unblocked."
+    responsible_roles:
+      - Current assignee
+  Resolved:
+    description: "Test execution complete; results reported."
+    stage_goal: "Manage blockers and prepare for closure."
+    responsible_roles:
+      - QA Engineer
+  Closed:
+    description: "Verified and archived."
+    stage_goal: "Archive the completed sub-task."
+    responsible_roles:
+      - Assignee
+  Canceled:
+    description: "Sub-task canceled before completion."
+    stage_goal: "Record cancellation rationale and archive."
+    responsible_roles:
+      - Assignee
+      - Reporter
+  Rejected:
+    description: "Sub-task rejected as invalid or out of scope."
+    stage_goal: "Record rejection reason and archive."
+    responsible_roles:
+      - Assignee
+      - Reporter
+  Duplicated:
+    description: "Sub-task is a duplicate of another ticket."
+    stage_goal: "Link to original ticket and archive."
+    responsible_roles:
+      - Assignee
+      - Reporter
+allowed_transitions:
+  New:         [Open, Canceled, Rejected, Duplicated]
+  Open:        [In Progress, Blocked, Canceled, Rejected, Duplicated]
+  In Progress: [Resolved, Blocked, Canceled, Rejected, Duplicated]
+  Blocked:     [Open, In Progress, Canceled, Rejected, Duplicated]
+  Resolved:    [Closed, Canceled, Rejected, Duplicated]
+  Closed:      []
+  Canceled:    []
+  Rejected:    []
+  Duplicated:  []
+automatic_transitions: []
+
+ticket_instructions:
+  New:
+    instructions:
+      - Set assignee to ticket creator.
+      - Review related documentation and parent Story context.
+      - Apply critical thinking and ask questions.
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - "Review answers from linked QUESTION tickets: Query Question links on this ticket via the CLI. For each linked QUESTION ticket found: retrieve it via the CLI, read its Answer section and comments, and incorporate findings/decisions into current work."
+      - Identify blockers and add a blocking link via the CLI.
+      - Move to Open.
+    transition_dods:
+      - target_statuses: [Open]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - Assignee set to creator
+          - Parent Story context reviewed
+          - Blockers identified and recorded (links or question)
+          - "Required fields validated (status, assignee, priority, dates)"
+
+  Open:
+    instructions:
+      - "IF ticket missing THEN create TESTEXEC-XXX under DEV-STORY-XXX."
+      - Set required fields for the new sub-task via the CLI.
+      - Add required links to parent Story (in the link index (via the CLI)).
+      - Apply critical thinking and ask questions.
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - "Review answers from linked QUESTION tickets: Query Question links on this ticket via the CLI. For each linked QUESTION ticket found: retrieve it via the CLI, read its Answer section and comments, and incorporate findings/decisions into current work."
+      - Create a plan as a comment on this ticket.
+      - IF scope too large THEN split into additional TESTEXEC sub-tasks.
+      - IF test evidence exists THEN link as a comment on this ticket.
+      - "CORRECTIVE ACTION IF IMPLEMENTATION DOES NOT EXIST: IF implementation does not exist in test environment THEN do NOT execute tests; IF feature not runnable THEN block on deployment/implementation; IF test environment not functional THEN resolve environment issues first."
+    transition_dods:
+      - target_statuses: [In Progress]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - "MANDATORY VERIFICATION: Implementation physically exists and is deployed to test environment"
+          - "MANDATORY VERIFICATION: Test environment is functional and accessible"
+          - "MANDATORY VERIFICATION: Feature is actually runnable/testable (not just documented)"
+          - "Related TestCase sub-task Closed (test cases developed)"
+          - "Related implementation sub-tasks (DEV, UNITTEST, CODEREVIEW) in Resolved state"
+          - Test execution plan created as a comment on this ticket
+          - Test environment validated and ready
+
+  "In Progress":
+    instructions:
+      - "Execute tests; log pass/fail as a comment on this ticket."
+      - IF defects found THEN create BUG-SUB.
+      - "CORRECTIVE ACTION FOR PHANTOM TEST EXECUTION: IF no evidence attached THEN test execution is not proven - do NOT move to Resolved; IF claiming 'all tests passed' without screenshots/logs THEN this is phantom execution; IF test execution impossible due to missing implementation THEN create BUG ticket; ALL test executions MUST have verifiable evidence (screenshots, logs, recordings)."
+    transition_dods:
+      - target_statuses: [Resolved]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - All related Test Cases executed
+          - "MANDATORY EVIDENCE: Screenshots, videos, or logs proving test execution (not just documented results)"
+          - "MANDATORY EVIDENCE: Specific timestamps, environment details, test data used"
+          - "MANDATORY EVIDENCE: Pass/fail evidence for EACH test case (not summary claims)"
+          - Pass/fail status recorded for each test
+          - "Evidence attached (screenshots, logs, etc.)"
+          - All defects logged as BUG-SUB tickets
+          - Time reported in subtask frontmatter
+          - All links registered in the link index (via the CLI)
+
+  Resolved:
+    instructions:
+      - Confirm all tests executed and recorded.
+      - IF blocker link exists AND blocker resolved THEN remove the blocking link via the CLI.
+      - IF not blocked AND doesn't block others THEN ready to move to Closed.
+    transition_dods:
+      - target_statuses: [Closed]
+        dod_criteria:
+          - Ticket not blocked (no active is-blocked-by links)
+
+  Closed:
+    instructions:
+      - Terminal status, Archive only; no edits.
+    transition_dods: []
+
+  Blocked:
+    instructions:
+      - Confirm blocker and prior status are documented as a comment on this ticket (include blocker ID and prior status).
+      - Verify blocking link exists on this ticket via the CLI.
+      - Do not create new blocker links in this status; they must be created when the block is identified.
+      - "IF blocking link missing THEN create QUESTION-XXX addressed_to appropriate role, add a Blocks link from the question to this ticket via the CLI, and remain Blocked."
+      - "Query blocking links on this ticket via the CLI. For each blocker found: IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated` THEN remove the blocking link via the CLI and return to prior status; IF blocker still active AND blocker priority lower than this ticket priority THEN raise blocker priority to match."
+      - IF all blocking links removed THEN return to prior status documented in comments.
+    transition_dods: []

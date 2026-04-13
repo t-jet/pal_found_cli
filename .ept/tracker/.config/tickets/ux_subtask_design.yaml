@@ -1,0 +1,165 @@
+type: ux_subtask_design
+id_prefix: UX-DES
+description: >-
+  UX Design Sub-Task: detailed user experience design and prototyping for the DESIGN stage.
+required_fields: [id, type, title, status, parent, created, updated]
+optional_fields: [priority, resolution, assignee, reporter, component, labels,
+                  estimated_hours, time_spent_hours, due_date]
+initial_status: New
+terminal_statuses: [Closed, Canceled, Rejected, Duplicated]
+statuses:
+  New:
+    description: "Created; triage and prerequisites validation."
+    stage_goal: "Triage the sub-task, validate readiness, and move to Open."
+    responsible_roles:
+      - Creator (Assignee)
+  Open:
+    description: "Prerequisites validated; ready to start work."
+    stage_goal: "Prepare for work once prerequisites are met."
+    responsible_roles:
+      - Assignee
+  In Progress:
+    description: "UX design work in progress; creating wireframes, prototypes, and design specs."
+    stage_goal: "Produce detailed UX designs, prototypes, and specifications for the DESIGN stage."
+    responsible_roles:
+      - UX Designer
+  Blocked:
+    description: "Cannot proceed; blocker documented."
+    stage_goal: "Verify blocking condition remains, maintain blocker links and priorities, and return to prior status when unblocked."
+    responsible_roles:
+      - Current assignee
+  Resolved:
+    description: "Design deliverables complete; ready for review."
+    stage_goal: "Manage blockers and prepare for closure."
+    responsible_roles:
+      - UX Designer
+  Closed:
+    description: "Verified and archived."
+    stage_goal: "Archive the completed sub-task."
+    responsible_roles:
+      - Assignee
+  Canceled:
+    description: "Sub-task canceled before completion."
+    stage_goal: "Record cancellation rationale and archive."
+    responsible_roles:
+      - Assignee
+      - Reporter
+  Rejected:
+    description: "Sub-task rejected as invalid or out of scope."
+    stage_goal: "Record rejection reason and archive."
+    responsible_roles:
+      - Assignee
+      - Reporter
+  Duplicated:
+    description: "Sub-task is a duplicate of another ticket."
+    stage_goal: "Link to original ticket and archive."
+    responsible_roles:
+      - Assignee
+      - Reporter
+allowed_transitions:
+  New:         [Open, Canceled, Rejected, Duplicated]
+  Open:        [In Progress, Blocked, Canceled, Rejected, Duplicated]
+  In Progress: [Resolved, Blocked, Canceled, Rejected, Duplicated]
+  Blocked:     [Open, In Progress, Canceled, Rejected, Duplicated]
+  Resolved:    [Closed, Canceled, Rejected, Duplicated]
+  Closed:      []
+  Canceled:    []
+  Rejected:    []
+  Duplicated:  []
+automatic_transitions: []
+
+ticket_instructions:
+  New:
+    instructions:
+      - Set assignee to ticket creator.
+      - Review related documentation and parent Feature context.
+      - Apply critical thinking and ask questions.
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - "Review answers from linked QUESTION tickets: Query Question links on this ticket via the CLI. For each linked QUESTION ticket found: retrieve it via the CLI, read its Answer section and comments, and incorporate findings/decisions into current work."
+      - Identify blockers and add a blocking link via the CLI.
+      - Move to Open.
+    transition_dods:
+      - target_statuses: [Open]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - Assignee set to creator
+          - Parent Feature context reviewed
+          - Blockers identified and recorded (links or question)
+          - "Required fields validated (status, assignee, priority, dates)"
+
+  Open:
+    instructions:
+      - "IF ticket missing THEN create UX-DES-XXX under FEATURE-XXX."
+      - Set required fields for the new sub-task via the CLI.
+      - Add required links to parent Feature (in the link index (via the CLI)).
+      - Apply critical thinking and ask questions.
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - "Review answers from linked QUESTION tickets: Query Question links on this ticket via the CLI. For each linked QUESTION ticket found: retrieve it via the CLI, read its Answer section and comments, and incorporate findings/decisions into current work."
+      - Move to In Progress.
+    transition_dods:
+      - target_statuses: [In Progress]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - Business case defined
+          - Acceptance criteria prepared
+          - UX plan created as a comment on this ticket
+          - Related documentation linked as a comment on this ticket (when exists)
+          - List of deliverables defined in the Acceptance Criteria
+
+  "In Progress":
+    instructions:
+      - Review state and comments of BA Design Sub-Task and SA Design Sub-Task.
+      - Study documentation changes introduced by BA/SA design sub-tasks.
+      - Collaborate with BA/SA via Question sub-tasks when needed.
+      - Document UX design decisions, UI specifications, and design assets as a comment on this ticket.
+    transition_dods:
+      - target_statuses: [Resolved]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - All required deliverables completed
+          - "Related documents in the `.ept/docs/document_index.md` analyzed and modified to incorporate ticket results"
+          - "`.ept/docs/document_index.md` updated for changes in deliverables"
+          - All document changes documented as a comment on this ticket
+          - UX findings documented as a comment on this ticket with links to deliverables when applicable
+          - Time reported in subtask frontmatter
+          - UX design complete and documented
+          - UX design consistent with business requirements and solution architecture
+          - "UI specifications and graphics completed (screens, components, style guide)"
+          - UX assets linked as a comment on this ticket
+          - BA Design Sub-Task and SA Design Sub-Task created and in In Progress or later
+
+  Resolved:
+    instructions:
+      - "Create QUESTION tickets for each required approval (Project Owner, BA, SA, and others as applicable)."
+      - IF blocker link exists AND blocker resolved THEN remove the blocking link via the CLI.
+      - Wait for BA-SUB and SA-SUB to reach Resolved status.
+      - Confirm approvals and completeness.
+      - IF not blocked AND BA/SA sub-tasks in Resolved THEN ready to move to Closed.
+    transition_dods:
+      - target_statuses: [Closed]
+        dod_criteria:
+          - Ticket not blocked (no active is-blocked-by links)
+          - Ticket doesn't block others (all dependent tickets unblocked or resolved)
+          - BA-SUB and SA-SUB in Resolved status
+          - "All approvals obtained (all created QUESTION tickets in terminal status)"
+
+  Closed:
+    instructions:
+      - Terminal status, Archive only; no edits.
+    transition_dods: []
+
+  Blocked:
+    instructions:
+      - Confirm blocker and prior status are documented as a comment on this ticket (include blocker ID and prior status).
+      - Verify blocking link exists on this ticket via the CLI.
+      - Do not create new blocker links in this status; they must be created when the block is identified.
+      - "IF blocking link missing THEN create QUESTION-XXX addressed_to appropriate role, add a Blocks link from the question to this ticket via the CLI, and remain Blocked."
+      - "Query blocking links on this ticket via the CLI. For each blocker found: IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated` THEN remove the blocking link via the CLI and return to prior status; IF blocker still active AND blocker priority lower than this ticket priority THEN raise blocker priority to match."
+      - IF all blocking links removed THEN return to prior status documented in comments.
+    transition_dods: []

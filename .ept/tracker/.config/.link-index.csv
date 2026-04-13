@@ -1,0 +1,2 @@
+link_id,source_ticket,target_ticket,link_type,source_role,target_role,created,created_by,comment
+LINK-00002,QUESTION-001,FEATURE-001,Question,Asks About,Has Question,2026-04-10T00:51:45.563970,architect,

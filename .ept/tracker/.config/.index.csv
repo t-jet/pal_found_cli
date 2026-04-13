@@ -1,0 +1,5 @@
+id,type,title,status,priority,assignee,reporter,parent,addressed_to,path,created,updated
+FEATURE-001,feature,Foundry CLI: Requirements Analysis and Open Questions,Analysis,High,architect,architect,,,FEATURE-001,2026-04-09,2026-04-13
+QUESTION-001,question,Foundry CLI Round 3: 10 open questions requiring Product Owner answers,Closed,High,,architect,FEATURE-001,product_owner,FEATURE-001/QUESTION-001,2026-04-10,2026-04-10
+BA-ANA-001,ba_subtask_analysis,Foundry CLI: Business Requirements Analysis,Open,Medium,ba,ba,FEATURE-001,,FEATURE-001/BA-ANA-001,2026-04-13,2026-04-13
+SA-ANA-001,sa_subtask_analysis,Foundry CLI: Solution Architecture Analysis,In Progress,Medium,architect,architect,FEATURE-001,,FEATURE-001/SA-ANA-001,2026-04-13,2026-04-13

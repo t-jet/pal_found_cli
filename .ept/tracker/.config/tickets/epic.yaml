@@ -1,0 +1,173 @@
+type: epic
+id_prefix: EPIC
+description: >
+  End-to-end business use case (e.g. "Check room availability"). Lives at root
+  level; linked to Feature Requests and Developer Stories.
+required_fields: [id, type, title, status, feature_request, created, updated]
+optional_fields: [priority, resolution, assignee, reporter, component, labels, due_date]
+initial_status: New
+terminal_statuses: [Done, Canceled, Rejected, Duplicated]
+statuses:
+  New:
+    description: "Registered; linked to Feature Request."
+    stage_goal: "Register the epic and link it to its Feature Request."
+    responsible_roles:
+      - Business Analyst
+      - Architect
+  Open:
+    description: "Triage complete; awaiting first story in Development."
+    stage_goal: "Validate epic readiness and await execution start."
+    responsible_roles:
+      - Architect
+      - Business Analyst
+  In Progress:
+    description: "At least one Developer Story in Development."
+    stage_goal: "Track delivery progress across linked Developer Stories."
+    responsible_roles:
+      - Architect
+      - Tech Lead
+  Blocked:
+    description: "Cannot proceed; blocker documented."
+    stage_goal: "Verify blocking condition remains, maintain blocker links and priorities, and return to prior status when unblocked."
+    responsible_roles:
+      - Current assignee
+  Resolved:
+    description: "All linked Developer Stories Resolved."
+    stage_goal: "Confirm all linked stories are resolved and prepare to finalize."
+    responsible_roles:
+      - Architect
+      - Project Owner
+  Done:
+    description: "All linked Developer Stories Closed; deployed."
+    stage_goal: "Archive the completed epic."
+    responsible_roles:
+      - Project Owner
+  Canceled:
+    description: "Epic canceled before completion."
+    stage_goal: "Record cancellation rationale and archive."
+    responsible_roles:
+      - Project Owner
+      - Architect
+  Rejected:
+    description: "Epic rejected as invalid or out of scope."
+    stage_goal: "Record rejection reason and archive."
+    responsible_roles:
+      - Project Owner
+      - Architect
+  Duplicated:
+    description: "Epic is a duplicate of another ticket."
+    stage_goal: "Link to original ticket and archive."
+    responsible_roles:
+      - Project Owner
+      - Architect
+allowed_transitions:
+  New:        [Open, Canceled, Rejected, Duplicated]
+  Open:       [In Progress, Blocked, Canceled, Rejected, Duplicated]
+  In Progress: [Resolved, Blocked, Canceled, Rejected, Duplicated]
+  Blocked:    [Open, In Progress, Resolved, Canceled, Rejected, Duplicated]
+  Resolved:   [Done, Canceled, Rejected, Duplicated]
+  Done:       []
+  Canceled:   []
+  Rejected:   []
+  Duplicated: []
+automatic_transitions:
+  - trigger: "First linked Developer Story transitions to Development"
+    action:  "Epic: Open -> In Progress"
+  - trigger: "All linked Developer Stories are Resolved"
+    action:  "Epic: In Progress -> Resolved"
+  - trigger: "All linked Developer Stories are Closed"
+    action:  "Epic: Resolved -> Done"
+
+ticket_instructions:
+  New:
+    instructions:
+      - Set assignee to ticket creator.
+      - Review related documentation and linked Feature Requests.
+      - Apply critical thinking and ask questions.
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - Identify blockers and add a blocking link via the CLI.
+      - "IF ticket missing THEN create EPIC-XXX at tracker root (during Feature Request Analysis)."
+      - Set required fields for the new Epic via the CLI.
+      - "Add required links (Feature-Contains/is-contained-in-Feature) and ensure links are created via the CLI."
+      - IF required fields missing THEN complete them.
+      - IF link needs to be created THEN create it.
+      - "Add link to the link index (via the CLI) (source_ticket=Feature Request ID, target_ticket=this Epic ID, link_type=FeatureContains, source_role=Feature Contains, target_role=Is Contained In Feature)."
+      - IF documentation exists (requirements/architecture) THEN link as a comment on this ticket.
+      - Validate link exists in the link index (via the CLI) for Feature Request relationship.
+      - Monitor linked Developer Stories for status changes.
+      - Move to Open when DoD is met.
+    transition_dods:
+      - target_statuses: [Open]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - Business requirement (Feature Request) exists requiring this use case
+          - "Epic scope clearly defined (end-to-end business scenario)"
+          - "Epic linked to Feature Request (bidirectional FeatureContains links)"
+          - "Required fields validated (status, assignee, priority, dates)"
+          - First linked Developer Story enters Development (automatic)
+
+  Open:
+    instructions:
+      - Review linked Developer Stories and dependencies.
+      - Apply critical thinking and ask questions.
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - Identify blockers and add a blocking link via the CLI.
+      - WHEN first linked Developer Story enters Development THEN move to In Progress.
+    transition_dods:
+      - target_statuses: [In Progress]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - Linked Developer Stories reviewed
+          - Dependencies identified and documented
+          - Blockers resolved
+          - First linked Developer Story enters Development (automatic)
+
+  "In Progress":
+    instructions:
+      - Monitor all linked Developer Stories progress.
+      - IF blocked by dependency THEN add a blocking link via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket.
+      - IF lower-priority blocker blocks higher-priority Epic THEN raise blocker priority.
+      - WHEN all linked Developer Stories reach Resolved THEN move to Resolved.
+    transition_dods:
+      - target_statuses: [Resolved]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - All linked Developer Stories monitored
+          - All blockers resolved
+          - All linked Developer Stories reach Resolved (automatic)
+
+  Resolved:
+    instructions:
+      - Validate all linked Developer Stories are Resolved or Closed.
+      - IF blocker link exists AND blocker resolved THEN remove the blocking link via the CLI.
+      - IF resolution not set THEN set Done/Canceled/Duplicated.
+      - WHEN all linked Developer Stories reach Closed THEN move to Done.
+    transition_dods:
+      - target_statuses: [Done]
+        dod_criteria:
+          - All linked Developer Stories are Closed
+          - All links registered in the link index (via the CLI)
+          - Epic objectives achieved
+
+  Done:
+    instructions:
+      - "Review answers from linked QUESTION tickets: Query Question links on this ticket via the CLI. For each linked QUESTION ticket found: retrieve it via the CLI, read its Answer section and comments, and incorporate findings/decisions into current work."
+      - Archive only; no edits.
+      - All objectives achieved and verified.
+    transition_dods: []
+
+  Blocked:
+    instructions:
+      - Confirm blocker and prior status are documented as a comment on this ticket (include blocker ID and prior status).
+      - Verify blocking link exists on this ticket via the CLI.
+      - Do not create new blocker links in this status; they must be created when the block is identified.
+      - "IF blocking link missing THEN create QUESTION-XXX addressed_to appropriate role, add a Blocks link from the question to this ticket via the CLI, and remain Blocked."
+      - "Query blocking links on this ticket via the CLI. For each blocker found: IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated` THEN remove the blocking link via the CLI and return to prior status; IF blocker still active AND blocker priority lower than this ticket priority THEN raise blocker priority to match."
+      - IF all blocking links removed THEN return to prior status documented in comments.
+    transition_dods: []

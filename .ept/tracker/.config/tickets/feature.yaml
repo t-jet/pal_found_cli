@@ -1,0 +1,228 @@
+type: feature
+id_prefix: FEATURE
+description: >
+  Business-level capability request (e.g. "View Agreement", "Calculate Tax").
+  Drives BA/SA analysis, Epic creation, and Developer Stories.
+required_fields: [id, type, title, status, created, updated]
+optional_fields: [priority, resolution, assignee, reporter, component, labels, due_date]
+initial_status: New
+terminal_statuses: [Closed, Canceled, Rejected, Duplicated]
+statuses:
+  New:
+    description: "Registered; initial metadata captured."
+    stage_goal: "Register the feature request and capture initial metadata."
+    responsible_roles:
+      - Project Owner
+      - Business Analyst
+  Open:
+    description: "In backlog; ready for analysis planning."
+    stage_goal: "Plan analysis work and establish initial links."
+    responsible_roles:
+      - Business Analyst
+      - Solution Architect
+  Analysis:
+    description: "BA/SA analysis sub-tasks in progress."
+    stage_goal: "Perform requirements analysis and produce analysis deliverables."
+    responsible_roles:
+      - Business Analyst
+      - Solution Architect
+  In Development:
+    description: "Design sub-tasks in progress (BA/SA DESIGN stage)."
+    stage_goal: "Complete detailed design activities and prepare implementation artifacts."
+    responsible_roles:
+      - Business Analyst
+      - Solution Architect
+  Waiting for Implementation:
+    description: "Design complete; ready for Developer Stories."
+    stage_goal: "Create and assign Developer Stories for implementation."
+    responsible_roles:
+      - Business Analyst
+      - Architect
+      - Tech Lead
+  Resolved:
+    description: "All linked Developer Stories closed."
+    stage_goal: "Confirm all linked stories are closed and finalize resolution."
+    responsible_roles:
+      - Project Owner
+      - Architect
+  Closed:
+    description: "Archived."
+    stage_goal: "Archive the feature request."
+    responsible_roles:
+      - Project Owner
+  Blocked:
+    description: "Cannot proceed; blocker recorded in comments."
+    stage_goal: "Verify blocking condition remains, maintain blocker links and priorities, and return to prior status when unblocked."
+    responsible_roles:
+      - Current assignee
+  Canceled:
+    description: "Feature request canceled before completion."
+    stage_goal: "Record cancellation rationale and archive."
+    responsible_roles:
+      - Project Owner
+      - Business Analyst
+  Rejected:
+    description: "Feature request rejected as invalid or out of scope."
+    stage_goal: "Record rejection reason and archive."
+    responsible_roles:
+      - Project Owner
+      - Business Analyst
+  Duplicated:
+    description: "Feature request is a duplicate of another ticket."
+    stage_goal: "Link to original ticket and archive."
+    responsible_roles:
+      - Project Owner
+      - Business Analyst
+allowed_transitions:
+  New:                        [Open, Canceled, Rejected, Duplicated]
+  Open:                       [Analysis, Blocked, Canceled, Rejected, Duplicated]
+  Analysis:                   [In Development, Blocked, Canceled, Rejected, Duplicated]
+  In Development:             [Waiting for Implementation, Blocked, Canceled, Rejected, Duplicated]
+  Waiting for Implementation: [Resolved, Blocked, Canceled, Rejected, Duplicated]
+  Resolved:                   [Closed, Canceled, Rejected, Duplicated]
+  Blocked:                    [Open, Analysis, In Development, Waiting for Implementation, Resolved, Canceled, Rejected, Duplicated]
+  Closed:                     []
+  Canceled:                   []
+  Rejected:                   []
+  Duplicated:                 []
+automatic_transitions: []
+
+ticket_instructions:
+  New:
+    instructions:
+      - Set assignee to ticket creator.
+      - Review related documentation and similar feature requests.
+      - Apply critical thinking and ask questions.
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - "Analyze and split into child tickets (BA/SA sub-tasks, Epics) when applicable."
+      - Identify blockers and add a blocking link via the CLI.
+      - "IF ticket missing THEN create FEATURE-XXX at tracker root."
+      - Set required fields for the new Feature via the CLI.
+      - "Add required links (Epic links, relates-to, goes-to/comes-from if applicable) and ensure links are created via the CLI."
+      - IF required fields missing THEN complete them.
+      - IF link needs to be created THEN create it.
+      - IF documentation exists THEN link as a comment on this ticket.
+      - THEN move to Open.
+    transition_dods:
+      - target_statuses: [Open]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - Assignee set to creator
+          - Related documentation reviewed
+          - Similar feature requests reviewed
+          - Blockers identified and recorded (links or question)
+          - "Required fields validated (status, assignee, priority, dates)"
+          - Feature scope defined in business terms
+
+  Open:
+    instructions:
+      - Apply critical thinking and ask questions.
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - ELSE plan work as a comment on this ticket.
+      - "IF Epic known THEN add bidirectional Epic link (is-contained-in-Feature / Feature-Contains)."
+      - IF Feature created from Bug THEN add goes-to / comes-from links.
+      - Validate Epic link bidirectional consistency.
+      - "IF DoD to move to Analysis met THEN create BA Analysis Sub-Task and SA Analysis Sub-Task."
+      - IF Feature meets UX criteria THEN create UX Analysis Sub-Task.
+      - For each new sub-task, set required fields and add links to the Feature via the CLI.
+      - THEN move to Analysis.
+    transition_dods:
+      - target_statuses: [Analysis]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - Business Case defined
+          - Acceptance and Evaluation Criteria prepared by Project Owner
+          - "Epic links established (bidirectional, if Epic known)"
+          - Work plan documented as a comment on this ticket
+
+  Analysis:
+    instructions:
+      - Study documentation and related tickets.
+      - Apply critical thinking and ask questions.
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - IF BA Analysis Sub-Task or SA Analysis Sub-Task not Closed THEN wait for completion.
+      - IF UX Analysis Sub-Task exists AND not Closed THEN wait for completion.
+      - IF blocked by dependency THEN add a blocking link via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket.
+      - IF lower-priority blocker blocks higher-priority Feature THEN raise blocker priority.
+      - WHEN DoD met AND all required sub-tasks Closed THEN move to In Development.
+    transition_dods:
+      - target_statuses: [In Development]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - "BA Analysis Sub-Task Closed with: finite set of business requirements defined; impact to end-to-end business processes analyzed; changes in access restrictions defined; assumptions and risks documented; request rate and data size changes evaluated; all requirements approved by SA and Project Owner"
+          - "SA Analysis Sub-Task Closed with: affected services and interfaces identified; general implementation approach formulated; technology stack defined; general migration approach defined"
+          - "UX Analysis Sub-Task (if applicable) Closed with: UX analysis complete and documented; UX requirements consistent with business requirements; UX analysis consistent with solution architecture; UX artifacts stored/linked (flows, wireframes, personas as applicable); BA Analysis Sub-Task and SA Analysis Sub-Task in Resolved status"
+          - All links registered in the link index (via the CLI)
+
+  "In Development":
+    instructions:
+      - "Create BA Design Sub-Task and SA Design Sub-Task (if not exist)."
+      - IF Feature meets UX criteria THEN create UX Design Sub-Task (if not exist).
+      - For each new sub-task, set required fields and add links to the Feature via the CLI.
+      - IF BA Design Sub-Task or SA Design Sub-Task not Closed THEN wait for completion.
+      - IF UX Design Sub-Task exists AND not Closed THEN wait for completion.
+      - IF blocked by dependency THEN add a blocking link via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket.
+      - IF lower-priority blocker blocks higher-priority Feature THEN raise blocker priority.
+      - WHEN DoD met AND all required sub-tasks Closed THEN move to Waiting for Implementation.
+    transition_dods:
+      - target_statuses: [Waiting for Implementation]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - "BA Design Sub-Task Closed with: detailed requirements (logic flow, UI mocks, API specs, data structures); migration procedure described in detail; Epics created and linked; Developer Stories created and linked; all requirements approved by Project Owner, SA, Lead Developers"
+          - "SA Design Sub-Task Closed with: all API endpoints identified with required changes; architectural approach for each Use Case defined; non-functional requirements defined for developers; infrastructure changes identified and communicated; migration procedure described step-by-step"
+          - "UX Design Sub-Task Closed with (if applicable): UX design complete and documented; UX design consistent with business requirements and solution architecture; UI specifications and graphics completed (screens, components, style guide); UX assets linked as a comment on this ticket; BA Design Sub-Task and SA Design Sub-Task in Resolved status"
+          - All links registered in the link index (via the CLI)
+
+  "Waiting for Implementation":
+    instructions:
+      - IF Developer Stories missing THEN create and nest them under FEATURE-XXX.
+      - For each new Developer Story, set required fields and add bidirectional Contains/is-contained-in links via the CLI.
+      - FOR each Developer Story created ADD bidirectional Contains/is-contained-in links.
+      - "Ensure Epic links are set in Developer Stories (inherit from Feature)."
+      - Assign each Developer Story to appropriate developer.
+      - WHEN all Developer Stories created THEN monitor their progress (stay in this status).
+    transition_dods:
+      - target_statuses: [Resolved]
+        dod_criteria:
+          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Critical thinking applied
+          - All required questions asked and answered
+          - All Developer Stories created and nested under FEATURE-XXX
+          - All Developer Stories assigned to appropriate developers
+          - Epic links set in all Developer Stories
+          - All links registered in the link index (via the CLI)
+          - ALL linked Developer Stories reach Closed status (automatic)
+
+  Resolved:
+    instructions:
+      - "Review answers from linked QUESTION tickets: Query Question links on this ticket via the CLI. For each linked QUESTION ticket found: retrieve it via the CLI, read its Answer section and comments, and incorporate findings/decisions into current work."
+      - Automatically entered when ALL linked Developer Stories reach Closed status.
+      - IF blocker link exists AND blocker resolved THEN remove the blocking link via the CLI.
+      - IF resolution not set THEN set Done/Canceled/Duplicated.
+      - THEN move to Closed when ready to archive.
+    transition_dods:
+      - target_statuses: [Closed]
+        dod_criteria: []
+
+  Closed:
+    instructions:
+      - Archive only; no edits.
+    transition_dods: []
+
+  Blocked:
+    instructions:
+      - Confirm blocker and prior status are documented as a comment on this ticket (include blocker ID and prior status).
+      - Verify blocking link exists on this ticket via the CLI.
+      - Do not create new blocker links in this status; they must be created when the block is identified.
+      - "IF blocking link missing THEN create QUESTION-XXX addressed_to appropriate role, add a Blocks link from the question to this ticket via the CLI, and remain Blocked."
+      - "Query blocking links on this ticket via the CLI. For each blocker found: IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated` THEN remove the blocking link via the CLI and return to prior status; IF blocker still active AND blocker priority lower than this ticket priority THEN raise blocker priority to match."
+      - IF all blocking links removed THEN return to prior status documented in comments.
+    transition_dods: []
