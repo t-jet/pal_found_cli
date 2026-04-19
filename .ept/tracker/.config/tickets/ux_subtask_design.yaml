@@ -74,9 +74,9 @@ ticket_instructions:
       - Set assignee to ticket creator.
       - Review related documentation and parent Feature context.
       - Apply critical thinking and ask questions.
-      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
-      - "Review answers from linked QUESTION tickets: Query Question links on this ticket via the CLI. For each linked QUESTION ticket found: retrieve it via the CLI, read its Answer section and comments, and incorporate findings/decisions into current work."
-      - Identify blockers and add a blocking link via the CLI.
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - "Review answers from linked QUESTION tickets: Query Question links on this ticket. For each linked QUESTION ticket found: retrieve it, read its Answer section and comments, and incorporate findings/decisions into current work."
+      - Identify blockers and add a blocking link.
       - Move to Open.
     transition_dods:
       - target_statuses: [Open]
@@ -92,11 +92,11 @@ ticket_instructions:
   Open:
     instructions:
       - "IF ticket missing THEN create UX-DES-XXX under FEATURE-XXX."
-      - Set required fields for the new sub-task via the CLI.
-      - Add required links to parent Feature (in the link index (via the CLI)).
+      - Set required fields for the new sub-task.
+      - Add required links to parent Feature.
       - Apply critical thinking and ask questions.
-      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
-      - "Review answers from linked QUESTION tickets: Query Question links on this ticket via the CLI. For each linked QUESTION ticket found: retrieve it via the CLI, read its Answer section and comments, and incorporate findings/decisions into current work."
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - "Review answers from linked QUESTION tickets: Query Question links on this ticket. For each linked QUESTION ticket found: retrieve it, read its Answer section and comments, and incorporate findings/decisions into current work."
       - Move to In Progress.
     transition_dods:
       - target_statuses: [In Progress]
@@ -137,7 +137,7 @@ ticket_instructions:
   Resolved:
     instructions:
       - "Create QUESTION tickets for each required approval (Project Owner, BA, SA, and others as applicable)."
-      - IF blocker link exists AND blocker resolved THEN remove the blocking link via the CLI.
+      - IF blocker link exists AND blocker resolved THEN remove the blocking link.
       - Wait for BA-SUB and SA-SUB to reach Resolved status.
       - Confirm approvals and completeness.
       - IF not blocked AND BA/SA sub-tasks in Resolved THEN ready to move to Closed.
@@ -157,9 +157,9 @@ ticket_instructions:
   Blocked:
     instructions:
       - Confirm blocker and prior status are documented as a comment on this ticket (include blocker ID and prior status).
-      - Verify blocking link exists on this ticket via the CLI.
+      - Verify blocking link exists on this ticket.
       - Do not create new blocker links in this status; they must be created when the block is identified.
-      - "IF blocking link missing THEN create QUESTION-XXX addressed_to appropriate role, add a Blocks link from the question to this ticket via the CLI, and remain Blocked."
-      - "Query blocking links on this ticket via the CLI. For each blocker found: IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated` THEN remove the blocking link via the CLI and return to prior status; IF blocker still active AND blocker priority lower than this ticket priority THEN raise blocker priority to match."
+      - "IF blocking link missing THEN create QUESTION-XXX addressed_to appropriate role, add a Blocks link from the question to this ticket, and remain Blocked."
+      - "Query blocking links on this ticket. For each blocker found: IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated` THEN remove the blocking link and return to prior status; IF blocker still active AND blocker priority lower than this ticket priority THEN raise blocker priority to match."
       - IF all blocking links removed THEN return to prior status documented in comments.
     transition_dods: []

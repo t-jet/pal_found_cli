@@ -10,7 +10,7 @@ description: >-
   assignee, priority, stage, DoD, create ticket, update ticket, list tickets, search tickets,
   get ticket, comment create, link create, workflow status, workflow transitions, workflow types.
 name: ticket-helper
-argument-hint: Describe the tracking operation to perform (create/get/update/list/search tickets, comments, links, or query workflow)
+argument-hint: Describe the tracking operation to perform (create/get/update/list/search tickets, comments, links, or query workflow configuration). Be specific and include all relevant parameters (e.g. ticket type, status, assignee, comment body, link type).
 tools: execute, read, search, todo
 model: Claude Sonnet 4.6 (copilot)
 user-invocable: true
@@ -27,35 +27,15 @@ Translate natural-language requests into CLI commands, execute them, return stru
 </constraints>
 
 <skill>
-Unified CLI: `python .ept/skills/tracking-system/tracker/tracker_cli.py <command> [subcommand] [args]`
-Full syntax and exit codes: `.ept/skills/tracking-system/references/REFERENCE.md`
-
-| Category | Operation | Command |
-|----------|-----------|---------|
-| **Tickets** | Create | `tracker_cli.py create <type> --title "<title>" --author <role> [options]` |
-| | Get | `tracker_cli.py get <ticket-id>` |
-| | List | `tracker_cli.py list [--status X] [--assignee Y] [--type Z] [--priority P]` |
-| | Update | `tracker_cli.py update <ticket-id> --author <role> [--status X] [--assignee Y] [--priority P]` |
-| | Search | `tracker_cli.py search "<query>" [--in-title] [--in-content]` |
-| **Comments** | Create | `tracker_cli.py comment create <ticket-id> --subject "<text>" [--text "<body>"] --author <role>` |
-| | List | `tracker_cli.py comment list <ticket-id>` |
-| | Get | `tracker_cli.py comment get <ticket-id> <comment-id>` |
-| | Update | `tracker_cli.py comment update <ticket-id> <comment-id> [--subject X] [--text Y] --author <role>` |
-| **Links** | Create | `tracker_cli.py link create <source-id> <target-id> <link-type> --author <role> [--comment "..."]` |
-| | List | `tracker_cli.py link list <ticket-id> [--direction in\|out\|all]` |
-| | Remove | `tracker_cli.py link remove <link-id> --author <role>` |
-| **Workflow** | Types | `tracker_cli.py workflow types` |
-| | Status | `tracker_cli.py workflow status [<type> [<status-name>]]` |
-| | Transitions | `tracker_cli.py workflow transitions <type> [<status-name>]` |
-
-`--author` **required** for: `create`, `update`, `link create/remove`, `comment create/update`
-`--author` **optional** for: `get`, `list`, `search`, `link list`, `comment list/get`, `workflow *`
+Unified Tracking System CLI: `python .ept/skills/tracking-system/tracker/tracker_cli.py <command> [subcommand] [args]`
+Full syntax, usage instructions, and exit codes: `.ept/skills/tracking-system/references/REFERENCE.md`
 </skill>
 
 <protocol>
 0. Read overall workflow documentation in `.ept/skills/workflow/SKILL.md` to understand the context and rules for ticket operations.
-1. **Parse** — extract operation, parameters, author. If ambiguous or missing required params, state what is missing and stop.
-2. **Validate** (write ops only):
+1. **CLI-only retrieval**: All information retrieval — including full type definitions, status details, instructions, DoD criteria, and transition maps — MUST use CLI commands (e.g. `type-info <type>`, `workflow status`, `workflow transitions`). Never analyze how the CLI tools work and where they get information, treat the CLI as the single source of truth.
+2. **Parse** — extract operation, parameters, author. If ambiguous or missing required params, state what is missing and stop.
+3. **Validate** (write ops only):
    - Before any write operations: verify that all required parameters are present and valid.
    - Before `update --status`: run `workflow transitions <type> "<current-status>"` to confirm the transition is allowed.
    - Before updating to the next status: verify that DoD for the moving to the target status from current status by checking applicable criterias:
@@ -65,10 +45,10 @@ Full syntax and exit codes: `.ept/skills/tracking-system/references/REFERENCE.md
       - reason to move to the next status documented
       - other defined criteria in the workflow documentation
    - Before `create`: run `workflow types` to confirm it exists.
-3. If validation fails, return an error message with the reason, description, and suggested corrective action. Then stop without executing any CLI command.
-4. **Construct** the exact CLI command based on the requested operation and parameters.
-5. **Execute** from workspace root. Capture stdout and exit code.
-6. **Return** complete CLI output structured as:
+4. If validation fails, return an error message with the reason, description, and suggested corrective action. Then stop without executing any CLI command.
+5. **Construct** the exact CLI command based on the requested operation and parameters.
+6. **Execute** from workspace root. Capture stdout and exit code.
+7. **Return** complete CLI output structured as:
 ```
 ## Result
 - **Operation**: <what was executed>

@@ -110,17 +110,17 @@ ticket_instructions:
       - Set assignee to ticket creator.
       - Review related documentation and linked Feature/Epic tickets.
       - Apply critical thinking and ask questions.
-      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
       - Analyze and split into child tickets when needed.
-      - Identify blockers and add a blocking link via the CLI.
+      - Identify blockers and add a blocking link.
       - "IF ticket missing THEN create DEV-STORY-XXX under FEATURE-XXX."
-      - Set required fields for the new Story via the CLI.
-      - "Add required links (Contains/is-contained-in, Epic-Link) and ensure links are created via the CLI."
+      - Set required fields for the new Story.
+      - "Add required links (Contains/is-contained-in, Epic-Link) and ensure links are created."
       - IF required fields missing THEN complete them.
       - IF link needs to be created THEN create it.
-      - "Add Contains link to the link index (via the CLI) (source_ticket=parent Feature Request, target_ticket=this Story ID, link_type=Contains)."
+      - "Add Contains link (source_ticket=parent Feature Request, target_ticket=this Story ID, link_type=Contains)."
       - IF Epic Link missing THEN add Epic-Link field (inherit from Feature Request).
-      - "Ensure Epic link exists in the link index (via the CLI) (link_type=EpicLink)."
+      - "Ensure Epic link exists (link_type=EpicLink)."
       - IF documentation exists THEN link as a comment on this ticket.
       - THEN move to Open.
     transition_dods:
@@ -139,8 +139,8 @@ ticket_instructions:
     instructions:
       - Review documentation and related tickets.
       - Apply critical thinking and ask questions.
-      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
-      - Identify blockers and add a blocking link via the CLI.
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - Identify blockers and add a blocking link.
       - WHEN triage complete THEN move to Analysis.
     transition_dods:
       - target_statuses: [Analysis]
@@ -156,7 +156,7 @@ ticket_instructions:
     instructions:
       - Review requirements from parent Feature Request and linked Epic.
       - Apply critical thinking and ask questions.
-      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
       - ELSE clarify technical scope and constraints as a comment on this ticket.
       - Identify technical components and dependencies.
       - WHEN analysis complete THEN move to Grooming.
@@ -183,7 +183,7 @@ ticket_instructions:
       - "Create TESTCASE-XXX sub-task (required - for QA test cases)."
       - "Create TESTEXEC-XXX sub-task (required - for QA execution)."
       - "Create DEVOPS-XXX sub-task (if infrastructure changes needed)."
-      - For each new sub-task, set required fields and add links to the Story via the CLI.
+      - For each new sub-task, set required fields and add links to the Story.
       - Confirm story can complete in one sprint.
       - IF story too large THEN split into multiple stories.
       - Validate all sub-tasks created and ready.
@@ -265,9 +265,9 @@ ticket_instructions:
 
   Resolved:
     instructions:
-      - "Review answers from linked QUESTION tickets: Query Question links on this ticket via the CLI. For each linked QUESTION ticket found: retrieve it via the CLI, read its Answer section and comments, and incorporate findings/decisions into current work."
+      - "Review answers from linked QUESTION tickets: Query Question links on this ticket. For each linked QUESTION ticket found: retrieve it, read its Answer section and comments, and incorporate findings/decisions into current work."
       - Validate all sub-tasks are Closed.
-      - IF blocker link exists AND blocker resolved THEN remove the blocking link via the CLI.
+      - IF blocker link exists AND blocker resolved THEN remove the blocking link.
       - Confirm all acceptance criteria met.
       - Set resolution (Done/Canceled).
       - WHEN DoD to move to Closed met THEN move to Closed.
@@ -280,7 +280,7 @@ ticket_instructions:
           - All acceptance criteria met
           - Deployed to Production successfully
           - Release Notes completed
-          - All links registered in the link index (via the CLI)
+          - All links registered
 
   Closed:
     instructions:
@@ -291,9 +291,9 @@ ticket_instructions:
   Blocked:
     instructions:
       - Confirm blocker and prior status are documented as a comment on this ticket (include blocker ID and prior status).
-      - Verify blocking link exists on this ticket via the CLI.
+      - Verify blocking link exists on this ticket.
       - Do not create new blocker links in this status; they must be created when the block is identified.
-      - "IF blocking link missing THEN create QUESTION-XXX addressed_to appropriate role, add a Blocks link from the question to this ticket via the CLI, and remain Blocked."
-      - "Query blocking links on this ticket via the CLI. For each blocker found: IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated` THEN remove the blocking link via the CLI and return to prior status; IF blocker still active AND blocker priority lower than this ticket priority THEN raise blocker priority to match."
+      - "IF blocking link missing THEN create QUESTION-XXX addressed_to appropriate role, add a Blocks link from the question to this ticket, and remain Blocked."
+      - "Query blocking links on this ticket. For each blocker found: IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated` THEN remove the blocking link and return to prior status; IF blocker still active AND blocker priority lower than this ticket priority THEN raise blocker priority to match."
       - IF all blocking links removed THEN return to prior status documented in comments.
     transition_dods: []

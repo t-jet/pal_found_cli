@@ -77,12 +77,12 @@ ticket_instructions:
       - Set assignee to ticket creator.
       - Review related Development sub-task and parent Story context.
       - Apply critical thinking and ask questions.
-      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
-      - "Review answers from linked QUESTION tickets: Query Question links on this ticket via the CLI. For each linked QUESTION ticket found: retrieve it via the CLI, read its Answer section and comments, and incorporate findings/decisions into current work."
-      - Identify blockers and add a blocking link via the CLI.
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - "Review answers from linked QUESTION tickets: Query Question links on this ticket. For each linked QUESTION ticket found: retrieve it, read its Answer section and comments, and incorporate findings/decisions into current work."
+      - Identify blockers and add a blocking link.
       - "IF ticket missing THEN create CODEREVIEW-XXX under DEV-STORY-XXX."
-      - Set required fields for the new sub-task via the CLI.
-      - "Add relates-to links to the link index (via the CLI): source_ticket=this CODEREVIEW, target_ticket=related DEV sub-task, link_type=RelatesTo; source_ticket=this CODEREVIEW, target_ticket=parent Story, link_type=RelatesTo."
+      - Set required fields for the new sub-task.
+      - "Add relates-to links: source_ticket=this CODEREVIEW, target_ticket=related DEV sub-task, link_type=RelatesTo; source_ticket=this CODEREVIEW, target_ticket=parent Story, link_type=RelatesTo."
       - Set status to New and Blocked by Development sub-task until Development is Resolved.
       - "CORRECTIVE ACTION IF IMPLEMENTATION DOES NOT EXIST: IF implementation files do not exist THEN do NOT start code review; IF DEV-XXX marked Resolved but files missing THEN create BUG ticket for phantom implementation; IF code does not compile THEN do NOT proceed with review - return to DEV-XXX for fixes."
       - Move to Open when DoD is met.
@@ -105,8 +105,8 @@ ticket_instructions:
     instructions:
       - Review code/design and log findings as a comment on this ticket.
       - Apply critical thinking.
-      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
-      - "Review answers from linked QUESTION tickets: Query Question links on this ticket via the CLI. For each linked QUESTION ticket found: retrieve it via the CLI, read its Answer section and comments, and incorporate findings/decisions into current work."
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - "Review answers from linked QUESTION tickets: Query Question links on this ticket. For each linked QUESTION ticket found: retrieve it, read its Answer section and comments, and incorporate findings/decisions into current work."
       - IF review requires changes THEN move to Correction and assign to implementer.
       - IF review approved THEN move to Closed and return Development sub-task to its prior status.
       - "CORRECTIVE ACTION FOR PHANTOM REVIEWS: IF review findings don't cite specific files/lines THEN review is incomplete; IF review claims excellence but provides no code examples THEN review may be phantom; IF files reviewed do not exist THEN this is phantom review - create BUG ticket and revert to New; ALL review findings MUST reference verifiable code locations."
@@ -126,8 +126,8 @@ ticket_instructions:
     instructions:
       - Assignee is the implementer of the Development sub-task.
       - Apply critical thinking.
-      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
-      - "Review answers from linked QUESTION tickets: Query Question links on this ticket via the CLI. For each linked QUESTION ticket found: retrieve it via the CLI, read its Answer section and comments, and incorporate findings/decisions into current work."
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - "Review answers from linked QUESTION tickets: Query Question links on this ticket. For each linked QUESTION ticket found: retrieve it, read its Answer section and comments, and incorporate findings/decisions into current work."
       - Implement corrective actions in the Development sub-task.
       - Add comment summarizing fixes and responses.
       - THEN move to Corrected and reassign to original reviewer.
@@ -145,7 +145,7 @@ ticket_instructions:
     instructions:
       - Reviewer re-checks implementation.
       - IF further changes needed THEN move back to Correction and assign implementer.
-      - IF satisfied THEN remove the blocking link via the CLI to unblock Development sub-task and move to Closed.
+      - IF satisfied THEN remove the blocking link to unblock Development sub-task and move to Closed.
     transition_dods:
       - target_statuses: [Correction, Closed]
         dod_criteria:
@@ -160,7 +160,7 @@ ticket_instructions:
           - Review completed and approved by reviewer
           - "All review comments addressed or follow-up tasks created"
           - Code/design meets quality standards
-          - All links registered in the link index (via the CLI)
+          - All links registered
 
   Closed:
     instructions:
@@ -170,9 +170,9 @@ ticket_instructions:
   Blocked:
     instructions:
       - Confirm blocker and prior status are documented as a comment on this ticket (include blocker ID and prior status).
-      - Verify blocking link exists on this ticket via the CLI.
+      - Verify blocking link exists on this ticket.
       - Do not create new blocker links in this status; they must be created when the block is identified.
-      - "IF blocking link missing THEN create QUESTION-XXX addressed_to appropriate role, add a Blocks link from the question to this ticket via the CLI, and remain Blocked."
-      - "Query blocking links on this ticket via the CLI. For each blocker found: IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated` THEN remove the blocking link via the CLI and return to prior status; IF blocker still active AND blocker priority lower than this ticket priority THEN raise blocker priority to match."
+      - "IF blocking link missing THEN create QUESTION-XXX addressed_to appropriate role, add a Blocks link from the question to this ticket, and remain Blocked."
+      - "Query blocking links on this ticket. For each blocker found: IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated` THEN remove the blocking link and return to prior status; IF blocker still active AND blocker priority lower than this ticket priority THEN raise blocker priority to match."
       - IF all blocking links removed THEN return to prior status documented in comments.
     transition_dods: []

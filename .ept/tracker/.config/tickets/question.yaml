@@ -94,7 +94,7 @@ ticket_instructions:
       - Set assignee to ticket creator.
       - Review related documentation and parent context.
       - "Apply critical thinking; if ambiguity exists, refine the question."
-      - Identify blockers and add a blocking link via the CLI.
+      - Identify blockers and add a blocking link.
       - Move to Open.
     transition_dods:
       - target_statuses: [Open, Blocked]
@@ -110,12 +110,12 @@ ticket_instructions:
   Open:
     instructions:
       - "IF ticket missing THEN create QUESTION-XXX under parent ticket."
-      - Set required fields for the new Question via the CLI.
-      - Add required links to parent (is-blocked-by/blocks in the link index (via the CLI)).
+      - Set required fields for the new Question.
+      - Add required links to parent (is-blocked-by/blocks).
       - Apply critical thinking before asking.
       - Document ALL research done in "Research Done" section.
-      - "Set required fields (title, description, addressed_to, assignee) via the CLI."
-      - "Create blocking link in the link index (via the CLI) (source_ticket=this question, target_ticket=parent, link_type=Blocks)."
+      - "Set required fields (title, description, addressed_to, assignee)."
+      - "Create blocking link (source_ticket=this question, target_ticket=parent, link_type=Blocks)."
       - Parent ticket automatically Blocked until question resolved.
       - IF addressee is "Project Owner" THEN notify human required.
       - Move to In Progress when research documented.
@@ -139,7 +139,7 @@ ticket_instructions:
       - Apply critical thinking and ask questions.
       - "IF question is clear AND answer can be formulated: Formulate complete answer with additional context or references; Add answer as a comment on this ticket or \"Answer\" section; Move to Resolved."
       - "IF question is unclear OR needs more context from requester: Document what clarification is needed as a comment on this ticket; Reassign to requester (original creator); Move to Clarification."
-      - "IF you need more context from other team members listed in the `.ept/docs/resources/available_resources.md` (not requester) THEN create QUESTION-XXX, add a blocking link via the CLI, add a Question link from the question to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - "IF you need more context from other team members listed in the `.ept/docs/resources/available_resources.md` (not requester) THEN create QUESTION-XXX, add a blocking link, add a Question link from the question to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
       - "IF question no longer relevant: Document rationale as a comment on this ticket; Move to Canceled."
     transition_dods:
       - target_statuses: [Clarification, Resolved, Canceled, Blocked]
@@ -191,8 +191,8 @@ ticket_instructions:
 
   Resolved:
     instructions:
-      - "Review answers from linked nested QUESTION tickets: Query Question links on this ticket via the CLI. For each linked QUESTION ticket found: retrieve it via the CLI, read its Answer section and comments, and incorporate findings/decisions into current work."
-      - Remove the blocking link from this question to its parent via the CLI.
+      - "Review answers from linked nested QUESTION tickets: Query Question links on this ticket. For each linked QUESTION ticket found: retrieve it, read its Answer section and comments, and incorporate findings/decisions into current work."
+      - Remove the blocking link from this question to its parent.
       - Parent ticket returns to its prior status.
       - Set resolution (Done/Canceled).
       - Move to Closed.
@@ -211,16 +211,16 @@ ticket_instructions:
     instructions:
       - Question no longer relevant or duplicate found.
       - Record rationale as a comment on this ticket.
-      - Remove the blocking link from this question to its parent via the CLI.
+      - Remove the blocking link from this question to its parent.
       - Return parent ticket to its prior status.
     transition_dods: []
 
   Blocked:
     instructions:
       - Confirm blocker and prior status are documented as a comment on this ticket (include blocker ID and prior status).
-      - Verify blocking link exists on this ticket via the CLI.
+      - Verify blocking link exists on this ticket.
       - Do not create new blocker links in this status; they must be created when the block is identified.
-      - "IF blocking link missing THEN create QUESTION-XXX addressed_to appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, and remain Blocked."
-      - "Query blocking links on this ticket via the CLI. For each blocker found: IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated` THEN remove the blocking link via the CLI and return to prior status; IF blocker still active AND blocker priority lower than this ticket priority THEN raise blocker priority to match."
+      - "IF blocking link missing THEN create QUESTION-XXX addressed_to appropriate role, add a Blocks link and a Question link from it to this ticket, and remain Blocked."
+      - "Query blocking links on this ticket. For each blocker found: IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated` THEN remove the blocking link and return to prior status; IF blocker still active AND blocker priority lower than this ticket priority THEN raise blocker priority to match."
       - IF all blocking links removed THEN return to prior status documented in comments.
     transition_dods: []

@@ -74,9 +74,9 @@ ticket_instructions:
       - Set assignee to ticket creator.
       - Review related documentation and parent Story context.
       - Apply critical thinking and ask questions.
-      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
-      - "Review answers from linked QUESTION tickets: Query Question links on this ticket via the CLI. For each linked QUESTION ticket found: retrieve it via the CLI, read its Answer section and comments, and incorporate findings/decisions into current work."
-      - Identify blockers and add a blocking link via the CLI.
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - "Review answers from linked QUESTION tickets: Query Question links on this ticket. For each linked QUESTION ticket found: retrieve it, read its Answer section and comments, and incorporate findings/decisions into current work."
+      - Identify blockers and add a blocking link.
       - Move to Open.
     transition_dods:
       - target_statuses: [Open]
@@ -92,11 +92,11 @@ ticket_instructions:
   Open:
     instructions:
       - "IF ticket missing THEN create DEV-XXX under DEV-STORY-XXX."
-      - Set required fields for the new sub-task via the CLI.
-      - Add required links to parent Story (in the link index (via the CLI)).
+      - Set required fields for the new sub-task.
+      - Add required links to parent Story.
       - Apply critical thinking and ask questions.
-      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
-      - "Review answers from linked QUESTION tickets: Query Question links on this ticket via the CLI. For each linked QUESTION ticket found: retrieve it via the CLI, read its Answer section and comments, and incorporate findings/decisions into current work."
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - "Review answers from linked QUESTION tickets: Query Question links on this ticket. For each linked QUESTION ticket found: retrieve it, read its Answer section and comments, and incorporate findings/decisions into current work."
       - Create a plan as a comment on this ticket.
       - IF scope too large THEN split into additional DEV sub-tasks.
       - IF related docs exist THEN link as a comment on this ticket.
@@ -141,12 +141,12 @@ ticket_instructions:
           - "Related documents in the `.ept/docs/document_index.md` analyzed and modified to incorporate ticket results"
           - "`.ept/docs/document_index.md` updated for changes in deliverables"
           - All document changes documented as a comment on this ticket
-          - All links registered in the link index (via the CLI)
+          - All links registered
           - CodeReview sub-task created and relates-to link established
 
   Resolved:
     instructions:
-      - IF blocker link exists AND blocker resolved THEN remove the blocking link via the CLI.
+      - IF blocker link exists AND blocker resolved THEN remove the blocking link.
       - "Block Development sub-task on CodeReview: add is-blocked-by/blocks links between DEV and CODEREVIEW."
       - Move CodeReview sub-task to Open and assign reviewer.
       - Ensure review readiness.
@@ -164,9 +164,9 @@ ticket_instructions:
   Blocked:
     instructions:
       - Confirm blocker and prior status are documented as a comment on this ticket (include blocker ID and prior status).
-      - Verify blocking link exists on this ticket via the CLI.
+      - Verify blocking link exists on this ticket.
       - Do not create new blocker links in this status; they must be created when the block is identified.
-      - "IF blocking link missing THEN create QUESTION-XXX addressed_to appropriate role, add a Blocks link from the question to this ticket via the CLI, and remain Blocked."
-      - "Query blocking links on this ticket via the CLI. For each blocker found: IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated` THEN remove the blocking link via the CLI and return to prior status; IF blocker still active AND blocker priority lower than this ticket priority THEN raise blocker priority to match."
+      - "IF blocking link missing THEN create QUESTION-XXX addressed_to appropriate role, add a Blocks link from the question to this ticket, and remain Blocked."
+      - "Query blocking links on this ticket. For each blocker found: IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated` THEN remove the blocking link and return to prior status; IF blocker still active AND blocker priority lower than this ticket priority THEN raise blocker priority to match."
       - IF all blocking links removed THEN return to prior status documented in comments.
     transition_dods: []

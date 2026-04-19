@@ -70,8 +70,8 @@ ticket_instructions:
       - Set assignee to ticket creator.
       - Review related documentation and similar defects.
       - Apply critical thinking and ask questions.
-      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
-      - Identify blockers and add a blocking link via the CLI.
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - Identify blockers and add a blocking link.
       - Move to Open.
     transition_dods:
       - target_statuses: [Open]
@@ -88,8 +88,8 @@ ticket_instructions:
     instructions:
       - Apply critical thinking and ask questions.
       - "IF ticket missing THEN create BUG-XXX at tracker root."
-      - Set required fields for the new Bug via the CLI.
-      - "Add required links (goes-to/comes-from, relates-to, blocks/is-blocked-by as applicable) and ensure links are created via the CLI."
+      - Set required fields for the new Bug.
+      - "Add required links (goes-to/comes-from, relates-to, blocks/is-blocked-by as applicable) and ensure links are created."
       - IF required fields missing THEN complete them.
       - IF link needs to be created THEN create it.
       - IF bug leads to new capability THEN add goes to / comes from links to Feature.
@@ -108,8 +108,8 @@ ticket_instructions:
   "In Progress":
     instructions:
       - Apply critical thinking and ask questions.
-      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
-      - IF blocked by dependency THEN add a blocking link via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket.
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - IF blocked by dependency THEN add a blocking link, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket.
       - IF lower-priority blocker blocks higher-priority Bug THEN raise blocker priority.
       - ELSE investigate root cause and document as a comment on this ticket.
       - Apply fix and document implementation.
@@ -125,8 +125,8 @@ ticket_instructions:
 
   Resolved:
     instructions:
-      - "Review answers from linked QUESTION tickets: Query Question links on this ticket via the CLI. For each linked QUESTION ticket found: retrieve it via the CLI, read its Answer section and comments, and incorporate findings/decisions into current work."
-      - IF blocker link exists AND blocker resolved THEN remove the blocking link via the CLI.
+      - "Review answers from linked QUESTION tickets: Query Question links on this ticket. For each linked QUESTION ticket found: retrieve it, read its Answer section and comments, and incorporate findings/decisions into current work."
+      - IF blocker link exists AND blocker resolved THEN remove the blocking link.
       - QA verifies fix and records verification evidence.
       - IF not blocked AND doesn't block others AND fix verified THEN ready to move to Closed.
       - "Set resolution: Done/Rejected/Canceled/Duplicated."

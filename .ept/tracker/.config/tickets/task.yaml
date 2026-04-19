@@ -75,14 +75,14 @@ ticket_instructions:
       - Set assignee to ticket creator.
       - Review related documentation and similar tasks.
       - Apply critical thinking and ask questions.
-      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
       - Analyze and split into child tickets when possible.
-      - Identify blockers and add a blocking link via the CLI.
-      - "IF ticket missing THEN create the task via the CLI (omit parent for root-level tasks)."
-      - "Add required links via the CLI (type options: Blocks, RelatesTo, Duplicates, Question, Contains, etc.)."
+      - Identify blockers and add a blocking link.
+      - "IF ticket missing THEN create the task (omit parent for root-level tasks)."
+      - "Add required links (type options: Blocks, RelatesTo, Duplicates, Question, Contains, etc.)."
       - IF required fields missing THEN complete them.
       - IF link needs to be created THEN create it.
-      - IF related tickets exist THEN add links via the CLI.
+      - IF related tickets exist THEN add links.
       - IF documentation exists THEN link as a comment on this ticket.
       - Move to Open when DoD is met.
     transition_dods:
@@ -100,10 +100,10 @@ ticket_instructions:
   Open:
     instructions:
       - Apply critical thinking and ask questions.
-      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket via the CLI, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
       - ELSE create an execution plan as a comment on this ticket.
       - "IF work too large (> 4-8 hours) THEN decompose into WORK-XXX sub-tasks."
-      - For each new Work Item, create and link them via the CLI.
+      - For each new Work Item, create and link them.
       - IF work needs Developer Story (implementation) THEN create Developer Story instead.
       - Assign owner (required).
     transition_dods:
@@ -140,8 +140,8 @@ ticket_instructions:
 
   Resolved:
     instructions:
-      - "Review answers from linked QUESTION tickets: Query Question links on this ticket via the CLI. For each linked QUESTION ticket found: retrieve it via the CLI, read its Answer section and comments, and incorporate findings/decisions into current work."
-      - IF blocker link exists AND blocker resolved THEN remove the blocking link via the CLI.
+      - "Review answers from linked QUESTION tickets: Query Question links on this ticket. For each linked QUESTION ticket found: retrieve it, read its Answer section and comments, and incorporate findings/decisions into current work."
+      - IF blocker link exists AND blocker resolved THEN remove the blocking link.
       - Verify acceptance criteria and work items completion.
       - IF not blocked AND doesn't block others THEN ready to move to Closed.
       - Set resolution.
@@ -159,9 +159,9 @@ ticket_instructions:
   Blocked:
     instructions:
       - Confirm blocker and prior status are documented as a comment on this ticket (include blocker ID and prior status).
-      - Verify blocking link exists on this ticket via the CLI.
+      - Verify blocking link exists on this ticket.
       - Do not create new blocker links in this status; they must be created when the block is identified.
-      - "IF blocking link missing THEN create QUESTION-XXX addressed_to appropriate role, add a Blocks link from the question to this ticket via the CLI, and remain Blocked."
-      - "Query blocking links on this ticket via the CLI. For each blocker found: IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated` THEN remove the blocking link via the CLI and return to prior status; IF blocker still active AND blocker priority lower than this ticket priority THEN raise blocker priority to match."
+      - "IF blocking link missing THEN create QUESTION-XXX addressed_to appropriate role, add a Blocks link from the question to this ticket, and remain Blocked."
+      - "Query blocking links on this ticket. For each blocker found: IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated` THEN remove the blocking link and return to prior status; IF blocker still active AND blocker priority lower than this ticket priority THEN raise blocker priority to match."
       - IF all blocking links removed THEN return to prior status documented in comments.
     transition_dods: []
