@@ -273,3 +273,124 @@ class TestBuildStatusContext:
         assert ctx["status_description"] == "Ticket just created."
         assert ctx["status_goal"] == "Prepare ticket."
         assert "Architect" in ctx["status_responsible_roles"]
+
+
+# ── GAP-01: update_ticket extra_fields ───────────────────────────────────────
+
+
+class TestUpdateTicketExtraFields:
+    def test_update_known_optional_field(self, tracker_env: Path) -> None:
+        tid = make_task("Field update")
+        result = update_ticket(tid, "architect", extra_fields={"addressed_to": "pm"})
+        ticket = get_ticket(tid)
+        metadata, _ = parse_ticket_file(ticket)
+        assert metadata.get("addressed_to") == "pm"
+
+    def test_updated_field_visible_via_get(self, tracker_env: Path) -> None:
+        tid = make_task("Get after update")
+        update_ticket(tid, "architect", extra_fields={"addressed_to": "qa"})
+        data = get_ticket_with_content(tid)
+        assert data.get("addressed_to") == "qa"
+
+    def test_update_unknown_field_raises(self, tracker_env: Path) -> None:
+        tid = make_task("Unknown field")
+        with pytest.raises(ValidationError, match="Unknown field"):
+            update_ticket(tid, "architect", extra_fields={"nonexistent_field": "x"})
+
+    def test_update_disallowed_field_raises(self, tracker_env: Path) -> None:
+        """Field in valid_field_names but not in type optional_fields raises."""
+        parent_id = make_task("Parent")
+        child_id = make_workitem(parent_id, "Child")
+        # 'addressed_to' is not in workitem optional_fields
+        with pytest.raises(ValidationError, match="not allowed for type"):
+            update_ticket(child_id, "architect", extra_fields={"addressed_to": "x"})
+
+
+# ── GAP-02: list_tickets parent filter ───────────────────────────────────────
+
+
+class TestListTicketsParentFilter:
+    def test_filter_by_parent_returns_children(self, tracker_env: Path) -> None:
+        parent_id = make_task("Parent ticket")
+        child1 = make_workitem(parent_id, "Child 1")
+        child2 = make_workitem(parent_id, "Child 2")
+        make_task("Unrelated")
+        results = list_tickets(parent=parent_id)
+        ids = [t["id"] for t in results]
+        assert child1 in ids
+        assert child2 in ids
+        assert len(results) == 2
+
+    def test_filter_by_parent_combined_with_status(self, tracker_env: Path) -> None:
+        parent_id = make_task("Parent")
+        child1 = make_workitem(parent_id, "Open child")
+        make_workitem(parent_id, "New child")
+        # Move child1 to Open
+        update_ticket(child1, "architect", status="Open")
+        results = list_tickets(status="Open", parent=parent_id)
+        assert len(results) == 1
+        assert results[0]["id"] == child1
+
+    def test_filter_by_parent_combined_with_type(self, tracker_env: Path) -> None:
+        parent_id = make_task("Parent")
+        make_workitem(parent_id, "Child workitem")
+        results = list_tickets(ticket_type="workitem", parent=parent_id)
+        assert len(results) == 1
+
+    def test_nonexistent_parent_returns_empty(self, tracker_env: Path) -> None:
+        make_task("Task A")
+        # No ticket has FAKE-999 as parent; just returns empty list
+        results = list_tickets(parent="FAKE-999")
+        assert results == []
+
+
+# ── GAP-03: update_ticket description ────────────────────────────────────────
+
+
+class TestUpdateTicketDescription:
+    def test_update_description_replaces_body(self, tracker_env: Path) -> None:
+        tid = make_task("Desc update")
+        update_ticket(tid, "architect", description="New body text")
+        ticket = get_ticket(tid)
+        _, body = parse_ticket_file(ticket)
+        assert "New body text" in body
+
+    def test_update_description_readable_via_get(self, tracker_env: Path) -> None:
+        tid = make_task("Desc via get")
+        update_ticket(tid, "architect", description="Updated content here")
+        data = get_ticket_with_content(tid)
+        assert "Updated content here" in data["content"]
+
+    def test_no_description_leaves_body_unchanged(self, tracker_env: Path) -> None:
+        tid = create_ticket(
+            "task", "Body unchanged", author="a", assignee="b",
+            description="Original body",
+        )
+        update_ticket(tid, "architect", assignee="new-dev")
+        ticket = get_ticket(tid)
+        _, body = parse_ticket_file(ticket)
+        assert "Original body" in body
+
+    def test_update_description_escape_sequences(self, tracker_env: Path) -> None:
+        tid = make_task("Escape test")
+        update_ticket(tid, "architect", description="Line1\\nLine2")
+        ticket = get_ticket(tid)
+        _, body = parse_ticket_file(ticket)
+        assert "Line1\nLine2" in body
+
+
+# ── GAP-04: list_tickets reporter filter ─────────────────────────────────────
+
+
+class TestListTicketsReporterFilter:
+    def test_filter_by_reporter(self, tracker_env: Path) -> None:
+        create_ticket("task", "By Alice", author="alice", assignee="dev")
+        create_ticket("task", "By Bob", author="bob", assignee="dev")
+        results = list_tickets(reporter="alice")
+        assert len(results) == 1
+        assert results[0]["reporter"] == "alice"
+
+    def test_filter_by_reporter_no_match(self, tracker_env: Path) -> None:
+        make_task("Task")
+        results = list_tickets(reporter="nobody")
+        assert results == []

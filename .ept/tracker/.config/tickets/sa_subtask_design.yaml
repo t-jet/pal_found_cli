@@ -1,4 +1,4 @@
-type: sa_subtask_design
+﻿type: sa_subtask_design
 id_prefix: SA-DES
 description: >-
   Solution Architect Design Sub-Task: detailed architecture design and technical specification for the DESIGN stage.
@@ -66,7 +66,19 @@ allowed_transitions:
   Canceled:    []
   Rejected:    []
   Duplicated:  []
-automatic_transitions: []
+automatic_transitions:
+  # AT-4: block when a Question sub-task with a Blocks link is created
+  - rule: child_blocker_created
+    child_filter:
+      types: [question]
+      link_type: Blocks
+    target_status: Blocked
+
+  # AT-5: restore prior status when all blockers are cleared
+  - rule: all_blockers_cleared
+    blocker_terminal_statuses: [Closed, Done, Canceled, Rejected, Duplicated]
+    source_status: Blocked
+    target_status: prior_status
 
 ticket_instructions:
   New:

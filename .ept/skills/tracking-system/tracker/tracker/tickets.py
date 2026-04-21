@@ -20,7 +20,7 @@ from .index import (
     ticket_exists,
     write_index,
 )
-from .utils import build_frontmatter_text, now_date
+from .utils import build_frontmatter_text, decode_escape_sequences, now_date
 from .validators import validate_ticket_type
 
 
@@ -238,6 +238,13 @@ def create_ticket(
         ticket_id, author, "Ticket created",
         f"Created ticket of type '{ticket_type}'",
     )
+
+    # Post-create automations triggers
+    from .automations import evaluate_automatic_transitions
+    evaluate_automatic_transitions(ticket_id, "ticket_created")
+    if parent:
+        evaluate_automatic_transitions(parent, "child_created")
+
     return ticket_id
 
 
@@ -255,6 +262,9 @@ def list_tickets(
     assignee: str | None = None,
     ticket_type: str | None = None,
     priority: str | None = None,
+    *,
+    parent: str | None = None,
+    reporter: str | None = None,
 ) -> list[dict[str, str]]:
     """List tickets with optional single-pass filtering."""
     tickets = read_index()
@@ -268,6 +278,10 @@ def list_tickets(
             continue
         if priority and ticket["priority"] != priority:
             continue
+        if parent and ticket.get("parent", "") != parent:
+            continue
+        if reporter and ticket.get("reporter", "") != reporter:
+            continue
         results.append(ticket)
     return results
 
@@ -278,6 +292,10 @@ def update_ticket(
     status: str | None = None,
     assignee: str | None = None,
     priority: str | None = None,
+    *,
+    extra_fields: dict[str, str] | None = None,
+    description: str | None = None,
+    _system: bool = False,
 ) -> dict[str, str]:
     """Update ticket metadata and synchronise index + file."""
     from .validators import validate_status_transition, validate_status_value
@@ -287,6 +305,26 @@ def update_ticket(
     ticket = next((t for t in tickets if t["id"] == ticket_id), None)
     if not ticket:
         raise ValidationError(f"Ticket {ticket_id} not found")
+
+    # Validate extra_fields before making any changes
+    if extra_fields:
+        spec = cfg["ticket_specs"][ticket["type"]]
+        optional_fields: list[str] = spec["optional_fields"]
+        allowed_fields = set(spec["required_fields"]) | set(optional_fields)
+        unknown = [k for k in extra_fields if k not in cfg["valid_field_names"]]
+        if unknown:
+            raise ValidationError(
+                f"Unknown field(s): {', '.join(sorted(unknown))}. "
+                f"Valid fields: {', '.join(sorted(cfg['valid_field_names']))}. "
+                "Fix: use configured field names"
+            )
+        disallowed = [k for k in extra_fields if k not in allowed_fields]
+        if disallowed:
+            raise ValidationError(
+                f"Field(s) not allowed for type '{ticket['type']}': "
+                f"{', '.join(sorted(disallowed))}. "
+                f"Allowed fields for this type: {', '.join(sorted(allowed_fields))}."
+            )
 
     updated = False
     if status and status != ticket["status"]:
@@ -305,6 +343,13 @@ def update_ticket(
             )
         ticket["priority"] = priority
         updated = True
+    if extra_fields:
+        for k, v in extra_fields.items():
+            if k in ticket:
+                ticket[k] = v
+        updated = True
+    if description is not None:
+        updated = True
 
     if updated:
         ticket["updated"] = now_date()
@@ -317,14 +362,37 @@ def update_ticket(
             metadata["assignee"] = ticket["assignee"]
         if priority:
             metadata["priority"] = ticket["priority"]
+        if extra_fields:
+            metadata.update(extra_fields)
         metadata["updated"] = ticket["updated"]
-        write_ticket_file(ticket, metadata, body)
+        new_body = decode_escape_sequences(description) if description is not None else body
+        write_ticket_file(ticket, metadata, new_body)
 
+        changed_parts: list[str] = []
+        if status:
+            changed_parts.append(f"status={status}")
+        if assignee is not None:
+            changed_parts.append(f"assignee={assignee}")
+        if priority:
+            changed_parts.append(f"priority={priority}")
+        if extra_fields:
+            for k, v in extra_fields.items():
+                changed_parts.append(f"{k}={v}")
+        if description is not None:
+            changed_parts.append("description=<updated>")
         create_comment(
             ticket_id, author, "Ticket updated",
-            f"Updated fields: status={status}, assignee={assignee}, "
-            f"priority={priority}",
+            f"Updated fields: {', '.join(changed_parts)}",
         )
+
+        # Post-update automations trigger (skip for system-generated updates)
+        if not _system and status:
+            from .automations import evaluate_automatic_transitions
+            evaluate_automatic_transitions(ticket_id, "ticket_updated")
+            parent_id = ticket.get("parent", "")
+            if parent_id:
+                evaluate_automatic_transitions(parent_id, "child_status_changed")
+
     return ticket
 
 

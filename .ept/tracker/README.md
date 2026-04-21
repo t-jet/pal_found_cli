@@ -40,7 +40,6 @@ Root Level Tickets:
 3. **Epics at Root Level**: Logical organization units linked to Features and Stories via Epic Link
 4. **Task Ticket Type**: General-purpose catch-all for ad-hoc work not fitting other types; no time reporting
 5. **Resource Requests**: Special ticket type for requesting new agents/resources
-6. **Knowledge Base**: All resolved questions stored in `project_qa.md`
 7. **Documentation-in-Comments**: All execution plans, summaries, reports MUST be in ticket comments, NOT separate files
 8. **User Activity Tracking**: All User/Project Owner activities must be documented in tickets
 9. **Mandatory Process Algorithms**: All agents MUST follow `.instructions/` workflows for each ticket type
@@ -59,7 +58,6 @@ Before executing ANY activity:
 
 1. **Search for Existing Ticket**: Check `.ept/tracker/.config/.index.csv` for related work
 2. **Consult Process Instructions**: Read `.ept/tracker/.instructions/index.md` for ticket type algorithm
-3. **Research Before Asking**: Check `project_qa.md`, documentation, and code before creating Questions
 4. **Document Research**: Always document research done in Question tickets
 5. **Follow Status Workflow**: Never skip stages - progress through all statuses in order
 6. **Manage Links**: Add links to `.ept/tracker/.config/.link-index.csv` when creating relationships
@@ -103,7 +101,6 @@ All ticket types have detailed handling algorithms in `.ept/tracker/.instruction
 
 **MANDATORY CHECKS**:
 
-1. Search `project_qa.md` for similar questions
 2. Check open `QUESTION-*` folders for duplicates
 3. Review `.ept/docs/` documentation
 4. Check relevant code files
@@ -713,18 +710,6 @@ When archiving a ticket:
 
 ---
 
-## Project QA Document
-
-**File**: `project_qa.md`
-
-**Purpose**: Centralized knowledge base of all answered questions. Check this BEFORE creating new questions!
-
-**Structure**: Organized by categories (Architecture, Implementation, Database, Testing, DevOps, Business, Project Owner Decisions)
-
-**Maintenance**: When any Question resolved, copy to project_qa.md with full context and references.
-
----
-
 ## Configuration
 
 See `.tracker-config.md` for:
@@ -759,7 +744,7 @@ grep ",python-dev," tracker/.config/.index.csv
 Resolve or remove invalid blockers (delete from CSV by link_id), then unblock ticket
 
 **Problem**: Question already answered elsewhere  
-**Solution**: Search `project_qa.md` first! If found, reference existing answer instead of creating duplicate
+**Solution**: Search the QUESTION tickets for similar questions. If found, reference the existing answer in a new comment on your ticket, and link to the existing Question ticket for traceability.
 
 **Problem**: Parent status not updating automatically  
 **Solution**: Check automatic operations enabled in `.tracker-config.md`. May need manual update if rules don't cover scenario
@@ -788,31 +773,29 @@ Resolve or remove invalid blockers (delete from CSV by link_id), then unblock ti
 ## Best Practices
 
 1. **Follow Process Algorithms**: ALWAYS consult `tracker/.instructions/{ticket-type}.md` before working on tickets
-2. **Research Before Asking**: Check `project_qa.md`, docs/, code, and open Questions before creating new Questions
-3. **Document Research**: In Questions, ALWAYS fill "Research Done" section with what you've checked
-4. **Small Stories**: Keep Developer Stories completable in ONE SPRINT (no multi-sprint stories)
-5. **Clear Titles**: Use specific, actionable titles:
+2. **Document Research**: In Questions, ALWAYS fill "Research Done" section with what you've checked
+3. **Small Stories**: Keep Developer Stories completable in ONE SPRINT (no multi-sprint stories)
+4. **Clear Titles**: Use specific, actionable titles:
    - ❌ "Fix bug" or "Update code"
    - ✅ "Fix connection timeout in auth module" or "Add retry logic to database connector"
-6. **Business vs Technical Language**:
+5. **Business vs Technical Language**:
    - Epics/Features: Business language ("Check room availability", "Generate revenue report")
    - Developer Stories: Technical language ("Implement OAuth2 service", "Create PostgreSQL connection pool")
-7. **Update Regularly**: Update timestamps and add comments for all status changes
-8. **Link Management**: Add all relationship links to tracker/.config/.link-index.csv with proper link types
-9. **Link Related Work**: Create relates-to links for similar functionality or cross-cutting concerns
-10. **Close Promptly**: Close tickets when truly done, don't leave in Resolved indefinitely
-11. **Copy Resolved Questions**: When Question resolved, immediately copy Q&A to `project_qa.md`
-12. **Check Blockers**: Before starting work, query tracker/.config/.link-index.csv to verify no blockers exist (link_type=Blocks where target_ticket=this ticket)
-13. **Documentation in Comments**: ALL execution plans, summaries, reports go in ticket comments (NOT separate files)
-14. **Track User Activities**: Document all User/Project Owner requests as tickets (Task or appropriate type)
-15. **No Stage Skipping**: Follow status progression - cannot jump stages
-16. **Code Review Per DEV**: Every DEV-XXX sub-task REQUIRES a linked CODEREVIEW-XXX sub-task
-17. **Time Reporting**:
+6. **Update Regularly**: Update timestamps and add comments for all status changes
+7. **Link Management**: Add all relationship links to tracker/.config/.link-index.csv with proper link types
+8. **Link Related Work**: Create relates-to links for similar functionality or cross-cutting concerns
+9. **Close Promptly**: Close tickets when truly done, don't leave in Resolved indefinitely
+10. **Check Blockers**: Before starting work, query tracker/.config/.link-index.csv to verify no blockers exist (link_type=Blocks where target_ticket=this ticket)
+11. **Documentation in Comments**: ALL execution plans, summaries, reports go in ticket comments (NOT separate files)
+12. **Track User Activities**: Document all User/Project Owner requests as tickets (Task or appropriate type)
+13. **No Stage Skipping**: Follow status progression - cannot jump stages
+14. **Code Review Per DEV**: Every DEV-XXX sub-task REQUIRES a linked CODEREVIEW-XXX sub-task
+15. **Time Reporting**:
     - ✅ Report time in: Sub-tasks (BA-SUB, SA-SUB, UX-SUB, DESIGN, DEV, UNITTEST, CODEREVIEW, TESTCASE, TESTEXEC, DEVOPS, WORK, QUESTION)
     - ❌ NO time reporting in: Feature Requests, Epics, Developer Stories, Tasks, Bugs
-18. **UX Sub-Task Creation**: Create UX-SUB only when Feature includes UI/UX work (screens, flows, layouts, accessibility)
-19. **Question Universality**: Questions can be children of ANY ticket or sub-task (not just Stories)
-20. **Task Usage**: Use Task for ad-hoc work that doesn't fit Feature/Epic/Story structure (documentation, research, admin)
+16. **UX Sub-Task Creation**: Create UX-SUB only when Feature includes UI/UX work (screens, flows, layouts, accessibility)
+17. **Question Universality**: Questions can be children of ANY ticket or sub-task (not just Stories)
+18. **Task Usage**: Use Task for ad-hoc work that doesn't fit Feature/Epic/Story structure (documentation, research, admin)
 
 ---
 

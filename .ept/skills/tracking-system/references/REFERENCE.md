@@ -80,10 +80,19 @@ Returns the YAML status-context block **plus** full ticket metadata and content 
 
 ```bash
 python .ept/skills/tracking-system/tracker/tracker_cli.py list [--status <status>] [--assignee <role>]
-    [--type <type>] [--priority <level>] [--author <role>]
+    [--type <type>] [--priority <level>] [--parent <ticket-id>] [--reporter <role>] [--author <role>]
 ```
 
 All filters are optional and combinable. Returns a tabular summary (ID, status, priority, assignee, title).
+
+| Option | Description |
+|---|---|
+| `--status <status>` | Filter by current status |
+| `--assignee <role>` | Filter by assignee |
+| `--type <type>` | Filter by ticket type |
+| `--priority <level>` | Filter by priority |
+| `--parent <ticket-id>` | Return only direct children of the given ticket. The parent ticket must exist. |
+| `--reporter <role>` | Filter by the author who created the ticket |
 
 ---
 
@@ -92,13 +101,24 @@ All filters are optional and combinable. Returns a tabular summary (ID, status, 
 ```bash
 python .ept/skills/tracking-system/tracker/tracker_cli.py update <ticket-id> --author <role>
     [--status <status>] [--assignee <role>] [--priority <level>]
+    [--field key=value] [--description <text>] [--description-file <path>]
 ```
 
-At least one of `--status`, `--assignee`, `--priority` must be provided.
+At least one of `--status`, `--assignee`, `--priority`, `--field`, `--description`, or `--description-file` must be provided.
+
+| Option | Description |
+|---|---|
+| `--status <status>` | Transition to a new status (validated against `allowed_transitions`) |
+| `--assignee <role>` | Change the assignee |
+| `--priority <level>` | Change the priority |
+| `--field key=value` | Update an optional ticket field by name (repeatable). The field must be in the ticket type's allowed field list. Supplying an unknown or disallowed field name raises a validation error naming the offending field and listing allowed values. |
+| `--description <text>` | Replace the ticket body text; `\n`, `\r\n`, `\t` are decoded |
+| `--description-file <path>` | Replace the ticket body with the contents of a file |
 
 - `--status` transitions are validated against `allowed_transitions` in the workflow.
 - When `--status` is supplied, output is the YAML status-context block.
 - Other field-only updates print a brief confirmation line.
+- Every write produces an auto-generated comment listing which fields were modified.
 
 Always run `workflow transitions <type> <current-status>` before updating status.
 
@@ -216,7 +236,7 @@ definition that the workflow is built from.
 | `terminal_statuses` | Statuses from which no further transitions are allowed |
 | `statuses` | Full status catalogue — each entry carries `description`, `stage_goal`, and `responsible_roles` |
 | `allowed_transitions` | Explicit per-status transition map: `status → [allowed next statuses]` |
-| `automatic_transitions` | Optional list of trigger-based transitions executed without a manual update |
+| `automatic_transitions` | Optional list of structured rules that transition the ticket automatically when conditions are met. Rules are evaluated after every `create` and `update` operation. Each rule carries a `rule` key identifying its type (e.g. `all_children_reach_status`, `first_child_reaches_status`, `linked_ticket_reaches_status`, `child_blocker_created`, `all_blockers_cleared`, `this_ticket_reaches_status`). Transitions are performed by the system and do not require a manual `update` call. |
 | `ticket_instructions` | Per-status instructions for agents acting on tickets of this type |
 
 Valid type keys are configuration-driven — run `workflow types` to list all registered values.
@@ -289,6 +309,7 @@ Use this **before every** `update --status` call to verify the move is allowed.
 | `component` | string | Functional module this ticket relates to |
 | `labels` | list | Free-form classification tags |
 | `sprint` | string | Sprint name or identifier |
+| `prior_status` | string | Status saved automatically before a ticket is moved to `Blocked` by an automatic transition rule. Restored when all blockers are cleared. Cleared after the restore. Managed by the system; do not set manually. |
 
 ---
 

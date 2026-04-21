@@ -199,7 +199,7 @@ EPIC  ←→  DEV-STORY  (EpicLink field)
 
 4. **Epic auto-transitions:** Epic should be moved to In Progress when its first Dev Story enters Development, and to Resolved/Done when all Dev Stories are Resolved/Closed.
 
-5. **Question sub-tasks block the parent.** When created, set parent to Blocked. When closed, restore parent to its prior status and archive Q&A in `project_qa.md`.
+5. **Question sub-tasks block the parent.** When created, set parent to Blocked. When closed, restore parent to its prior status.
 
 6. **Dev Story must have `release_notes` before Grooming** and an `assignee` before Development.
 

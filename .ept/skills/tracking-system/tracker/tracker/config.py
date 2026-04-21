@@ -288,6 +288,7 @@ def get_runtime_config() -> dict[str, Any]:
 
     ticket_specs: dict[str, dict[str, Any]] = {}
     valid_field_names = {f.get("name") for f in field_defs if f.get("name")}
+    valid_field_names.add("prior_status")
     priority_values: list[str] = []
     for f in field_defs:
         if f.get("name") == "priority":
@@ -312,6 +313,7 @@ def get_runtime_config() -> dict[str, Any]:
                 "content_file", TICKET_CONTENT_FILE,
             ),
             "ticket_instructions": entry.get("ticket_instructions") or {},
+            "automatic_transitions": entry.get("automatic_transitions") or [],
         }
 
     _runtime_config = {

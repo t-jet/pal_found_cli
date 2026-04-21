@@ -1,4 +1,4 @@
-type: resource_req
+﻿type: resource_req
 id_prefix: RESOURCE-REQ
 description: >
   Request to create or provision a new agent/resource role for the project.
@@ -82,7 +82,19 @@ allowed_transitions:
   Closed:       []
   Canceled:     []
   Duplicated:   []
-automatic_transitions: []
+automatic_transitions:
+  # AT-4: block when a Question sub-task with a Blocks link is created
+  - rule: child_blocker_created
+    child_filter:
+      types: [question]
+      link_type: Blocks
+    target_status: Blocked
+
+  # AT-5: restore prior status when all blockers are cleared
+  - rule: all_blockers_cleared
+    blocker_terminal_statuses: [Closed, Done, Canceled, Rejected, Duplicated]
+    source_status: Blocked
+    target_status: prior_status
 
 ticket_instructions:
   New:

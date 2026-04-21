@@ -594,3 +594,140 @@ class TestBugRegressions:
         ])
         assert rc == EXIT_VALIDATION_ERROR
         assert "Unknown field" in output
+
+
+# ── GAP-01: update --field ────────────────────────────────────────────────────
+
+
+class TestMainUpdateField:
+    def test_update_field_known_optional(self, tracker_env: Path) -> None:
+        run_main(["create", "task", "T", "--author", "a", "--assignee", "b"])
+        output, rc = run_main([
+            "update", "TASK-001", "--author", "a",
+            "--field", "addressed_to=pm",
+        ])
+        assert rc == EXIT_OK
+
+    def test_update_field_persisted_via_get(self, tracker_env: Path) -> None:
+        run_main(["create", "task", "T", "--author", "a", "--assignee", "b"])
+        run_main([
+            "update", "TASK-001", "--author", "a",
+            "--field", "addressed_to=qa-lead",
+        ])
+        output, rc = run_main(["get", "TASK-001"])
+        assert rc == EXIT_OK
+        assert "qa-lead" in output
+
+    def test_update_field_unknown_raises_error(self, tracker_env: Path) -> None:
+        run_main(["create", "task", "T", "--author", "a", "--assignee", "b"])
+        output, rc = run_main([
+            "update", "TASK-001", "--author", "a",
+            "--field", "no_such_field=value",
+        ])
+        assert rc == EXIT_VALIDATION_ERROR
+        assert "Unknown field" in output
+
+    def test_update_field_disallowed_for_type_raises_error(self, tracker_env: Path) -> None:
+        run_main(["create", "task", "Parent", "--author", "a", "--assignee", "b"])
+        run_main(["create", "workitem", "Child", "--author", "a", "--parent", "TASK-001"])
+        output, rc = run_main([
+            "update", "WORK-001", "--author", "a",
+            "--field", "addressed_to=someone",
+        ])
+        assert rc == EXIT_VALIDATION_ERROR
+        assert "not allowed for type" in output
+
+
+# ── GAP-02: list --parent ─────────────────────────────────────────────────────
+
+
+class TestMainListParent:
+    def test_list_filter_by_parent(self, tracker_env: Path) -> None:
+        run_main(["create", "task", "Parent", "--author", "a", "--assignee", "b"])
+        run_main(["create", "workitem", "Child1", "--author", "a", "--parent", "TASK-001"])
+        run_main(["create", "workitem", "Child2", "--author", "a", "--parent", "TASK-001"])
+        run_main(["create", "task", "Unrelated", "--author", "a", "--assignee", "b"])
+        output, rc = run_main(["list", "--parent", "TASK-001"])
+        assert rc == EXIT_OK
+        assert "2 ticket(s)" in output
+        assert "WORK-001" in output
+        assert "WORK-002" in output
+
+    def test_list_parent_nonexistent_raises_error(self, tracker_env: Path) -> None:
+        output, rc = run_main(["list", "--parent", "FAKE-999"])
+        assert rc == EXIT_VALIDATION_ERROR
+        assert "does not exist" in output
+
+    def test_list_parent_combined_with_status(self, tracker_env: Path) -> None:
+        run_main(["create", "task", "Parent", "--author", "a", "--assignee", "b"])
+        run_main(["create", "workitem", "C1", "--author", "a", "--parent", "TASK-001"])
+        run_main(["create", "workitem", "C2", "--author", "a", "--parent", "TASK-001"])
+        run_main(["update", "WORK-001", "--author", "a", "--status", "Open"])
+        output, rc = run_main(["list", "--parent", "TASK-001", "--status", "Open"])
+        assert rc == EXIT_OK
+        assert "1 ticket(s)" in output
+        assert "WORK-001" in output
+
+
+# ── GAP-03: update --description / --description-file ────────────────────────
+
+
+class TestMainUpdateDescription:
+    def test_update_description_inline(self, tracker_env: Path) -> None:
+        run_main(["create", "task", "T", "--author", "a", "--assignee", "b"])
+        output, rc = run_main([
+            "update", "TASK-001", "--author", "a",
+            "--description", "Brand new body",
+        ])
+        assert rc == EXIT_OK
+        get_output, _ = run_main(["get", "TASK-001"])
+        assert "Brand new body" in get_output
+
+    def test_update_description_from_file(self, tracker_env: Path, tmp_path: Path) -> None:
+        run_main(["create", "task", "T", "--author", "a", "--assignee", "b"])
+        desc_file = tmp_path / "desc.txt"
+        desc_file.write_text("Content from file", encoding="utf-8")
+        output, rc = run_main([
+            "update", "TASK-001", "--author", "a",
+            "--description-file", str(desc_file),
+        ])
+        assert rc == EXIT_OK
+        get_output, _ = run_main(["get", "TASK-001"])
+        assert "Content from file" in get_output
+
+    def test_update_description_file_not_found(self, tracker_env: Path) -> None:
+        run_main(["create", "task", "T", "--author", "a", "--assignee", "b"])
+        output, rc = run_main([
+            "update", "TASK-001", "--author", "a",
+            "--description-file", "nonexistent_file.txt",
+        ])
+        assert rc != EXIT_OK
+        assert "not found" in output
+
+    def test_update_no_description_leaves_body_unchanged(self, tracker_env: Path) -> None:
+        run_main([
+            "create", "task", "T", "--author", "a", "--assignee", "b",
+            "--description", "Original body",
+        ])
+        run_main(["update", "TASK-001", "--author", "a", "--assignee", "new-dev"])
+        get_output, _ = run_main(["get", "TASK-001"])
+        assert "Original body" in get_output
+
+
+# ── GAP-04: list --reporter ───────────────────────────────────────────────────
+
+
+class TestMainListReporter:
+    def test_list_filter_by_reporter(self, tracker_env: Path) -> None:
+        run_main(["create", "task", "A", "--author", "alice", "--assignee", "b"])
+        run_main(["create", "task", "B", "--author", "bob", "--assignee", "b"])
+        output, rc = run_main(["list", "--reporter", "alice"])
+        assert rc == EXIT_OK
+        assert "1 ticket(s)" in output
+        assert "TASK-001" in output
+
+    def test_list_reporter_no_match(self, tracker_env: Path) -> None:
+        run_main(["create", "task", "A", "--author", "a", "--assignee", "b"])
+        output, rc = run_main(["list", "--reporter", "nobody"])
+        assert rc == EXIT_OK
+        assert "0 ticket(s)" in output

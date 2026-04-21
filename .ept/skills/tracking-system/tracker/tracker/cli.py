@@ -47,7 +47,7 @@ from .exceptions import (
     ValidationError,
 )
 from .formatters import format_link, format_ticket, to_toon
-from .index import get_ticket
+from .index import get_ticket, ticket_exists
 from .links import create_link, list_links, remove_link
 from .tickets import (
     build_status_context,
@@ -205,6 +205,8 @@ def _build_help_data() -> dict[str, Any]:
                     "--assignee": _opt("Filter by assignee"),
                     "--type": _opt("Filter by ticket type", values=ticket_types),
                     "--priority": _opt("Filter by priority", values=priority_values),
+                    "--parent": _opt("Filter by parent ticket ID"),
+                    "--reporter": _opt("Filter by reporter identifier"),
                     "--author": _author_opt,
                 },
             },
@@ -216,6 +218,11 @@ def _build_help_data() -> dict[str, Any]:
                     "--status": _opt("New status value", values=all_statuses),
                     "--assignee": _opt("New assignee"),
                     "--priority": _opt("New priority", values=priority_values),
+                    "--field": _opt("Additional field as key=value (repeatable)", repeatable=True),
+                    "--description": _opt("New description text (\\n, \\r\\n, \\t supported)"),
+                    "--description-file": _opt(
+                        "Path to a file whose contents replace the description",
+                    ),
                     "--author": _author_req,
                 },
             },
@@ -470,6 +477,8 @@ Examples:
     list_p.add_argument("--assignee")
     list_p.add_argument("--type")
     list_p.add_argument("--priority")
+    list_p.add_argument("--parent")
+    list_p.add_argument("--reporter")
 
     # ── update ───────────────────────────────────────────────────────────
     update_p = subparsers.add_parser("update", help="Update ticket")
@@ -478,6 +487,9 @@ Examples:
     update_p.add_argument("--status")
     update_p.add_argument("--assignee")
     update_p.add_argument("--priority")
+    update_p.add_argument("--field", action="append", default=[])
+    update_p.add_argument("--description", default="")
+    update_p.add_argument("--description-file", default="", metavar="FILE")
 
     # ── link ─────────────────────────────────────────────────────────────
     link_p = subparsers.add_parser("link", help="Manage links")
@@ -646,8 +658,15 @@ Examples:
                     f"Invalid priority filter: {args.priority}. "
                     f"Valid values: {', '.join(cfg['priority_values'])}."
                 )
+            if args.parent:
+                if not ticket_exists(args.parent):
+                    raise ValidationError(
+                        f"Parent ticket {args.parent} does not exist"
+                    )
             tickets = list_tickets(
                 args.status, args.assignee, args.type, args.priority,
+                parent=args.parent,
+                reporter=args.reporter,
             )
             print(f"\nFound {len(tickets)} ticket(s):")
             print("=" * 100)
@@ -660,9 +679,30 @@ Examples:
                 print(format_ticket(t))
 
         elif args.command == "update":
+            new_description: str | None = None
+            if args.description:
+                new_description = decode_escape_sequences(args.description)
+            if args.description_file:
+                desc_path = Path(args.description_file)
+                if not desc_path.exists():
+                    update_p.error(
+                        f"--description-file not found: {args.description_file}"
+                    )
+                try:
+                    new_description = desc_path.read_text(encoding="utf-8")
+                except Exception as exc:
+                    update_p.error(
+                        f"Failed to read --description-file "
+                        f"'{args.description_file}': {exc}"
+                    )
+            update_extras: dict[str, str] | None = (
+                parse_extra_fields(args.field) if args.field else None
+            )
             ticket = update_ticket(
                 args.ticket_id, args.author,
                 args.status, args.assignee, args.priority,
+                extra_fields=update_extras,
+                description=new_description,
             )
             if args.status:
                 ctx = build_status_context(

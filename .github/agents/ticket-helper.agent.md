@@ -3,12 +3,16 @@ description: >-
   Subagent service for executing tracking system operations on behalf of calling agents.
   Use to retrieve workflow documentation, inspect ticket type definitions and allowed status
   transitions, and perform all ticket, comment, and link operations. Invoke when an agent needs
-  to create, read, update, or search tickets; add or read comments; create, list, or remove
-  inter-ticket links; or inspect the workflow configuration (ticket types, statuses, stage goals,
-  responsible roles, transitions, or definitions of done). Keywords: tracker, ticket, issue, task,
-  bug, feature, epic, dev story, question, workitem, comment, link, workflow, status, transition,
-  assignee, priority, stage, DoD, create ticket, update ticket, list tickets, search tickets,
-  get ticket, comment create, link create, workflow status, workflow transitions, workflow types.
+  to create, read, update, or search tickets; update ticket fields or description after creation;
+  filter tickets by parent, reporter, assignee, status, type, or priority; add, read, or update
+  comments; create, list, or remove inter-ticket links; or inspect the workflow configuration
+  (ticket types, statuses, stage goals, responsible roles, transitions, definitions of done, or
+  automatic transition rules). Keywords: tracker, ticket, issue, task, bug, feature, epic, dev
+  story, question, workitem, comment, link, workflow, status, transition, assignee, priority,
+  stage, DoD, create ticket, update ticket, update field, update description, list tickets,
+  filter by parent, filter by reporter, search tickets, get ticket, comment create, comment get,
+  comment update, comment list, link create, link list, link remove, workflow status, workflow
+  transitions, workflow types, type-info, automatic transitions.
 name: ticket-helper
 argument-hint: Describe the tracking operation to perform (create/get/update/list/search tickets, comments, links, or query workflow configuration). Be specific and include all relevant parameters (e.g. ticket type, status, assignee, comment body, link type).
 tools: execute, read, search, todo

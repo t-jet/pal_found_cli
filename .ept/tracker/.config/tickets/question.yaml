@@ -2,7 +2,7 @@ type: question
 id_prefix: QUESTION
 description: >
   Question sub-task to clarify ambiguities. Automatically blocks parent ticket.
-  Can be child of any ticket or sub-task. Resolved Q&A must be copied to project_qa.md.
+  Can be child of any ticket or sub-task. Requires critical thinking and research before asking.
 required_fields: [id, type, title, status, parent, addressed_to, created, updated]
 optional_fields: [priority, assignee, reporter, due_date, estimated_hours, time_spent_hours]
 initial_status: New
@@ -41,7 +41,7 @@ statuses:
       - Addressee
       - Requester
   Closed:
-    description: "Q&A archived to project_qa.md."
+    description: "Question fully resolved and closed."
     stage_goal: "Archive the completed question."
     responsible_roles:
       - Requester
@@ -81,12 +81,26 @@ allowed_transitions:
   Rejected:      []
   Duplicated:    []
 automatic_transitions:
-  - trigger: "Question ticket created under a parent ticket"
-    action:  "Parent ticket status -> Blocked"
-  - trigger: "Question ticket transitions to Resolved or Canceled"
-    action:  "Parent ticket: Blocked -> previous status (restored)"
-  - trigger: "Question ticket transitions to Closed"
-    action:  "Copy Q&A to project_qa.md"
+  # AT-4: block parent when this Question is created with a Blocks link
+  - rule: child_blocker_created
+    child_filter:
+      types: [question]
+      link_type: Blocks
+    target_status: Blocked
+
+  # AT-5: restore parent's prior status when all blockers are cleared
+  - rule: all_blockers_cleared
+    blocker_terminal_statuses: [Closed, Done, Canceled, Rejected, Duplicated]
+    source_status: Blocked
+    target_status: prior_status
+
+  # AT-6: when this Question resolves/cancels/closes, unblock the parent
+  - rule: this_ticket_reaches_status
+    source_statuses: [Resolved, Canceled, Closed]
+    link_type: Blocks
+    link_role: source
+    linked_ticket_source_status: Blocked
+    linked_ticket_target_status: prior_status
 
 ticket_instructions:
   New:

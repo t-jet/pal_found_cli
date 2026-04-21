@@ -56,7 +56,6 @@ Last Updated: January 18, 2026
 - Monitor workflow progression and identify blockers
 - Generate status reports (weekly, epic progress, burndown data)
 - Escalate Project Owner questions to expert
-- Update project_qa.md with answered questions
 - Search tracking system and create ad-hoc reports
 - Coordinate dependencies and track DoR/DoD compliance
 - Maintain tracking system documentation
