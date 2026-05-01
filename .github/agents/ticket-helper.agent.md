@@ -16,7 +16,7 @@ description: >-
 name: ticket-helper
 argument-hint: Describe the tracking operation to perform (create/get/update/list/search tickets, comments, links, or query workflow configuration). Be specific and include all relevant parameters (e.g. ticket type, status, assignee, comment body, link type).
 tools: execute, read, search, todo
-model: Claude Sonnet 4.6 (copilot)
+model: Claude Sonnet 4.5
 user-invocable: true
 ---
 

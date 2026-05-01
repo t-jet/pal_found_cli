@@ -34,3 +34,10 @@ DEV-STORY-020,dev_story,foundry-data-health skill (4 operations),New,Medium,arch
 DEV-STORY-021,dev_story,foundry-third-party-applications skill (9 operations),New,Low,architect,architect,,,DEV-STORY-021,2026-04-13,2026-04-13
 DEV-STORY-022,dev_story,foundry-widgets skill (12 operations),New,Low,architect,architect,,,DEV-STORY-022,2026-04-13,2026-04-13
 DEV-STORY-023,dev_story,Author foundry/ knowledge skill content,New,High,architect,architect,,,DEV-STORY-023,2026-04-13,2026-04-13
+TASK-001,task,Analyze project implementation needs and request required team members via HR,Closed,High,architect,architect,,,TASK-001,2026-05-01,2026-05-01
+RESOURCE-REQ-001,resource_req,Provision Business Analyst (BA) agent for Foundry CLI project,Closed,High,hr,architect,,,RESOURCE-REQ-001,2026-05-01,2026-05-01
+RESOURCE-REQ-002,resource_req,Provision Tech Lead / Senior Python Developer agent for Foundry CLI project,Closed,Critical,hr,architect,,,RESOURCE-REQ-002,2026-05-01,2026-05-01
+RESOURCE-REQ-003,resource_req,Provision Python Developer agent(s) for Foundry CLI namespace skill implementation,Closed,Critical,hr,architect,,,RESOURCE-REQ-003,2026-05-01,2026-05-01
+RESOURCE-REQ-004,resource_req,Provision QA Engineer agent for Foundry CLI testing lifecycle,Closed,High,hr,architect,,,RESOURCE-REQ-004,2026-05-01,2026-05-01
+RESOURCE-REQ-005,resource_req,Provision DevOps Engineer agent for Foundry CLI packaging and deployment pipeline,Closed,High,hr,architect,,,RESOURCE-REQ-005,2026-05-01,2026-05-01
+TASK-002,task,Update all agent definitions to match canonical template,Closed,Medium,hr,tech-lead,,,TASK-002,2026-05-02,2026-05-02

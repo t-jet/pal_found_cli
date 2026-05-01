@@ -6,7 +6,7 @@ description: Expert Playwright-for-Python agent. Covers browser automation, end-
   inside containers. Invoked as a subagent by other agents needing Playwright Python knowledge,
   code generation, debugging help, or autonomous script execution.
 tools: execute, read, agent, edit, search, browser, 'pylance-mcp-server/*', ms-python.python/getPythonEnvironmentInfo, ms-python.python/getPythonExecutableCommand, ms-python.python/installPythonPackage, ms-python.python/configurePythonEnvironment, sehejjain.lsp-mcp-bridge/definition, sehejjain.lsp-mcp-bridge/references, sehejjain.lsp-mcp-bridge/hover, sehejjain.lsp-mcp-bridge/completion, sehejjain.lsp-mcp-bridge/workspace_symbols, sehejjain.lsp-mcp-bridge/document_symbols, sehejjain.lsp-mcp-bridge/code_actions, sehejjain.lsp-mcp-bridge/format, sehejjain.lsp-mcp-bridge/signature_help, todo
-model: Claude Sonnet 4.6 (copilot)
+model: Claude Sonnet 4.5
 user-invocable: false
 ---
 

@@ -35,7 +35,7 @@ Every role-based agent generated from this template should follow this exact hig
 name: [AgentName]
 description: [Trigger-rich one-line description of the role and when to invoke it]
 tools: [Role-selected tool list]
-model: Claude Sonnet 4.6 (copilot)
+model: Claude Sonnet 4.5
 user-invocable: true
 ---
 
@@ -88,7 +88,7 @@ Follow instructions carefully & to the letter.
 name: [AgentName]
 description: [Description used for discovery by users and other agents]
 tools: [Comma-separated tool list]
-model: Claude Sonnet 4.6 (copilot)
+model: Claude Sonnet 4.5
 user-invocable: true
 ---
 ```
@@ -98,7 +98,7 @@ user-invocable: true
 - `name`: Short, stable agent identifier.
 - `description`: This is the discovery surface. Include the role, scope, and trigger phrases users are likely to use.
 - `tools`: Include only the tools the role needs.
-- `model`: Use `Claude Sonnet 4.6 (copilot)`.
+- `model`: Use `Claude Sonnet 4.5`.
 - `user-invocable`: Keep `true` for agents intended to be directly callable.
 
 ### Description writing pattern
@@ -272,7 +272,7 @@ Use this as the starting point for all new role-based agents:
 name: [AgentName]
 description: [Role summary and invocation guidance]
 tools: [Role-selected tool list]
-model: Claude Sonnet 4.6 (copilot)
+model: Claude Sonnet 4.5
 user-invocable: true
 ---
 
@@ -504,7 +504,7 @@ Do not embed project-specific details in reusable agent definitions.
 Before finalizing a new role-based agent, verify:
 
 - [ ] Frontmatter uses the canonical field order: `name`, `description`, `tools`, `model`, `user-invocable`
-- [ ] `model` is `Claude Sonnet 4.6 (copilot)`
+- [ ] `model` is `Claude Sonnet 4.5`
 - [ ] Opening role paragraph appears before any XML tags
 - [ ] `<instructions>` is present and role-specific
 - [ ] `<instructions>` contains only role identity, expertise, and competencies — no operational procedures, command examples, or project-specific patterns

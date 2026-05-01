@@ -54,3 +54,9 @@ LINK-00053,EPIC-007,DEV-STORY-022,EpicLink,Epic Link,Epic Link,2026-04-13T17:24:
 LINK-00054,FEATURE-001,DEV-STORY-022,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:24:29.194297,architect,
 LINK-00055,EPIC-008,DEV-STORY-023,EpicLink,Epic Link,Epic Link,2026-04-13T17:25:03.739651,architect,
 LINK-00056,FEATURE-001,DEV-STORY-023,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:25:04.041704,architect,
+LINK-00057,TASK-001,FEATURE-001,RelatesTo,Relates To,Relates To,2026-05-01T18:52:33.055515,architect,
+LINK-00058,RESOURCE-REQ-001,TASK-001,RelatesTo,Relates To,Relates To,2026-05-01T19:12:15.649683,architect,
+LINK-00059,RESOURCE-REQ-002,TASK-001,RelatesTo,Relates To,Relates To,2026-05-01T19:13:52.857145,architect,
+LINK-00060,RESOURCE-REQ-003,TASK-001,RelatesTo,Relates To,Relates To,2026-05-01T19:16:01.118731,architect,Resource request relates to TASK-001 project team analysis
+LINK-00061,RESOURCE-REQ-004,TASK-001,RelatesTo,Relates To,Relates To,2026-05-01T19:17:55.216991,architect,
+LINK-00062,RESOURCE-REQ-005,TASK-001,RelatesTo,Relates To,Relates To,2026-05-01T19:19:51.858272,architect,RESOURCE-REQ-005 relates to TASK-001 project team analysis
