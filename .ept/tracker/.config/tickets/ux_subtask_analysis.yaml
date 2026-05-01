@@ -86,43 +86,43 @@ ticket_instructions:
       - Set assignee to ticket creator.
       - Review related documentation and parent Feature context.
       - Apply critical thinking and ask questions.
-      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket.
       - "Review answers from linked QUESTION tickets: Query Question links on this ticket. For each linked QUESTION ticket found: retrieve it, read its Answer section and comments, and incorporate findings/decisions into current work."
       - Identify blockers and add a blocking link.
       - Move to Open.
     transition_dods:
       - target_statuses: [Open]
         dod_criteria:
-          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Studied related documentation from the `.ept/docs/document_index.md`
           - Critical thinking applied
-          - All required questions asked and answered
+          - All required questions asked using the Question sub-tasks and all these sub-tasks are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)
           - Assignee set to creator
           - Parent Feature context reviewed
           - Blockers identified and recorded (links or question)
-          - "Required fields validated (status, assignee, priority, dates)"
+          - Required fields validated (status, assignee, priority, dates)
 
   Open:
     instructions:
-      - "IF ticket missing THEN create UX-ANA-XXX under FEATURE-XXX."
+      - IF ticket missing THEN create UX-ANA-XXX under FEATURE-XXX.
       - Set required fields for the new sub-task.
       - Add required links to parent Feature.
       - Apply critical thinking and ask questions.
-      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket.
       - "Review answers from linked QUESTION tickets: Query Question links on this ticket. For each linked QUESTION ticket found: retrieve it, read its Answer section and comments, and incorporate findings/decisions into current work."
       - Move to In Progress.
     transition_dods:
       - target_statuses: [In Progress]
         dod_criteria:
-          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Studied related documentation from the `.ept/docs/document_index.md`
           - Critical thinking applied
-          - All required questions asked and answered
+          - All required questions asked using the Question sub-tasks and all these sub-tasks are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)
           - Business case defined
           - Acceptance criteria prepared
           - UX plan created as a comment on this ticket
           - Related documentation linked as a comment on this ticket (when exists)
           - List of deliverables defined in the Acceptance Criteria
 
-  "In Progress":
+  In Progress:
     instructions:
       - Review state and comments of BA Analysis Sub-Task and SA Analysis Sub-Task.
       - Study documentation changes introduced by BA/SA analysis sub-tasks.
@@ -131,11 +131,11 @@ ticket_instructions:
     transition_dods:
       - target_statuses: [Resolved]
         dod_criteria:
-          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Studied related documentation from the `.ept/docs/document_index.md`
           - Critical thinking applied
-          - All required questions asked and answered
+          - All required questions asked using the Question sub-tasks and all these sub-tasks are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)
           - All required deliverables completed
-          - "Related documents in the `.ept/docs/document_index.md` analyzed and modified to incorporate ticket results"
+          - Related documents in the `.ept/docs/document_index.md` analyzed and modified to incorporate ticket results
           - "`.ept/docs/document_index.md` updated for changes in deliverables"
           - All document changes documented as a comment on this ticket
           - UX findings documented as a comment on this ticket with links to deliverables when applicable
@@ -143,23 +143,23 @@ ticket_instructions:
           - UX analysis complete and documented
           - UX requirements consistent with business requirements
           - UX analysis consistent with solution architecture
-          - "UX artifacts stored/linked (flows, wireframes, personas as applicable)"
+          - UX artifacts stored/linked (flows, wireframes, personas as applicable)
           - BA Analysis Sub-Task and SA Analysis Sub-Task created and in In Progress or later
 
   Resolved:
     instructions:
-      - "Create QUESTION tickets for each required approval (Project Owner, BA, SA, and others as applicable)."
+      - Create QUESTION tickets for each required approval (Project Owner, BA, SA, and others as applicable).
       - IF blocker link exists AND blocker resolved THEN remove the blocking link.
-      - Wait for BA-SUB and SA-SUB to reach Resolved status.
+      - Wait for BA-SUB and SA-SUB to reach a terminal status (as determined by the ticket type workflow configuration).
       - Confirm approvals and completeness.
-      - IF not blocked AND BA/SA sub-tasks in Resolved THEN ready to move to Closed.
+      - IF not blocked AND BA/SA sub-tasks in a terminal status THEN ready to move to Closed.
     transition_dods:
       - target_statuses: [Closed]
         dod_criteria:
           - Ticket not blocked (no active is-blocked-by links)
           - Ticket doesn't block others (all dependent tickets unblocked or resolved)
-          - BA-SUB and SA-SUB in Resolved status
-          - "All approvals obtained (all created QUESTION tickets in terminal status)"
+          - BA-SUB and SA-SUB in a terminal status (as determined by the ticket type workflow configuration)
+          - All approvals obtained (all created QUESTION tickets in terminal status)
 
   Closed:
     instructions:
@@ -171,7 +171,10 @@ ticket_instructions:
       - Confirm blocker and prior status are documented as a comment on this ticket (include blocker ID and prior status).
       - Verify blocking link exists on this ticket.
       - Do not create new blocker links in this status; they must be created when the block is identified.
-      - "IF blocking link missing THEN create QUESTION-XXX addressed_to appropriate role, add a Blocks link from the question to this ticket, and remain Blocked."
-      - "Query blocking links on this ticket. For each blocker found: IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated` THEN remove the blocking link and return to prior status; IF blocker still active AND blocker priority lower than this ticket priority THEN raise blocker priority to match."
-      - IF all blocking links removed THEN return to prior status documented in comments.
+      - IF blocking link missing THEN create QUESTION ticket addressed_to appropriate role, add a Blocks link and a Question link from it to this ticket, and remain Blocked.
+      - |
+        Query blocking links on this ticket. For each blocker found, check its status:
+          - IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated` THEN remove the blocking link and return to prior status
+          - IF blocker still active AND blocker priority lower than this ticket priority THEN raise blocker priority to match.
+      - IF all blocking links removed THEN return this ticket to prior status.
     transition_dods: []

@@ -107,60 +107,60 @@ ticket_instructions:
     instructions:
       - Set assignee to ticket creator.
       - Review related documentation and parent context.
-      - "Apply critical thinking; if ambiguity exists, refine the question."
+      - Apply critical thinking; if ambiguity exists, refine the question.
       - Identify blockers and add a blocking link.
       - Move to Open.
     transition_dods:
       - target_statuses: [Open, Blocked]
         dod_criteria:
-          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Studied related documentation from the `.ept/docs/document_index.md`
           - Critical thinking applied
-          - All required questions asked and answered
+          - All required questions asked using the Question sub-tasks and all these sub-tasks are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)
           - Assignee set to creator
           - Parent ticket context reviewed
           - Blockers identified and recorded (links or question)
-          - "Required fields validated (status, assignee, priority, dates, addressed_to)"
+          - Required fields validated (status, assignee, priority, dates, addressed_to)
 
   Open:
     instructions:
-      - "IF ticket missing THEN create QUESTION-XXX under parent ticket."
+      - IF ticket missing THEN create QUESTION-XXX under parent ticket.
       - Set required fields for the new Question.
       - Add required links to parent (is-blocked-by/blocks).
       - Apply critical thinking before asking.
       - Document ALL research done in "Research Done" section.
-      - "Set required fields (title, description, addressed_to, assignee)."
-      - "Create blocking link (source_ticket=this question, target_ticket=parent, link_type=Blocks)."
+      - Set required fields (title, description, addressed_to, assignee).
+      - Create blocking link (source_ticket=this question, target_ticket=parent, link_type=Blocks).
       - Parent ticket automatically Blocked until question resolved.
       - IF addressee is "Project Owner" THEN notify human required.
       - Move to In Progress when research documented.
     transition_dods:
-      - target_statuses: ["In Progress", Blocked]
+      - target_statuses: [In Progress, Blocked]
         dod_criteria:
-          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Studied related documentation from the `.ept/docs/document_index.md`
           - Critical thinking applied
-          - All required questions asked and answered
+          - All required questions asked using the Question sub-tasks and all these sub-tasks are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)
           - Question clearly formulated
-          - Reviewed open QUESTION-XXX folders for duplicates
+          - Reviewed open QUESTION tickets for duplicates
           - Checked relevant documentation in docs/ folder
           - Reviewed relevant code/implementation files
           - Reviewed parent ticket comments and links
-          - "Addressee identified (specific agent/role or \"Project Owner\")"
+          - 'Addressee identified (specific agent/role or "Project Owner")'
           - Research documented in "Research Done" section
 
-  "In Progress":
+  In Progress:
     instructions:
       - Addressee reviews question and research done.
       - Apply critical thinking and ask questions.
       - "IF question is clear AND answer can be formulated: Formulate complete answer with additional context or references; Add answer as a comment on this ticket or \"Answer\" section; Move to Resolved."
       - "IF question is unclear OR needs more context from requester: Document what clarification is needed as a comment on this ticket; Reassign to requester (original creator); Move to Clarification."
-      - "IF you need more context from other team members listed in the `.ept/docs/resources/available_resources.md` (not requester) THEN create QUESTION-XXX, add a blocking link, add a Question link from the question to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - IF you need more context from other team members listed in the `.ept/docs/resources/available_resources.md` (not requester) THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket.
       - "IF question no longer relevant: Document rationale as a comment on this ticket; Move to Canceled."
     transition_dods:
       - target_statuses: [Clarification, Resolved, Canceled, Blocked]
         dod_criteria:
-          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Studied related documentation from the `.ept/docs/document_index.md`
           - Critical thinking applied
-          - All required questions asked and answered
+          - All required questions asked using the Question sub-tasks and all these sub-tasks are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)
           - "IF answer can be provided: Answer formulated with sufficient context"
           - "IF answer can be provided: Answer documented as a comment on this ticket or \"Answer\" section"
           - "IF answer can be provided: Supporting references provided (when applicable)"
@@ -178,9 +178,9 @@ ticket_instructions:
     transition_dods:
       - target_statuses: [Clarified, Blocked]
         dod_criteria:
-          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Studied related documentation from the `.ept/docs/document_index.md`
           - Critical thinking applied
-          - All required questions asked and answered
+          - All required questions asked using the Question sub-tasks and all these sub-tasks are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)
           - Clarification request reviewed
           - Additional context/information provided as a comment on this ticket
           - All addressee questions answered
@@ -194,9 +194,9 @@ ticket_instructions:
     transition_dods:
       - target_statuses: [Clarification, Resolved, Blocked]
         dod_criteria:
-          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Studied related documentation from the `.ept/docs/document_index.md`
           - Critical thinking applied
-          - All required questions asked and answered
+          - All required questions asked using the Question sub-tasks and all these sub-tasks are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)
           - Additional context reviewed
           - "IF answer can be provided: Answer formulated with sufficient context"
           - "IF answer can be provided: Answer documented as a comment on this ticket or \"Answer\" section"
@@ -214,7 +214,7 @@ ticket_instructions:
       - target_statuses: [Closed]
         dod_criteria:
           - Answer documented as a comment on this ticket or Answer section
-          - "Parent ticket returned to prior status (blocking link removed from .link-index.csv)"
+          - Parent ticket returned to prior status (blocking link removed from .link-index.csv)
 
   Closed:
     instructions:
@@ -234,7 +234,10 @@ ticket_instructions:
       - Confirm blocker and prior status are documented as a comment on this ticket (include blocker ID and prior status).
       - Verify blocking link exists on this ticket.
       - Do not create new blocker links in this status; they must be created when the block is identified.
-      - "IF blocking link missing THEN create QUESTION-XXX addressed_to appropriate role, add a Blocks link and a Question link from it to this ticket, and remain Blocked."
-      - "Query blocking links on this ticket. For each blocker found: IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated` THEN remove the blocking link and return to prior status; IF blocker still active AND blocker priority lower than this ticket priority THEN raise blocker priority to match."
-      - IF all blocking links removed THEN return to prior status documented in comments.
+      - IF blocking link missing THEN create QUESTION ticket addressed_to appropriate role, add a Blocks link and a Question link from it to this ticket, and remain Blocked.
+      - |
+        Query blocking links on this ticket. For each blocker found, check its status:
+          - IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated` THEN remove the blocking link and return to prior status
+          - IF blocker still active AND blocker priority lower than this ticket priority THEN raise blocker priority to match.
+      - IF all blocking links removed THEN return this ticket to prior status.
     transition_dods: []

@@ -51,7 +51,6 @@ Last Updated: January 18, 2026
 **Responsibilities**:
 
 - Validate tracking system consistency and enforce standards
-- Audit ticket structure, metadata, and folder hierarchy compliance
 - Request ticket execution from appropriate team members
 - Monitor workflow progression and identify blockers
 - Generate status reports (weekly, epic progress, burndown data)

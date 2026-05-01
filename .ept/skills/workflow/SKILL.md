@@ -32,14 +32,22 @@ This phase corresponds to the Analysis status of the FEATURE tickets.
 The BA-ANA and SA-ANA sub-tasks are opened under each FEATURE to capture the analysis work by the Business Analyst and Solution Architect. The BA focuses on gathering and documenting business requirements, impact analysis, and acceptance criteria, while the SA reviews affected services, defines the architecture approach, and identifies the technology stack. If UX work is needed, a UX-ANA sub-task can also be created to analyze user flows and interface requirements at this stage. The goal of this phase is to refine the requirements and scope of the feature with Project Owner, ensuring that all necessary information is gathered to proceed with design.
 
 ### Phase 3 — Design
-This phase starts once all analysis sub-tasks of the feature are closed and corresponds to the "In Development" status of the FEATURE tickets.
+This phase starts once all analysis sub-tasks of the feature are closed and corresponds to the **`In Design`** status of the FEATURE tickets.
 The BA-DES and SA-DES sub-tasks are opened under each FEATURE to capture the design work by the Business Analyst and Solution Architect. The BA produces detailed business design specifications and UI/UX artifacts, while the SA produces detailed technical architecture, API, and infrastructure specifications. If UX work is needed, a UX-DES sub-task can also be created to produce detailed design artifacts such as wireframes and prototypes. This phase focuses on producing the detailed design specifications needed for implementation, ensuring that all design work is completed and approved before moving to the implementation phase.
-At the end of the design phase, all design sub-tasks are closed, the FEATURE ticket is moved to "Waiting for Implementation", and a DEV-STORY tickets is created in the Grooming status to start planning the implementation work.
+As part of BA-DES work, Developer Stories (DEV-STORY) are created and linked to the Feature. DEV-STORYs are created while the Feature is still `In Design`, before the design sub-tasks are closed. At the end of the design phase, all design sub-tasks are closed, the FEATURE ticket is moved to `Waiting for Implementation`, and all created DEV-STORY tickets begin progressing through their own lifecycle.
 
 ### Phase 4 — Implementation
 
-This phase starts once DEV-STORY tickets are created and moved to the Open status and holds until all related DEV-STORYs are deployed to production and closed.
-The implementation phase follows the workflow defined for DEV-STORY tickets and their sub-tasks, which includes grooming and planning, development, testing, and deployment stages. During grooming, the DESIGN sub-task is created to capture the grooming, estimation, and technical design work needed to prepare the story for development. Once the DESIGN sub-task is closed, the implementation sub-tasks (DEV, UNITTEST, CODEREVIEW, TESTCASE, TESTEXEC, DEVOPS) are created to capture the actual implementation work. The workflow ensures that all necessary steps are followed for each story, including code review and testing, before deployment to production. The EPIC ticket is automatically transitioned to In Progress when the first DEV-STORY enters Development and to Resolved/Done when all DEV-STORYs are Resolved/Closed.
+This phase starts once DEV-STORY tickets are created (during Phase 3 BA-DES work) and moved to the `Open` status and holds until all related DEV-STORYs are deployed to production and closed.
+The DEV-STORY lifecycle proceeds through the following stages: **Analysis** → **Grooming** → **Development** → **QA** → **Deployment** → **Resolved** → **Closed**.
+
+- **Analysis:** Technical scope, constraints, and dependencies of the story are clarified. The `release_notes` field must be populated before the story can advance to Grooming.
+- **Grooming:** All necessary sub-tasks are created during this stage: DESIGN (grooming, estimation, and technical planning), DEV, UNITTEST, CODEREVIEW, TESTCASE, TESTEXEC, and DEVOPS (as applicable). The DESIGN sub-task must be **completed and closed** as part of the Grooming stage before the story can transition to Development.
+- **Development:** DEV, UNITTEST, and CODEREVIEW sub-tasks are executed. When all are closed, the story advances to QA.
+- **QA:** TESTCASE and TESTEXEC sub-tasks are executed. If defects are found, BUG-SUB sub-tasks are created. When all QA sub-tasks and BUG-SUBs are closed, the story advances to Deployment.
+- **Deployment:** DEVOPS sub-tasks are executed. When deployment is verified, the story advances to Resolved.
+
+The workflow ensures that all necessary steps are followed for each story, including code review and testing, before deployment to production. The EPIC ticket is automatically transitioned to `In Progress` when the first DEV-STORY linked to it via the `EpicLink` relationship enters the Development stage, and to `Resolved`/`Done` when all linked DEV-STORYs are in a terminal status.
 
 ---
 
@@ -47,7 +55,7 @@ The implementation phase follows the workflow defined for DEV-STORY tickets and 
 
 ### Top-level Tickets
 
-The EPIC tickets are used to group related features and dev stories into end-to-end scenarios that represent real business scenarios, such as user registration, payment processing, or order fulfillment. They provide a way to organize and track the work at a higher level of abstraction than individual features or stories, ensuring that all related work is connected and aligned with the overall business goals. EPICs do not have sub-tasks but are linked to Features and Dev Stories through the `EpicLink` and `FeatureContains` relationships.
+The EPIC tickets are used to group related features and dev stories into end-to-end scenarios that represent real business scenarios, such as user registration, payment processing, or order fulfillment. They provide a way to organize and track the work at a higher level of abstraction than individual features or stories, ensuring that all related work is connected and aligned with the overall business goals. EPICs do not have implementation sub-tasks, but QUESTION sub-tasks can be created under an EPIC for clarification purposes. EPICs are linked to Features and Dev Stories through the `EpicLink` and `FeatureContains` relationships.
 
 | Type | ID prefix | Purpose | Key roles |
 |---|---|---|---|
@@ -92,7 +100,7 @@ Focused on breaking down the work into implementable units (Dev Stories), defini
 
 ### Grooming and Implementation Planning Sub-Task (children of `dev_story`)
 
-Created once the Dev Story is defined to capture the grooming, estimation, and technical design work needed to prepare the story for development. Focused on finalizing the implementation approach, breaking down the story into development and testing tasks, and ensuring all necessary information is available for the development team to start work. This sub-task is created first during the grooming phase and must be closed before any development work begins on the story. It serves as a prerequisite for all subsequent implementation sub-tasks.
+Created once the Dev Story is defined to capture the grooming, estimation, and technical design work needed to prepare the story for development. Focused on finalizing the implementation approach, breaking down the story into development and testing tasks, and ensuring all necessary information is available for the development team to start work. This sub-task is created first during the grooming phase and must be **closed before the story transitions to Development**. It serves as a prerequisite for all subsequent implementation work.
 
 | Type | ID prefix | Purpose |
 |---|---|---|
@@ -100,7 +108,7 @@ Created once the Dev Story is defined to capture the grooming, estimation, and t
 
 ### Implementation Sub-Tasks (children of `dev_story`)
 
-Created on the DESIGN sub-task completion to capture the actual implementation work. Focused on coding, testing, and deploying the DEV-STORY. Each DEV-STORY can have multiple implementation sub-tasks for development, unit testing, code review, test case design, test execution, and DevOps work. The DEV sub-task is the core development work, while the others support it to ensure quality and successful deployment. Each DEV sub-task must have a paired UNITTEST and CODEREVIEW sub-tasks to ensure code quality. TESTCASE sub-tasks run in parallel with development to allow QA to design tests while development is in progress. TESTEXEC sub-tasks are created after TESTCASE completion to execute the tests and identify any defects, which can lead to BUG-SUB creation if issues are found. DEVOPS sub-tasks handle all environment, pipeline, infrastructure, and deployment work needed to enable development and get the DEV-STORY into production.
+All implementation sub-tasks are created **together during the Grooming stage** alongside the DESIGN sub-task. They capture the actual implementation work and become active only after DESIGN is closed. Focused on coding, testing, and deploying the DEV-STORY.
 
 | Type | ID prefix | Purpose |
 |---|---|---|
@@ -112,9 +120,9 @@ Created on the DESIGN sub-task completion to capture the actual implementation w
 | `devops` | DEVOPS | Pipeline, infrastructure, and deployment tasks. |
 | `bug_subtask` | BUG-SUB | Defect sub-task created under a Dev Story when bugs are found during testing. |
 
-### Cross-Cutting Sub-Tasks (children of any ticket)
+### Cross-Cutting Sub-Tasks
 
-The QUESTION type can be created under any ticket type at any stage when clarification or additional information is needed from another team member. It automatically blocks the parent ticket until the question is resolved, ensuring that work does not proceed without necessary clarifications. The WORK type is a generic unclassified sub-task that can be used for ad-hoc work that does not fit into any of the other defined types, providing flexibility for miscellaneous tasks that arise during the project.
+The QUESTION type can be created under **any ticket type** at any stage when clarification or additional information is needed from another team member. It automatically blocks the parent ticket until the question is resolved, ensuring that work does not proceed without necessary clarifications. The WORK type is a generic unclassified sub-task for ad-hoc work that does not fit into any of the other defined types; it is only intended for use under `TASK` and `FEATURE` tickets.
 
 | Type | ID prefix | Purpose |
 |---|---|---|
@@ -151,7 +159,8 @@ root-level
 |   |   ├── BUG-SUB  (created during testing if defects found)
 |   |   └── QUESTION  (any stage, blocks ticket for which created)
 |   └── WORK (unclassified sub-task for ad-hoc work not fitting other types)
-├── EPIC  (end-to-end scenarios grouping for related DEV-STORYs and FEATUREs, no sub-tasks)
+├── EPIC  (end-to-end scenarios grouping for related DEV-STORYs and FEATUREs)
+|       └── QUESTION  (any stage, blocks ticket for which created)
 ├── TASK (ad-hoc work)
 |       ├── WORK (unclassified sub-task for ad-hoc work not fitting other types)
 |       └── QUESTION  (any stage, blocks ticket for which created)
@@ -178,12 +187,12 @@ EPIC  ←→  DEV-STORY  (EpicLink field)
 | `Blocks` | Blocks | Is Blocked By | Blocking relationship. Source ticket prevents progress on target ticket. | Any ticket can block any other ticket. |
 | `DependsOn` | Depends On | Is Dependency For | Dependency relationship. Source must wait for target to complete first. | Ticket requires another ticket to be completed before it can proceed. |
 | `RelatesTo` | Relates To | Relates To | General symmetric relationship with no ordering implication. | Any loosely related tickets that share context. |
-| `Contains` | Contains | Contained In | Containment/parent-child relationship mirroring folder structure. | Feature Request → Developer Story; Developer Story → Sub-Task. |
+| `Contains` | Contains | Contained In | Containment/parent-child relationship mirroring virtual folder structure. | Feature Request → Developer Story; Developer Story → Sub-Task. |
 | `EpicLink` | Epic Link | Epic Link | Symmetric association between an Epic and a Developer Story. | Links a Developer Story to its organizing Epic (logical grouping). |
 | `FeatureContains` | Feature Contains | Is Contained In Feature | Feature-to-Epic organizational relationship. | Feature Request ↔ Epic (many-to-many, bidirectional). |
 | `BugFeature` | Comes From | Goes To | A bug that requires a new Feature Request to address it properly. | Bug → Feature Request when bug resolution requires a feature. |
 | `Question` | Asks About | Has Question | Links a Question sub-task to the ticket it asks about. Auto-created. | Automatically created when a Question sub-task is created under a parent. |
-| `ParentChild` | Is Parent Of | Is Child Of | Explicit parent-child relationship, mirrors folder nesting. | Any parent ticket → child ticket (supplements folder structure). |
+| `ParentChild` | Is Parent Of | Is Child Of | Explicit parent-child relationship, mirrors virtual folder nesting. | Any parent ticket → child ticket (supplements virtual folder structure). |
 
 ---
 
@@ -197,7 +206,7 @@ EPIC  ←→  DEV-STORY  (EpicLink field)
 
 3. When creating a new ticket, ensure all required fields are populated according to the workflow rules for that ticket type and status. Tickets are always created in the NEW status. After creation, immediately check DoD of this status and perform all actions required to meet the DoD. Only then transition the ticket to the next status.
 
-4. **Epic auto-transitions:** Epic should be moved to In Progress when its first Dev Story enters Development, and to Resolved/Done when all Dev Stories are Resolved/Closed.
+4. **Epic auto-transitions:** Epic should be moved to `In Progress` when the first Dev Story **linked to it via `EpicLink`** enters Development, and to `Resolved`/`Done` when all linked Dev Stories reach a terminal status.
 
 5. **Question sub-tasks block the parent.** When created, set parent to Blocked. When closed, restore parent to its prior status.
 

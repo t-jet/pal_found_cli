@@ -12,79 +12,79 @@ initial_status: New
 terminal_statuses: [Closed, Canceled, Rejected, Duplicated]
 statuses:
   New:
-    description: "Registered; linked to Feature and Epic."
-    stage_goal: "Register the story and link it to the Feature/Epic."
+    description: Registered; linked to Feature and Epic.
+    stage_goal: Register the story and link it to the Feature/Epic.
     responsible_roles:
       - Architect
       - Tech Lead
   Open:
-    description: "In backlog; ready for analysis."
-    stage_goal: "Triage the story and prepare for analysis."
+    description: In backlog; ready for analysis.
+    stage_goal: Triage the story and prepare for analysis.
     responsible_roles:
       - Tech Lead
       - Architect
   Analysis:
-    description: "Technical scope and constraints being clarified."
-    stage_goal: "Clarify technical scope, constraints, and dependencies."
+    description: Technical scope and constraints being clarified.
+    stage_goal: Clarify technical scope, constraints, and dependencies.
     responsible_roles:
       - Architect
       - Tech Lead
   Grooming:
-    description: "Sub-tasks created and estimated by team."
-    stage_goal: "Decompose work, define sub-tasks, and estimate effort."
+    description: Sub-tasks created and estimated by team.
+    stage_goal: Decompose work, define sub-tasks, and estimate effort.
     responsible_roles:
       - Tech Lead
       - Development Team
       - QA Lead
   Development:
-    description: "Implementation sub-tasks in progress."
-    stage_goal: "Implement and review code to reach QA readiness."
+    description: Implementation sub-tasks in progress.
+    stage_goal: Implement and review code to reach QA readiness.
     responsible_roles:
       - Developers
       - Reviewer (Architect/BA)
   QA:
-    description: "Testing sub-tasks in progress."
-    stage_goal: "Execute test cases and resolve defects."
+    description: Testing sub-tasks in progress.
+    stage_goal: Execute test cases and resolve defects.
     responsible_roles:
       - QA Engineer
       - Developers
   Deployment:
-    description: "Ready for production deployment."
-    stage_goal: "Deploy changes and validate in target environment."
+    description: Ready for production deployment.
+    stage_goal: Deploy changes and validate in target environment.
     responsible_roles:
       - DevOps Engineer
       - Tech Lead
   Blocked:
-    description: "Cannot proceed; blocker documented."
-    stage_goal: "Verify blocking condition remains, maintain blocker links and priorities, and return to prior status when unblocked."
+    description: Cannot proceed; blocker documented.
+    stage_goal: Verify blocking condition remains, maintain blocker links and priorities, and return to prior status when unblocked.
     responsible_roles:
       - Current assignee
   Resolved:
-    description: "Deployed to production."
-    stage_goal: "Verify completion and prepare for closure."
+    description: Deployed to production.
+    stage_goal: Verify completion and prepare for closure.
     responsible_roles:
       - Tech Lead
       - Project Owner
   Closed:
-    description: "Sprint closed; archived."
-    stage_goal: "Archive the completed story."
+    description: Sprint closed; archived.
+    stage_goal: Archive the completed story.
     responsible_roles:
       - Project Owner
   Canceled:
-    description: "Developer story canceled before completion."
-    stage_goal: "Record cancellation rationale and archive."
+    description: Developer story canceled before completion.
+    stage_goal: Record cancellation rationale and archive.
     responsible_roles:
       - Tech Lead
       - Project Owner
   Rejected:
-    description: "Developer story rejected as invalid or out of scope."
-    stage_goal: "Record rejection reason and archive."
+    description: Developer story rejected as invalid or out of scope.
+    stage_goal: Record rejection reason and archive.
     responsible_roles:
       - Tech Lead
       - Project Owner
   Duplicated:
-    description: "Developer story is a duplicate of another ticket."
-    stage_goal: "Link to original ticket and archive."
+    description: Developer story is a duplicate of another ticket.
+    stage_goal: Link to original ticket and archive.
     responsible_roles:
       - Tech Lead
       - Project Owner
@@ -146,44 +146,44 @@ ticket_instructions:
       - Set assignee to ticket creator.
       - Review related documentation and linked Feature/Epic tickets.
       - Apply critical thinking and ask questions.
-      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket.
       - Analyze and split into child tickets when needed.
       - Identify blockers and add a blocking link.
-      - "IF ticket missing THEN create DEV-STORY-XXX under FEATURE-XXX."
+      - IF ticket missing THEN create DEV-STORY-XXX under FEATURE-XXX.
       - Set required fields for the new Story.
-      - "Add required links (Contains/is-contained-in, Epic-Link) and ensure links are created."
+      - Add required links (Contains/is-contained-in, Epic-Link) and ensure links are created.
       - IF required fields missing THEN complete them.
       - IF link needs to be created THEN create it.
-      - "Add Contains link (source_ticket=parent Feature Request, target_ticket=this Story ID, link_type=Contains)."
+      - Add Contains link (source_ticket=parent Feature Request, target_ticket=this Story ID, link_type=Contains).
       - IF Epic Link missing THEN add Epic-Link field (inherit from Feature Request).
-      - "Ensure Epic link exists (link_type=EpicLink)."
+      - Ensure Epic link exists (link_type=EpicLink).
       - IF documentation exists THEN link as a comment on this ticket.
       - THEN move to Open.
     transition_dods:
       - target_statuses: [Open]
         dod_criteria:
-          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Studied related documentation from the `.ept/docs/document_index.md`
           - Critical thinking applied
-          - All required questions asked and answered
+          - All required questions asked using the Question sub-tasks and all these sub-tasks are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)
           - Feature Request in Waiting for Implementation
-          - "Epic link identified (if applicable)"
+          - Epic link identified (if applicable)
           - Technical scope defined
-          - "Required fields validated (status, assignee, priority, dates)"
+          - Required fields validated (status, assignee, priority, dates)
           - Links to Feature and Epic established
 
   Open:
     instructions:
       - Review documentation and related tickets.
       - Apply critical thinking and ask questions.
-      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket.
       - Identify blockers and add a blocking link.
       - WHEN triage complete THEN move to Analysis.
     transition_dods:
       - target_statuses: [Analysis]
         dod_criteria:
-          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Studied related documentation from the `.ept/docs/document_index.md`
           - Critical thinking applied
-          - All required questions asked and answered
+          - All required questions asked using the Question sub-tasks and all these sub-tasks are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)
           - Story triage completed
           - Related documentation reviewed
           - Blockers identified and documented
@@ -192,33 +192,34 @@ ticket_instructions:
     instructions:
       - Review requirements from parent Feature Request and linked Epic.
       - Apply critical thinking and ask questions.
-      - "IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket."
+      - IF you need to clarify any question with other team members listed in the `.ept/docs/resources/available_resources.md` THEN create a QUESTION sub-task addressed to the appropriate role, add a Blocks link and a Question link from it to this ticket, set status to Blocked until resolved, and record blocker ID and prior status as a comment on this ticket.
       - ELSE clarify technical scope and constraints as a comment on this ticket.
       - Identify technical components and dependencies.
+      - Ensure the `release_notes` field is populated with a meaningful description — this field is required before moving to Grooming.
       - WHEN analysis complete THEN move to Grooming.
     transition_dods:
       - target_statuses: [Grooming]
         dod_criteria:
-          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Studied related documentation from the `.ept/docs/document_index.md`
           - Critical thinking applied
-          - All required questions asked and answered
-          - "DoD met for all BA-SUB and SA-SUB in parent Feature Request (DESIGN stage)"
+          - All required questions asked using the Question sub-tasks and all these sub-tasks are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)
+          - BA Design Sub-Task (BA-DES) and SA Design Sub-Task (SA-DES) of the parent Feature are in a terminal status (as determined by the ticket type workflow configuration)
           - Release Notes field filled with meaningful description
           - Technical scope and constraints documented as a comment on this ticket
           - Technical components and dependencies identified
 
   Grooming:
     instructions:
-      - "Decompose story into sub-tasks (assignee responsibility)."
-      - "Create DESIGN-XXX sub-task (required - for estimation and planning)."
-      - "Create DEV-XXX sub-task(s) (required - one or more for implementation)."
-      - "For each DEV-XXX, create CODEREVIEW-XXX sub-task(s) and add bidirectional relates-to links between DEV and CODEREVIEW."
+      - Decompose story into sub-tasks (assignee responsibility).
+      - Create DESIGN-XXX sub-task (required - for estimation and planning).
+      - Create DEV-XXX sub-task(s) (required - one or more for implementation).
+      - For each DEV-XXX, create CODEREVIEW-XXX sub-task(s) and add bidirectional relates-to links between DEV and CODEREVIEW.
       - "Assign CodeReview reviewers here (NOT implementer): Architect reviews developer work; UX/UI work requires two CodeReview tasks (BA + Architect)."
       - Set CodeReview status to New and block it on the DEV sub-task until DEV is Resolved.
-      - "Create UNITTEST-XXX sub-task(s) (required - for unit testing)."
-      - "Create TESTCASE-XXX sub-task (required - for QA test cases)."
-      - "Create TESTEXEC-XXX sub-task (required - for QA execution)."
-      - "Create DEVOPS-XXX sub-task (if infrastructure changes needed)."
+      - Create UNITTEST-XXX sub-task(s) (required - for unit testing).
+      - Create TESTCASE-XXX sub-task (required - for QA test cases).
+      - Create TESTEXEC-XXX sub-task (required - for QA execution).
+      - Create DEVOPS-XXX sub-task (if infrastructure changes needed).
       - For each new sub-task, set required fields and add links to the Story.
       - Confirm story can complete in one sprint.
       - IF story too large THEN split into multiple stories.
@@ -232,32 +233,32 @@ ticket_instructions:
     transition_dods:
       - target_statuses: [Development]
         dod_criteria:
-          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Studied related documentation from the `.ept/docs/document_index.md`
           - Critical thinking applied
-          - All required questions asked and answered
-          - "Task description reviewed by all Team Leads (Dev, QA, DevOps)"
+          - All required questions asked using the Question sub-tasks and all these sub-tasks are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)
+          - Task description reviewed by all Team Leads (Dev, QA, DevOps)
           - All team members understand task details
-          - "ALL sub-tasks created (DESIGN, DEV, UNITTEST, CODEREVIEW, TESTCASE, TESTEXEC, DEVOPS as needed)"
+          - ALL sub-tasks created (DESIGN, DEV, UNITTEST, CODEREVIEW, TESTCASE, TESTEXEC, DEVOPS as needed)
           - ALL sub-tasks have clear definitions
           - Acceptance criteria defined for all sub-tasks
-          - "ALL sub-tasks estimated (story points for story, hours for sub-tasks)"
+          - ALL sub-tasks estimated (story points for story, hours for sub-tasks)
+          - DESIGN sub-task Closed
           - Story can complete in one sprint confirmed
           - Execution plan created as a comment on this ticket
           - Assignee set (required)
 
   Development:
     instructions:
-      - "Execute DESIGN sub-task first (must close before DEV starts)."
-      - "Execute DEV sub-task(s) - implementation work."
-      - "Execute UNITTEST sub-task(s) - unit testing."
-      - "Execute CODEREVIEW sub-task - peer review."
+      - Execute DEV sub-task(s) - implementation work.
+      - Execute UNITTEST sub-task(s) - unit testing.
+      - Execute CODEREVIEW sub-task - peer review.
       - WHEN all DEV, UNITTEST, and CODEREVIEW sub-tasks Closed THEN move to QA.
     transition_dods:
       - target_statuses: [QA]
         dod_criteria:
-          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Studied related documentation from the `.ept/docs/document_index.md`
           - Critical thinking applied
-          - All required questions asked and answered
+          - All required questions asked using the Question sub-tasks and all these sub-tasks are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)
           - DESIGN sub-task Closed
           - All DEV sub-tasks Closed
           - All UNITTEST sub-tasks Closed
@@ -265,25 +266,25 @@ ticket_instructions:
 
   QA:
     instructions:
-      - "Execute TESTCASE sub-task - create/update test cases."
-      - "Execute TESTEXEC sub-task - run QA tests."
+      - Execute TESTCASE sub-task - create/update test cases.
+      - Execute TESTEXEC sub-task - run QA tests.
       - IF defects found THEN create BUG-SUB-XXX sub-tasks.
       - IF BUG-SUB exists THEN wait for resolution.
       - WHEN all TESTCASE, TESTEXEC, and BUG-SUB (if any) Closed THEN move to Deployment.
     transition_dods:
       - target_statuses: [Deployment]
         dod_criteria:
-          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Studied related documentation from the `.ept/docs/document_index.md`
           - Critical thinking applied
-          - All required questions asked and answered
+          - All required questions asked using the Question sub-tasks and all these sub-tasks are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)
           - All TESTCASE sub-tasks Closed
           - All TESTEXEC sub-tasks Closed
-          - "All BUG-SUB sub-tasks Closed (if any exist)"
+          - All BUG-SUB sub-tasks Closed (if any exist)
           - No open defects
 
   Deployment:
     instructions:
-      - "Execute DEVOPS sub-task (if exists)."
+      - Execute DEVOPS sub-task (if exists).
       - Apply deployment and configuration changes.
       - Verify deployment successful.
       - Document deployment steps in DEVOPS comments.
@@ -291,9 +292,9 @@ ticket_instructions:
     transition_dods:
       - target_statuses: [Resolved]
         dod_criteria:
-          - "Studied related documentation from the `.ept/docs/document_index.md`"
+          - Studied related documentation from the `.ept/docs/document_index.md`
           - Critical thinking applied
-          - All required questions asked and answered
+          - All required questions asked using the Question sub-tasks and all these sub-tasks are in terminal status (Closed, Done, Canceled, Rejected, Duplicated)
           - DEVOPS sub-task Closed (if exists)
           - Deployment successful and validated
           - Deployment steps documented
@@ -329,7 +330,10 @@ ticket_instructions:
       - Confirm blocker and prior status are documented as a comment on this ticket (include blocker ID and prior status).
       - Verify blocking link exists on this ticket.
       - Do not create new blocker links in this status; they must be created when the block is identified.
-      - "IF blocking link missing THEN create QUESTION-XXX addressed_to appropriate role, add a Blocks link from the question to this ticket, and remain Blocked."
-      - "Query blocking links on this ticket. For each blocker found: IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated` THEN remove the blocking link and return to prior status; IF blocker still active AND blocker priority lower than this ticket priority THEN raise blocker priority to match."
-      - IF all blocking links removed THEN return to prior status documented in comments.
+      - IF blocking link missing THEN create QUESTION ticket addressed_to appropriate role, add a Blocks link and a Question link from it to this ticket, and remain Blocked.
+      - |
+        Query blocking links on this ticket. For each blocker found, check its status:
+          - IF blocker status IN `Closed`, `Done`, `Canceled`, `Rejected`, `Duplicated` THEN remove the blocking link and return to prior status
+          - IF blocker still active AND blocker priority lower than this ticket priority THEN raise blocker priority to match.
+      - IF all blocking links removed THEN return this ticket to prior status.
     transition_dods: []
