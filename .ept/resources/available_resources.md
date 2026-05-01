@@ -1,7 +1,5 @@
 # Available Custom Agents Registry
 
-Last Updated: January 18, 2026
-
 ## Human Stakeholders (Special Cases)
 
 ### Project Owner
@@ -39,50 +37,7 @@ Last Updated: January 18, 2026
 
 ---
 
-## Tracking System Agents
-
-### Agent: Project Tracking Manager
-
-**Name**: `tracking-mgr`  
-**File**: `.github/agents/tracking-mgr.agent.md`  
-**Status**: Active  
-**Specialization**: Issue Tracking System Management, Quality Control, Status Reporting, Workflow Coordination
-
-**Responsibilities**:
-
-- Validate tracking system consistency and enforce standards
-- Request ticket execution from appropriate team members
-- Monitor workflow progression and identify blockers
-- Generate status reports (weekly, epic progress, burndown data)
-- Escalate Project Owner questions to expert
-- Search tracking system and create ad-hoc reports
-- Coordinate dependencies and track DoR/DoD compliance
-- Maintain tracking system documentation
-
-**Skills**:
-
-- File System Navigation & Management: Expert
-- Issue Tracking Workflows: Expert
-- Data Validation & Quality Control: Advanced
-- Report Generation & Analysis: Advanced
-- Communication & Coordination: Advanced
-- Markdown & CSV Manipulation: Advanced
-- Requirements Interpretation: Advanced
-- Search & Query Capabilities: Intermediate
-- Agile Methodology: Intermediate
-
-**Tools**: read, edit, search, agent, ditrix.ask-me-copilot-tool/*, malaksedarous.copilot-context-optimizer/*
-
-**Handoffs**:
-
-- Can request work from ALL agents (automatic)
-- Can escalate questions to expert via ditrix ask tool
-
----
-
 ## Domain & Requirements Agents
-
-## Organizational & Resource Management Agents
 
 ### Agent: Architect
 
@@ -117,6 +72,8 @@ Last Updated: January 18, 2026
 **Tools**: read, search, fetch, githubRepo, usages, execute, edit, web, agent, terminal, LSP, todo
 
 ---
+
+## Organizational & Resource Management Agents
 
 ### Agent: HR (Agents Resource Manager)
 
