@@ -2,7 +2,7 @@
 name: HR
 description: Manages custom agents lifecycle, requirements, and team composition. Request a new agent, check agent availability, or update agent registry.
 tools: execute, read, agent, edit, search, web, browser, todo
-model: Claude Sonnet 4.5
+model: LLaMa Qwopus3.6-35B-A3B-v1-Q4_K_S
 user-invocable: true
 ---
 

@@ -2,7 +2,7 @@
 name: qa-engineer
 description: QA Engineer for testing lifecycle: test case design, test execution, defect reporting, and QA sign-off. Describe your test case design, test execution, defect reporting, or QA sign-off needs.
 tools: vscode/memory, execute/runInTerminal, execute/getTerminalOutput, execute/awaitTerminal, execute/killTerminal, execute/createAndRunTask, execute/testFailure, read/readFile, read/problems, read/terminalSelection, read/terminalLastCommand, agent/runSubagent, edit/createDirectory, edit/createFile, edit/editFiles, search/codebase, search/fileSearch, search/listDirectory, search/textSearch, search/changes, web/fetch, todo
-model: Claude Sonnet 4.5
+model: LLaMa Qwopus3.6-35B-A3B-v1-Q4_K_S
 user-invocable: true
 ---
 

@@ -60,3 +60,15 @@ LINK-00059,RESOURCE-REQ-002,TASK-001,RelatesTo,Relates To,Relates To,2026-05-01T
 LINK-00060,RESOURCE-REQ-003,TASK-001,RelatesTo,Relates To,Relates To,2026-05-01T19:16:01.118731,architect,Resource request relates to TASK-001 project team analysis
 LINK-00061,RESOURCE-REQ-004,TASK-001,RelatesTo,Relates To,Relates To,2026-05-01T19:17:55.216991,architect,
 LINK-00062,RESOURCE-REQ-005,TASK-001,RelatesTo,Relates To,Relates To,2026-05-01T19:19:51.858272,architect,RESOURCE-REQ-005 relates to TASK-001 project team analysis
+LINK-00063,EPIC-001,FEATURE-001,FeatureContains,Feature Contains,Is Contained In Feature,2026-05-02T01:50:03.099774,architect,Bidirectional relationship: EPIC-001 contains FEATURE-001
+LINK-00064,FEATURE-001,DEV-STORY-003,Contains,Contains,Contained In,2026-05-02T02:06:13.089357,system,
+LINK-00065,DEV-STORY-003,EPIC-001,EpicLink,Epic Link,Epic Link,2026-05-02T02:06:25.687362,system,
+LINK-00066,EPIC-001,EPIC-003,Blocks,Blocks,Is Blocked By,2026-05-02T18:06:13.969169,architect,"EPIC-001 provides the core infrastructure (_foundry_cli_common.py, templates, test framework) required before EPIC-003 implementation can begin"
+LINK-00067,DEV-STORY-001,FEATURE-001,DependsOn,Depends On,Is Dependency For,2026-05-02T18:16:42.060168,architect,DEV-STORY-001 depends on FEATURE-001 reaching 'Waiting for Implementation' status before it can progress from New to Open
+LINK-00068,FEATURE-001,BA-DES-001,ParentChild,Is Parent Of,Is Child Of,2026-05-02T18:31:26.604371,BA,
+LINK-00069,SA-DES-001,BA-DES-001,RelatesTo,Relates To,Relates To,2026-05-02T18:37:37.932062,solution-architect,
+LINK-00070,QUESTION-002,BA-DES-001,Question,Asks About,Has Question,2026-05-02T18:47:08.750861,ba,SRS-001 approval request originating from BA-DES-001
+LINK-00071,QUESTION-003,BA-DES-001,Question,Asks About,Has Question,2026-05-02T18:47:13.250536,ba,SRS-001 cross-functional review request originating from BA-DES-001
+LINK-00073,EPIC-001,EPIC-002,Blocks,Blocks,Is Blocked By,2026-05-05T15:15:27.617427,workflow-mgr,Phase 1 foundation dependency - EPIC-002 requires EPIC-001 completion per SAD-001 §10 Implementation Roadmap
+LINK-00074,QUESTION-004,SA-DES-001,Question,Asks About,Has Question,2026-05-05T15:28:34.728700,architect,Project Owner approval request for SAD-001 and architecture design package
+LINK-00075,QUESTION-005,SA-DES-001,Question,Asks About,Has Question,2026-05-05T15:28:38.810527,architect,BA cross-functional review request for SAD-001 alignment with SRS-001

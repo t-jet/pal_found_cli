@@ -1,0 +1,88 @@
+Chat log directory: chat_logs
+Files analyzed: 35
+Unique requests: 85
+Total completion tokens: 66,688
+Token note: these logs expose completionTokens; prompt/input token fields were not present.
+Subagent call payloads do not contain direct token counters. parent_completion_tokens sums each parent request once when the subagent appeared; allocated_completion_tokens splits parent completionTokens across subagent invocations in that request.
+
+Requests and Tokens by Invoked Agent
+  agent          requests  completion tokens  models
+  -------------  --------  -----------------  ----------------------------------------------------
+  HR             2         31,330             copilot/claude-sonnet-4.5
+  workflow-mgr   6         21,829             copilot/claude-sonnet-4.6, copilot/claude-sonnet-4.5
+  hr             2         11,464             copilot/claude-sonnet-4.5
+  Architect      20        2,065              copilot/claude-sonnet-4.6, copilot/claude-sonnet-4.5
+  agent          52        0                  copilot/claude-sonnet-4.6, copilot/gpt-5.4
+  ticket-helper  3         0                  copilot/claude-sonnet-4.6
+
+Subagent Invocations
+  subagent       invocations  parent requests  parent tokens  allocated tokens  model              top descriptions                          
+
+  -------------  -----------  ---------------  -------------  ----------------  -----------------  -------------------------------------------------------------------------------------------------------------------------------
+  ticket-helper  66           18               29,075         21,542            Claude Sonnet 4.5  Get FEATURE-001 ticket details (3); Search for existing tickets (3); Add assessment comment to FEATURE-001 (1)
+  hr             5            1                9,628          5,349             Claude Sonnet 4.6  Process RESOURCE-REQ-002 Under Review (1); Process RESOURCE-REQ-003 Under Review (1); Process RESOURCE-REQ-001 Under Review (1)
+  unknown        4            1                5,723          5,723             Claude Sonnet 4.5  Get TASK-002 ticket details (1); Get workflow instructions for TASK-002 (1); Document work and transition TASK-002 (1)
+  Architect      8            1                2,457          2,184             Claude Sonnet 4.5  Process EPIC-001 ticket execution (1); Process EPIC-002 ticket execution (1); Process EPIC-003 ticket execution (1)
+  Explore        1            1                0              0                 GPT-5.4            Read all ticket YAML files (1)            
+
+  web-explorer   1            1                0              0                 GPT-5.4            Find Copilot agent docs (1)               
+
+
+Subagent Invocations by Caller Agent
+  caller        subagent       invocations  parent requests  parent tokens  allocated tokens  models                                top descriptions
+  ------------  -------------  -----------  ---------------  -------------  ----------------  ------------------------------------  ------------------------------------------------------------------------------------------------------------------------------------------------------
+  workflow-mgr  ticket-helper  14           5                21,269         13,736            Claude Sonnet 4.6, Claude Sonnet 4.5  Get resource_req tickets and workflow config (1); Get full details of all resource_req tickets (1); Verify final state of all resource_req tickets (1)
+  workflow-mgr  hr             5            1                9,628          5,349             Claude Sonnet 4.6                     Process RESOURCE-REQ-002 Under Review (1); Process RESOURCE-REQ-003 Under Review (1); Process RESOURCE-REQ-001 Under Review (1)
+  hr            ticket-helper  4            1                5,741          5,741             Claude Sonnet 4.6                     Update ticket with analysis findings (1); Search for existing ticket (1); Create tracking ticket (1)
+  hr            unknown        4            1                5,723          5,723             Claude Sonnet 4.5                     Get TASK-002 ticket details (1); Get workflow instructions for TASK-002 (1); Document work and transition TASK-002 (1)
+  workflow-mgr  Architect      8            1                2,457          2,184             Claude Sonnet 4.5                     Process EPIC-001 ticket execution (1); Process EPIC-002 ticket execution (1); Process EPIC-003 ticket execution (1)
+  Architect     ticket-helper  48           12               2,065          2,065             Claude Sonnet 4.6                     Get FEATURE-001 ticket details (3); Search for existing tickets (3); Add assessment comment to FEATURE-001 (1)
+  agent         Explore        1            1                0              0                 GPT-5.4                               Read all ticket YAML files (1)
+  agent         web-explorer   1            1                0              0                 GPT-5.4                               Find Copilot agent docs (1)
+
+
+-----------------
+
+Chat log directory: chat_logs
+Files analyzed: 35
+Unique requests: 87
+Total completion tokens: 74,634
+Token note: these logs expose completionTokens; prompt/input token fields were not present.
+Subagent call payloads do not contain direct token counters. parent_completion_tokens sums each parent request once when the subagent appeared; allocated_completion_tokens splits parent completionTokens across subagent invocations in that request.
+
+Requests and Tokens by Invoked Agent
+  agent          requests  completion tokens  models
+  -------------  --------  -----------------  ----------------------------------------------------
+  HR             2         31,330             copilot/claude-sonnet-4.5
+  workflow-mgr   8         29,775             copilot/claude-sonnet-4.6, copilot/claude-sonnet-4.5
+  hr             2         11,464             copilot/claude-sonnet-4.5
+  Architect      20        2,065              copilot/claude-sonnet-4.6, copilot/claude-sonnet-4.5
+  agent          52        0                  copilot/claude-sonnet-4.6, copilot/gpt-5.4
+  ticket-helper  3         0                  copilot/claude-sonnet-4.6
+
+Subagent Invocations
+  subagent       invocations  parent requests  parent tokens  allocated tokens  model              top descriptions                          
+
+  -------------  -----------  ---------------  -------------  ----------------  -----------------  -------------------------------------------------------------------------------------------------------------------------------
+  ticket-helper  68           19               34,979         22,723            Claude Sonnet 4.5  Get FEATURE-001 ticket details (3); Search for existing tickets (3); Add assessment comment to FEATURE-001 (1)
+  hr             5            1                9,628          5,349             Claude Sonnet 4.6  Process RESOURCE-REQ-002 Under Review (1); Process RESOURCE-REQ-003 Under Review (1); Process RESOURCE-REQ-001 Under Review (1)
+  Architect      15           2                8,361          6,317             Claude Sonnet 4.5  Process EPIC-002 ticket execution (2); Process EPIC-003 ticket execution (2); Process EPIC-001 ticket execution (1)
+  ba             2            2                7,946          2,632             Claude Sonnet 4.5  Process BA-DES-001 execution (1); Complete QUESTION-002 preparation (1)
+  unknown        4            1                5,723          5,723             Claude Sonnet 4.5  Get TASK-002 ticket details (1); Get workflow instructions for TASK-002 (1); Document work and transition TASK-002 (1)
+  Explore        1            1                0              0                 GPT-5.4            Read all ticket YAML files (1)            
+
+  web-explorer   1            1                0              0                 GPT-5.4            Find Copilot agent docs (1)               
+
+
+Subagent Invocations by Caller Agent
+  caller        subagent       invocations  parent requests  parent tokens  allocated tokens  models                                top descriptions
+  ------------  -------------  -----------  ---------------  -------------  ----------------  ------------------------------------  ------------------------------------------------------------------------------------------------------------------------------------------------------
+  workflow-mgr  ticket-helper  16           6                27,173         14,917            Claude Sonnet 4.6, Claude Sonnet 4.5  Get resource_req tickets and workflow config (1); Get full details of all resource_req tickets (1); Verify final state of all resource_req tickets (1)
+  workflow-mgr  hr             5            1                9,628          5,349             Claude Sonnet 4.6                     Process RESOURCE-REQ-002 Under Review (1); Process RESOURCE-REQ-003 Under Review (1); Process RESOURCE-REQ-001 Under Review (1)
+  workflow-mgr  Architect      15           2                8,361          6,317             Claude Sonnet 4.5                     Process EPIC-002 ticket execution (2); Process EPIC-003 ticket execution (2); Process EPIC-001 ticket execution (1)
+  workflow-mgr  ba             2            2                7,946          2,632             Claude Sonnet 4.5                     Process BA-DES-001 execution (1); Complete QUESTION-002 preparation (1)
+  hr            ticket-helper  4            1                5,741          5,741             Claude Sonnet 4.6                     Update ticket with analysis findings (1); Search for existing ticket (1); Create tracking ticket (1)
+  hr            unknown        4            1                5,723          5,723             Claude Sonnet 4.5                     Get TASK-002 ticket details (1); Get workflow instructions for TASK-002 (1); Document work and transition TASK-002 (1)
+  Architect     ticket-helper  48           12               2,065          2,065             Claude Sonnet 4.6                     Get FEATURE-001 ticket details (3); Search for existing tickets (3); Add assessment comment to FEATURE-001 (1)
+  agent         Explore        1            1                0              0                 GPT-5.4                               Read all ticket YAML files (1)
+  agent         web-explorer   1            1                0              0                 GPT-5.4                               Find Copilot agent docs (1)

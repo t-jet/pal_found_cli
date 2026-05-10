@@ -1,6 +1,6 @@
 counters:
   ba_subtask_analysis: 1
-  ba_subtask_design: 0
+  ba_subtask_design: 1
   bug: 0
   bug_subtask: 0
   codereview: 0
@@ -10,11 +10,11 @@ counters:
   devops: 0
   epic: 8
   feature: 1
-  link: 62
-  question: 1
+  link: 75
+  question: 5
   resource_req: 5
   sa_subtask_analysis: 1
-  sa_subtask_design: 0
+  sa_subtask_design: 1
   task: 2
   testcase: 0
   testexec: 0

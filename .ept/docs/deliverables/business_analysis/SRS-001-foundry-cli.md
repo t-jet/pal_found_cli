@@ -5,8 +5,9 @@
 |---|---|
 | **Document ID** | SRS-001 |
 | **Version** | 1.0.0 |
-| **Status** | Draft — Pending BA Sign-off |
+| **Status** | Approved by BA |
 | **Date** | 2026-04-13 |
+| **BA Sign-off** | 2026-05-02 (Business Analyst) |
 | **Author** | Solution Architect (acting on behalf of BA role) |
 | **Reviewers** | Product Owner, Business Analyst |
 | **Traceability** | FEATURE-001, BA-ANA-001, SA-ANA-001 |
