@@ -2,7 +2,7 @@
 name: ba
 description: Business Analyst for requirements analysis, acceptance criteria definition, business design documentation, and requirements traceability. Describe your requirements analysis, acceptance criteria, user story analysis, requirements traceability, grooming review, or business design specification needs.
 tools: vscode/memory, read/readFile, read/viewImage, agent/runSubagent, edit/createFile, edit/editFiles, search/codebase, search/fileSearch, search/listDirectory, search/textSearch, todo
-model: LLaMa Qwopus3.6-35B-A3B-v1-Q4_K_S
+model: local-llama-model
 user-invocable: true
 ---
 

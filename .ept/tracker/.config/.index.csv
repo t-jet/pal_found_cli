@@ -11,13 +11,13 @@ EPIC-005,epic,AI & Models Skills,New,High,architect,architect,,,EPIC-005,2026-04
 EPIC-006,epic,Data Pipeline Skills,New,High,architect,architect,,,EPIC-006,2026-04-13,2026-04-13
 EPIC-007,epic,Remaining Namespace Skills,New,Medium,architect,architect,,,EPIC-007,2026-04-13,2026-04-13
 EPIC-008,epic,Foundry Knowledge Skill,New,High,architect,architect,,,EPIC-008,2026-04-13,2026-04-13
-DEV-STORY-001,dev_story,"Implement ConfigLoader, AuthProvider, AsyncClientFactory",New,Critical,architect,architect,,,DEV-STORY-001,2026-04-13,2026-04-13
-DEV-STORY-002,dev_story,"Implement RetryHandler, ErrorSerializer, OutputFormatter, LogSetup",New,Critical,architect,architect,,,DEV-STORY-002,2026-04-13,2026-05-02
+DEV-STORY-001,dev_story,"Implement ConfigLoader, AuthProvider, AsyncClientFactory",New,Critical,architect,architect,FEATURE-001,,DEV-STORY-001,2026-04-13,2026-05-13
+DEV-STORY-002,dev_story,"Implement RetryHandler, ErrorSerializer, OutputFormatter, LogSetup",Open,Critical,architect,architect,FEATURE-001,,DEV-STORY-002,2026-04-13,2026-05-13
 DEV-STORY-003,dev_story,"Implement AccessControlGuard, PaginationHelper",New,Critical,architect,architect,FEATURE-001,,DEV-STORY-003,2026-04-13,2026-05-02
-DEV-STORY-004,dev_story,"Implement BinaryDownloadHandler, SessionManager, TracingProvider",New,High,architect,architect,,,DEV-STORY-004,2026-04-13,2026-04-13
+DEV-STORY-004,dev_story,"Implement BinaryDownloadHandler, SessionManager, TracingProvider",New,High,architect,architect,FEATURE-001,,DEV-STORY-004,2026-04-13,2026-05-13
 DEV-STORY-005,dev_story,foundry-datasets skill (26 operations),New,Critical,architect,architect,,,DEV-STORY-005,2026-04-13,2026-04-13
 DEV-STORY-006,dev_story,foundry-filesystem skill (31 operations),New,High,architect,architect,,,DEV-STORY-006,2026-04-13,2026-04-13
-DEV-STORY-007,dev_story,foundry-ontologies skill (55 operations),New,Critical,architect,architect,,,DEV-STORY-007,2026-04-13,2026-04-13
+DEV-STORY-007,dev_story,foundry-ontologies skill (55 operations),New,Critical,reporter,architect,,,DEV-STORY-007,2026-04-13,2026-05-12
 DEV-STORY-008,dev_story,foundry-functions skill (7 operations),New,High,architect,architect,,,DEV-STORY-008,2026-04-13,2026-04-13
 DEV-STORY-009,dev_story,foundry-admin skill (66 operations),New,High,architect,architect,,,DEV-STORY-009,2026-04-13,2026-04-13
 DEV-STORY-010,dev_story,foundry-audit skill (2 operations),New,Medium,architect,architect,,,DEV-STORY-010,2026-04-13,2026-04-13

@@ -6,7 +6,7 @@ description: Expert Apptainer agent. Use for any Apptainer container operations 
   installation/admin setup. Also handles Singularity compatibility questions. Invoked as a subagent
   by other agents needing Apptainer knowledge or autonomous execution.
 tools: execute, read, edit, search, web, ms-python.python/getPythonEnvironmentInfo, ms-python.python/getPythonExecutableCommand, ms-python.python/installPythonPackage, ms-python.python/configurePythonEnvironment, sehejjain.lsp-mcp-bridge/definition, sehejjain.lsp-mcp-bridge/references, sehejjain.lsp-mcp-bridge/hover, sehejjain.lsp-mcp-bridge/completion, sehejjain.lsp-mcp-bridge/workspace_symbols, sehejjain.lsp-mcp-bridge/document_symbols, sehejjain.lsp-mcp-bridge/code_actions, sehejjain.lsp-mcp-bridge/format, sehejjain.lsp-mcp-bridge/signature_help, todo
-model: LLaMa Qwopus3.6-35B-A3B-v1-Q4_K_S
+model: local-llama-model
 user-invocable: true
 ---
 

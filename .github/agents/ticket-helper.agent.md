@@ -13,7 +13,7 @@ description: >-
 name: ticket-helper
 argument-hint: Describe the tracking operation to perform (create/get/update/list/search tickets, comments, links, or query workflow configuration). Be specific and include all relevant parameters (e.g. ticket type, status, assignee, comment body, link type).
 tools: execute, read, search, todo
-model: LLaMa Qwopus3.6-35B-A3B-v1-Q4_K_S
+model: local-llama-model
 user-invocable: true
 ---
 
