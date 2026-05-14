@@ -168,7 +168,16 @@ def test_dev_story_has_three_all_children_reach_status():
 # ── bug.yaml specific ────────────────────────────────────────────────────────
 
 
-def test_bug_yaml_automatic_transitions_is_empty():
+def test_bug_yaml_automatic_transitions_has_blocking_rules():
+    """Bug tickets now support automatic blocking transitions (AT-4, AT-5)."""
     data = _load("bug.yaml")
     at = data.get("automatic_transitions", [])
-    assert at == [], f"bug.yaml: automatic_transitions must be [], got {at}"
+    assert len(at) >= 2, f"bug.yaml: expected at least 2 automatic_transitions, got {len(at)}"
+    
+    # Verify AT-4: child_blocker_created rule exists
+    blocker_rules = [r for r in at if r.get("rule") == "child_blocker_created"]
+    assert len(blocker_rules) > 0, "bug.yaml: missing child_blocker_created rule"
+    
+    # Verify AT-5: all_blockers_cleared rule exists
+    unblock_rules = [r for r in at if r.get("rule") == "all_blockers_cleared"]
+    assert len(unblock_rules) > 0, "bug.yaml: missing all_blockers_cleared rule"

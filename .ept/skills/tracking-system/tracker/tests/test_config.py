@@ -171,17 +171,19 @@ class TestRefResolution:
     def test_ref_file_not_found_raises(self, tracker_env: Path) -> None:
         paths = get_paths()
         wf_text = paths.workflow_file.read_text(encoding="utf-8")
+        # Replace an existing inline ticket type with a $ref to a nonexistent file
         wf_text = wf_text.replace(
             "  - type: task\n"
             "    required_fields: [id, type, title, status, priority, assignee, reporter, created, updated]\n"
             "    optional_fields: [parent, addressed_to]\n"
+            "    terminal_statuses: [Closed]\n"
             "    statuses:\n"
             "      New: Created\n"
             "      Open: Open\n"
             "      In Progress: In progress\n"
             "      Resolved: Resolved\n"
             "      Closed: Closed",
-            '  - {"$ref": "tickets/nonexistent.yaml"}',
+            '  - $ref: tickets/nonexistent.yaml',
         )
         paths.workflow_file.write_text(wf_text, encoding="utf-8")
         invalidate_config()
