@@ -8,16 +8,19 @@ description: >-
   read, update, or search tickets; update ticket fields or description
   after creation; filter tickets by parent, reporter, assignee, status,
   type, or priority; add, read, or update comments; create, list, or
-  remove inter-ticket links; or inspect the workflow configuration
+  remove inter-ticket links; inspect the workflow configuration
   (ticket types, statuses, stage goals, responsible roles, transitions,
-  definitions of done, or automatic transition rules). Keywords: tracker,
-  ticket, issue, task, bug, feature, epic, dev story, question, workitem,
-  comment, link, workflow, status, transition, assignee, priority, stage,
-  DoD, create ticket, update ticket, update field, update description,
-  list tickets, filter by parent, filter by reporter, search tickets,
-  get ticket, comment create, comment get, comment update, comment list,
-  link create, link list, link remove, workflow status, workflow
-  transitions, workflow types, type-info, automatic transitions.
+  definitions of done, or automatic transition rules); or generate a
+  prioritized build queue with blocking relationships and priority
+  reconciliation. Keywords: tracker, ticket, issue, task, bug, feature,
+  epic, dev story, question, workitem, comment, link, workflow, status,
+  transition, assignee, priority, stage, DoD, create ticket, update ticket,
+  update field, update description, list tickets, filter by parent, filter
+  by reporter, search tickets, get ticket, comment create, comment get,
+  comment update, comment list, link create, link list, link remove,
+  workflow status, workflow transitions, workflow types, type-info,
+  automatic transitions, build queue, build-queue, priority reconciliation,
+  blocking relationships, work queue, queue tickets.
 compatibility: Requires Python with PyYAML; run from the project where `.ept/tracker/` exists.
 metadata:
   author: t-jet

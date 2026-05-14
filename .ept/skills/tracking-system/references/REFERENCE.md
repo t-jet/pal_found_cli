@@ -282,6 +282,89 @@ Use this **before every** `update --status` call to verify the move is allowed.
 
 ---
 
+## Build Queue Commands (read-only)
+
+The `build-queue` command generates a prioritized work queue of non-terminal tickets,
+automatically reconciling priorities based on parent-child and blocking relationships.
+
+### `build-queue stage1`
+
+```bash
+python .ept/skills/tracking-system/tracker/tracker_cli.py build-queue stage1 [--author <role>]
+```
+
+**Stage 1: Filter to non-terminal tickets**
+
+Returns all tickets not in terminal statuses. Terminal statuses are defined per ticket type in the workflow configuration.
+
+---
+
+### `build-queue stage2`
+
+```bash
+python .ept/skills/tracking-system/tracker/tracker_cli.py build-queue stage2 [--author <role>]
+```
+
+**Stage 2: Recursive priority reconciliation**
+
+Ensures priority consistency across related tickets:
+- Child tickets must have priority >= parent ticket priority
+- Blocking tickets must have priority >= blocked ticket priority
+
+Runs iteratively until no further changes are needed. Automatically updates ticket priorities
+when inconsistencies are detected. Changes are persisted to disk and attributed to `--author`
+(defaults to `"build-queue"`).
+
+---
+
+### `build-queue stage3`
+
+```bash
+python .ept/skills/tracking-system/tracker/tracker_cli.py build-queue stage3 [--author <role>]
+```
+
+**Stage 3: Sort and organize queue**
+
+Sorts non-terminal tickets by:
+1. Priority level (highest first)
+2. Blocking relationships (tickets that block others appear first within each priority band)
+
+---
+
+### `build-queue stage4`
+
+```bash
+python .ept/skills/tracking-system/tracker/tracker_cli.py build-queue stage4 [--author <role>]
+```
+
+**Stage 4: Format output**
+
+Displays the sorted queue in a tabular format with columns:
+- Position (queue order)
+- Ticket ID
+- Status
+- Priority
+- Assignee
+- Blocks (list of tickets this ticket blocks)
+- Title
+
+---
+
+### `build-queue all`
+
+```bash
+python .ept/skills/tracking-system/tracker/tracker_cli.py build-queue all [--author <role>]
+```
+
+**Run all stages**
+
+Executes stages 1-4 in sequence: filter, reconcile, sort, and output. This is the recommended
+command for generating a complete build queue.
+
+`--author` is optional and used to attribute priority changes made during stage 2. Defaults to `"build-queue"`.
+
+---
+
 ## Fields
 
 ### Core fields (all ticket types)

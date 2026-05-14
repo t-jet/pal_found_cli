@@ -70,7 +70,7 @@ pytest -v --cov=tracker --cov-report=term-missing
 pytest tests/test_tickets.py -v
 ```
 
-`--author` is **required** for write commands (`create`, `update`, `link create`, `link remove`, `comment create`, `comment update`) and **optional** for read-only commands (`get`, `list`, `search`, `link list`, `comment list`, `comment get`, `workflow status`, `workflow transitions`).
+`--author` is **required** for write commands (`create`, `update`, `link create`, `link remove`, `comment create`, `comment update`) and **optional** for read-only commands (`get`, `list`, `search`, `link list`, `comment list`, `comment get`, `workflow status`, `workflow transitions`, `build-queue`).
 
 ## Commands
 
@@ -149,6 +149,18 @@ Inspect status definitions and allowed transitions sourced from `.workflow.yaml`
 - `workflow status <type>` — list all statuses for a ticket type with stage goals and terminal markers
 - `workflow status <type> <status-name>` — show full detail for one status: description, stage goal, responsible roles (array), and allowed transitions
 - `workflow transitions <type> <status-name>` — list allowed target statuses from the given status, with terminal markers
+
+### Build Queue
+
+Generate a prioritized build queue of non-terminal tickets with blocking relationships and priority reconciliation.
+
+- `build-queue stage1` — filter to non-terminal tickets only
+- `build-queue stage2` — perform recursive priority reconciliation (ensures child priority >= parent, blocker priority >= blocked)
+- `build-queue stage3` — sort tickets by priority and blocking relationships
+- `build-queue stage4` — format and display the queue with position, blocking info, and ticket details
+- `build-queue all` — run all stages (filter, reconcile, sort, output)
+
+All subcommands accept optional `--author` for attribution of priority changes made during stage2.
 
 ## Exit Codes
 
