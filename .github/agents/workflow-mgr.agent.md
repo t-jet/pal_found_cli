@@ -112,42 +112,18 @@ ALL tracking system operations (querying tickets, reading ticket data, listing l
 </algorithm-rules>
 
 <step id="1" name="Consult Documentation">
-- Retrieve ticket type metadata and instructions via `ticket-helper` subagent to understand workflow
+- Retrieve ticket type metadata and instructions via `ticket-helper` subagent to understand workflow.
 - Get agent mapping from the .ept/resources/available_resources.md file.
-- Have mapping and instructions ready for reference during processing
+- Have mapping and instructions ready for reference during processing.
 </step>
 
 <step id="2" name="Build Blocker-Aware Priority Queue">
 
 <substep id="A" name="Query Ready Tickets">
-- Invoke `ticket-helper` to list all tickets, then filter out terminal statuses (get list of terminal statuses from ticket type using `ticket-helper`)
-- Include: New, Open, In Progress, Development, Review, Testing, etc.
+- Invoke `ticket-helper` to build  a prioritized work queue of non-terminal tickets. As a result you will have a list of tickets with their metadata, arranged in the implementation order according to priority and blocking relationships. Use it to get all necessary information for the next steps.
 </substep>
 
-<substep id="B" name="Identify Blocking Relationships">
-- Invoke `ticket-helper` to list links for each non-terminal ticket (or list all links globally) to find "Blocks" relationships
-- Build blocking map: `{blocking_ticket: [blocked_tickets]}`
-- Calculate "blocking impact score" = highest priority among blocked tickets
-</substep>
-
-<substep id="C" name="Filter Out Blocked Tickets">
-- Exclude tickets where another non-terminal ticket blocks them
-- Only include tickets with no active blockers
-</substep>
-
-<substep id="D" name="Sort by Priority (Highest to Lowest)">
-1. Tickets blocking Critical priority tickets
-2. Critical priority tickets (not blocking others)
-3. Tickets blocking High priority tickets
-4. High priority tickets (not blocking others)
-5. Tickets blocking Medium priority tickets
-6. Medium priority tickets
-7. Tickets blocking Low priority tickets
-8. Low priority tickets
-9. Within same level: oldest first (by creation date)
-</substep>
-
-<substep id="E" name="Form Parallel Batches of Independent Tickets">
+<substep id="B" name="Form Parallel Batches of Independent Tickets">
 
 **Purpose**: Group unblocked tickets into batches that can be handed off without waiting for each other, maximizing throughput on independent work streams.
 
@@ -157,7 +133,7 @@ ALL tracking system operations (querying tickets, reading ticket data, listing l
 - They do not modify the same deliverable artifacts (e.g., same document, same module)
 
 **Batching Algorithm:**
-1. Take the sorted priority queue from Step 2D
+1. Take the sorted priority queue from Step 2A
 2. Initialize `current_batch = []` and `batch_artifact_set = {}`
 3. For each ticket in priority order:
    a. Check independence against ALL tickets already in `current_batch`
