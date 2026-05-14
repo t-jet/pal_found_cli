@@ -6,12 +6,29 @@ import re
 from typing import Any
 
 
-def format_ticket(ticket: dict[str, str]) -> str:
-    """Format a ticket row for tabular display."""
-    return (
+def format_ticket(ticket: dict[str, str], *, include_reporter: bool = False, include_blocked: bool = False) -> str:
+    """Format a ticket row for tabular display.
+    
+    Args:
+        ticket: Ticket data dictionary
+        include_reporter: If True, include reporter column
+        include_blocked: If True, include blocked status column
+    """
+    base = (
         f"{ticket['id']:<15} {ticket['status']:<15} "
-        f"{ticket['priority']:<10} {ticket['assignee']:<20} {ticket['title']}"
+        f"{ticket['priority']:<10} {ticket['assignee']:<20}"
     )
+    
+    if include_reporter:
+        reporter = ticket.get('reporter', '')
+        base += f" {reporter:<15}"
+    
+    if include_blocked:
+        blocked = ticket.get('blocked', 'No')
+        base += f" {blocked:<8}"
+    
+    base += f" {ticket['title']}"
+    return base
 
 
 def format_link(link: dict[str, str]) -> str:

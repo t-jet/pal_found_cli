@@ -157,42 +157,49 @@ link_types:
     target_role: "Is Blocked By"
     description: "Blocking relationship. Source ticket prevents progress on target ticket."
     usage: "Any ticket can block any other ticket."
+    is_blocking: true
 
   - type: DependsOn
     source_role: "Depends On"
     target_role: "Is Dependency For"
     description: "Dependency relationship. Source must wait for target to complete first."
     usage: "Ticket requires another ticket to be completed before it can proceed."
+    is_blocking: false
 
   - type: RelatesTo
     source_role: "Relates To"
     target_role: "Relates To"
     description: "General symmetric relationship with no ordering implication."
     usage: "Any loosely related tickets that share context."
+    is_blocking: false
 
   - type: Contains
     source_role: "Contains"
     target_role: "Contained In"
     description: "Containment/parent-child relationship mirroring folder structure."
     usage: "Feature Request → Developer Story; Developer Story → Sub-Task."
+    is_blocking: false
 
   - type: EpicLink
     source_role: "Epic Link"
     target_role: "Epic Link"
     description: "Symmetric association between an Epic and a Developer Story."
     usage: "Links a Developer Story to its organizing Epic (logical grouping)."
+    is_blocking: false
 
   - type: FeatureContains
     source_role: "Feature Contains"
     target_role: "Is Contained In Feature"
     description: "Feature-to-Epic organizational relationship."
     usage: "Feature Request ↔ Epic (many-to-many, bidirectional)."
+    is_blocking: false
 
   - type: BugFeature
     source_role: "Comes From"
     target_role: "Goes To"
     description: "A bug that requires a new Feature Request to address it properly."
     usage: "Bug → Feature Request when bug resolution requires a feature."
+    is_blocking: false
 
   - type: Question
     source_role: "Asks About"
@@ -200,12 +207,14 @@ link_types:
     description: "Links a Question sub-task to the ticket it asks about."
     usage: "Automatically created when a Question sub-task is created under a parent."
     auto_created: true
+    is_blocking: false
 
   - type: ParentChild
     source_role: "Is Parent Of"
     target_role: "Is Child Of"
     description: "Explicit parent-child relationship, mirrors folder nesting."
     usage: "Any parent ticket → child ticket (supplements folder structure)."
+    is_blocking: false
 
 
 # ─────────────────────────────────────────

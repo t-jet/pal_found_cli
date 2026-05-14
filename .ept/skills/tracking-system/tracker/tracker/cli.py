@@ -473,12 +473,17 @@ Examples:
     # ── list (read-only) ─────────────────────────────────────────────────
     list_p = subparsers.add_parser("list", help="List tickets")
     _add_author(list_p, required=False)
-    list_p.add_argument("--status")
+    list_p.add_argument("--status", action="append", default=None,
+                        help="Filter by status; can repeat for multiple values (OR)")
     list_p.add_argument("--assignee")
-    list_p.add_argument("--type")
-    list_p.add_argument("--priority")
+    list_p.add_argument("--type", action="append", default=None,
+                        help="Filter by type; can repeat for multiple values (OR)")
+    list_p.add_argument("--priority", action="append", default=None,
+                        help="Filter by priority; can repeat for multiple values (OR)")
     list_p.add_argument("--parent")
     list_p.add_argument("--reporter")
+    list_p.add_argument("--non-terminal-only", action="store_true",
+                        help="Only show tickets not in terminal statuses")
 
     # ── update ───────────────────────────────────────────────────────────
     update_p = subparsers.add_parser("update", help="Update ticket")
@@ -577,6 +582,30 @@ Examples:
     wf_trans_p.add_argument("ticket_type")
     wf_trans_p.add_argument("status_name", nargs="?", default="")
 
+    # ── build-queue (read-only) ─────────────────────────────────────────
+    bq_p = subparsers.add_parser(
+        "build-queue", help="Display build queue with blocking relationships",
+    )
+    bq_subs = bq_p.add_subparsers(
+        dest="build_queue_command", help="Build queue subcommand",
+        parser_class=_CleanErrorParser,
+    )
+
+    bq_stage1_p = bq_subs.add_parser("stage1", help="Filter to non-terminal tickets")
+    _add_author(bq_stage1_p, required=False)
+
+    bq_stage2_p = bq_subs.add_parser("stage2", help="Recursive priority reconciliation")
+    _add_author(bq_stage2_p, required=False)
+
+    bq_stage3_p = bq_subs.add_parser("stage3", help="Sort and organize queue")
+    _add_author(bq_stage3_p, required=False)
+
+    bq_stage4_p = bq_subs.add_parser("stage4", help="Format output")
+    _add_author(bq_stage4_p, required=False)
+
+    bq_all_p = bq_subs.add_parser("all", help="Run all stages")
+    _add_author(bq_all_p, required=False)
+
     # ── Parse & dispatch ─────────────────────────────────────────────────
     args = parser.parse_args()
 
@@ -645,38 +674,53 @@ Examples:
             print(ticket["content"])
 
         elif args.command == "list":
+            # Validate filters (handle lists for OR logic)
             if args.type:
-                validate_ticket_type(args.type)
+                for t in args.type:
+                    validate_ticket_type(t)
             if args.status:
-                validate_status_value(args.status, args.type)
-            if (
-                args.priority
-                and cfg["priority_values"]
-                and args.priority not in cfg["priority_values"]
-            ):
-                raise ValidationError(
-                    f"Invalid priority filter: {args.priority}. "
-                    f"Valid values: {', '.join(cfg['priority_values'])}."
-                )
+                # Validate each status value against all possible statuses
+                for s in args.status:
+                    # If type filter is provided, validate against those types
+                    # Otherwise validate against all statuses
+                    if args.type and len(args.type) == 1:
+                        validate_status_value(s, args.type[0])
+                    else:
+                        validate_status_value(s, None)
+            if args.priority and cfg["priority_values"]:
+                for p in args.priority:
+                    if p not in cfg["priority_values"]:
+                        raise ValidationError(
+                            f"Invalid priority filter: {p}. "
+                            f"Valid values: {', '.join(cfg['priority_values'])}."
+                        )
             if args.parent:
                 if not ticket_exists(args.parent):
                     raise ValidationError(
                         f"Parent ticket {args.parent} does not exist"
                     )
+            
+            # Import is_ticket_blocked here to avoid circular imports
+            from .links import is_ticket_blocked
+            
             tickets = list_tickets(
                 args.status, args.assignee, args.type, args.priority,
                 parent=args.parent,
                 reporter=args.reporter,
+                non_terminal_only=getattr(args, 'non_terminal_only', False),
             )
             print(f"\nFound {len(tickets)} ticket(s):")
-            print("=" * 100)
+            print("=" * 140)
             print(
                 f"{'ID':<15} {'Status':<15} {'Priority':<10} "
-                f"{'Assignee':<20} {'Title'}"
+                f"{'Assignee':<20} {'Reporter':<15} {'Blocked':<8} {'Title'}"
             )
-            print("-" * 100)
+            print("-" * 140)
             for t in tickets:
-                print(format_ticket(t))
+                # Add blocked status to ticket dict for formatting
+                blocked = is_ticket_blocked(t["id"])
+                t["blocked"] = "Yes" if blocked else "No"
+                print(format_ticket(t, include_reporter=True, include_blocked=True))
 
         elif args.command == "update":
             new_description: str | None = None
@@ -837,6 +881,9 @@ Examples:
 
         elif args.command == "workflow":
             _handle_workflow(args, cfg, wf_p)
+
+        elif args.command == "build-queue":
+            _handle_build_queue(args, bq_p)
 
         return EXIT_OK
 
@@ -1024,3 +1071,23 @@ def _workflow_transitions_single(
             print(f"  -> {t}{t_mark}")
     else:
         print("  (none -- terminal status)")
+
+
+# ── Build-queue sub-handler ─────────────────────────────────────────────────
+
+def _handle_build_queue(
+    args: argparse.Namespace,
+    bq_parser: argparse.ArgumentParser,
+) -> None:
+    """Dispatch build-queue subcommands."""
+    if not args.build_queue_command:
+        bq_parser.print_help()
+        raise ValidationError("build-queue subcommand required")
+    
+    from .build_queue import build_queue
+    
+    author = getattr(args, "author", "build-queue") or "build-queue"
+    stage = args.build_queue_command
+    
+    # Call build_queue with appropriate stage
+    build_queue(author=author, stage=stage)

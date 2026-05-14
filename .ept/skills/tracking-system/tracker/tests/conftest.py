@@ -48,6 +48,7 @@ ticket_types:
   - type: task
     required_fields: [id, type, title, status, priority, assignee, reporter, created, updated]
     optional_fields: [parent, addressed_to]
+    terminal_statuses: [Closed]
     statuses:
       New: Created
       Open: Open
@@ -57,6 +58,7 @@ ticket_types:
   - type: workitem
     required_fields: [id, type, title, status, parent, created, updated]
     optional_fields: [priority, assignee, reporter]
+    terminal_statuses: [Closed]
     statuses:
       New: Created
       Open: Open
@@ -66,6 +68,7 @@ ticket_types:
   - type: question
     required_fields: [id, type, title, status, parent, addressed_to, created, updated]
     optional_fields: [priority, assignee, reporter]
+    terminal_statuses: [Closed]
     statuses:
       New: Created
       Open: Open
@@ -77,12 +80,19 @@ link_types:
   - type: Blocks
     source_role: Blocks
     target_role: Is Blocked By
+    is_blocking: true
   - type: RelatesTo
     source_role: Relates To
     target_role: Relates To
+    is_blocking: false
   - type: ParentChild
     source_role: Is Parent Of
     target_role: Is Child Of
+    is_blocking: false
+  - type: Contains
+    source_role: Contains
+    target_role: Is Contained By
+    is_blocking: false
 
 type_registry:
   task:     { id_prefix: TASK,     content_file: ticket.md, initial_status: New }

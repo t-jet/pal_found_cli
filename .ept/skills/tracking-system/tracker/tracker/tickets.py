@@ -258,30 +258,69 @@ def get_ticket_with_content(ticket_id: str) -> dict[str, Any]:
 
 
 def list_tickets(
-    status: str | None = None,
+    status: str | list[str] | None = None,
     assignee: str | None = None,
-    ticket_type: str | None = None,
-    priority: str | None = None,
+    ticket_type: str | list[str] | None = None,
+    priority: str | list[str] | None = None,
     *,
     parent: str | None = None,
     reporter: str | None = None,
+    non_terminal_only: bool = False,
 ) -> list[dict[str, str]]:
-    """List tickets with optional single-pass filtering."""
+    """List tickets with optional single-pass filtering.
+    
+    Args:
+        status: Single status or list of statuses (OR logic)
+        assignee: Filter by assignee
+        ticket_type: Single type or list of types (OR logic)
+        priority: Single priority or list of priorities (OR logic)
+        parent: Filter by parent ticket ID
+        reporter: Filter by reporter identifier
+        non_terminal_only: If True, exclude tickets in terminal statuses
+    """
+    from .config import get_runtime_config
+    
     tickets = read_index()
     results: list[dict[str, str]] = []
+    
+    # Convert single values to lists for uniform handling
+    status_list = [status] if isinstance(status, str) else status
+    type_list = [ticket_type] if isinstance(ticket_type, str) else ticket_type
+    priority_list = [priority] if isinstance(priority, str) else priority
+    
+    # Get terminal statuses if needed
+    terminal_statuses_by_type: dict[str, list[str]] = {}
+    if non_terminal_only:
+        cfg = get_runtime_config()
+        for tt, spec in cfg["ticket_specs"].items():
+            terminal_statuses_by_type[tt] = spec["terminal_statuses"]
+    
     for ticket in tickets:
-        if status and ticket["status"] != status:
+        # Filter by status (OR logic - match any)
+        if status_list and ticket["status"] not in status_list:
             continue
+        # Filter by assignee
         if assignee and ticket["assignee"] != assignee:
             continue
-        if ticket_type and ticket["type"] != ticket_type:
+        # Filter by ticket type (OR logic - match any)
+        if type_list and ticket["type"] not in type_list:
             continue
-        if priority and ticket["priority"] != priority:
+        # Filter by priority (OR logic - match any)
+        if priority_list and ticket["priority"] not in priority_list:
             continue
+        # Filter by parent
         if parent and ticket.get("parent", "") != parent:
             continue
+        # Filter by reporter
         if reporter and ticket.get("reporter", "") != reporter:
             continue
+        # Filter by non-terminal status
+        if non_terminal_only:
+            ticket_type_key = ticket["type"]
+            terminal_list = terminal_statuses_by_type.get(ticket_type_key, [])
+            if ticket["status"] in terminal_list:
+                continue
+        
         results.append(ticket)
     return results
 

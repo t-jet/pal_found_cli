@@ -99,3 +99,21 @@ def remove_link(link_id: str) -> bool:
         raise ValidationError(f"Link {link_id} not found")
     write_link_index([lk for lk in links if lk["link_id"] != link_id])
     return True
+
+
+def is_ticket_blocked(ticket_id: str) -> bool:
+    """Check if a ticket is blocked by another ticket.
+    
+    A ticket is considered blocked if it is the target of a link
+    where the link type has is_blocking=true.
+    """
+    cfg = get_runtime_config()
+    link_blocking = cfg.get("link_blocking", {})
+    links = read_link_index()
+    
+    for link in links:
+        if link["target_ticket"] == ticket_id:
+            if link_blocking.get(link["link_type"], False):
+                return True
+    return False
+    return True

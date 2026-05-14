@@ -274,6 +274,11 @@ def get_runtime_config() -> dict[str, Any]:
         for lt in link_types_raw
         if lt.get("type")
     }
+    link_blocking = {
+        lt["type"]: lt.get("is_blocking", False)
+        for lt in link_types_raw
+        if lt.get("type")
+    }
 
     prefixes = {
         tt: entry.get("id_prefix", "")
@@ -322,6 +327,7 @@ def get_runtime_config() -> dict[str, Any]:
         "ticket_types": ticket_types,
         "link_types": link_types,
         "link_roles": link_roles,
+        "link_blocking": link_blocking,
         "ticket_id_prefixes": prefixes,
         "ticket_specs": ticket_specs,
         "valid_field_names": valid_field_names,
