@@ -2,11 +2,11 @@
 id: QUESTION-005
 type: question
 title: 'Cross-Functional Review Request: SAD-001 Alignment with SRS-001'
-status: In Progress
+status: Closed
 addressed_to: ba
 created: 2026-05-05
-updated: 2026-05-05
-priority: High
+updated: 2026-05-17
+priority: Critical
 assignee: ba
 reporter: architect
 ---

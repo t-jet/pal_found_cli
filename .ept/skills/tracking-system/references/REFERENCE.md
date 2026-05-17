@@ -45,6 +45,20 @@ python .ept/skills/tracking-system/tracker/tracker_cli.py create <type> [title] 
 
 †  Either positional `<title>` or `--title` must be supplied; not both.
 
+**Repeatable options**: `--field` can be specified multiple times to set multiple optional fields in a single command.
+
+Example:
+
+```bash
+# Create with multiple fields
+python .ept/skills/tracking-system/tracker/tracker_cli.py create question \
+    --title "How should we handle errors?" \
+    --addressed-to architect \
+    --field component=error-handling \
+    --field labels=discussion \
+    --author developer
+```
+
 **Output on success** — YAML status-context block:
 
 ```yaml
@@ -80,19 +94,39 @@ Returns the YAML status-context block **plus** full ticket metadata and content 
 
 ```bash
 python .ept/skills/tracking-system/tracker/tracker_cli.py list [--status <status>] [--assignee <role>]
-    [--type <type>] [--priority <level>] [--parent <ticket-id>] [--reporter <role>] [--author <role>]
+    [--type <type>] [--priority <level>] [--parent <ticket-id>] [--reporter <role>]
+    [--non-terminal-only] [--author <role>]
 ```
 
 All filters are optional and combinable. Returns a tabular summary (ID, status, priority, assignee, title).
 
 | Option | Description |
 |---|---|
-| `--status <status>` | Filter by current status |
+| `--status <status>` | Filter by current status (repeatable; multiple values use OR logic) |
 | `--assignee <role>` | Filter by assignee |
-| `--type <type>` | Filter by ticket type |
-| `--priority <level>` | Filter by priority |
+| `--type <type>` | Filter by ticket type (repeatable; multiple values use OR logic) |
+| `--priority <level>` | Filter by priority (repeatable; multiple values use OR logic) |
 | `--parent <ticket-id>` | Return only direct children of the given ticket. The parent ticket must exist. |
 | `--reporter <role>` | Filter by the author who created the ticket |
+| `--non-terminal-only` | Exclude tickets in terminal statuses (flag; no value required) |
+
+**Multiple values format**: For repeatable options (`--status`, `--type`, `--priority`), specify the parameter multiple times. Tickets matching ANY of the provided values will be returned (OR logic).
+
+Examples:
+
+```bash
+# List tickets with status "New" OR "Open" OR "In Progress"
+python .ept/skills/tracking-system/tracker/tracker_cli.py list --status New --status Open --status "In Progress"
+
+# List "feature" OR "task" tickets with "High" OR "Critical" priority
+python .ept/skills/tracking-system/tracker/tracker_cli.py list --type feature --type task --priority High --priority Critical
+
+# List all non-terminal tickets (excludes Done, Canceled, etc.)
+python .ept/skills/tracking-system/tracker/tracker_cli.py list --non-terminal-only
+
+# Combine filters: non-terminal tasks assigned to a specific role
+python .ept/skills/tracking-system/tracker/tracker_cli.py list --non-terminal-only --type task --assignee developer
+```
 
 ---
 
@@ -121,6 +155,18 @@ At least one of `--status`, `--assignee`, `--priority`, `--field`, `--descriptio
 - Every write produces an auto-generated comment listing which fields were modified.
 
 Always run `workflow transitions <type> <current-status>` before updating status.
+
+**Repeatable options**: `--field` can be specified multiple times to update multiple optional fields in a single command.
+
+Example:
+
+```bash
+# Update multiple fields
+python .ept/skills/tracking-system/tracker/tracker_cli.py update TASK-001 \
+    --field component=ui \
+    --field labels=refactoring \
+    --author developer
+```
 
 ---
 
@@ -287,73 +333,10 @@ Use this **before every** `update --status` call to verify the move is allowed.
 The `build-queue` command generates a prioritized work queue of non-terminal tickets,
 automatically reconciling priorities based on parent-child and blocking relationships.
 
-### `build-queue stage1`
-
-```bash
-python .ept/skills/tracking-system/tracker/tracker_cli.py build-queue stage1 [--author <role>]
-```
-
-**Stage 1: Filter to non-terminal tickets**
-
-Returns all tickets not in terminal statuses. Terminal statuses are defined per ticket type in the workflow configuration.
-
----
-
-### `build-queue stage2`
-
-```bash
-python .ept/skills/tracking-system/tracker/tracker_cli.py build-queue stage2 [--author <role>]
-```
-
-**Stage 2: Recursive priority reconciliation**
-
-Ensures priority consistency across related tickets:
-- Child tickets must have priority >= parent ticket priority
-- Blocking tickets must have priority >= blocked ticket priority
-
-Runs iteratively until no further changes are needed. Automatically updates ticket priorities
-when inconsistencies are detected. Changes are persisted to disk and attributed to `--author`
-(defaults to `"build-queue"`).
-
----
-
-### `build-queue stage3`
-
-```bash
-python .ept/skills/tracking-system/tracker/tracker_cli.py build-queue stage3 [--author <role>]
-```
-
-**Stage 3: Sort and organize queue**
-
-Sorts non-terminal tickets by:
-1. Priority level (highest first)
-2. Blocking relationships (tickets that block others appear first within each priority band)
-
----
-
-### `build-queue stage4`
-
-```bash
-python .ept/skills/tracking-system/tracker/tracker_cli.py build-queue stage4 [--author <role>]
-```
-
-**Stage 4: Format output**
-
-Displays the sorted queue in a tabular format with columns:
-- Position (queue order)
-- Ticket ID
-- Status
-- Priority
-- Assignee
-- Blocks (list of tickets this ticket blocks)
-- Title
-
----
-
 ### `build-queue all`
 
 ```bash
-python .ept/skills/tracking-system/tracker/tracker_cli.py build-queue all [--author <role>]
+python .ept/skills/tracking-system/tracker/tracker_cli.py build-queue all
 ```
 
 **Run all stages**
@@ -361,7 +344,7 @@ python .ept/skills/tracking-system/tracker/tracker_cli.py build-queue all [--aut
 Executes stages 1-4 in sequence: filter, reconcile, sort, and output. This is the recommended
 command for generating a complete build queue.
 
-`--author` is optional and used to attribute priority changes made during stage 2. Defaults to `"build-queue"`.
+
 
 ---
 

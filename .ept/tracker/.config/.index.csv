@@ -3,16 +3,16 @@ FEATURE-001,feature,Foundry CLI: Requirements Analysis and Open Questions,In Dev
 QUESTION-001,question,Foundry CLI Round 3: 10 open questions requiring Product Owner answers,Closed,High,,architect,FEATURE-001,product_owner,FEATURE-001/QUESTION-001,2026-04-10,2026-04-10
 BA-ANA-001,ba_subtask_analysis,Foundry CLI: Business Requirements Analysis,Closed,Medium,ba,ba,FEATURE-001,,FEATURE-001/BA-ANA-001,2026-04-13,2026-04-13
 SA-ANA-001,sa_subtask_analysis,Foundry CLI: Solution Architecture Analysis,Closed,Medium,architect,architect,FEATURE-001,,FEATURE-001/SA-ANA-001,2026-04-13,2026-04-13
-EPIC-001,epic,Core CLI Infrastructure,Open,Critical,architect,architect,,,EPIC-001,2026-04-13,2026-05-05
+EPIC-001,epic,Core CLI Infrastructure,Blocked,Critical,architect,architect,,,EPIC-001,2026-04-13,2026-05-17
 EPIC-002,epic,Datasets & Filesystem Skills,Blocked,Critical,architect,architect,,,EPIC-002,2026-04-13,2026-05-05
 EPIC-003,epic,Ontology & Functions Skills,Blocked,Critical,architect,architect,,,EPIC-003,2026-04-13,2026-05-02
 EPIC-004,epic,Admin & Security Skills,Open,High,architect,architect,,,EPIC-004,2026-04-13,2026-05-05
-EPIC-005,epic,AI & Models Skills,New,High,architect,architect,,,EPIC-005,2026-04-13,2026-04-13
-EPIC-006,epic,Data Pipeline Skills,New,High,architect,architect,,,EPIC-006,2026-04-13,2026-04-13
+EPIC-005,epic,AI & Models Skills,Open,High,architect,architect,,,EPIC-005,2026-04-13,2026-05-17
+EPIC-006,epic,Data Pipeline Skills,New,High,architect,architect,,,EPIC-006,2026-04-13,2026-05-17
 EPIC-007,epic,Remaining Namespace Skills,New,Medium,architect,architect,,,EPIC-007,2026-04-13,2026-04-13
-EPIC-008,epic,Foundry Knowledge Skill,New,High,architect,architect,,,EPIC-008,2026-04-13,2026-04-13
+EPIC-008,epic,Foundry Knowledge Skill,Open,High,architect,architect,,,EPIC-008,2026-04-13,2026-05-17
 DEV-STORY-001,dev_story,"Implement ConfigLoader, AuthProvider, AsyncClientFactory",New,Critical,architect,architect,FEATURE-001,,DEV-STORY-001,2026-04-13,2026-05-13
-DEV-STORY-002,dev_story,"Implement RetryHandler, ErrorSerializer, OutputFormatter, LogSetup",Open,Critical,architect,architect,FEATURE-001,,DEV-STORY-002,2026-04-13,2026-05-13
+DEV-STORY-002,dev_story,"Implement RetryHandler, ErrorSerializer, OutputFormatter, LogSetup",Analysis,Critical,architect,architect,FEATURE-001,,DEV-STORY-002,2026-04-13,2026-05-17
 DEV-STORY-003,dev_story,"Implement AccessControlGuard, PaginationHelper",New,Critical,architect,architect,FEATURE-001,,DEV-STORY-003,2026-04-13,2026-05-02
 DEV-STORY-004,dev_story,"Implement BinaryDownloadHandler, SessionManager, TracingProvider",New,High,architect,architect,FEATURE-001,,DEV-STORY-004,2026-04-13,2026-05-13
 DEV-STORY-005,dev_story,foundry-datasets skill (26 operations),New,Critical,architect,architect,,,DEV-STORY-005,2026-04-13,2026-04-13
@@ -46,4 +46,4 @@ BA-DES-001,ba_subtask_design,Foundry CLI: Business Design Specification,Resolved
 QUESTION-002,question,Approval Request: SRS-001 (Software Requirements Specification for Foundry CLI),Closed,Critical,,ba,FEATURE-001,project-owner,FEATURE-001/QUESTION-002,2026-05-02,2026-05-05
 QUESTION-003,question,Cross-Functional Review Request: SRS-001 Alignment with SAD-001,Closed,High,ba,ba,FEATURE-001,architect,FEATURE-001/QUESTION-003,2026-05-02,2026-05-02
 QUESTION-004,question,Approval Request: SAD-001 and Architecture Design (Foundry CLI),Closed,Critical,architect,architect,FEATURE-001,project-owner,FEATURE-001/QUESTION-004,2026-05-05,2026-05-05
-QUESTION-005,question,Cross-Functional Review Request: SAD-001 Alignment with SRS-001,In Progress,High,ba,architect,FEATURE-001,ba,FEATURE-001/QUESTION-005,2026-05-05,2026-05-05
+QUESTION-005,question,Cross-Functional Review Request: SAD-001 Alignment with SRS-001,Closed,Critical,ba,architect,FEATURE-001,ba,FEATURE-001/QUESTION-005,2026-05-05,2026-05-17

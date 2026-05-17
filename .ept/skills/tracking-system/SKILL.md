@@ -32,7 +32,7 @@ metadata:
 This skill operates the tracking system using CLI interface.
 All operations MUST go through the CLI.
 
-See [references/REFERENCE.md](references/REFERENCE.md) for full command syntax, field descriptions, and exit codes.
+Read full [references/REFERENCE.md](references/REFERENCE.md) for full command syntax, field descriptions, and exit codes.
 
 ## Operational Rules
 
@@ -109,4 +109,18 @@ Use only multiline mechanisms documented in [references/REFERENCE.md](references
 Do not use undocumented options such as `comment create --text-file` unless the reference is updated to include them.
 
 Avoid passing large Markdown bodies through shell-sensitive inline strings. For long ticket descriptions, prefer `--description-file`. For comments, keep text concise and use escaped newlines with `--text`.
+
+## Build queue generation rules
+
+If you're asked to generate work queue in different forms like in the examples below, always use the `build-queue all` command to generate the full build queue with all available information and return results.
+
+Examples:
+- "Build a prioritized work queue of all non-terminal tickets. Execute build-queue all. Return the complete queue with all ticket metadata, statuses, priorities, assignees, and blocking relationships arranged in implementation order."
+- "Get ready tickets for workflow"
+- "Generate a prioritized build queue with blocking relationships and priority reconciliation"
+
+## Operational notes
+
+Always refer to the [references/REFERENCE.md](references/REFERENCE.md) for detailed operational guidance, including command syntax, field descriptions, and exit codes.
+
 

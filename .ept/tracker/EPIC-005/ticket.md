@@ -2,10 +2,9 @@
 id: EPIC-005
 type: epic
 title: AI & Models Skills
-status: New
-feature_request: FEATURE-001
+status: Open
 created: 2026-04-13
-updated: 2026-04-13
+updated: 2026-05-17
 priority: High
 assignee: architect
 reporter: architect
