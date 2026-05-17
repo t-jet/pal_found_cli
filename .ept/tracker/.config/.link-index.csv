@@ -74,3 +74,4 @@ LINK-00074,QUESTION-004,SA-DES-001,Question,Asks About,Has Question,2026-05-05T1
 LINK-00075,QUESTION-005,SA-DES-001,Question,Asks About,Has Question,2026-05-05T15:28:38.810527,architect,BA cross-functional review request for SAD-001 alignment with SRS-001
 LINK-00077,EPIC-006,FEATURE-001,FeatureContains,Feature Contains,Is Contained In Feature,2026-05-17T04:19:12.567781,architect,Bidirectional link: EPIC-006 is contained in FEATURE-001 (Data Pipeline Skills under Foundry CLI feature)
 LINK-00078,EPIC-008,FEATURE-001,FeatureContains,Feature Contains,Is Contained In Feature,2026-05-17T11:32:12.414662,architect,Bidirectional link: EPIC-008 (Foundry Knowledge Skill) is contained in FEATURE-001
+LINK-00079,FEATURE-001,DEV-STORY-001,Contains,Contains,Contained In,2026-05-17T20:57:46.562148,architect,

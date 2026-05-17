@@ -2,9 +2,9 @@
 id: BA-DES-001
 type: ba_subtask_design
 title: 'Foundry CLI: Business Design Specification'
-status: Resolved
+status: Closed
 created: 2026-05-02
-updated: 2026-05-02
+updated: 2026-05-17
 priority: High
 assignee: ba
 reporter: system

@@ -2,9 +2,9 @@
 id: SA-DES-001
 type: sa_subtask_design
 title: 'Foundry CLI: Technical Architecture Design'
-status: Resolved
+status: Closed
 created: 2026-05-02
-updated: 2026-05-02
+updated: 2026-05-17
 priority: High
 assignee: architect
 reporter: system

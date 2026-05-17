@@ -2,7 +2,7 @@
 id: DEV-STORY-002
 type: dev_story
 title: Implement RetryHandler, ErrorSerializer, OutputFormatter, LogSetup
-status: Analysis
+status: Grooming
 feature_request: FEATURE-001
 epic: EPIC-001
 created: 2026-04-13
@@ -10,6 +10,7 @@ updated: 2026-05-17
 priority: Critical
 assignee: architect
 reporter: architect
+release_notes: Implementation of RetryHandler (exponential backoff with jitter for HTTP 429/503), ErrorSerializer (SDK exception to exit code mapping per ADR-001), OutputFormatter (JSON/TOON auto-selection per ADR-004), and LogSetup (NDJSON structured logging to stderr per ADR-005). Exit codes 5 (TimeoutError), 6 (ServerError), 7 (RateLimitExhausted) implemented per ADR-001. All error output as JSON on stdout regardless of --format setting.
 ---
 
 ﻿# DEV-STORY-002: Implement RetryHandler, ErrorSerializer, OutputFormatter, LogSetup
