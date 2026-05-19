@@ -55,7 +55,11 @@ This project follows a structured documentation approach organized into logical 
 
 ### Development Documentation
 
-(not yet introduced)
+- **Common Error Handling Library** (`src/foundry_cli/common/`) — Shared infrastructure components implemented per DESIGN-001 and DEV-002:
+  - `retry.py` — `RetryHandler`: Exponential backoff with jitter for retryable operations (ADR-002)
+  - `error_serializer.py` — `ErrorSerializer`: Exception-to-exit-code mapping per ADR-001 taxonomy
+  - `output_formatter.py` — `OutputFormatter`: JSON/TOON output with auto-selection per ADR-004 algorithm
+  - `log_setup.py` — `LogSetup`: NDJSON structured logging to stderr per ADR-005
 
 ### Work Instructions (Team Member Guides)
 
@@ -72,5 +76,5 @@ This project follows a structured documentation approach organized into logical 
 
 ---
 
-**Last Updated:** 2026-04-13  
-**Major Change:** Added all analysis-phase deliverables: SRS-001, SAD-001, 7 ADRs, canonical-env-var-reference, metadata-allow-list; added all 3 rounds of Q&A customer input documents.
+**Last Updated:** 2026-05-19  
+**Major Change:** Added development documentation for common error handling library (DEV-002): RetryHandler, ErrorSerializer, OutputFormatter, LogSetup implementations in `src/foundry_cli/common/`.
