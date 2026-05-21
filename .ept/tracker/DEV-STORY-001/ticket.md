@@ -2,7 +2,7 @@
 id: DEV-STORY-001
 type: dev_story
 title: Implement ConfigLoader, AuthProvider, AsyncClientFactory
-status: Grooming
+status: Development
 feature_request: FEATURE-001
 epic: EPIC-001
 created: 2026-04-13

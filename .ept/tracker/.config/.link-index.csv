@@ -75,3 +75,32 @@ LINK-00075,QUESTION-005,SA-DES-001,Question,Asks About,Has Question,2026-05-05T1
 LINK-00077,EPIC-006,FEATURE-001,FeatureContains,Feature Contains,Is Contained In Feature,2026-05-17T04:19:12.567781,architect,Bidirectional link: EPIC-006 is contained in FEATURE-001 (Data Pipeline Skills under Foundry CLI feature)
 LINK-00078,EPIC-008,FEATURE-001,FeatureContains,Feature Contains,Is Contained In Feature,2026-05-17T11:32:12.414662,architect,Bidirectional link: EPIC-008 (Foundry Knowledge Skill) is contained in FEATURE-001
 LINK-00079,FEATURE-001,DEV-STORY-001,Contains,Contains,Contained In,2026-05-17T20:57:46.562148,architect,
+LINK-00086,QUESTION-006,EPIC-001,Question,Asks About,Has Question,2026-05-17T22:16:29.832690,architect,
+LINK-00087,QUESTION-007,EPIC-001,Question,Asks About,Has Question,2026-05-17T22:16:30.220578,architect,
+LINK-00088,DEV-STORY-003,QUESTION-006,Question,Asks About,Has Question,2026-05-17T22:16:34.964847,architect,
+LINK-00089,DEV-STORY-004,QUESTION-007,Question,Asks About,Has Question,2026-05-17T22:16:35.368824,architect,
+LINK-00090,DEV-002,UNITTEST-002,Blocks,Blocks,Is Blocked By,2026-05-17T23:13:37.883012,architect,
+LINK-00091,DEV-002,TESTEXEC-001,Blocks,Blocks,Is Blocked By,2026-05-17T23:13:47.828595,architect,
+LINK-00092,DEV-002,DEVOPS-002,Blocks,Blocks,Is Blocked By,2026-05-17T23:14:14.088784,architect,
+LINK-00093,DEV-002,CODEREVIEW-002,RelatesTo,Relates To,Relates To,2026-05-17T23:14:28.402635,architect,
+LINK-00094,DEV-002,TESTCASE-001,Blocks,Blocks,Is Blocked By,2026-05-17T23:14:42.951641,architect,
+LINK-00096,DESIGN-002,DEV-STORY-001,RelatesTo,Relates To,Relates To,2026-05-17T23:37:10.372976,architect,
+LINK-00101,DEV-STORY-001,TESTCASE-002,ParentChild,Is Parent Of,Is Child Of,2026-05-17T23:56:58.064385,qa-engineer,"TESTCASE-002 covers integration & E2E tests for ConfigLoader, AuthProvider, AsyncClientFactory"
+LINK-00102,DEV-STORY-001,DEV-001,ParentChild,Is Parent Of,Is Child Of,2026-05-17T23:57:03.317945,architect,DEV-001 is a development sub-task of DEV-STORY-001
+LINK-00103,DEV-STORY-002,DEV-002,ParentChild,Is Parent Of,Is Child Of,2026-05-18T00:03:07.033291,developer,DEV-002 linked as child of DEV-STORY-002 for retry/error/format/logging implementation
+LINK-00104,DEV-STORY-001,UNITTEST-001,ParentChild,Is Parent Of,Is Child Of,2026-05-18T00:17:49.637157,developer,
+LINK-00105,DEV-STORY-001,CODEREVIEW-001,ParentChild,Is Parent Of,Is Child Of,2026-05-18T00:27:11.954417,qa-lead,"CODEREVIEW-001 is a code review sub-task of DEV-STORY-001 for ConfigLoader, AuthProvider, AsyncClientFactory"
+LINK-00106,DEV-STORY-002,UNITTEST-002,ParentChild,Is Parent Of,Is Child Of,2026-05-18T00:31:12.464452,developer,
+LINK-00107,DEV-STORY-002,TESTCASE-001,ParentChild,Is Parent Of,Is Child Of,2026-05-18T01:17:21.131090,qa-engineer,"QA test cases for RetryHandler, ErrorSerializer, OutputFormatter, LogSetup — linking as child of DEV-STORY-002"
+LINK-00108,DEV-STORY-002,TESTEXEC-001,ParentChild,Is Parent Of,Is Child Of,2026-05-18T01:17:21.651616,qa-engineer,"Execute QA test cases for RetryHandler, ErrorSerializer, OutputFormatter, LogSetup — linking as child of DEV-STORY-002"
+LINK-00109,DEV-STORY-001,TESTEXEC-002,ParentChild,Is Parent Of,Is Child Of,2026-05-18T01:17:23.046214,qa-engineer,"Execute Tests for ConfigLoader, AuthProvider, AsyncClientFactory — linking as child of DEV-STORY-001"
+LINK-00110,DEV-STORY-001,DEVOPS-003,ParentChild,Is Parent Of,Is Child Of,2026-05-18T01:18:43.092166,devops-engineer,
+LINK-00111,DEV-STORY-002,CODEREVIEW-002,ParentChild,Is Parent Of,Is Child Of,2026-05-18T01:20:38.645049,architect,"CODEREVIEW-002 linked as child review task for DEV-STORY-002 implementation of RetryHandler, ErrorSerializer, OutputFormatter, LogSetup."
+LINK-00112,DEV-STORY-002,DEVOPS-002,ParentChild,Is Parent Of,Is Child Of,2026-05-18T01:20:52.032943,devops-engineer,
+LINK-00115,DEV-003,CODEREVIEW-003,RelatesTo,Relates To,Relates To,2026-05-18T16:48:45.353189,architect,
+LINK-00116,CODEREVIEW-003,DEV-003,RelatesTo,Relates To,Relates To,2026-05-18T16:48:56.804120,architect,
+LINK-00118,DEV-003,CODEREVIEW-003,Blocks,Blocks,Is Blocked By,2026-05-18T17:01:07.181714,architect,DEV-003 blocks CODEREVIEW-003 until DEV is Resolved
+LINK-00119,FEATURE-001,DEV-STORY-007,Contains,Contains,Contained In,2026-05-18T17:08:48.597758,architect,
+LINK-00120,TESTEXEC-002,BUG-001,ParentChild,Is Parent Of,Is Child Of,2026-05-19T21:40:20.150034,qa-engineer,TESTEXEC-002 is parent of BUG-001 (ConfigLoader CWD fallback bug)
+LINK-00121,TESTEXEC-002,BUG-002,ParentChild,Is Parent Of,Is Child Of,2026-05-19T21:40:25.508089,qa-engineer,TESTEXEC-002 is parent of BUG-002 (TC-E2E-001 test setup bug)
+LINK-00122,CODEREVIEW-003,DEV-STORY-005,RelatesTo,Relates To,Relates To,2026-05-20T18:24:31.611308,tech-lead,

@@ -2,9 +2,9 @@
 id: EPIC-001
 type: epic
 title: Core CLI Infrastructure
-status: Open
+status: In Progress
 created: 2026-04-13
-updated: 2026-05-17
+updated: 2026-05-18
 priority: Critical
 assignee: architect
 reporter: architect

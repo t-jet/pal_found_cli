@@ -61,6 +61,14 @@ This project follows a structured documentation approach organized into logical 
   - `output_formatter.py` — `OutputFormatter`: JSON/TOON output with auto-selection per ADR-004 algorithm
   - `log_setup.py` — `LogSetup`: NDJSON structured logging to stderr per ADR-005
 
+### CI/CD & Infrastructure (DEVOPS-003)
+
+- **GitHub Actions CI Pipeline** (`.github/workflows/ci.yml`) — Six-stage pipeline: lint (ruff) → type-check (mypy) → test (pytest + coverage, Python 3.9–3.12 matrix) → security-scan (bandit + safety) → build (PEP 517) → All third-party actions pinned to full SHA digest (supply-chain integrity).
+- **GitHub Actions Publish Pipeline** (`.github/workflows/publish.yml`) — Tag-triggered (`v*`) PyPI publication workflow with twine validation; uses `PYPI_API_TOKEN` from GitHub secrets.
+- **Coverage Configuration** (`pyproject.toml` `[tool.coverage.*]`) — Branch coverage, 80% minimum threshold, XML output for CI reporting.
+- **Environment Template** (`.env.example`) — Lists all required and optional environment variables per ADR-006 with inline documentation; `.env` is gitignored.
+- **pyproject.toml** — Dependencies: `foundry-platform-python>=2.0.0`, `python-dotenv>=1.0.0`. Dev: pytest, pytest-asyncio, pytest-cov, mypy, ruff, bandit.
+
 ### Work Instructions (Team Member Guides)
 
 (not yet introduced)
@@ -76,5 +84,5 @@ This project follows a structured documentation approach organized into logical 
 
 ---
 
-**Last Updated:** 2026-05-19  
-**Major Change:** Added development documentation for common error handling library (DEV-002): RetryHandler, ErrorSerializer, OutputFormatter, LogSetup implementations in `src/foundry_cli/common/`.
+**Last Updated:** 2026-05-19
+**Major Change:** Added CI/CD & Infrastructure documentation (DEVOPS-003): GitHub Actions CI pipeline (lint, type-check, test matrix, security scan, build), publish workflow, coverage configuration, `.env.example` template, and infrastructure dependencies in pyproject.toml.

@@ -1,0 +1,52 @@
+## Developer Review: DEV-002 (Status: New → Open → Blocked)
+
+### Status Transition: New → Open → Blocked
+- Prior status before Block: Open
+- Blocker: QUESTION-008 (Exit code mapping conflict with ADR-001)
+- Blocking link: LINK-00113 (DEV-002 Blocks QUESTION-008)
+
+### Documentation Review Summary
+
+Reviewed ADRs and related documentation:
+
+1. **ADR-001 (Exit Code Taxonomy) — CRITICAL DISCREPANCY**
+   - ADR-001: 1=UserInputError, 2=AuthenticationError, 3=PermissionDeniedError, 4=NotFoundError, 5=TimeoutError, 6=ServerError, 7=RateLimitExhausted, 8=AccessControlError, 9=ConfigurationError
+   - DEV-002 AC2: 1=GeneralError, 2=AuthFailure, 3=ValidationError, 4=ResourceNotFound, 5=RateLimited, 6=Timeout, 7=Conflict, 8=PermissionDenied, 9=NetworkError
+   - 6 of 9 codes mismatch. QUESTION-008 created for resolution.
+
+2. **ADR-004 (Format Auto-Selection) — CONSISTENT**
+   - AC3 (OutputFormatter) aligns with ADR-004 auto-selection algorithm.
+   - TOON only for uniform lists; all other cases → JSON.
+
+3. **ADR-005 (NDJSON Structured Logging) — CONSISTENT**
+   - AC4 (LogSetup) aligns with ADR-005 NDJSON format.
+   - Required fields: ts, level, logger, msg. Optional: op, call_id, attempt, delay_ms.
+
+4. **ADR-002 (Timeout Defaults) — CONSISTENT**
+   - RetryHandler (AC1) respects timeout context. No conflict.
+
+5. **DESIGN-001 — CLOSED, design complete.**
+
+### Dependencies
+- DESIGN-001: Closed, no blocker.
+- DEV-STORY-001 (ConfigLoader, AuthProvider): Development status. Soft dependency via DI pattern. Not a blocker.
+- CODEREVIEW-002: Linked via RelatesTo.
+- UNITTEST-002, TESTCASE-001, TESTEXEC-001, DEVOPS-002: All linked.
+
+### Implementation Plan (post-blocker)
+1. AC4: LogSetup — Independent, start here.
+2. AC1: RetryHandler — Depends on LogSetup for logging.
+3. AC3: OutputFormatter — Self-contained with DI for config.
+4. AC2: ErrorSerializer — Must wait for QUESTION-008 resolution.
+
+### Risks
+- Exit code mismatch will cause ALL downstream error handling to be wrong if not fixed.
+- DEV-STORY-001 dependency manageable via DI pattern.
+
+### Next Actions
+- [x] Create QUESTION-008 for ADR-001 discrepancy
+- [x] Add Blocks/Question links
+- [x] Move DEV-002 to Blocked
+- [ ] Wait for QUESTION-008 resolution
+- [ ] Update ErrorSerializer AC2 with correct ADR-001 mapping
+- [ ] Revert to Open and begin implementation

@@ -1,5 +1,42 @@
+# Python artifacts
 __pycache__/
+*.py[cod]
+*$py.class
+*.so
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+
+# Testing
 .pytest_cache/
-.mypy_cache/
 .coverage
+htmlcov/
+coverage.xml
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+
+# Environment & secrets (NEVER commit real credentials)
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/*.json
+!.vscode/settings.json
+!.vscode/tasks.json
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project-specific
 .ept/tools/__pycache__/
+.ept/.local/
+.serena/

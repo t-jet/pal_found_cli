@@ -1,0 +1,74 @@
+## Developer Review: DEV-002 (Status: New → Open → Blocked)
+
+### Status Transition: New → Open → Blocked
+- Prior status before Block: Open
+- Blocker: QUESTION-008 (Exit code mapping conflict with ADR-001)
+- Blocking link: LINK-00113 (DEV-002 Blocks QUESTION-008)
+
+### Documentation Review Summary
+
+Reviewed the following ADRs and related documentation:
+
+1. **ADR-001 (Exit Code Taxonomy) — CRITICAL DISCREPANCY FOUND**
+   - ADR-001 maps codes 1-9 as: UserInputError(1), AuthenticationError(2), PermissionDeniedError(3), NotFoundError(4), TimeoutError(5), ServerError(6), RateLimitExhausted(7), AccessControlError(8), ConfigurationError(9)
+   - DEV-002 AC2 implements: GeneralError(1), AuthFailure(2), ValidationError(3), ResourceNotFound(4), RateLimited(5), Timeout(6), Conflict(7), PermissionDenied(8), NetworkError(9)
+   - **6 of 9 codes mismatch** (codes 3, 5, 6, 7, 8, 9 are wrong). This is a showstopper.
+   - Action: QUESTION-008 created, addressed to tech-lead/architect for resolution.
+
+2. **ADR-004 (Format Auto-Selection Algorithm)**
+   - OutputFormatter (AC3) must implement the auto-selection algorithm from ADR-004.
+   - Key rule: TOON only when data is a list AND all items share identical field sets.
+   - All other cases (single object, empty list, mixed types, error envelopes) → JSON.
+   - Implementation plan in AC3 is consistent with ADR-004 requirements. No action needed.
+
+3. **ADR-005 (Structured Log Format)**
+   - LogSetup (AC4) must emit NDJSON on stderr with required fields: ts, level, logger, msg.
+   - Optional context fields: op, call_id, attempt, delay_ms, etc.
+   - Log level control via FOUNDRY_AGENTIC_CLI_LOG_LEVEL (default: WARNING).
+   - Metadata separator: # ---metadata-start---
+   - Implementation plan in AC4 is consistent with ADR-005. No action needed.
+
+4. **ADR-002 (Per-Call Timeout Defaults)**
+   - Relevant to RetryHandler (AC1): timeout defaults (30s standard, 120s for streams) don't directly affect retry logic but the RetryHandler should respect the timeout context.
+   - Implementation plan references retries on rate limiting (429) which aligns with ADR-005 log example. No conflict.
+
+5. **DESIGN-001 (Technical Design)**
+   - Closed status. Confirms design is complete. Implementation plan in DEV-002 covers all 4 ACs.
+
+### Dependency Analysis
+
+1. **DESIGN-001** → Closed. No blocker.
+2. **DEV-STORY-001 (ConfigLoader, AuthProvider)** → Development status, not yet Closed.
+   - ConfigLoader may be needed by OutputFormatter (config-driven output settings) and LogSetup (log config resolution).
+   - These are soft dependencies — OutputFormatter and LogSetup can accept config objects as constructor args (dependency injection pattern).
+   - Not a blocker for starting implementation. Can proceed with interfaces/protocols.
+3. **CODEREVIEW-002** → Already linked via RelatesTo (LINK-00093). Exists. ✓
+4. **UNITTEST-002** → Blocked link (LINK-00090). Exists. ✓
+5. **TESTCASE-001** → Blocked link (LINK-00094). Exists. ✓
+6. **TESTEXEC-001** → Blocked link (LINK-00091). Exists. ✓
+7. **DEVOPS-002** → Blocked link (LINK-00092). Exists. ✓
+
+### Implementation Plan
+
+**Blocker resolution required first:**
+1. Wait for QUESTION-008 to be answered (tech-lead/architect to confirm correct exit code mapping per ADR-001).
+2. Once answered, update ErrorSerializer AC2 to match ADR-001 taxonomy exactly.
+
+**Post-blocker-resolution implementation order:**
+1. **AC4: LogSetup** — Independent, no external dependencies. Foundation for all other components.
+2. **AC1: RetryHandler** — Self-contained except for logging (use LogSetup).
+3. **AC3: OutputFormatter** — Self-contained except for config (can accept config object via DI).
+4. **AC2: ErrorSerializer** — Must wait for QUESTION-008 resolution. Most critical fix.
+
+### Risks
+- The Exit Code Taxonomy mismatch is significant — if implemented incorrectly, ALL downstream error handling (CODEREVIEW-002, UNITTEST-002, etc.) will be wrong.
+- DEV-STORY-001 dependency is manageable via dependency injection pattern but should be noted for integration testing.
+
+### Next Actions
+- [x] Create QUESTION-008 for ADR-001 discrepancy
+- [x] Add Blocks link to QUESTION-008
+- [x] Add Question link from QUESTION-008 to DEV-002
+- [x] Move DEV-002 to Blocked status
+- [ ] Wait for QUESTION-008 resolution
+- [ ] Once resolved: update ErrorSerializer AC2 with correct ADR-001 mapping
+- [ ] Revert to Open and begin implementation

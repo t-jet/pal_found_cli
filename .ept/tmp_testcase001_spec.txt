@@ -1,0 +1,294 @@
+# Test Case Specification — TESTCASE-001
+
+**Parent:** DEV-STORY-002 (Implement RetryHandler, ErrorSerializer, OutputFormatter, LogSetup)
+**Scope:** 41 test cases across 6 suites covering all 4 components + integration + non-functional
+**Status:** Complete — ready for review
+
+---
+
+## Suite 1: RetryHandler (8 test cases)
+
+**Component:** `src/foundry_cli/common/retry.py` — `RetryHandler` class, `_calculate_delay()`, `_parse_bool_env()`
+
+### TC-RH-001: Exponential backoff delay calculation
+- **Given** a RetryHandler with base_delay=1.0, max_delay=30.0, jitter=False
+- **When** `_calculate_delay(base_delay=1.0, attempt=N, max_delay=30.0, jitter=False)` is called for attempts 0-4
+- **Then** delays are [1.0, 2.0, 4.0, 8.0, 16.0] — formula: `min(base_delay * 2^attempt, max_delay)`
+
+### TC-RH-002: Max delay cap enforcement
+- **Given** a RetryHandler with base_delay=1.0, max_delay=5.0, jitter=False
+- **When** `_calculate_delay()` is called for attempts 0-5
+- **Then** delays are [1.0, 2.0, 4.0, 5.0, 5.0, 5.0] — capped at max_delay=5.0 from attempt 3 onward
+
+### TC-RH-003: Jitter randomness within bounds
+- **Given** a RetryHandler with base_delay=1.0, jitter=True
+- **When** `_calculate_delay(base_delay=1.0, attempt=0, max_delay=30.0, jitter=True)` is called 100 times
+- **Then** each delay is within [0.9, 1.1] (+-10% of base_delay for attempt 0), confirming jitter factor `1.0 + random.uniform(-0.1, 0.1)`
+
+### TC-RH-004: Environment variable override for all config params
+- **Given** env vars set: FOUNDRY_MAX_RETRIES=5, FOUNDRY_RETRY_BASE_DELAY=2.0, FOUNDRY_RETRY_MAX_DELAY=10.0, FOUNDRY_RETRY_JITTER=false
+- **When** `RetryHandler()` is instantiated with no constructor arguments
+- **Then** handler.max_retries=5, handler.base_delay=2.0, handler.max_delay=10.0, handler.jitter=False
+- **And** constructor arguments take precedence over env vars when explicitly provided
+
+### TC-RH-005: Decorator protocol wraps async function with retry
+- **Given** a RetryHandler(max_retries=2) and an async function that raises RequestException twice then succeeds
+- **When** `@handler` decorator is applied and the decorated function is awaited
+- **Then** the function succeeds on the 3rd attempt (original + 2 retries) and returns the successful result
+- **And** the wrapper preserves the original function's `__name__` and `__doc__` (via `@wraps`)
+
+### TC-RH-006: Context manager protocol yields handler for execute()
+- **Given** a RetryHandler(max_retries=2)
+- **When** `async with handler.context() as h:` is used and `await h.execute(failing_async_func)` is called
+- **Then** the context manager yields the RetryHandler instance
+- **And** the execute method applies retry logic correctly within the context
+
+### TC-RH-007: Last exception raised on retry exhaustion
+- **Given** a RetryHandler(max_retries=2) and an async function that always raises RequestException
+- **When** `await handler.execute(always_failing_func)` is called
+- **Then** after 3 total attempts (1 initial + 2 retries), the last RequestException is raised
+- **And** the raised exception is the one from the final attempt
+
+### TC-RH-008: max_retries=0 means no retries (single attempt only)
+- **Given** a RetryHandler(max_retries=0) and an async function that always raises
+- **When** `await handler.execute(failing_func)` is called
+- **Then** the function is attempted exactly once (no retry loop) and the exception is raised immediately
+
+---
+
+## Suite 2: ErrorSerializer (10 test cases)
+
+**Component:** `src/foundry_cli/common/error_serializer.py` — `ErrorSerializer` class, exit code taxonomy per ADR-001
+
+### TC-ES-001: Exit code 1 — UserInputError (ValueError, TypeError)
+- **Given** an ErrorSerializer instance
+- **When** `serialize(ValueError("bad input"))` is called
+- **Then** returns exit_code=1, exit_code_name="UserInputError"
+- **And** same for TypeError
+
+### TC-ES-002: Exit code 2 — AuthenticationError (HTTP 401)
+- **Given** an ErrorSerializer and an exception with response.status_code=401
+- **When** `serialize(auth_exception)` is called
+- **Then** returns exit_code=2, exit_code_name="AuthenticationError"
+- **And** error envelope includes http_status=401
+
+### TC-ES-003: Exit code 3 — PermissionDeniedError (PermissionError, HTTP 403)
+- **Given** an ErrorSerializer
+- **When** `serialize(PermissionError("access denied"))` is called
+- **Then** returns exit_code=3, exit_code_name="PermissionDeniedError"
+- **And** for HTTP exception with status_code=403, also returns exit_code=3
+
+### TC-ES-004: Exit code 4 — NotFoundError (FileNotFoundError, HTTP 404)
+- **Given** an ErrorSerializer
+- **When** `serialize(FileNotFoundError("missing"))` is called
+- **Then** returns exit_code=4, exit_code_name="NotFoundError"
+- **And** for HTTP exception with status_code=404, also returns exit_code=4
+
+### TC-ES-005: Exit code 5 — TimeoutError (asyncio.TimeoutError)
+- **Given** an ErrorSerializer
+- **When** `serialize(asyncio.TimeoutError("timed out"))` is called
+- **Then** returns exit_code=5, exit_code_name="TimeoutError"
+- **And** same for built-in TimeoutError
+
+### TC-ES-006: Exit code 6 — ServerError (HTTP 500, 502)
+- **Given** an ErrorSerializer and an HTTP exception with status_code=500
+- **When** `serialize(server_exception)` is called
+- **Then** returns exit_code=6, exit_code_name="ServerError"
+- **And** status_code=502 also maps to exit_code=6
+
+### TC-ES-007: Exit code 7 — RateLimitExhausted (HTTP 429)
+- **Given** an ErrorSerializer and an HTTP exception with status_code=429
+- **When** `serialize(rate_limit_exception)` is called
+- **Then** returns exit_code=7, exit_code_name="RateLimitExhausted"
+
+### TC-ES-008: Exit code 8 — AccessControlError (gap analysis)
+- **Given** an ErrorSerializer and an exception with status_code=409
+- **When** `serialize(conflict_exception)` is called
+- **Then** returns exit_code=1 (UserInputError) — per current implementation: status 409 maps to EXIT_USER_INPUT
+- **Note:** Exit code 8 (AccessControlError) exists in ADR-001 taxonomy but has no exception class mapped yet — verify this is a known gap
+
+### TC-ES-009: Exit code 9 — ConfigurationError (ImportError, OSError, EnvironmentError)
+- **Given** an ErrorSerializer
+- **When** `serialize(ImportError("missing module"))` is called
+- **Then** returns exit_code=9, exit_code_name="ConfigurationError"
+- **And** same for ModuleNotFoundError, OSError, EnvironmentError
+
+### TC-ES-010: Error envelope schema and metadata completeness
+- **Given** an ErrorSerializer(call_id="test-123")
+- **When** `serialize(ValueError("test error"), print_to_stdout=False)` is called
+- **Then** the error envelope dict contains all required fields: error=true, exit_code, exit_code_name, message, exception_type, traceback, call_id
+- **And** get_exit_code_name(0) returns "Success", get_exit_code_name(99) returns "UnknownError"
+- **And** create_error_envelope() creates envelope without exception object
+
+---
+
+## Suite 3: OutputFormatter (8 test cases)
+
+**Component:** `src/foundry_cli/common/output_formatter.py` — `OutputFormatter` class, ADR-004 auto-selection
+
+### TC-OF-001: JSON format output
+- **Given** an OutputFormatter(format_setting="json")
+- **When** `format({"key": "value", "num": 42})` is called
+- **Then** returns valid JSON string
+
+### TC-OF-002: TOON format output (tabular)
+- **Given** an OutputFormatter(format_setting="toon") and data as list of uniform dicts
+- **When** `format([{"id": "1", "name": "Alice"}, {"id": "2", "name": "Bob"}])` is called
+- **Then** returns table with header row, separator line, and data rows with aligned columns
+
+### TC-OF-003: Auto-selection — explicit format wins (Step 1 of ADR-004)
+- **Given** an OutputFormatter(format_setting="json")
+- **When** `format([{"id": "1"}, {"id": "2"}])` is called (uniform list that would select TOON)
+- **Then** returns JSON format (explicit "json" overrides auto-selection)
+
+### TC-OF-004: Auto-selection — error data always JSON (Step 2)
+- **Given** an OutputFormatter(format_setting="auto")
+- **When** `format({"error": true, "message": "fail"})` is called
+- **Then** returns JSON format (error dict always uses JSON)
+
+### TC-OF-005: Auto-selection — non-list and empty list use JSON (Steps 3-4)
+- **Given** an OutputFormatter(format_setting="auto")
+- **When** `format({"single": "dict"})` is called (non-list)
+- **Then** returns JSON format
+- **And** when `format([])` is called (empty list), returns JSON format
+
+### TC-OF-006: Auto-selection — uniform field set selects TOON (Steps 5-7)
+- **Given** an OutputFormatter(format_setting="auto")
+- **When** `format([{"a": 1, "b": 2}, {"a": 3, "b": 4}])` is called (identical keys)
+- **Then** returns TOON format
+- **And** when field sets differ `[{"a": 1}, {"a": 2, "b": 3}]`, returns JSON format
+
+### TC-OF-007: Pretty-print JSON output
+- **Given** an OutputFormatter(format_setting="json", pretty=True)
+- **When** `format({"nested": {"key": "value"}})` is called
+- **Then** returns pretty-printed JSON with indentation (indent=2)
+
+### TC-OF-008: Invalid format_setting raises ValueError
+- **Given** an OutputFormatter(format_setting="xml")
+- **When** `format({"data": "test"})` is called
+- **Then** raises ValueError with message indicating valid options are 'json', 'toon', 'auto'
+
+---
+
+## Suite 4: LogSetup (7 test cases)
+
+**Component:** `src/foundry_cli/common/log_setup.py` — `LogSetup` class, `_NdJsonFormatter`, `get_logger()`
+
+### TC-LS-001: NDJSON format — single JSON line per log record
+- **Given** LogSetup.configure() with a stderr capture
+- **When** `logger.warning("test message")` is called
+- **Then** stderr output is a single valid JSON line with required fields: ts, level, logger, msg
+
+### TC-LS-002: Required fields present in log record
+- **Given** LogSetup.configure() and a logger
+- **When** `logger.info("test")` is called
+- **Then** JSON log entry contains: ts (ISO timestamp with UTC timezone), level ("INFO"), logger (name), msg ("test")
+
+### TC-LS-003: Log level filtering
+- **Given** LogSetup.configure(log_level="WARNING")
+- **When** logger.debug(), logger.info(), logger.warning(), logger.error() are called
+- **Then** only WARNING and ERROR messages appear in stderr output
+
+### TC-LS-004: Environment variable log level override
+- **Given** env var FOUNDRY_AGENTIC_CLI_LOG_LEVEL=DEBUG set
+- **When** LogSetup.configure() is called without explicit log_level
+- **Then** effective level is DEBUG (env var takes precedence over default WARNING)
+
+### TC-LS-005: Invalid log level raises ValueError
+- **Given** LogSetup.configure(log_level="TRACE")
+- **When** configure is called
+- **Then** raises ValueError listing supported levels: DEBUG, INFO, WARNING, ERROR, CRITICAL
+
+### TC-LS-006: Context/extra fields included in log output
+- **Given** LogSetup.configure() and a logger
+- **When** `logger.warning("retry", extra={"op": "datasets.list", "attempt": 2, "delay_ms": 1000})` is called
+- **Then** JSON log entry includes op="datasets.list", attempt=2, delay_ms=1000 alongside required fields
+
+### TC-LS-007: Metadata separator and emit_metadata
+- **Given** stderr capture
+- **When** `LogSetup.emit_metadata_separator()` is called
+- **Then** stderr contains "# ---metadata-start---"
+- **And** when `LogSetup.emit_metadata({"key": "value"})` is called, stderr contains separator followed by JSON metadata
+
+---
+
+## Suite 5: Integration (3 test cases)
+
+### TC-INT-001: RetryHandler + ErrorSerializer — retry exhaustion produces correct exit code
+- **Given** a RetryHandler(max_retries=1) wrapping a function that always raises RequestException, and an ErrorSerializer
+- **When** the wrapped function is called and the exception is serialized
+- **Then** ErrorSerializer returns an appropriate exit code and the error envelope includes the traceback from retry exhaustion
+
+### TC-INT-002: OutputFormatter + LogSetup — stderr separation
+- **Given** LogSetup.configure() and OutputFormatter(format_setting="auto")
+- **When** `formatter.emit_error({"error": true, "code": 1})` is called and `logger.warning("msg")` is called
+- **Then** error JSON goes to stdout, log NDJSON goes to stderr — streams are properly separated
+
+### TC-INT-003: Full pipeline — retry → serialize → format → log
+- **Given** all 4 components configured
+- **When** an async operation fails, is retried, exhausts retries, gets serialized, and output is formatted
+- **Then** the error envelope is valid JSON on stdout, log entries are NDJSON on stderr, and exit code matches the exception type
+
+---
+
+## Suite 6: Non-Functional (5 test cases)
+
+### TC-NF-001: Retry delay performance — sleep doesn't block event loop
+- **Given** a RetryHandler with delay=0.1s and max_retries=3
+- **When** execute() is called with a function that always fails
+- **Then** total time is approximately 0.3-0.5s (sum of delays), confirming async sleep doesn't block
+
+### TC-NF-002: ErrorSerializer memory — traceback doesn't cause leak
+- **Given** an ErrorSerializer
+- **When** serialize() is called 10,000 times with different exceptions
+- **Then** memory usage doesn't grow unboundedly (traceback strings are transient, not cached)
+
+### TC-NF-003: Security — no secrets in log output
+- **Given** LogSetup.configure() and env vars with token values set
+- **When** exceptions containing credential strings are serialized and logged
+- **Then** no FOUNDRY_TOKEN or credential values appear in log output (NDJSON on stderr)
+
+### TC-NF-004: OutputFormatter handles Unicode and special characters
+- **Given** an OutputFormatter(format_setting="json")
+- **When** `format({"text": "hello world", "newline": "line1 line2"})` is called
+- **Then** returns valid JSON with properly escaped special characters
+
+### TC-NF-005: LogSetup singleton — configure() is idempotent
+- **Given** LogSetup already configured once
+- **When** LogSetup.configure() is called again
+- **Then** returns existing logger without adding duplicate handlers
+- **And** LogSetup.reset() clears the flag and allows reconfiguration
+
+---
+
+## Coverage Summary
+
+| Suite | Component | Test Cases | Status |
+|---|---|---|---|
+| Suite 1 | RetryHandler | 8 | Designed |
+| Suite 2 | ErrorSerializer | 10 | Designed |
+| Suite 3 | OutputFormatter | 8 | Designed |
+| Suite 4 | LogSetup | 7 | Designed |
+| Suite 5 | Integration | 3 | Designed |
+| Suite 6 | Non-Functional | 5 | Designed |
+| **Total** | | **41** | **Complete** |
+
+## Acceptance Criteria Coverage
+
+| AC | Component | Covered By |
+|---|---|---|
+| AC1: RetryHandler | retry.py | TC-RH-001 through TC-RH-008 |
+| AC2: ErrorSerializer | error_serializer.py | TC-ES-001 through TC-ES-010 |
+| AC3: OutputFormatter | output_formatter.py | TC-OF-001 through TC-OF-008 |
+| AC4: LogSetup | log_setup.py | TC-LS-001 through TC-LS-007 |
+| Cross-component | Integration | TC-INT-001 through TC-INT-003 |
+| Non-functional | Quality gates | TC-NF-001 through TC-NF-005 |
+
+## References
+
+- ADR-001: Exit Code Taxonomy
+- ADR-002: Call Timeout Defaults (retry delays)
+- ADR-004: Format Auto-Selection Algorithm
+- ADR-005: Log Format (NDJSON)
+- DEV-STORY-002: Implementation Story
+- DEV-002: Implementation Task (src/foundry_cli/common/)

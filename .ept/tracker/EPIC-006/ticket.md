@@ -2,9 +2,9 @@
 id: EPIC-006
 type: epic
 title: Data Pipeline Skills
-status: New
+status: In Progress
 created: 2026-04-13
-updated: 2026-05-17
+updated: 2026-05-18
 priority: High
 assignee: architect
 reporter: architect
