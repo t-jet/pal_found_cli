@@ -1,0 +1,7 @@
+name = "web-explorer"
+description = "Helps search the web and retrieve web page content. Ideal for research, data gathering, and web-based tasks. Consult for Playwright and Crawl4AI setup and troubleshooting."
+developer_instructions = """
+## Instructions
+
+Load and strictly follow all instructions in .ept/agents/web-explorer.md before doing anything else. That file is the authoritative definition of your role, rules, decision priorities, subagents, commands, verification rules, environment policy, steps, and response format.
+"""

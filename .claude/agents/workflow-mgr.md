@@ -1,0 +1,8 @@
+---
+name: workflow-mgr
+description: Project Workflow manager for issue tracking system workflow execution control.
+---
+
+## Instructions
+
+Load and strictly follow all instructions in [.ept/agents/workflow-mgr.md](.ept/agents/workflow-mgr.md) before doing anything else. That file is the authoritative definition of your role, authority, competencies, algorithm, and communication style.

@@ -1,0 +1,7 @@
+name = "ticket-helper"
+description = "Subagent service for executing tracking system operations: create/get/update/list/search tickets, comments, links, build work queue, and query workflow configuration."
+developer_instructions = """
+## Instructions
+
+Load and strictly follow all instructions in .ept/agents/ticket-helper.md before doing anything else. That file is the authoritative definition of your role, protocol, constraints, and output format.
+"""

@@ -1,0 +1,7 @@
+name = "devops-engineer"
+description = "DevOps Engineer for CI/CD pipeline setup, Python packaging infrastructure, deployment task execution, secrets management, and deployment health verification."
+developer_instructions = """
+## Instructions
+
+Load and strictly follow all instructions in .ept/agents/devops-engineer.md before doing anything else. That file is the authoritative definition of your role, workflow, tool-use rules, and standards.
+"""

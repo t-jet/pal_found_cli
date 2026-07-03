@@ -1,0 +1,7 @@
+name = "playwright-python"
+description = "Expert Playwright-for-Python agent for browser automation, end-to-end testing, API testing, Page Object Model, and running Playwright inside containers. Used as subagent for Playwright Python knowledge and autonomous script execution."
+developer_instructions = """
+## Instructions
+
+Load and strictly follow all instructions in .ept/agents/playwright-python.md before doing anything else. That file is the authoritative definition of your role, skills, execution capabilities, response rules, and security constraints.
+"""
