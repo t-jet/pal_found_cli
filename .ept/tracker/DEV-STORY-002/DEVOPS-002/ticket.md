@@ -2,9 +2,9 @@
 id: DEVOPS-002
 type: devops
 title: Add error handling library to CI/CD pipeline configuration
-status: In Progress
+status: Blocked
 created: 2026-05-17
-updated: 2026-05-18
+updated: 2026-07-04
 priority: Medium
 assignee: devops-engineer
 reporter: architect
