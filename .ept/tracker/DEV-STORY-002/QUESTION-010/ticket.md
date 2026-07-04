@@ -2,7 +2,7 @@
 id: QUESTION-010
 type: question
 title: 'QUESTION: TC1.R1 env var naming — FOUNDRY_* vs FOUNDRY_AGENTIC_CLI_RETRY_* (AC conflict)'
-status: New
+status: Resolved
 addressed_to: architect
 created: 2026-07-04
 updated: 2026-07-04

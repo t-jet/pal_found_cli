@@ -2,11 +2,11 @@
 id: DEV-STORY-005
 type: dev_story
 title: foundry-datasets skill (26 operations)
-status: Development
+status: QA
 feature_request: FEATURE-001
 epic: EPIC-002
 created: 2026-04-13
-updated: 2026-05-18
+updated: 2026-07-04
 priority: Critical
 assignee: architect
 reporter: architect

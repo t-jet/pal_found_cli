@@ -3,7 +3,7 @@ id: QUESTION-011
 type: question
 title: 'QUESTION: TC2.R2 ErrorSerializer envelope schema — missing attempt/operation/details
   (AC conflict)'
-status: New
+status: Resolved
 addressed_to: architect
 created: 2026-07-04
 updated: 2026-07-04

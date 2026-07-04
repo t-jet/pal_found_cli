@@ -2,11 +2,11 @@
 id: QUESTION-014
 type: question
 title: 'QUESTION: TC4.R2 LogSetup log file/rotation — AC vs ADR-005 conflict'
-status: New
+status: Resolved
 addressed_to: architect
 created: 2026-07-04
 updated: 2026-07-04
-priority: High
+priority: Critical
 reporter: qa-engineer
 ---
 

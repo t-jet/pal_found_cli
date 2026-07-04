@@ -2,11 +2,11 @@
 id: QUESTION-012
 type: question
 title: 'QUESTION: TC3.R2 TOON rendering — hand-rolled vs toon-python library (AC conflict)'
-status: New
+status: Resolved
 addressed_to: architect
 created: 2026-07-04
 updated: 2026-07-04
-priority: High
+priority: Critical
 reporter: qa-engineer
 ---
 

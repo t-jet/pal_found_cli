@@ -2,7 +2,7 @@
 id: DEV-003
 type: development
 title: 'DEV-005: Implement foundry-datasets skill (26 operations)'
-status: Resolved
+status: Closed
 created: 2026-05-18
 updated: 2026-07-04
 priority: Critical

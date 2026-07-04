@@ -2,7 +2,7 @@
 id: UNITTEST-003
 type: unittest
 title: 'UNITTEST-005: Unit tests for foundry-datasets'
-status: Resolved
+status: Closed
 created: 2026-05-18
 updated: 2026-07-04
 priority: Critical
