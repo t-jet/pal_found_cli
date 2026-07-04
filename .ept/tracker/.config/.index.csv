@@ -79,3 +79,8 @@ BUG-SUB-001,bug_subtask,BUG-SUB: RetryHandler missing asyncio.wait_for() timeout
 BUG-SUB-002,bug_subtask,BUG-SUB: RetryHandler missing HTTP 429/503-specific retry predicate (TC1.R3),New,High,developer,qa-engineer,DEV-STORY-002,,DEV-STORY-002/BUG-SUB-002,2026-07-04,2026-07-04
 BUG-SUB-003,bug_subtask,BUG-SUB: RetryHandler missing SIGINT/SIGTERM signal handling (TC1.R4),New,Medium,developer,qa-engineer,DEV-STORY-002,,DEV-STORY-002/BUG-SUB-003,2026-07-04,2026-07-04
 BUG-SUB-004,bug_subtask,BUG-SUB: ErrorSerializer exit code 8 (AccessControlError) unreachable via serialize() (TC2.R1),New,High,developer,qa-engineer,DEV-STORY-002,,DEV-STORY-002/BUG-SUB-004,2026-07-04,2026-07-04
+QUESTION-010,question,QUESTION: TC1.R1 env var naming — FOUNDRY_* vs FOUNDRY_AGENTIC_CLI_RETRY_* (AC conflict),New,Critical,,qa-engineer,DEV-STORY-002,architect,DEV-STORY-002/QUESTION-010,2026-07-04,2026-07-04
+QUESTION-011,question,QUESTION: TC2.R2 ErrorSerializer envelope schema — missing attempt/operation/details (AC conflict),New,Critical,,qa-engineer,DEV-STORY-002,architect,DEV-STORY-002/QUESTION-011,2026-07-04,2026-07-04
+QUESTION-012,question,QUESTION: TC3.R2 TOON rendering — hand-rolled vs toon-python library (AC conflict),New,High,,qa-engineer,DEV-STORY-002,architect,DEV-STORY-002/QUESTION-012,2026-07-04,2026-07-04
+QUESTION-013,question,QUESTION: TC3.R3 metadata separator in OutputFormatter.emit_to_stderr (AC conflict),New,High,,qa-engineer,DEV-STORY-002,architect,DEV-STORY-002/QUESTION-013,2026-07-04,2026-07-04
+QUESTION-014,question,QUESTION: TC4.R2 LogSetup log file/rotation — AC vs ADR-005 conflict,New,High,,qa-engineer,DEV-STORY-002,architect,DEV-STORY-002/QUESTION-014,2026-07-04,2026-07-04

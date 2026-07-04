@@ -103,3 +103,8 @@ LINK-00119,FEATURE-001,DEV-STORY-007,Contains,Contains,Contained In,2026-05-18T1
 LINK-00120,TESTEXEC-002,BUG-001,ParentChild,Is Parent Of,Is Child Of,2026-05-19T21:40:20.150034,qa-engineer,TESTEXEC-002 is parent of BUG-001 (ConfigLoader CWD fallback bug)
 LINK-00121,TESTEXEC-002,BUG-002,ParentChild,Is Parent Of,Is Child Of,2026-05-19T21:40:25.508089,qa-engineer,TESTEXEC-002 is parent of BUG-002 (TC-E2E-001 test setup bug)
 LINK-00122,CODEREVIEW-003,DEV-STORY-005,RelatesTo,Relates To,Relates To,2026-05-20T18:24:31.611308,tech-lead,
+LINK-00125,QUESTION-010,DEV-STORY-002,Blocks,Blocks,Is Blocked By,2026-07-04T23:12:26.593930,qa-engineer,QUESTION blocks DEV-STORY-002 pending architect decision on env var naming
+LINK-00126,QUESTION-011,DEV-STORY-002,Blocks,Blocks,Is Blocked By,2026-07-04T23:12:35.903862,qa-engineer,QUESTION blocks DEV-STORY-002 pending architect decision on envelope schema
+LINK-00127,QUESTION-012,DEV-STORY-002,Blocks,Blocks,Is Blocked By,2026-07-04T23:12:36.421771,qa-engineer,QUESTION blocks DEV-STORY-002 pending architect decision on TOON library
+LINK-00128,QUESTION-013,DEV-STORY-002,Blocks,Blocks,Is Blocked By,2026-07-04T23:12:36.917989,qa-engineer,QUESTION blocks DEV-STORY-002 pending architect decision on metadata separator
+LINK-00129,QUESTION-014,DEV-STORY-002,Blocks,Blocks,Is Blocked By,2026-07-04T23:12:37.442847,qa-engineer,QUESTION blocks DEV-STORY-002 pending architect decision on log file/rotation AC vs ADR-005
