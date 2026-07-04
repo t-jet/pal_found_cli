@@ -2,11 +2,11 @@
 id: DEV-STORY-002
 type: dev_story
 title: Implement RetryHandler, ErrorSerializer, OutputFormatter, LogSetup
-status: Development
+status: Blocked
 feature_request: FEATURE-001
 epic: EPIC-001
 created: 2026-04-13
-updated: 2026-05-17
+updated: 2026-07-04
 priority: Critical
 assignee: architect
 reporter: architect
