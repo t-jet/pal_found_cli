@@ -75,3 +75,7 @@ DEVOPS-004,devops,DEVOPS-005: Deploy foundry-datasets skill,New,High,devops-engi
 BUG-001,bug,ConfigLoader CWD fallback broken when no git root — TC-CL-INT-004 fails,Rejected,High,developer,qa-engineer,DEV-STORY-001,tech-lead,DEV-STORY-001/BUG-001,2026-05-19,2026-05-20
 BUG-002,bug,Test TC-E2E-001 missing directory setup — FileNotFoundError on chdir,Closed,Low,qa-engineer,qa-engineer,,,BUG-002,2026-05-19,2026-05-19
 QUESTION-009,question,"QUESTION: DEVOPS-004 deployment prerequisites — DEV-STORY-001/003/004 incomplete, CLI code not in package directory",Closed,High,architect,devops-engineer,DEV-STORY-005,architect,DEV-STORY-005/QUESTION-009,2026-05-20,2026-05-20
+BUG-SUB-001,bug_subtask,BUG-SUB: RetryHandler missing asyncio.wait_for() timeout (TC1.R2),New,High,developer,qa-engineer,DEV-STORY-002,,DEV-STORY-002/BUG-SUB-001,2026-07-04,2026-07-04
+BUG-SUB-002,bug_subtask,BUG-SUB: RetryHandler missing HTTP 429/503-specific retry predicate (TC1.R3),New,High,developer,qa-engineer,DEV-STORY-002,,DEV-STORY-002/BUG-SUB-002,2026-07-04,2026-07-04
+BUG-SUB-003,bug_subtask,BUG-SUB: RetryHandler missing SIGINT/SIGTERM signal handling (TC1.R4),New,Medium,developer,qa-engineer,DEV-STORY-002,,DEV-STORY-002/BUG-SUB-003,2026-07-04,2026-07-04
+BUG-SUB-004,bug_subtask,BUG-SUB: ErrorSerializer exit code 8 (AccessControlError) unreachable via serialize() (TC2.R1),New,High,developer,qa-engineer,DEV-STORY-002,,DEV-STORY-002/BUG-SUB-004,2026-07-04,2026-07-04

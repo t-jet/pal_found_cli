@@ -2,7 +2,7 @@ counters:
   ba_subtask_analysis: 1
   ba_subtask_design: 1
   bug: 2
-  bug_subtask: 0
+  bug_subtask: 4
   codereview: 3
   design: 3
   dev_story: 23
