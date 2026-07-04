@@ -51,24 +51,24 @@ DESIGN-001,design,"DEV-STORY-002: Technical Design — RetryHandler, ErrorSerial
 QUESTION-006,question,DEV-STORY-003: Acceptance criteria contain TODO placeholders — needs BA completion,Closed,Medium,architect,architect,,business-analyst,QUESTION-006,2026-05-17,2026-05-18
 QUESTION-007,question,DEV-STORY-004: Acceptance criteria contain TODO placeholders — needs BA completion,Closed,High,architect,architect,,business-analyst,QUESTION-007,2026-05-17,2026-05-18
 DESIGN-002,design,"DEV-STORY-001: Design Review — ConfigLoader, AuthProvider, AsyncClientFactory",Closed,Critical,architect,architect,DEV-STORY-001,,DEV-STORY-001/DESIGN-002,2026-05-17,2026-05-17
-DEV-001,development,"DEV-STORY-001: Implement ConfigLoader, AuthProvider, AsyncClientFactory",In Progress,Critical,architect,architect,DEV-STORY-001,,DEV-STORY-001/DEV-001,2026-05-17,2026-05-18
-CODEREVIEW-001,codereview,"CODE REVIEW: DEV-STORY-001 — ConfigLoader, AuthProvider, AsyncClientFactory",Correction,Critical,python-developer,architect,DEV-STORY-001,,DEV-STORY-001/CODEREVIEW-001,2026-05-17,2026-05-20
-DEV-002,development,"Implement RetryHandler, ErrorSerializer, OutputFormatter, LogSetup",In Progress,Critical,developer,architect,DEV-STORY-002,,DEV-STORY-002/DEV-002,2026-05-17,2026-05-18
+DEV-001,development,"DEV-STORY-001: Implement ConfigLoader, AuthProvider, AsyncClientFactory",Resolved,Critical,architect,architect,DEV-STORY-001,,DEV-STORY-001/DEV-001,2026-05-17,2026-07-04
+CODEREVIEW-001,codereview,"CODE REVIEW: DEV-STORY-001 — ConfigLoader, AuthProvider, AsyncClientFactory",Closed,Critical,tech-lead,architect,DEV-STORY-001,,DEV-STORY-001/CODEREVIEW-001,2026-05-17,2026-07-04
+DEV-002,development,"Implement RetryHandler, ErrorSerializer, OutputFormatter, LogSetup",Resolved,Critical,developer,architect,DEV-STORY-002,,DEV-STORY-002/DEV-002,2026-05-17,2026-07-04
 UNITTEST-001,unittest,"UNITTEST: DEV-STORY-001 — ConfigLoader, AuthProvider, AsyncClientFactory",Closed,Critical,developer,architect,DEV-STORY-001,,DEV-STORY-001/UNITTEST-001,2026-05-17,2026-05-20
 UNITTEST-002,unittest,"UNITTEST: Write unit tests for RetryHandler, ErrorSerializer, OutputFormatter, LogSetup",Resolved,Critical,developer,architect,DEV-STORY-002,,DEV-STORY-002/UNITTEST-002,2026-05-17,2026-05-20
 DEVOPS-001,devops,DEVOPS: Add error handling library to CI/CD pipeline configuration,Canceled,High,devops-engineer,architect,DEV-STORY-002,,DEV-STORY-002/DEVOPS-001,2026-05-17,2026-05-17
 TESTEXEC-001,testexec,"TESTEXEC: DEV-STORY-002 — Execute QA test cases for RetryHandler, ErrorSerializer, OutputFormatter, LogSetup",In Progress,Critical,qa-engineer,architect,DEV-STORY-002,,DEV-STORY-002/TESTEXEC-001,2026-05-17,2026-05-18
 TESTCASE-001,testcase,"TESTCASE: Define QA test cases for RetryHandler, ErrorSerializer, OutputFormatter, LogSetup",In Progress,High,qa-engineer,architect,DEV-STORY-002,,DEV-STORY-002/TESTCASE-001,2026-05-17,2026-07-04
-CODEREVIEW-002,codereview,"CODE REVIEW: RetryHandler, ErrorSerializer, OutputFormatter, LogSetup implementation",Corrected,Medium,architect,architect,DEV-STORY-002,,DEV-STORY-002/CODEREVIEW-002,2026-05-17,2026-07-04
+CODEREVIEW-002,codereview,"CODE REVIEW: RetryHandler, ErrorSerializer, OutputFormatter, LogSetup implementation",Closed,Medium,architect,architect,DEV-STORY-002,,DEV-STORY-002/CODEREVIEW-002,2026-05-17,2026-07-04
 DEVOPS-002,devops,Add error handling library to CI/CD pipeline configuration,Blocked,Medium,devops-engineer,architect,DEV-STORY-002,,DEV-STORY-002/DEVOPS-002,2026-05-17,2026-07-04
 TESTCASE-002,testcase,"TESTCASE: DEV-STORY-001 — Integration & E2E Tests for ConfigLoader, AuthProvider, AsyncClientFactory",Closed,Critical,qa-engineer,architect,DEV-STORY-001,,DEV-STORY-001/TESTCASE-002,2026-05-17,2026-05-19
 TESTEXEC-002,testexec,"TESTEXEC: DEV-STORY-001 — Execute Tests for ConfigLoader, AuthProvider, AsyncClientFactory",Closed,Critical,qa-engineer,architect,DEV-STORY-001,,DEV-STORY-001/TESTEXEC-002,2026-05-17,2026-05-20
 DEVOPS-003,devops,"DEVOPS: DEV-STORY-001 — Infrastructure Setup for ConfigLoader, AuthProvider, AsyncClientFactory",Closed,Critical,devops-engineer,architect,DEV-STORY-001,,DEV-STORY-001/DEVOPS-003,2026-05-17,2026-05-19
 QUESTION-008,question,DEV-002: Exit code mapping in ErrorSerializer conflicts with ADR-001,Closed,Critical,"tech-lead,architect",developer,DEV-002,tech-lead,DEV-002/QUESTION-008,2026-05-18,2026-05-18
 DESIGN-003,design,DESIGN-005: Technical design for foundry-datasets skill,Closed,Critical,architect,architect,DEV-STORY-005,,DEV-STORY-005/DESIGN-003,2026-05-18,2026-05-18
-DEV-003,development,DEV-005: Implement foundry-datasets skill (26 operations),In Progress,Critical,python-developer,architect,DEV-STORY-005,,DEV-STORY-005/DEV-003,2026-05-18,2026-05-18
-CODEREVIEW-003,codereview,CODEREVIEW-005: Code review for foundry-datasets implementation,Corrected,Critical,python-developer,architect,DEV-STORY-005,,DEV-STORY-005/CODEREVIEW-003,2026-05-18,2026-07-04
-UNITTEST-003,unittest,UNITTEST-005: Unit tests for foundry-datasets,In Progress,Critical,python-developer,architect,DEV-STORY-005,,DEV-STORY-005/UNITTEST-003,2026-05-18,2026-05-18
+DEV-003,development,DEV-005: Implement foundry-datasets skill (26 operations),Resolved,Critical,python-developer,architect,DEV-STORY-005,,DEV-STORY-005/DEV-003,2026-05-18,2026-07-04
+CODEREVIEW-003,codereview,CODEREVIEW-005: Code review for foundry-datasets implementation,Closed,Critical,python-developer,architect,DEV-STORY-005,,DEV-STORY-005/CODEREVIEW-003,2026-05-18,2026-07-04
+UNITTEST-003,unittest,UNITTEST-005: Unit tests for foundry-datasets,Resolved,Critical,python-developer,architect,DEV-STORY-005,,DEV-STORY-005/UNITTEST-003,2026-05-18,2026-07-04
 TESTCASE-003,testcase,TESTCASE-005: QA test cases for foundry-datasets,New,Critical,qa-engineer,architect,DEV-STORY-005,,DEV-STORY-005/TESTCASE-003,2026-05-18,2026-05-18
 TESTEXEC-003,testexec,TESTEXEC-005: Execute QA tests for foundry-datasets,New,Critical,qa-engineer,architect,DEV-STORY-005,,DEV-STORY-005/TESTEXEC-003,2026-05-18,2026-05-18
 DEVOPS-004,devops,DEVOPS-005: Deploy foundry-datasets skill,New,High,devops-engineer,architect,DEV-STORY-005,,DEV-STORY-005/DEVOPS-004,2026-05-18,2026-05-18

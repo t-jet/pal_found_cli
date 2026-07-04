@@ -99,7 +99,6 @@ LINK-00111,DEV-STORY-002,CODEREVIEW-002,ParentChild,Is Parent Of,Is Child Of,202
 LINK-00112,DEV-STORY-002,DEVOPS-002,ParentChild,Is Parent Of,Is Child Of,2026-05-18T01:20:52.032943,devops-engineer,
 LINK-00115,DEV-003,CODEREVIEW-003,RelatesTo,Relates To,Relates To,2026-05-18T16:48:45.353189,architect,
 LINK-00116,CODEREVIEW-003,DEV-003,RelatesTo,Relates To,Relates To,2026-05-18T16:48:56.804120,architect,
-LINK-00118,DEV-003,CODEREVIEW-003,Blocks,Blocks,Is Blocked By,2026-05-18T17:01:07.181714,architect,DEV-003 blocks CODEREVIEW-003 until DEV is Resolved
 LINK-00119,FEATURE-001,DEV-STORY-007,Contains,Contains,Contained In,2026-05-18T17:08:48.597758,architect,
 LINK-00120,TESTEXEC-002,BUG-001,ParentChild,Is Parent Of,Is Child Of,2026-05-19T21:40:20.150034,qa-engineer,TESTEXEC-002 is parent of BUG-001 (ConfigLoader CWD fallback bug)
 LINK-00121,TESTEXEC-002,BUG-002,ParentChild,Is Parent Of,Is Child Of,2026-05-19T21:40:25.508089,qa-engineer,TESTEXEC-002 is parent of BUG-002 (TC-E2E-001 test setup bug)
