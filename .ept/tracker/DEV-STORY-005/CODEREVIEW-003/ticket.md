@@ -2,9 +2,9 @@
 id: CODEREVIEW-003
 type: codereview
 title: 'CODEREVIEW-005: Code review for foundry-datasets implementation'
-status: Correction
+status: Corrected
 created: 2026-05-18
-updated: 2026-05-20
+updated: 2026-07-04
 priority: Critical
 assignee: python-developer
 reporter: architect

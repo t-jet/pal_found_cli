@@ -21,25 +21,40 @@ import argparse
 import asyncio
 import json
 import logging
-import os
 import sys
 from pathlib import Path
-from typing import Any
+from typing import Any, Optional
 
-_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-_PROJECT_ROOT = str(Path(_SCRIPT_DIR).parents[4])
+# Robust project-root discovery: walk up from this script until the
+# `foundry_cli` package (src/foundry_cli) is located. This avoids the fragile
+# fixed-depth `parents[4]` assumption that breaks if the skill is relocated.
+_SCRIPT_DIR = Path(__file__).resolve().parent
+_PROJECT_ROOT: Optional[str] = None
+_candidate = _SCRIPT_DIR
+for _depth in range(8):
+    if (_candidate / "src" / "foundry_cli" / "__init__.py").exists():
+        _PROJECT_ROOT = str(_candidate)
+        break
+    if _candidate.parent == _candidate:
+        break
+    _candidate = _candidate.parent
+if _PROJECT_ROOT is None:
+    # Last-resort fallback to the historical fixed-depth guess so that the
+    # import error surfaces as a normal Python ImportError rather than an
+    # unrelated NameError.
+    _PROJECT_ROOT = str(_SCRIPT_DIR.parents[4])
 if _PROJECT_ROOT not in sys.path:
     sys.path.insert(0, _PROJECT_ROOT)
 
 from foundry_cli.common.config_loader import ConfigLoader
 from foundry_cli.common.async_client_factory import AsyncClientFactory
 from foundry_cli.common.error_serializer import (
-    EXIT_SUCCESS, EXIT_USER_INPUT, EXIT_AUTH, EXIT_PERMISSION_DENIED,
+    EXIT_SUCCESS, EXIT_USER_INPUT, EXIT_PERMISSION_DENIED,
     EXIT_NOT_FOUND, EXIT_TIMEOUT, EXIT_SERVER_ERROR, EXIT_RATE_LIMIT,
     EXIT_ACCESS_CONTROL, EXIT_CONFIGURATION, ErrorSerializer,
 )
 from foundry_cli.common.output_formatter import OutputFormatter
-from foundry_cli.common.log_setup import LogSetup, METADATA_SEPARATOR
+from foundry_cli.common.log_setup import LogSetup
 from foundry_cli.common.access_control_guard import AccessControlGuard, AccessControlError
 from foundry_cli.common.retry import RetryHandler
 
@@ -107,7 +122,7 @@ async def _invoke(
     operation: str,
     client: Any,
     args: argparse.Namespace,
-    timeout: int,
+    timeout: Optional[int],
 ) -> Any:
     """Invoke SDK operation (async).
 
@@ -121,8 +136,8 @@ async def _invoke(
         SDK client instance.
     args : argparse.Namespace
         Parsed CLI arguments.
-    timeout : int
-        Request timeout in seconds.
+    timeout : Optional[int]
+        Request timeout in seconds. May be ``None`` to let the SDK decide.
 
     Returns
     -------
@@ -261,6 +276,22 @@ def _resolve(resource: str, op: str) -> str:
     return mapping.get(op, op.replace("-", "_"))
 
 
+def _common_parser() -> argparse.ArgumentParser:
+    """Build the shared argparse parent with global options.
+
+    Every leaf operation subparser inherits these arguments via ``parents``,
+    so options like ``--timeout`` may appear after the operation positional.
+    """
+    common = argparse.ArgumentParser(add_help=False)
+    common.add_argument("--timeout", type=int, default=None)
+    common.add_argument("--format", choices=["json", "toon", "auto"], default="auto")
+    common.add_argument("--pretty", action="store_true")
+    common.add_argument("--page-size", type=int, default=None, dest="page_size")
+    common.add_argument("--page-token", type=str, default=None, dest="page_token")
+    common.add_argument("--batch-pages", type=int, default=None, dest="batch_pages")
+    return common
+
+
 def build_parser() -> argparse.ArgumentParser:
     """Build argparse parser with all 33 operations."""
     parser = argparse.ArgumentParser(
@@ -269,66 +300,58 @@ def build_parser() -> argparse.ArgumentParser:
     )
     subparsers = parser.add_subparsers(dest="resource", help="Resource type")
 
-    common = argparse.ArgumentParser(add_help=False)
-    common.add_argument("--timeout", type=int, default=None)
-    common.add_argument("--format", choices=["json", "toon", "auto"], default="auto")
-    common.add_argument("--pretty", action="store_true")
-    common.add_argument("--page-size", type=int, default=None, dest="page_size")
-    common.add_argument("--page-token", type=str, default=None, dest="page_token")
-    common.add_argument("--batch-pages", type=int, default=None, dest="batch_pages")
-
     # --- Dataset (11 operations) ---
-    ds = subparsers.add_parser("dataset", parents=[common])
+    ds = subparsers.add_parser("dataset")
     ds_sub = ds.add_subparsers(dest="operation")
-    _p = ds_sub.add_parser("create"); _p.add_argument("--name", required=True); _p.add_argument("--parent-folder-rid", required=True, dest="parent_folder_rid")
-    _p = ds_sub.add_parser("get"); _p.add_argument("dataset_rid")
-    _p = ds_sub.add_parser("get-health-check-reports"); _p.add_argument("dataset_rid"); _p.add_argument("--branch-name", default=None, dest="branch_name")
-    _p = ds_sub.add_parser("get-health-checks"); _p.add_argument("dataset_rid"); _p.add_argument("--branch-name", default=None, dest="branch_name")
-    _p = ds_sub.add_parser("get-schedules"); _p.add_argument("dataset_rid"); _p.add_argument("--branch-name", default=None, dest="branch_name")
-    _p = ds_sub.add_parser("get-schema"); _p.add_argument("dataset_rid"); _p.add_argument("--branch-name", default=None, dest="branch_name")
-    _p = ds_sub.add_parser("get-schema-batch"); _p.add_argument("--dataset-r", required=True, dest="dataset_rids")
-    _p = ds_sub.add_parser("jobs"); _p.add_argument("dataset_rid")
-    _p = ds_sub.add_parser("put-schema"); _p.add_argument("dataset_rid"); _p.add_argument("--schema", required=True); _p.add_argument("--branch-name", default=None, dest="branch_name")
-    _p = ds_sub.add_parser("read-table"); _p.add_argument("dataset_rid"); _p.add_argument("--branch-name", default=None, dest="branch_name")
-    _p = ds_sub.add_parser("transactions"); _p.add_argument("dataset_rid")
+    _p = ds_sub.add_parser("create", parents=[_common_parser()]); _p.add_argument("--name", required=True); _p.add_argument("--parent-folder-rid", required=True, dest="parent_folder_rid")
+    _p = ds_sub.add_parser("get", parents=[_common_parser()]); _p.add_argument("dataset_rid")
+    _p = ds_sub.add_parser("get-health-check-reports", parents=[_common_parser()]); _p.add_argument("dataset_rid"); _p.add_argument("--branch-name", default=None, dest="branch_name")
+    _p = ds_sub.add_parser("get-health-checks", parents=[_common_parser()]); _p.add_argument("dataset_rid"); _p.add_argument("--branch-name", default=None, dest="branch_name")
+    _p = ds_sub.add_parser("get-schedules", parents=[_common_parser()]); _p.add_argument("dataset_rid"); _p.add_argument("--branch-name", default=None, dest="branch_name")
+    _p = ds_sub.add_parser("get-schema", parents=[_common_parser()]); _p.add_argument("dataset_rid"); _p.add_argument("--branch-name", default=None, dest="branch_name")
+    _p = ds_sub.add_parser("get-schema-batch", parents=[_common_parser()]); _p.add_argument("--dataset-r", required=True, dest="dataset_rids")
+    _p = ds_sub.add_parser("jobs", parents=[_common_parser()]); _p.add_argument("dataset_rid")
+    _p = ds_sub.add_parser("put-schema", parents=[_common_parser()]); _p.add_argument("dataset_rid"); _p.add_argument("--schema", required=True); _p.add_argument("--branch-name", default=None, dest="branch_name")
+    _p = ds_sub.add_parser("read-table", parents=[_common_parser()]); _p.add_argument("dataset_rid"); _p.add_argument("--branch-name", default=None, dest="branch_name")
+    _p = ds_sub.add_parser("transactions", parents=[_common_parser()]); _p.add_argument("dataset_rid")
 
     # --- Branch (5 operations) ---
-    br = subparsers.add_parser("branch", parents=[common])
+    br = subparsers.add_parser("branch")
     br_sub = br.add_subparsers(dest="operation")
-    _p = br_sub.add_parser("create"); _p.add_argument("dataset_rid"); _p.add_argument("--name", required=True); _p.add_argument("--transaction-rid", default=None, dest="transaction_rid")
-    _p = br_sub.add_parser("delete"); _p.add_argument("dataset_rid"); _p.add_argument("--branch-name", required=True, dest="branch_name")
-    _p = br_sub.add_parser("get"); _p.add_argument("dataset_rid"); _p.add_argument("--branch-name", default=None, dest="branch_name")
-    _p = br_sub.add_parser("list"); _p.add_argument("dataset_rid")
-    _p = br_sub.add_parser("transactions"); _p.add_argument("dataset_rid"); _p.add_argument("--branch-name", default=None, dest="branch_name")
+    _p = br_sub.add_parser("create", parents=[_common_parser()]); _p.add_argument("dataset_rid"); _p.add_argument("--name", required=True); _p.add_argument("--transaction-rid", default=None, dest="transaction_rid")
+    _p = br_sub.add_parser("delete", parents=[_common_parser()]); _p.add_argument("dataset_rid"); _p.add_argument("--branch-name", required=True, dest="branch_name")
+    _p = br_sub.add_parser("get", parents=[_common_parser()]); _p.add_argument("dataset_rid"); _p.add_argument("--branch-name", default=None, dest="branch_name")
+    _p = br_sub.add_parser("list", parents=[_common_parser()]); _p.add_argument("dataset_rid")
+    _p = br_sub.add_parser("transactions", parents=[_common_parser()]); _p.add_argument("dataset_rid"); _p.add_argument("--branch-name", default=None, dest="branch_name")
 
     # --- File (5 operations) ---
-    fl = subparsers.add_parser("file", parents=[common])
+    fl = subparsers.add_parser("file")
     fl_sub = fl.add_subparsers(dest="operation")
-    _p = fl_sub.add_parser("content"); _p.add_argument("dataset_rid"); _p.add_argument("--file-path", required=True, dest="file_path"); _p.add_argument("--branch-name", default=None, dest="branch_name"); _p.add_argument("--end-transaction-rid", default=None, dest="end_transaction_rid"); _p.add_argument("--start-transaction-rid", default=None, dest="start_transaction_rid")
-    _p = fl_sub.add_parser("delete"); _p.add_argument("dataset_rid"); _p.add_argument("--file-path", required=True, dest="file_path"); _p.add_argument("--transaction-rid", default=None, dest="transaction_rid")
-    _p = fl_sub.add_parser("get"); _p.add_argument("dataset_rid"); _p.add_argument("--file-path", required=True, dest="file_path"); _p.add_argument("--transaction-rid", default=None, dest="transaction_rid")
-    _p = fl_sub.add_parser("list"); _p.add_argument("dataset_rid"); _p.add_argument("--transaction-rid", default=None, dest="transaction_rid")
-    _p = fl_sub.add_parser("upload"); _p.add_argument("dataset_rid"); _p.add_argument("--file-path", required=True, dest="file_path"); _p.add_argument("--transaction-rid", default=None, dest="transaction_rid")
+    _p = fl_sub.add_parser("content", parents=[_common_parser()]); _p.add_argument("dataset_rid"); _p.add_argument("--file-path", required=True, dest="file_path"); _p.add_argument("--branch-name", default=None, dest="branch_name"); _p.add_argument("--end-transaction-rid", default=None, dest="end_transaction_rid"); _p.add_argument("--start-transaction-rid", default=None, dest="start_transaction_rid")
+    _p = fl_sub.add_parser("delete", parents=[_common_parser()]); _p.add_argument("dataset_rid"); _p.add_argument("--file-path", required=True, dest="file_path"); _p.add_argument("--transaction-rid", default=None, dest="transaction_rid")
+    _p = fl_sub.add_parser("get", parents=[_common_parser()]); _p.add_argument("dataset_rid"); _p.add_argument("--file-path", required=True, dest="file_path"); _p.add_argument("--transaction-rid", default=None, dest="transaction_rid")
+    _p = fl_sub.add_parser("list", parents=[_common_parser()]); _p.add_argument("dataset_rid"); _p.add_argument("--transaction-rid", default=None, dest="transaction_rid")
+    _p = fl_sub.add_parser("upload", parents=[_common_parser()]); _p.add_argument("dataset_rid"); _p.add_argument("--file-path", required=True, dest="file_path"); _p.add_argument("--transaction-rid", default=None, dest="transaction_rid")
 
     # --- Transaction (6 operations) ---
-    tx = subparsers.add_parser("transaction", parents=[common])
+    tx = subparsers.add_parser("transaction")
     tx_sub = tx.add_subparsers(dest="operation")
-    _p = tx_sub.add_parser("abort"); _p.add_argument("dataset_rid"); _p.add_argument("--transaction-rid", required=True, dest="transaction_rid")
-    _p = tx_sub.add_parser("build"); _p.add_argument("dataset_rid"); _p.add_argument("--transaction-rid", required=True, dest="transaction_rid")
-    _p = tx_sub.add_parser("commit"); _p.add_argument("dataset_rid"); _p.add_argument("--transaction-rid", required=True, dest="transaction_rid")
-    _p = tx_sub.add_parser("create"); _p.add_argument("dataset_rid"); _p.add_argument("--branch-name", default=None, dest="branch_name")
-    _p = tx_sub.add_parser("get"); _p.add_argument("dataset_rid"); _p.add_argument("--transaction-rid", required=True, dest="transaction_rid")
-    _p = tx_sub.add_parser("job"); _p.add_argument("dataset_rid"); _p.add_argument("--transaction-rid", required=True, dest="transaction_rid")
+    _p = tx_sub.add_parser("abort", parents=[_common_parser()]); _p.add_argument("dataset_rid"); _p.add_argument("--transaction-rid", required=True, dest="transaction_rid")
+    _p = tx_sub.add_parser("build", parents=[_common_parser()]); _p.add_argument("dataset_rid"); _p.add_argument("--transaction-rid", required=True, dest="transaction_rid")
+    _p = tx_sub.add_parser("commit", parents=[_common_parser()]); _p.add_argument("dataset_rid"); _p.add_argument("--transaction-rid", required=True, dest="transaction_rid")
+    _p = tx_sub.add_parser("create", parents=[_common_parser()]); _p.add_argument("dataset_rid"); _p.add_argument("--branch-name", default=None, dest="branch_name")
+    _p = tx_sub.add_parser("get", parents=[_common_parser()]); _p.add_argument("dataset_rid"); _p.add_argument("--transaction-rid", required=True, dest="transaction_rid")
+    _p = tx_sub.add_parser("job", parents=[_common_parser()]); _p.add_argument("dataset_rid"); _p.add_argument("--transaction-rid", required=True, dest="transaction_rid")
 
     # --- View (6 operations) ---
-    vw = subparsers.add_parser("view", parents=[common])
+    vw = subparsers.add_parser("view")
     vw_sub = vw.add_subparsers(dest="operation")
-    _p = vw_sub.add_parser("add-backing-datasets"); _p.add_argument("--view-dataset-rid", required=True, dest="view_dataset_rid"); _p.add_argument("--backing-datasets", required=True, dest="backing_datasets"); _p.add_argument("--branch", default=None)
-    _p = vw_sub.add_parser("add-primary-key"); _p.add_argument("--view-dataset-rid", required=True, dest="view_dataset_rid"); _p.add_argument("--primary-key", required=True, dest="primary_key"); _p.add_argument("--branch", default=None)
-    _p = vw_sub.add_parser("create"); _p.add_argument("--name", required=True); _p.add_argument("--parent-folder-rid", required=True, dest="parent_folder_rid"); _p.add_argument("--backing-datasets", default=None, dest="backing_datasets")
-    _p = vw_sub.add_parser("get"); _p.add_argument("--view-dataset-rid", required=True, dest="view_dataset_rid"); _p.add_argument("--branch", default=None)
-    _p = vw_sub.add_parser("remove-backing-datasets"); _p.add_argument("--view-dataset-rid", required=True, dest="view_dataset_rid"); _p.add_argument("--backing-datasets", required=True, dest="backing_datasets"); _p.add_argument("--branch", default=None)
-    _p = vw_sub.add_parser("replace-backing-datasets"); _p.add_argument("--view-dataset-rid", required=True, dest="view_dataset_rid"); _p.add_argument("--backing-datasets", required=True, dest="backing_datasets"); _p.add_argument("--branch", default=None)
+    _p = vw_sub.add_parser("add-backing-datasets", parents=[_common_parser()]); _p.add_argument("--view-dataset-rid", required=True, dest="view_dataset_rid"); _p.add_argument("--backing-datasets", required=True, dest="backing_datasets"); _p.add_argument("--branch", default=None)
+    _p = vw_sub.add_parser("add-primary-key", parents=[_common_parser()]); _p.add_argument("--view-dataset-rid", required=True, dest="view_dataset_rid"); _p.add_argument("--primary-key", required=True, dest="primary_key"); _p.add_argument("--branch", default=None)
+    _p = vw_sub.add_parser("create", parents=[_common_parser()]); _p.add_argument("--name", required=True); _p.add_argument("--parent-folder-rid", required=True, dest="parent_folder_rid"); _p.add_argument("--backing-datasets", default=None, dest="backing_datasets")
+    _p = vw_sub.add_parser("get", parents=[_common_parser()]); _p.add_argument("--view-dataset-rid", required=True, dest="view_dataset_rid"); _p.add_argument("--branch", default=None)
+    _p = vw_sub.add_parser("remove-backing-datasets", parents=[_common_parser()]); _p.add_argument("--view-dataset-rid", required=True, dest="view_dataset_rid"); _p.add_argument("--backing-datasets", required=True, dest="backing_datasets"); _p.add_argument("--branch", default=None)
+    _p = vw_sub.add_parser("replace-backing-datasets", parents=[_common_parser()]); _p.add_argument("--view-dataset-rid", required=True, dest="view_dataset_rid"); _p.add_argument("--backing-datasets", required=True, dest="backing_datasets"); _p.add_argument("--branch", default=None)
 
     return parser
 
@@ -339,6 +362,11 @@ async def main() -> int:
     args = parser.parse_args()
 
     if not args.resource:
+        parser.print_help()
+        return EXIT_USER_INPUT
+
+    # WARNING-3 fix: validate operation is provided
+    if not getattr(args, "operation", None):
         parser.print_help()
         return EXIT_USER_INPUT
 
@@ -373,9 +401,18 @@ async def main() -> int:
         serializer.serialize(exc)
         return EXIT_CONFIGURATION
 
+    # WARNING-2 fix: resolve timeout from CLI flag or config default.
+    # cfg.timeout_s is the project-wide default (ADR-002). CLI flag wins.
+    timeout = getattr(args, "timeout", None) or getattr(cfg, "timeout_s", None)
+
+    # WARNING-1 fix: apply RetryHandler for transient error recovery (ADR-002).
+    retry_handler = RetryHandler()
+
     # Invoke operation
     try:
-        result = await _invoke_async(resource, operation, client, args)
+        result = await retry_handler.execute(
+            _invoke, resource, operation, client, args, timeout
+        )
         formatter = OutputFormatter(
             format_setting=getattr(args, "format", "auto"),
             pretty=getattr(args, "pretty", False),
@@ -413,14 +450,6 @@ async def main() -> int:
         return EXIT_SERVER_ERROR
 
 
-async def _invoke_async(resource: str, operation: str, client, args: argparse.Namespace) -> Any:
-    """Async wrapper around _invoke — awaits the SDK call."""
-    import asyncio
-    loop = asyncio.get_running_loop()
-    return await loop.run_in_executor(None, lambda: _invoke(resource, operation, client, args))
-
-
 if __name__ == "__main__":
-    import asyncio
     exit_code = asyncio.run(main())
     sys.exit(exit_code)
