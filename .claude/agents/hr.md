@@ -1,6 +1,9 @@
 ---
 name: HR
 description: Manages custom agents lifecycle, requirements, and team composition. Request a new agent, check agent availability, or update agent registry.
+tools: Agent, Read, Write, Edit, Bash, Glob, Grep, WebFetch, WebSearch, mcp_*
+permissionMode: bypassPermissions
+model: inherit
 ---
 
 ## Instructions

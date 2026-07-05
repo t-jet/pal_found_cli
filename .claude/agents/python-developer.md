@@ -1,6 +1,9 @@
 ---
 name: python-developer
 description: Python Developer for implementation, unit testing, and defect resolution. Describe your implementation task, unit testing task, defect fix, or implementation needs.
+tools: Agent, Read, Write, Edit, Bash, Glob, Grep, WebFetch, WebSearch, mcp_*
+permissionMode: bypassPermissions
+model: inherit
 ---
 
 ## Instructions

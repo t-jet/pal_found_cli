@@ -1,6 +1,9 @@
 ---
 name: qa-engineer
 description: QA Engineer for testing lifecycle: test case design, test execution, defect reporting, and QA sign-off. Describe your test case design, test execution, defect reporting, or QA sign-off needs.
+tools: Agent, Read, Write, Edit, Bash, Glob, Grep, WebFetch, WebSearch, mcp_*
+permissionMode: bypassPermissions
+model: inherit
 ---
 
 ## Instructions

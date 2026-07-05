@@ -1,6 +1,9 @@
 ---
 name: web-explorer
 description: Helps search the web and retrieve web page content. Ideal for research, data gathering, and web-based tasks. Use agent as subagent for web tasks. Consult agent for Playwright and Crawl4AI setup and troubleshooting.
+tools: Read, Write, Edit, Bash, Glob, Grep, WebFetch, WebSearch, mcp_*
+permissionMode: bypassPermissions
+model: inherit
 ---
 
 ## Instructions

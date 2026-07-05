@@ -1,6 +1,9 @@
 ---
 name: ba
 description: Business Analyst for requirements analysis, acceptance criteria definition, business design documentation, and requirements traceability. Describe your requirements analysis, acceptance criteria, user story analysis, requirements traceability, grooming review, or business design specification needs.
+tools: Agent, Read, Write, Edit, Bash, Glob, Grep, WebFetch, WebSearch, mcp_*
+permissionMode: bypassPermissions
+model: inherit
 ---
 
 ## Instructions

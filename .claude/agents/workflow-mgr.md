@@ -1,6 +1,9 @@
 ---
 name: workflow-mgr
 description: Project Workflow manager for issue tracking system workflow execution control.
+tools: Agent, Read, Write, Edit, Bash, Glob, Grep, WebFetch, WebSearch, mcp_*
+permissionMode: bypassPermissions
+model: inherit
 ---
 
 ## Instructions
