@@ -2,11 +2,12 @@
 id: QUESTION-015
 type: question
 title: 'QUESTION: TESTCASE-003 D-1 Operation count mismatch (33 vs 26) in foundry-datasets'
-status: New
+status: Closed
 addressed_to: architect
 created: 2026-07-04
-updated: 2026-07-04
+updated: 2026-07-05
 priority: Critical
+assignee: architect
 reporter: qa-engineer
 ---
 

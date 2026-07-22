@@ -2,12 +2,13 @@
 id: DEV-STORY-001
 type: dev_story
 title: Implement ConfigLoader, AuthProvider, AsyncClientFactory
-status: Development
+status: Closed
 feature_request: FEATURE-001
 epic: EPIC-001
 created: 2026-04-13
-updated: 2026-05-17
+updated: 2026-07-22
 priority: Critical
+resolution: Done
 assignee: architect
 reporter: architect
 release_notes: 'Initial release of _foundry_cli_common.py foundational components: ConfigLoader (env
@@ -25,25 +26,27 @@ Implement the first batch of _foundry_cli_common.py components. ConfigLoader: lo
 
 ## Acceptance Criteria
 
+> Reconciliation 2026-07-21: all 14 ACs re-verified against closed-evidence (CODEREVIEW-001 APPROVED + 249 tests pass; TESTEXEC-002 34/34 pass; TESTCASE-002 34 cases approved; DEVOPS-003 deliverables landed; DEV-001 closure verification). Boxes flipped to `[x]` where evidence exists; none left open.
+
 ### ConfigLoader
-- [ ] Implements ADR-006 search path: (1) explicit env file override via FOUNDRY_AGENTIC_CLI_ENV_FILE, (2) git root .env, (3) CWD fallback, (4) env vars only — no home dir fallback
-- [ ] Uses python-dotenv load_dotenv(override=False); shell env vars take precedence
-- [ ] Git root detection via pathlib ancestor walk with depth limit (max 20 levels)
-- [ ] Raises ConfigurationError (exit code 9) if explicit env file path does not exist
-- [ ] Exposes typed config values (bool, int, float, string, enum) for all 20+ global env vars from canonical-env-var-reference.md
+- [x] Implements ADR-006 search path: (1) explicit env file override via FOUNDRY_AGENTIC_CLI_ENV_FILE, (2) git root .env, (3) CWD fallback, (4) env vars only — no home dir fallback
+- [x] Uses python-dotenv load_dotenv(override=False); shell env vars take precedence
+- [x] Git root detection via pathlib ancestor walk with depth limit (max 20 levels)
+- [x] Raises ConfigurationError (exit code 9) if explicit env file path does not exist
+- [x] Exposes typed config values (bool, int, float, string, enum) for all 20+ global env vars from canonical-env-var-reference.md
 
 ### AuthProvider
-- [ ] Resolves FOUNDRY_TOKEN from config (env var or .env)
-- [ ] Constructs UserTokenAuth from token string
-- [ ] Validates credential presence; returns exit code 9 on missing config
-- [ ] Resolves FOUNDRY_HOSTNAME from config
-- [ ] No credentials logged or written to stdout (security requirement)
+- [x] Resolves FOUNDRY_TOKEN from config (env var or .env)
+- [x] Constructs UserTokenAuth from token string
+- [x] Validates credential presence; returns exit code 9 on missing config
+- [x] Resolves FOUNDRY_HOSTNAME from config
+- [x] No credentials logged or written to stdout (security requirement)
 
 ### AsyncClientFactory
-- [ ] Creates AsyncFoundryClient instance per invocation (stateless per invocation pattern)
-- [ ] Injects attribution headers when ENABLE_ATTRIBUTION=true
-- [ ] Validates token is present before client creation
-- [ ] Accepts ConfigLoader instance as dependency
+- [x] Creates AsyncFoundryClient instance per invocation (stateless per invocation pattern)
+- [x] Injects attribution headers when ENABLE_ATTRIBUTION=true
+- [x] Validates token is present before client creation
+- [x] Accepts ConfigLoader instance as dependency
 
 ## Related Documentation
 

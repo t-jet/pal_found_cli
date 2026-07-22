@@ -2,9 +2,9 @@
 id: DEV-001
 type: development
 title: 'DEV-STORY-001: Implement ConfigLoader, AuthProvider, AsyncClientFactory'
-status: Resolved
+status: Closed
 created: 2026-05-17
-updated: 2026-07-04
+updated: 2026-07-05
 priority: Critical
 assignee: architect
 reporter: architect

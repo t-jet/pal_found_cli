@@ -2,11 +2,12 @@
 id: QUESTION-017
 type: question
 title: 'QUESTION: TESTCASE-003 D-3 Ambiguous --dataset-r flag for get-schema-batch'
-status: New
+status: Closed
 addressed_to: architect
 created: 2026-07-04
-updated: 2026-07-04
-priority: Medium
+updated: 2026-07-05
+priority: Critical
+assignee: architect
 reporter: qa-engineer
 ---
 

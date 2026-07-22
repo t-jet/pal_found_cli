@@ -3,11 +3,12 @@ id: QUESTION-018
 type: question
 title: 'QUESTION: TESTCASE-003 D-4 PaginationHelper documented but unused; --batch-pages
   ignored'
-status: New
+status: Closed
 addressed_to: architect
 created: 2026-07-04
-updated: 2026-07-04
-priority: High
+updated: 2026-07-05
+priority: Critical
+assignee: architect
 reporter: qa-engineer
 ---
 

@@ -3,11 +3,12 @@ id: QUESTION-020
 type: question
 title: 'QUESTION: TESTCASE-003 D-6 No binary download path / MAX_DOWNLOAD_BYTES enforcement
   for file content/get'
-status: New
+status: Closed
 addressed_to: architect
 created: 2026-07-04
-updated: 2026-07-04
-priority: Medium
+updated: 2026-07-05
+priority: Critical
+assignee: architect
 reporter: qa-engineer
 ---
 

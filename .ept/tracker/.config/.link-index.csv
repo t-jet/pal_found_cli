@@ -64,7 +64,6 @@ LINK-00063,EPIC-001,FEATURE-001,FeatureContains,Feature Contains,Is Contained In
 LINK-00064,FEATURE-001,DEV-STORY-003,Contains,Contains,Contained In,2026-05-02T02:06:13.089357,system,
 LINK-00065,DEV-STORY-003,EPIC-001,EpicLink,Epic Link,Epic Link,2026-05-02T02:06:25.687362,system,
 LINK-00066,EPIC-001,EPIC-003,Blocks,Blocks,Is Blocked By,2026-05-02T18:06:13.969169,architect,"EPIC-001 provides the core infrastructure (_foundry_cli_common.py, templates, test framework) required before EPIC-003 implementation can begin"
-LINK-00067,DEV-STORY-001,FEATURE-001,DependsOn,Depends On,Is Dependency For,2026-05-02T18:16:42.060168,architect,DEV-STORY-001 depends on FEATURE-001 reaching 'Waiting for Implementation' status before it can progress from New to Open
 LINK-00068,FEATURE-001,BA-DES-001,ParentChild,Is Parent Of,Is Child Of,2026-05-02T18:31:26.604371,BA,
 LINK-00069,SA-DES-001,BA-DES-001,RelatesTo,Relates To,Relates To,2026-05-02T18:37:37.932062,solution-architect,
 LINK-00070,QUESTION-002,BA-DES-001,Question,Asks About,Has Question,2026-05-02T18:47:08.750861,ba,SRS-001 approval request originating from BA-DES-001
@@ -80,10 +79,8 @@ LINK-00087,QUESTION-007,EPIC-001,Question,Asks About,Has Question,2026-05-17T22:
 LINK-00088,DEV-STORY-003,QUESTION-006,Question,Asks About,Has Question,2026-05-17T22:16:34.964847,architect,
 LINK-00089,DEV-STORY-004,QUESTION-007,Question,Asks About,Has Question,2026-05-17T22:16:35.368824,architect,
 LINK-00090,DEV-002,UNITTEST-002,Blocks,Blocks,Is Blocked By,2026-05-17T23:13:37.883012,architect,
-LINK-00091,DEV-002,TESTEXEC-001,Blocks,Blocks,Is Blocked By,2026-05-17T23:13:47.828595,architect,
 LINK-00092,DEV-002,DEVOPS-002,Blocks,Blocks,Is Blocked By,2026-05-17T23:14:14.088784,architect,
 LINK-00093,DEV-002,CODEREVIEW-002,RelatesTo,Relates To,Relates To,2026-05-17T23:14:28.402635,architect,
-LINK-00094,DEV-002,TESTCASE-001,Blocks,Blocks,Is Blocked By,2026-05-17T23:14:42.951641,architect,
 LINK-00096,DESIGN-002,DEV-STORY-001,RelatesTo,Relates To,Relates To,2026-05-17T23:37:10.372976,architect,
 LINK-00101,DEV-STORY-001,TESTCASE-002,ParentChild,Is Parent Of,Is Child Of,2026-05-17T23:56:58.064385,qa-engineer,"TESTCASE-002 covers integration & E2E tests for ConfigLoader, AuthProvider, AsyncClientFactory"
 LINK-00102,DEV-STORY-001,DEV-001,ParentChild,Is Parent Of,Is Child Of,2026-05-17T23:57:03.317945,architect,DEV-001 is a development sub-task of DEV-STORY-001
@@ -103,26 +100,34 @@ LINK-00119,FEATURE-001,DEV-STORY-007,Contains,Contains,Contained In,2026-05-18T1
 LINK-00120,TESTEXEC-002,BUG-001,ParentChild,Is Parent Of,Is Child Of,2026-05-19T21:40:20.150034,qa-engineer,TESTEXEC-002 is parent of BUG-001 (ConfigLoader CWD fallback bug)
 LINK-00121,TESTEXEC-002,BUG-002,ParentChild,Is Parent Of,Is Child Of,2026-05-19T21:40:25.508089,qa-engineer,TESTEXEC-002 is parent of BUG-002 (TC-E2E-001 test setup bug)
 LINK-00122,CODEREVIEW-003,DEV-STORY-005,RelatesTo,Relates To,Relates To,2026-05-20T18:24:31.611308,tech-lead,
-LINK-00125,QUESTION-010,DEV-STORY-002,Blocks,Blocks,Is Blocked By,2026-07-04T23:12:26.593930,qa-engineer,QUESTION blocks DEV-STORY-002 pending architect decision on env var naming
-LINK-00126,QUESTION-011,DEV-STORY-002,Blocks,Blocks,Is Blocked By,2026-07-04T23:12:35.903862,qa-engineer,QUESTION blocks DEV-STORY-002 pending architect decision on envelope schema
-LINK-00127,QUESTION-012,DEV-STORY-002,Blocks,Blocks,Is Blocked By,2026-07-04T23:12:36.421771,qa-engineer,QUESTION blocks DEV-STORY-002 pending architect decision on TOON library
-LINK-00128,QUESTION-013,DEV-STORY-002,Blocks,Blocks,Is Blocked By,2026-07-04T23:12:36.917989,qa-engineer,QUESTION blocks DEV-STORY-002 pending architect decision on metadata separator
-LINK-00129,QUESTION-014,DEV-STORY-002,Blocks,Blocks,Is Blocked By,2026-07-04T23:12:37.442847,qa-engineer,QUESTION blocks DEV-STORY-002 pending architect decision on log file/rotation AC vs ADR-005
-LINK-00130,QUESTION-015,DEV-STORY-005,Blocks,Blocks,Is Blocked By,2026-07-04T23:27:36.843065,qa-engineer,Blocks DEV-STORY-005: AC discrepancy QUESTION-015
 LINK-00131,QUESTION-015,TESTCASE-003,Question,Asks About,Has Question,2026-07-04T23:27:37.137661,qa-engineer,Question link from QUESTION-015 to TESTCASE-003
-LINK-00132,QUESTION-016,DEV-STORY-005,Blocks,Blocks,Is Blocked By,2026-07-04T23:27:37.420315,qa-engineer,Blocks DEV-STORY-005: AC discrepancy QUESTION-016
 LINK-00133,QUESTION-016,TESTCASE-003,Question,Asks About,Has Question,2026-07-04T23:27:37.882028,qa-engineer,Question link from QUESTION-016 to TESTCASE-003
-LINK-00134,QUESTION-017,DEV-STORY-005,Blocks,Blocks,Is Blocked By,2026-07-04T23:27:38.178998,qa-engineer,Blocks DEV-STORY-005: AC discrepancy QUESTION-017
 LINK-00135,QUESTION-017,TESTCASE-003,Question,Asks About,Has Question,2026-07-04T23:27:38.446385,qa-engineer,Question link from QUESTION-017 to TESTCASE-003
-LINK-00136,QUESTION-018,DEV-STORY-005,Blocks,Blocks,Is Blocked By,2026-07-04T23:27:38.748722,qa-engineer,Blocks DEV-STORY-005: AC discrepancy QUESTION-018
 LINK-00137,QUESTION-018,TESTCASE-003,Question,Asks About,Has Question,2026-07-04T23:27:39.040497,qa-engineer,Question link from QUESTION-018 to TESTCASE-003
-LINK-00138,QUESTION-019,DEV-STORY-005,Blocks,Blocks,Is Blocked By,2026-07-04T23:27:39.309196,qa-engineer,Blocks DEV-STORY-005: AC discrepancy QUESTION-019
 LINK-00139,QUESTION-019,TESTCASE-003,Question,Asks About,Has Question,2026-07-04T23:27:39.609084,qa-engineer,Question link from QUESTION-019 to TESTCASE-003
-LINK-00140,QUESTION-020,DEV-STORY-005,Blocks,Blocks,Is Blocked By,2026-07-04T23:27:39.892262,qa-engineer,Blocks DEV-STORY-005: AC discrepancy QUESTION-020
 LINK-00141,QUESTION-020,TESTCASE-003,Question,Asks About,Has Question,2026-07-04T23:27:40.179284,qa-engineer,Question link from QUESTION-020 to TESTCASE-003
-LINK-00142,QUESTION-021,DEV-STORY-005,Blocks,Blocks,Is Blocked By,2026-07-04T23:27:40.477328,qa-engineer,Blocks DEV-STORY-005: AC discrepancy QUESTION-021
 LINK-00143,QUESTION-021,TESTCASE-003,Question,Asks About,Has Question,2026-07-04T23:27:40.772005,qa-engineer,Question link from QUESTION-021 to TESTCASE-003
-LINK-00144,QUESTION-022,DEV-STORY-005,Blocks,Blocks,Is Blocked By,2026-07-04T23:27:41.075743,qa-engineer,Blocks DEV-STORY-005: AC discrepancy QUESTION-022
 LINK-00145,QUESTION-022,TESTCASE-003,Question,Asks About,Has Question,2026-07-04T23:27:41.341418,qa-engineer,Question link from QUESTION-022 to TESTCASE-003
-LINK-00146,QUESTION-023,DEV-STORY-005,Blocks,Blocks,Is Blocked By,2026-07-04T23:27:41.634107,qa-engineer,Blocks DEV-STORY-005: AC discrepancy QUESTION-023
 LINK-00147,QUESTION-023,TESTCASE-003,Question,Asks About,Has Question,2026-07-04T23:27:41.935893,qa-engineer,Question link from QUESTION-023 to TESTCASE-003
+LINK-00148,CODEREVIEW-001,DEV-001,RelatesTo,Relates To,Relates To,2026-07-05T00:11:27.538424,architect,Register required CodeReview pairing for DEV-001 closure verification.
+LINK-00153,BUG-SUB-004,TESTEXEC-001,Blocks,Blocks,Is Blocked By,2026-07-05T00:19:51.500053,qa-engineer,Open High defect blocks TESTEXEC completion and QA sign-off.
+LINK-00155,DEV-STORY-002,BUG-SUB-001,ParentChild,Is Parent Of,Is Child Of,2026-07-21T20:17:24.455551,qa-engineer,Repair missing explicit ParentChild link for BUG-SUB workflow integrity.
+LINK-00156,DEV-STORY-002,BUG-SUB-003,ParentChild,Is Parent Of,Is Child Of,2026-07-21T20:17:24.471269,qa-engineer,Repair missing explicit ParentChild link for BUG-SUB workflow integrity.
+LINK-00157,DEV-STORY-002,BUG-SUB-004,ParentChild,Is Parent Of,Is Child Of,2026-07-21T20:17:24.486475,qa-engineer,Repair missing explicit ParentChild link for BUG-SUB workflow integrity.
+LINK-00158,DEV-STORY-001,QUESTION-024,Question,Asks About,Has Question,2026-07-21T20:17:31.760026,architect,Records QUESTION-024 as the closure acceptance question for DEV-STORY-001.
+LINK-00159,DEV-STORY-002,BUG-SUB-002,ParentChild,Is Parent Of,Is Child Of,2026-07-21T20:17:37.169984,qa-engineer,Repair missing explicit ParentChild link for BUG-SUB workflow integrity.
+LINK-00160,FEATURE-001,DEV-STORY-005,Contains,Contains,Contained In,2026-07-21T20:18:18.298219,architect,Repair missing Feature-to-Developer Story containment link for DEV-STORY-005.
+LINK-00161,DEV-STORY-005,DEV-003,ParentChild,Is Parent Of,Is Child Of,2026-07-21T20:18:18.313400,architect,Repair missing DEV-STORY-005 parent-child link to DEV-003.
+LINK-00162,DEV-STORY-005,DEVOPS-004,ParentChild,Is Parent Of,Is Child Of,2026-07-21T20:18:18.333585,architect,Repair missing DEV-STORY-005 parent-child link to DEVOPS-004.
+LINK-00163,DEV-STORY-005,UNITTEST-003,ParentChild,Is Parent Of,Is Child Of,2026-07-21T20:18:18.357592,architect,Repair missing DEV-STORY-005 parent-child link to UNITTEST-003.
+3.,,,,,,,,
+LINK-00164,DEV-STORY-005,TESTCASE-003,ParentChild,Is Parent Of,Is Child Of,2026-07-21T20:18:18.376804,architect,Repair missing DEV-STORY-005 parent-child link to TESTCASE-003.
+LINK-00165,DEV-STORY-005,QUESTION-009,ParentChild,Is Parent Of,Is Child Of,2026-07-21T20:18:18.390094,architect,Repair missing DEV-STORY-005 parent-child link to QUESTION-009.
+LINK-00166,DEV-STORY-005,DESIGN-003,ParentChild,Is Parent Of,Is Child Of,2026-07-21T20:18:26.953693,architect,Repair missing DEV-STORY-005 parent-child link to DESIGN-003.
+LINK-00167,DEV-STORY-005,CODEREVIEW-003,ParentChild,Is Parent Of,Is Child Of,2026-07-21T20:18:30.351135,architect,Repair missing DEV-STORY-005 parent-child link to CODEREVIEW-003.
+LINK-00168,DEV-STORY-005,TESTEXEC-003,ParentChild,Is Parent Of,Is Child Of,2026-07-21T20:18:33.824823,architect,Repair missing DEV-STORY-005 parent-child link to TESTEXEC-003.
+LINK-00169,DEV-STORY-001,DESIGN-002,ParentChild,Is Parent Of,Is Child Of,2026-07-21T23:30:34.735352,architect,
+LINK-00170,TESTCASE-003,DEV-003,DependsOn,Depends On,Is Dependency For,2026-07-21T23:33:19.038697,qa-engineer,Test cases depend on DEV-005 implementation (DEV-003) being complete. DEV-003 is Closed with implementation at .claude/skills/foundry-datasets/scripts/foundry_datasets_cli.py (33 operations). Verifies the 'Test scenarios reference actual implemented features' DoD criterion for the In Progress to Resolved transition of TESTCASE-003.
+LINK-00171,TESTCASE-003,UNITTEST-003,RelatesTo,Relates To,Relates To,2026-07-21T23:34:12.288851,qa-engineer,"Acceptance/QA test cases (TESTCASE-003, black-box CLI-level) complement the unit test suite in UNITTEST-003 (96 tests at 91.91% line coverage). Adding RelatesTo for cross-reference; not a hard dependency since unit tests ship with the impl. The passing unit suite confirms the implementation is testable and is referenced by AC-TC-6 phantom-test-case DoD verification."
+LINK-00172,QUESTION-025,TESTCASE-003,Blocks,Blocks,Is Blocked By,2026-07-21T23:45:05.079460,qa-engineer,Per workflow rule #5 (Question sub-tasks block the parent) and question type automatic-transition rule child_blocker_created. TESTCASE-003 should transition to Blocked until this review QUESTION is closed. Prior status for restoration when unblocked: In Progress.
+LINK-00173,QUESTION-025,TESTCASE-003,Question,Asks About,Has Question,2026-07-21T23:45:23.513861,qa-engineer,Structural Question link matching the established pattern for QUESTION-015..QUESTION-023 (each has a Question link to TESTCASE-003). QUESTION-025 asks the tech-lead to review/approve the test-case specification.

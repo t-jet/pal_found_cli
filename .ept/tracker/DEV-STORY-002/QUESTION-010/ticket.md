@@ -2,10 +2,10 @@
 id: QUESTION-010
 type: question
 title: 'QUESTION: TC1.R1 env var naming — FOUNDRY_* vs FOUNDRY_AGENTIC_CLI_RETRY_* (AC conflict)'
-status: Resolved
+status: Closed
 addressed_to: architect
 created: 2026-07-04
-updated: 2026-07-04
+updated: 2026-07-05
 priority: Critical
 reporter: qa-engineer
 ---

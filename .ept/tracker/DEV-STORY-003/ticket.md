@@ -2,14 +2,17 @@
 id: DEV-STORY-003
 type: dev_story
 title: Implement AccessControlGuard, PaginationHelper
-status: New
+status: Grooming
 feature_request: FEATURE-001
 epic: EPIC-001
 created: 2026-04-13
-updated: 2026-05-02
+updated: 2026-07-21
 priority: Critical
 assignee: architect
 reporter: architect
+release_notes: 'AccessControlGuard and PaginationHelper shared infrastructure: enforce SRS/SAD access-control
+  precedence, metadata-only/read-only tiers, metadata allow-list behavior, pagination
+  controls, page-token metadata, and batched page aggregation for namespace skills.'
 ---
 
 # DEV-STORY-003: Implement AccessControlGuard, PaginationHelper

@@ -6,7 +6,7 @@ status: QA
 feature_request: FEATURE-001
 epic: EPIC-002
 created: 2026-04-13
-updated: 2026-07-04
+updated: 2026-07-21
 priority: Critical
 assignee: architect
 reporter: architect

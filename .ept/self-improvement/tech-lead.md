@@ -16,6 +16,24 @@ Condition:
 Action:
 - Do update the test in the same commit so it asserts the ADR-correct behaviour; do not leave the test enforcing the bug and creating a regression trap for the next reviewer.
 
+## Improvement: verify blocking link exists before trying to remove it, and trust AT-5 for terminal-source blocks
+
+Condition:
+- When closing a ticket whose DoD says "remove the blocking link" or "no active is-blocked-by links", OR when advancing a ticket that is blocked by another ticket nearing a terminal status
+
+Action:
+- Do `link list` on the source AND target tickets before assuming a `Blocks` link exists; in this repo link topology is inconsistent (some codereviews only carry `ParentChild`, others carry `DEV Blocks CODEREVIEW`). Only remove a link that is actually a blocking relationship; if none exists, note "no blocking link present" and skip the removal step.
+- Do NOT expect the `Blocks` link record to be deleted when the source ticket reaches a terminal status — AT-5 clears blocks *semantically* (the link row stays). Verify "not blocked" by attempting the transition, not by re-running `link list` and looking for the row to vanish.
+
+## Improvement: verify epic auto-transition premises by enumerating all same-link siblings
+
+Condition:
+- When asked to verify whether an EPIC auto-transition (In Progress → Resolved) should fire after a DEV-STORY closure, especially when the request asserts the closed story was "the last one"
+
+Action:
+- Do `link list` the EPIC and `get` every DEV-STORY linked via EpicLink BEFORE predicting the cascade; the rule fires only when ALL linked DEV-STORYs are terminal, not when the most-recently-closed one is. Treat a user-supplied "all siblings done" premise as falsifiable — this task found 3 of 4 siblings (QA/Grooming/New) still non-terminal despite the premise.
+- Don't manually transition the EPIC to manufacture the expected state; report the actual sibling-status matrix and let the auto-rule condition fail loud.
+
 ## Improvement: prefer best-effort optional imports for SDK exception mapping
 
 Condition:
@@ -23,3 +41,11 @@ Condition:
 
 Action:
 - Do wrap the SDK import in try/except inside a registration helper that returns a base mapping plus SDK additions; document HTTP status classification as the primary fallback so reviewers understand the layered design.
+
+## Improvement: obey nested preflight ordering
+
+Condition:
+- When agent instructions require loading role instructions and those role instructions contain a stricter first-action memory read
+
+Action:
+- Do read the stricter memory skill and memory file first; don't continue with role, workflow, repo, or ticket reads until memory preflight is complete.

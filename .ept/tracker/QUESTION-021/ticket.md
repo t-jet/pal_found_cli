@@ -3,11 +3,12 @@ id: QUESTION-021
 type: question
 title: 'QUESTION: TESTCASE-003 D-7 OSError errno 11/115 rate-limit heuristic likely dead
   code'
-status: New
+status: Closed
 addressed_to: architect
 created: 2026-07-04
-updated: 2026-07-04
-priority: Medium
+updated: 2026-07-05
+priority: Critical
+assignee: architect
 reporter: qa-engineer
 ---
 

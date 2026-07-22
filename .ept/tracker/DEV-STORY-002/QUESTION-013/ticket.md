@@ -2,10 +2,10 @@
 id: QUESTION-013
 type: question
 title: 'QUESTION: TC3.R3 metadata separator in OutputFormatter.emit_to_stderr (AC conflict)'
-status: Resolved
+status: Closed
 addressed_to: architect
 created: 2026-07-04
-updated: 2026-07-04
+updated: 2026-07-05
 priority: Critical
 reporter: qa-engineer
 ---

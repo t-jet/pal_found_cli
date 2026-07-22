@@ -3,11 +3,12 @@ id: QUESTION-016
 type: question
 title: 'QUESTION: TESTCASE-003 D-2 Invalid JSON args return exit 6 (ServerError) not exit
   1 (UserInputError)'
-status: New
+status: Closed
 addressed_to: architect
 created: 2026-07-04
-updated: 2026-07-04
-priority: High
+updated: 2026-07-05
+priority: Critical
+assignee: architect
 reporter: qa-engineer
 ---
 

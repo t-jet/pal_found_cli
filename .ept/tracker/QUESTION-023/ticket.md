@@ -3,11 +3,12 @@ id: QUESTION-023
 type: question
 title: 'QUESTION: TESTCASE-003 D-9 No asyncio.wait_for() timeout wrapper; relies on SDK honoring
   request_timeout'
-status: New
+status: Closed
 addressed_to: architect
 created: 2026-07-04
-updated: 2026-07-04
-priority: Medium
+updated: 2026-07-05
+priority: Critical
+assignee: architect
 reporter: qa-engineer
 ---
 
