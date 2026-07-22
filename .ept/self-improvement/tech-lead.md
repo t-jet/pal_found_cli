@@ -48,4 +48,28 @@ Condition:
 - When agent instructions require loading role instructions and those role instructions contain a stricter first-action memory read
 
 Action:
-- Do read the stricter memory skill and memory file first; don't continue with role, workflow, repo, or ticket reads until memory preflight is complete.
+- Do read the stricter memory skill and memory file immediately after discovering the nested rule and before any user-facing update; don't batch other repo, workflow, ticket, or task reads with that memory preflight.
+
+## Improvement: honor tracker-forbidden review mode
+
+Condition:
+- When tech-lead workflow requires ticket-helper/tracker steps but user explicitly forbids tracker operations
+
+Action:
+- Do state tracker gate is skipped due user constraint, then perform bounded repo/doc review only; don't create, search, update, comment, link, or transition tickets.
+
+## Improvement: stop tracker integrity repair when helper has no approved write path
+
+Condition:
+- When tracker metadata is malformed and the user forbids direct tracker file access, while `ticket-helper` reports that documented CLI commands validate before they can repair the malformed record
+
+Action:
+- Do make one narrow follow-up asking `ticket-helper` for any approved data-integrity repair path; if it still reports none, stop and report blocked with exact failed command, exit code, unchanged tickets/comments/files, and verification not run.
+
+## Improvement: keep ticket-helper as sole executor for constrained ticket workflows
+
+Condition:
+- When user explicitly requires `ticket-helper` for all ticket data and operations, especially for close/unblock/restore workflows
+
+Action:
+- Do delegate retrieval, workflow checks, link changes, comments, status transitions, and final verification to `ticket-helper` in one bounded task; don't run tracker commands or inspect tracker internals locally.

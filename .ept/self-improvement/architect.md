@@ -29,10 +29,10 @@ Action:
 ## Improvement: memory read before any user-facing update
 
 Condition:
-- When starting any architect task or user request
+- When starting any architect task or user request, including cases where a higher-priority instruction first requires loading `.ept/agents/architect.md` or another local preflight file
 
 Action:
-- Do read `.ept/skills/self-improvement/SKILL.md` and `.ept/self-improvement/architect.md` as the first action and first tool call before any acknowledgement, progress update, planning, skill announcement, or repository read.
+- Do complete the required local preflight reads in strict order before any acknowledgement, progress update, planning, skill announcement, or repository/task read. If `.ept/agents/architect.md` had to be loaded first, make the next single-purpose action the memory read: `.ept/skills/self-improvement/SKILL.md` plus `.ept/self-improvement/architect.md`. Don't send commentary between mandatory preflight reads.
 
 ## Improvement: ticket tracker boundary
 

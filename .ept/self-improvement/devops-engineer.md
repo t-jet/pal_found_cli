@@ -23,3 +23,11 @@ Condition:
 
 Action:
 - Do verify flag syntax locally before committing (`bandit --help` shows `-l` is severity alias but `--severity-level high` is the explicit form). Don't assume `-ll` means "HIGH only" — it actually means "LOW or higher" (reports everything). Test the command locally and confirm exit codes.
+
+## Improvement: obey first-call memory preflight
+
+Condition:
+- When starting any devops-engineer task
+
+Action:
+- Do make first tool call single-purpose read of self-improvement skill and devops memory only. Don't read agent files, send commentary, or batch repo, workflow, or skill reads before memory load finishes.

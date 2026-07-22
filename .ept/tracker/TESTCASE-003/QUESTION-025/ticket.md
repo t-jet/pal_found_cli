@@ -2,13 +2,14 @@
 id: QUESTION-025
 type: question
 title: TESTCASE-003 review request — approve QA test-case specification for foundry-datasets (33 ops)
-status: New
+status: Closed
 addressed_to: tech-lead
 created: 2026-07-21
 updated: 2026-07-22
 priority: Critical
-assignee: qa-engineer
+assignee: tech-lead
 reporter: qa-engineer
+time_spent_hours: 0.5
 ---
 
 # QUESTION-025: TESTCASE-003 review request — approve QA test-case specification for foundry-datasets (33 ops)

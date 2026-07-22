@@ -14,7 +14,7 @@ Condition:
 - When outer instructions require loading the qa-engineer role file before anything, and that role file requires memory-first behavior
 
 Action:
-- Do make the first tool call a single file read of only `.ept/agents/qa-engineer.md`, then immediately read self-improvement skill and qa-engineer memory in one single-purpose tool call; don't batch AGENTS.md prep, skill index, workflow, ticket, repo, or commentary-adjacent context with that first role read.
+- Do make the first tool call a single file read of only `.ept/agents/qa-engineer.md`, then immediately read only the self-improvement skill and qa-engineer memory in one single-purpose tool call; don't send commentary or batch AGENTS.md prep, skill index, workflow, ticket, repo, git, or other task context into either first-step read.
 
 ## Improvement: tracker helper missing
 
@@ -47,6 +47,14 @@ Condition:
 
 Action:
 - Do stop ticket work, report helper blockage, and don't use tracker CLI or tracker files when user or workflow explicitly requires ticket-helper only.
+
+## Improvement: tracker forbidden by user
+
+Condition:
+- When qa workflow requires ticket operations but the user explicitly forbids tracker operations
+
+Action:
+- Do perform only the requested local review or analysis, state that formal workflow sign-off is blocked by the no-tracker constraint, and don't call ticket-helper, tracker CLI, or tracker files.
 
 ## Improvement: verify reachability before waiving DoD
 

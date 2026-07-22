@@ -13,7 +13,7 @@ EPIC-007,epic,Remaining Namespace Skills,New,Medium,architect,architect,,,EPIC-0
 EPIC-008,epic,Foundry Knowledge Skill,In Progress,High,architect,architect,,,EPIC-008,2026-04-13,2026-05-18
 DEV-STORY-001,dev_story,"Implement ConfigLoader, AuthProvider, AsyncClientFactory",Closed,Critical,architect,architect,FEATURE-001,,DEV-STORY-001,2026-04-13,2026-07-22
 DEV-STORY-002,dev_story,"Implement RetryHandler, ErrorSerializer, OutputFormatter, LogSetup",QA,Critical,architect,architect,FEATURE-001,,DEV-STORY-002,2026-04-13,2026-07-05
-DEV-STORY-003,dev_story,"Implement AccessControlGuard, PaginationHelper",Grooming,Critical,architect,architect,FEATURE-001,,DEV-STORY-003,2026-04-13,2026-07-21
+DEV-STORY-003,dev_story,"Implement AccessControlGuard, PaginationHelper",Development,Critical,architect,architect,FEATURE-001,,DEV-STORY-003,2026-04-13,2026-07-22
 DEV-STORY-004,dev_story,"Implement BinaryDownloadHandler, SessionManager, TracingProvider",New,High,architect,architect,FEATURE-001,,DEV-STORY-004,2026-04-13,2026-05-13
 DEV-STORY-005,dev_story,foundry-datasets skill (26 operations),QA,Critical,architect,architect,FEATURE-001,,DEV-STORY-005,2026-04-13,2026-07-21
 DEV-STORY-006,dev_story,foundry-filesystem skill (31 operations),New,High,architect,architect,,,DEV-STORY-006,2026-04-13,2026-04-13
@@ -57,10 +57,10 @@ DEV-002,development,"Implement RetryHandler, ErrorSerializer, OutputFormatter, L
 UNITTEST-001,unittest,"UNITTEST: DEV-STORY-001 — ConfigLoader, AuthProvider, AsyncClientFactory",Closed,Critical,developer,architect,DEV-STORY-001,,DEV-STORY-001/UNITTEST-001,2026-05-17,2026-05-20
 UNITTEST-002,unittest,"UNITTEST: Write unit tests for RetryHandler, ErrorSerializer, OutputFormatter, LogSetup",Closed,Critical,developer,architect,DEV-STORY-002,,DEV-STORY-002/UNITTEST-002,2026-05-17,2026-07-04
 DEVOPS-001,devops,DEVOPS: Add error handling library to CI/CD pipeline configuration,Canceled,High,devops-engineer,architect,DEV-STORY-002,,DEV-STORY-002/DEVOPS-001,2026-05-17,2026-05-17
-TESTEXEC-001,testexec,"TESTEXEC: DEV-STORY-002 — Execute QA test cases for RetryHandler, ErrorSerializer, OutputFormatter, LogSetup",Blocked,Critical,qa-engineer,architect,DEV-STORY-002,,DEV-STORY-002/TESTEXEC-001,2026-05-17,2026-07-05
+TESTEXEC-001,testexec,"TESTEXEC: DEV-STORY-002 — Execute QA test cases for RetryHandler, ErrorSerializer, OutputFormatter, LogSetup",In Progress,Critical,qa-engineer,architect,DEV-STORY-002,,DEV-STORY-002/TESTEXEC-001,2026-05-17,2026-07-22
 TESTCASE-001,testcase,"TESTCASE: Define QA test cases for RetryHandler, ErrorSerializer, OutputFormatter, LogSetup",Closed,Critical,qa-engineer,architect,DEV-STORY-002,,DEV-STORY-002/TESTCASE-001,2026-05-17,2026-07-05
 CODEREVIEW-002,codereview,"CODE REVIEW: RetryHandler, ErrorSerializer, OutputFormatter, LogSetup implementation",Closed,Medium,architect,architect,DEV-STORY-002,,DEV-STORY-002/CODEREVIEW-002,2026-05-17,2026-07-04
-DEVOPS-002,devops,Add error handling library to CI/CD pipeline configuration,Blocked,Medium,devops-engineer,architect,DEV-STORY-002,,DEV-STORY-002/DEVOPS-002,2026-05-17,2026-07-04
+DEVOPS-002,devops,Add error handling library to CI/CD pipeline configuration,In Progress,Medium,devops-engineer,architect,DEV-STORY-002,,DEV-STORY-002/DEVOPS-002,2026-05-17,2026-07-22
 TESTCASE-002,testcase,"TESTCASE: DEV-STORY-001 — Integration & E2E Tests for ConfigLoader, AuthProvider, AsyncClientFactory",Closed,Critical,qa-engineer,architect,DEV-STORY-001,,DEV-STORY-001/TESTCASE-002,2026-05-17,2026-05-19
 TESTEXEC-002,testexec,"TESTEXEC: DEV-STORY-001 — Execute Tests for ConfigLoader, AuthProvider, AsyncClientFactory",Closed,Critical,qa-engineer,architect,DEV-STORY-001,,DEV-STORY-001/TESTEXEC-002,2026-05-17,2026-05-20
 DEVOPS-003,devops,"DEVOPS: DEV-STORY-001 — Infrastructure Setup for ConfigLoader, AuthProvider, AsyncClientFactory",Closed,Critical,devops-engineer,architect,DEV-STORY-001,,DEV-STORY-001/DEVOPS-003,2026-05-17,2026-05-19
@@ -69,7 +69,7 @@ DESIGN-003,design,DESIGN-005: Technical design for foundry-datasets skill,Closed
 DEV-003,development,DEV-005: Implement foundry-datasets skill (26 operations),Closed,Critical,python-developer,architect,DEV-STORY-005,,DEV-STORY-005/DEV-003,2026-05-18,2026-07-04
 CODEREVIEW-003,codereview,CODEREVIEW-005: Code review for foundry-datasets implementation,Closed,Critical,python-developer,architect,DEV-STORY-005,,DEV-STORY-005/CODEREVIEW-003,2026-05-18,2026-07-04
 UNITTEST-003,unittest,UNITTEST-005: Unit tests for foundry-datasets,Closed,Critical,python-developer,architect,DEV-STORY-005,,DEV-STORY-005/UNITTEST-003,2026-05-18,2026-07-04
-TESTCASE-003,testcase,TESTCASE-005: QA test cases for foundry-datasets,Blocked,Critical,qa-engineer,architect,DEV-STORY-005,,DEV-STORY-005/TESTCASE-003,2026-05-18,2026-07-21
+TESTCASE-003,testcase,TESTCASE-005: QA test cases for foundry-datasets,In Progress,Critical,qa-engineer,architect,DEV-STORY-005,,DEV-STORY-005/TESTCASE-003,2026-05-18,2026-07-22
 TESTEXEC-003,testexec,TESTEXEC-005: Execute QA tests for foundry-datasets,New,Critical,qa-engineer,architect,DEV-STORY-005,,DEV-STORY-005/TESTEXEC-003,2026-05-18,2026-05-18
 DEVOPS-004,devops,DEVOPS-005: Deploy foundry-datasets skill,New,High,devops-engineer,architect,DEV-STORY-005,,DEV-STORY-005/DEVOPS-004,2026-05-18,2026-05-18
 BUG-001,bug,ConfigLoader CWD fallback broken when no git root — TC-CL-INT-004 fails,Rejected,High,developer,qa-engineer,DEV-STORY-001,tech-lead,DEV-STORY-001/BUG-001,2026-05-19,2026-05-20
@@ -78,7 +78,7 @@ QUESTION-009,question,"QUESTION: DEVOPS-004 deployment prerequisites — DEV-STO
 BUG-SUB-001,bug_subtask,BUG-SUB: RetryHandler missing asyncio.wait_for() timeout (TC1.R2),Closed,Critical,python-developer,qa-engineer,DEV-STORY-002,,DEV-STORY-002/BUG-SUB-001,2026-07-04,2026-07-21
 BUG-SUB-002,bug_subtask,BUG-SUB: RetryHandler missing HTTP 429/503-specific retry predicate (TC1.R3),Closed,Critical,python-developer,qa-engineer,DEV-STORY-002,,DEV-STORY-002/BUG-SUB-002,2026-07-04,2026-07-21
 BUG-SUB-003,bug_subtask,BUG-SUB: RetryHandler missing SIGINT/SIGTERM signal handling (TC1.R4),Closed,Critical,python-developer,qa-engineer,DEV-STORY-002,,DEV-STORY-002/BUG-SUB-003,2026-07-04,2026-07-21
-BUG-SUB-004,bug_subtask,BUG-SUB: ErrorSerializer exit code 8 (AccessControlError) unreachable via serialize() (TC2.R1),Resolved,Critical,qa-engineer,qa-engineer,DEV-STORY-002,,DEV-STORY-002/BUG-SUB-004,2026-07-04,2026-07-22
+BUG-SUB-004,bug_subtask,BUG-SUB: ErrorSerializer exit code 8 (AccessControlError) unreachable via serialize() (TC2.R1),Closed,Critical,qa-engineer,qa-engineer,DEV-STORY-002,,DEV-STORY-002/BUG-SUB-004,2026-07-04,2026-07-22
 QUESTION-010,question,QUESTION: TC1.R1 env var naming — FOUNDRY_* vs FOUNDRY_AGENTIC_CLI_RETRY_* (AC conflict),Closed,Critical,,qa-engineer,DEV-STORY-002,architect,DEV-STORY-002/QUESTION-010,2026-07-04,2026-07-05
 QUESTION-011,question,QUESTION: TC2.R2 ErrorSerializer envelope schema — missing attempt/operation/details (AC conflict),Closed,Critical,,qa-engineer,DEV-STORY-002,architect,DEV-STORY-002/QUESTION-011,2026-07-04,2026-07-05
 QUESTION-012,question,QUESTION: TC3.R2 TOON rendering — hand-rolled vs toon-python library (AC conflict),Closed,Critical,,qa-engineer,DEV-STORY-002,architect,DEV-STORY-002/QUESTION-012,2026-07-04,2026-07-05
@@ -94,4 +94,10 @@ QUESTION-021,question,QUESTION: TESTCASE-003 D-7 OSError errno 11/115 rate-limit
 QUESTION-022,question,QUESTION: TESTCASE-003 D-8 AccessControlError envelope schema bypasses ErrorSerializer,Closed,Critical,architect,qa-engineer,TESTCASE-003,architect,QUESTION-022,2026-07-04,2026-07-05
 QUESTION-023,question,QUESTION: TESTCASE-003 D-9 No asyncio.wait_for() timeout wrapper; relies on SDK honoring request_timeout,Closed,Critical,architect,qa-engineer,TESTCASE-003,architect,QUESTION-023,2026-07-04,2026-07-05
 QUESTION-024,question,DEV-STORY-001 closure acceptance and resolution confirmation,Rejected,Critical,project-owner,architect,DEV-STORY-001,project-owner,DEV-STORY-001/QUESTION-024,2026-07-21,2026-07-22
-QUESTION-025,question,TESTCASE-003 review request — approve QA test-case specification for foundry-datasets (33 ops),New,Critical,qa-engineer,qa-engineer,TESTCASE-003,tech-lead,TESTCASE-003/QUESTION-025,2026-07-21,2026-07-22
+QUESTION-025,question,TESTCASE-003 review request — approve QA test-case specification for foundry-datasets (33 ops),Closed,Critical,tech-lead,qa-engineer,TESTCASE-003,tech-lead,TESTCASE-003/QUESTION-025,2026-07-21,2026-07-22
+DESIGN-004,design,Design AccessControlGuard and PaginationHelper implementation plan,Closed,Critical,architect,architect,DEV-STORY-003,,DEV-STORY-003/DESIGN-004,2026-07-22,2026-07-22
+DEV-004,development,Implement AccessControlGuard and PaginationHelper behavior,New,Critical,python-developer,architect,DEV-STORY-003,,DEV-STORY-003/DEV-004,2026-07-22,2026-07-22
+UNITTEST-004,unittest,Add unit coverage for ACL and pagination common components,New,Critical,python-developer,architect,DEV-STORY-003,,DEV-STORY-003/UNITTEST-004,2026-07-22,2026-07-22
+CODEREVIEW-004,codereview,Review ACL and pagination implementation,New,Critical,tech-lead,architect,DEV-STORY-003,,DEV-STORY-003/CODEREVIEW-004,2026-07-22,2026-07-22
+TESTCASE-004,testcase,Design QA cases for ACL and pagination,New,Critical,qa-engineer,architect,DEV-STORY-003,,DEV-STORY-003/TESTCASE-004,2026-07-22,2026-07-22
+TESTEXEC-004,testexec,Execute QA validation for ACL and pagination,New,Critical,qa-engineer,architect,DEV-STORY-003,,DEV-STORY-003/TESTEXEC-004,2026-07-22,2026-07-22

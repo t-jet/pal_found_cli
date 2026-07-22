@@ -3,7 +3,7 @@ id: BUG-SUB-004
 type: bug_subtask
 title: 'BUG-SUB: ErrorSerializer exit code 8 (AccessControlError) unreachable via serialize()
   (TC2.R1)'
-status: Resolved
+status: Closed
 created: 2026-07-04
 updated: 2026-07-22
 priority: Critical
