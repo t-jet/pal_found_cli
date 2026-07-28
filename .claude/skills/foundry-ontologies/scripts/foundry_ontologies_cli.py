@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# ruff: noqa: E402
 """Foundry Ontologies CLI - 67 canonical API v2 operations."""
 
 from __future__ import annotations
@@ -34,7 +35,6 @@ from foundry_cli.common.binary_download_handler import BinaryDownloadHandler
 from foundry_cli.common.config_loader import ConfigLoader
 from foundry_cli.common.error_serializer import (
     EXIT_ACCESS_CONTROL,
-    EXIT_CONFIGURATION,
     EXIT_NOT_FOUND,
     EXIT_PERMISSION_DENIED,
     EXIT_RATE_LIMIT,
@@ -287,6 +287,13 @@ async def _bytes_iter(value: bytes | bytearray | AsyncIterable[bytes]) -> AsyncI
         yield chunk
 
 
+async def _resolve_result(value: Any) -> Any:
+    """Await SDK calls that return awaitables; pass iterators through unchanged."""
+    if asyncio.isfuture(value) or inspect.isawaitable(value):
+        return await value
+    return value
+
+
 async def _persist_binary_result(
     result: Any,
     *,
@@ -340,11 +347,13 @@ async def _invoke(
         if spec["resource"] in {"attachment", "media_reference_property"}:
             positional.insert(body_index, body)
         if spec["resource"] == "attachment":
+            if not getattr(args, "filename", None):
+                raise ValueError("filename is required for attachment upload operations")
             kwargs["content_length"] = getattr(args, "content_length", None) or len(body)
             kwargs["content_type"] = getattr(args, "content_type", None) or "application/octet-stream"
 
     kwargs["request_timeout"] = timeout
-    result = await method(*positional, **kwargs)
+    result = await _resolve_result(method(*positional, **kwargs))
 
     if spec["binary_download"]:
         if cfg is None:
@@ -473,6 +482,9 @@ async def main() -> int:
     except TimeoutError as exc:
         ErrorSerializer().serialize(exc)
         return EXIT_TIMEOUT
+    except ValueError as exc:
+        ErrorSerializer().serialize(exc)
+        return EXIT_USER_INPUT
     except OSError as exc:
         exit_code = ErrorSerializer().serialize(exc)
         if getattr(exc, "errno", None) in (11, 115):
