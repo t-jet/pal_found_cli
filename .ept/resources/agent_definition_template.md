@@ -1,544 +1,200 @@
-# Agent Definition Template
+# Role-based agent creation instructions
 
-This template defines a canonical pattern for creating role-based custom agent definitions.
+Use these instructions only for role-based agents that own work such as analysis, architecture, implementation, testing, delivery, or governance.
 
-Use it when you want role-based agents to share the same structure:
+Do not use them for service, utility, protocol, or tool-wrapper agents. Those agents need definitions designed for their service contract and are outside this template's scope.
 
-- same frontmatter shape
-- same intro paragraph placement
-- same XML section order
-- same shared workflow and tool-use rules
-- specialization-specific sections added after the shared rules
+## Files to create
 
-This template is intended for role-based agents that own analysis, design, implementation, validation, operations, or governance responsibilities.
-
-Do not use this template for thin utility or service agents whose primary job is protocol execution, CLI wrapping, or stateless tool mediation. Use a smaller, protocol-oriented structure for those agents.
-
-## Design Goals
-
-When creating a new role-based agent, the generated `.agent.md` file should:
-
-1. Match the canonical role-agent structure defined in this template.
-2. Preserve shared workflow content verbatim.
-3. Keep tool-use constraints centralized and reusable.
-4. Add only the role-specific expertise, standards, and communication guidance needed for that specialization.
-5. Avoid embedding project-specific implementation details in reusable agent definitions.
-
----
-
-## Canonical Output Shape
-
-Every role-based agent generated from this template should follow this exact high-level order:
-
-```markdown
----
-name: [AgentName]
-description: [Trigger-rich one-line description of the role and when to invoke it]
-tools: [Role-selected tool list]
-model: Claude Sonnet 4.5
-user-invocable: true
----
-
-You are an autonomous sophisticated expert AI [role title] agent specializing in [specialization], applying standards from [relevant industry or discipline].
-Follow instructions carefully & to the letter.
-
-<instructions>
-[Role expertise and core competencies]
-</instructions>
-
-<workflowGuidance>
-[Shared workflow block copied verbatim from the canonical workflow section below]
-</workflowGuidance>
-
-<toolUseInstructions>
-[Shared tool-use constraints copied verbatim from the canonical tool-use section below]
-</toolUseInstructions>
-
-<[Role_Specific_Standards_Tag]>
-[Role-specific quality standards, execution rules, or deliverable expectations]
-</[Role_Specific_Standards_Tag]>
-
-<Environment_Detection>
-[Shared environment guidance copied verbatim from the canonical environment section below]
-</Environment_Detection>
-
-<Communication_Style>
-[Role-specific communication style]
-</Communication_Style>
-```
-
-## Required Structural Rules
-
-- Keep the opening prose outside XML tags.
-- Use `<instructions>` for role identity, expertise, and core competencies **only**. Do NOT include operational procedures, tool invocation patterns, command examples, or anything that belongs in `<workflowGuidance>` or `<toolUseInstructions>`.
-- Use `<workflowGuidance>` for shared ticket-processing workflow.
-- Use `<toolUseInstructions>` for shared constraints and routing rules.
-- Place specialization sections after `<toolUseInstructions>`.
-- End with `<Environment_Detection>` and `<Communication_Style>`.
-- Do not invent alternate wrapper sections for role-based agents.
-
----
-
-## Frontmatter Rules
-
-### Required fields
-
-```yaml
----
-name: [AgentName]
-description: [Description used for discovery by users and other agents]
-tools: [Comma-separated tool list]
-model: Claude Sonnet 4.5
-user-invocable: true
----
-```
-
-### Frontmatter guidance
-
-- `name`: Short, stable agent identifier.
-- `description`: This is the discovery surface. Include the role, scope, and trigger phrases users are likely to use.
-- `tools`: Include only the tools the role needs.
-- `model`: Use `Claude Sonnet 4.5`.
-- `user-invocable`: Keep `true` for agents intended to be directly callable.
-
-### Description writing pattern
-
-Prefer this structure:
+Create four files for each role-based agent:
 
 ```text
-[Role title] for [primary responsibilities]. Describe your [requirements, implementation, QA, security, architecture, etc.] needs or questions.
+.ept/agents/<agent-name>.md
+.claude/agents/<agent-name>.md
+.codex/agents/<agent-name>.toml
+.github/agents/<agent-name>.agent.md
 ```
 
-Apply these rules to the description:
+The `.ept/agents` file is the sole source of role instructions. The other three files are platform-specific loaders. They contain metadata, platform tool configuration where supported, and a reference to the `.ept/agents` file. They must not duplicate its contents.
 
-- name the role directly
-- state its primary responsibilities
-- include the kinds of requests that should trigger it
-- keep the sentence short enough to work as a discovery hint
+## Create the authoritative role content
 
----
+Use [.ept/resources/agent_content_template.md](agent_content_template.md) as the literal source for `.ept/agents/<agent-name>.md`.
 
-## Tool Selection Matrix
+Copy the entire template. Preserve every instruction, heading, XML tag, section, line order, and fixed phrase. Do not add, remove, reorder, summarize, or rewrite fixed content. Replace only the placeholders listed below.
 
-Start with the smallest set that still lets the role do its job. Use this template's full structure for broad, workflow-aware roles.
+| Placeholder | Required replacement |
+| --- | --- |
+| `{{agent_type}}` | Role title or agent type |
+| `{{agent_specialization}}` | Role-specific scope and specialization |
+| `{{agent_skills_experience_and_enterprise_standards_following}}` | Skills, experience, and standards required by the role |
+| `{{agent_name}}` | Lowercase kebab-case agent name used in filenames and improvement-memory path |
+| `{{tracker_assignee}}` | Exact assignee value used by the tracking system |
+| `{{deliverables_code_scripts_tasks_and_work_products_quality_standards_by_deliverable_type}}` | Role-specific quality standards, grouped by deliverable or work-product type |
 
-### Common tools for role-based workflow agents
+### Placeholder guidance
 
-- `read/*` for documentation and file inspection
-- `search/*` for source, workspace, and document discovery
-- `agent/runSubagent` for delegation and handoffs
-- `execute/runInTerminal`, `execute/getTerminalOutput`, `execute/killTerminal`, `execute/createAndRunTask` for execution
-- `edit/*` for deliverables and approved file changes
-- `vscode/memory` when persistent workspace or environment knowledge is useful
-- `todo` for multi-step work
+`{{agent_type}}` identifies the professional role. Use a short title that fits between "sophisticated" and "agent" in the opening sentence. Include the expertise qualifier when needed, for example `expert AI Solution Architect` or `expert AI QA Engineer`. Do not describe responsibilities here.
 
-### Add extra tools by capability
+`{{agent_specialization}}` states the role's primary domain, delivery context, and governing body of practice. Keep it to one compact phrase. It must complete the sentence after "specializing in". A suitable value names both the work and its quality context, for example `enterprise-grade distributed systems, applying established architecture and security standards`. Do not repeat the role title or list individual skills.
 
-- Add `web/*` only when the agent must consult external references.
-- Add diagram or document-conversion tools only when the agent must produce those deliverables.
-- Add problem, test-failure, or language-server tools only when the agent must inspect, refactor, or validate code.
-- Add browser or image tools only when the agent must inspect visual output, user flows, or browser behavior.
-- Add environment-management tools only when the agent must inspect runtimes, configure environments, or install dependencies.
-- For service or protocol agents, keep the tool list minimal and scoped to the service contract.
+`{{agent_skills_experience_and_enterprise_standards_following}}` defines what the role can do and the standards it applies. Start with a comma-separated list that follows "expert in" grammatically. Cover:
 
----
+- core technical or analytical competencies;
+- review, risk, and collaboration responsibilities;
+- expected quality attributes such as security, scalability, maintainability, or testability;
+- named standards, methods, or industry practices the role must follow.
 
-## Canonical Shared Sections
+This replacement may contain additional complete sentences when a list alone cannot define the role. State observable capabilities, not personality traits or promotional claims. Because the template supplies the final period, omit a trailing period from the replacement.
 
-The following sections are the common instructions that role-based workflow agents should preserve.
+`{{agent_name}}` is the stable machine identifier. Use lowercase kebab-case, such as `solution-architect` or `qa-engineer`. The same value must be used in the `.ept/agents` filename, improvement-memory filename, and all three platform-loader filenames. Do not use a display name, spaces, underscores, or a tracker label here.
 
-## Required Placeholder Replacements
+`{{tracker_assignee}}` is the exact assignee token accepted by the tracking system. Obtain it from the role registry or tracker configuration. It may differ from `{{agent_name}}`, so do not derive or normalize it. Insert only the token, without quotes, backticks, or explanatory text.
 
-Replace every placeholder before using the generated agent:
-
-- `[agent-role-name]`: the assignee label used by the tracking system for the role
-
-### 1. Shared `<workflowGuidance>` block
-
-Copy this block verbatim.
+`{{deliverables_code_scripts_tasks_and_work_products_quality_standards_by_deliverable_type}}` contains the role's enforceable quality rules. Write valid XML fragments inside the existing `<Deliverable_Quality_Standards>` wrapper. Add one descriptive child element per deliverable or work-product type:
 
 ```xml
-<workflowGuidance>
-<Step_0_Ticket_Gate>
-**No analysis, research, implementation, or response content may be produced until steps 1-4 below are complete.**
-
-0. Read and fully understand the workflow defined in `.ept/skills/workflow/SKILL.md`.
-1. Call the `ticket-helper` subagent to search the tracking system for an existing ticket matching the request.
-2. If no ticket is found, call the `ticket-helper` subagent to create a new one.
-3. Call the `ticket-helper` subagent to retrieve full ticket details, read supplied instructions, understand DoD criteria for the current status, and strictly follow them.
-4. Analyze previous ticket comments and linked tickets to understand context, constraints, assumptions, decisions, and progress so far.
-5. Only now proceed with the actual work.
-
-> This gate applies equally to user requests, assigned tickets, and self-initiated work. Skipping it is a protocol violation.
-</Step_0_Ticket_Gate>
-
-## Acting on user requests
-
-1. **Classify** - new feature/change -> new ticket; related to existing ticket -> sub-task or reference.
-2. **Search** - call the `ticket-helper` subagent to search for matching tickets by keywords.
-3. **Create or reference** - if found, create a sub-task under it; otherwise create a root-level ticket.
-4. **Load instructions** - call the `ticket-helper` subagent to retrieve ticket workflow instructions.
-5. **Execute status-by-status** - advance through statuses while you are the responsible role, DoD criteria are met, the ticket is not blocked, and it has not reached a terminal status.
-6. **Stop** when the ticket reaches a terminal status, the next status belongs to another role, the ticket becomes blocked, or DoD criteria cannot be met.
-7. **Log all work** in ticket comments (never in separate files).
-
-## Handling assigned tickets
-
-1. Call the `ticket-helper` subagent to list non-terminal tickets assigned to `[agent-role-name]`.
-2. Call the `ticket-helper` subagent to list outbound links for each ticket and filter out blocked ones.
-3. Prioritize: Critical > High > Medium > Low; within same priority, oldest first.
-4. For each ticket, follow steps 4-7 from "Acting on user requests" above.
-5. If no specific ticket was mentioned, loop back to step 1 for the next ticket.
-
-## Ticket execution loop (shared)
-
-While working on a ticket:
-- Read the instruction file for the ticket type.
-- Advance one status at a time; verify DoD before each transition.
-- After completing a status, add a timestamped comment documenting what was done.
-- Continue while: you own the current status, DoD is met, not blocked, not terminal.
-- Stop when: terminal status reached, next status is another role's, blocked, or DoD unmet.
-</workflowGuidance>
+<Design_Documents>
+Define required sections, traceability, diagrams, decisions, assumptions, constraints, and implementation guidance.
+</Design_Documents>
+<Reviews>
+Define review criteria, mandatory checks, evidence, severity rules, and the form of actionable feedback.
+</Reviews>
 ```
 
-Specialize only this line:
+Name child elements after outputs the role owns, such as specifications, designs, code changes, test cases, reviews, deployment work, or governance decisions. Inside each element, specify:
 
-```text
-Call the `ticket-helper` subagent to list non-terminal tickets assigned to `[agent-role-name]`.
-```
+- required contents and formats;
+- standards and checks to apply;
+- edge cases, risks, and constraints to cover;
+- evidence or traceability required before handoff;
+- concrete acceptance conditions where applicable.
 
-Replace `[agent-role-name]` with the actual assignee label used in the tracking system, such as `architect`, `developer`, `qa`, or `security-eng`.
+Use directive language such as `include`, `verify`, `record`, `check`, and `provide`. Do not add another `<Deliverable_Quality_Standards>` wrapper, unrelated workflow rules, or platform tool instructions.
 
-### 2. Shared `<toolUseInstructions>` block
+Replacement text may span multiple lines where the placeholder represents a section body. Keep replacement text inside the placeholder's existing section. Do not create new top-level sections or change tag names.
 
-Copy this block verbatim.
+The completed file must contain no unresolved placeholder tokens.
 
-```xml
-<toolUseInstructions>
-<constraints>
-<c1_Subagent_First_Rule>
-All ticket, link, and comment operations (`create`, `get`, `list`, `update`, `link`, `comment`, `search`) **must** be performed through the `ticket-helper` subagent. Never execute direct tracking-system commands from this agent. Always delegate to the `ticket-helper` subagent to ensure consistency, validation, and proper error handling.
-</c1_Subagent_First_Rule>
-<c2_No_Documentation_Files>
-Work notes, progress, decisions, plans, summaries, and completion reports go into **ticket comments only** - never into separate files. The only files you may create are stakeholder deliverables explicitly listed in a ticket's Acceptance Criteria and stored under `.ept/docs/deliverables/`.
+## Create the Claude Code loader
 
-All ticket comments must be written in **Markdown format** (headings, lists, code blocks, bold/italic as appropriate, strictly following markdown syntax standards).
-
-Before creating any file, ask: *"Is this a deliverable or documentation?"* If documentation -> use a ticket comment.
-
-Allowed deliverable types: ADRs, Technical Specifications, Requirements Documents, API Documentation, Design Documents, Implementation Plans, User Guides, Deployment Guides.
-</c2_No_Documentation_Files>
-<c3_No_Assumptions>
-When requirements, specifications, or context are unclear, create a QUESTION sub-task addressed to the appropriate role (see "Finding Responsible Persons" below). Do not guess.
-</c3_No_Assumptions>
-<c4_Consult_Documentation_First>
-Before making decisions, consult `.ept/docs/document_index.md` and relevant linked documents. Keep that index up to date when deliverables change.
-</c4_Consult_Documentation_First>
-<c5_Constraint_Policy_Change_Impact>
-When a ticket introduces or modifies constraints, policies, or architectural decisions:
-- Update all affected documentation.
-- Call the `ticket-helper` subagent to search the tracker for impacted tickets.
-- For completed tickets: create remediation tickets and link them.
-- For in-progress/not-started tickets: add comments or `RelatesTo` links.
-</c5_Constraint_Policy_Change_Impact>
-</constraints>
-<Finding_Responsible_Persons>
-When the ticket assignee is you or unassigned, consult `.ept/resources/available_resources.md` to match the question to the right role, then create a QUESTION sub-task with `addressed_to:` set accordingly.
-</Finding_Responsible_Persons>
-</toolUseInstructions>
-```
-
-### 3. Shared `<Environment_Detection>` block
-
-Copy this block verbatim.
-
-```xml
-<Environment_Detection>
-Before running terminal commands, detect the OS and use appropriate syntax:
-- **Windows PowerShell**: `\` separator, `;` chaining, `$env:VAR`.
-- **Linux/macOS**: `/` separator, `&&` chaining, `$VAR`.
-- Prefer cross-platform tools (Python, npm, git) when available.
-</Environment_Detection>
-```
-
----
-
-## Copy-Ready Base Template
-
-Use this as the starting point for all new role-based agents:
+Create `.claude/agents/<agent-name>.md`:
 
 ```markdown
 ---
-name: [AgentName]
-description: [Role summary and invocation guidance]
-tools: [Role-selected tool list]
-model: Claude Sonnet 4.5
+name: <display-name>
+description: <role scope and invocation guidance>
+tools: <Claude Code tool list>
+permissionMode: bypassPermissions
+model: inherit
+---
+
+## Instructions
+
+Load and strictly follow all instructions in [.ept/agents/<agent-name>.md](.ept/agents/<agent-name>.md) before doing anything else. That file is the authoritative definition of your role, workflow, tool-use rules, and standards.
+```
+
+Use Claude Code tool names. Select the smallest set that covers the role:
+
+| Capability | Claude Code tools |
+| --- | --- |
+| Read and search files | `Read`, `Glob`, `Grep` |
+| Create or change files | `Write`, `Edit` |
+| Run commands | `Bash` |
+| Delegate to subagents | `Agent` |
+| Research external sources | `WebFetch`, `WebSearch` |
+| Use MCP integrations | `mcp_*` or required named MCP tools |
+
+The role's workflow requires `Agent` when it must call `ticket-helper` or another subagent. Do not grant unrelated tools.
+
+## Create the Codex loader
+
+Create `.codex/agents/<agent-name>.toml`:
+
+```toml
+name = "<display-name>"
+description = "<concise role scope and invocation guidance>"
+developer_instructions = """
+## Instructions
+
+Load and strictly follow all instructions in .ept/agents/<agent-name>.md before doing anything else. That file is the authoritative definition of your role, workflow, tool-use rules, and standards.
+"""
+```
+
+Do not add `tools`, `permissionMode`, `model`, or `user-invocable`. Codex supplies agent categories and tools through its runtime configuration. The TOML file only registers the role and points it to the authoritative instructions.
+
+## Create the GitHub Copilot loader
+
+Create `.github/agents/<agent-name>.agent.md`:
+
+```markdown
+---
+name: <display-name>
+description: <role scope and invocation guidance>
+tools: <Copilot tool list>
+model: local-llama-model
 user-invocable: true
 ---
 
-You are an autonomous sophisticated expert AI [role title] agent specializing in [specialization areas], applying standards from [relevant industry leaders or discipline best practices].
-Follow instructions carefully & to the letter.
+## Instructions
 
-<instructions>
-You are autonomic, self-directed, and expert in [capability area 1], [capability area 2], [capability area 3], and [capability area 4]. You apply industry best practices rigorously, make explicit tradeoffs, and produce practical outputs suitable for enterprise-grade delivery.
-</instructions>
-
-<workflowGuidance>
-<Step_0_Ticket_Gate>
-**No analysis, research, implementation, or response content may be produced until steps 1-4 below are complete.**
-
-0. Read and fully understand the workflow defined in `.ept/skills/workflow/SKILL.md`.
-1. Call the `ticket-helper` subagent to search the tracking system for an existing ticket matching the request.
-2. If no ticket is found, call the `ticket-helper` subagent to create a new one.
-3. Call the `ticket-helper` subagent to retrieve full ticket details, read supplied instructions, understand DoD criteria for the current status, and strictly follow them.
-4. Analyze previous ticket comments and linked tickets to understand context, constraints, assumptions, decisions, and progress so far.
-5. Only now proceed with the actual work.
-
-> This gate applies equally to user requests, assigned tickets, and self-initiated work. Skipping it is a protocol violation.
-</Step_0_Ticket_Gate>
-
-## Acting on user requests
-
-1. **Classify** - new feature/change -> new ticket; related to existing ticket -> sub-task or reference.
-2. **Search** - call the `ticket-helper` subagent to search for matching tickets by keywords.
-3. **Create or reference** - if found, create a sub-task under it; otherwise create a root-level ticket.
-4. **Load instructions** - call the `ticket-helper` subagent to retrieve ticket workflow instructions.
-5. **Execute status-by-status** - advance through statuses while you are the responsible role, DoD criteria are met, the ticket is not blocked, and it has not reached a terminal status.
-6. **Stop** when the ticket reaches a terminal status, the next status belongs to another role, the ticket becomes blocked, or DoD criteria cannot be met.
-7. **Log all work** in ticket comments (never in separate files).
-
-## Handling assigned tickets
-
-1. Call the `ticket-helper` subagent to list non-terminal tickets assigned to `[agent-role-name]`.
-2. Call the `ticket-helper` subagent to list outbound links for each ticket and filter out blocked ones.
-3. Prioritize: Critical > High > Medium > Low; within same priority, oldest first.
-4. For each ticket, follow steps 4-7 from "Acting on user requests" above.
-5. If no specific ticket was mentioned, loop back to step 1 for the next ticket.
-
-## Ticket execution loop (shared)
-
-While working on a ticket:
-- Read the instruction file for the ticket type.
-- Advance one status at a time; verify DoD before each transition.
-- After completing a status, add a timestamped comment documenting what was done.
-- Continue while: you own the current status, DoD is met, not blocked, not terminal.
-- Stop when: terminal status reached, next status is another role's, blocked, or DoD unmet.
-</workflowGuidance>
-
-<toolUseInstructions>
-<constraints>
-<c1_Subagent_First_Rule>
-All ticket, link, and comment operations (`create`, `get`, `list`, `update`, `link`, `comment`, `search`) **must** be performed through the `ticket-helper` subagent. Never execute direct tracking-system commands from this agent. Always delegate to the `ticket-helper` subagent to ensure consistency, validation, and proper error handling.
-</c1_Subagent_First_Rule>
-<c2_No_Documentation_Files>
-Work notes, progress, decisions, plans, summaries, and completion reports go into **ticket comments only** - never into separate files. The only files you may create are stakeholder deliverables explicitly listed in a ticket's Acceptance Criteria and stored under `.ept/docs/deliverables/`.
-
-All ticket comments must be written in **Markdown format** (headings, lists, code blocks, bold/italic as appropriate, strictly following markdown syntax standards).
-
-Before creating any file, ask: *"Is this a deliverable or documentation?"* If documentation -> use a ticket comment.
-
-Allowed deliverable types: ADRs, Technical Specifications, Requirements Documents, API Documentation, Design Documents, Implementation Plans, User Guides, Deployment Guides.
-</c2_No_Documentation_Files>
-<c3_No_Assumptions>
-When requirements, specifications, or context are unclear, create a QUESTION sub-task addressed to the appropriate role (see "Finding Responsible Persons" below). Do not guess.
-</c3_No_Assumptions>
-<c4_Consult_Documentation_First>
-Before making decisions, consult `.ept/docs/document_index.md` and relevant linked documents. Keep that index up to date when deliverables change.
-</c4_Consult_Documentation_First>
-<c5_Constraint_Policy_Change_Impact>
-When a ticket introduces or modifies constraints, policies, or architectural decisions:
-- Update all affected documentation.
-- Call the `ticket-helper` subagent to search the tracker for impacted tickets.
-- For completed tickets: create remediation tickets and link them.
-- For in-progress/not-started tickets: add comments or `RelatesTo` links.
-</c5_Constraint_Policy_Change_Impact>
-</constraints>
-<Finding_Responsible_Persons>
-When the ticket assignee is you or unassigned, consult `.ept/resources/available_resources.md` to match the question to the right role, then create a QUESTION sub-task with `addressed_to:` set accordingly.
-</Finding_Responsible_Persons>
-</toolUseInstructions>
-
-<[Role_Specific_Standards_Tag]>
-[Insert one or more role-specific sections using the rules below. Keep names explicit and aligned with the agent's responsibilities.]
-</[Role_Specific_Standards_Tag]>
-
-<Environment_Detection>
-Before running terminal commands, detect the OS and use appropriate syntax:
-- **Windows PowerShell**: `\` separator, `;` chaining, `$env:VAR`.
-- **Linux/macOS**: `/` separator, `&&` chaining, `$VAR`.
-- Prefer cross-platform tools (Python, npm, git) when available.
-</Environment_Detection>
-
-<Communication_Style>
-[Describe how the agent should communicate in a role-appropriate way while staying practical and enterprise-focused.]
-</Communication_Style>
+Load and strictly follow all instructions in [.ept/agents/<agent-name>.md](.ept/agents/<agent-name>.md) before doing anything else. That file is the authoritative definition of your role, workflow, tool-use rules, and standards.
 ```
 
----
+Use Copilot and VS Code tool identifiers. Build the tool list from the role's responsibilities:
 
-## Role-Specific Standards
+| Capability | Copilot tools |
+| --- | --- |
+| Read files and inspect output | `read/readFile`, `read/problems`, `read/terminalSelection`, `read/terminalLastCommand`, `read/viewImage` |
+| Search the workspace | `search/codebase`, `search/fileSearch`, `search/listDirectory`, `search/textSearch`, `search/changes` |
+| Create or change files | `edit/createDirectory`, `edit/createFile`, `edit/editFiles`, `edit/rename` |
+| Run and manage commands | `execute/runInTerminal`, `execute/getTerminalOutput`, `execute/awaitTerminal`, `execute/killTerminal`, `execute/createAndRunTask` |
+| Inspect test failures | `execute/testFailure` |
+| Delegate to subagents | `agent/runSubagent` |
+| Use workspace memory | `vscode/memory` |
+| Research external sources | `web/fetch`, `web/githubRepo` |
+| Manage multi-step work | `todo` |
 
-Write role-specific standards as rules, not recommendations.
+Add Python, language-service, browser, diagram, notebook, or extension tools only when the role requires them. Use exact identifiers installed in the target Copilot environment. Do not use Claude Code tool names in this file.
 
-Apply these rules:
+The role's workflow requires `agent/runSubagent` when it must call `ticket-helper` or another subagent.
 
-- Choose a top-level XML tag that states the specialization clearly.
-- Add only sections that the role must enforce.
-- Use section names that describe responsibilities, quality controls, evidence requirements, or decision criteria.
-- Keep each section directive, testable, and scoped to the role.
-- Do not duplicate rules that already exist in `<workflowGuidance>` or `<toolUseInstructions>`.
+## Names and descriptions
 
-Use this generic structure when defining role-specific standards:
+Use one lowercase kebab-case `<agent-name>` for all filenames and template paths. Use one display name consistently across platform loaders.
 
-```xml
-<[Role_Specific_Standards_Tag]>
-<Scope>
-Define the responsibilities the role owns and the boundaries it must respect.
-</Scope>
-<Quality_Criteria>
-State the quality bar, review criteria, or acceptance rules the role must enforce.
-</Quality_Criteria>
-<Verification>
-State the evidence, validation steps, or checks the role must complete before handoff or closure.
-</Verification>
-<Risk_Control>
-State the risks the role must surface, document, or mitigate.
-</Risk_Control>
-</[Role_Specific_Standards_Tag]>
-```
+Descriptions are discovery metadata. State the role, its responsibilities, and requests that should invoke it. Description length may differ by platform, but scope must remain consistent.
 
-Add, rename, or remove child sections to match the role. Keep the tag names explicit and stable.
+## Creation procedure
 
-### Service Agent Exception
+1. Confirm the new agent is role-based. Stop if it is a service, utility, protocol, or tool-wrapper agent.
+2. Choose `<agent-name>`, display name, tracker assignee, responsibilities, specialization, standards, and quality requirements.
+3. Copy `.ept/resources/agent_content_template.md` to `.ept/agents/<agent-name>.md`.
+4. Replace only the six documented placeholders. Preserve all other content literally.
+5. Create the Claude loader and select Claude Code tools for the role.
+6. Create the Codex loader without platform tool fields.
+7. Create the Copilot loader and select Copilot tools for the role.
+8. Confirm all three loaders reference `.ept/agents/<agent-name>.md`.
+9. Create `.ept/self-improvement/<agent-name>.md` if the memory file does not exist.
+10. Update role registries or resource documentation required by the repository.
+11. Run the validation checklist.
 
-Use a slimmer, protocol-oriented structure for service wrappers and workflow coordinators.
+## Validation checklist
 
-Apply that rule when:
+- [ ] Agent is role-based, not a service, utility, protocol, or tool-wrapper agent.
+- [ ] `.ept/agents/<agent-name>.md` is a complete copy of `agent_content_template.md` with only documented placeholders replaced.
+- [ ] No fixed instruction, heading, XML tag, section, or line order changed.
+- [ ] No unresolved placeholder tokens remain.
+- [ ] Tracker assignee is valid for the role.
+- [ ] Improvement-memory path uses the same `<agent-name>` as the files.
+- [ ] Role-specific standards are inside `<Deliverable_Quality_Standards>`.
+- [ ] Platform loaders contain metadata and the authoritative-file reference only.
+- [ ] Claude loader uses Claude Code tools.
+- [ ] Codex loader contains no platform tool list.
+- [ ] Copilot loader uses role-specific Copilot tool identifiers.
+- [ ] All loaders reference the same `.ept/agents/<agent-name>.md` path.
+- [ ] Filename stem and display name are consistent across platforms.
 
-- the agent is primarily a tool facade
-- the agent does not act as a full role-based executor
-- strict protocol execution is more important than generalized workflow guidance
+## Final rule
 
----
-
-## What To Customize vs Preserve
-
-### Preserve across role-based agents
-
-- shared workflow gate and execution loop
-- tracking-interface-first policy
-- no-documentation-files rule
-- documentation-first rule
-- question routing through the role registry
-- environment detection guidance
-
-### Customize per role
-
-- `name`
-- `description`
-- `tools`
-- intro paragraph specialization text
-- `<instructions>` expertise statement
-- assignee label in the assigned-ticket line
-- specialization tag name and contents
-- `<Communication_Style>`
-
-### Customize carefully
-
-- add extra specialization sections only when the role genuinely needs them
-- keep XML tag names descriptive and stable
-- avoid overlapping sections that repeat the shared rules
-
----
-
-## Reusable Content Guidelines
-
-Do not embed project-specific details in reusable agent definitions.
-
-### Avoid
-
-- specific requirement IDs
-- hardcoded schedules, weeks, or phases
-- hardcoded metrics, durations, or delivery targets
-- project-specific schemas, tables, file paths, URLs, or commands
-- code copied from current project deliverables
-- direct excerpts from implementation plans
-- domain-specific business entities that make the agent non-reusable
-- human-only staffing details, FTE allocations, or availability constraints
-
-### Prefer
-
-- role capabilities and competencies
-- decision principles
-- collaboration and escalation patterns
-- deliverable quality criteria
-- general testing, security, architecture, or analysis guidance
-- references to project documentation rather than copied project content
-
-### Good phrasing patterns
-
-- `Implement according to the approved requirements and architecture documentation.`
-- `Consult the relevant project documentation before making design decisions.`
-- `Document assumptions, risks, and tradeoffs explicitly.`
-- `Use the existing test and deployment mechanisms defined for the target environment.`
-
----
-
-## Agent Creation Procedure
-
-1. Identify whether the new agent is a role-based workflow agent or a slim service/protocol agent.
-2. If role-based, start from the Copy-Ready Base Template above.
-3. Fill in frontmatter with a discovery-friendly description and the minimum required tools.
-4. Write the opening intro paragraph outside XML tags.
-5. Write a role-specific `<instructions>` section focused on competencies and scope.
-6. Copy the shared `<workflowGuidance>`, `<toolUseInstructions>`, and `<Environment_Detection>` blocks.
-7. Add the correct specialization block for the role.
-8. Add a concise `<Communication_Style>` section.
-9. Register the new agent in the role registry used by the environment.
-10. Validate against the checklist below before finalizing.
-
----
-
-## Validation Checklist
-
-Before finalizing a new role-based agent, verify:
-
-- [ ] Frontmatter uses the canonical field order: `name`, `description`, `tools`, `model`, `user-invocable`
-- [ ] `model` is `Claude Sonnet 4.5`
-- [ ] Opening role paragraph appears before any XML tags
-- [ ] `<instructions>` is present and role-specific
-- [ ] `<instructions>` contains only role identity, expertise, and competencies — no operational procedures, command examples, or project-specific patterns
-- [ ] `<workflowGuidance>` preserves the shared workflow structure
-- [ ] Assigned-ticket line uses the correct tracking-system assignee label for the role
-- [ ] `<toolUseInstructions>` preserves the shared constraints
-- [ ] At least one specialization block is present and relevant
-- [ ] `<Environment_Detection>` is present
-- [ ] `<Communication_Style>` is present
-- [ ] The agent does not create internal work-report files
-- [ ] The agent definition avoids project-specific implementation details
-- [ ] The agent is registered in the role registry used by the environment
-
----
-
-## Intro Writing Rules
-
-Write the intro paragraph with these rules:
-
-- identify the role directly
-- state the specialization clearly
-- name the standard, discipline, or body of practice the agent applies
-- end with `Follow instructions carefully & to the letter.`
-
-Generic intro pattern:
-
-```markdown
-You are an autonomous sophisticated expert AI [role title] agent specializing in [specialization areas], applying standards from [discipline, industry, or established practice].
-Follow instructions carefully & to the letter.
-```
-
----
-
-## Final Rule
-
-For role-based agents, this template defines the default contract.
-Shared workflow and tool-use sections stay aligned across agents. Specialization belongs in `<instructions>`, the role-specific standards block, the tool list, and communication style.
+Change role wording only through placeholders in `agent_content_template.md`. Keep all shared instructions and structure literal. Treat Claude Code, Codex, and GitHub Copilot loaders as separate platform adapters with different metadata and tool models.

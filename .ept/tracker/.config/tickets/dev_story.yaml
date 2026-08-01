@@ -91,11 +91,11 @@ statuses:
 allowed_transitions:
   New:         [Open, Canceled, Rejected, Duplicated]
   Open:        [Analysis, Blocked, Canceled, Rejected, Duplicated]
-  Analysis:    [Grooming, Canceled, Rejected, Duplicated]
+  Analysis:    [Grooming, Blocked, Canceled, Rejected, Duplicated]
   Grooming:    [Development, Blocked, Canceled, Rejected, Duplicated]
   Development: [QA, Blocked, Canceled, Rejected, Duplicated]
   QA:          [Deployment, Blocked, Canceled, Rejected, Duplicated]
-  Deployment:  [Resolved, Canceled, Rejected, Duplicated]
+  Deployment:  [Resolved, Canceled, Blocked, Rejected, Duplicated]
   Blocked:     [Open, Analysis, Grooming, Development, QA, Deployment, Canceled, Rejected, Duplicated, Resolved]
   Resolved:    [Closed, Canceled, Rejected, Duplicated, Blocked]
   Closed:      []

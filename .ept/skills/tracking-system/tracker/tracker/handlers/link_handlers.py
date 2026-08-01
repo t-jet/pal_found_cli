@@ -8,6 +8,7 @@ from __future__ import annotations
 import argparse
 from typing import Any
 
+from ..automations import evaluate_automatic_transitions
 from ..constants import EXIT_VALIDATION_ERROR
 from ..formatters import format_link
 from ..links import create_link, list_links, remove_link
@@ -37,6 +38,7 @@ def handle_link(args: argparse.Namespace, link_parser: argparse.ArgumentParser) 
             args.source_id, args.target_id, args.link_type,
             args.author, args.comment,
         )
+        evaluate_automatic_transitions(args.target_id, "link_created")
         print(f"Created link: {lid}")
     elif args.link_command == "list":
         links = list_links(args.ticket_id, args.direction)

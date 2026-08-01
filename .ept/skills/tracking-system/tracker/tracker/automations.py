@@ -110,6 +110,11 @@ def _process_rule(
     rule_type: str = rule["rule"]
     target_status: str = rule.get("target_status", "")
 
+    # Link creation can only satisfy child_blocker_created. Other rules depend
+    # on ticket or child status changes and must not run as a side effect.
+    if event == "link_created" and rule_type != "child_blocker_created":
+        return
+
     # Re-read ticket on each rule so we have the latest status (may have changed
     # from a previous rule in this same pass).
     ticket = get_ticket(ticket_id)
@@ -134,8 +139,9 @@ def _process_rule(
         should_fire = _eval_linked_ticket_reaches_status(ticket, rule, links)
 
     elif rule_type == "child_blocker_created":
-        # Only fires on child_created event
-        if event != "child_created":
+        # Ticket creation runs before its links exist, so link creation must
+        # provide a second chance to evaluate this rule.
+        if event not in {"child_created", "link_created"}:
             return
         should_fire = _eval_child_blocker_created(ticket, rule, links)
         if should_fire:

@@ -18,6 +18,8 @@ from tracker.constants import (
     INDEX_FIELDNAMES,
     LINK_INDEX_FIELDNAMES,
 )
+from tracker.index import get_ticket
+from tracker.tickets import parse_ticket_file
 
 
 # ── Create ───────────────────────────────────────────────────────────────────
@@ -149,6 +151,32 @@ class TestMainLink:
         ])
         assert rc == EXIT_OK
         assert "LINK-" in output
+
+    def test_blocks_link_blocks_question_parent(self, auto_tracker_env: Path) -> None:
+        run_main([
+            "create", "task", "Parent",
+            "--author", "architect", "--assignee", "developer",
+        ])
+        run_main([
+            "update", "TASK-001", "--author", "architect", "--status", "Open",
+        ])
+        run_main([
+            "create", "question", "Need decision",
+            "--author", "architect", "--parent", "TASK-001",
+            "--addressed-to", "project-owner",
+        ])
+
+        output, rc = run_main([
+            "link", "create", "QUESTION-001", "TASK-001", "Blocks",
+            "--author", "architect",
+        ])
+
+        assert rc == EXIT_OK
+        assert "LINK-" in output
+        parent = get_ticket("TASK-001")
+        assert parent["status"] == "Blocked"
+        metadata, _ = parse_ticket_file(parent)
+        assert metadata["prior_status"] == "Open"
 
     def test_link_list(self, tracker_env: Path) -> None:
         self._setup_two_tickets()
