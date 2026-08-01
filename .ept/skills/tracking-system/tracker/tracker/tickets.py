@@ -16,6 +16,7 @@ from .index import (
     get_next_ticket_id,
     get_ticket,
     increment_counter,
+    read_canonical_index,
     read_index,
     ticket_exists,
     write_index,
@@ -280,7 +281,7 @@ def list_tickets(
     """
     from .config import get_runtime_config
     
-    tickets = read_index()
+    tickets = read_canonical_index()
     results: list[dict[str, str]] = []
     
     # Convert single values to lists for uniform handling
@@ -341,9 +342,15 @@ def update_ticket(
 
     cfg = get_runtime_config()
     tickets = read_index()
-    ticket = next((t for t in tickets if t["id"] == ticket_id), None)
-    if not ticket:
+    ticket_position = next(
+        (i for i, item in enumerate(tickets) if item["id"] == ticket_id),
+        None,
+    )
+    if ticket_position is None:
         raise ValidationError(f"Ticket {ticket_id} not found")
+    indexed_ticket = tickets[ticket_position]
+    canonical_ticket = get_ticket(ticket_id)
+    ticket = {**indexed_ticket, "status": canonical_ticket["status"]}
 
     # Validate extra_fields before making any changes
     if extra_fields:
@@ -392,6 +399,7 @@ def update_ticket(
 
     if updated:
         ticket["updated"] = now_date()
+        tickets[ticket_position] = ticket
         write_index(tickets)
 
         metadata, body = parse_ticket_file(ticket)
@@ -442,7 +450,7 @@ def search_tickets(
 ) -> list[dict[str, str]]:
     """Search tickets by title and/or content."""
     paths = get_paths()
-    tickets = read_index()
+    tickets = read_canonical_index()
     results: list[dict[str, str]] = []
     query_lower = query.lower()
 

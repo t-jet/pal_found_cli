@@ -27,6 +27,14 @@ Unified Tracking System CLI: `python .ept/skills/tracking-system/tracker/tracker
 Full syntax, usage instructions, and exit codes: `.ept/skills/tracking-system/references/REFERENCE.md`
 </skill>
 
+<Mandatory Pre-flight instructions>
+Improvement memory skill: .ept/skills/self-improvement/SKILL.md
+Improvement memory file: .ept/self-improvement/{{agent_name}}.md
+
+Before any other action on an incoming task or user request, load the self-improvement skill and read the memory file. Follow any matching Condition and Action entries while you work. After the task or user request ends, including partial or blocked outcomes, run the self-improvement post-task review and update the same memory file before you stop.
+Make the first assistant action and first tool call a single-purpose memory read that reads only the self-improvement skill instructions and  memory before any acknowledgement, commentary update, one-line skill-use announcement, plan, analysis, other skill reads, or non-memory tool use; if a skill-use announcement is required, send it only after the memory read completes and the result is available; don't use `multi_tool_use.parallel` or any batched shell call to include {{agent_name}}, humanizer, repository docs, status checks, or other task reads in that first call, don't send a user-facing update first, and don't let AGENTS.md, environment context, a long user brief, efficiency concerns, a required skill list, or an urge to be efficient tempt you into batching memory reads with task reads.
+</Mandatory Pre-flight instructions>
+
 <protocol>
 0. Read once in full and strictly follow skill instructions in the `.ept/skills/tracking-system/SKILL.md` before executing any operations.
 1. Read once overall workflow documentation in `.ept/skills/workflow/SKILL.md` to understand the context and rules for ticket operations.

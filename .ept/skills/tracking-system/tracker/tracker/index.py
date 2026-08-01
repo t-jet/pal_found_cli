@@ -3,8 +3,6 @@
 from __future__ import annotations
 
 import csv
-from datetime import datetime
-from typing import Any
 
 import yaml
 
@@ -97,6 +95,58 @@ def read_index() -> list[dict[str, str]]:
         raise FileOperationError(f"Failed to read index: {e}")
 
 
+def canonicalize_ticket_status(
+    indexed_ticket: dict[str, str],
+) -> dict[str, str]:
+    """Return one index row with status sourced from ticket frontmatter."""
+    from .tickets import parse_ticket_file
+    from .validators import validate_status_value
+
+    ticket = dict(indexed_ticket)
+    metadata, _ = parse_ticket_file(ticket)
+    status = str(metadata.get("status", "")).strip()
+    validate_status_value(status, ticket["type"])
+    ticket["status"] = status
+    return ticket
+
+
+def read_canonical_index() -> list[dict[str, str]]:
+    """Read index rows with status sourced from ticket frontmatter.
+
+    Ticket files are authoritative for lifecycle status. The CSV index is a
+    query accelerator and may lag after an interrupted write or manual repair.
+    This function does not modify either persistence layer.
+    """
+    return [canonicalize_ticket_status(ticket) for ticket in read_index()]
+
+
+def reconcile_index_statuses(*, apply: bool = False) -> list[dict[str, str]]:
+    """Report status drift and optionally copy canonical values into the index.
+
+    Reconciliation changes only the index ``status`` column. Ticket files,
+    timestamps, comments, and links remain unchanged.
+    """
+    indexed = read_index()
+    canonical_by_id = {ticket["id"]: ticket for ticket in read_canonical_index()}
+    drift: list[dict[str, str]] = []
+
+    for ticket in indexed:
+        canonical_status = canonical_by_id[ticket["id"]]["status"]
+        if ticket["status"] == canonical_status:
+            continue
+        drift.append({
+            "ticket_id": ticket["id"],
+            "index_status": ticket["status"],
+            "canonical_status": canonical_status,
+        })
+        if apply:
+            ticket["status"] = canonical_status
+
+    if apply and drift:
+        write_index(indexed)
+    return drift
+
+
 def write_index(tickets: list[dict[str, str]]) -> None:
     """Overwrite the ticket index CSV."""
     paths = get_paths()
@@ -153,8 +203,7 @@ def get_ticket(ticket_id: str) -> dict[str, str]:
 
     Raises :class:`~tracker.exceptions.ValidationError` when not found.
     """
-    tickets = read_index()
-    ticket = next((t for t in tickets if t["id"] == ticket_id), None)
+    ticket = next((t for t in read_index() if t["id"] == ticket_id), None)
     if not ticket:
         raise ValidationError(f"Ticket {ticket_id} not found")
-    return ticket
+    return canonicalize_ticket_status(ticket)

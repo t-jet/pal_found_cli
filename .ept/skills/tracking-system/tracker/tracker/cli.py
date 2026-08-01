@@ -45,6 +45,7 @@ from .handlers import (
     handle_get,
     handle_link,
     handle_list,
+    handle_reconcile_index,
     handle_search,
     handle_type_info,
     handle_update,
@@ -114,6 +115,9 @@ def main() -> int:
         elif args.command == "build-queue":
             assert bq_p is not None
             handle_build_queue(args, bq_p)
+            return EXIT_OK
+        elif args.command == "reconcile-index":
+            handle_reconcile_index(args)
             return EXIT_OK
         else:
             parser.print_help()

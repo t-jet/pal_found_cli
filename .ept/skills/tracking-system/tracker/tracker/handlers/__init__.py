@@ -17,6 +17,7 @@ __all__ = [
     "handle_workflow",
     "handle_type_info",
     "handle_build_queue",
+    "handle_reconcile_index",
 ]
 
 from .ticket_handlers import (
@@ -30,3 +31,4 @@ from .link_handlers import handle_link
 from .comment_handlers import handle_comment
 from .workflow_handlers import handle_workflow, handle_type_info
 from .build_queue_handler import handle_build_queue
+from .index_handlers import handle_reconcile_index

@@ -2,10 +2,8 @@
 
 from __future__ import annotations
 
-from typing import Any
-
 from .config import get_runtime_config
-from .index import read_index, read_link_index, write_index
+from .index import read_canonical_index, read_link_index
 from .tickets import update_ticket
 
 
@@ -37,7 +35,7 @@ def stage1_get_non_terminal_tickets() -> list[dict[str, str]]:
         List of tickets not in terminal statuses
     """
     cfg = get_runtime_config()
-    all_tickets = read_index()
+    all_tickets = read_canonical_index()
     non_terminal_tickets: list[dict[str, str]] = []
     
     for ticket in all_tickets:
@@ -306,7 +304,7 @@ def build_queue(author: str = "build-queue", stage: str = "all") -> list[dict[st
     if stage in ("stage2", "all"):
         print("\nStage 2: Priority cleanup...")
         tickets = stage2_priority_cleanup(tickets, author)
-        print(f"  Completed priority cleanup")
+        print("  Completed priority cleanup")
         if stage == "stage2":
             return tickets
     else:

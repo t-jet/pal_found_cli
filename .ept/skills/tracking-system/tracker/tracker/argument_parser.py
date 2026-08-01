@@ -241,6 +241,19 @@ Examples:
     type_info_p.add_argument("ticket_type", help="Ticket type key (e.g. feature, task)")
     subparser_refs["type-info"] = type_info_p
 
+    # ── reconcile-index ─────────────────────────────────────────────────
+    reconcile_p = subparsers.add_parser(
+        "reconcile-index",
+        help="Check or repair index status values from ticket files",
+    )
+    _add_author(reconcile_p, required=True)
+    reconcile_p.add_argument(
+        "--apply",
+        action="store_true",
+        help="Write canonical ticket-file statuses to the index",
+    )
+    subparser_refs["reconcile-index"] = reconcile_p
+
     # ── workflow (read-only) ─────────────────────────────────────────────
     wf_p = subparsers.add_parser("workflow", help="Inspect workflow definitions")
     wf_subs = wf_p.add_subparsers(

@@ -13,7 +13,11 @@ from typing import Any
 
 from .config import get_runtime_config
 from .exceptions import ValidationError
-from .index import get_ticket, read_index, read_link_index, ticket_exists
+from .index import (
+    get_ticket,
+    read_canonical_index,
+    read_link_index,
+)
 
 MAX_RECURSION_DEPTH = 5
 
@@ -221,7 +225,7 @@ def _collect_children(
     allowed_types: list[str] | None = child_filter.get("types") if child_filter else None
     link_types_filter: list[str] = (child_filter.get("link_types") or []) if child_filter else []
 
-    all_tickets = read_index()
+    all_tickets = read_canonical_index()
 
     children: list[dict[str, str]] = []
     seen: set[str] = set()
@@ -295,7 +299,7 @@ def _eval_linked_ticket_reaches_status(
     linked_statuses: list[str] = rule.get("linked_statuses", [])
 
     ticket_id = ticket["id"]
-    all_tickets = {t["id"]: t for t in read_index()}
+    all_tickets = {t["id"]: t for t in read_canonical_index()}
 
     for lnk in links:
         if lnk.get("link_type") != link_type:
@@ -333,7 +337,7 @@ def _eval_child_blocker_created(
     link_type_filter: str = child_filter.get("link_type", "Blocks")
 
     ticket_id = ticket["id"]
-    all_tickets = {t["id"]: t for t in read_index()}
+    all_tickets = {t["id"]: t for t in read_canonical_index()}
 
     for lnk in links:
         if lnk.get("link_type") != link_type_filter:
@@ -363,7 +367,7 @@ def _eval_all_blockers_cleared(
     """AT-5: Return True when all tickets blocking this ticket are in terminal statuses."""
     blocker_terminal: list[str] = rule.get("blocker_terminal_statuses", [])
     ticket_id = ticket["id"]
-    all_tickets = {t["id"]: t for t in read_index()}
+    all_tickets = {t["id"]: t for t in read_canonical_index()}
 
     # This ticket is blocked = it is the target_ticket in a Blocks link
     blockers: list[dict[str, str]] = []
@@ -400,7 +404,7 @@ def _eval_this_ticket_reaches_status(
     linked_target_status: str = rule.get("linked_ticket_target_status", "")
 
     ticket_id = ticket["id"]
-    all_tickets = {t["id"]: t for t in read_index()}
+    all_tickets = {t["id"]: t for t in read_canonical_index()}
     updated_any = False
 
     for lnk in links:
