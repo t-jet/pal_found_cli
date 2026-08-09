@@ -2,19 +2,20 @@
 
 ## Result
 
-**Fail.** Twenty mandatory cases passed, but LM-TC-007 failed. The global
-enablement switch does not block either Language Models operation, so final QA
-sign-off is withheld. A High-severity BUG-SUB is required before TESTEXEC-012 can
-complete. LM-TC-022 was not run by design because live access was not approved or
-required.
+**Pass.** All 21 mandatory cases passed. BUG-SUB-011 corrected the global
+enablement gate at `a74d3f4`, and the focused and full retest is green on Python
+3.11 and 3.12. LM-TC-022 was not run by design because live access was not
+approved or required.
 
-Recommended QA effort: **3 hours**.
+Recommended time: **1 hour for BUG-SUB-011 implementation and regression; 3
+hours for TESTEXEC-012 execution and QA retest**.
 
 ## Baseline and environments
 
 | Item | Value |
 |---|---|
-| Commit | `7f26564bc7ef2f2ea1164e72c95688e8828ec820` |
+| Initial execution commit | `7f26564bc7ef2f2ea1164e72c95688e8828ec820` |
+| BUG-SUB-011 retest commit | `a74d3f466c6f6824a2382c76f530e8018901981a` |
 | Workspace | Windows 11 Pro; shared working tree with unrelated in-progress changes |
 | Python 3.11 | CPython 3.11.9; `foundry-sdk 1.101.0`; `pytest 8.3.5` |
 | Python 3.12 | CPython 3.12.0 disposable fully provisioned home; `foundry-sdk 1.102.0`; `pytest 9.1.1` |
@@ -49,8 +50,13 @@ was changed during execution.
 | E17 | Inline wheel archive inspection | Policy and Language Models entry exist; prior entries remain | Policy present; exact entry present; 8 console entries retained | Pass |
 | E18 | Isolated wheel install with `--no-deps`; console/Claude help, import, policy, and `pip check` from empty CWD | Installed package is CWD-independent and Tier-3 is 0/2 | Help/import exit 0; catalog 2; blocked 2; policy inside site-packages; empty CWD unchanged; dependencies clean | Pass |
 | E19 | Isolated editable install with `--no-deps --no-build-isolation`; same empty-CWD probes | Editable package has the same behavior | Console, Claude launcher, import, and `pip check` exit 0; empty CWD unchanged | Pass |
-| E20 | 3.11 inline real guard with `FOUNDRY_AGENTIC_CLI_ENABLED=false` across both catalog rows | Global disable blocks both operations before client work | `anthropic_model.messages` permitted; `open_ai_model.embeddings` permitted; probe exit 1 | Fail |
+| E20 | 3.11 inline real guard with `FOUNDRY_AGENTIC_CLI_ENABLED=false` across both catalog rows | Global disable blocks both operations before client work | `anthropic_model.messages` permitted; `open_ai_model.embeddings` permitted; probe exit 1 | Initial fail, resolved by E22 |
 | E21 | 3.11 inline real guard with namespace and exact operation `_ENABLED=false` variables | Each lower scope blocks both matching operations | 4/4 checks passed; exit 0 | Pass |
+| E22 | `a74d3f4`, 3.11 inline real `ConfigLoader`/guard and CLI retest for both Language Models operations, Datasets, and Audit | Global false blocks all representatives with exit 8 before client; lower-scope controls remain unchanged | 10/10 checks passed; both CLI calls returned exit 8 without reaching the bomb client factory; exit 0 | Pass |
+| E23 | `a74d3f4`, 3.11: `python -m pytest -q tests/test_foundry_language_models_cli.py tests/test_language_models_console_wrapper.py tests/test_access_control_guard.py` | Focused ACL and Story suite passes | 93 passed in 1.75 s; exit 0 | Pass |
+| E24 | `a74d3f4`, 3.11: `python -m pytest -q` | Full regression passes | 1,020 passed in 26.20 s; exit 0 | Pass |
+| E25 | `a74d3f4`, fully provisioned 3.12: focused command from E23 | Focused ACL and Story suite passes | 93 passed in 1.81 s; exit 0 | Pass |
+| E26 | `a74d3f4`, fully provisioned 3.12: `python -m pytest -q` | Full regression passes | 1,020 passed in 23.94 s; exit 0 | Pass |
 
 ## Focused probe results
 
@@ -64,7 +70,7 @@ was changed during execution.
 | Metadata-only permits 0 and blocks 2 | Pass |
 | Missing policy fails closed | Pass |
 | Namespace and operation enablement block their matching operations | Pass |
-| Global `FOUNDRY_AGENTIC_CLI_ENABLED=false` blocks both operations | **Fail: both permitted** |
+| Global `FOUNDRY_AGENTIC_CLI_ENABLED=false` blocks both operations | Initial fail at `7f26564`; retest pass at `a74d3f4` |
 
 All blocked cases stopped before client/SDK work. The focused suite also covers
 both canonical operation overrides and enabled/disabled precedence.
@@ -110,7 +116,7 @@ left the empty working directory unchanged.
 | LM-TC-004 | Pass | E1, E11 |
 | LM-TC-005 | Pass | E1, E2, E11 |
 | LM-TC-006 | Pass | E1, E2, E11 |
-| LM-TC-007 | Fail | E20, E21 |
+| LM-TC-007 | Pass | E20 through E26; E20 preserves the initial failure history |
 | LM-TC-008 | Pass | E1, E3, E7, E11, E12 |
 | LM-TC-009 | Pass | E3, E18, E19 |
 | LM-TC-010 | Pass | E1, E4, E5, E11 |
@@ -149,11 +155,11 @@ left the empty working directory unchanged.
   remain in the operating-system temporary directory for evidence review. They
   contain no credentials or live service data.
 
-## Blocking defect
+## Resolved defect history
 
-### QA-DEFECT-012-001 - Global enablement switch is ignored
+### BUG-SUB-011 - Global enablement switch was ignored
 
-- Severity: **High**. Both operations perform potentially billable inference, so
+- Original severity: **High**. Both operations perform potentially billable inference, so
   a global administrative kill switch must stop them before client creation.
 - Reproduction: clear `FOUNDRY_AGENTIC_CLI_*`; set
   `FOUNDRY_AGENTIC_CLI_ENABLED=false`; construct the real
@@ -161,18 +167,23 @@ left the empty working directory unchanged.
   for `anthropic_model.messages` and `open_ai_model.embeddings`.
 - Expected: both checks raise `AccessControlError`; the CLI emits one safe ACL
   envelope, exits `8`, and does not enter invocation scope or create a client.
-- Actual: both guard checks return successfully, permitting the operations. The
-  focused probe exits `1` with `actual_all_blocked=False`.
+- Initial actual result at `7f26564`: both guard checks returned successfully,
+  permitting the operations. The focused probe exited `1` with
+  `actual_all_blocked=False`.
 - Control evidence: namespace and exact operation `_ENABLED=false` variables
   correctly block both matching operations (4/4 checks pass).
-- Required action: create a BUG-SUB, correct the shared global enablement
-  precedence, add regression coverage for both Story 012 operations and unrelated
-  namespaces, then rerun LM-TC-007 and affected full gates. No code was changed by
-  QA.
+- Root cause: the shared guard had no absolute global enablement step, and
+  `ConfigLoader` exposed no `global_enabled` property.
+- Resolution at `a74d3f4`: BUG-SUB-011 added precedence step 0, made explicit
+  global false an absolute denial, exposed the configuration property, and added
+  regression cases for both Language Models operations plus Datasets and Audit.
+- Retest: direct real-config checks, both CLI boundaries, lower-scope controls,
+  focused suites, and full Python 3.11/3.12 regressions all pass. No open defect
+  remains.
 
 ## QA sign-off
 
-**FAIL - sign-off withheld.** LM-TC-007 and its required global enablement row do
-not pass. The other 20 mandatory cases passed, branch coverage remains above
-80%, and LM-TC-022 remains intentionally not run. Create and resolve the required
-BUG-SUB, then rerun the failed ACL case and regression gates before QA approval.
+**PASS.** LM-TC-001 through LM-TC-021 passed. BUG-SUB-011 is verified at
+`a74d3f4`; no open blocking defect remains. Branch coverage remains above 80%,
+and the complete regression suite passes on Python 3.11 and 3.12. LM-TC-022
+remains intentionally not run and does not block acceptance.
