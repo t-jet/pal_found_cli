@@ -4,9 +4,10 @@
 | Field | Value |
 |---|---|
 | **Document ID** | SRS-001 |
-| **Version** | 1.0.0 |
+| **Version** | 1.1.0 |
 | **Status** | Approved by BA |
 | **Date** | 2026-04-13 |
+| **Last updated** | 2026-07-27 |
 | **BA Sign-off** | 2026-05-02 (Business Analyst) |
 | **Author** | Solution Architect (acting on behalf of BA role) |
 | **Reviewers** | Product Owner, Business Analyst |
@@ -76,6 +77,7 @@ The toolset provides 20 namespace-specific CLI skill packages and one general Fo
 | Requirements Q&A Round 3 | `.ept/docs/customer_input/open_questions_3.md` |
 | Requirements Completeness Assessment | `.ept/docs/customer_input/task_description.md` |
 | Solution Architecture Document | `.ept/docs/deliverables/architecture/SAD-001-foundry-cli.md` |
+| Common Components Design | `.ept/docs/deliverables/architecture/DESIGN-005-common-components.md` |
 | Canonical Env Var Reference | `.ept/docs/deliverables/architecture/canonical-env-var-reference.md` |
 | Metadata Allow-list | `.ept/docs/deliverables/architecture/metadata-allow-list.env` |
 | foundry-platform-python SDK | `.ept/docs/customer_input/foundry-platform-python/` |
@@ -120,7 +122,7 @@ Palantir Foundry Platform
 | F-SESSION | Persist AIP Agents session state for multi-turn interactions |
 | F-ACL | Enforce three-tier access control with 8-step precedence |
 | F-ATTR | Inject attribution headers on supported operations |
-| F-TRACE | Propagate W3C/B3 distributed trace context |
+| F-TRACE | Propagate SDK-native B3 distributed trace context |
 | F-SKILL | Package CLI as Claude Code skills for VS Code agent consumption |
 | F-KNOW | Provide pre-authored Foundry knowledge skill (static content) |
 
@@ -272,13 +274,16 @@ The CLI SHALL use JSON format in all other cases:
 | FR-DL-1 | Binary content SHALL be written to disk at `<repo-root>/.foundry-data/downloads/{uuid}/{original_file_name}` | Q&A R2: A(Q2(R2).7) |
 | FR-DL-2 | If the original filename is unavailable, the fallback name SHALL be `{namespace}_{operation}_{timestamp}.{ext}` | Q&A R2: A(Q2(R2).7) |
 | FR-DL-3 | The default file size limit SHALL be 1.5 MB (1,572,864 bytes); configurable via `FOUNDRY_AGENTIC_CLI_MAX_DOWNLOAD_BYTES` | Q&A R3: A(Q3(R3).1) |
-| FR-DL-4 | When the size limit is exceeded, the CLI SHALL write partial content up to the limit and set `truncated: true` in the JSON envelope | Q&A R3: A(Q3(R3).1) |
-| FR-DL-5 | The JSON envelope on stdout SHALL include: `file_path`, `file_size`, `checksum_md5`, `checksum_sha256`, `mime_type`, `truncated` | Q&A R2: A(Q2(R2).7) |
+| FR-DL-4 | When the size limit is exceeded, the CLI SHALL write partial content up to the limit, read at most one probe byte, close the stream, and set `truncated: true` | Q&A R3: A(Q3(R3).1); DESIGN-005 |
+| FR-DL-5 | The JSON envelope on stdout SHALL include `file_path`, `file_size`, `checksum_md5`, `checksum_sha256`, `mime_type`, `truncated`, nullable `source_size`, and nullable `source_size_at_least`; readers SHALL accept older envelopes where the two source-size fields are absent | Q&A R2: A(Q2(R2).7); DESIGN-005 |
+| FR-DL-6 | The CLI SHALL NOT consume the remaining response solely to calculate an exact source size after the configured limit is crossed | DESIGN-005 |
 
 **Acceptance Criteria — FR-DL-3 (partial download):**
 - **Given** `FOUNDRY_AGENTIC_CLI_MAX_DOWNLOAD_BYTES=1048576` (1 MB) and the API returns a 3 MB file  
 - **When** the download operation is invoked  
-- **Then** a 1 MB file is written to disk, stdout JSON contains `"truncated": true, "file_size": 1048576`, and the actual size warning includes both the actual file size and the limit
+- **Then** a 1 MB file is written to disk and stdout JSON contains `"truncated": true, "file_size": 1048576`
+- **And** when a valid applicable `Content-Length` is available, `source_size` and the warning report that exact size
+- **And** when exact source size is unknown, `source_size` is `null`, `source_size_at_least` is `1048577`, and the warning reports the lower bound instead of an invented exact size
 
 ---
 
@@ -289,7 +294,7 @@ The CLI SHALL use JSON format in all other cases:
 | FR-SESSION-1 | Session state SHALL be persisted to `<repo-root>/.foundry-data/sessions/` | Q&A R1: A4.4 |
 | FR-SESSION-2 | Sessions SHALL be identified by a named alias provided by the agent | Q&A R2: A(Q2(R2).8) |
 | FR-SESSION-3 | If a session alias already exists for an active session, creation SHALL fail with a structured error | Q&A R3: A(Q3(R3).5) |
-| FR-SESSION-4 | Session state SHALL persist: `session_id`, `agent_rid`, `session_token`, `created_at`, `last_used_at`, `status`, `tool_history` | Q&A R1: A4.4 |
+| FR-SESSION-4 | Session state SHALL persist `session_id` from SDK `Session.rid`, `agent_rid`, nullable `session_token`, `created_at`, `last_used_at`, `status`, and `tool_history`; readers SHALL accept a missing, null, or string `session_token` | Q&A R1: A4.4; DESIGN-005 |
 | FR-SESSION-5 | Sessions older than 7 days SHALL be automatically cleaned up on any tool invocation | Q&A R3: A(Q3(R3).5) |
 | FR-SESSION-6 | An explicit `session purge` command SHALL be available to delete all sessions | Q&A R3: A(Q3(R3).5) |
 | FR-SESSION-7 | A warning SHALL be logged (not enforced) when a single agent has more than 5 concurrent active sessions | Q&A R3: A(Q3(R3).5) |
@@ -313,8 +318,9 @@ The CLI SHALL use JSON format in all other cases:
 |---|---|---|
 | FR-TRACE-1 | Tracing SHALL be opt-in, disabled by default | Q&A R2: A(Q1(R2).1) |
 | FR-TRACE-2 | Tracing IS enabled by setting `FOUNDRY_AGENTIC_CLI_ENABLE_TRACING=true` | Q&A R3: A(Q2(R3).1) |
-| FR-TRACE-3 | When enabled, a W3C Trace Context / B3 trace ID SHALL be generated and propagated for each CLI call | Q&A R3: A(Q2(R3).1) |
-| FR-TRACE-4 | SDK vars `FOUNDRY_TRACE_ID`, `FOUNDRY_SPAN_ID`, `FOUNDRY_SAMPLED` SHALL be used for tracing configuration | Q&A R3: A(Q2(R3).1) |
+| FR-TRACE-3 | When enabled, SDK-native B3 multi-header context SHALL be generated and propagated for each CLI call | Q&A R3: A(Q2(R3).1); DESIGN-005 |
+| FR-TRACE-4 | SDK vars `FOUNDRY_TRACE_ID`, `FOUNDRY_SPAN_ID`, and `FOUNDRY_SAMPLED` SHALL map to `X-B3-TraceId`, `X-B3-SpanId`, and `X-B3-Sampled` respectively | Q&A R3: A(Q2(R3).1); DESIGN-005 |
+| FR-TRACE-5 | The CLI SHALL NOT claim W3C `traceparent` or `tracestate` propagation unless a separate supported implementation is added | DESIGN-005 |
 
 ---
 
@@ -409,7 +415,7 @@ Transformation rule: uppercase entire SDK path, replace dots and underscores wit
 | `FOUNDRY_AGENTIC_CLI_METADATA_ONLY` | `false` | Global metadata-only mode |
 | `FOUNDRY_AGENTIC_CLI_ENABLE_ATTRIBUTION` | `false` | Enable attribution header injection |
 | `FOUNDRY_AGENTIC_CLI_ATTRIBUTION_RIDS` | *(empty)* | Comma-separated attribution RIDs |
-| `FOUNDRY_AGENTIC_CLI_ENABLE_TRACING` | `false` | Enable W3C/B3 trace propagation |
+| `FOUNDRY_AGENTIC_CLI_ENABLE_TRACING` | `false` | Enable SDK-native B3 multi-header propagation |
 | `FOUNDRY_AGENTIC_CLI_RETRY_INITIAL_DELAY_MS` | `500` | Retry initial delay (ms) |
 | `FOUNDRY_AGENTIC_CLI_RETRY_MAX_DELAY_MS` | `30000` | Retry maximum delay (ms) |
 | `FOUNDRY_AGENTIC_CLI_RETRY_MULTIPLIER` | `2.0` | Retry backoff multiplier |
@@ -530,4 +536,4 @@ Transformation rule: uppercase entire SDK path, replace dots and underscores wit
 
 ---
 
-*SRS-001 v1.0.0 — Generated 2026-04-13 — Foundry CLI Agentic Toolset*
+*SRS-001 v1.1.0 | Generated 2026-04-13 | Updated 2026-07-27 | Foundry CLI Agentic Toolset*

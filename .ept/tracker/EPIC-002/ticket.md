@@ -2,10 +2,11 @@
 id: EPIC-002
 type: epic
 title: Datasets & Filesystem Skills
-status: Blocked
+status: Done
 created: 2026-04-13
-updated: 2026-05-05
+updated: 2026-07-30
 priority: Critical
+resolution: Done
 assignee: architect
 reporter: architect
 ---

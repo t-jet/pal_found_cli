@@ -1,0 +1,5 @@
+Subject: Ticket updated
+Created: 2026-07-29T16:44:03
+Updated: 2026-07-29T16:44:03
+---
+Updated fields: status=Open

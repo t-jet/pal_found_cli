@@ -1,0 +1,5 @@
+Subject: Implementation evidence recorded; QA verification pending
+Created: 2026-08-09T15:10:55
+Updated: 2026-08-09T15:10:55
+---
+Implemented the fix in commit a74d3f4 across ConfigLoader, AccessControlGuard, and regression tests. ConfigLoader now exposes ENV_ENABLED/global_enabled with true default and canonical false-token handling; the guard enforces global enablement as absolute step 0, so namespace or operation true cannot bypass global false. Regressions cover both Language Models operations plus Datasets and Audit and assert denial before client work. Validation: 93 targeted and 1,020 full collected tests pass; Ruff, mypy, and Bandit are clean. Four dormant unit_test_common_components.py failures occur only under explicit noncollected selection and are known unrelated stale mock/SDK-constructor defects with no enablement impact. The fix is implemented and regression-tested, but BUG-SUB-011 remains In Progress and LINK-00471 remains active until QA independently reruns the failed cases. Time still must be reported before Resolved DoD can pass.

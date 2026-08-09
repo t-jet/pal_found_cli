@@ -2,10 +2,11 @@
 id: EPIC-004
 type: epic
 title: Admin & Security Skills
-status: In Progress
+status: Done
 created: 2026-04-13
-updated: 2026-05-18
+updated: 2026-08-01
 priority: High
+resolution: Done
 assignee: architect
 reporter: architect
 ---

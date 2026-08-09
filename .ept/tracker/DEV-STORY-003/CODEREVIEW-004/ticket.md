@@ -2,9 +2,9 @@
 id: CODEREVIEW-004
 type: codereview
 title: Review ACL and pagination implementation
-status: New
+status: Closed
 created: 2026-07-22
-updated: 2026-07-22
+updated: 2026-07-26
 priority: Critical
 assignee: tech-lead
 reporter: architect

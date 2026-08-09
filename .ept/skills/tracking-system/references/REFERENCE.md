@@ -348,6 +348,19 @@ command for generating a complete build queue.
 
 ---
 
+## Index reconciliation
+
+```bash
+python .ept/skills/tracking-system/tracker/tracker_cli.py reconcile-index --author <role> [--apply]
+```
+
+Without `--apply`, this command reports status differences between ticket
+frontmatter and the CSV index without changing files. With `--apply`, it copies
+canonical frontmatter statuses into the index. Ticket content, timestamps,
+comments, and links remain unchanged.
+
+---
+
 ## Fields
 
 ### Core fields (all ticket types)

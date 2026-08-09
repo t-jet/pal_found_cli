@@ -1,0 +1,5 @@
+Subject: Correction pending from CODEREVIEW-010
+Created: 2026-08-01T20:31:09
+Updated: 2026-08-01T20:31:09
+---
+CODEREVIEW-010 review of commits 0c705b8928a5a7792dfb1f0df2e13fae131b9376, b4e241c94fb5305fa480615c49b23965151b5376, and af5b4e326c808618a9846b5479a61dd8d0a2e62f requires four fixes: make metadata allow-list resolution stable outside the repository cwd and test list PERMITTED/content BLOCKED; route missing-command and argparse failures through ErrorSerializer with missing positional/choice/type console coverage; validate timeout 1-3600 and pass args.timeout or cfg.timeout_s into RetryHandler(timeout_s=timeout); and add installed wheel/editable arbitrary-cwd smoke tests for the generated console and Claude launcher without PYTHONPATH injection. DEV-010 cannot legally transition from Resolved to In Progress under the configured development workflow, so it remains Resolved with correction pending rather than inventing a status. A DEV-010 Blocks CODEREVIEW-010 link will prevent approval until a focused correction commit and verification evidence are supplied. Do not alter unrelated worktree changes.

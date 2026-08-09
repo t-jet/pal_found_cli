@@ -2,14 +2,15 @@
 id: DEV-STORY-009
 type: dev_story
 title: foundry-admin skill (66 operations)
-status: New
+status: Closed
 feature_request: FEATURE-001
 epic: EPIC-004
 created: 2026-04-13
-updated: 2026-04-13
+updated: 2026-07-30
 priority: High
 assignee: architect
 reporter: architect
+release_notes: Adds packaged foundry-admin CLI and Claude skill exposing 66 Admin API v2 operations with shared config, ACL, retry, output, pagination, error handling, tests, and entry-point checks.
 ---
 
 # DEV-STORY-009: foundry-admin skill (66 operations)

@@ -1,138 +1,208 @@
 link_id,source_ticket,target_ticket,link_type,source_role,target_role,created,created_by,comment
-LINK-00002,QUESTION-001,FEATURE-001,Question,Asks About,Has Question,2026-04-10T00:51:45.563970,architect,
-LINK-00003,FEATURE-001,EPIC-001,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:17:22.587583,architect,
-LINK-00004,FEATURE-001,EPIC-002,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:17:31.904069,architect,
-LINK-00005,FEATURE-001,EPIC-003,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:17:42.682780,architect,
-LINK-00006,FEATURE-001,EPIC-004,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:17:56.224369,architect,
-LINK-00007,FEATURE-001,EPIC-005,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:18:06.740457,architect,
-LINK-00008,FEATURE-001,EPIC-006,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:18:15.642193,architect,
-LINK-00009,FEATURE-001,EPIC-007,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:18:27.386528,architect,
-LINK-00010,FEATURE-001,EPIC-008,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:18:37.656640,architect,
-LINK-00011,EPIC-001,DEV-STORY-001,EpicLink,Epic Link,Epic Link,2026-04-13T17:20:36.178444,architect,
-LINK-00012,FEATURE-001,DEV-STORY-001,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:20:41.941509,architect,
-LINK-00013,EPIC-001,DEV-STORY-002,EpicLink,Epic Link,Epic Link,2026-04-13T17:20:56.604226,architect,
-LINK-00014,FEATURE-001,DEV-STORY-002,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:20:56.904641,architect,
-LINK-00015,EPIC-001,DEV-STORY-003,EpicLink,Epic Link,Epic Link,2026-04-13T17:21:09.660038,architect,
-LINK-00016,FEATURE-001,DEV-STORY-003,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:21:09.960212,architect,
-LINK-00017,EPIC-001,DEV-STORY-004,EpicLink,Epic Link,Epic Link,2026-04-13T17:21:23.232464,architect,
-LINK-00018,FEATURE-001,DEV-STORY-004,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:21:23.536365,architect,
-LINK-00019,EPIC-002,DEV-STORY-005,EpicLink,Epic Link,Epic Link,2026-04-13T17:21:35.905913,architect,
-LINK-00020,FEATURE-001,DEV-STORY-005,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:21:36.207474,architect,
-LINK-00021,EPIC-002,DEV-STORY-006,EpicLink,Epic Link,Epic Link,2026-04-13T17:21:49.085200,architect,
-LINK-00022,FEATURE-001,DEV-STORY-006,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:21:49.386562,architect,
-LINK-00023,EPIC-003,DEV-STORY-007,EpicLink,Epic Link,Epic Link,2026-04-13T17:21:59.748622,architect,
-LINK-00024,FEATURE-001,DEV-STORY-007,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:22:00.048277,architect,
-LINK-00025,EPIC-003,DEV-STORY-008,EpicLink,Epic Link,Epic Link,2026-04-13T17:22:08.587820,architect,
-LINK-00026,FEATURE-001,DEV-STORY-008,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:22:08.907066,architect,
-LINK-00027,EPIC-004,DEV-STORY-009,EpicLink,Epic Link,Epic Link,2026-04-13T17:22:20.979901,architect,
-LINK-00028,FEATURE-001,DEV-STORY-009,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:22:21.283981,architect,
-LINK-00029,EPIC-004,DEV-STORY-010,EpicLink,Epic Link,Epic Link,2026-04-13T17:22:29.688318,architect,
-LINK-00030,FEATURE-001,DEV-STORY-010,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:22:29.987346,architect,
-LINK-00031,EPIC-005,DEV-STORY-011,EpicLink,Epic Link,Epic Link,2026-04-13T17:22:42.062715,architect,
-LINK-00032,FEATURE-001,DEV-STORY-011,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:22:42.361659,architect,
-LINK-00033,EPIC-005,DEV-STORY-012,EpicLink,Epic Link,Epic Link,2026-04-13T17:22:52.137676,architect,
-LINK-00034,FEATURE-001,DEV-STORY-012,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:22:52.438118,architect,
-LINK-00035,EPIC-005,DEV-STORY-013,EpicLink,Epic Link,Epic Link,2026-04-13T17:23:02.601461,architect,
-LINK-00036,FEATURE-001,DEV-STORY-013,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:23:02.903856,architect,
-LINK-00037,EPIC-006,DEV-STORY-014,EpicLink,Epic Link,Epic Link,2026-04-13T17:23:11.409112,architect,
-LINK-00038,FEATURE-001,DEV-STORY-014,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:23:11.709302,architect,
-LINK-00039,EPIC-006,DEV-STORY-015,EpicLink,Epic Link,Epic Link,2026-04-13T17:23:19.749930,architect,
-LINK-00040,FEATURE-001,DEV-STORY-015,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:23:20.051923,architect,
-LINK-00041,EPIC-006,DEV-STORY-016,EpicLink,Epic Link,Epic Link,2026-04-13T17:23:31.543440,architect,
-LINK-00042,FEATURE-001,DEV-STORY-016,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:23:31.862755,architect,
-LINK-00043,EPIC-006,DEV-STORY-017,EpicLink,Epic Link,Epic Link,2026-04-13T17:23:40.830622,architect,
-LINK-00044,FEATURE-001,DEV-STORY-017,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:23:41.128887,architect,
-LINK-00045,EPIC-007,DEV-STORY-018,EpicLink,Epic Link,Epic Link,2026-04-13T17:23:51.038546,architect,
-LINK-00046,FEATURE-001,DEV-STORY-018,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:23:51.336777,architect,
-LINK-00047,EPIC-007,DEV-STORY-019,EpicLink,Epic Link,Epic Link,2026-04-13T17:23:59.910300,architect,
-LINK-00048,FEATURE-001,DEV-STORY-019,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:24:00.210305,architect,
-LINK-00049,EPIC-007,DEV-STORY-020,EpicLink,Epic Link,Epic Link,2026-04-13T17:24:10.916180,architect,
-LINK-00050,FEATURE-001,DEV-STORY-020,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:24:11.222672,architect,
-LINK-00051,EPIC-007,DEV-STORY-021,EpicLink,Epic Link,Epic Link,2026-04-13T17:24:20.489544,architect,
-LINK-00052,FEATURE-001,DEV-STORY-021,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:24:20.788007,architect,
-LINK-00053,EPIC-007,DEV-STORY-022,EpicLink,Epic Link,Epic Link,2026-04-13T17:24:28.894499,architect,
-LINK-00054,FEATURE-001,DEV-STORY-022,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:24:29.194297,architect,
-LINK-00055,EPIC-008,DEV-STORY-023,EpicLink,Epic Link,Epic Link,2026-04-13T17:25:03.739651,architect,
-LINK-00056,FEATURE-001,DEV-STORY-023,FeatureContains,Feature Contains,Is Contained In Feature,2026-04-13T17:25:04.041704,architect,
-LINK-00057,TASK-001,FEATURE-001,RelatesTo,Relates To,Relates To,2026-05-01T18:52:33.055515,architect,
-LINK-00058,RESOURCE-REQ-001,TASK-001,RelatesTo,Relates To,Relates To,2026-05-01T19:12:15.649683,architect,
-LINK-00059,RESOURCE-REQ-002,TASK-001,RelatesTo,Relates To,Relates To,2026-05-01T19:13:52.857145,architect,
-LINK-00060,RESOURCE-REQ-003,TASK-001,RelatesTo,Relates To,Relates To,2026-05-01T19:16:01.118731,architect,Resource request relates to TASK-001 project team analysis
-LINK-00061,RESOURCE-REQ-004,TASK-001,RelatesTo,Relates To,Relates To,2026-05-01T19:17:55.216991,architect,
-LINK-00062,RESOURCE-REQ-005,TASK-001,RelatesTo,Relates To,Relates To,2026-05-01T19:19:51.858272,architect,RESOURCE-REQ-005 relates to TASK-001 project team analysis
-LINK-00063,EPIC-001,FEATURE-001,FeatureContains,Feature Contains,Is Contained In Feature,2026-05-02T01:50:03.099774,architect,Bidirectional relationship: EPIC-001 contains FEATURE-001
-LINK-00064,FEATURE-001,DEV-STORY-003,Contains,Contains,Contained In,2026-05-02T02:06:13.089357,system,
-LINK-00065,DEV-STORY-003,EPIC-001,EpicLink,Epic Link,Epic Link,2026-05-02T02:06:25.687362,system,
-LINK-00066,EPIC-001,EPIC-003,Blocks,Blocks,Is Blocked By,2026-05-02T18:06:13.969169,architect,"EPIC-001 provides the core infrastructure (_foundry_cli_common.py, templates, test framework) required before EPIC-003 implementation can begin"
-LINK-00068,FEATURE-001,BA-DES-001,ParentChild,Is Parent Of,Is Child Of,2026-05-02T18:31:26.604371,BA,
-LINK-00069,SA-DES-001,BA-DES-001,RelatesTo,Relates To,Relates To,2026-05-02T18:37:37.932062,solution-architect,
-LINK-00070,QUESTION-002,BA-DES-001,Question,Asks About,Has Question,2026-05-02T18:47:08.750861,ba,SRS-001 approval request originating from BA-DES-001
-LINK-00071,QUESTION-003,BA-DES-001,Question,Asks About,Has Question,2026-05-02T18:47:13.250536,ba,SRS-001 cross-functional review request originating from BA-DES-001
-LINK-00073,EPIC-001,EPIC-002,Blocks,Blocks,Is Blocked By,2026-05-05T15:15:27.617427,workflow-mgr,Phase 1 foundation dependency - EPIC-002 requires EPIC-001 completion per SAD-001 §10 Implementation Roadmap
-LINK-00074,QUESTION-004,SA-DES-001,Question,Asks About,Has Question,2026-05-05T15:28:34.728700,architect,Project Owner approval request for SAD-001 and architecture design package
-LINK-00075,QUESTION-005,SA-DES-001,Question,Asks About,Has Question,2026-05-05T15:28:38.810527,architect,BA cross-functional review request for SAD-001 alignment with SRS-001
-LINK-00077,EPIC-006,FEATURE-001,FeatureContains,Feature Contains,Is Contained In Feature,2026-05-17T04:19:12.567781,architect,Bidirectional link: EPIC-006 is contained in FEATURE-001 (Data Pipeline Skills under Foundry CLI feature)
-LINK-00078,EPIC-008,FEATURE-001,FeatureContains,Feature Contains,Is Contained In Feature,2026-05-17T11:32:12.414662,architect,Bidirectional link: EPIC-008 (Foundry Knowledge Skill) is contained in FEATURE-001
-LINK-00079,FEATURE-001,DEV-STORY-001,Contains,Contains,Contained In,2026-05-17T20:57:46.562148,architect,
-LINK-00086,QUESTION-006,EPIC-001,Question,Asks About,Has Question,2026-05-17T22:16:29.832690,architect,
-LINK-00087,QUESTION-007,EPIC-001,Question,Asks About,Has Question,2026-05-17T22:16:30.220578,architect,
-LINK-00088,DEV-STORY-003,QUESTION-006,Question,Asks About,Has Question,2026-05-17T22:16:34.964847,architect,
-LINK-00089,DEV-STORY-004,QUESTION-007,Question,Asks About,Has Question,2026-05-17T22:16:35.368824,architect,
-LINK-00090,DEV-002,UNITTEST-002,Blocks,Blocks,Is Blocked By,2026-05-17T23:13:37.883012,architect,
-LINK-00093,DEV-002,CODEREVIEW-002,RelatesTo,Relates To,Relates To,2026-05-17T23:14:28.402635,architect,
-LINK-00096,DESIGN-002,DEV-STORY-001,RelatesTo,Relates To,Relates To,2026-05-17T23:37:10.372976,architect,
-LINK-00101,DEV-STORY-001,TESTCASE-002,ParentChild,Is Parent Of,Is Child Of,2026-05-17T23:56:58.064385,qa-engineer,"TESTCASE-002 covers integration & E2E tests for ConfigLoader, AuthProvider, AsyncClientFactory"
-LINK-00102,DEV-STORY-001,DEV-001,ParentChild,Is Parent Of,Is Child Of,2026-05-17T23:57:03.317945,architect,DEV-001 is a development sub-task of DEV-STORY-001
-LINK-00103,DEV-STORY-002,DEV-002,ParentChild,Is Parent Of,Is Child Of,2026-05-18T00:03:07.033291,developer,DEV-002 linked as child of DEV-STORY-002 for retry/error/format/logging implementation
-LINK-00104,DEV-STORY-001,UNITTEST-001,ParentChild,Is Parent Of,Is Child Of,2026-05-18T00:17:49.637157,developer,
-LINK-00105,DEV-STORY-001,CODEREVIEW-001,ParentChild,Is Parent Of,Is Child Of,2026-05-18T00:27:11.954417,qa-lead,"CODEREVIEW-001 is a code review sub-task of DEV-STORY-001 for ConfigLoader, AuthProvider, AsyncClientFactory"
-LINK-00106,DEV-STORY-002,UNITTEST-002,ParentChild,Is Parent Of,Is Child Of,2026-05-18T00:31:12.464452,developer,
-LINK-00107,DEV-STORY-002,TESTCASE-001,ParentChild,Is Parent Of,Is Child Of,2026-05-18T01:17:21.131090,qa-engineer,"QA test cases for RetryHandler, ErrorSerializer, OutputFormatter, LogSetup — linking as child of DEV-STORY-002"
-LINK-00108,DEV-STORY-002,TESTEXEC-001,ParentChild,Is Parent Of,Is Child Of,2026-05-18T01:17:21.651616,qa-engineer,"Execute QA test cases for RetryHandler, ErrorSerializer, OutputFormatter, LogSetup — linking as child of DEV-STORY-002"
-LINK-00109,DEV-STORY-001,TESTEXEC-002,ParentChild,Is Parent Of,Is Child Of,2026-05-18T01:17:23.046214,qa-engineer,"Execute Tests for ConfigLoader, AuthProvider, AsyncClientFactory — linking as child of DEV-STORY-001"
-LINK-00110,DEV-STORY-001,DEVOPS-003,ParentChild,Is Parent Of,Is Child Of,2026-05-18T01:18:43.092166,devops-engineer,
-LINK-00111,DEV-STORY-002,CODEREVIEW-002,ParentChild,Is Parent Of,Is Child Of,2026-05-18T01:20:38.645049,architect,"CODEREVIEW-002 linked as child review task for DEV-STORY-002 implementation of RetryHandler, ErrorSerializer, OutputFormatter, LogSetup."
-LINK-00112,DEV-STORY-002,DEVOPS-002,ParentChild,Is Parent Of,Is Child Of,2026-05-18T01:20:52.032943,devops-engineer,
-LINK-00115,DEV-003,CODEREVIEW-003,RelatesTo,Relates To,Relates To,2026-05-18T16:48:45.353189,architect,
-LINK-00116,CODEREVIEW-003,DEV-003,RelatesTo,Relates To,Relates To,2026-05-18T16:48:56.804120,architect,
-LINK-00119,FEATURE-001,DEV-STORY-007,Contains,Contains,Contained In,2026-05-18T17:08:48.597758,architect,
-LINK-00120,TESTEXEC-002,BUG-001,ParentChild,Is Parent Of,Is Child Of,2026-05-19T21:40:20.150034,qa-engineer,TESTEXEC-002 is parent of BUG-001 (ConfigLoader CWD fallback bug)
-LINK-00121,TESTEXEC-002,BUG-002,ParentChild,Is Parent Of,Is Child Of,2026-05-19T21:40:25.508089,qa-engineer,TESTEXEC-002 is parent of BUG-002 (TC-E2E-001 test setup bug)
-LINK-00122,CODEREVIEW-003,DEV-STORY-005,RelatesTo,Relates To,Relates To,2026-05-20T18:24:31.611308,tech-lead,
-LINK-00131,QUESTION-015,TESTCASE-003,Question,Asks About,Has Question,2026-07-04T23:27:37.137661,qa-engineer,Question link from QUESTION-015 to TESTCASE-003
-LINK-00133,QUESTION-016,TESTCASE-003,Question,Asks About,Has Question,2026-07-04T23:27:37.882028,qa-engineer,Question link from QUESTION-016 to TESTCASE-003
-LINK-00135,QUESTION-017,TESTCASE-003,Question,Asks About,Has Question,2026-07-04T23:27:38.446385,qa-engineer,Question link from QUESTION-017 to TESTCASE-003
-LINK-00137,QUESTION-018,TESTCASE-003,Question,Asks About,Has Question,2026-07-04T23:27:39.040497,qa-engineer,Question link from QUESTION-018 to TESTCASE-003
-LINK-00139,QUESTION-019,TESTCASE-003,Question,Asks About,Has Question,2026-07-04T23:27:39.609084,qa-engineer,Question link from QUESTION-019 to TESTCASE-003
-LINK-00141,QUESTION-020,TESTCASE-003,Question,Asks About,Has Question,2026-07-04T23:27:40.179284,qa-engineer,Question link from QUESTION-020 to TESTCASE-003
-LINK-00143,QUESTION-021,TESTCASE-003,Question,Asks About,Has Question,2026-07-04T23:27:40.772005,qa-engineer,Question link from QUESTION-021 to TESTCASE-003
-LINK-00145,QUESTION-022,TESTCASE-003,Question,Asks About,Has Question,2026-07-04T23:27:41.341418,qa-engineer,Question link from QUESTION-022 to TESTCASE-003
-LINK-00147,QUESTION-023,TESTCASE-003,Question,Asks About,Has Question,2026-07-04T23:27:41.935893,qa-engineer,Question link from QUESTION-023 to TESTCASE-003
-LINK-00148,CODEREVIEW-001,DEV-001,RelatesTo,Relates To,Relates To,2026-07-05T00:11:27.538424,architect,Register required CodeReview pairing for DEV-001 closure verification.
-LINK-00155,DEV-STORY-002,BUG-SUB-001,ParentChild,Is Parent Of,Is Child Of,2026-07-21T20:17:24.455551,qa-engineer,Repair missing explicit ParentChild link for BUG-SUB workflow integrity.
-LINK-00156,DEV-STORY-002,BUG-SUB-003,ParentChild,Is Parent Of,Is Child Of,2026-07-21T20:17:24.471269,qa-engineer,Repair missing explicit ParentChild link for BUG-SUB workflow integrity.
-LINK-00157,DEV-STORY-002,BUG-SUB-004,ParentChild,Is Parent Of,Is Child Of,2026-07-21T20:17:24.486475,qa-engineer,Repair missing explicit ParentChild link for BUG-SUB workflow integrity.
-LINK-00158,DEV-STORY-001,QUESTION-024,Question,Asks About,Has Question,2026-07-21T20:17:31.760026,architect,Records QUESTION-024 as the closure acceptance question for DEV-STORY-001.
-LINK-00159,DEV-STORY-002,BUG-SUB-002,ParentChild,Is Parent Of,Is Child Of,2026-07-21T20:17:37.169984,qa-engineer,Repair missing explicit ParentChild link for BUG-SUB workflow integrity.
-LINK-00160,FEATURE-001,DEV-STORY-005,Contains,Contains,Contained In,2026-07-21T20:18:18.298219,architect,Repair missing Feature-to-Developer Story containment link for DEV-STORY-005.
-LINK-00161,DEV-STORY-005,DEV-003,ParentChild,Is Parent Of,Is Child Of,2026-07-21T20:18:18.313400,architect,Repair missing DEV-STORY-005 parent-child link to DEV-003.
-LINK-00162,DEV-STORY-005,DEVOPS-004,ParentChild,Is Parent Of,Is Child Of,2026-07-21T20:18:18.333585,architect,Repair missing DEV-STORY-005 parent-child link to DEVOPS-004.
-LINK-00163,DEV-STORY-005,UNITTEST-003,ParentChild,Is Parent Of,Is Child Of,2026-07-21T20:18:18.357592,architect,Repair missing DEV-STORY-005 parent-child link to UNITTEST-003.
-3.,,,,,,,,
-LINK-00164,DEV-STORY-005,TESTCASE-003,ParentChild,Is Parent Of,Is Child Of,2026-07-21T20:18:18.376804,architect,Repair missing DEV-STORY-005 parent-child link to TESTCASE-003.
-LINK-00165,DEV-STORY-005,QUESTION-009,ParentChild,Is Parent Of,Is Child Of,2026-07-21T20:18:18.390094,architect,Repair missing DEV-STORY-005 parent-child link to QUESTION-009.
-LINK-00166,DEV-STORY-005,DESIGN-003,ParentChild,Is Parent Of,Is Child Of,2026-07-21T20:18:26.953693,architect,Repair missing DEV-STORY-005 parent-child link to DESIGN-003.
-LINK-00167,DEV-STORY-005,CODEREVIEW-003,ParentChild,Is Parent Of,Is Child Of,2026-07-21T20:18:30.351135,architect,Repair missing DEV-STORY-005 parent-child link to CODEREVIEW-003.
-LINK-00168,DEV-STORY-005,TESTEXEC-003,ParentChild,Is Parent Of,Is Child Of,2026-07-21T20:18:33.824823,architect,Repair missing DEV-STORY-005 parent-child link to TESTEXEC-003.
-LINK-00169,DEV-STORY-001,DESIGN-002,ParentChild,Is Parent Of,Is Child Of,2026-07-21T23:30:34.735352,architect,
-LINK-00170,TESTCASE-003,DEV-003,DependsOn,Depends On,Is Dependency For,2026-07-21T23:33:19.038697,qa-engineer,Test cases depend on DEV-005 implementation (DEV-003) being complete. DEV-003 is Closed with implementation at .claude/skills/foundry-datasets/scripts/foundry_datasets_cli.py (33 operations). Verifies the 'Test scenarios reference actual implemented features' DoD criterion for the In Progress to Resolved transition of TESTCASE-003.
-LINK-00171,TESTCASE-003,UNITTEST-003,RelatesTo,Relates To,Relates To,2026-07-21T23:34:12.288851,qa-engineer,"Acceptance/QA test cases (TESTCASE-003, black-box CLI-level) complement the unit test suite in UNITTEST-003 (96 tests at 91.91% line coverage). Adding RelatesTo for cross-reference; not a hard dependency since unit tests ship with the impl. The passing unit suite confirms the implementation is testable and is referenced by AC-TC-6 phantom-test-case DoD verification."
-LINK-00173,QUESTION-025,TESTCASE-003,Question,Asks About,Has Question,2026-07-21T23:45:23.513861,qa-engineer,Structural Question link matching the established pattern for QUESTION-015..QUESTION-023 (each has a Question link to TESTCASE-003). QUESTION-025 asks the tech-lead to review/approve the test-case specification.
-LINK-00174,CODEREVIEW-004,DEV-004,RelatesTo,Relates To,Relates To,2026-07-22T17:13:19.906172,architect,Code review for DEV-004 implementation.
-LINK-00175,CODEREVIEW-004,DEV-STORY-003,RelatesTo,Relates To,Relates To,2026-07-22T17:13:27.924034,architect,Code review context for DEV-STORY-003.
-LINK-00176,DEV-STORY-003,DESIGN-004,ParentChild,Is Parent Of,Is Child Of,2026-07-22T17:13:45.164527,architect,Parent story owns grooming design subtask.
-LINK-00177,DEV-STORY-003,DEV-004,ParentChild,Is Parent Of,Is Child Of,2026-07-22T17:13:50.325480,architect,Parent story owns development subtask.
-LINK-00178,DEV-STORY-003,UNITTEST-004,ParentChild,Is Parent Of,Is Child Of,2026-07-22T17:13:53.727984,architect,Parent story owns unit test subtask.
-LINK-00179,DEV-STORY-003,CODEREVIEW-004,ParentChild,Is Parent Of,Is Child Of,2026-07-22T17:14:00.610754,architect,Parent story owns code review subtask.
-LINK-00180,DEV-STORY-003,TESTCASE-004,ParentChild,Is Parent Of,Is Child Of,2026-07-22T17:14:04.424982,architect,Parent story owns QA testcase subtask.
-LINK-00181,DEV-STORY-003,TESTEXEC-004,ParentChild,Is Parent Of,Is Child Of,2026-07-22T17:14:07.671851,architect,Parent story owns QA test execution subtask.
+LINK-00191,DEV-STORY-005,TESTEXEC-003,ParentChild,Is Parent Of,Is Child Of,2026-07-26T22:47:23.617710,manager,Register parent relationship for TESTEXEC-003 under DEV-STORY-005.
+LINK-00192,QUESTION-026,TESTCASE-004,Question,Asks About,Has Question,2026-07-26T22:50:07.547929,qa-engineer,
+LINK-00194,DEV-STORY-003,TESTEXEC-004,ParentChild,Is Parent Of,Is Child Of,2026-07-26T23:04:36.002395,manager,Register parent story relationship for TESTEXEC-004 QA execution.
+LINK-00195,FEATURE-001,DEV-STORY-005,Contains,Contains,Contained In,2026-07-26T23:09:29.973041,manager,Register DEV-STORY-005 under FEATURE-001 for closure DoD.
+LINK-00196,EPIC-002,DEV-STORY-005,EpicLink,Epic Link,Epic Link,2026-07-26T23:09:33.195534,manager,Register DEV-STORY-005 EpicLink for closure DoD.
+LINK-00197,DEV-STORY-005,DESIGN-003,ParentChild,Is Parent Of,Is Child Of,2026-07-26T23:09:36.251819,manager,Register closed child ticket for DEV-STORY-005 closure DoD.
+LINK-00198,DEV-STORY-005,DEV-003,ParentChild,Is Parent Of,Is Child Of,2026-07-26T23:09:39.898862,manager,Register closed child ticket for DEV-STORY-005 closure DoD.
+LINK-00199,DEV-STORY-005,CODEREVIEW-003,ParentChild,Is Parent Of,Is Child Of,2026-07-26T23:09:45.262890,manager,Register closed child ticket for DEV-STORY-005 closure DoD.
+LINK-00200,DEV-STORY-005,UNITTEST-003,ParentChild,Is Parent Of,Is Child Of,2026-07-26T23:09:48.685828,manager,Register closed child ticket for DEV-STORY-005 closure DoD.
+LINK-00201,DEV-STORY-005,TESTCASE-003,ParentChild,Is Parent Of,Is Child Of,2026-07-26T23:09:53.548458,manager,Register closed child ticket for DEV-STORY-005 closure DoD.
+LINK-00202,DEV-STORY-005,DEVOPS-004,ParentChild,Is Parent Of,Is Child Of,2026-07-26T23:09:56.711004,manager,Register closed child ticket for DEV-STORY-005 closure DoD.
+LINK-00203,DEV-STORY-005,QUESTION-009,ParentChild,Is Parent Of,Is Child Of,2026-07-26T23:10:00.026860,manager,Register closed child question for DEV-STORY-005 closure DoD.
+LINK-00204,FEATURE-001,DEV-STORY-003,Contains,Contains,Contained In,2026-07-26T23:11:36.241589,manager,Register DEV-STORY-003 under FEATURE-001 for closure DoD.
+LINK-00205,EPIC-001,DEV-STORY-003,EpicLink,Epic Link,Epic Link,2026-07-26T23:11:44.269697,manager,Register DEV-STORY-003 EpicLink for closure DoD.
+LINK-00206,DEV-STORY-003,DESIGN-004,ParentChild,Is Parent Of,Is Child Of,2026-07-26T23:11:48.993779,manager,Register closed child ticket for DEV-STORY-003 closure DoD.
+LINK-00207,DEV-STORY-003,DEV-004,ParentChild,Is Parent Of,Is Child Of,2026-07-26T23:11:53.618577,manager,Register closed child ticket for DEV-STORY-003 closure DoD.
+LINK-00208,DEV-STORY-003,UNITTEST-004,ParentChild,Is Parent Of,Is Child Of,2026-07-26T23:11:57.724083,manager,Register closed child ticket for DEV-STORY-003 closure DoD.
+LINK-00209,DEV-STORY-003,CODEREVIEW-004,ParentChild,Is Parent Of,Is Child Of,2026-07-26T23:12:03.150996,manager,Register closed child ticket for DEV-STORY-003 closure DoD.
+LINK-00210,DEV-STORY-003,TESTCASE-004,ParentChild,Is Parent Of,Is Child Of,2026-07-26T23:12:07.959391,manager,Register closed child ticket for DEV-STORY-003 closure DoD.
+LINK-00211,FEATURE-001,DEV-STORY-004,Contains,Contains,Contained In,2026-07-27T00:51:43.194553,manager,Feature contains implementation story.
+LINK-00212,EPIC-001,DEV-STORY-004,EpicLink,Epic Link,Epic Link,2026-07-27T00:51:50.243936,manager,Story belongs to core CLI infrastructure epic.
+LINK-00213,FEATURE-001,DEV-STORY-004,ParentChild,Is Parent Of,Is Child Of,2026-07-27T00:51:54.240292,manager,Explicitly mirrors the ticket parent relationship.
+LINK-00214,DEV-STORY-004,DESIGN-005,Contains,Contains,Contained In,2026-07-27T00:57:49.290130,manager,Story contains design work.
+LINK-00215,DEV-STORY-004,DESIGN-005,ParentChild,Is Parent Of,Is Child Of,2026-07-27T00:57:49.750686,manager,Mirrors design parent relationship.
+LINK-00216,DEV-STORY-004,DEV-005,Contains,Contains,Contained In,2026-07-27T00:58:04.169917,manager,Story contains implementation work.
+LINK-00217,DEV-STORY-004,DEV-005,ParentChild,Is Parent Of,Is Child Of,2026-07-27T00:58:04.630376,manager,Mirrors implementation parent relationship.
+LINK-00218,DEV-STORY-004,UNITTEST-005,Contains,Contains,Contained In,2026-07-27T00:58:18.158165,manager,Story contains paired unit-test work.
+LINK-00219,DEV-STORY-004,UNITTEST-005,ParentChild,Is Parent Of,Is Child Of,2026-07-27T00:58:18.618053,manager,Mirrors unit-test parent relationship.
+LINK-00220,DEV-005,UNITTEST-005,RelatesTo,Relates To,Relates To,2026-07-27T00:58:19.077174,manager,Pairs implementation with its unit-test work.
+LINK-00221,DEV-STORY-004,CODEREVIEW-005,Contains,Contains,Contained In,2026-07-27T00:58:39.150383,manager,Story contains independent code-review work.
+LINK-00222,DEV-STORY-004,CODEREVIEW-005,ParentChild,Is Parent Of,Is Child Of,2026-07-27T00:58:39.615558,manager,Mirrors code-review parent relationship.
+LINK-00223,CODEREVIEW-005,DEV-005,RelatesTo,Relates To,Relates To,2026-07-27T00:58:40.086403,manager,Pairs review with implementation.
+LINK-00224,CODEREVIEW-005,DEV-STORY-004,RelatesTo,Relates To,Relates To,2026-07-27T00:58:40.548336,manager,Links review to parent story context.
+LINK-00226,DEV-STORY-004,TESTCASE-005,Contains,Contains,Contained In,2026-07-27T00:58:53.412641,manager,Story contains QA test-design work.
+LINK-00227,DEV-STORY-004,TESTCASE-005,ParentChild,Is Parent Of,Is Child Of,2026-07-27T00:58:53.873169,manager,Mirrors test-case parent relationship.
+LINK-00228,DEV-STORY-004,TESTEXEC-005,Contains,Contains,Contained In,2026-07-27T00:59:06.366175,manager,Story contains QA execution work.
+LINK-00229,DEV-STORY-004,TESTEXEC-005,ParentChild,Is Parent Of,Is Child Of,2026-07-27T00:59:06.824314,manager,Mirrors test-execution parent relationship.
+LINK-00230,DEV-STORY-004,DEVOPS-005,Contains,Contains,Contained In,2026-07-27T00:59:17.693141,manager,Story contains CI and deployment-readiness work.
+LINK-00231,DEV-STORY-004,DEVOPS-005,ParentChild,Is Parent Of,Is Child Of,2026-07-27T00:59:18.165300,manager,Mirrors DevOps parent relationship.
+LINK-00232,QUESTION-027,DESIGN-005,Question,Asks About,Has Question,2026-07-27T01:09:23.922483,tech-lead,Consolidated contract decisions requested from architect.
+LINK-00234,FEATURE-001,DEV-STORY-007,Contains,Contains,Contained In,2026-07-27T11:56:26.348361,architect,Integrity repair: re-establishing Contains link from FEATURE-001 to DEV-STORY-007 as required by dev_story workflow New status DoD.
+LINK-00235,DEV-STORY-007,EPIC-003,EpicLink,Epic Link,Epic Link,2026-07-27T11:56:57.539049,architect,Integrity repair: re-establishing EpicLink from DEV-STORY-007 to EPIC-003 as required by dev_story workflow New status DoD.
+LINK-00236,FEATURE-001,DEV-STORY-006,Contains,Contains,Contained In,2026-07-27T13:24:20.831878,architect,New → Open DoD: register DEV-STORY-006 under parent FEATURE-001 (Contains link) as required by dev_story New status instructions and transition DoD.
+LINK-00237,DEV-STORY-006,EPIC-002,EpicLink,Epic Link,Epic Link,2026-07-27T13:25:00.633073,architect,New to Open DoD: link DEV-STORY-006 to its parent epic EPIC-002 (EpicLink) so the epic auto-transition rule (AT epic: first DEV-STORY Development to EPIC In Progress) is armed. Epic field on DEV-STORY-006 already populated as EPIC-002; this formal link matches it.
+LINK-00238,DEVOPS-005,TESTEXEC-005,DependsOn,Depends On,Is Dependency For,2026-07-27T13:57:11.096380,devops-engineer,"Triage dependency: DEVOPS-005 final CI verification (full suite + 80% coverage gate on Ubuntu+Windows) logically depends on TESTEXEC-005 closing the QA test set. DEVOPS-005 New->Open triage work (wheel contents inspection, CI workflow file audit, dependency-scan gate strictness check, packaging config review) can begin in parallel; the DependsOn link records the downstream execution dependency only."
+LINK-00239,CODEREVIEW-006,DEV-006,RelatesTo,Relates To,Relates To,2026-07-28T15:18:06.087239,architect,Pair code review with implementation task for DEV-STORY-007.
+LINK-00240,DEV-006,UNITTEST-006,RelatesTo,Relates To,Relates To,2026-07-28T15:18:17.949155,architect,Pair implementation task with unit test task for DEV-STORY-007.
+LINK-00241,TESTCASE-006,TESTEXEC-006,RelatesTo,Relates To,Relates To,2026-07-28T15:18:25.757580,architect,Pair QA test design with QA execution for DEV-STORY-007.
+LINK-00242,DEV-STORY-007,DESIGN-006,ParentChild,Is Parent Of,Is Child Of,2026-07-28T15:18:40.167677,architect,Register DESIGN-006 as child of DEV-STORY-007.
+LINK-00243,DEV-STORY-007,DEV-006,ParentChild,Is Parent Of,Is Child Of,2026-07-28T15:18:49.543650,architect,Register DEV-006 as child of DEV-STORY-007.
+LINK-00244,DEV-STORY-007,UNITTEST-006,ParentChild,Is Parent Of,Is Child Of,2026-07-28T15:18:53.601768,architect,Register UNITTEST-006 as child of DEV-STORY-007.
+LINK-00245,DEV-STORY-007,CODEREVIEW-006,ParentChild,Is Parent Of,Is Child Of,2026-07-28T15:18:57.899014,architect,Register CODEREVIEW-006 as child of DEV-STORY-007.
+LINK-00246,DEV-STORY-007,TESTCASE-006,ParentChild,Is Parent Of,Is Child Of,2026-07-28T15:19:02.070434,architect,Register TESTCASE-006 as child of DEV-STORY-007.
+LINK-00247,DEV-STORY-007,TESTEXEC-006,ParentChild,Is Parent Of,Is Child Of,2026-07-28T15:19:06.359769,architect,Register TESTEXEC-006 as child of DEV-STORY-007.
+LINK-00248,DEV-STORY-007,DEVOPS-006,ParentChild,Is Parent Of,Is Child Of,2026-07-28T15:19:12.219695,architect,Register DEVOPS-006 as child of DEV-STORY-007.
+LINK-00250,QUESTION-028,DEV-STORY-007,Question,Asks About,Has Question,2026-07-28T15:27:38.637230,architect,QUESTION-028 asks about DEV-STORY-007 grooming readiness.
+LINK-00252,QUESTION-029,DEV-STORY-007,Question,Asks About,Has Question,2026-07-28T15:27:59.986502,architect,QUESTION-029 asks about DEV-STORY-007 QA grooming readiness.
+LINK-00254,QUESTION-030,DEV-STORY-007,Question,Asks About,Has Question,2026-07-28T15:28:19.755411,architect,QUESTION-030 asks about DEV-STORY-007 DevOps grooming readiness.
+LINK-00255,FEATURE-001,DEV-STORY-006,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:12.438993,manager,Repair required dev_story hierarchy.
+LINK-00256,FEATURE-001,DEV-STORY-008,Contains,Contains,Contained In,2026-07-28T16:00:37.625422,manager,Repair required dev_story hierarchy.
+LINK-00257,FEATURE-001,DEV-STORY-008,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:37.885205,manager,Repair required dev_story hierarchy.
+LINK-00258,DEV-STORY-008,EPIC-003,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:38.141732,manager,Repair required dev_story epic hierarchy.
+LINK-00259,FEATURE-001,DEV-STORY-009,Contains,Contains,Contained In,2026-07-28T16:00:38.906534,manager,Repair required dev_story hierarchy.
+LINK-00260,FEATURE-001,DEV-STORY-009,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:39.164251,manager,Repair required dev_story hierarchy.
+LINK-00261,DEV-STORY-009,EPIC-004,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:39.421548,manager,Repair required dev_story epic hierarchy.
+LINK-00262,FEATURE-001,DEV-STORY-010,Contains,Contains,Contained In,2026-07-28T16:00:40.173669,manager,Repair required dev_story hierarchy.
+LINK-00263,FEATURE-001,DEV-STORY-010,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:40.430074,manager,Repair required dev_story hierarchy.
+LINK-00264,DEV-STORY-010,EPIC-004,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:40.689606,manager,Repair required dev_story epic hierarchy.
+LINK-00265,FEATURE-001,DEV-STORY-011,Contains,Contains,Contained In,2026-07-28T16:00:41.447417,manager,Repair required dev_story hierarchy.
+LINK-00266,FEATURE-001,DEV-STORY-011,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:41.703715,manager,Repair required dev_story hierarchy.
+LINK-00267,DEV-STORY-011,EPIC-005,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:41.961248,manager,Repair required dev_story epic hierarchy.
+LINK-00268,FEATURE-001,DEV-STORY-012,Contains,Contains,Contained In,2026-07-28T16:00:42.726306,manager,Repair required dev_story hierarchy.
+LINK-00269,FEATURE-001,DEV-STORY-012,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:42.983350,manager,Repair required dev_story hierarchy.
+LINK-00270,DEV-STORY-012,EPIC-005,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:43.240885,manager,Repair required dev_story epic hierarchy.
+LINK-00271,FEATURE-001,DEV-STORY-013,Contains,Contains,Contained In,2026-07-28T16:00:43.996299,manager,Repair required dev_story hierarchy.
+LINK-00272,FEATURE-001,DEV-STORY-013,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:44.254373,manager,Repair required dev_story hierarchy.
+LINK-00273,DEV-STORY-013,EPIC-005,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:44.511335,manager,Repair required dev_story epic hierarchy.
+LINK-00274,FEATURE-001,DEV-STORY-014,Contains,Contains,Contained In,2026-07-28T16:00:45.272262,manager,Repair required dev_story hierarchy.
+LINK-00275,FEATURE-001,DEV-STORY-014,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:45.529614,manager,Repair required dev_story hierarchy.
+LINK-00276,DEV-STORY-014,EPIC-006,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:45.787632,manager,Repair required dev_story epic hierarchy.
+LINK-00277,FEATURE-001,DEV-STORY-015,Contains,Contains,Contained In,2026-07-28T16:00:46.542824,manager,Repair required dev_story hierarchy.
+LINK-00278,FEATURE-001,DEV-STORY-015,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:46.799806,manager,Repair required dev_story hierarchy.
+LINK-00279,DEV-STORY-015,EPIC-006,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:47.057350,manager,Repair required dev_story epic hierarchy.
+LINK-00280,FEATURE-001,DEV-STORY-016,Contains,Contains,Contained In,2026-07-28T16:00:47.816423,manager,Repair required dev_story hierarchy.
+LINK-00281,FEATURE-001,DEV-STORY-016,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:48.072438,manager,Repair required dev_story hierarchy.
+LINK-00282,DEV-STORY-016,EPIC-006,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:48.328887,manager,Repair required dev_story epic hierarchy.
+LINK-00283,FEATURE-001,DEV-STORY-017,Contains,Contains,Contained In,2026-07-28T16:00:49.075554,manager,Repair required dev_story hierarchy.
+LINK-00284,FEATURE-001,DEV-STORY-017,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:49.334715,manager,Repair required dev_story hierarchy.
+LINK-00285,DEV-STORY-017,EPIC-006,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:49.589575,manager,Repair required dev_story epic hierarchy.
+LINK-00286,FEATURE-001,DEV-STORY-018,Contains,Contains,Contained In,2026-07-28T16:00:50.346086,manager,Repair required dev_story hierarchy.
+LINK-00287,FEATURE-001,DEV-STORY-018,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:50.602221,manager,Repair required dev_story hierarchy.
+LINK-00288,DEV-STORY-018,EPIC-007,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:50.859822,manager,Repair required dev_story epic hierarchy.
+LINK-00289,FEATURE-001,DEV-STORY-019,Contains,Contains,Contained In,2026-07-28T16:00:51.608843,manager,Repair required dev_story hierarchy.
+LINK-00290,FEATURE-001,DEV-STORY-019,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:51.864955,manager,Repair required dev_story hierarchy.
+LINK-00291,DEV-STORY-019,EPIC-007,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:52.120193,manager,Repair required dev_story epic hierarchy.
+LINK-00292,FEATURE-001,DEV-STORY-020,Contains,Contains,Contained In,2026-07-28T16:00:52.871421,manager,Repair required dev_story hierarchy.
+LINK-00293,FEATURE-001,DEV-STORY-020,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:53.128435,manager,Repair required dev_story hierarchy.
+LINK-00294,DEV-STORY-020,EPIC-007,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:53.385962,manager,Repair required dev_story epic hierarchy.
+LINK-00295,FEATURE-001,DEV-STORY-021,Contains,Contains,Contained In,2026-07-28T16:00:54.143600,manager,Repair required dev_story hierarchy.
+LINK-00296,FEATURE-001,DEV-STORY-021,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:54.400161,manager,Repair required dev_story hierarchy.
+LINK-00297,DEV-STORY-021,EPIC-007,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:54.661519,manager,Repair required dev_story epic hierarchy.
+LINK-00298,FEATURE-001,DEV-STORY-022,Contains,Contains,Contained In,2026-07-28T16:00:55.409509,manager,Repair required dev_story hierarchy.
+LINK-00299,FEATURE-001,DEV-STORY-022,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:55.666527,manager,Repair required dev_story hierarchy.
+LINK-00300,DEV-STORY-022,EPIC-007,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:55.922333,manager,Repair required dev_story epic hierarchy.
+LINK-00301,FEATURE-001,DEV-STORY-023,Contains,Contains,Contained In,2026-07-28T16:00:56.668545,manager,Repair required dev_story hierarchy.
+LINK-00302,FEATURE-001,DEV-STORY-023,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:56.926337,manager,Repair required dev_story hierarchy.
+LINK-00303,DEV-STORY-023,EPIC-008,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:57.182082,manager,Repair required dev_story epic hierarchy.
+LINK-00305,QUESTION-031,DEV-STORY-002,Question,Asks About,Has Question,2026-07-28T16:12:46.688529,manager,Question asks about DEV-STORY-002 closure criteria for Canceled DEVOPS-001 and missing/conflicting link registration.
+LINK-00306,CODEREVIEW-006,DEV-STORY-007,RelatesTo,Relates To,Relates To,2026-07-28T16:43:23.615718,manager,Code review start readiness: parent story context link required by CODEREVIEW New instructions.
+LINK-00307,DEV-007,CODEREVIEW-007,RelatesTo,Relates To,Relates To,2026-07-29T11:31:49.913494,architect,DEV↔CODEREVIEW pair for DEV-STORY-006
+LINK-00308,FEATURE-001,EPIC-003,FeatureContains,Feature Contains,Is Contained In Feature,2026-07-29T12:12:12.726062,ticket-helper,Restored required FeatureContains relationship for EPIC-003 structural validation: FEATURE-001 is source Feature Request; EPIC-003 is target Epic.
+LINK-00309,DEV-STORY-006,DESIGN-007,Contains,Contains,Contained In,2026-07-29T12:20:52.522046,tech-lead,Correction for DESIGN-007 DoD: register parent Story containment link.
+LINK-00310,DEV-STORY-006,DESIGN-007,ParentChild,Is Parent Of,Is Child Of,2026-07-29T12:20:56.693336,tech-lead,Correction for DESIGN-007 DoD: register explicit parent-child link to parent Story.
+LINK-00311,DEV-STORY-006,DEV-007,Contains,Contains,Contained In,2026-07-29T12:37:16.797467,architect,Manager correction: explicit story-to-child Contains link for DEV-STORY-006 grooming handoff.
+LINK-00312,DEV-STORY-006,DEV-007,ParentChild,Is Parent Of,Is Child Of,2026-07-29T12:37:20.343108,architect,Manager correction: explicit story-to-child ParentChild link for DEV-STORY-006 grooming handoff.
+LINK-00313,DEV-STORY-006,UNITTEST-007,Contains,Contains,Contained In,2026-07-29T12:37:28.026621,architect,Manager correction: explicit story-to-child Contains link for DEV-STORY-006 grooming handoff.
+LINK-00314,DEV-STORY-006,UNITTEST-007,ParentChild,Is Parent Of,Is Child Of,2026-07-29T12:37:28.047042,architect,Manager correction: explicit story-to-child ParentChild link for DEV-STORY-006 grooming handoff.
+LINK-00315,DEV-STORY-006,CODEREVIEW-007,Contains,Contains,Contained In,2026-07-29T12:37:35.851821,architect,Manager correction: explicit story-to-child Contains link for DEV-STORY-006 grooming handoff.
+LINK-00316,DEV-STORY-006,CODEREVIEW-007,ParentChild,Is Parent Of,Is Child Of,2026-07-29T12:37:35.864821,architect,Manager correction: explicit story-to-child ParentChild link for DEV-STORY-006 grooming handoff.
+LINK-00317,DEV-STORY-006,TESTCASE-007,Contains,Contains,Contained In,2026-07-29T12:37:45.353624,architect,Manager correction: explicit story-to-child Contains link for DEV-STORY-006 grooming handoff.
+andoff.,,,,,,,,
+LINK-00318,DEV-STORY-006,TESTCASE-007,ParentChild,Is Parent Of,Is Child Of,2026-07-29T12:37:58.286729,architect,Manager correction: explicit story-to-child ParentChild link for DEV-STORY-006 grooming handoff.
+LINK-00319,DEV-STORY-006,TESTEXEC-007,Contains,Contains,Contained In,2026-07-29T12:38:01.960117,architect,Manager correction: explicit story-to-child Contains link for DEV-STORY-006 grooming handoff.
+LINK-00320,DEV-STORY-006,TESTEXEC-007,ParentChild,Is Parent Of,Is Child Of,2026-07-29T12:38:05.280937,architect,Manager correction: explicit story-to-child ParentChild link for DEV-STORY-006 grooming handoff.
+LINK-00321,DEV-STORY-006,DEVOPS-007,Contains,Contains,Contained In,2026-07-29T12:38:09.972816,architect,Manager correction: explicit story-to-child Contains link for DEV-STORY-006 grooming handoff.
+LINK-00322,DEV-STORY-006,DEVOPS-007,ParentChild,Is Parent Of,Is Child Of,2026-07-29T12:38:13.420899,architect,Manager correction: explicit story-to-child ParentChild link for DEV-STORY-006 grooming handoff.
+LINK-00324,QUESTION-032,TESTCASE-007,Question,Asks About,Has Question,2026-07-29T13:09:29.508011,qa-engineer,Question link for TESTCASE-007 implementation availability blocker
+LINK-00326,QUESTION-033,TESTCASE-007,Question,Asks About,Has Question,2026-07-29T13:52:44.851905,qa-engineer,QUESTION-033 asks for Tech Lead review approval of TESTCASE-007 QA test case design deliverable.
+LINK-00328,DEV-STORY-008,DESIGN-008,Contains,Contains,Contained In,2026-07-29T15:43:01.940243,manager,
+LINK-00329,DEV-STORY-008,DESIGN-008,ParentChild,Is Parent Of,Is Child Of,2026-07-29T15:43:06.040061,manager,
+LINK-00330,DEV-STORY-008,DEV-008,Contains,Contains,Contained In,2026-07-29T15:43:09.315139,manager,
+LINK-00331,DEV-STORY-008,DEV-008,ParentChild,Is Parent Of,Is Child Of,2026-07-29T15:43:12.274458,manager,
+LINK-00332,DEV-STORY-008,UNITTEST-008,Contains,Contains,Contained In,2026-07-29T15:43:16.311202,manager,
+LINK-00333,DEV-STORY-008,UNITTEST-008,ParentChild,Is Parent Of,Is Child Of,2026-07-29T15:43:19.577553,manager,
+LINK-00334,DEV-STORY-008,CODEREVIEW-008,Contains,Contains,Contained In,2026-07-29T15:43:24.079196,manager,
+LINK-00335,DEV-STORY-008,CODEREVIEW-008,ParentChild,Is Parent Of,Is Child Of,2026-07-29T15:43:27.405024,manager,
+LINK-00336,DEV-STORY-008,TESTCASE-008,Contains,Contains,Contained In,2026-07-29T15:43:31.267888,manager,
+LINK-00337,DEV-STORY-008,TESTCASE-008,ParentChild,Is Parent Of,Is Child Of,2026-07-29T15:43:34.892948,manager,
+LINK-00338,DEV-STORY-008,TESTEXEC-008,Contains,Contains,Contained In,2026-07-29T15:43:38.324577,manager,
+LINK-00339,DEV-STORY-008,TESTEXEC-008,ParentChild,Is Parent Of,Is Child Of,2026-07-29T15:43:42.848446,manager,
+LINK-00340,DEV-STORY-008,DEVOPS-008,Contains,Contains,Contained In,2026-07-29T15:43:47.468263,manager,
+LINK-00341,DEV-STORY-008,DEVOPS-008,ParentChild,Is Parent Of,Is Child Of,2026-07-29T15:43:50.300106,manager,
+LINK-00342,DEV-008,CODEREVIEW-008,RelatesTo,Relates To,Relates To,2026-07-29T15:44:03.811425,manager,
+LINK-00343,CODEREVIEW-008,DEV-008,RelatesTo,Relates To,Relates To,2026-07-29T15:44:09.711849,manager,
+LINK-00344,DEV-STORY-009,DESIGN-009,Contains,Contains,Contained In,2026-07-29T16:27:49.360258,manager,
+LINK-00345,DEV-STORY-009,DESIGN-009,ParentChild,Is Parent Of,Is Child Of,2026-07-29T16:27:53.233518,manager,
+LINK-00346,DEV-STORY-009,DEV-009,Contains,Contains,Contained In,2026-07-29T16:27:58.378975,manager,
+LINK-00347,DEV-STORY-009,DEV-009,ParentChild,Is Parent Of,Is Child Of,2026-07-29T16:28:03.485072,manager,
+LINK-00348,DEV-STORY-009,UNITTEST-009,Contains,Contains,Contained In,2026-07-29T16:28:08.084697,manager,
+LINK-00349,DEV-STORY-009,UNITTEST-009,ParentChild,Is Parent Of,Is Child Of,2026-07-29T16:28:14.821656,manager,
+LINK-00350,DEV-STORY-009,CODEREVIEW-009,Contains,Contains,Contained In,2026-07-29T16:28:18.317207,manager,
+LINK-00351,DEV-STORY-009,CODEREVIEW-009,ParentChild,Is Parent Of,Is Child Of,2026-07-29T16:28:21.341386,manager,
+LINK-00352,DEV-STORY-009,TESTCASE-009,Contains,Contains,Contained In,2026-07-29T16:28:24.753489,manager,
+LINK-00353,DEV-STORY-009,TESTCASE-009,ParentChild,Is Parent Of,Is Child Of,2026-07-29T16:28:29.093569,manager,
+LINK-00354,DEV-STORY-009,TESTEXEC-009,Contains,Contains,Contained In,2026-07-29T16:28:32.703686,manager,
+LINK-00355,DEV-STORY-009,TESTEXEC-009,ParentChild,Is Parent Of,Is Child Of,2026-07-29T16:28:36.959780,manager,
+LINK-00356,DEV-STORY-009,DEVOPS-009,Contains,Contains,Contained In,2026-07-29T16:28:40.191447,manager,
+LINK-00357,DEV-STORY-009,DEVOPS-009,ParentChild,Is Parent Of,Is Child Of,2026-07-29T16:28:43.337500,manager,
+LINK-00358,DEV-009,CODEREVIEW-009,RelatesTo,Relates To,Relates To,2026-07-29T16:28:46.484729,manager,
+LINK-00359,CODEREVIEW-009,DEV-009,RelatesTo,Relates To,Relates To,2026-07-29T16:28:49.703066,manager,
+LINK-00361,DEV-STORY-010,QUESTION-034,ParentChild,Is Parent Of,Is Child Of,2026-07-30T10:43:13.019549,architect,Register QUESTION-034 as child of DEV-STORY-010.
+LINK-00362,QUESTION-034,DEV-STORY-010,Question,Asks About,Has Question,2026-07-30T10:43:13.489270,architect,QUESTION-034 asks DEV-STORY-010 tracing scope clarification.
+LINK-00366,RESOURCE-REQ-006,DEV-STORY-011,RelatesTo,Relates To,Relates To,2026-07-30T14:24:43.021558,workflow-manager,Operational readiness request is driven by repeated incomplete handoffs for DEV-STORY-011.
+LINK-00367,RESOURCE-REQ-006,DEV-STORY-012,RelatesTo,Relates To,Relates To,2026-07-30T14:24:52.579138,workflow-manager,Operational readiness request is driven by repeated incomplete handoffs for DEV-STORY-012.
+LINK-00368,RESOURCE-REQ-006,DEV-STORY-013,RelatesTo,Relates To,Relates To,2026-07-30T14:24:56.956343,workflow-manager,Operational readiness request is driven by repeated incomplete handoffs for DEV-STORY-013.
+LINK-00372,RESOURCE-REQ-006,DEV-STORY-014,RelatesTo,Relates To,Relates To,2026-07-30T14:46:50.830339,workflow-manager,Operational readiness request extends to the failed DEV-STORY-014 Architect handoff.
+LINK-00374,RESOURCE-REQ-006,DEV-STORY-015,RelatesTo,Relates To,Relates To,2026-07-30T14:48:17.584917,workflow-manager,Operational readiness request covers the same New-stage Architect/Tech Lead enrichment gap on DEV-STORY-015.
+LINK-00376,RESOURCE-REQ-006,DEV-STORY-016,RelatesTo,Relates To,Relates To,2026-07-30T14:48:18.405380,workflow-manager,Operational readiness request covers the same New-stage Architect/Tech Lead enrichment gap on DEV-STORY-016.
+LINK-00378,RESOURCE-REQ-006,DEV-STORY-017,RelatesTo,Relates To,Relates To,2026-07-30T14:48:19.224664,workflow-manager,Operational readiness request covers the same New-stage Architect/Tech Lead enrichment gap on DEV-STORY-017.
+LINK-00380,RESOURCE-REQ-006,DEV-STORY-018,RelatesTo,Relates To,Relates To,2026-07-30T14:48:20.013196,workflow-manager,Operational readiness request covers the same New-stage Architect/Tech Lead enrichment gap on DEV-STORY-018.
+LINK-00382,RESOURCE-REQ-006,DEV-STORY-019,RelatesTo,Relates To,Relates To,2026-07-30T14:48:20.801136,workflow-manager,Operational readiness request covers the same New-stage Architect/Tech Lead enrichment gap on DEV-STORY-019.
+LINK-00384,RESOURCE-REQ-006,DEV-STORY-020,RelatesTo,Relates To,Relates To,2026-07-30T14:48:21.591916,workflow-manager,Operational readiness request covers the same New-stage Architect/Tech Lead enrichment gap on DEV-STORY-020.
+LINK-00386,RESOURCE-REQ-006,DEV-STORY-021,RelatesTo,Relates To,Relates To,2026-07-30T14:48:22.399813,workflow-manager,Operational readiness request covers the same New-stage Architect/Tech Lead enrichment gap on DEV-STORY-021.
+LINK-00388,RESOURCE-REQ-006,DEV-STORY-022,RelatesTo,Relates To,Relates To,2026-07-30T14:48:23.222551,workflow-manager,Operational readiness request covers the same New-stage Architect/Tech Lead enrichment gap on DEV-STORY-022.
+LINK-00390,RESOURCE-REQ-006,DEV-STORY-023,RelatesTo,Relates To,Relates To,2026-07-30T14:48:24.066395,workflow-manager,Operational readiness request covers the same New-stage Architect/Tech Lead enrichment gap on DEV-STORY-023.
+LINK-00392,FEATURE-001,DEV-STORY-001,Contains,Contains,Contained In,2026-07-30T14:56:37.070904,workflow-manager,Field repair: DEV-STORY-001 parent and feature_request are FEATURE-001.
+LINK-00393,FEATURE-001,DEV-STORY-001,ParentChild,Is Parent Of,Is Child Of,2026-07-30T14:56:37.365502,workflow-manager,Field repair: DEV-STORY-001 parent is FEATURE-001.
+LINK-00394,DEV-STORY-001,EPIC-001,EpicLink,Epic Link,Epic Link,2026-07-30T14:56:37.638566,workflow-manager,Field repair: DEV-STORY-001 epic is EPIC-001.
+LINK-00395,FEATURE-001,DEV-STORY-002,Contains,Contains,Contained In,2026-07-30T14:56:37.912178,workflow-manager,Field repair: DEV-STORY-002 parent and feature_request are FEATURE-001.
+LINK-00396,FEATURE-001,DEV-STORY-002,ParentChild,Is Parent Of,Is Child Of,2026-07-30T14:56:38.190741,workflow-manager,Field repair: DEV-STORY-002 parent is FEATURE-001.
+LINK-00397,DEV-STORY-002,EPIC-001,EpicLink,Epic Link,Epic Link,2026-07-30T14:56:38.463779,workflow-manager,Field repair: DEV-STORY-002 epic is EPIC-001.
+LINK-00398,FEATURE-001,DEV-STORY-003,ParentChild,Is Parent Of,Is Child Of,2026-07-30T14:56:38.737938,workflow-manager,Field repair: DEV-STORY-003 parent is FEATURE-001.
+LINK-00399,FEATURE-001,DEV-STORY-005,ParentChild,Is Parent Of,Is Child Of,2026-07-30T14:56:39.004055,workflow-manager,Field repair: DEV-STORY-005 parent is FEATURE-001.
+LINK-00400,FEATURE-001,DEV-STORY-007,ParentChild,Is Parent Of,Is Child Of,2026-07-30T14:56:39.271141,workflow-manager,Field repair: DEV-STORY-007 parent is FEATURE-001.
+LINK-00401,FEATURE-001,EPIC-001,FeatureContains,Feature Contains,Is Contained In Feature,2026-07-30T14:56:39.536697,workflow-manager,Hierarchy repair supported by FEATURE-001 story fields pointing to EPIC-001.
+LINK-00402,FEATURE-001,EPIC-002,FeatureContains,Feature Contains,Is Contained In Feature,2026-07-30T14:56:39.802424,workflow-manager,Hierarchy repair supported by FEATURE-001 story fields pointing to EPIC-002.
+LINK-00403,FEATURE-001,EPIC-004,FeatureContains,Feature Contains,Is Contained In Feature,2026-07-30T14:56:40.073075,workflow-manager,Hierarchy repair supported by FEATURE-001 story fields pointing to EPIC-004.
+LINK-00404,FEATURE-001,EPIC-005,FeatureContains,Feature Contains,Is Contained In Feature,2026-07-30T14:56:40.341269,workflow-manager,Hierarchy repair supported by FEATURE-001 story fields pointing to EPIC-005.
+LINK-00405,FEATURE-001,EPIC-006,FeatureContains,Feature Contains,Is Contained In Feature,2026-07-30T14:56:40.607462,workflow-manager,Hierarchy repair supported by FEATURE-001 story fields pointing to EPIC-006.
+LINK-00406,FEATURE-001,EPIC-007,FeatureContains,Feature Contains,Is Contained In Feature,2026-07-30T14:56:40.872752,workflow-manager,Hierarchy repair supported by FEATURE-001 story fields pointing to EPIC-007.
+LINK-00407,FEATURE-001,EPIC-008,FeatureContains,Feature Contains,Is Contained In Feature,2026-07-30T14:56:41.142944,workflow-manager,Hierarchy repair supported by FEATURE-001 story fields pointing to EPIC-008.
+LINK-00415,BUG-003,FEATURE-001,RelatesTo,Relates To,Relates To,2026-07-30T15:04:55.919119,python-developer,"Tracker defect affects FEATURE-001 status reads and transition validation; relationship only, not a delivery blocker."
+LINK-00422,CODEREVIEW-010,DEV-010,RelatesTo,Relates To,Relates To,2026-08-01T19:18:57.903342,tech-lead,Required development-to-review relationship.
+LINK-00429,DEV-STORY-010,DESIGN-010,ParentChild,Is Parent Of,Is Child Of,2026-08-01T19:20:42.055843,tech-lead,Canonical parent-child relationship for the DEV-STORY-010 grooming package.
+LINK-00430,DEV-STORY-010,DEV-010,ParentChild,Is Parent Of,Is Child Of,2026-08-01T19:20:42.746384,tech-lead,Canonical parent-child relationship for the DEV-STORY-010 grooming package.
+LINK-00431,DEV-STORY-010,UNITTEST-010,ParentChild,Is Parent Of,Is Child Of,2026-08-01T19:20:43.415806,tech-lead,Canonical parent-child relationship for the DEV-STORY-010 grooming package.
+LINK-00432,DEV-STORY-010,CODEREVIEW-010,ParentChild,Is Parent Of,Is Child Of,2026-08-01T19:20:44.110896,tech-lead,Canonical parent-child relationship for the DEV-STORY-010 grooming package.
+LINK-00433,DEV-STORY-010,TESTCASE-010,ParentChild,Is Parent Of,Is Child Of,2026-08-01T19:20:44.795630,tech-lead,Canonical parent-child relationship for the DEV-STORY-010 grooming package.
+LINK-00434,DEV-STORY-010,TESTEXEC-010,ParentChild,Is Parent Of,Is Child Of,2026-08-01T19:20:45.483816,tech-lead,Canonical parent-child relationship for the DEV-STORY-010 grooming package.
+LINK-00435,DEV-STORY-010,DEVOPS-010,ParentChild,Is Parent Of,Is Child Of,2026-08-01T19:20:46.170121,tech-lead,Canonical parent-child relationship for the DEV-STORY-010 grooming package.
+LINK-00450,DEV-011,CODEREVIEW-011,RelatesTo,Relates To,Relates To,2026-08-09T11:27:23.112106,workflow-mgr,Paired implementation and review tasks.
+LINK-00451,CODEREVIEW-011,DEV-011,RelatesTo,Relates To,Relates To,2026-08-09T11:27:26.969330,workflow-mgr,Review task references its implementation task.
+LINK-00452,CODEREVIEW-011,DEV-STORY-011,RelatesTo,Relates To,Relates To,2026-08-09T11:27:30.605793,workflow-mgr,Review task references parent story context.
+LINK-00467,DEV-012,CODEREVIEW-012,RelatesTo,Relates To,Relates To,2026-08-09T14:02:01.536036,workflow-mgr,Implementation and independent review pair.
+LINK-00468,CODEREVIEW-012,DEV-012,RelatesTo,Relates To,Relates To,2026-08-09T14:02:01.879438,workflow-mgr,Independent review relates to its implementation.
+LINK-00469,CODEREVIEW-012,DEV-STORY-012,RelatesTo,Relates To,Relates To,2026-08-09T14:02:02.225087,workflow-mgr,Review covers the parent story acceptance contract.
+LINK-00472,DEV-STORY-012,BUG-SUB-011,ParentChild,Is Parent Of,Is Child Of,2026-08-09T15:04:54.526035,python-developer,Registers BUG-SUB-011 as the DEV-STORY-012 QA defect child.

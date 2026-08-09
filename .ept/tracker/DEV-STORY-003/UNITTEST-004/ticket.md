@@ -2,13 +2,14 @@
 id: UNITTEST-004
 type: unittest
 title: Add unit coverage for ACL and pagination common components
-status: New
+status: Closed
 created: 2026-07-22
-updated: 2026-07-22
+updated: 2026-07-26
 priority: Critical
 assignee: python-developer
 reporter: architect
 estimated_hours: 6
+time_spent_hours: 1
 ---
 
 ## Scope

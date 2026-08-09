@@ -4,7 +4,7 @@ type: feature
 title: 'Foundry CLI: Requirements Analysis and Open Questions'
 status: Waiting for Implementation
 created: 2026-04-09
-updated: 2026-05-21
+updated: 2026-08-01
 priority: High
 assignee: architect
 reporter: architect

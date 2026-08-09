@@ -1,39 +1,39 @@
 id,type,title,status,priority,assignee,reporter,parent,addressed_to,path,created,updated
-FEATURE-001,feature,Foundry CLI: Requirements Analysis and Open Questions,In Development,High,architect,architect,,,FEATURE-001,2026-04-09,2026-04-13
+FEATURE-001,feature,Foundry CLI: Requirements Analysis and Open Questions,Waiting for Implementation,High,architect,architect,,,FEATURE-001,2026-04-09,2026-08-01
 QUESTION-001,question,Foundry CLI Round 3: 10 open questions requiring Product Owner answers,Closed,High,,architect,FEATURE-001,product_owner,FEATURE-001/QUESTION-001,2026-04-10,2026-04-10
 BA-ANA-001,ba_subtask_analysis,Foundry CLI: Business Requirements Analysis,Closed,Medium,ba,ba,FEATURE-001,,FEATURE-001/BA-ANA-001,2026-04-13,2026-04-13
 SA-ANA-001,sa_subtask_analysis,Foundry CLI: Solution Architecture Analysis,Closed,Medium,architect,architect,FEATURE-001,,FEATURE-001/SA-ANA-001,2026-04-13,2026-04-13
-EPIC-001,epic,Core CLI Infrastructure,In Progress,Critical,architect,architect,,,EPIC-001,2026-04-13,2026-05-18
-EPIC-002,epic,Datasets & Filesystem Skills,Blocked,Critical,architect,architect,,,EPIC-002,2026-04-13,2026-05-05
-EPIC-003,epic,Ontology & Functions Skills,Blocked,Critical,architect,architect,,,EPIC-003,2026-04-13,2026-05-02
-EPIC-004,epic,Admin & Security Skills,In Progress,High,architect,architect,,,EPIC-004,2026-04-13,2026-05-18
-EPIC-005,epic,AI & Models Skills,In Progress,High,architect,architect,,,EPIC-005,2026-04-13,2026-05-18
-EPIC-006,epic,Data Pipeline Skills,In Progress,High,architect,architect,,,EPIC-006,2026-04-13,2026-05-18
+EPIC-001,epic,Core CLI Infrastructure,Done,Critical,architect,architect,,,EPIC-001,2026-04-13,2026-07-30
+EPIC-002,epic,Datasets & Filesystem Skills,Done,Critical,architect,architect,,,EPIC-002,2026-04-13,2026-07-30
+EPIC-003,epic,Ontology & Functions Skills,Done,Critical,architect,architect,,,EPIC-003,2026-04-13,2026-07-30
+EPIC-004,epic,Admin & Security Skills,Done,High,architect,architect,,,EPIC-004,2026-04-13,2026-08-01
+EPIC-005,epic,AI & Models Skills,In Progress,High,architect,architect,,,EPIC-005,2026-04-13,2026-08-01
+EPIC-006,epic,Data Pipeline Skills,In Progress,High,architect,architect,,,EPIC-006,2026-04-13,2026-08-01
 EPIC-007,epic,Remaining Namespace Skills,New,Medium,architect,architect,,,EPIC-007,2026-04-13,2026-04-13
-EPIC-008,epic,Foundry Knowledge Skill,In Progress,High,architect,architect,,,EPIC-008,2026-04-13,2026-05-18
+EPIC-008,epic,Foundry Knowledge Skill,In Progress,High,architect,architect,,,EPIC-008,2026-04-13,2026-08-01
 DEV-STORY-001,dev_story,"Implement ConfigLoader, AuthProvider, AsyncClientFactory",Closed,Critical,architect,architect,FEATURE-001,,DEV-STORY-001,2026-04-13,2026-07-22
-DEV-STORY-002,dev_story,"Implement RetryHandler, ErrorSerializer, OutputFormatter, LogSetup",QA,Critical,architect,architect,FEATURE-001,,DEV-STORY-002,2026-04-13,2026-07-05
-DEV-STORY-003,dev_story,"Implement AccessControlGuard, PaginationHelper",Development,Critical,architect,architect,FEATURE-001,,DEV-STORY-003,2026-04-13,2026-07-22
-DEV-STORY-004,dev_story,"Implement BinaryDownloadHandler, SessionManager, TracingProvider",New,High,architect,architect,FEATURE-001,,DEV-STORY-004,2026-04-13,2026-05-13
-DEV-STORY-005,dev_story,foundry-datasets skill (26 operations),QA,Critical,architect,architect,FEATURE-001,,DEV-STORY-005,2026-04-13,2026-07-21
-DEV-STORY-006,dev_story,foundry-filesystem skill (31 operations),New,High,architect,architect,,,DEV-STORY-006,2026-04-13,2026-04-13
-DEV-STORY-007,dev_story,foundry-ontologies skill (55 operations),New,Critical,architect,architect,FEATURE-001,,DEV-STORY-007,2026-04-13,2026-07-21
-DEV-STORY-008,dev_story,foundry-functions skill (7 operations),New,High,architect,architect,,,DEV-STORY-008,2026-04-13,2026-04-13
-DEV-STORY-009,dev_story,foundry-admin skill (66 operations),New,High,architect,architect,,,DEV-STORY-009,2026-04-13,2026-04-13
-DEV-STORY-010,dev_story,foundry-audit skill (2 operations),New,Medium,architect,architect,,,DEV-STORY-010,2026-04-13,2026-04-13
-DEV-STORY-011,dev_story,foundry-aip-agents skill (13 operations + session management),New,High,architect,architect,,,DEV-STORY-011,2026-04-13,2026-04-13
-DEV-STORY-012,dev_story,foundry-language-models skill (2 operations),New,High,architect,architect,,,DEV-STORY-012,2026-04-13,2026-04-13
-DEV-STORY-013,dev_story,foundry-models skill (23 operations),New,Medium,architect,architect,,,DEV-STORY-013,2026-04-13,2026-04-13
-DEV-STORY-014,dev_story,foundry-orchestration skill (20 operations),New,High,architect,architect,,,DEV-STORY-014,2026-04-13,2026-04-13
-DEV-STORY-015,dev_story,foundry-sql-queries skill (5 operations),New,High,architect,architect,,,DEV-STORY-015,2026-04-13,2026-04-13
-DEV-STORY-016,dev_story,"foundry-streams skill (17 operations, batch strategy ADR-003)",New,High,architect,architect,,,DEV-STORY-016,2026-04-13,2026-04-13
-DEV-STORY-017,dev_story,foundry-connectivity skill (15 operations),New,Medium,architect,architect,,,DEV-STORY-017,2026-04-13,2026-04-13
-DEV-STORY-018,dev_story,foundry-media-sets skill (19 operations),New,Medium,architect,architect,,,DEV-STORY-018,2026-04-13,2026-04-13
-DEV-STORY-019,dev_story,foundry-checkpoints skill (3 operations),New,Medium,architect,architect,,,DEV-STORY-019,2026-04-13,2026-04-13
-DEV-STORY-020,dev_story,foundry-data-health skill (4 operations),New,Medium,architect,architect,,,DEV-STORY-020,2026-04-13,2026-04-13
-DEV-STORY-021,dev_story,foundry-third-party-applications skill (9 operations),New,Low,architect,architect,,,DEV-STORY-021,2026-04-13,2026-04-13
-DEV-STORY-022,dev_story,foundry-widgets skill (12 operations),New,Low,architect,architect,,,DEV-STORY-022,2026-04-13,2026-04-13
-DEV-STORY-023,dev_story,Author foundry/ knowledge skill content,New,High,architect,architect,,,DEV-STORY-023,2026-04-13,2026-04-13
+DEV-STORY-002,dev_story,"Implement RetryHandler, ErrorSerializer, OutputFormatter, LogSetup",Closed,Critical,architect,architect,FEATURE-001,,DEV-STORY-002,2026-04-13,2026-07-28
+DEV-STORY-003,dev_story,"Implement AccessControlGuard, PaginationHelper",Closed,Critical,architect,architect,FEATURE-001,,DEV-STORY-003,2026-04-13,2026-07-26
+DEV-STORY-004,dev_story,"Implement BinaryDownloadHandler, SessionManager, TracingProvider",Closed,High,tech-lead,architect,FEATURE-001,,DEV-STORY-004,2026-04-13,2026-07-28
+DEV-STORY-005,dev_story,foundry-datasets skill (26 operations),Closed,Critical,architect,architect,FEATURE-001,,DEV-STORY-005,2026-04-13,2026-07-26
+DEV-STORY-006,dev_story,foundry-filesystem skill (31 operations),Closed,High,architect,architect,FEATURE-001,,DEV-STORY-006,2026-04-13,2026-07-29
+DEV-STORY-007,dev_story,foundry-ontologies skill (55 operations),Closed,Critical,python-developer,architect,FEATURE-001,,DEV-STORY-007,2026-04-13,2026-07-28
+DEV-STORY-008,dev_story,foundry-functions skill (7 operations),Closed,High,architect,architect,FEATURE-001,,DEV-STORY-008,2026-04-13,2026-07-29
+DEV-STORY-009,dev_story,foundry-admin skill (66 operations),Closed,High,architect,architect,FEATURE-001,,DEV-STORY-009,2026-04-13,2026-07-30
+DEV-STORY-010,dev_story,foundry-audit skill (2 operations),Closed,High,python-developer,architect,FEATURE-001,,DEV-STORY-010,2026-04-13,2026-08-01
+DEV-STORY-011,dev_story,foundry-aip-agents skill (13 operations + session management),Closed,High,architect,architect,FEATURE-001,,DEV-STORY-011,2026-04-13,2026-08-09
+DEV-STORY-012,dev_story,foundry-language-models skill (2 operations),Closed,High,architect,architect,FEATURE-001,,DEV-STORY-012,2026-04-13,2026-08-09
+DEV-STORY-013,dev_story,foundry-models skill (23 operations),Analysis,High,architect,architect,FEATURE-001,,DEV-STORY-013,2026-04-13,2026-08-09
+DEV-STORY-014,dev_story,foundry-orchestration skill (20 operations),New,High,architect,architect,FEATURE-001,,DEV-STORY-014,2026-04-13,2026-07-28
+DEV-STORY-015,dev_story,foundry-sql-queries skill (5 operations),New,High,architect,architect,FEATURE-001,,DEV-STORY-015,2026-04-13,2026-07-28
+DEV-STORY-016,dev_story,"foundry-streams skill (17 operations, batch strategy ADR-003)",New,High,architect,architect,FEATURE-001,,DEV-STORY-016,2026-04-13,2026-07-28
+DEV-STORY-017,dev_story,foundry-connectivity skill (15 operations),New,High,architect,architect,FEATURE-001,,DEV-STORY-017,2026-04-13,2026-07-28
+DEV-STORY-018,dev_story,foundry-media-sets skill (19 operations),New,High,architect,architect,FEATURE-001,,DEV-STORY-018,2026-04-13,2026-07-28
+DEV-STORY-019,dev_story,foundry-checkpoints skill (3 operations),New,High,architect,architect,FEATURE-001,,DEV-STORY-019,2026-04-13,2026-07-28
+DEV-STORY-020,dev_story,foundry-data-health skill (4 operations),New,High,architect,architect,FEATURE-001,,DEV-STORY-020,2026-04-13,2026-07-28
+DEV-STORY-021,dev_story,foundry-third-party-applications skill (9 operations),New,High,architect,architect,FEATURE-001,,DEV-STORY-021,2026-04-13,2026-07-28
+DEV-STORY-022,dev_story,foundry-widgets skill (12 operations),New,High,architect,architect,FEATURE-001,,DEV-STORY-022,2026-04-13,2026-07-28
+DEV-STORY-023,dev_story,Author foundry/ knowledge skill content,New,High,architect,architect,FEATURE-001,,DEV-STORY-023,2026-04-13,2026-07-28
 TASK-001,task,Analyze project implementation needs and request required team members via HR,Closed,High,architect,architect,,,TASK-001,2026-05-01,2026-05-01
 RESOURCE-REQ-001,resource_req,Provision Business Analyst (BA) agent for Foundry CLI project,Closed,High,hr,architect,,,RESOURCE-REQ-001,2026-05-01,2026-05-01
 RESOURCE-REQ-002,resource_req,Provision Tech Lead / Senior Python Developer agent for Foundry CLI project,Closed,Critical,hr,architect,,,RESOURCE-REQ-002,2026-05-01,2026-05-01
@@ -57,10 +57,10 @@ DEV-002,development,"Implement RetryHandler, ErrorSerializer, OutputFormatter, L
 UNITTEST-001,unittest,"UNITTEST: DEV-STORY-001 — ConfigLoader, AuthProvider, AsyncClientFactory",Closed,Critical,developer,architect,DEV-STORY-001,,DEV-STORY-001/UNITTEST-001,2026-05-17,2026-05-20
 UNITTEST-002,unittest,"UNITTEST: Write unit tests for RetryHandler, ErrorSerializer, OutputFormatter, LogSetup",Closed,Critical,developer,architect,DEV-STORY-002,,DEV-STORY-002/UNITTEST-002,2026-05-17,2026-07-04
 DEVOPS-001,devops,DEVOPS: Add error handling library to CI/CD pipeline configuration,Canceled,High,devops-engineer,architect,DEV-STORY-002,,DEV-STORY-002/DEVOPS-001,2026-05-17,2026-05-17
-TESTEXEC-001,testexec,"TESTEXEC: DEV-STORY-002 — Execute QA test cases for RetryHandler, ErrorSerializer, OutputFormatter, LogSetup",In Progress,Critical,qa-engineer,architect,DEV-STORY-002,,DEV-STORY-002/TESTEXEC-001,2026-05-17,2026-07-22
+TESTEXEC-001,testexec,"TESTEXEC: DEV-STORY-002 — Execute QA test cases for RetryHandler, ErrorSerializer, OutputFormatter, LogSetup",Closed,Critical,qa-engineer,architect,DEV-STORY-002,,DEV-STORY-002/TESTEXEC-001,2026-05-17,2026-07-26
 TESTCASE-001,testcase,"TESTCASE: Define QA test cases for RetryHandler, ErrorSerializer, OutputFormatter, LogSetup",Closed,Critical,qa-engineer,architect,DEV-STORY-002,,DEV-STORY-002/TESTCASE-001,2026-05-17,2026-07-05
 CODEREVIEW-002,codereview,"CODE REVIEW: RetryHandler, ErrorSerializer, OutputFormatter, LogSetup implementation",Closed,Medium,architect,architect,DEV-STORY-002,,DEV-STORY-002/CODEREVIEW-002,2026-05-17,2026-07-04
-DEVOPS-002,devops,Add error handling library to CI/CD pipeline configuration,In Progress,Medium,devops-engineer,architect,DEV-STORY-002,,DEV-STORY-002/DEVOPS-002,2026-05-17,2026-07-22
+DEVOPS-002,devops,Add error handling library to CI/CD pipeline configuration,Closed,Medium,devops-engineer,architect,DEV-STORY-002,,DEV-STORY-002/DEVOPS-002,2026-05-17,2026-07-26
 TESTCASE-002,testcase,"TESTCASE: DEV-STORY-001 — Integration & E2E Tests for ConfigLoader, AuthProvider, AsyncClientFactory",Closed,Critical,qa-engineer,architect,DEV-STORY-001,,DEV-STORY-001/TESTCASE-002,2026-05-17,2026-05-19
 TESTEXEC-002,testexec,"TESTEXEC: DEV-STORY-001 — Execute Tests for ConfigLoader, AuthProvider, AsyncClientFactory",Closed,Critical,qa-engineer,architect,DEV-STORY-001,,DEV-STORY-001/TESTEXEC-002,2026-05-17,2026-05-20
 DEVOPS-003,devops,"DEVOPS: DEV-STORY-001 — Infrastructure Setup for ConfigLoader, AuthProvider, AsyncClientFactory",Closed,Critical,devops-engineer,architect,DEV-STORY-001,,DEV-STORY-001/DEVOPS-003,2026-05-17,2026-05-19
@@ -69,9 +69,9 @@ DESIGN-003,design,DESIGN-005: Technical design for foundry-datasets skill,Closed
 DEV-003,development,DEV-005: Implement foundry-datasets skill (26 operations),Closed,Critical,python-developer,architect,DEV-STORY-005,,DEV-STORY-005/DEV-003,2026-05-18,2026-07-04
 CODEREVIEW-003,codereview,CODEREVIEW-005: Code review for foundry-datasets implementation,Closed,Critical,python-developer,architect,DEV-STORY-005,,DEV-STORY-005/CODEREVIEW-003,2026-05-18,2026-07-04
 UNITTEST-003,unittest,UNITTEST-005: Unit tests for foundry-datasets,Closed,Critical,python-developer,architect,DEV-STORY-005,,DEV-STORY-005/UNITTEST-003,2026-05-18,2026-07-04
-TESTCASE-003,testcase,TESTCASE-005: QA test cases for foundry-datasets,In Progress,Critical,qa-engineer,architect,DEV-STORY-005,,DEV-STORY-005/TESTCASE-003,2026-05-18,2026-07-22
-TESTEXEC-003,testexec,TESTEXEC-005: Execute QA tests for foundry-datasets,New,Critical,qa-engineer,architect,DEV-STORY-005,,DEV-STORY-005/TESTEXEC-003,2026-05-18,2026-05-18
-DEVOPS-004,devops,DEVOPS-005: Deploy foundry-datasets skill,New,High,devops-engineer,architect,DEV-STORY-005,,DEV-STORY-005/DEVOPS-004,2026-05-18,2026-05-18
+TESTCASE-003,testcase,TESTCASE-005: QA test cases for foundry-datasets,Closed,Critical,qa-engineer,architect,DEV-STORY-005,,DEV-STORY-005/TESTCASE-003,2026-05-18,2026-07-26
+TESTEXEC-003,testexec,TESTEXEC-005: Execute QA tests for foundry-datasets,Closed,Critical,qa-engineer,architect,DEV-STORY-005,,DEV-STORY-005/TESTEXEC-003,2026-05-18,2026-07-26
+DEVOPS-004,devops,DEVOPS-005: Deploy foundry-datasets skill,Closed,High,devops-engineer,architect,DEV-STORY-005,,DEV-STORY-005/DEVOPS-004,2026-05-18,2026-07-26
 BUG-001,bug,ConfigLoader CWD fallback broken when no git root — TC-CL-INT-004 fails,Rejected,High,developer,qa-engineer,DEV-STORY-001,tech-lead,DEV-STORY-001/BUG-001,2026-05-19,2026-05-20
 BUG-002,bug,Test TC-E2E-001 missing directory setup — FileNotFoundError on chdir,Closed,Low,qa-engineer,qa-engineer,,,BUG-002,2026-05-19,2026-05-19
 QUESTION-009,question,"QUESTION: DEVOPS-004 deployment prerequisites — DEV-STORY-001/003/004 incomplete, CLI code not in package directory",Closed,High,architect,devops-engineer,DEV-STORY-005,architect,DEV-STORY-005/QUESTION-009,2026-05-20,2026-05-20
@@ -96,8 +96,82 @@ QUESTION-023,question,QUESTION: TESTCASE-003 D-9 No asyncio.wait_for() timeout w
 QUESTION-024,question,DEV-STORY-001 closure acceptance and resolution confirmation,Rejected,Critical,project-owner,architect,DEV-STORY-001,project-owner,DEV-STORY-001/QUESTION-024,2026-07-21,2026-07-22
 QUESTION-025,question,TESTCASE-003 review request — approve QA test-case specification for foundry-datasets (33 ops),Closed,Critical,tech-lead,qa-engineer,TESTCASE-003,tech-lead,TESTCASE-003/QUESTION-025,2026-07-21,2026-07-22
 DESIGN-004,design,Design AccessControlGuard and PaginationHelper implementation plan,Closed,Critical,architect,architect,DEV-STORY-003,,DEV-STORY-003/DESIGN-004,2026-07-22,2026-07-22
-DEV-004,development,Implement AccessControlGuard and PaginationHelper behavior,New,Critical,python-developer,architect,DEV-STORY-003,,DEV-STORY-003/DEV-004,2026-07-22,2026-07-22
-UNITTEST-004,unittest,Add unit coverage for ACL and pagination common components,New,Critical,python-developer,architect,DEV-STORY-003,,DEV-STORY-003/UNITTEST-004,2026-07-22,2026-07-22
-CODEREVIEW-004,codereview,Review ACL and pagination implementation,New,Critical,tech-lead,architect,DEV-STORY-003,,DEV-STORY-003/CODEREVIEW-004,2026-07-22,2026-07-22
-TESTCASE-004,testcase,Design QA cases for ACL and pagination,New,Critical,qa-engineer,architect,DEV-STORY-003,,DEV-STORY-003/TESTCASE-004,2026-07-22,2026-07-22
-TESTEXEC-004,testexec,Execute QA validation for ACL and pagination,New,Critical,qa-engineer,architect,DEV-STORY-003,,DEV-STORY-003/TESTEXEC-004,2026-07-22,2026-07-22
+DEV-004,development,Implement AccessControlGuard and PaginationHelper behavior,Closed,Critical,python-developer,architect,DEV-STORY-003,,DEV-STORY-003/DEV-004,2026-07-22,2026-07-26
+UNITTEST-004,unittest,Add unit coverage for ACL and pagination common components,Closed,Critical,python-developer,architect,DEV-STORY-003,,DEV-STORY-003/UNITTEST-004,2026-07-22,2026-07-26
+CODEREVIEW-004,codereview,Review ACL and pagination implementation,Closed,Critical,tech-lead,architect,DEV-STORY-003,,DEV-STORY-003/CODEREVIEW-004,2026-07-22,2026-07-26
+TESTCASE-004,testcase,Design QA cases for ACL and pagination,Closed,Critical,qa-engineer,architect,DEV-STORY-003,,DEV-STORY-003/TESTCASE-004,2026-07-22,2026-07-26
+TESTEXEC-004,testexec,Execute QA validation for ACL and pagination,Closed,Critical,qa-engineer,architect,DEV-STORY-003,,DEV-STORY-003/TESTEXEC-004,2026-07-22,2026-07-26
+BUG-SUB-005,bug_subtask,BUG-SUB: LogSetup/Integration TC-LS-001/002/003/004/006/007 + TC-INT-002/003 fail due to stderr_capture fixture / pytest FDCapture interaction,Closed,Critical,qa-engineer,qa-engineer,DEV-STORY-002,,DEV-STORY-002/BUG-SUB-005,2026-07-22,2026-07-26
+BUG-SUB-006,bug_subtask,Resolve Foundry SDK dependency and import validation blockers,Closed,Critical,developer,manager,DEV-STORY-002,,DEV-STORY-002/BUG-SUB-006,2026-07-26,2026-07-26
+BUG-SUB-007,bug_subtask,Fix ruff lint failures blocking deployment validation,Closed,Critical,manager,manager,DEV-STORY-002,,DEV-STORY-002/BUG-SUB-007,2026-07-26,2026-07-26
+BUG-SUB-008,bug_subtask,Fix current pytest failures not covered by BUG-SUB-005,Closed,Critical,developer,manager,DEV-STORY-002,,DEV-STORY-002/BUG-SUB-008,2026-07-26,2026-07-26
+BUG-SUB-009,bug_subtask,Restore missing datasets console script module,Closed,Critical,developer,manager,DEV-STORY-002,,DEV-STORY-002/BUG-SUB-009,2026-07-26,2026-07-26
+BUG-SUB-010,bug_subtask,Correct CI deployment validation configuration drift,Closed,Critical,manager,manager,DEV-STORY-002,,DEV-STORY-002/BUG-SUB-010,2026-07-26,2026-07-26
+QUESTION-026,question,Review and approve TESTCASE-004 QA case design,Closed,Medium,qa-engineer,qa-engineer,TESTCASE-004,tech-lead,TESTCASE-004/QUESTION-026,2026-07-26,2026-07-26
+DESIGN-005,design,"Finalize contracts for binary downloads, sessions, and tracing",Closed,High,tech-lead,manager,DEV-STORY-004,,DEV-STORY-004/DESIGN-005,2026-07-27,2026-07-27
+DEV-005,development,"Implement BinaryDownloadHandler, SessionManager, and TracingProvider",Closed,High,python-developer,manager,DEV-STORY-004,,DEV-STORY-004/DEV-005,2026-07-27,2026-07-27
+UNITTEST-005,unittest,"Unit test BinaryDownloadHandler, SessionManager, and TracingProvider",Closed,High,python-developer,manager,DEV-STORY-004,,DEV-STORY-004/UNITTEST-005,2026-07-27,2026-07-27
+CODEREVIEW-005,codereview,"Review BinaryDownloadHandler, SessionManager, and TracingProvider",Closed,High,architect,manager,DEV-STORY-004,,DEV-STORY-004/CODEREVIEW-005,2026-07-27,2026-07-27
+TESTCASE-005,testcase,"Design test cases for binary downloads, sessions, and tracing",Closed,High,qa-engineer,manager,DEV-STORY-004,,DEV-STORY-004/TESTCASE-005,2026-07-27,2026-07-28
+TESTEXEC-005,testexec,"Execute tests for binary downloads, sessions, and tracing",Closed,High,qa-engineer,manager,DEV-STORY-004,,DEV-STORY-004/TESTEXEC-005,2026-07-27,2026-07-28
+DEVOPS-005,devops,Verify packaging and CI readiness for common components,Closed,High,devops-engineer,manager,DEV-STORY-004,,DEV-STORY-004/DEVOPS-005,2026-07-27,2026-07-28
+QUESTION-027,question,"Confirm session token, trace propagation, and unknown-size truncation contracts",Closed,High,architect,tech-lead,DESIGN-005,architect,DESIGN-005/QUESTION-027,2026-07-27,2026-07-27
+DESIGN-006,design,Design foundry-ontologies skill implementation (67 operations),Closed,Critical,architect,architect,DEV-STORY-007,,DEV-STORY-007/DESIGN-006,2026-07-28,2026-07-28
+DEV-006,development,Implement foundry-ontologies skill (67 operations),Closed,Critical,python-developer,architect,DEV-STORY-007,,DEV-STORY-007/DEV-006,2026-07-28,2026-07-28
+UNITTEST-006,unittest,Unit test foundry-ontologies skill (67 operations),Closed,Critical,python-developer,architect,DEV-STORY-007,,DEV-STORY-007/UNITTEST-006,2026-07-28,2026-07-28
+CODEREVIEW-006,codereview,Code review foundry-ontologies implementation,Closed,Critical,tech-lead,architect,DEV-STORY-007,,DEV-STORY-007/CODEREVIEW-006,2026-07-28,2026-07-28
+TESTCASE-006,testcase,Design QA test cases for foundry-ontologies skill,Closed,Critical,qa-engineer,architect,DEV-STORY-007,,DEV-STORY-007/TESTCASE-006,2026-07-28,2026-07-28
+TESTEXEC-006,testexec,Execute QA for foundry-ontologies skill,Closed,Critical,qa-engineer,architect,DEV-STORY-007,,DEV-STORY-007/TESTEXEC-006,2026-07-28,2026-07-28
+DEVOPS-006,devops,Deploy foundry-ontologies skill,Closed,Critical,devops-engineer,architect,DEV-STORY-007,,DEV-STORY-007/DEVOPS-006,2026-07-28,2026-07-28
+QUESTION-028,question,Confirm DEV-STORY-007 development lead grooming review,Closed,Critical,architect,architect,DEV-STORY-007,tech-lead,DEV-STORY-007/QUESTION-028,2026-07-28,2026-07-28
+QUESTION-029,question,Confirm DEV-STORY-007 QA grooming review,Closed,Critical,architect,architect,DEV-STORY-007,qa-engineer,DEV-STORY-007/QUESTION-029,2026-07-28,2026-07-28
+QUESTION-030,question,Confirm DEV-STORY-007 DevOps grooming review,Closed,Critical,architect,architect,DEV-STORY-007,devops-engineer,DEV-STORY-007/QUESTION-030,2026-07-28,2026-07-28
+QUESTION-031,question,Closure decision needed for DEV-STORY-002 DoD conflict,Closed,Critical,manager,manager,DEV-STORY-002,Project Owner,DEV-STORY-002/QUESTION-031,2026-07-28,2026-07-28
+DESIGN-007,design,"DEV-STORY-006 DESIGN: filesystem skill technical spec, estimation & OP_SPECS design",Closed,High,tech-lead,architect,DEV-STORY-006,,DEV-STORY-006/DESIGN-007,2026-07-29,2026-07-29
+DEV-007,development,"DEV-STORY-006 DEV: foundry-filesystem CLI (31 ops, ontologies OP_SPECS pattern)",Closed,High,python-developer,architect,DEV-STORY-006,,DEV-STORY-006/DEV-007,2026-07-29,2026-07-29
+UNITTEST-007,unittest,DEV-STORY-006 UNITTEST: filesystem CLI dispatch/parser/ops/nested-subclient + exit-code tests,Closed,High,python-developer,architect,DEV-STORY-006,,DEV-STORY-006/UNITTEST-007,2026-07-29,2026-07-29
+CODEREVIEW-007,codereview,"DEV-STORY-006 CODEREVIEW: review filesystem CLI (ontologies pattern adherence, ACL, exits, nested client)",Closed,High,tech-lead,architect,DEV-STORY-006,tech-lead,DEV-STORY-006/CODEREVIEW-007,2026-07-29,2026-07-29
+TESTCASE-007,testcase,"DEV-STORY-006 TESTCASE: filesystem skill QA test cases (31 ops, infra, exits, pagination)",Closed,High,qa-engineer,architect,DEV-STORY-006,qa-engineer,DEV-STORY-006/TESTCASE-007,2026-07-29,2026-07-29
+TESTEXEC-007,testexec,DEV-STORY-006 TESTEXEC: execute filesystem QA test cases & log evidence,Closed,High,qa-engineer,architect,DEV-STORY-006,qa-engineer,DEV-STORY-006/TESTEXEC-007,2026-07-29,2026-07-29
+DEVOPS-007,devops,DEV-STORY-006 DEVOPS: package/verify foundry-filesystem console entry point install,Closed,High,architect,architect,DEV-STORY-006,devops-engineer,DEV-STORY-006/DEVOPS-007,2026-07-29,2026-07-29
+QUESTION-032,question,QUESTION: Provide filesystem implementation availability for TESTCASE-007,Closed,High,qa-engineer,qa-engineer,TESTCASE-007,python-developer,TESTCASE-007/QUESTION-032,2026-07-29,2026-07-29
+QUESTION-033,question,Review TESTCASE-007 QA test case design deliverable,Closed,High,qa-engineer,qa-engineer,TESTCASE-007,tech-lead,TESTCASE-007/QUESTION-033,2026-07-29,2026-07-29
+DESIGN-008,design,DEV-STORY-008 DESIGN: functions skill OP_SPECS and implementation plan,Closed,High,tech-lead,manager,DEV-STORY-008,tech-lead,DEV-STORY-008/DESIGN-008,2026-07-29,2026-07-29
+DEV-008,development,DEV-STORY-008 DEV: foundry-functions CLI implementation,Closed,High,python-developer,manager,DEV-STORY-008,,DEV-STORY-008/DEV-008,2026-07-29,2026-07-29
+UNITTEST-008,unittest,DEV-STORY-008 UNITTEST: functions CLI parser dispatch and infra tests,Closed,High,python-developer,manager,DEV-STORY-008,,DEV-STORY-008/UNITTEST-008,2026-07-29,2026-07-29
+CODEREVIEW-008,codereview,DEV-STORY-008 CODEREVIEW: review functions CLI,Closed,High,tech-lead,manager,DEV-STORY-008,tech-lead,DEV-STORY-008/CODEREVIEW-008,2026-07-29,2026-07-29
+TESTCASE-008,testcase,DEV-STORY-008 TESTCASE: functions skill QA test cases,Closed,High,qa-engineer,manager,DEV-STORY-008,qa-engineer,DEV-STORY-008/TESTCASE-008,2026-07-29,2026-07-29
+TESTEXEC-008,testexec,DEV-STORY-008 TESTEXEC: execute functions QA tests,Closed,High,qa-engineer,manager,DEV-STORY-008,qa-engineer,DEV-STORY-008/TESTEXEC-008,2026-07-29,2026-07-29
+DEVOPS-008,devops,DEV-STORY-008 DEVOPS: package and verify foundry-functions entry point,Closed,High,devops-engineer,manager,DEV-STORY-008,devops-engineer,DEV-STORY-008/DEVOPS-008,2026-07-29,2026-07-29
+DESIGN-009,design,design for foundry-admin CLI,Closed,High,architect,manager,DEV-STORY-009,,DEV-STORY-009/DESIGN-009,2026-07-29,2026-07-29
+DEV-009,development,implement foundry-admin CLI and skill,Closed,High,python-developer,manager,DEV-STORY-009,,DEV-STORY-009/DEV-009,2026-07-29,2026-07-29
+UNITTEST-009,unittest,unit tests for foundry-admin CLI,Closed,High,python-developer,manager,DEV-STORY-009,,DEV-STORY-009/UNITTEST-009,2026-07-29,2026-07-29
+CODEREVIEW-009,codereview,code review for DEV-009,Closed,High,tech-lead,manager,DEV-STORY-009,,DEV-STORY-009/CODEREVIEW-009,2026-07-29,2026-07-29
+TESTCASE-009,testcase,QA test case design,Closed,High,qa-engineer,manager,DEV-STORY-009,,DEV-STORY-009/TESTCASE-009,2026-07-29,2026-07-29
+TESTEXEC-009,testexec,QA execution,Closed,High,qa-engineer,manager,DEV-STORY-009,,DEV-STORY-009/TESTEXEC-009,2026-07-29,2026-07-29
+DEVOPS-009,devops,packaging/deployment verification,Closed,High,devops-engineer,manager,DEV-STORY-009,,DEV-STORY-009/DEVOPS-009,2026-07-29,2026-07-30
+QUESTION-034,question,Clarify outbound B3/W3C propagation scope for DEV-STORY-010,Closed,High,architect,architect,DEV-STORY-010,architect,DEV-STORY-010/QUESTION-034,2026-07-30,2026-08-01
+RESOURCE-REQ-006,resource_req,Reliable architecture readiness execution for DEV-STORY-011 through DEV-STORY-023,Rejected,High,hr,workflow-manager,,,RESOURCE-REQ-006,2026-07-30,2026-08-01
+BUG-003,bug,Tracker status index/get inconsistency prevents FEATURE-001 transition,Closed,High,python-developer,python-developer,,,BUG-003,2026-07-30,2026-07-30
+DESIGN-010,design,Design Foundry Audit CLI,Closed,High,tech-lead,tech-lead,DEV-STORY-010,,DEV-STORY-010/DESIGN-010,2026-08-01,2026-08-01
+DEV-010,development,Implement Foundry Audit CLI and skill,Closed,High,python-developer,python-developer,DEV-STORY-010,,DEV-STORY-010/DEV-010,2026-08-01,2026-08-01
+UNITTEST-010,unittest,Add Audit CLI unit and integration tests,Closed,High,python-developer,python-developer,DEV-STORY-010,,DEV-STORY-010/UNITTEST-010,2026-08-01,2026-08-01
+CODEREVIEW-010,codereview,Review Foundry Audit CLI implementation,Closed,High,tech-lead,tech-lead,DEV-STORY-010,,DEV-STORY-010/CODEREVIEW-010,2026-08-01,2026-08-01
+TESTCASE-010,testcase,Design Foundry Audit CLI QA cases,Closed,High,qa-engineer,qa-engineer,DEV-STORY-010,,DEV-STORY-010/TESTCASE-010,2026-08-01,2026-08-01
+TESTEXEC-010,testexec,Execute Foundry Audit CLI QA suite,Closed,High,qa-engineer,qa-engineer,DEV-STORY-010,,DEV-STORY-010/TESTEXEC-010,2026-08-01,2026-08-01
+DEVOPS-010,devops,Package and verify Foundry Audit entry points,Closed,High,devops-engineer,devops-engineer,DEV-STORY-010,,DEV-STORY-010/DEVOPS-010,2026-08-01,2026-08-01
+DESIGN-011,design,Design Foundry AIP Agents CLI and session lifecycle,Closed,High,tech-lead,workflow-mgr,DEV-STORY-011,,DEV-STORY-011/DESIGN-011,2026-08-09,2026-08-09
+DEV-011,development,"Implement Foundry AIP Agents CLI, session lifecycle, and Claude skill",Closed,High,python-developer,workflow-mgr,DEV-STORY-011,,DEV-STORY-011/DEV-011,2026-08-09,2026-08-09
+UNITTEST-011,unittest,Add Foundry AIP Agents CLI unit and integration tests,Closed,High,python-developer,workflow-mgr,DEV-STORY-011,,DEV-STORY-011/UNITTEST-011,2026-08-09,2026-08-09
+CODEREVIEW-011,codereview,Review Foundry AIP Agents CLI implementation,Closed,High,tech-lead,workflow-mgr,DEV-STORY-011,,DEV-STORY-011/CODEREVIEW-011,2026-08-09,2026-08-09
+TESTCASE-011,testcase,Design Foundry AIP Agents CLI QA cases,Closed,High,qa-engineer,workflow-mgr,DEV-STORY-011,,DEV-STORY-011/TESTCASE-011,2026-08-09,2026-08-09
+TESTEXEC-011,testexec,Execute Foundry AIP Agents CLI QA suite,Closed,High,qa-engineer,workflow-mgr,DEV-STORY-011,,DEV-STORY-011/TESTEXEC-011,2026-08-09,2026-08-09
+DEVOPS-011,devops,Package and verify Foundry AIP Agents entry points,Closed,High,devops-engineer,workflow-mgr,DEV-STORY-011,,DEV-STORY-011/DEVOPS-011,2026-08-09,2026-08-09
+DESIGN-012,design,Design Foundry Language Models CLI and inference controls,Closed,High,tech-lead,tech-lead,DEV-STORY-012,,DEV-STORY-012/DESIGN-012,2026-08-09,2026-08-09
+DEV-012,development,Implement Foundry Language Models CLI and Claude skill,Closed,High,python-developer,python-developer,DEV-STORY-012,,DEV-STORY-012/DEV-012,2026-08-09,2026-08-09
+UNITTEST-012,unittest,Add Foundry Language Models CLI unit and integration tests,Closed,High,python-developer,python-developer,DEV-STORY-012,,DEV-STORY-012/UNITTEST-012,2026-08-09,2026-08-09
+CODEREVIEW-012,codereview,Review Foundry Language Models CLI implementation,Closed,High,tech-lead,tech-lead,DEV-STORY-012,,DEV-STORY-012/CODEREVIEW-012,2026-08-09,2026-08-09
+TESTCASE-012,testcase,Design Foundry Language Models CLI QA cases,Closed,High,qa-engineer,qa-engineer,DEV-STORY-012,,DEV-STORY-012/TESTCASE-012,2026-08-09,2026-08-09
+TESTEXEC-012,testexec,Execute Foundry Language Models CLI QA suite,Closed,High,qa-engineer,qa-engineer,DEV-STORY-012,,DEV-STORY-012/TESTEXEC-012,2026-08-09,2026-08-09
+DEVOPS-012,devops,Package and verify Foundry Language Models entry points,Closed,High,devops-engineer,devops-engineer,DEV-STORY-012,,DEV-STORY-012/DEVOPS-012,2026-08-09,2026-08-09
+BUG-SUB-011,bug_subtask,Honor global FOUNDRY_AGENTIC_CLI_ENABLED=false before client creation,Closed,High,python-developer,python-developer,DEV-STORY-012,,DEV-STORY-012/BUG-SUB-011,2026-08-09,2026-08-09

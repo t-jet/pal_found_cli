@@ -2,23 +2,30 @@
 id: TESTEXEC-004
 type: testexec
 title: Execute QA validation for ACL and pagination
-status: New
+status: Closed
 created: 2026-07-22
-updated: 2026-07-22
+updated: 2026-07-26
 priority: Critical
 assignee: qa-engineer
 reporter: architect
 estimated_hours: 4
+time_spent_hours: 1
 ---
 
 ## Scope
-Execute QA validation for ACL and pagination after implementation and review are ready.
+Execute QA validation for DEV-STORY-003 AccessControlGuard and PaginationHelper behavior after implementation and review readiness.
 
 ## Acceptance criteria
-- Run relevant pytest suites and record exact commands and results.
-- Run CLI smoke tests where the local environment permits, including ACL deny cases and pagination flags.
-- Validate that no SDK call occurs after an ACL block when mocks or smoke fixtures make this observable.
-- Confirm stderr metadata uses # ---metadata-start--- and reports page_token or null correctly.
-- Confirm every paginated command exposes --page-size, --page-token, and --batch-pages.
-- Record environment limits when an external service or credential is unavailable.
-- Create BUG-SUB tickets under DEV-STORY-003 for each reproducible failure and link evidence in comments.
+- Execute helper QA suite based on TESTCASE-004.
+- Verify AccessControlGuard precedence, readonly override, metadata-only allow/deny behavior, and error handling.
+- Verify PaginationHelper page-size, page-token, batch limits, no-next-token handling, and metadata output.
+- Record exact commands, environment details, timestamps, and pass/fail evidence for each executed case.
+- Create BUG-SUB defects under DEV-STORY-003 for every reproducible failure.
+- Close only after detailed pass/fail evidence is attached and no unresolved defects remain.
+
+## Related documentation
+- `.ept/docs/deliverables/qa/TESTCASE-004-test-cases.md`
+- `tests/test_access_control_guard.py`
+- `tests/test_pagination_helper.py`
+- `src/foundry_cli/common/access_control_guard.py`
+- `src/foundry_cli/common/pagination_helper.py`

@@ -23,3 +23,19 @@ Condition:
 
 Action:
 - Do inline stdout capture (io.StringIO + try/finally restore) inside the test instead of relying on the shared fixture, which may be reset/ordered unpredictably across tests in the same class.
+
+## Improvement: tests using a non-production calling convention can mask spec bugs
+
+Condition:
+- When a shared component has a canonical env-var transformation rule documented in the spec (e.g. SRS §5.2 `{NS}_{CLASS}_{OP}` kept verbatim) but existing unit tests call the component with a synthetic/humanised convention (e.g. `check("datasets", "create_dataset")` instead of `check("dataset", "create")`).
+
+Action:
+- Do align unit-test call arguments to the production calling convention that matches the env vars the tests set; don't let tests rely on internal verb-parsing heuristics to bridge the gap. When fixing a transformation bug, grep the test suite for ALL call sites of the affected method and verify each one matches its asserted env keys under the corrected code, because the old buggy behaviour may have made mismatched conventions pass by accident.
+
+## Improvement: check isinstance(dict) before hasattr for dict-key extraction
+
+Condition:
+- When extracting a value from a response that can be either a dict or a Pydantic-style object, and the key name (e.g. "items", "next_page_token") could shadow a built-in dict method or vice versa.
+
+Action:
+- Do branch on `isinstance(response, dict)` (and `isinstance(response, list)`) BEFORE any `hasattr(response, <key>)` check, because every dict satisfies `hasattr(response, "items")` via its bound `.items()` method, returning the method object instead of the keyed value.

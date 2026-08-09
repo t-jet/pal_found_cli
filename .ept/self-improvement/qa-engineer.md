@@ -6,7 +6,7 @@ Condition:
 - When starting any qa-engineer task
 
 Action:
-- Do read self-improvement skill and qa-engineer memory in first single-purpose tool call before any user update, batching, workflow read, ticket read, or repo scan.
+- Do read self-improvement skill and qa-engineer memory in first single-purpose tool call before any user update, batching, workflow read, ticket read, repo scan, or AGENTS skill-index read. If outer role-load rule applies first, make that role read tool-only and single-purpose, then immediately do memory-only read.
 
 ## Improvement: nested first-action conflict
 
@@ -14,7 +14,7 @@ Condition:
 - When outer instructions require loading the qa-engineer role file before anything, and that role file requires memory-first behavior
 
 Action:
-- Do make the first tool call a single file read of only `.ept/agents/qa-engineer.md`, then immediately read only the self-improvement skill and qa-engineer memory in one single-purpose tool call; don't send commentary or batch AGENTS.md prep, skill index, workflow, ticket, repo, git, or other task context into either first-step read.
+- Do make first assistant action a tool-only, single-file read of `.ept/agents/qa-engineer.md`, despite the general preference to send commentary before tools. Then immediately read only self-improvement skill and qa-engineer memory in one single-purpose tool call before any user-facing commentary. After that succeeds, read AGENTS prep, skill index, workflow, and other task context in later calls. Don't send commentary before either required read completes, don't batch skill index, workflow, ticket, repo, git, docs, tests, or other task context into either first-step read, and if this order is missed, recover by loading memory at once, stating the protocol gap, and keeping later tracker access constrained to the required helper path.
 
 ## Improvement: tracker helper missing
 
@@ -70,4 +70,132 @@ Condition:
 - When creating a QUESTION sub-task under a parent to request external review/approval, expecting workflow rule #5 "Question sub-tasks block the parent" + the `child_blocker_created` (AT-4) automatic transition to move the parent to Blocked
 
 Action:
-- Do NOT rely on auto-transition. After creating the QUESTION, explicitly (a) create the `Question` link sibling for structural parity with prior QUESTIONs, (b) create the `Blocks` link to model the blocking relationship, (c) document blocker ID + prior status as a comment per the parent's `Blocked` status instructions, and (d) manually transition the parent to Blocked. When the QUESTION reaches terminal status, remove the Blocks link and rely on `all_blockers_cleared` (AT-5) to restore prior status — don't assume AT-4 fires on link creation.
+- Do NOT rely on auto-transition. After creating the QUESTION, explicitly (a) set assignee to creator before New -> Open if helper creation leaves assignee blank, (b) create the `Question` link sibling for structural parity with prior QUESTIONs, (c) create the `Blocks` link to model the blocking relationship, (d) document blocker ID + prior status as a comment per the parent's `Blocked` status instructions, and (e) manually transition the parent to Blocked. When the QUESTION reaches terminal status, remove the Blocks link and rely on `all_blockers_cleared` (AT-5) to restore prior status. Don't assume AT-4 fires on link creation.
+
+## Improvement: don't trust brief-supplied ticket ids
+
+Condition:
+- When a user brief cites a specific sibling/related ticket id (e.g. "the TESTCASE under same DEV-STORY is TESTCASE-002")
+
+Action:
+- Do verify the cited id against the parent's actual children via `list --parent <parent>` before relying on it; briefs can mis-number siblings (TESTCASE-002 was DEV-STORY-001's, the real sibling of TESTEXEC-001 was TESTCASE-001). Don't open the wrong test-case spec or scope-creep into another story.
+
+## Improvement: classify failures outside pytest before filing
+
+Condition:
+- When pytest tests FAIL and a captured stderr/stdout fixture reads empty while the `Captured stderr call` shows the expected bytes (typical of `logging.StreamHandler(sys.stderr)` + pytest FDCapture interaction), or when a test calls an API with parameter/return shapes that don't match the impl
+
+Action:
+- Do run a small standalone Python repro (NOT under pytest) before classifying — swap streams / call the documented signature manually and observe. If the product emits correctly in isolation, classify as test-harness or stale-test-spec defect (BUG-SUB), NOT a product defect; embed the standalone repro evidence in the execution comment. Don't file a product BUG-SUB without an isolated failing repro, and don't waive a runtime DoD claim from a prior agent without reproducing.
+
+## Improvement: rate-limit retry is transient
+
+Condition:
+- When a ticket-helper subagent call returns "Rate limit exceeded" / "ChatRateLimited" (code 1302)
+
+Action:
+- Do NOT abort or escalate. Re-issue the same single-purpose helper call as the immediate next tool turn (brief pause via the surrounding turn); the platform rate limit is transient and the retry succeeded on the first re-issue this session. Don't switch to a different transport or skip the operation.
+
+## Improvement: bug_subtask Blocks link does not auto-block parent
+
+Condition:
+- When a `bug_subtask` child with a `Blocks` link is created under a parent, expecting `child_blocker_created` (AT-4) to move the parent to Blocked
+
+Action:
+- Do NOT assume the parent auto-blocks. AT-4's `child_filter` is `types: [question]`, so a `bug_subtask` Blocks link does NOT fire it. The parent stays in its current status; the open BUG-SUB only blocks the parent's LATER transition via its own DoD ("All BUG-SUB sub-tasks Closed"). If you need the parent visibly Blocked, create a QUESTION sub-task instead, or manually transition the parent.
+
+## Improvement: testcase Open -> In Progress needs implementation-existence gate
+
+Condition:
+
+- When advancing a `testcase` from `Open` to `In Progress` (or starting test design work), the `Open` status DoD includes `MANDATORY VERIFICATION: Implementation exists and is accessible` and a `CORRECTIVE ACTION IF IMPLEMENTATION DOES NOT EXIST` clause (file a BUG for phantom completion)
+
+Action:
+
+- Do NOT rely on DEV/UNITTEST `Closed`/`Resolved` status alone. Before `Open -> In Progress`, verify real runnable code exists in the repo (grep the component file path from DESIGN-XXX, import-check the symbol, or run a smoke pytest). If status claims done but no code is present, file a `bug` ticket for phantom implementation and block TESTCASE on it instead of designing tests against vaporware.
+
+## Improvement: grooming QA review is not sign-off
+
+Condition:
+
+- When asked to confirm QA grooming review or readiness for a DEV-STORY before implementation exists
+
+Action:
+
+- Do answer only scope understanding, reviewed evidence, planned test coverage, risks, and QA actions before unblock. Don't claim QA sign-off, execute TESTCASE/TESTEXEC transitions, or require runnable implementation unless the request is for test design/execution status work.
+
+## Improvement: dirty deliverable diff attribution
+
+Condition:
+
+- When editing a file that was already dirty before QA work began
+
+Action:
+
+- Do report only the scoped edits made by this QA pass as your changes, and call out that the file also contained pre-existing edits. Don't imply the whole `git diff` for that file was produced by this task.
+
+## Improvement: separate validation universes
+
+Condition:
+
+- When QA evidence includes results from a committed archive and a local workspace with extra untracked tests
+
+Action:
+
+- Do report counts separately with exact source context. Don't merge archive and workspace pass counts into one implied suite.
+
+## Improvement: create blocker link before blocked status
+
+Condition:
+
+- When moving a ticket to `Blocked` because a workflow DoD gate is unmet
+
+Action:
+
+- Do create or identify the active blocker ticket/link first, record blocker ID plus prior status in a comment, then transition the parent to `Blocked`. Don't leave a ticket in `Blocked` without a `Blocks` link.
+
+## Improvement: resource registry path drift
+
+Condition:
+
+- When qa workflow says to consult `.ept/docs/resources/available_resources.md` but that path is missing
+
+Action:
+
+- Do use `.ept/docs/document_index.md` to find the current resource registry path, then read that file before choosing the addressed role for a QUESTION. Don't treat the stale path as a blocker if the indexed resource file exists.
+
+## Improvement: design-only testcase with tracker forbidden
+
+Condition:
+
+- When user explicitly asks for QA test-case deliverable based on approved DESIGN docs, forbids tracker operations, and implementation files are absent
+
+Action:
+
+- Do produce scoped test-case design against the DESIGN source, list implementation files as execution preconditions, report tracker/approval workflow as blocked for manager follow-up, and don't create bug/question tickets or read tracker internals.
+
+## Improvement: re-validate pre-warned known failures per HEAD
+
+Condition:
+
+- When repo/agent memory or a prior TESTEXEC cites a "known pre-existing failure" bucket for the test suite
+
+Action:
+
+- Do re-run the full suite on the current HEAD before assuming those failures still occur, and update the memory note with the revalidation result (HEAD + date + counts). Don't pre-warn, exclude tests, or run a reduced suite based on stale failure notes, since the tree may have since fixed them (2026-07-29 TESTEXEC-009: the LogSetup/stale-retry bucket was gone, 850/850 clean).
+
+## Improvement: label interrupted QA evidence
+
+Condition:
+- When manager requests immediate QA return before planned regression execution finishes
+
+Action:
+- Do separate independently executed results from developer-supplied evidence in verdict and tracker comment. Don't imply unrun suites were independently verified.
+
+## Improvement: classify offline build isolation errors
+
+Condition:
+- When an offline packaging test fails while pip tries to install build dependencies before product code runs
+
+Action:
+- Do reproduce the build outside pytest, then rerun with explicit `--no-build-isolation` and temporary local build tooling. Treat the first result as an environment setup error unless the corrected offline build still fails. For pip's negative boolean environment option, use `PIP_NO_BUILD_ISOLATION=false`; value `1` leaves isolation enabled.

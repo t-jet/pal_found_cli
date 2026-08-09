@@ -1,0 +1,5 @@
+Subject: New-to-Open DoD met
+Created: 2026-08-01T19:46:44
+Updated: 2026-08-01T19:46:44
+---
+New-to-Open readiness is complete. Reviewed .ept/docs/document_index.md, the approved .ept/docs/deliverables/architecture/DESIGN-010-audit-cli.md artifact, DEV-STORY-010 in Development, and CODEREVIEW-010. Critical review confirms the bounded two-operation scope, nested Audit Organization LogFile routing, ACL-before-client rule, B3 invocation lifetime, pagination, streamed bounded download, packaging, and verification expectations are actionable within the 10-hour estimate. DEV-010 has no linked Question ticket and no incoming Blocks link, so no unresolved clarification or dependency prevents implementation. Outgoing LINK-00423 and LINK-00424 correctly preserve the later CODEREVIEW-010 and TESTEXEC-010 gates. Assignee and creator are both python-developer. Required fields are valid: status New, priority High, parent DEV-STORY-010, assignee, reporter, created and updated dates, and 10-hour estimate. Parent context and links LINK-00422, LINK-00423, LINK-00424, and LINK-00430 were reviewed. The New-to-Open DoD is met.

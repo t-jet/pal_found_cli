@@ -8,6 +8,7 @@ import asyncio
 import inspect
 import json
 import logging
+import math
 import sys
 from collections.abc import Iterable
 from pathlib import Path
@@ -442,6 +443,62 @@ async def _resolve_result(value: Any) -> Any:
     return value
 
 
+def _is_async_iterator(value: Any) -> bool:
+    """Return true for SDK async resource iterators."""
+    return hasattr(value, "__aiter__") and hasattr(value, "__anext__")
+
+
+async def _read_next_page_token(iterator: Any) -> str | None:
+    """Read the SDK async iterator cursor when the implementation exposes it."""
+    page_iterator = getattr(iterator, "_page_iterator", None)
+    token_source = page_iterator if page_iterator is not None else iterator
+    getter = getattr(token_source, "get_next_page_token", None)
+    if callable(getter):
+        token = await _resolve_result(getter())
+        return token if isinstance(token, str) else None
+    token = getattr(token_source, "next_page_token", None)
+    return token if isinstance(token, str) else None
+
+
+async def _collect_async_iterator(iterator: Any, helper: PaginationHelper) -> list[Any]:
+    """Collect items from a Foundry SDK AsyncResourceIterator."""
+    items: list[Any] = []
+    item_limit = helper.page_size * helper.batch_pages
+
+    async for item in iterator:
+        items.append(item)
+        if len(items) >= item_limit:
+            break
+
+    helper._total_items += len(items)
+    helper._pages_fetched += max(1, math.ceil(len(items) / helper.page_size))
+    helper._next_page_token = await _read_next_page_token(iterator)
+    return items
+
+
+async def _paginate_page_envelopes(
+    first_response: Any,
+    call_func: Any,
+    helper: PaginationHelper,
+) -> list[Any]:
+    """Collect dict/list page envelopes used by older tests and some SDK methods."""
+    all_items = helper._extract_items(first_response)
+    helper._total_items += len(all_items)
+    helper._pages_fetched += 1
+    token = helper._extract_next_token(first_response)
+
+    while token is not None and helper.pages_fetched < helper.batch_pages:
+        response = await call_func(page_size=helper.page_size, page_token=token)
+        items = helper._extract_items(response)
+        all_items.extend(items)
+        helper._total_items += len(items)
+        helper._pages_fetched += 1
+        token = helper._extract_next_token(response)
+
+    helper._next_page_token = token
+    return all_items
+
+
 async def _invoke(
     resource: str,
     operation: str,
@@ -480,7 +537,7 @@ async def _invoke_paginated(
     timeout: int | None,
     helper: PaginationHelper,
 ) -> Any:
-    """Invoke a paginated filesystem operation through PaginationHelper."""
+    """Invoke a paginated filesystem operation."""
 
     async def _single_page(**page_kwargs: Any) -> Any:
         paged_args = argparse.Namespace(**vars(args))
@@ -490,7 +547,10 @@ async def _invoke_paginated(
         paged_args.page_token = page_kwargs.get("page_token", None)
         return await _invoke(resource, operation, client, paged_args, timeout)
 
-    return await helper.paginate(_single_page)
+    first_response = await _single_page(**helper.get_sdk_params())
+    if _is_async_iterator(first_response):
+        return await _collect_async_iterator(first_response, helper)
+    return await _paginate_page_envelopes(first_response, _single_page, helper)
 
 
 async def main() -> int:

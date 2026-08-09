@@ -2,13 +2,14 @@
 id: TESTCASE-004
 type: testcase
 title: Design QA cases for ACL and pagination
-status: New
+status: Closed
 created: 2026-07-22
-updated: 2026-07-22
+updated: 2026-07-26
 priority: Critical
 assignee: qa-engineer
 reporter: architect
 estimated_hours: 4
+time_spent_hours: 2
 ---
 
 ## Scope

@@ -56,6 +56,7 @@ from foundry_cli.common.error_serializer import (
 from foundry_cli.common.output_formatter import OutputFormatter
 from foundry_cli.common.log_setup import LogSetup
 from foundry_cli.common.access_control_guard import AccessControlGuard, AccessControlError
+from foundry_cli.common.pagination_helper import PaginationHelper
 from foundry_cli.common.retry import RetryHandler
 
 logger = logging.getLogger(__name__)
@@ -251,6 +252,57 @@ async def _invoke(
     raise ValueError(f"Unknown operation: {resource}.{operation}")
 
 
+# Operations that return a paginated response and accept page_size/page_token
+# (FR-PAG-3). For these, the CLI wraps the SDK call with PaginationHelper to
+# honour --page-size / --page-token / --batch-pages and emit metadata to stderr.
+PAGINATED_OPS = frozenset({
+    ("dataset", "get_schedules"),
+    ("dataset", "jobs"),
+    ("dataset", "read_table"),
+    ("dataset", "transactions"),
+    ("branch", "list"),
+    ("branch", "transactions"),
+    ("file", "list"),
+    ("transaction", "transactions"),
+})
+
+
+def _is_paginated(resource: str, operation: str) -> bool:
+    """Return True if the operation supports pagination (FR-PAG-3)."""
+    return (resource, operation) in PAGINATED_OPS
+
+
+async def _invoke_paginated(
+    resource: str,
+    operation: str,
+    client: Any,
+    args: argparse.Namespace,
+    timeout: Optional[int],
+    helper: PaginationHelper,
+) -> Any:
+    """Invoke a paginated SDK operation through PaginationHelper.
+
+    Builds a single-page callable that delegates to ``_invoke`` (which already
+    forwards page_size/page_token) and feeds it to ``helper.paginate`` so the
+    batch aggregation, max-cap enforcement, and token propagation behave per
+    FR-PAG-1/2/4/5. The helper's metadata is emitted to stderr by the caller.
+
+    The base pagination kwargs are extracted from the args namespace so they
+    are NOT doubly passed (the SDK call receives them inside ``_invoke``).
+    """
+    dr = getattr(args, "dataset_rid", None)
+
+    async def _single_page(**page_kwargs: Any) -> Any:
+        # Materialize a fresh namespace so page tokens from the helper override
+        # the CLI-supplied values without mutating the original args.
+        paged_args = argparse.Namespace(**vars(args))
+        paged_args.page_size = page_kwargs.get("page_size", getattr(args, "page_size", None))
+        paged_args.page_token = page_kwargs.get("page_token", None)
+        return await _invoke(resource, operation, client, paged_args, timeout)
+
+    return await helper.paginate(_single_page)
+
+
 OP_MAP = {
     "dataset": {
         "get-health-check-reports": "get_health_check_reports",
@@ -408,17 +460,36 @@ async def main() -> int:
     # WARNING-1 fix: apply RetryHandler for transient error recovery (ADR-002).
     retry_handler = RetryHandler()
 
+    # Build PaginationHelper when the operation is paginated (FR-PAG).
+    # --page-size / --page-token / --batch-pages are parsed by _common_parser.
+    helper: Optional[PaginationHelper] = None
+    if _is_paginated(resource, operation):
+        helper = PaginationHelper(
+            page_size=getattr(args, "page_size", None),
+            page_token=getattr(args, "page_token", None),
+            batch_pages=getattr(args, "batch_pages", None),
+        )
+
     # Invoke operation
     try:
-        result = await retry_handler.execute(
-            _invoke, resource, operation, client, args, timeout
-        )
+        if helper is not None:
+            result = await retry_handler.execute(
+                _invoke_paginated,
+                resource, operation, client, args, timeout, helper,
+            )
+        else:
+            result = await retry_handler.execute(
+                _invoke, resource, operation, client, args, timeout
+            )
         formatter = OutputFormatter(
             format_setting=getattr(args, "format", "auto"),
             pretty=getattr(args, "pretty", False),
         )
         output = formatter.format(_model_to_dict(result))
         print(output)
+        # Emit pagination metadata to stderr after stdout (ADR-005, FR-PAG-2).
+        if helper is not None:
+            helper.emit_metadata()
         return EXIT_SUCCESS
     except AccessControlError as exc:
         logger.warning("Access control denied", extra={"error": str(exc)})

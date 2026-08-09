@@ -2,9 +2,9 @@
 id: TESTCASE-003
 type: testcase
 title: 'TESTCASE-005: QA test cases for foundry-datasets'
-status: In Progress
+status: Closed
 created: 2026-05-18
-updated: 2026-07-22
+updated: 2026-07-26
 priority: Critical
 assignee: qa-engineer
 reporter: architect

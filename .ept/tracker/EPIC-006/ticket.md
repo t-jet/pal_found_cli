@@ -4,7 +4,7 @@ type: epic
 title: Data Pipeline Skills
 status: In Progress
 created: 2026-04-13
-updated: 2026-05-18
+updated: 2026-08-01
 priority: High
 assignee: architect
 reporter: architect

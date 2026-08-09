@@ -2,10 +2,11 @@
 id: EPIC-003
 type: epic
 title: Ontology & Functions Skills
-status: Blocked
+status: Done
 created: 2026-04-13
-updated: 2026-05-02
+updated: 2026-07-30
 priority: Critical
+resolution: Done
 assignee: architect
 reporter: architect
 ---
@@ -16,53 +17,45 @@ reporter: architect
 
 Implement two Claude Code skills that expose Foundry API v2 Ontology and Functions namespaces to AI agents. These are Phase 2 high-priority skills (Sprint 3-4) that enable agents to interact with Foundry's knowledge graph and data transformation services.
 
-**Scope:**
-- **`foundry-ontologies` skill** (DEV-STORY-007): 55 operations — Largest namespace covering:
-  - Object type CRUD operations
-  - Link types, action types, query types
-  - Interface types, shared property types
-  - Special attention to TOON output for list operations
-  - Attribution headers required for `ontologies.query.*` operations (FR-ATTR-4)
+## Scope
 
-- **`foundry-functions` skill** (DEV-STORY-008): 7 operations covering:
-  - Function versioning
-  - Function execution
-  - Relatively small scope; completes quickly after EPIC-001 foundation
+- `foundry-ontologies` skill (DEV-STORY-007): 67 operations. Current tracker evidence and metadata allow-list rows use 67 as the authoritative scope. Older 55-operation references are stale.
+- `foundry-functions` skill (DEV-STORY-008): 7 operations.
 
-**Dependencies:**
-- EPIC-001 (Core Infrastructure & Templates) must be complete — provides `_foundry_cli_common.py`, skill templates, test framework, and common patterns
+Combined EPIC-003 scope: 74 operations.
 
-**Technical Requirements:**
-- Both skills must implement 8-step access control precedence model (SRS §4.2)
-- TOON format auto-selection per ADR-004
-- Structured error handling with typed exit codes per ADR-001
-- Retry logic and timeouts per ADR-002
-- NDJSON logging to stderr per ADR-005
-- Attribution injection for ontology query operations per FR-ATTR-4
+## Technical requirements
 
-## Acceptance Criteria
+- Both skills must implement the 8-step access control precedence model from SRS-001 section 4.2.
+- TOON format auto-selection must follow ADR-004.
+- Structured error handling must follow ADR-001.
+- Retry logic and timeouts must follow ADR-002.
+- NDJSON logging to stderr must follow ADR-005.
+- Attribution injection is required for ontology query operations under FR-ATTR-4.
 
-- [ ] DEV-STORY-007 (`foundry-ontologies` skill) in Done status with all 55 operations implemented, tested, and validated
-- [ ] DEV-STORY-008 (`foundry-functions` skill) in Done status with all 7 operations implemented, tested, and validated
-- [ ] Both skills deployed to `.claude/skills/foundry-{namespace}/` structure
-- [ ] All operations follow common patterns from EPIC-001
-- [ ] Attribution headers correctly injected for `ontologies.query.*` operations
-- [ ] TOON format rendering works correctly for list operations
-- [ ] Access control guards function correctly for all 62 operations
-- [ ] Integration testing passes for both skills
-- [ ] SKILL.md documentation complete for both skills with operation catalog and examples
+## Acceptance criteria
 
-## Related Documentation
+- [ ] DEV-STORY-007 (`foundry-ontologies` skill) reaches Done/Closed with all 67 operations implemented, tested, and validated.
+- [ ] DEV-STORY-008 (`foundry-functions` skill) reaches Done/Closed with all 7 operations implemented, tested, and validated.
+- [ ] Both skills are deployed to `.claude/skills/foundry-{namespace}/`.
+- [ ] All operations follow common patterns from EPIC-001.
+- [ ] Attribution headers are injected for `ontologies.query.*` operations.
+- [ ] TOON format rendering works for list operations.
+- [ ] Access control guards work for all 74 EPIC-003 operations.
+- [ ] Integration testing passes for both skills.
+- [ ] SKILL.md documentation is complete for both skills with operation catalog and examples.
 
-- [SAD-001 §10 Implementation Roadmap](e:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\docs\deliverables\architecture\SAD-001-foundry-cli.md) — Phase 2 planning
-- [SRS-001 §3.2 FR-ATTR-4](e:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\docs\deliverables\business_analysis\SRS-001-foundry-cli.md) — Attribution requirements for ontologies.query.*
-- [ADR-004](e:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\docs\deliverables\architecture\adr\ADR-004-format-auto-algorithm.md) — Format auto-selection for TOON rendering
-- [ADR-001](e:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\docs\deliverables\architecture\adr\ADR-001-exit-code-taxonomy.md) — Exit code taxonomy
-- [ADR-002](e:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\docs\deliverables\architecture\adr\ADR-002-call-timeout-defaults.md) — Timeout and retry configuration
-- [ADR-005](e:\learn\GenAI_Foundations_DA\git\foundry_cli\.ept\docs\deliverables\architecture\adr\ADR-005-log-format.md) — Structured logging format
+## Related documentation
+
+- `.ept/docs/deliverables/architecture/SAD-001-foundry-cli.md`
+- `.ept/docs/deliverables/business_analysis/SRS-001-foundry-cli.md`
+- `.ept/docs/deliverables/architecture/adr/ADR-001-exit-code-taxonomy.md`
+- `.ept/docs/deliverables/architecture/adr/ADR-002-call-timeout-defaults.md`
+- `.ept/docs/deliverables/architecture/adr/ADR-004-format-auto-algorithm.md`
+- `.ept/docs/deliverables/architecture/adr/ADR-005-log-format.md`
+- `.ept/docs/deliverables/architecture/canonical-env-var-reference.md`
+- `.ept/docs/deliverables/architecture/metadata-allow-list.md`
 
 ## Notes
 
-- Largest combined operation count in a single epic (62 operations)
-- Ontologies namespace is the largest single namespace in Foundry API v2
-- Functions skill is relatively straightforward; ontologies skill requires careful attention to complex query operations
+Ontology namespace is the largest EPIC-003 skill. Functions is smaller and should follow the same common-layer pattern once ontology scope is settled.

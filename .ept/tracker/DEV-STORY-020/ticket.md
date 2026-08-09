@@ -6,8 +6,8 @@ status: New
 feature_request: FEATURE-001
 epic: EPIC-007
 created: 2026-04-13
-updated: 2026-04-13
-priority: Medium
+updated: 2026-07-28
+priority: High
 assignee: architect
 reporter: architect
 ---

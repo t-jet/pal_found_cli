@@ -4,13 +4,15 @@
 | Field | Value |
 |---|---|
 | **Document ID** | SAD-001 |
-| **Version** | 1.0.0 |
+| **Version** | 1.1.0 |
 | **Status** | Draft |
 | **Date** | 2026-04-13 |
+| **Last updated** | 2026-07-27 |
 | **Author** | Solution Architect |
 | **Feature** | FEATURE-001 |
 | **Context ticket** | SA-ANA-001, SA-DES-001 |
 | **Related SRS** | SRS-001-foundry-cli.md |
+| **Detailed design** | DESIGN-005-common-components.md |
 
 ---
 
@@ -101,7 +103,7 @@ C4Container
         Container(foundry_skill, "foundry/ skill", "Markdown", "General Foundry knowledge — auto-loaded, non-invocable")
 
         Container(ns_skill_1, "foundry-datasets/ skill", "Python CLI + SKILL.md", "Exposes 26 datasets API operations")
-        Container(ns_skill_2, "foundry-ontologies/ skill", "Python CLI + SKILL.md", "Exposes 55 ontologies API operations")
+        Container(ns_skill_2, "foundry-ontologies/ skill", "Python CLI + SKILL.md", "Exposes 67 ontologies API operations")
         Container(ns_skill_3, "foundry-admin/ skill", "Python CLI + SKILL.md", "Exposes 66 admin API operations")
         Container(ns_skill_n, "foundry-{namespace}/ skill", "Python CLI + SKILL.md", "17 more namespace skills...")
 
@@ -162,11 +164,11 @@ C4Component
 
         Component(pagination_helper, "PaginationHelper", "Python class", "Manages --page-size, --page-token, --batch-pages arguments. Aggregates multi-page results. Writes metadata JSON to stderr with # ---metadata-start--- separator (ADR-005).")
 
-        Component(download_handler, "BinaryDownloadHandler", "Python class", "Streams binary content to .foundry-data/downloads/{uuid}/. Enforces MAX_DOWNLOAD_BYTES limit with partial write + truncated flag. Computes MD5/SHA-256 checksums.")
+        Component(download_handler, "BinaryDownloadHandler", "Python class", "Streams at most MAX_DOWNLOAD_BYTES plus one probe byte to a temporary file, publishes atomically, and reports exact or bounded source size.")
 
-        Component(session_manager, "SessionManager", "Python class", "Persists AIP Agents session state to .foundry-data/sessions/. Enforces 7-day TTL. Checks alias uniqueness. Manages cleanup on invocation.")
+        Component(session_manager, "SessionManager", "Python class", "Persists AIP Agents Session.rid with nullable session_token. Uses alias locks and atomic replacement; enforces 7-day TTL.")
 
-        Component(tracing_provider, "TracingProvider", "Python class", "Generates W3C Trace Context / B3 headers when ENABLE_TRACING=true. Propagates via FOUNDRY_TRACE_ID SDK var.")
+        Component(tracing_provider, "TracingProvider", "Python class", "Scopes SDK-native B3 context through FOUNDRY_TRACE_ID, FOUNDRY_SPAN_ID, and FOUNDRY_SAMPLED; restores ContextVars after each call.")
 
         Component(log_setup, "LogSetup", "Python function", "Configures Python logging with NDJSON formatter directed to stderr. Log level from FOUNDRY_AGENTIC_CLI_LOG_LEVEL. Implements ADR-005 log format.")
     }
@@ -408,10 +410,19 @@ sequenceDiagram
     Foundry-->>SDK: 200 streaming binary response
 
     CLI->>DL: BinaryDownloadHandler.save(response_stream)
-    DL->>FS: write to .foundry-data/downloads/{uuid}/report.parquet
-    Note over DL: Track bytes written; check vs MAX_DOWNLOAD_BYTES=1572864
+    DL->>FS: create same-directory temporary file
+    loop Until EOF or limit plus one byte observed
+        DL->>DL: write and hash at most MAX_DOWNLOAD_BYTES=1572864
+    end
+    alt extra probe byte observed
+        DL->>DL: truncated=true; source_size unknown unless valid Content-Length exists
+        DL->>SDK: close stream without reading remainder
+    else EOF observed
+        DL->>DL: truncated=false; source_size=bytes observed
+    end
     DL->>DL: compute MD5 + SHA-256 checksums
-    DL-->>CLI: {file_path, file_size, checksum_md5, checksum_sha256, mime_type, truncated: false}
+    DL->>FS: flush, fsync, os.replace temporary file
+    DL-->>CLI: {file_path, file_size, checksums, mime_type, truncated, source_size?, source_size_at_least?}
 
     CLI-->>Agent: stdout: {"file_path": ".foundry-data/downloads/abc/report.parquet", "file_size": 524288, ...}, exit code: 0
 ```
@@ -438,9 +449,11 @@ sequenceDiagram
 
     CLI->>SDK: asyncio.wait_for(client.aip_agents.session.create(agent_rid=...), timeout=30)
     SDK->>Foundry: POST /v2/aip-agents/sessions
-    Foundry-->>SDK: 200 {session_id, session_token, ...}
+    Foundry-->>SDK: 200 Session{rid, agent_rid, metadata, ...}
 
-    SM->>FS: write my-research-session.json: {session_id, agent_rid, session_token, created_at, last_used_at, status, tool_history: []}
+    SM->>FS: acquire exclusive alias lock
+    SM->>FS: atomically write my-research-session.json: {session_id: Session.rid, agent_rid, session_token: null, created_at, last_used_at, status, tool_history: []}
+    SM->>FS: release alias lock
     SM-->>CLI: session data
 
     CLI-->>Agent: stdout: {"session_id": "...", "alias": "my-research-session", ...}, exit code: 0
@@ -464,7 +477,7 @@ sequenceDiagram
 | **Checksums** | hashlib | stdlib | FR-DL-5; no extra dependency |
 | **Session state** | json (stdlib) | stdlib | Simple key-value persistence; no DB overhead |
 | **Retry logic** | Custom (asyncio) | N/A | ADR-002; full control over backoff algorithm |
-| **Tracing** | Custom W3C headers | N/A | FR-TRACE-3; no external OTel SDK required |
+| **Tracing** | SDK `ContextVar` integration with B3 multi-headers | N/A | FR-TRACE-3; no external OTel SDK required |
 | **Logging** | logging (stdlib + custom formatter) | N/A | ADR-005; NDJSON to stderr |
 
 ---
@@ -535,7 +548,10 @@ toon-python @ git+https://github.com/toon-format/toon-python.git@v0.9
 | **Token exposure in logs** | `FOUNDRY_TOKEN` never logged; only last 4 chars in debug traces |
 | **Token in process args** | Token sourced from env only; never passed as CLI argument |
 | **Path traversal in download** | Download paths normalized with `pathlib.Path.resolve()`; validated to be under `.foundry-data/downloads/` |
+| **Partial or torn files** | Downloads and sessions use same-directory temporary files, `fsync`, and atomic `os.replace`; failures remove temporary files |
+| **Concurrent alias creation** | Exclusive alias locks serialize check-and-create; cleanup skips active locks |
 | **Session file permissions** | Session files created with mode `0o600` (owner read/write only) on Unix |
+| **Session token exposure** | `session_token` is nullable and unused by the installed SDK; any future non-null value is treated as secret and excluded from logs/stdout |
 | **OWASP A02 — Cryptographic Failures** | Files checksummed with MD5+SHA-256 (MD5 for legacy compat only; SHA-256 is the integrity check) |
 | **OWASP A05 — Security Misconfiguration** | No home-dir `.env` loading (ADR-006); METADATA_ONLY deny-by-default |
 | **OWASP A10 — SSRF** | FOUNDRY_HOSTNAME validated to be a non-localhost hostname before SDK init |
@@ -546,7 +562,7 @@ toon-python @ git+https://github.com/toon-format/toon-python.git@v0.9
 - Per-call UUID as `call_id` in every log record
 - Retry events logged at WARNING level with attempt count and delay
 - Access control decisions logged at INFO level
-- W3C trace propagation when `ENABLE_TRACING=true` (ADR-002)
+- SDK-native B3 propagation when `ENABLE_TRACING=true`: `FOUNDRY_TRACE_ID` → `X-B3-TraceId`, `FOUNDRY_SPAN_ID` → `X-B3-SpanId`, `FOUNDRY_SAMPLED` → `X-B3-Sampled`
 
 ### 9.3 Error Handling Strategy
 
@@ -585,7 +601,7 @@ Entry point (main)
 | DEV-STORY-001 | Implement `_foundry_cli_common.py` with ConfigLoader, AuthProvider, AsyncClientFactory | Critical |
 | DEV-STORY-002 | Implement RetryHandler, ErrorSerializer, OutputFormatter (JSON+TOON), LogSetup | Critical |
 | DEV-STORY-003 | Implement AccessControlGuard (8-step precedence), PaginationHelper | Critical |
-| DEV-STORY-004 | Implement BinaryDownloadHandler, SessionManager, TracingProvider | High |
+| DEV-STORY-004 | Implement BinaryDownloadHandler, SessionManager, TracingProvider per DESIGN-005 | High |
 
 ### Phase 2: High-Priority Namespace Skills (Sprint 3-4)
 
@@ -600,7 +616,7 @@ Entry point (main)
 
 | Story | Description | Priority |
 |---|---|---|
-| DEV-STORY-007 | `foundry-ontologies` skill (55 operations) | Critical |
+| DEV-STORY-007 | `foundry-ontologies` skill (67 operations) | Critical |
 | DEV-STORY-008 | `foundry-functions` skill (7 operations) | High |
 
 ### Phase 3: Platform & Admin Skills (Sprint 5-6)
@@ -661,7 +677,7 @@ Entry point (main)
 | **Python 3.13 compatibility** | Low (near-term) | Medium | Deferred per NFR-PLAT-1; flag as tech debt when 3.13 becomes LTS |
 | **FOUNDRY_TOKEN rotation gap** | Medium | High | Document rotation procedure; long-lived tokens are developer responsibility |
 | **Air-gapped TOON install** | Low | Medium | OI-6: document pip mirror procedure; fallback to JSON output if TOON unavailable |
-| **Session file corruption** | Low | Medium | JSON parse error on load → treat as expired; delete and recreate |
+| **Session file corruption** | Low | Medium | Atomic replacement prevents torn writes; quarantine malformed files and return a structured load error |
 | **Windows SIGTERM handling** | Medium | Low | Use `signal.signal(SIGTERM, handler)` on Windows (`loop.add_signal_handler` not available); document limitation |
 
 ---
@@ -675,10 +691,10 @@ Entry point (main)
 | AA-3 | Assumption | `geo` and `core` namespaces have 0 public CLI-callable operations (confirmed from SDK inspection) |
 | AA-4 | Assumption | The VS Code skill runner invokes skills via subprocess with stdout/stderr capture |
 | AC-1 | Constraint | No daemon or persistent process; each CLI invocation is stateless (session files are the only persistence) |
-| AC-2 | Constraint | No database; all state in filesystem (`.foundry-data/`); concurrent write safety relies on OS-level file locking |
+| AC-2 | Constraint | No database; all state is in `.foundry-data/`; alias lock files and atomic replacement provide concurrent write safety |
 | AC-3 | Constraint | No network calls during import of `_foundry_cli_common.py`; all SDK calls are at invocation time |
 | AC-4 | Constraint | The `asyncio` event loop is never shared across CLI invocations; each invocation creates its own loop via `asyncio.run()` |
 
 ---
 
-*SAD-001 v1.0.0 — Generated 2026-04-13 — Foundry CLI Agentic Toolset*
+*SAD-001 v1.1.0 | Generated 2026-04-13 | Updated 2026-07-27 | Foundry CLI Agentic Toolset*
