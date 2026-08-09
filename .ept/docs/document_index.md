@@ -40,6 +40,7 @@ This project follows a structured documentation approach organized into logical 
 ### Architecture Documentation
 
 - [SAD-001 — Solution Architecture Document](deliverables/architecture/SAD-001-foundry-cli.md) — Full architectural design including C4 L1–L4 diagrams, sequence flows, technology stack, deployment topology, and implementation roadmap (8 EPICs, 23 DEV-STORYs). Status: Draft.
+- [DESIGN-012 — Foundry Language Models CLI](deliverables/architecture/DESIGN-012-language-models-cli.md) — Completed design for DEV-STORY-012 covering two inference operations, structured JSON inputs, write and Tier-3 controls, attribution restoration, B3 tracing, retry cost, privacy, tests, and packaging.
 - [Canonical Environment Variable Reference](deliverables/architecture/canonical-env-var-reference.md) — Complete reference table for all environment variables used across the 21 CLI skills (500+ entries).
 - [Metadata Allow-list](deliverables/architecture/metadata-allow-list.md) — Approved metadata field allow-list for the access control subsystem. Defines which dataset/object metadata fields may be exposed per access tier.
 
