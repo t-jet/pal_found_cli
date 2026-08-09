@@ -70,6 +70,7 @@ This project follows a structured documentation approach organized into logical 
 - **Environment Template** (`.env.example`) — Lists all required and optional environment variables per ADR-006 with inline documentation; `.env` is gitignored.
 - **pyproject.toml** — Dependencies: `foundry-platform-python>=2.0.0`, `python-dotenv>=1.0.0`. Dev: pytest, pytest-asyncio, pytest-cov, mypy, ruff, bandit.
 - [DEVOPS-011 - Foundry AIP Agents packaging and deployment report](deliverables/devops/DEVOPS-011-aip-agents-deployment-report.md) - Clean-archive build, wheel/editable installation, Python 3.11/3.12 gates, packaged policy, and rehearsed rollback evidence for DEV-STORY-011 at commit `4bc449c`.
+- [DEVOPS-012 - Foundry Language Models packaging and deployment report](deliverables/devops/DEVOPS-012-language-models-deployment-report.md) - Clean-archive build, wheel/editable installation, Python 3.11/3.12 gates, blocked policy, and rehearsed rollback evidence for DEV-STORY-012 at commit `cb8e8d2`.
 
 ### Work Instructions (Team Member Guides)
 
