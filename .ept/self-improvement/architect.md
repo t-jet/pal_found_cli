@@ -2,13 +2,45 @@
 
 ## Improvement History
 
+## Improvement: story-title operation counts must be re-verified against the vendored SDK before grooming
+
+Condition:
+- When a DEV-STORY title or an ADR/SAD entry claims a namespace operation count (e.g. streams "17 operations") and grooming scope must be defined
+
+Action:
+- Do enumerate the leaf client methods from the vendored SDK source (`foundry_sdk/v2/<ns>/`), then cross-check the canonical env-var reference and metadata allow-list row counts. When all three concord on a different number than the title/ADR/SAD, correct the count in the scope comment and DESIGN deliverable (flagged as stale), rather than silently implementing the claimed number. Confirmed on DEV-STORY-016 2026-08-10: title/ADR-003/SAD-001 say 17, SDK exposes exactly 15 (Dataset 1, Stream 7, Subscriber 7); sql_queries stays 5 across all three sources.
+
+## Improvement: verify ticket ID when create output omits it
+
+Condition:
+- When a tracker `create` command's YAML output lacks the `ticket_id` field (e.g. codereview/devops create returned only `current_status` onwards)
+
+Action:
+- Do run `get <expected-ticket-id> --author <role>` to confirm the ticket exists and carries the expected fields (priority, assignee, parent, estimated_hours) before reporting success; confirmed on CODEREVIEW-015, DEVOPS-016 on 2026-08-10.
+
 ## Improvement: tracker CLI comment syntax
 
 Condition:
 - When adding a comment via `.ept/skills/tracking-system/tracker/tracker_cli.py`
 
 Action:
-- Do use the `comment create` subcommand (not `comment <ticket_id>`); required flags are `--subject` and `--text` (the CLI decodes literal two-character `\n` sequences into newlines, so pass `\n` not actual line breaks inside `--text`). Don't use `--text-file` for comments — it is NOT a documented option and `ticket-helper` will abort at validation. For long Markdown comment bodies on Windows PowerShell: (1) replace backticks with plain text or single-quotes because PowerShell treats backtick as its escape char inside double quotes; (2) pass the whole body as a single `--text` value with `\n` escapes. If the body is truly large, split it or put the artifact in the ticket body via `update --description-file` (which IS documented and reads a file) and post a short pointer comment. `update --description-file` replaces the ticket body; it does not append, so reserve it for body updates not for audit-trail comments.
+- Do use the `comment create` subcommand (not `comment <ticket_id>`); required flags are `--subject` and `--text` (the CLI decodes literal two-character `\n` sequences into newlines, so pass `\n` not actual line breaks inside `--text`). Don't use `--text-file` for comments — it is NOT a documented option and `ticket-helper` will abort at validation. For long Markdown comment bodies on Windows PowerShell: (1) replace backticks with plain text or single-quotes because PowerShell treats backtick as its escape char inside double quotes; (2) pass the whole body as a single `--text` value with `\n` escapes; (3) single-quoted inner text (e.g. quoted ticket titles) needs no escaping inside the double-quoted `--text` value — confirmed on DEV-STORY-013 comments 20260809-193823/195044/195048/195052. If the body is truly large, split it or put the artifact in the ticket body via `update --description-file` (which IS documented and reads a file) and post a short pointer comment. `update --description-file` replaces the ticket body; it does not append, so reserve it for body updates not for audit-trail comments.
+
+## Improvement: groom a DEV-STORY end-to-end in one handoff
+
+Condition:
+- When a dev_story ticket is in Analysis with its Analysis DoD met and the Grooming stage is next
+
+Action:
+- Do drive the full Grooming in one session: (1) validate `workflow transitions dev_story <status>` before each move; (2) create ALL grooming sub-tasks together (DESIGN required first, then DEV, UNITTEST, CODEREVIEW, TESTCASE, TESTEXEC, DEVOPS if applicable) with per-role assignees, `addressed_to`, `estimated_hours`, checked acceptance criteria in `--description-file` bodies, and parent DEV-STORY links (Contains + ParentChild; CODEREVIEW gets bidirectional RelatesTo to DEV plus a Blocks link so the review stays blocked until DEV Resolved); (3) produce the DESIGN deliverable under `.ept/docs/deliverables/architecture/DESIGN-<n>-<ns>-cli.md` mirroring DESIGN-012, register it in `.ept/docs/document_index.md`, keep markdown tables lint-clean (space-padded separators satisfy MD060); (4) walk DESIGN to Closed (New→Open→In Progress→Resolved→Closed) with evidence comments at each stage; (5) post "DESIGN sub-task created", "Execution plan", and "Grooming complete" (DoD checklist) comments; (6) transition to Development. Use one sibling story (e.g. DEV-STORY-008) as the field/title/body convention reference. Confirmed twice: DEV-STORY-013 and DEV-STORY-014 (batch 1 and 2, 2026-08-09).
+
+## Improvement: new deliverable docs must match sibling lint conventions
+
+Condition:
+- When creating a new markdown deliverable that mirrors an existing sibling document (e.g. a new DESIGN-XXX doc)
+
+Action:
+- Do run `get_errors` on the new file before committing; MD060/table-column-style flags compact separator rows, so use space-padded separator rows (`| --- | --- |`) matching clean siblings, and confirm the sibling file itself passes lint before copying its table style. Also update `.ept/docs/document_index.md` (deliverable entry plus Last Updated and Major Change footer) and re-check lint on the index.
 
 ## Improvement: exhaust all ADRs before claiming a requirement is absent
 

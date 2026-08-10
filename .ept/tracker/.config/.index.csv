@@ -23,10 +23,10 @@ DEV-STORY-009,dev_story,foundry-admin skill (66 operations),Closed,High,architec
 DEV-STORY-010,dev_story,foundry-audit skill (2 operations),Closed,High,python-developer,architect,FEATURE-001,,DEV-STORY-010,2026-04-13,2026-08-01
 DEV-STORY-011,dev_story,foundry-aip-agents skill (13 operations + session management),Closed,High,architect,architect,FEATURE-001,,DEV-STORY-011,2026-04-13,2026-08-09
 DEV-STORY-012,dev_story,foundry-language-models skill (2 operations),Closed,High,architect,architect,FEATURE-001,,DEV-STORY-012,2026-04-13,2026-08-09
-DEV-STORY-013,dev_story,foundry-models skill (23 operations),Analysis,High,architect,architect,FEATURE-001,,DEV-STORY-013,2026-04-13,2026-08-09
-DEV-STORY-014,dev_story,foundry-orchestration skill (20 operations),New,High,architect,architect,FEATURE-001,,DEV-STORY-014,2026-04-13,2026-07-28
-DEV-STORY-015,dev_story,foundry-sql-queries skill (5 operations),New,High,architect,architect,FEATURE-001,,DEV-STORY-015,2026-04-13,2026-07-28
-DEV-STORY-016,dev_story,"foundry-streams skill (17 operations, batch strategy ADR-003)",New,High,architect,architect,FEATURE-001,,DEV-STORY-016,2026-04-13,2026-07-28
+DEV-STORY-013,dev_story,foundry-models skill (23 operations),Closed,High,architect,architect,FEATURE-001,,DEV-STORY-013,2026-04-13,2026-08-10
+DEV-STORY-014,dev_story,foundry-orchestration skill (20 operations),Closed,High,architect,architect,FEATURE-001,,DEV-STORY-014,2026-04-13,2026-08-10
+DEV-STORY-015,dev_story,foundry-sql-queries skill (5 operations),Resolved,High,architect,architect,FEATURE-001,,DEV-STORY-015,2026-04-13,2026-08-10
+DEV-STORY-016,dev_story,"foundry-streams skill (17 operations, batch strategy ADR-003)",Resolved,High,architect,architect,FEATURE-001,,DEV-STORY-016,2026-04-13,2026-08-10
 DEV-STORY-017,dev_story,foundry-connectivity skill (15 operations),New,High,architect,architect,FEATURE-001,,DEV-STORY-017,2026-04-13,2026-07-28
 DEV-STORY-018,dev_story,foundry-media-sets skill (19 operations),New,High,architect,architect,FEATURE-001,,DEV-STORY-018,2026-04-13,2026-07-28
 DEV-STORY-019,dev_story,foundry-checkpoints skill (3 operations),New,High,architect,architect,FEATURE-001,,DEV-STORY-019,2026-04-13,2026-07-28
@@ -175,3 +175,36 @@ TESTCASE-012,testcase,Design Foundry Language Models CLI QA cases,Closed,High,qa
 TESTEXEC-012,testexec,Execute Foundry Language Models CLI QA suite,Closed,High,qa-engineer,qa-engineer,DEV-STORY-012,,DEV-STORY-012/TESTEXEC-012,2026-08-09,2026-08-09
 DEVOPS-012,devops,Package and verify Foundry Language Models entry points,Closed,High,devops-engineer,devops-engineer,DEV-STORY-012,,DEV-STORY-012/DEVOPS-012,2026-08-09,2026-08-09
 BUG-SUB-011,bug_subtask,Honor global FOUNDRY_AGENTIC_CLI_ENABLED=false before client creation,Closed,High,python-developer,python-developer,DEV-STORY-012,,DEV-STORY-012/BUG-SUB-011,2026-08-09,2026-08-09
+DESIGN-013,design,DEV-STORY-013 DESIGN: models skill OP_SPECS and implementation plan,Closed,High,tech-lead,architect,DEV-STORY-013,tech-lead,DEV-STORY-013/DESIGN-013,2026-08-09,2026-08-09
+DEV-013,development,DEV-STORY-013 DEV: foundry-models CLI implementation,Closed,High,python-developer,architect,DEV-STORY-013,python-developer,DEV-STORY-013/DEV-013,2026-08-09,2026-08-10
+UNITTEST-013,unittest,DEV-STORY-013 UNITTEST: models CLI parser dispatch and infra tests,Closed,High,python-developer,architect,DEV-STORY-013,python-developer,DEV-STORY-013/UNITTEST-013,2026-08-09,2026-08-09
+CODEREVIEW-013,codereview,DEV-STORY-013 CODEREVIEW: review models CLI,Closed,High,tech-lead,architect,DEV-STORY-013,tech-lead,DEV-STORY-013/CODEREVIEW-013,2026-08-09,2026-08-10
+TESTCASE-013,testcase,DEV-STORY-013 TESTCASE: models skill QA test cases,Closed,High,qa-engineer,architect,DEV-STORY-013,qa-engineer,DEV-STORY-013/TESTCASE-013,2026-08-09,2026-08-10
+TESTEXEC-013,testexec,DEV-STORY-013 TESTEXEC: execute models QA tests,Closed,High,qa-engineer,architect,DEV-STORY-013,qa-engineer,DEV-STORY-013/TESTEXEC-013,2026-08-09,2026-08-10
+DEVOPS-013,devops,DEV-STORY-013 DEVOPS: package and verify foundry-models entry point,Closed,High,devops-engineer,architect,DEV-STORY-013,devops-engineer,DEV-STORY-013/DEVOPS-013,2026-08-09,2026-08-10
+DESIGN-014,design,DEV-STORY-014 DESIGN: orchestration skill OP_SPECS and implementation plan,Closed,High,tech-lead,architect,DEV-STORY-014,tech-lead,DEV-STORY-014/DESIGN-014,2026-08-09,2026-08-09
+DEV-014,development,DEV-014: implement foundry-orchestration CLI (20 operations),Closed,High,python-developer,architect,DEV-STORY-014,python-developer,DEV-STORY-014/DEV-014,2026-08-09,2026-08-10
+UNITTEST-014,unittest,UNITTEST-014: unit tests for foundry-orchestration CLI,Closed,High,python-developer,architect,DEV-STORY-014,python-developer,DEV-STORY-014/UNITTEST-014,2026-08-09,2026-08-09
+CODEREVIEW-014,codereview,CODEREVIEW-014: code review of foundry-orchestration CLI,Closed,High,tech-lead,architect,DEV-STORY-014,tech-lead,DEV-STORY-014/CODEREVIEW-014,2026-08-09,2026-08-10
+TESTCASE-014,testcase,TESTCASE-014: QA test cases for foundry-orchestration CLI,Closed,High,qa-engineer,architect,DEV-STORY-014,qa-engineer,DEV-STORY-014/TESTCASE-014,2026-08-09,2026-08-10
+TESTEXEC-014,testexec,TESTEXEC-014: QA execution for foundry-orchestration CLI,Closed,High,qa-engineer,architect,DEV-STORY-014,qa-engineer,DEV-STORY-014/TESTEXEC-014,2026-08-09,2026-08-10
+DEVOPS-014,devops,DEVOPS-014: packaging and deployment for foundry-orchestration CLI,Closed,High,devops-engineer,architect,DEV-STORY-014,devops-engineer,DEV-STORY-014/DEVOPS-014,2026-08-09,2026-08-10
+QUESTION-035,question,ACL write classification gap: launch/promote_version/pause/unpause inherit read behavior,Canceled,High,,python-developer,DEV-013,tech-lead,DEV-013/QUESTION-035,2026-08-09,2026-08-09
+QUESTION-036,question,TESTCASE-013 tech-lead approval of 28-case set required,Closed,High,tech-lead,qa-engineer,TESTCASE-013,tech-lead,TESTCASE-013/QUESTION-036,2026-08-09,2026-08-09
+QUESTION-037,question,TESTCASE-014 tech-lead approval of 23-case set required,Closed,High,tech-lead,qa-engineer,TESTCASE-014,tech-lead,TESTCASE-014/QUESTION-037,2026-08-09,2026-08-09
+DESIGN-015,design,DESIGN-015 - foundry-sql-queries CLI design,Closed,High,tech-lead,architect,DEV-STORY-015,,DEV-STORY-015/DESIGN-015,2026-08-10,2026-08-10
+DEV-015,development,DEV-015 - foundry-sql-queries CLI implementation,Closed,High,python-developer,architect,DEV-STORY-015,,DEV-STORY-015/DEV-015,2026-08-10,2026-08-10
+UNITTEST-015,unittest,UNITTEST-015 - foundry-sql-queries CLI unit tests,Closed,High,python-developer,architect,DEV-STORY-015,,DEV-STORY-015/UNITTEST-015,2026-08-10,2026-08-10
+CODEREVIEW-015,codereview,CODEREVIEW-015 - foundry-sql-queries CLI code review,Closed,High,tech-lead,architect,DEV-STORY-015,,DEV-STORY-015/CODEREVIEW-015,2026-08-10,2026-08-10
+TESTCASE-015,testcase,TESTCASE-015 - foundry-sql-queries CLI test cases,Closed,High,qa-engineer,architect,DEV-STORY-015,,DEV-STORY-015/TESTCASE-015,2026-08-10,2026-08-10
+TESTEXEC-015,testexec,TESTEXEC-015 - foundry-sql-queries CLI test execution,Closed,High,qa-engineer,architect,DEV-STORY-015,,DEV-STORY-015/TESTEXEC-015,2026-08-10,2026-08-10
+DEVOPS-015,devops,DEVOPS-015 - foundry-sql-queries CLI packaging and deployment,Closed,High,devops-engineer,architect,DEV-STORY-015,,DEV-STORY-015/DEVOPS-015,2026-08-10,2026-08-10
+DESIGN-016,design,DESIGN-016 - foundry-streams CLI design,Closed,High,tech-lead,architect,DEV-STORY-016,,DEV-STORY-016/DESIGN-016,2026-08-10,2026-08-10
+DEV-016,development,DEV-016 - foundry-streams CLI implementation,Closed,High,python-developer,architect,DEV-STORY-016,,DEV-STORY-016/DEV-016,2026-08-10,2026-08-10
+UNITTEST-016,unittest,UNITTEST-016 - foundry-streams CLI unit tests,Closed,High,python-developer,architect,DEV-STORY-016,,DEV-STORY-016/UNITTEST-016,2026-08-10,2026-08-10
+CODEREVIEW-016,codereview,CODEREVIEW-016 - foundry-streams CLI code review,Closed,High,tech-lead,architect,DEV-STORY-016,,DEV-STORY-016/CODEREVIEW-016,2026-08-10,2026-08-10
+TESTCASE-016,testcase,TESTCASE-016 - foundry-streams CLI test cases,Closed,High,qa-engineer,architect,DEV-STORY-016,,DEV-STORY-016/TESTCASE-016,2026-08-10,2026-08-10
+TESTEXEC-016,testexec,TESTEXEC-016 - foundry-streams CLI test execution,Closed,High,qa-engineer,architect,DEV-STORY-016,,DEV-STORY-016/TESTEXEC-016,2026-08-10,2026-08-10
+DEVOPS-016,devops,DEVOPS-016 - foundry-streams CLI packaging and deployment,Closed,High,devops-engineer,architect,DEV-STORY-016,,DEV-STORY-016/DEVOPS-016,2026-08-10,2026-08-10
+QUESTION-038,question,QUESTION - TESTCASE-015 approval required (tech-lead),Closed,High,tech-lead,qa-engineer,TESTCASE-015,tech-lead,TESTCASE-015/QUESTION-038,2026-08-10,2026-08-10
+QUESTION-039,question,QUESTION - TESTCASE-016 approval required (tech-lead),Closed,High,tech-lead,qa-engineer,TESTCASE-016,tech-lead,TESTCASE-016/QUESTION-039,2026-08-10,2026-08-10

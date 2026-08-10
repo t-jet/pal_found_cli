@@ -24,6 +24,8 @@ Condition:
 Action:
 - Do `link list` on the source AND target tickets before assuming a `Blocks` link exists; in this repo link topology is inconsistent (some codereviews only carry `ParentChild`, others carry `DEV Blocks CODEREVIEW`). Only remove a link that is actually a blocking relationship; if none exists, note "no blocking link present" and skip the removal step.
 - Do NOT expect the `Blocks` link record to be deleted when the source ticket reaches a terminal status — AT-5 clears blocks *semantically* (the link row stays). Verify "not blocked" by attempting the transition, not by re-running `link list` and looking for the row to vanish.
+- Do ignore child-level `Blocked=Yes` flags when validating a parent story for closure: a closed child (e.g. CODEREVIEW-013) can still show `Blocked=Yes` because its own inbound `Blocks` link (e.g. DEV-013 → CODEREVIEW-013 LINK-00490) targets the child, not the story. Run `link list <child-id>` to confirm the link's target is the child itself; it does not block the parent. Parent closure only requires no `Blocks`/`Question`/`DependsOn` links on the story.
+- Do EXPECT to manually restore the parent after a QUESTION approval gate: AT-5/AT-6 do NOT auto-restore the Blocked parent even when the question reaches terminal status AND its Blocks link is removed (confirmed three batches: TESTCASE-013/014, TESTCASE-015/016). Sequence: post approval + Answer comments → transition question to Closed → remove the Blocks link (keep the Question link) → transition the parent Blocked→prior status. Do not wait for the automatic rules.
 
 ## Improvement: verify epic auto-transition premises by enumerating all same-link siblings
 
@@ -173,3 +175,34 @@ Condition:
 
 Action:
 - Do inspect the authoritative SDK model alias and validate a representative value before approval; block readiness when the design requires an object but the SDK contract is scalar, because DEV and UNITTEST would otherwise encode incompatible behavior.
+
+## Improvement: verify catalog required/optional marking against installed SDK signatures
+
+Condition:
+
+- When reviewing a namespace CLI whose OP_SPECS marks SDK arguments optional/required, or when a design table and vendored SDK source disagree with the installed SDK
+
+Action:
+
+- Do probe the installed SDK with `inspect.signature` (`required` marker / `Parameter.empty`) for every catalog entry carrying JSON or structured args; treat `required=True` in the installed SDK as authoritative even when DESIGN and vendored docs both list the arg optional (this review caught `build.search.where` mis-marked optional — runtime degrades gracefully to exit 1 via pydantic `ValidationError`, but the spec contract is wrong).
+- Do classify spec-only mis-statements with graceful runtime failure as non-blocking follow-up (recorded on the review comment, not a Correction); reserve Correction for behavior that produces wrong exit codes, leaks secrets, or skips ACL. If the mis-statement changes exit-code class or skips validation before side effects, then it is blocking.
+
+## Improvement: close review chains in block-removal-first order
+
+Condition:
+
+- When closing an approved CODEREVIEW whose paired DEV sub-task sits in Resolved with a bidirectional Blocks pair
+
+Action:
+
+- Do order the closure chain: (1) remove only the inbound `CODEREVIEW -> DEV` Blocks link, (2) close the CODEREVIEW, (3) `link list` the DEV to confirm no is-blocked-by rows remain, (4) close the DEV (Resolved→Closed DoD = "not blocked"). Preserve the outbound DEV→CODEREVIEW Blocks row and all RelatesTo links; both chains (013/014) closed cleanly with this order, re-confirmed for 015/016.
+
+## Improvement: rule out FOUNDRY env leakage before calling test failures defects
+
+Condition:
+
+- When an independent review test run fails with exit-code/ACL mismatches (e.g. writes returning exit 8 instead of 0) that contradict the developer's reported pass
+
+Action:
+
+- Do run `Get-ChildItem Env:FOUNDRY_AGENTIC_CLI_*` (or `env | grep FOUNDRY`) before suspecting the code; a leaked `FOUNDRY_AGENTIC_CLI_METADATA_ONLY=true` or `..._READONLY=true` in the shell makes the ACL correctly block every write op. Clear the leaked var and re-run — 16 of 16 failures were environmental (ACL defense working as designed), not defects. Document the leaked-var root cause in the review evidence comment so the reviewer's due diligence is falsifiable.

@@ -2,12 +2,13 @@
 id: DEV-STORY-013
 type: dev_story
 title: foundry-models skill (23 operations)
-status: Analysis
+status: Closed
 feature_request: FEATURE-001
 epic: EPIC-005
 created: 2026-04-13
-updated: 2026-08-09
+updated: 2026-08-10
 priority: High
+resolution: Done
 assignee: architect
 reporter: architect
 release_notes: Adds the foundry-models CLI and Claude skill with 23 Foundry SDK v2 operations for models, versions, experiments, live inference, Model Studio, runs, and trainers. Includes exact nested dispatch, four cursor-paged reads, bounded streamed persistence for three experiment-content downloads, 12-permitted/11-blocked metadata-only policy, write controls for launch and promotion, B3 tracing, safe retries, structured output, and privacy-safe errors and logs.

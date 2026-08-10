@@ -1,5 +1,13 @@
 # QA Engineer Improvement Memory
 
+## Improvement: verify per-command surface details, not just totals
+
+Condition:
+- When cross-validating a test-case deliverable against the real implementation (or when authoring inventory rows against a DESIGN doc), and the total operation count matches but per-resource breakdowns or per-command flags are inherited from a stale design note (e.g. TESTCASE-016 said "Dataset 1, Stream 7, Subscriber 7" while OP_SPECS expose Dataset 1, Stream 8, Subscriber 6; TESTCASE-015 listed `--output` on `execute-ontology` though only `get-results` registers it)
+
+Action:
+- Do verify per-resource operation counts and each command's required/optional flag set directly against the actual `OP_SPECS`/parser (import probe or reading the CLI source), and cross-check fixture bounds (e.g. binary publish cap 16 MiB, `--max-records` defaults) against the implementation constants — not just the aggregate catalog size. Update the deliverable (inventory rows, scope, STR/SQL-TC case text, evidence mappings to real test names) whenever the implemented surface differs. Verified TESTCASE-015/016 (2026-08-10): totals (5 and 15) matched but the 7/7 streams split and the execute-ontology `--output` flag were both wrong and were corrected before the approval handoff.
+
 ## Improvement: memory first
 
 Condition:
@@ -113,6 +121,7 @@ Condition:
 Action:
 
 - Do NOT rely on DEV/UNITTEST `Closed`/`Resolved` status alone. Before `Open -> In Progress`, verify real runnable code exists in the repo (grep the component file path from DESIGN-XXX, import-check the symbol, or run a smoke pytest). If status claims done but no code is present, file a `bug` ticket for phantom implementation and block TESTCASE on it instead of designing tests against vaporware.
+- When implementation genuinely does not exist yet (DEV/UNITTEST still New, no phantom-completion claim), do NOT attempt the transition using a narrative activation-gate comment as evidence: the mandatory gate requires runnable code, and the helper/validator will reject it (verified TESTCASE-013/014, 2026-08-09; TESTCASE-015/016, 2026-08-10). Keep the ticket in `Open`, document the gate honestly in an activation-gate comment, author the design deliverable against the approved DESIGN doc plus the vendored SDK contract (verify the real method signatures and paths from the vendored SDK source, e.g. sql_queries SqlQuery 5 methods with get_results ARROW_TABLE mode; streams Dataset/Stream/Subscriber 15 methods), and re-verify the gate when real code lands (TESTCASE-012 precedent: stayed Open until real commit + UNITTEST Closed + DEV Resolved). The New->Open transition remains valid in parallel-design mode; only Open->In Progress waits on runnable code.
 
 ## Improvement: grooming QA review is not sign-off
 
@@ -199,3 +208,43 @@ Condition:
 
 Action:
 - Do reproduce the build outside pytest, then rerun with explicit `--no-build-isolation` and temporary local build tooling. Treat the first result as an environment setup error unless the corrected offline build still fails. For pip's negative boolean environment option, use `PIP_NO_BUILD_ISOLATION=false`; value `1` leaves isolation enabled.
+
+## Improvement: testcase In Progress -> Resolved has two extra gates
+
+Condition:
+- When advancing a `testcase` from `In Progress` to `Resolved` after test-case authoring
+
+Action:
+- Do NOT rely on the case-set comment alone. The tracker validator enforces two additional mandatory DoD criteria before allowing the transition: (1) an explicit reviewer approval comment from the reviewer role (e.g. `tech-lead` posting "Tech lead approval" with "Approval gate for TESTEXEC-XXX: PASS" on the TESTCASE ticket, per the TESTCASE-012 sibling pattern), and (2) `time_spent_hours` populated in the subtask frontmatter. When approval is missing, create a `question` sub-task under the TESTCASE addressed to the reviewer, wire Question + Blocks links, let AT-4 block the parent, and wait for the reviewer to approve; do NOT self-approve as QA. Verified TESTCASE-013/014 (2026-08-09): the transition was rejected by the helper until both gates were met.
+
+## Improvement: AT-6 unblock does not fire after manual link removal
+
+Condition:
+- When resolving a blocking `question` sub-task (closing it) and the Blocks link to the parent is removed before the question's status update
+
+Action:
+- Do NOT expect the AT-6 automatic transition (`this_ticket_reaches_status` -> `linked_ticket_target_status: prior_status`) to restore the parent from `Blocked`. If the Blocks link is already gone when the question reaches Resolved/Closed, the rule has nothing to act on. Instead, manually transition the parent `Blocked -> prior_status` (documented in a comment) once the blocker is terminal and the Blocks link is removed. Verified TESTCASE-013/014 (2026-08-09): tech-lead closed the approval questions and manually restored both parents to In Progress because the auto-unblock did not fire.
+
+## Improvement: tracker helper cwd drift with parallel agents
+
+Condition:
+- When dispatching tracker operations to the ticket-helper subagent while other agents (e.g. devops-engineer) share the same terminal and change the working directory to a temp folder, causing tracker CLI "ticket not found" validation errors
+
+Action:
+- Do instruct the ticket-helper to chain `Set-Location <project-root>` (and confirm `Get-Location`) inside EVERY tracker command invocation, and use the absolute path to `tracker_cli.py` when cwd cannot be guaranteed. Verify ticket existence (`get`) before any write; when a helper reports phantom missing tickets or contradictory parent statuses, suspect cwd drift rather than actual tracker state. Verified TESTEXEC-013/014 (2026-08-10): first helper call failed with "TESTEXEC-013 not found" + "DEV-STORY-013 in Analysis" because cwd was `T:\tmp\foundry-devops013-014-20260810\candidate`; re-issue with per-command `Set-Location` succeeded immediately.
+
+## Improvement: comment create requires --subject
+
+Condition:
+- When asking ticket-helper to create a tracker comment with only a Markdown body (`--text`) and no `--subject`
+
+Action:
+- Do ALWAYS pass `--subject '<short summary>'` together with the body — `comment create` enforces `--subject required=True` at the parser level and aborts (exit 5, no command run) without it; the helper refuses to invent a subject. Verified TESTEXEC-015/016 closure comments (2026-08-10): first close requests aborted at validation; re-issue with a subject succeeded.
+
+## Improvement: subagent EXIT:0 may be cwd-guard echo, verify with post-write get
+
+Condition:
+- When a ticket-helper subagent reports a status transition succeeded with "EXIT:0" but the ticket still shows the prior status on a later `get`
+
+Action:
+- Do NOT trust the echoed "EXIT:0" as proof of a persisted status transition — it can come from the chained `Set-Location`/`Get-Location` guard instead of the `update --status` command. Run a post-write `get <ticket>` to confirm the persisted status before declaring success, and re-issue the transition if the status is unchanged. Verified TESTEXEC-015 (2026-08-10): first "Closed" attempt actually left the ticket Resolved; the second pass (post-write get confirmed) persisted Closed.

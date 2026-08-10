@@ -94,7 +94,7 @@ Condition:
 - When a test creates a nested venv with `--system-site-packages` and installs a wheel with `--no-deps`
 
 Action:
-- Do remember nested venv reads base interpreter system/user sites, not parent venv packages. Use an isolated temporary `PYTHONUSERBASE` for required dependencies when repository edits and global installs are forbidden; verify imports from that path before rerunning.
+- Do remember nested venv reads base interpreter system/user sites, not parent venv packages. Use an isolated temporary `PYTHONUSERBASE` for required dependencies when repository edits and global installs are forbidden; verify imports from that path before rerunning. For uv-managed Python (PEP 668) add `--break-system-packages --user` to the pip install; confirmed on Python 3.12.9 (DEVOPS-013/014): nested-venv test failed with `ModuleNotFoundError: dotenv`, passed after provisioning `python-dotenv`+`requests` into `PYTHONUSERBASE`.
 
 ## Improvement: isolate release candidate from dirty worktree
 
@@ -103,3 +103,43 @@ Condition:
 
 Action:
 - Do build and test a clean `git archive` of final commit, confirm required precursor commits are ancestors, and use parent before first feature commit as rollback baseline. Don't copy dirty worktree files into candidate unless scope explicitly names them as release artifacts.
+
+## Improvement: handle parent story auto-transition on DEVOPS close
+
+Condition:
+- When closing the last DEVOPS sub-task and the parent DEV-STORY is in Deployment status with all sibling sub-tasks already terminal
+
+Action:
+- Do expect the parent to auto-transition Deployment→Resolved after the DEVOPS close, and treat Resolved→Closed of the parent as a separate validated step (all sub-tasks Closed, no blockers, release notes present) before executing it. Don't pre-close the parent before the DEVOPS sub-task reaches terminal; confirmed on DEV-STORY-014/DEVOPS-014 (2026-08-10): story went Deployment→Resolved→Closed only after DEVOPS-014 Closed.
+
+## Improvement: pass all evidence in one evidence comment per DEVOPS ticket
+
+Condition:
+- When documenting deployment evidence on a DEVOPS ticket per the DEVOPS-010/011/012 pattern
+
+Action:
+- Do record build/install/smoke/gates/rollback + deployment steps + DoD confirmation in a single evidence comment (with \n-escaped markdown) and then chain Resolved→Closed; the evidence comment ID is the DoD proof. Confirmed on DEVOPS-013/014/015/016 (2026-08-10) with evidence comments 20260810-011301/011251/052508/052414-devops-engineer; all closed with time_spent_hours=1.0 and stale DependsOn links removed first.
+
+## Improvement: use forward slashes for Windows paths in ticket comment bodies
+
+Condition:
+- When asking ticket-helper to create a comment whose body contains a Windows filesystem path (e.g. T:\tmp\...)
+
+Action:
+- Do write the path with forward slashes (T:/tmp/...) in the comment body text. The tracker CLI decodes escape sequences, so \t becomes a TAB and the stored path is corrupted; double backslashes leave a stray backslash. Confirmed on DEVOPS-015 plan comment (aborted, path corrupt) and DEVOPS-016 plan/steps/evidence comments (forward slashes stored byte-perfect).
+
+## Improvement: scrub FOUNDRY* env vars before test runs after ACL verification
+
+Condition:
+- When ACL metadata-only verification sets FOUNDRY_AGENTIC_CLI_METADATA_ONLY=true in the shared PowerShell session and a subsequent pytest run follows in the same session
+
+Action:
+- Do remove FOUNDRY_AGENTIC_CLI_METADATA_ONLY (and FOUNDRY_HOSTNAME, FOUNDRY_TOKEN, FOUNDRY_INCLUDE_TRACEBACK) before running tests. The leaked flag caused 16 focused-suite failures (exit 8 AccessControlError on write ops) until scrubbed; after scrubbing all 57 tests passed.
+
+## Improvement: verify launchers exist after fresh-venv wheel install
+
+Condition:
+- When installing a built wheel into a brand-new venv and the install output shows dependencies resolving but no foundry-* console launchers appear in Scripts/
+
+Action:
+- Do force-reinstall the wheel (pip install --force-reinstall with the wheel path) and re-check Scripts/ before smoke testing. A silent partial install (deps only, no package, no launchers) occurred on DEVOPS-015/016; force-reinstall fixed it. Never trust "Successfully installed" from a cached/partial resolution without checking launcher files exist.
