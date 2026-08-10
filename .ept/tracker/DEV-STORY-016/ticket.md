@@ -2,12 +2,13 @@
 id: DEV-STORY-016
 type: dev_story
 title: foundry-streams skill (17 operations, batch strategy ADR-003)
-status: Resolved
+status: Closed
 feature_request: FEATURE-001
 epic: EPIC-006
 created: 2026-04-13
 updated: 2026-08-10
 priority: High
+resolution: Done
 assignee: architect
 reporter: architect
 release_notes: foundry-streams CLI and Claude skill exposing all 15 Streams namespace operations (Dataset, Stream, Subscriber) with the ADR-003 batch-response pattern for record reads, access control, B3 tracing, JSON/TOON output, and packaged metadata policy.

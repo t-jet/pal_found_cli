@@ -94,7 +94,15 @@ Condition:
 - When a test creates a nested venv with `--system-site-packages` and installs a wheel with `--no-deps`
 
 Action:
-- Do remember nested venv reads base interpreter system/user sites, not parent venv packages. Use an isolated temporary `PYTHONUSERBASE` for required dependencies when repository edits and global installs are forbidden; verify imports from that path before rerunning. For uv-managed Python (PEP 668) add `--break-system-packages --user` to the pip install; confirmed on Python 3.12.9 (DEVOPS-013/014): nested-venv test failed with `ModuleNotFoundError: dotenv`, passed after provisioning `python-dotenv`+`requests` into `PYTHONUSERBASE`.
+- Do remember nested venv reads base interpreter system/user sites, not parent venv packages. Use an isolated temporary `PYTHONUSERBASE` for required dependencies when repository edits and global installs are forbidden; verify imports from that path before rerunning. For uv-managed Python (PEP 668) add `--break-system-packages --user` to the pip install; confirmed on Python 3.12.9 (DEVOPS-013/014) and Python 3.12.0 (DEVOPS-017/018, `d:/app/Python-3.12`): nested-venv test failed with `ModuleNotFoundError: dotenv`, passed after provisioning `python-dotenv`+`requests` into `PYTHONUSERBASE`.
+
+## Improvement: verify venv interpreter version before per-version gates
+
+Condition:
+- When running Python version-specific gates (3.11/3.12 matrix) from a scratch venv
+
+Action:
+- Do run `<venv>/Scripts/python.exe --version` and confirm the actual interpreter before executing gates. Don't assume a venv created from the repo venv base is the intended version; on DEVOPS-017/018 (2026-08-10) the "env312" venv was built from the 3.11 repo venv and ran 3.11.9, silently invalidating the first 3.12 gate until recreated from the real `d:/app/Python-3.12` binary. Also record the real interpreter version in reports (3.12.0, not "3.12.9").
 
 ## Improvement: isolate release candidate from dirty worktree
 

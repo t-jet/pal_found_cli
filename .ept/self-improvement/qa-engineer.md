@@ -112,6 +112,14 @@ Condition:
 Action:
 - Do NOT assume the parent auto-blocks. AT-4's `child_filter` is `types: [question]`, so a `bug_subtask` Blocks link does NOT fire it. The parent stays in its current status; the open BUG-SUB only blocks the parent's LATER transition via its own DoD ("All BUG-SUB sub-tasks Closed"). If you need the parent visibly Blocked, create a QUESTION sub-task instead, or manually transition the parent.
 
+## Improvement: QUESTION approval-request auto-blocks parent via AT-4
+
+Condition:
+- When creating a QUESTION sub-task (e.g. tech-lead approval request) under a TESTCASE parent to satisfy the reviewer-approval gate
+
+Action:
+- Do create the QUESTION, set assignee to creator before New -> Open, create the Question link, then the Blocks link; AT-4 `child_blocker_created` fires on the Blocks-link creation and auto-transitions the parent to Blocked (no manual parent transition needed). Document blocker ID + prior status in a parent comment. Confirmed TESTCASE-017/018 (2026-08-10): QUESTION-040/041, links LINK-00597/00598/00599/00600, both parents auto-Blocked. On approval, tech-lead must post approval, close the QUESTION, remove the Blocks link, and manually restore the parent (AT-5/AT-6 do not reliably auto-restore).
+
 ## Improvement: testcase Open -> In Progress needs implementation-existence gate
 
 Condition:
@@ -248,3 +256,27 @@ Condition:
 
 Action:
 - Do NOT trust the echoed "EXIT:0" as proof of a persisted status transition — it can come from the chained `Set-Location`/`Get-Location` guard instead of the `update --status` command. Run a post-write `get <ticket>` to confirm the persisted status before declaring success, and re-issue the transition if the status is unchanged. Verified TESTEXEC-015 (2026-08-10): first "Closed" attempt actually left the ticket Resolved; the second pass (post-write get confirmed) persisted Closed.
+
+## Improvement: live-style CLI probes need valid 5-segment RIDs
+
+Condition:
+- When running live-style CLI probes against a namespace (e.g. connectivity) using the TESTCASE test-data RID fixtures, and the SDK rejects the input with a pydantic `ValidationError` mapped to exit 1 instead of the expected network/config error (exit 6/9)
+
+Action:
+- Do use a valid 5-segment RID (`ri.<app>.<instance>.<type>.<rid>`, e.g. `ri.connectivity.main.test.conn`) for live-style probes; the installed SDK (1.102.0) enforces a stricter RID pattern than 4-segment fixtures like `ri.connection.main.test-conn`. Verify the actual exception via `_serialize_error` instrumentation (wraps the module function, prints type/str/frames) before classifying: a `pydantic_core.ValidationError` from the SDK means input validation correctly exits 1 (ADR-001), NOT a product defect; document the 4-segment fixture as a test-data doc artifact. Verified TESTEXEC-017 (2026-08-10): after fixing the RID, the creds-present probe produced the expected ConnectionError retries with exit 6 and the scrubbed probe exit 9.
+
+## Improvement: capture exit codes without truncating pipelines
+
+Condition:
+- When capturing CLI probe evidence and piping through `Select-Object -First N` or similar truncation before reading `$LASTEXITCODE`
+
+Action:
+- Do capture the exit code on a separate, non-truncated invocation (e.g. redirect stdout/stderr to $null with `2>$null | Out-Null` and read `$LASTEXITCODE`, or capture output to a variable first). Truncating the pipeline can mask the CLI's real exit code (E9 probe showed exit 0 where the actual path exits 6). Verified TESTEXEC-017 (2026-08-10).
+
+## Improvement: sequence testexec transitions in order (Open -> In Progress -> Resolved -> Closed)
+
+Condition:
+- When advancing a `testexec` ticket and requesting a status jump (e.g. Open -> Resolved) instead of the configured chain
+
+Action:
+- Do plan and request the full allowed chain explicitly: `Open -> In Progress -> Resolved -> Closed`; the tracker validator rejects jumps (Open->Resolved not allowed; the helper preflight aborts cleanly). Prepare each transition's DoD evidence before requesting it (Open->In Progress: implementation exists + plan comment + TESTCASE/DEV/UNITTEST/CODEREVIEW terminal; In Progress->Resolved: per-case evidence + time reported; Resolved->Closed: no active is-blocked-by links). Also single-quote multi-word status values (`--status 'In Progress'`) — unquoted, PowerShell splits them and the CLI errors "unrecognized arguments". Verified TESTEXEC-017/018 (2026-08-10).

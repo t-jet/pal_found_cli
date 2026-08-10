@@ -8,7 +8,7 @@ Condition:
 - When a DEV-STORY title or an ADR/SAD entry claims a namespace operation count (e.g. streams "17 operations") and grooming scope must be defined
 
 Action:
-- Do enumerate the leaf client methods from the vendored SDK source (`foundry_sdk/v2/<ns>/`), then cross-check the canonical env-var reference and metadata allow-list row counts. When all three concord on a different number than the title/ADR/SAD, correct the count in the scope comment and DESIGN deliverable (flagged as stale), rather than silently implementing the claimed number. Confirmed on DEV-STORY-016 2026-08-10: title/ADR-003/SAD-001 say 17, SDK exposes exactly 15 (Dataset 1, Stream 7, Subscriber 7); sql_queries stays 5 across all three sources.
+- Do enumerate the leaf client methods from the vendored SDK source (`foundry_sdk/v2/<ns>/`), then cross-check the canonical env-var reference and metadata allow-list row counts. When all three concord on a different number than the title/ADR/SAD, correct the count in the scope comment and DESIGN deliverable (flagged as stale), rather than silently implementing the claimed number. Confirmed on DEV-STORY-016 2026-08-10: title/ADR-003/SAD-001 say 17, SDK exposes exactly 15 (Dataset 1, Stream 7, Subscriber 7); sql_queries stays 5 across all three sources. Confirmed again on DEV-STORY-017 2026-08-10: title/SAD-001 say 15, SDK exposes exactly 20 (Connection 7, FileImport 6, TableImport 6, VirtualTable 1) with env-ref and allow-list concordant at 20; DEV-STORY-018 media_sets 19 was confirmed accurate across all three sources.
 
 ## Improvement: verify ticket ID when create output omits it
 
@@ -16,7 +16,7 @@ Condition:
 - When a tracker `create` command's YAML output lacks the `ticket_id` field (e.g. codereview/devops create returned only `current_status` onwards)
 
 Action:
-- Do run `get <expected-ticket-id> --author <role>` to confirm the ticket exists and carries the expected fields (priority, assignee, parent, estimated_hours) before reporting success; confirmed on CODEREVIEW-015, DEVOPS-016 on 2026-08-10.
+- Do run `get <expected-ticket-id> --author <role>` to confirm the ticket exists and carries the expected fields (priority, assignee, parent, estimated_hours) before reporting success; confirmed on CODEREVIEW-015, DEVOPS-016 on 2026-08-10, and again on the DEV-STORY-017/018 sub-task batches 2026-08-10 (design/development/unittest/codereview/devops creates all omit `ticket_id`; testcase/testexec include it).
 
 ## Improvement: tracker CLI comment syntax
 

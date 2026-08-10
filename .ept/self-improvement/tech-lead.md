@@ -25,7 +25,17 @@ Action:
 - Do `link list` on the source AND target tickets before assuming a `Blocks` link exists; in this repo link topology is inconsistent (some codereviews only carry `ParentChild`, others carry `DEV Blocks CODEREVIEW`). Only remove a link that is actually a blocking relationship; if none exists, note "no blocking link present" and skip the removal step.
 - Do NOT expect the `Blocks` link record to be deleted when the source ticket reaches a terminal status — AT-5 clears blocks *semantically* (the link row stays). Verify "not blocked" by attempting the transition, not by re-running `link list` and looking for the row to vanish.
 - Do ignore child-level `Blocked=Yes` flags when validating a parent story for closure: a closed child (e.g. CODEREVIEW-013) can still show `Blocked=Yes` because its own inbound `Blocks` link (e.g. DEV-013 → CODEREVIEW-013 LINK-00490) targets the child, not the story. Run `link list <child-id>` to confirm the link's target is the child itself; it does not block the parent. Parent closure only requires no `Blocks`/`Question`/`DependsOn` links on the story.
-- Do EXPECT to manually restore the parent after a QUESTION approval gate: AT-5/AT-6 do NOT auto-restore the Blocked parent even when the question reaches terminal status AND its Blocks link is removed (confirmed three batches: TESTCASE-013/014, TESTCASE-015/016). Sequence: post approval + Answer comments → transition question to Closed → remove the Blocks link (keep the Question link) → transition the parent Blocked→prior status. Do not wait for the automatic rules.
+- Do EXPECT to manually restore the parent after a QUESTION approval gate: AT-5/AT-6 do NOT auto-restore the Blocked parent even when the question reaches terminal status AND its Blocks link is removed (confirmed four batches: TESTCASE-013/014, TESTCASE-015/016, TESTCASE-017/018). Sequence: post approval + Answer comments → transition question to Closed → remove the Blocks link (keep the Question link) → transition the parent Blocked→prior status. Do not wait for the automatic rules.
+- Do verify which of the two QUESTION→parent links is the actual `Blocks` row before removal: the user/brief may label the wrong link ID (this batch: brief called LINK-00597/00599 "Blocks", but recon proved LINK-00598/00600 were Blocks and 00597/00599 were Question). Trust `link list` output, not the brief's link labels.
+
+## Improvement: probe SDK kwarg names against real installed signatures before approval
+
+Condition:
+- When reviewing a namespace CLI whose OP_SPECS arg names are expected to map 1:1 to SDK kwargs, and the mock-driven unit tests pass
+
+Action:
+- Do `inspect.signature` every op with structured/JSON args against the INSTALLED SDK (not the vendored docs) and run a small runtime probe with valid-shaped inputs through the real SDK wrapper; a mock test asserting the wrong kwarg (e.g. `filters=` instead of SDK-required `file_import_filters=`) passes while the real call fails at validation. This batch caught a P1 (connectivity file_import create/replace can NEVER succeed — `ValidationError: file_import_filters Missing required keyword only argument`) only via the runtime probe; the vendored DESIGN table also carried the wrong arg name. Also probe pydantic `validate_call` extra-arg behavior before calling an extra flag a defect: `maybe_ignore_preview` strips unknown `preview` kwargs with only a UserWarning, and `validate_call` default is `extra='ignore'` — both downgrade what looks like a runtime error to a doc-only mismatch (P3).
+- Do also check the SDK's per-op explicit `attribution` kwarg against the global `ATTRIBUTION_VAR` context header (http_client applies `attribution` header to ALL requests from the context var); an unreferenced per-op kwarg is usually P3 cosmetic when the context-var path satisfies the requirement.
 
 ## Improvement: verify epic auto-transition premises by enumerating all same-link siblings
 
@@ -42,7 +52,8 @@ Condition:
 - When a DEV-STORY closure DoD asks "backward compatibility guaranteed OR new major version increased" for a NEW namespaced skill/CLI added to an existing multi-namespace CLI repo
 
 Action:
-- Do verify four concrete code facts BEFORE writing the determination comment and keep version unchanged only if all hold: (1) pyproject [project.scripts] appends the new entry point without removing/renaming any prior one; (2) the new CLI imports only `common.*` shared infra (consume-only) and imports nothing from sibling namespace CLIs; (3) no `common.*` module was modified; (4) a test asserts the operation-count contract (e.g. `len(OP_SPECS) == 66`). Absent any Incompatible API change, no major bump is required (SemVer additive). Cite each fact inline in the closure comment so the determination is falsifiable, not boilerplate.
+- Do verify four concrete code facts BEFORE writing the determination comment and keep version unchanged only if all hold: (1) pyproject [project.scripts] appends the new entry point without removing/renaming any prior one; (2) the new CLI imports only `common.*` shared infra (consume-only) and imports nothing from sibling namespace CLIs; (3) shared-infra diffs are purely additive (e.g. a new verb appended to the `_WRITE_VERBS` frozenset plus a regression test) with no existing symbol removed, renamed, or re-behaved; (4) a test asserts the operation-count contract (`len(cli.OP_SPECS) == N`). Absent any Incompatible API change, no major bump is required (SemVer additive). Cite each fact inline in the closure comment so the determination is falsifiable, not boilerplate.
+- Do count OP_SPECS entries by AST-walking the `OP_SPECS: tuple[OperationSpec, ...]` AnnAssign and counting its `_op(...)` Call elements (resource/operation are the first two literal args). Naive tuple-element/regex counting over-counts nested per-op argument tuples (probe returned 6/35 instead of 5/15 in DEV-STORY-015/016 closure). Read the catalog's definition style before probing.
 - Don't rubber-stamp "additive and backward-compatible" from the ticket title alone — reviewers can't tell a real review from a templated one.
 
 ## Improvement: prefer best-effort optional imports for SDK exception mapping
@@ -206,3 +217,15 @@ Condition:
 Action:
 
 - Do run `Get-ChildItem Env:FOUNDRY_AGENTIC_CLI_*` (or `env | grep FOUNDRY`) before suspecting the code; a leaked `FOUNDRY_AGENTIC_CLI_METADATA_ONLY=true` or `..._READONLY=true` in the shell makes the ACL correctly block every write op. Clear the leaked var and re-run — 16 of 16 failures were environmental (ACL defense working as designed), not defects. Document the leaked-var root cause in the review evidence comment so the reviewer's due diligence is falsifiable.
+
+- Do re-confirm the same order for 017: link remove LINK-00577 (CODEREVIEW-017 -> DEV-017) exit 0, CODEREVIEW-017 Corrected -> Closed, link list DEV-017 showed only the outbound LINK-00576 Blocks row left, DEV-017 Resolved -> Closed exit 0. Note: the fix itself was verified in the working tree (uncommitted, HEAD 62c269f); flag commit-at-next-checkpoint in the approval comment, not as a blocking finding.
+
+## Improvement: resolve title-vs-evidence mismatch at closure via documented corrected surface
+
+Condition:
+
+- When closing a dev_story whose title/description contradicts downstream verified evidence (e.g. DEV-STORY-017 title says "15 operations", comments and release_notes and CODEREVIEW/DEVOPS probes establish 20)
+
+Action:
+
+- Do close on the verified evidence: confirm the corrected surface was independently cross-checked (architect three-source count, CODEREVIEW SDK-probe approval, DEVOPS installed-wheel probe), then state the corrected number and the mismatch explicitly in the closure evidence comment. Do not reopen the story or block closure for a stale title. (DEV-STORY-017/018 closed Resolved -> Closed 2026-08-10 with resolution=Done, closure comments 20260810-144913-tech-lead on both.)

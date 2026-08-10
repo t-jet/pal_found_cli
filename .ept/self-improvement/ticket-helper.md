@@ -166,7 +166,7 @@ Condition:
 - When a caller asserts a Resolved ticket has only non-blocking links (no active is-blocked-by links) and requests a Resolved-to-Closed move
 
 Action:
-- Do run `link list <ticket-id>` and confirm the returned links contain no Blocks/blocking inbound entries before executing the status update; don't rely on caller context alone. Pre-verify the move with `workflow transitions <type> Resolved`, execute `update --status Closed`, then re-run `get` to confirm the persisted status is Closed before returning the Result block. If the caller reports an intermediate status absent from the transition map, follow the configured path instead. Confirmed on TESTEXEC-016 close (20260810): link list showed exactly the caller-expected inbound Contains LINK-00546 and ParentChild LINK-00547 from DEV-STORY-016 with no Blocks entries; update --status Closed exited 0 with current_status: Closed; fresh get confirmed persisted status Closed.
+- Do run `link list <ticket-id>` and confirm the returned links contain no Blocks/blocking inbound entries before executing the status update; don't rely on caller context alone. Pre-verify the move with `workflow transitions <type> Resolved`, execute `update --status Closed`, then re-run `get` to confirm the persisted status is Closed before returning the Result block. If the caller reports an intermediate status absent from the transition map, follow the configured path instead. Confirmed on TESTEXEC-016 close (20260810): link list showed exactly the caller-expected inbound Contains LINK-00546 and ParentChild LINK-00547 from DEV-STORY-016 with no Blocks entries; update --status Closed exited 0 with current_status: Closed; fresh get confirmed persisted status Closed. Also confirmed on DEV-STORY-015 close (20260810): closure batch (resolution=Done field update, evidence comment, Resolved->Closed) executed after link list confirmed 19 links with no Blocks/Question/DependsOn entries; fresh get confirmed status Closed and resolution Done.
 
 ## Improvement: Validate update field names against type optional_fields
 
@@ -182,7 +182,7 @@ Condition:
 - When creating or updating a tracker comment whose body is multiline Markdown
 
 Action:
-- Do pass the full body inline to `comment create --text` using \n escapes; the CLI decodes them, PowerShell passes \n literally so no corruption occurs; verify with `comment get` afterward. Wrap the whole --text argument in single quotes so Markdown backticks are not interpreted as PowerShell escape characters; confirmed byte-for-byte on 35-line, 40+ line, and 44-line Markdown bodies (TESTCASE-012/013/014), a 12-line Answer comment (QUESTION-037), and a 44-line codereview evidence body (CODEREVIEW-014) and a 15-line execution-plan comment (TESTEXEC-014), and the 37-line gate re-verification comment (TESTCASE-015, comment 20260810-031251), and the 9-line closure comment on TESTEXEC-015 (comment 20260810-044434-qa-engineer, subject 'TESTEXEC-015 closed'); never omit single quotes around the --text argument.
+- Do pass the full body inline to `comment create --text` using \n escapes; the CLI decodes them, PowerShell passes \n literally so no corruption occurs; verify with `comment get` afterward. Wrap the whole --text argument in single quotes so Markdown backticks are not interpreted as PowerShell escape characters; confirmed byte-for-byte on 35-line, 40+ line, and 44-line Markdown bodies (TESTCASE-012/013/014), a 12-line Answer comment (QUESTION-037), and a 44-line codereview evidence body (CODEREVIEW-014) and a 15-line execution-plan comment (TESTEXEC-014), and the 37-line gate re-verification comment (TESTCASE-015, comment 20260810-031251), and the 9-line closure comment on TESTEXEC-015 (comment 20260810-044434-qa-engineer, subject 'TESTEXEC-015 closed'), and the 27-line execution-plan comment on TESTEXEC-018 (comment 20260810-133557-qa-engineer, subject 'Test execution plan + implementation-existence gate verified (TESTEXEC-018)'); never omit single quotes around the --text argument. IMPORTANT: when the body contains a literal apostrophe, double it ('' inside the single-quoted argument) so PowerShell does not close the string early — an unescaped apostrophe drops the shell into the '>>' continuation prompt and the command never executes. Confirmed on CODEREVIEW-017 P1 comment (20260810): first attempt with 'operations' dispatch path' stalled at '>>' with no write, then the retry with 'operations'' dispatch path' committed comment 20260810-130004-python-developer byte-for-byte.
 
 ## Improvement: Verify inline create body fidelity before transition
 
@@ -196,10 +196,10 @@ Action:
 ## Improvement: Verify field persistence after update
 
 Condition:
-- When executing a field-only `update --field` on a ticket
+- When executing a field-only update via `--field` or a first-class option (`--assignee`, `--priority`) on a ticket
 
 Action:
-- Do re-run `get` after the update and confirm the new value appears in the ticket frontmatter before returning the Result block; do not rely on the brief update confirmation line alone. Field-only updates print only a brief confirmation line, so the persisted frontmatter value is the authoritative check for DoD criteria such as "Time reported in subtask frontmatter"; confirmed on UNITTEST-014 time_spent_hours=12.
+- Do re-run `get` after the update and confirm the new value appears in the ticket frontmatter before returning the Result block; do not rely on the brief update confirmation line alone. Field-only updates print only a brief confirmation line, so the persisted frontmatter value is the authoritative check for DoD criteria such as "Time reported in subtask frontmatter"; confirmed on UNITTEST-014 time_spent_hours=12 and on CODEREVIEW-017 assignee=tech-lead (20260810): update --assignee tech-lead exited 0 printing only the brief one-line confirmation; fresh get confirmed assignee=tech-lead in frontmatter.
 
 
 ## Improvement: Retry transient CLI KeyboardInterrupt once
@@ -234,7 +234,7 @@ Condition:
 - When a comment report must include full body text that the comment list output table does not print
 
 Action:
-- Do run ``comment list <ticket-id>`` for the summary table, then run ``comment get <ticket-id> <comment-id>`` sequentially for each returned comment ID to capture the full body; return the list output and each comment id, author, created, updated, subject, and body verbatim, one command per terminal call. Compare the number of comments fetched with the comment-list count and state explicitly that no comment was omitted (confirmed on DEV-STORY-013: 23 of 23 comments retrieved).
+- Do run ``comment list <ticket-id>`` for the summary table, then run ``comment get <ticket-id> <comment-id>`` sequentially for each returned comment ID to capture the full body; return the list output and each comment id, author, created, updated, subject, and body verbatim, one command per terminal call. Compare the number of comments fetched with the comment-list count and state explicitly that no comment was omitted (confirmed on DEV-STORY-013: 23 of 23 comments retrieved, DEV-STORY-018: 8 of 8 comments retrieved, and DEV-STORY-017: 8 of 8 comments retrieved (20260810)).
 
 ## Improvement: Verify write commit before retrying interrupted commands
 
@@ -280,10 +280,10 @@ Action:
 ## Improvement: Don't enrich beyond explicit operation limit
 
 Condition:
-- When a caller requests a single operation (e.g. `list`) and explicitly forbids any other operation, but the report must include a field the command output does not print (e.g. parent column absent from the list table)
+- When a caller requests a single operation (e.g. `list`) and explicitly forbids any other operation, but the report must include a field the command output does not print (e.g. parent column absent from the list table); also when a caller enumerates an exact ordered list of read operations (e.g. get, link list, comment list) and requires the raw outputs exactly as printed
 
 Action:
-- Do execute exactly the one permitted command, return its full verbatim output, and state explicitly which requested fields are not available from that output without extra operations; don't run additional commands against the caller's constraint and don't infer missing field values from titles or context.
+- Do execute exactly the one permitted command (or exactly the enumerated operations, one per terminal call, in order), return their full verbatim outputs, and state explicitly which requested fields are not available from those outputs without extra operations (e.g. `comment list` prints no body text — `comment get` per comment would be needed); don't run additional commands against the caller's constraint and don't infer missing field values from titles or context. Confirmed on DEV-STORY-017 read batch (20260810): get/link list/comment list executed sequentially exit 0; comment text column absent from comment list output; no comment get enrichment run because the caller scoped exactly three operations and required output as printed. Reconfirmed on DEV-017/DEV-018/UNITTEST-017/UNITTEST-018 read batch (20260810): eight sequential read-only commands (4 get + 4 comment list) executed one per terminal call with exit 0; comment list printed no body text and no comment get enrichment was run because the caller scoped exactly eight operations and required outputs verbatim. Reconfirmed on the 9-operation read batch (20260810): 4 gets + workflow types + 2 workflow status + 2 workflow transitions executed one per terminal call, exit 0, no mutation and no enrichment run because the caller enumerated exactly nine read-only operations (get, workflow types, workflow status, workflow transitions) and required outputs verbatim. Reconfirmed on the 8-operation read batch (20260810): 4 gets + 4 link lists executed one per terminal call, exit 0, no mutation and no enrichment run because the caller enumerated exactly eight read-only operations (get, link list) and required outputs verbatim; the get outputs printed ticket bodies in full with no truncation, so no code-block body re-print was needed. Reconfirmed on the 4-get read batch (20260810): 4 gets executed one per terminal call, exit 0, no mutation and no enrichment run because the caller enumerated exactly four read-only operations (get) and required outputs verbatim; the get outputs printed each ticket body in full with no truncation, and the final report reproduced the description bodies verbatim in fenced code blocks. Reconfirmed on the 10-operation read batch (20260810): 6 workflow status + 2 workflow transitions + 2 type-info executed one per terminal call, exit 0, no mutation and no enrichment run because the caller enumerated exactly ten read-only operations (workflow status, workflow transitions, type-info) and required outputs verbatim; workflow status printed the full status detail fields (Description, Stage Goal, Responsible Roles, Allowed Transitions) for each requested status, workflow transitions printed the complete transition table, and type-info printed full YAML including statuses, allowed_transitions, automatic_transitions, and ticket_instructions with transition_dods verbatim.
 
 ## Improvement: Confirm large get output via fresh filtered re-run
 
@@ -308,7 +308,7 @@ Condition:
 - When a caller mandates Set-Location to the workspace root inside the same command chain as each tracker CLI call, and the terminal tool echoes a simplified command that omits the leading Set-Location
 
 Action:
-- Do confirm the Get-Location output printed by the executed chain reports the workspace root before consuming the CLI result; treat the simplified echo as a display artifact, not a skipped instruction, and never assume cwd correctness without that confirmation line.
+- Do confirm the Get-Location output printed by the executed chain reports the workspace root before consuming the CLI result; treat the simplified echo as a display artifact, not a skipped instruction, and never assume cwd correctness without that confirmation line. Reconfirmed on DEV-STORY-018 list (20260810): Get-Location printed E:\learn\GenAI_Foundations_DA\git\foundry_cli and the CLI found 7 child tickets. Reconfirmed on TESTEXEC-017 comment create (20260810): Get-Location printed E:\learn\GenAI_Foundations_DA\git\foundry_cli and the comment create exited 0.
 
 
 ## Improvement: Normalize --field to key=value when caller passes space-separated
@@ -359,3 +359,15 @@ Condition:
 
 Action:
 - Do run `link list` on that sibling and confirm the Blocked flag comes from an inbound Blocks link of an already-terminal ticket (closed DEV); treat it as a terminal-status artifact that does not block the transition DoD; verify no open QUESTION sub-tasks or active blockers exist before executing the status update. Confirmed on DEVOPS-015 Open->In Progress (20260810): CODEREVIEW-015 Blocked=Yes from LINK-00534 (DEV-015 -> CODEREVIEW-015 Blocks) with DEV-015 Closed; DEVOPS-015 transitioned to In Progress with exit 0.
+
+
+
+
+
+## Improvement: Comment list --author does not filter rows
+
+Condition:
+- When a caller requests all comments for a ticket authored by a specific role and the plan uses ``comment list <ticket-id> --author <role>``
+
+Action:
+- Do treat ``--author`` on comment list as acting-author annotation, not a filter; the table prints all comments regardless. Enumerate via unfiltered ``comment list``, then filter by the author field in each ``comment get`` output. Confirmed on DEVOPS-016 (20260810): ``comment list DEVOPS-016 --author devops-engineer`` still printed all 11 comments including architect's "Ticket created"; 11 of 11 bodies fetched verbatim, 10 authored by devops-engineer.

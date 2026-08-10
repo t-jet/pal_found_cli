@@ -2,12 +2,13 @@
 id: DEV-STORY-015
 type: dev_story
 title: foundry-sql-queries skill (5 operations)
-status: Resolved
+status: Closed
 feature_request: FEATURE-001
 epic: EPIC-006
 created: 2026-04-13
 updated: 2026-08-10
 priority: High
+resolution: Done
 assignee: architect
 reporter: architect
 release_notes: foundry-sql-queries CLI and Claude skill exposing all 5 SqlQuery namespace operations (cancel, execute, execute_ontology, get_results, get_status) with batch Arrow-result downloads, access control, B3 tracing, JSON/TOON output, and packaged metadata policy.
