@@ -655,7 +655,7 @@ Entry point (main)
 | DEV-STORY-019 | `foundry-checkpoints` skill (3 operations) | Medium |
 | DEV-STORY-020 | `foundry-data-health` skill (4 operations) | Medium |
 | DEV-STORY-021 | `foundry-third-party-applications` skill (9 operations) | Low |
-| DEV-STORY-022 | `foundry-widgets` skill (12 operations) | Low |
+| DEV-STORY-022 | `foundry-widgets` skill (8 operations, corrected from 12 per QUESTION-043) | Low |
 
 ### Phase 5: Knowledge Skill (Sprint 9)
 

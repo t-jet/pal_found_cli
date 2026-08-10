@@ -456,13 +456,21 @@ This document classifies every SDK v2 operation for Tier-3 (Metadata-Only) acces
 | `third_party_applications.website.undeploy` | BLOCKED | |
 ### Namespace: `widgets`
 
+> **Surface correction (QUESTION-043, 2026-08-11):** The installed runtime SDK
+> `foundry-platform-sdk 1.102.0` exposes exactly **8** widgets operations. The rows for
+> `dev_mode_settings.disable`, `dev_mode_settings.get`, `dev_mode_settings.pause`, and
+> `dev_mode_settings.set_widget_set` are retained for canonical completeness but are
+> **NOT implemented** in the `foundry-widgets` CLI (DEV-022). `DevModeSettingsV2` is out
+> of scope. The packaged allow-list in `src/foundry_cli/widgets/metadata-allow-list.md`
+> contains only the 8 implemented rows.
+
 | SDK Path | Tier-3 Status | Reason |
 |---|---|---|
-| `widgets.dev_mode_settings.disable` | BLOCKED | |
+| `widgets.dev_mode_settings.disable` *(not implemented)* | BLOCKED | |
 | `widgets.dev_mode_settings.enable` | BLOCKED | |
-| `widgets.dev_mode_settings.get` | PERMITTED | |
-| `widgets.dev_mode_settings.pause` | BLOCKED | |
-| `widgets.dev_mode_settings.set_widget_set` | BLOCKED | |
+| `widgets.dev_mode_settings.get` *(not implemented)* | PERMITTED | |
+| `widgets.dev_mode_settings.pause` *(not implemented)* | BLOCKED | |
+| `widgets.dev_mode_settings.set_widget_set` *(not implemented)* | BLOCKED | |
 | `widgets.dev_mode_settings.set_widget_set_by_id` | BLOCKED | |
 | `widgets.release.delete` | BLOCKED | |
 | `widgets.release.get` | PERMITTED | |

@@ -555,14 +555,20 @@ environment variable name. Review and update on every `foundry-platform-python` 
 
 ### Namespace: `widgets`
 
+> **Surface correction (QUESTION-043, 2026-08-11):** The installed runtime SDK
+> `foundry-platform-sdk 1.102.0` exposes exactly **8** widgets operations. The rows for
+> `dev_mode_settings.disable`, `dev_mode_settings.get`, `dev_mode_settings.pause`, and
+> `dev_mode_settings.set_widget_set` are retained below for canonical completeness but
+> are **NOT implemented** in the `foundry-widgets` CLI (DEV-022). `DevModeSettingsV2`
+> is out of scope.
 
 | SDK Path | `_ENABLED` variable | `_READONLY=false` (write override) |
 |---|---|---|
-| `widgets.dev_mode_settings.disable` | `FOUNDRY_AGENTIC_CLI_WIDGETS_DEV_MODE_SETTINGS_DISABLE_ENABLED` | `FOUNDRY_AGENTIC_CLI_WIDGETS_DEV_MODE_SETTINGS_DISABLE_READONLY=false` |
+| `widgets.dev_mode_settings.disable` *(not implemented)* | `FOUNDRY_AGENTIC_CLI_WIDGETS_DEV_MODE_SETTINGS_DISABLE_ENABLED` | `FOUNDRY_AGENTIC_CLI_WIDGETS_DEV_MODE_SETTINGS_DISABLE_READONLY=false` |
 | `widgets.dev_mode_settings.enable` | `FOUNDRY_AGENTIC_CLI_WIDGETS_DEV_MODE_SETTINGS_ENABLE_ENABLED` | `FOUNDRY_AGENTIC_CLI_WIDGETS_DEV_MODE_SETTINGS_ENABLE_READONLY=false` |
-| `widgets.dev_mode_settings.get` | `FOUNDRY_AGENTIC_CLI_WIDGETS_DEV_MODE_SETTINGS_GET_ENABLED` | `FOUNDRY_AGENTIC_CLI_WIDGETS_DEV_MODE_SETTINGS_GET_READONLY=false` |
-| `widgets.dev_mode_settings.pause` | `FOUNDRY_AGENTIC_CLI_WIDGETS_DEV_MODE_SETTINGS_PAUSE_ENABLED` | `FOUNDRY_AGENTIC_CLI_WIDGETS_DEV_MODE_SETTINGS_PAUSE_READONLY=false` |
-| `widgets.dev_mode_settings.set_widget_set` | `FOUNDRY_AGENTIC_CLI_WIDGETS_DEV_MODE_SETTINGS_SET_WIDGET_SET_ENABLED` | `FOUNDRY_AGENTIC_CLI_WIDGETS_DEV_MODE_SETTINGS_SET_WIDGET_SET_READONLY=false` |
+| `widgets.dev_mode_settings.get` *(not implemented)* | `FOUNDRY_AGENTIC_CLI_WIDGETS_DEV_MODE_SETTINGS_GET_ENABLED` | `FOUNDRY_AGENTIC_CLI_WIDGETS_DEV_MODE_SETTINGS_GET_READONLY=false` |
+| `widgets.dev_mode_settings.pause` *(not implemented)* | `FOUNDRY_AGENTIC_CLI_WIDGETS_DEV_MODE_SETTINGS_PAUSE_ENABLED` | `FOUNDRY_AGENTIC_CLI_WIDGETS_DEV_MODE_SETTINGS_PAUSE_READONLY=false` |
+| `widgets.dev_mode_settings.set_widget_set` *(not implemented)* | `FOUNDRY_AGENTIC_CLI_WIDGETS_DEV_MODE_SETTINGS_SET_WIDGET_SET_ENABLED` | `FOUNDRY_AGENTIC_CLI_WIDGETS_DEV_MODE_SETTINGS_SET_WIDGET_SET_READONLY=false` |
 | `widgets.dev_mode_settings.set_widget_set_by_id` | `FOUNDRY_AGENTIC_CLI_WIDGETS_DEV_MODE_SETTINGS_SET_WIDGET_SET_BY_ID_ENABLED` | `FOUNDRY_AGENTIC_CLI_WIDGETS_DEV_MODE_SETTINGS_SET_WIDGET_SET_BY_ID_READONLY=false` |
 | `widgets.release.delete` | `FOUNDRY_AGENTIC_CLI_WIDGETS_RELEASE_DELETE_ENABLED` | `FOUNDRY_AGENTIC_CLI_WIDGETS_RELEASE_DELETE_READONLY=false` |
 | `widgets.release.get` | `FOUNDRY_AGENTIC_CLI_WIDGETS_RELEASE_GET_ENABLED` | `FOUNDRY_AGENTIC_CLI_WIDGETS_RELEASE_GET_READONLY=false` |
