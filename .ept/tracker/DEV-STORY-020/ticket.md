@@ -2,14 +2,20 @@
 id: DEV-STORY-020
 type: dev_story
 title: foundry-data-health skill (4 operations)
-status: New
+status: Closed
 feature_request: FEATURE-001
 epic: EPIC-007
 created: 2026-04-13
-updated: 2026-07-28
+updated: 2026-08-10
 priority: High
+resolution: Done
 assignee: architect
 reporter: architect
+release_notes: 'Foundry data health skill: adds foundry-data-health CLI (6 operations corrected from
+  stale 4: check create, check delete, check get, check replace, check-report get,
+  check-report get-latest) with shared access control, write-set classification, B3
+  tracing, retry, output formatting, and packaged metadata-only policy (3 permitted
+  / 3 blocked).'
 ---
 
 # DEV-STORY-020: foundry-data-health skill (4 operations)

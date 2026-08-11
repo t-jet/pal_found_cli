@@ -1,5 +1,5 @@
 id,type,title,status,priority,assignee,reporter,parent,addressed_to,path,created,updated
-FEATURE-001,feature,Foundry CLI: Requirements Analysis and Open Questions,Waiting for Implementation,High,architect,architect,,,FEATURE-001,2026-04-09,2026-08-01
+FEATURE-001,feature,Foundry CLI: Requirements Analysis and Open Questions,Closed,High,architect,architect,,,FEATURE-001,2026-04-09,2026-08-11
 QUESTION-001,question,Foundry CLI Round 3: 10 open questions requiring Product Owner answers,Closed,High,,architect,FEATURE-001,product_owner,FEATURE-001/QUESTION-001,2026-04-10,2026-04-10
 BA-ANA-001,ba_subtask_analysis,Foundry CLI: Business Requirements Analysis,Closed,Medium,ba,ba,FEATURE-001,,FEATURE-001/BA-ANA-001,2026-04-13,2026-04-13
 SA-ANA-001,sa_subtask_analysis,Foundry CLI: Solution Architecture Analysis,Closed,Medium,architect,architect,FEATURE-001,,FEATURE-001/SA-ANA-001,2026-04-13,2026-04-13
@@ -7,10 +7,10 @@ EPIC-001,epic,Core CLI Infrastructure,Done,Critical,architect,architect,,,EPIC-0
 EPIC-002,epic,Datasets & Filesystem Skills,Done,Critical,architect,architect,,,EPIC-002,2026-04-13,2026-07-30
 EPIC-003,epic,Ontology & Functions Skills,Done,Critical,architect,architect,,,EPIC-003,2026-04-13,2026-07-30
 EPIC-004,epic,Admin & Security Skills,Done,High,architect,architect,,,EPIC-004,2026-04-13,2026-08-01
-EPIC-005,epic,AI & Models Skills,In Progress,High,architect,architect,,,EPIC-005,2026-04-13,2026-08-01
-EPIC-006,epic,Data Pipeline Skills,In Progress,High,architect,architect,,,EPIC-006,2026-04-13,2026-08-01
-EPIC-007,epic,Remaining Namespace Skills,New,Medium,architect,architect,,,EPIC-007,2026-04-13,2026-04-13
-EPIC-008,epic,Foundry Knowledge Skill,In Progress,High,architect,architect,,,EPIC-008,2026-04-13,2026-08-01
+EPIC-005,epic,AI & Models Skills,Done,High,architect,architect,,,EPIC-005,2026-04-13,2026-08-11
+EPIC-006,epic,Data Pipeline Skills,Done,High,architect,architect,,,EPIC-006,2026-04-13,2026-08-11
+EPIC-007,epic,Remaining Namespace Skills,Done,Medium,architect,architect,,,EPIC-007,2026-04-13,2026-08-11
+EPIC-008,epic,Foundry Knowledge Skill,Done,High,architect,architect,,,EPIC-008,2026-04-13,2026-08-11
 DEV-STORY-001,dev_story,"Implement ConfigLoader, AuthProvider, AsyncClientFactory",Closed,Critical,architect,architect,FEATURE-001,,DEV-STORY-001,2026-04-13,2026-07-22
 DEV-STORY-002,dev_story,"Implement RetryHandler, ErrorSerializer, OutputFormatter, LogSetup",Closed,Critical,architect,architect,FEATURE-001,,DEV-STORY-002,2026-04-13,2026-07-28
 DEV-STORY-003,dev_story,"Implement AccessControlGuard, PaginationHelper",Closed,Critical,architect,architect,FEATURE-001,,DEV-STORY-003,2026-04-13,2026-07-26
@@ -29,11 +29,11 @@ DEV-STORY-015,dev_story,foundry-sql-queries skill (5 operations),Closed,High,arc
 DEV-STORY-016,dev_story,"foundry-streams skill (17 operations, batch strategy ADR-003)",Closed,High,architect,architect,FEATURE-001,,DEV-STORY-016,2026-04-13,2026-08-10
 DEV-STORY-017,dev_story,foundry-connectivity skill (15 operations),Closed,High,architect,architect,FEATURE-001,,DEV-STORY-017,2026-04-13,2026-08-10
 DEV-STORY-018,dev_story,foundry-media-sets skill (19 operations),Closed,High,architect,architect,FEATURE-001,,DEV-STORY-018,2026-04-13,2026-08-10
-DEV-STORY-019,dev_story,foundry-checkpoints skill (3 operations),New,High,architect,architect,FEATURE-001,,DEV-STORY-019,2026-04-13,2026-07-28
-DEV-STORY-020,dev_story,foundry-data-health skill (4 operations),New,High,architect,architect,FEATURE-001,,DEV-STORY-020,2026-04-13,2026-07-28
-DEV-STORY-021,dev_story,foundry-third-party-applications skill (9 operations),New,High,architect,architect,FEATURE-001,,DEV-STORY-021,2026-04-13,2026-07-28
-DEV-STORY-022,dev_story,foundry-widgets skill (12 operations),New,High,architect,architect,FEATURE-001,,DEV-STORY-022,2026-04-13,2026-07-28
-DEV-STORY-023,dev_story,Author foundry/ knowledge skill content,New,High,architect,architect,FEATURE-001,,DEV-STORY-023,2026-04-13,2026-07-28
+DEV-STORY-019,dev_story,foundry-checkpoints skill (3 operations),Closed,High,architect,architect,FEATURE-001,,DEV-STORY-019,2026-04-13,2026-08-10
+DEV-STORY-020,dev_story,foundry-data-health skill (4 operations),Closed,High,architect,architect,FEATURE-001,,DEV-STORY-020,2026-04-13,2026-08-10
+DEV-STORY-021,dev_story,foundry-third-party-applications skill (9 operations),Closed,High,architect,architect,FEATURE-001,,DEV-STORY-021,2026-04-13,2026-08-11
+DEV-STORY-022,dev_story,foundry-widgets skill (12 operations),Closed,High,architect,architect,FEATURE-001,,DEV-STORY-022,2026-04-13,2026-08-11
+DEV-STORY-023,dev_story,Author foundry/ knowledge skill content,Closed,High,architect,architect,FEATURE-001,,DEV-STORY-023,2026-04-13,2026-08-11
 TASK-001,task,Analyze project implementation needs and request required team members via HR,Closed,High,architect,architect,,,TASK-001,2026-05-01,2026-05-01
 RESOURCE-REQ-001,resource_req,Provision Business Analyst (BA) agent for Foundry CLI project,Closed,High,hr,architect,,,RESOURCE-REQ-001,2026-05-01,2026-05-01
 RESOURCE-REQ-002,resource_req,Provision Tech Lead / Senior Python Developer agent for Foundry CLI project,Closed,Critical,hr,architect,,,RESOURCE-REQ-002,2026-05-01,2026-05-01
@@ -224,3 +224,40 @@ TESTEXEC-018,testexec,TESTEXEC-018 - foundry-media-sets CLI test execution,Close
 DEVOPS-018,devops,DEVOPS-018 - foundry-media-sets CLI packaging and deployment,Closed,High,devops-engineer,architect,DEV-STORY-018,,DEV-STORY-018/DEVOPS-018,2026-08-10,2026-08-10
 QUESTION-040,question,TESTCASE-017 test case approval request,Closed,Medium,qa-engineer,qa-engineer,TESTCASE-017,tech-lead,TESTCASE-017/QUESTION-040,2026-08-10,2026-08-10
 QUESTION-041,question,TESTCASE-018 test case approval request,Closed,Medium,qa-engineer,qa-engineer,TESTCASE-018,tech-lead,TESTCASE-018/QUESTION-041,2026-08-10,2026-08-10
+DESIGN-019,design,DESIGN-019 - foundry-checkpoints CLI technical design and grooming,Closed,High,tech-lead,architect,DEV-STORY-019,,DEV-STORY-019/DESIGN-019,2026-08-10,2026-08-10
+DEV-019,development,DEV-019 - implement foundry-checkpoints CLI (3 operations),Closed,High,python-developer,architect,DEV-STORY-019,,DEV-STORY-019/DEV-019,2026-08-10,2026-08-10
+UNITTEST-019,unittest,UNITTEST-019 - unit tests for foundry-checkpoints CLI,Closed,High,python-developer,architect,DEV-STORY-019,,DEV-STORY-019/UNITTEST-019,2026-08-10,2026-08-10
+CODEREVIEW-019,codereview,CODEREVIEW-019 - code review of DEV-019 (foundry-checkpoints CLI),Closed,High,tech-lead,architect,DEV-STORY-019,,DEV-STORY-019/CODEREVIEW-019,2026-08-10,2026-08-10
+TESTCASE-019,testcase,TESTCASE-019 - QA test cases for foundry-checkpoints CLI,Closed,High,qa-engineer,architect,DEV-STORY-019,,DEV-STORY-019/TESTCASE-019,2026-08-10,2026-08-10
+TESTEXEC-019,testexec,TESTEXEC-019 - execute QA test cases for foundry-checkpoints CLI,Closed,High,qa-engineer,architect,DEV-STORY-019,,DEV-STORY-019/TESTEXEC-019,2026-08-10,2026-08-10
+DEVOPS-019,devops,DEVOPS-019 - packaging and deployment of foundry-checkpoints CLI,Closed,High,devops-engineer,architect,DEV-STORY-019,,DEV-STORY-019/DEVOPS-019,2026-08-10,2026-08-10
+DESIGN-020,design,DESIGN-020 - foundry-data-health CLI technical design and grooming,Closed,High,tech-lead,architect,DEV-STORY-020,,DEV-STORY-020/DESIGN-020,2026-08-10,2026-08-10
+DEV-020,development,DEV-020 - implement foundry-data-health CLI (6 operations),Closed,High,python-developer,architect,DEV-STORY-020,,DEV-STORY-020/DEV-020,2026-08-10,2026-08-10
+UNITTEST-020,unittest,UNITTEST-020 - unit tests for foundry-data-health CLI,Closed,High,python-developer,architect,DEV-STORY-020,,DEV-STORY-020/UNITTEST-020,2026-08-10,2026-08-10
+CODEREVIEW-020,codereview,CODEREVIEW-020 - code review of DEV-020 (foundry-data-health CLI),Closed,High,tech-lead,architect,DEV-STORY-020,,DEV-STORY-020/CODEREVIEW-020,2026-08-10,2026-08-10
+TESTCASE-020,testcase,TESTCASE-020 - QA test cases for foundry-data-health CLI,Closed,High,qa-engineer,architect,DEV-STORY-020,,DEV-STORY-020/TESTCASE-020,2026-08-10,2026-08-10
+TESTEXEC-020,testexec,TESTEXEC-020 - execute QA test cases for foundry-data-health CLI,Closed,High,qa-engineer,architect,DEV-STORY-020,,DEV-STORY-020/TESTEXEC-020,2026-08-10,2026-08-10
+DEVOPS-020,devops,DEVOPS-020 - packaging and deployment of foundry-data-health CLI,Closed,High,devops-engineer,architect,DEV-STORY-020,,DEV-STORY-020/DEVOPS-020,2026-08-10,2026-08-10
+DESIGN-021,design,DESIGN-021 - foundry-third-party-applications CLI technical design and grooming,Closed,High,tech-lead,architect,DEV-STORY-021,,DEV-STORY-021/DESIGN-021,2026-08-10,2026-08-10
+DEV-021,development,DEV-021 - implement foundry-third-party-applications CLI (9 operations),Closed,High,python-developer,architect,DEV-STORY-021,,DEV-STORY-021/DEV-021,2026-08-10,2026-08-11
+UNITTEST-021,unittest,UNITTEST-021 - unit tests for foundry-third-party-applications CLI,Closed,High,python-developer,architect,DEV-STORY-021,,DEV-STORY-021/UNITTEST-021,2026-08-10,2026-08-11
+CODEREVIEW-021,codereview,CODEREVIEW-021 - code review of DEV-021 (foundry-third-party-applications CLI),Closed,High,tech-lead,architect,DEV-STORY-021,,DEV-STORY-021/CODEREVIEW-021,2026-08-10,2026-08-11
+TESTCASE-021,testcase,TESTCASE-021 - QA test cases for foundry-third-party-applications CLI,Closed,High,qa-engineer,architect,DEV-STORY-021,,DEV-STORY-021/TESTCASE-021,2026-08-10,2026-08-11
+TESTEXEC-021,testexec,TESTEXEC-021 - execute QA test cases for foundry-third-party-applications CLI,Closed,High,qa-engineer,architect,DEV-STORY-021,,DEV-STORY-021/TESTEXEC-021,2026-08-10,2026-08-11
+DEVOPS-021,devops,DEVOPS-021 - packaging and deployment for foundry-third-party-applications CLI,Closed,High,devops-engineer,architect,DEV-STORY-021,,DEV-STORY-021/DEVOPS-021,2026-08-10,2026-08-11
+DESIGN-022,design,DESIGN-022 - foundry-widgets CLI technical design and grooming,Closed,High,tech-lead,architect,DEV-STORY-022,,DEV-STORY-022/DESIGN-022,2026-08-10,2026-08-10
+DEV-022,development,DEV-022 - implement foundry-widgets CLI (12 operations),Closed,High,python-developer,architect,DEV-STORY-022,,DEV-STORY-022/DEV-022,2026-08-10,2026-08-11
+UNITTEST-022,unittest,UNITTEST-022 - unit tests for foundry-widgets CLI,Closed,High,python-developer,architect,DEV-STORY-022,,DEV-STORY-022/UNITTEST-022,2026-08-10,2026-08-11
+CODEREVIEW-022,codereview,CODEREVIEW-022 - code review of DEV-022 (foundry-widgets CLI),Closed,High,tech-lead,architect,DEV-STORY-022,,DEV-STORY-022/CODEREVIEW-022,2026-08-10,2026-08-11
+TESTCASE-022,testcase,TESTCASE-022 - QA test cases for foundry-widgets CLI,Closed,High,qa-engineer,architect,DEV-STORY-022,,DEV-STORY-022/TESTCASE-022,2026-08-10,2026-08-11
+TESTEXEC-022,testexec,TESTEXEC-022 - execute QA test cases for foundry-widgets CLI,Closed,High,qa-engineer,architect,DEV-STORY-022,,DEV-STORY-022/TESTEXEC-022,2026-08-10,2026-08-11
+DEVOPS-022,devops,DEVOPS-022 - packaging and deployment for foundry-widgets CLI,Closed,High,devops-engineer,architect,DEV-STORY-022,,DEV-STORY-022/DEVOPS-022,2026-08-10,2026-08-11
+QUESTION-042,question,"QUESTION-XXX - SDK/design mismatch: installed DevModeSettings exposes 2 ops, not 6 (widgets)",Duplicated,High,,python-developer,DEV-022,tech-lead,DEV-022/QUESTION-042,2026-08-10,2026-08-11
+QUESTION-043,question,"SDK schema drift: installed foundry-platform-sdk 1.102.0 exposes only 8 widgets ops, DESIGN-022 requires 12 (DevModeSettings missing disable/get/pause/set_widget_set)",Closed,High,tech-lead,python-developer,DEV-022,tech-lead,DEV-022/QUESTION-043,2026-08-10,2026-08-11
+DESIGN-023,design,DESIGN-023: foundry/ knowledge skill — design and grooming,Closed,High,tech-lead,architect,DEV-STORY-023,tech-lead,DEV-STORY-023/DESIGN-023,2026-08-11,2026-08-11
+DEV-023,development,DEV-023: Author the foundry/ knowledge skill markdown content,Closed,High,python-developer,architect,DEV-STORY-023,python-developer,DEV-STORY-023/DEV-023,2026-08-11,2026-08-11
+UNITTEST-023,unittest,UNITTEST-023: Verification of the foundry/ knowledge skill content,Closed,High,python-developer,architect,DEV-STORY-023,python-developer,DEV-STORY-023/UNITTEST-023,2026-08-11,2026-08-11
+TESTCASE-023,testcase,TESTCASE-023: QA test cases for the foundry/ knowledge skill,Closed,High,qa-engineer,architect,DEV-STORY-023,qa-engineer,DEV-STORY-023/TESTCASE-023,2026-08-11,2026-08-11
+CODEREVIEW-023,codereview,CODEREVIEW-023: Review of the foundry/ knowledge skill content,Closed,High,tech-lead,architect,DEV-STORY-023,tech-lead,DEV-STORY-023/CODEREVIEW-023,2026-08-11,2026-08-11
+DEVOPS-023,devops,DEVOPS-023: Packaging and deployment verification for the foundry/ knowledge skill,Closed,High,devops-engineer,architect,DEV-STORY-023,devops-engineer,DEV-STORY-023/DEVOPS-023,2026-08-11,2026-08-11
+TESTEXEC-023,testexec,TESTEXEC-023: QA execution for the foundry/ knowledge skill,Closed,High,qa-engineer,architect,DEV-STORY-023,qa-engineer,DEV-STORY-023/TESTEXEC-023,2026-08-11,2026-08-11

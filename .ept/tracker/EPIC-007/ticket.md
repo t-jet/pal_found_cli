@@ -2,10 +2,9 @@
 id: EPIC-007
 type: epic
 title: Remaining Namespace Skills
-status: New
-feature_request: FEATURE-001
+status: Done
 created: 2026-04-13
-updated: 2026-04-13
+updated: 2026-08-11
 priority: Medium
 assignee: architect
 reporter: architect

@@ -1,5 +1,21 @@
 # DevOps Engineer Improvement Memory
 
+## Improvement: create venvs without pip bootstrap to survive terminal displacement
+
+Condition:
+- When creating scratch virtual environments for packaging verification on a shared Windows PowerShell host where parallel agents displace the terminal (KeyboardInterrupt during `python -m venv` ensurepip)
+
+Action:
+- Do create with `python -m venv --without-pip <env>` then `python -m ensurepip --upgrade` in a separate call, and verify `pip --version` before installing. Reconfirmed on DEVOPS-023 (2026-08-11): three sequential `python -m venv` calls were interrupted mid-ensurepip, leaving a venv whose pip was missing/corrupted (wheel env had to be recreated). Don't chain venv creation with installs in one command.
+
+## Improvement: isolate multi-step verification from shared-terminal ^C churn
+
+Condition:
+- When running sequential verification steps (secret scans, hash compares, env diffs) on a shared PowerShell terminal where parallel agents keep interrupting commands with ^C
+
+Action:
+- Do wrap multi-step checks in a single `python -c`/script file executed in one call, or capture with `*> log` + Start-Process, rather than long PowerShell pipelines. Reconfirmed on DEVOPS-023 (2026-08-11): a 3-check PowerShell command was interrupted three times; the equivalent `secret_scan.py` ran in one shot.
+
 ## Improvement: verify CI pipeline actually enforces security scans
 
 Condition:
@@ -150,4 +166,28 @@ Condition:
 - When installing a built wheel into a brand-new venv and the install output shows dependencies resolving but no foundry-* console launchers appear in Scripts/
 
 Action:
-- Do force-reinstall the wheel (pip install --force-reinstall with the wheel path) and re-check Scripts/ before smoke testing. A silent partial install (deps only, no package, no launchers) occurred on DEVOPS-015/016; force-reinstall fixed it. Never trust "Successfully installed" from a cached/partial resolution without checking launcher files exist.
+- Do force-reinstall the wheel (pip install --force-reinstall with the wheel path) and re-check Scripts/ before smoke testing. A silent partial install (deps only, no package, no launchers) occurred on DEVOPS-015/016; force-reinstall fixed it. Never trust "Successfully installed" from a cached/partial resolution without checking launcher files exist. On DEVOPS-021/022 (2026-08-11) the silent partial install recurred via a DIFFERENT trigger — terminal displacement between the pip install command and the verification step; the tell was `pip list` showing no `foundry-cli` row. Always confirm `pip list` contains foundry-cli and launchers exist after any editable/wheel install before running tests or smoke.
+
+## Improvement: provision PYTHONUSERBASE deps into the same userbase the harness will use
+
+Condition:
+- When a nested-venv harness test (--system-site-packages, wheel --no-deps) must import dotenv/requests and the run sets PYTHONUSERBASE to an isolated directory
+
+Action:
+- Do pip install --break-system-packages --user with the SAME `PYTHONUSERBASE` env var exported, and verify the packages land under `<userbase>/Python<ver>/site-packages`, not the default Roaming user site. On DEVOPS-021/022 (2026-08-11) provisioning into the default user site did not help the nested venv, because the run exported a different PYTHONUSERBASE; the failure was `ModuleNotFoundError: dotenv` in `foundry-audit.exe --help` until the isolated userbase itself was provisioned.
+
+## Improvement: use subprocess for JSON-arg CLI probes instead of PowerShell direct invocation
+
+Condition:
+- When probing a CLI that takes structured JSON arguments (--config-json, --where-json, --records-json) from a PowerShell terminal, or when piping launcher output through Select-Object
+
+Action:
+- Do run the installed launcher via `python -c`/a probe script using `subprocess.run([...], capture_output=True)` so JSON values pass verbatim and exit codes are exact. Don't pass JSON as a PowerShell positional argument (quotes get stripped -> local validation exits 1 instead of the expected ACL/network code) and don't pipe the exe through Select-Object (it corrupts $LASTEXITCODE). Confirmed on DEVOPS-019/020 (2026-08-10): `check create --config-json {...}` gave exit 1 instead of 8 until run via subprocess; first ACL probe exits were misread through pipes.
+
+## Improvement: SearchCheckpointRecordsRequest wraps filter under "filter"
+
+Condition:
+- When invoking foundry-checkpoints `record search --where-json` with an eq filter
+
+Action:
+- Do pass the request object, not the bare filter: `{"filter": {"type": "eq", "field": "recordRid", "value": "ri.checks.main.record.xxx"}}`. The SDK `search(where=SearchCheckpointRecordsRequest)` builds `SearchRecordsRequest(where=where)` from it; a bare `{"type":"eq",...}` fails SDK validation with exit 1. Valid eq fields: recordRid, configRid, checkpointType, actingUserId, delegateUserId, organizationRid, namespaceRid, interactionRid, checkpointedItemType (DEVOPS-019 probe, 2026-08-10).

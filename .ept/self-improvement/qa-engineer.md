@@ -1,5 +1,21 @@
 # QA Engineer Improvement Memory
 
+## Improvement: 3.12 harness needs pytest-asyncio before async suite runs
+
+Condition:
+- When running a namespace focused suite (or full regression) on a secondary Python 3.12 interpreter provisioned via `--user --break-system-packages` PYTHONUSERBASE, and collection fails with "Unknown pytest.mark.asyncio" / "Unknown config option: asyncio_mode" / ImportError on the test module
+
+Action:
+- Do provision `pytest-asyncio` (plus pytest-cov, python-dotenv, requests, the pinned foundry-platform-sdk) into that userbase BEFORE running any async-marked suite, and set `PYTHONPATH=src` for src-layout imports; classify the resulting collection/run failures as a test-harness gap, not a product defect. Verified TESTEXEC-019/020 (2026-08-10): 3.12 focused run failed 38 tests until pytest-asyncio 1.4.0 installed; then 131 focused and 1276 full passed on 3.12.
+
+## Improvement: wheel --no-index install fails without local SDK cache
+
+Condition:
+- When verifying a wheel/editable packaging case in a fresh venv and using `--no-index` / `PIP_NO_INDEX=1` (test-case docs say offline build with local deps), and pip fails with "Could not find a version that satisfies the requirement foundry-platform-sdk>=1.0.0 (from versions: none)"
+
+Action:
+- Do NOT treat this as a product defect. The SDK is not vendored locally, so `--no-index` cannot resolve it; install the wheel with dependency resolution (plain `pip install <wheel>`) or first provision deps into the venv, then re-run the launcher/ACL probes. Verify entry-point launchers exist after install (`Get-ChildItem venv\Scripts\foundry-*.exe`). Verified TESTEXEC-019/020 (2026-08-10): `--no-index` install failed, retry with deps succeeded and all probes passed.
+
 ## Improvement: verify per-command surface details, not just totals
 
 Condition:
@@ -7,6 +23,14 @@ Condition:
 
 Action:
 - Do verify per-resource operation counts and each command's required/optional flag set directly against the actual `OP_SPECS`/parser (import probe or reading the CLI source), and cross-check fixture bounds (e.g. binary publish cap 16 MiB, `--max-records` defaults) against the implementation constants — not just the aggregate catalog size. Update the deliverable (inventory rows, scope, STR/SQL-TC case text, evidence mappings to real test names) whenever the implemented surface differs. Verified TESTCASE-015/016 (2026-08-10): totals (5 and 15) matched but the 7/7 streams split and the execute-ontology `--output` flag were both wrong and were corrected before the approval handoff.
+
+## Improvement: DESIGN doc can be stale against installed SDK — verify via inspect.signature
+
+Condition:
+- When authoring a TESTCASE deliverable against a DESIGN doc whose operation count was NOT yet corrected (e.g. DESIGN-022 still listed 12 widgets ops after a QUESTION-043 decision cut it to 8), or when the implementation directory does not exist yet at gate time
+
+Action:
+- Do ground the case set in the ACTUAL installed SDK surface via `inspect.signature` on the installed package (never the vendored snapshot alone), assert the stale/out-of-scope ops are ABSENT in the catalog case, note the design-amendment dependency in the deliverable, and if the Open->In Progress gate fails (no runnable code) keep the ticket in Open with a gate-status comment documenting exactly which files/entry points are missing — do not force the transition and do not file a BUG when DEV is legitimately in progress. Verified TESTCASE-022 (2026-08-11): 8-op surface confirmed against installed `foundry_sdk.v2.widgets` (enable/set_widget_set_by_id; repository get/publish; widget-set get; release delete/get/list; DevModeSettingsV2 out of scope), DESIGN-022 stale 12-op flagged, `src/foundry_cli/widgets/` absent -> TESTCASE-022 stayed Open with gate comment 20260811-022006; TESTCASE-021 gate PASSED at HEAD 74094bc (9-op OP_SPECS, 4/5 policy, 37 focused tests) -> In Progress with plan comment 20260811-021400.
 
 ## Improvement: memory first
 
@@ -223,7 +247,7 @@ Condition:
 - When advancing a `testcase` from `In Progress` to `Resolved` after test-case authoring
 
 Action:
-- Do NOT rely on the case-set comment alone. The tracker validator enforces two additional mandatory DoD criteria before allowing the transition: (1) an explicit reviewer approval comment from the reviewer role (e.g. `tech-lead` posting "Tech lead approval" with "Approval gate for TESTEXEC-XXX: PASS" on the TESTCASE ticket, per the TESTCASE-012 sibling pattern), and (2) `time_spent_hours` populated in the subtask frontmatter. When approval is missing, create a `question` sub-task under the TESTCASE addressed to the reviewer, wire Question + Blocks links, let AT-4 block the parent, and wait for the reviewer to approve; do NOT self-approve as QA. Verified TESTCASE-013/014 (2026-08-09): the transition was rejected by the helper until both gates were met.
+- Do NOT rely on the case-set comment alone. The tracker validator enforces two additional mandatory DoD criteria before allowing the transition: (1) an explicit reviewer approval comment from the reviewer role (e.g. `tech-lead` posting "Tech lead approval" with "Approval gate for TESTEXEC-XXX: PASS" on the TESTCASE ticket, per the TESTCASE-012 sibling pattern), and (2) `time_spent_hours` populated in the subtask frontmatter. When approval is missing, create a `question` sub-task under the TESTCASE addressed to the reviewer, wire Question + Blocks links, let AT-4 block the parent, and wait for the reviewer to approve; do NOT self-approve as QA. Verified TESTCASE-013/014 (2026-08-09): the transition was rejected by the helper until both gates were met. Reconfirmed TESTCASE-021/022 (2026-08-11): tech-lead had posted approvals DIRECTLY on the TESTCASE tickets (20260811-025114/025117 and 025135/025140, no QUESTION sub-tasks needed); set `time_spent_hours=8` via `update --field time_spent_hours=8`, then In Progress->Resolved->Closed all succeeded with post-write get confirming each status. Resolved->Closed DoD is only "no active is-blocked-by links" — verify via link list (only Contains/ParentChild from parent) before closing.
 
 ## Improvement: AT-6 unblock does not fire after manual link removal
 
@@ -280,3 +304,51 @@ Condition:
 
 Action:
 - Do plan and request the full allowed chain explicitly: `Open -> In Progress -> Resolved -> Closed`; the tracker validator rejects jumps (Open->Resolved not allowed; the helper preflight aborts cleanly). Prepare each transition's DoD evidence before requesting it (Open->In Progress: implementation exists + plan comment + TESTCASE/DEV/UNITTEST/CODEREVIEW terminal; In Progress->Resolved: per-case evidence + time reported; Resolved->Closed: no active is-blocked-by links). Also single-quote multi-word status values (`--status 'In Progress'`) — unquoted, PowerShell splits them and the CLI errors "unrecognized arguments". Verified TESTEXEC-017/018 (2026-08-10).
+
+## Improvement: comment bodies with literal apostrophes break PowerShell single-quoting
+
+Condition:
+- When writing a tracker comment body that contains literal apostrophes inside a PowerShell single-quoted `--text` argument (e.g. Python dict/tuple literals like `{'check': 4, 'check_report': 2}` or `('Check',)`), the single quote terminates the argument early and the CLI errors "unrecognized arguments" (exit 2) with truncated text
+
+Action:
+- Do double every literal apostrophe (`''`) inside the single-quoted `--text` string before sending, so PowerShell keeps the argument intact and the stored body matches byte-for-byte; verify with a `comment get` when fidelity matters, and check no comment was committed before retrying (the argparse failure happens before any write, so no duplicate risk). Verified TESTCASE-020 (2026-08-10): attempt 1 aborted at exit 2 on `{'check': 4, 'check_report': 2}`; attempt 2 with doubled apostrophes committed `20260810-190859-qa-engineer` byte-identical.
+
+## Improvement: pre-existing 3.12 audit wheel flake classified as harness, not defect
+
+Condition:
+- When running the full suite on a uv-provisioned Python 3.12 and `tests/test_audit_console_wrapper.py::test_wheel_and_editable_installs_work_from_arbitrary_cwd_without_pythonpath` fails with `ModuleNotFoundError: No module named dotenv` in the installed-wheel smoke (child venv created with `--system-site-packages`)
+
+Action:
+- Do classify as a pre-existing environment-harness flake, NOT a product defect and NOT a BUG-SUB: uv-managed 3.12 interpreters (Roaming/uv cache/seeded venv) have no conventional base site-packages containing dotenv, so the child `--system-site-packages` venv cannot resolve it; the audit namespace wheel test passes on 3.11 (base interpreter has dotenv). Evidence: identical flake recorded in devops019-020 batch py312-full.log ("1 failed, 1275 passed" first, "1276 passed" on rerun). Document the flake in the execution-log note and keep focused suites + per-namespace coverage as the pass evidence on 3.12. Verified TESTEXEC-021/022 (2026-08-11): 3.11 1362 passed, 3.12 1361 passed + the single audit flake.
+
+## Improvement: use uv seeded venv and Start-Process logs for 3.12 long suites
+
+Condition:
+- When provisioning a Python 3.12 environment for QA suites and running long full-suite pytest runs in a shared PowerShell terminal
+
+Action:
+- Do create the 3.12 venv with `uv venv --seed` (provides pip, needed by the audit wheel-build fixture; uv cache interpreters and plain `uv venv` lack pip and user-site is disabled via ENABLE_USER_SITE=False), install deps with `uv pip install --python <venv>`, set `PYTHONPATH=src`, and run long suites via `Start-Process -NoNewWindow -Wait` with separate stdout/stderr log files. The shared terminal suffers KeyboardInterrupt contamination from parallel agents; detached-with-logfile runs survive it. Also note the first wheel install into a fresh venv may silently skip console scripts — `--force-reinstall --no-deps` fixes it (harness artifact). Verified TESTEXEC-021/022 (2026-08-11).
+
+## Improvement: verify document-index links when registering a QA deliverable
+
+Condition:
+- When registering a QA test-case deliverable in `.ept/docs/document_index.md`, or when a prior registration (DEV/DEVOPS) added a link to a repo artifact outside `.ept/docs/` (e.g. a skill under `.claude/skills/`)
+
+Action:
+- Do resolve every relative link touched in the index (and the pre-existing entries adjacent to the insertion point) with `Test-Path`/`Resolve-Path` from `.ept/docs/`; `.claude/` artifacts need `../../.claude/...`, not `skills/...`. Don't leave a broken index link behind. Verified TESTCASE-023 (2026-08-11): the DEV-023 registration had `[Foundry Knowledge Skill](skills/foundry/SKILL.md)` resolving to `.ept/docs/skills/...` (nonexistent); corrected to `../../.claude/skills/foundry/SKILL.md` and documented in the authored-evidence comment.
+
+## Improvement: static-doc deliverables — verify counts via AST over real CLI sources
+
+Condition:
+- When designing QA test cases for a documentation/static-markdown story whose expected values are operation counts or per-namespace catalog shapes
+
+Action:
+- Do verify every count against the ACTUAL implemented source, not the DESIGN doc: an AST probe over `src/foundry_cli/*/scripts/*_cli.py` (`OP_SPECS` AnnAssign tuple of `_op(...)` calls; dispatch-style CLIs like datasets count `if operation ==` branches; tuple-of-dict-literal catalogs like language_models) reproduces the exact 18-namespace table (admin 66, ..., ontologies 67, widgets 8, total 351). Note CLI path separators on Windows glob output are backslashes (`cli.replace("\\","/")`). Cross-check the largest catalogs against test-asserted counts (e.g. `test_operation_catalog_has_67_unique_operations`). Verified TESTCASE-023 (2026-08-11): AST counts matched the skill table exactly; 351 implemented + 4 widgets design rows = 355 documented.
+
+## Improvement: content-accuracy probes — rule out probe artifacts before filing FAIL
+
+Condition:
+- When executing static-markdown QA cases via one-off Python probes and a case initially reports FAIL (or a catalogue block parser returns 0 pairs / all-AST-missing)
+
+Action:
+- Do treat each FAIL as a suspected probe artifact first and re-verify before classifying, checking: (a) path index after `glob` on Windows — namespace is `parts[2]` of the joined relative path or `split("/")[-3]` of the absolute path, never `-4` (which collapses every file under one `foundry_cli` key); (b) skill catalogue blocks are `**ns (N)** — res op, op; ...` — segments start after an em-dash and only RESOURCE names are backtick-wrapped, so parse with `re.search` (not `re.match`) on the segment and `[a-z_0-9]+` for ops (digit-bearing names like `time_series_property_v2` fail `[a-z_]+`); (c) string-vs-int comparisons in dicts (parse int before comparing); (d) case-sensitive fix/verb checks vs the actual skill casing (e.g. "Set operation/namespace" not "set ..."); (e) row-count slices off by the separator/header line (skill concept table has 23 data rows, not the fixture's 22 — a counting artifact in the TESTCASE doc, not a skill defect). Document the artifact as a probe correction in the execution log, not as a BUG-SUB. Verified TESTEXEC-023 (2026-08-11): 4 of 4 "FAILs" in the first consolidated probe were artifacts (path index -4, str/int compare, geo-block regex, row slice); final probe 24/24 PASS, no defects.

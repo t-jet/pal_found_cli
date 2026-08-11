@@ -2,10 +2,11 @@
 id: FEATURE-001
 type: feature
 title: 'Foundry CLI: Requirements Analysis and Open Questions'
-status: Waiting for Implementation
+status: Closed
 created: 2026-04-09
-updated: 2026-08-01
+updated: 2026-08-11
 priority: High
+resolution: Done
 assignee: architect
 reporter: architect
 ---

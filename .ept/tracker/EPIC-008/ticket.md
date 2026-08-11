@@ -2,10 +2,11 @@
 id: EPIC-008
 type: epic
 title: Foundry Knowledge Skill
-status: In Progress
+status: Done
 created: 2026-04-13
-updated: 2026-08-01
+updated: 2026-08-11
 priority: High
+resolution: Done
 assignee: architect
 reporter: architect
 ---

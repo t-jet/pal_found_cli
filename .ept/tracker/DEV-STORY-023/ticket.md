@@ -2,14 +2,22 @@
 id: DEV-STORY-023
 type: dev_story
 title: Author foundry/ knowledge skill content
-status: New
+status: Closed
 feature_request: FEATURE-001
 epic: EPIC-008
 created: 2026-04-13
-updated: 2026-07-28
+updated: 2026-08-11
 priority: High
+resolution: Done
 assignee: architect
 reporter: architect
+release_notes: 'Adds the foundry/ general knowledge skill: a static markdown skill covering Foundry
+  platform concepts, the 20-namespace operation catalogue (355 operations, geo/core
+  documented as zero-op), UserTokenAuth + .env authentication setup per ADR-006, the
+  8-step access control configuration guide per ADR-007, TOON output format rules
+  per ADR-004, exit-code and retry troubleshooting references per ADR-001/ADR-002,
+  and known limitations (widgets SDK drift 12 vs 8 per QUESTION-043, SDK snapshot
+  versioning).'
 ---
 
 # DEV-STORY-023: Author foundry/ knowledge skill content
