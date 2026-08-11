@@ -1,0 +1,127 @@
+
+### admin (66 ops)
+  authentication_provider: get, list, preregister_group, preregister_user
+  cbac_banner: get
+  cbac_marking_restrictions: get
+  enrollment: get, get_current
+  enrollment_role_assignment: add, list, remove
+  group: create, delete, get, get_batch, list, list_current, replace, search
+  group_member: add, list, remove
+  group_membership: list
+  group_membership_expiration_policy: get, replace
+  group_provider_info: get, replace
+  host: list
+  marking: create, get, get_batch, list, replace
+  marking_category: create, get, list, replace
+  marking_member: add, list, remove
+  marking_role_assignment: add, list, remove
+  organization: create, get, list_available_roles, replace
+  organization_guest_member: add, list, remove
+  organization_role_assignment: add, list, remove
+  role: get, get_batch
+  user: delete, get, get_batch, get_current, get_markings, list, profile_picture, revoke_all_tokens, search
+  user_provider_info: get, replace
+
+### aip_agents (15 ops)
+  agent: all_sessions, get
+  agent_version: get, list
+  content: get
+  session: blocking_continue, cancel, create, delete, get, list, rag_context, streaming_continue, update_title
+  session_trace: get
+
+### audit (2 ops)
+  content: content
+  list: list
+
+### checkpoints (3 ops)
+  record: get, get_batch, search
+
+### connectivity (20 ops)
+  connection: create, get, get_configuration, get_configuration_batch, update_export_settings, update_secrets, upload_custom_jdbc_drivers
+  file_import: create, delete, execute, get, list, replace
+  table_import: create, delete, execute, get, list, replace
+  virtual_table: create
+
+### data_health (6 ops)
+  check: create, delete, get, replace
+  check_report: get, get_latest
+
+### datasets — SKIPPED (hand-rolled CLI, see docstring)
+
+### filesystem (31 ops)
+  folder: children, create, get, get_batch, replace
+  project: add_organizations, create, create_from_template, get, organizations, remove_organizations, replace
+  resource: add_markings, delete, get, get_access_requirements, get_batch, get_by_path, get_by_path_batch, markings, permanently_delete, remove_markings, restore
+  resource_role: add, list, remove
+  space: create, delete, get, list, replace
+
+### functions (7 ops)
+  query: execute, get, get_by_rid, get_by_rid_batch, streaming_execute
+  value_type: get
+  version_id: get
+
+### language_models (2 ops)
+  anthropic_model: messages
+  open_ai_model: embeddings
+
+### media_sets (19 ops)
+  media_set: abort, calculate, clear, commit, create, get, get_result, get_rid_by_path, get_status, info, metadata, read, read_original, reference, register, retrieve, transform, upload, upload_media
+
+### models (23 ops)
+  experiment: get, search
+  experiment_artifact_table: json, parquet
+  experiment_series: json, parquet
+  live_deployment: transform_json
+  model: create, get, promote_version
+  model_studio: create, get, launch
+  model_studio_config_version: create, get, latest, list
+  model_studio_run: list
+  model_studio_trainer: get, list
+  model_version: create, get, list
+
+### ontologies (67 ops)
+  action: apply, apply_batch, apply_with_overrides
+  action_type: get, get_by_rid, get_by_rid_batch, list
+  action_type_full_metadata: get, list
+  attachment: get, read, upload, upload_with_rid
+  attachment_property: get_attachment, get_attachment_by_rid, read_attachment, read_attachment_by_rid
+  cipher_text_property: decrypt
+  geotemporal_series_property: get_geotemporal_series_latest_value, stream_geotemporal_series_historic_values
+  linked_object: get_linked_object, list_linked_objects
+  media_reference_property: get_media_content, get_media_metadata, upload
+  object_type: get, get_by_rid_batch, get_edits_history, get_full_metadata, get_outgoing_link_type, list, list_outgoing_link_types
+  ontology: get, get_full_metadata, list, load_metadata
+  ontology_interface: aggregate, get, get_outgoing_interface_link_type, list, list_interface_linked_objects, list_objects_for_interface, list_outgoing_interface_link_types, search
+  ontology_object: aggregate, count, get, list, search
+  ontology_object_set: aggregate, create_temporary, get, load, load_links, load_multiple_object_types, load_objects_or_interfaces
+  ontology_transaction: post_edits
+  ontology_value_type: get, list
+  query: execute
+  query_type: get, list
+  time_series_property_v2: get_first_point, get_last_point, stream_points
+  time_series_value_bank_property: get_latest_value, stream_values
+
+### orchestration (20 ops)
+  build: cancel, create, get, get_batch, jobs, search
+  job: get, get_batch
+  schedule: create, delete, get, get_affected_resources, get_batch, pause, replace, run, runs, unpause
+  schedule_version: get, schedule
+
+### sql_queries (5 ops)
+  sql_query: cancel, execute, execute_ontology, get_results, get_status
+
+### streams (15 ops)
+  dataset: create
+  stream: create, get, get_end_offsets, get_records, publish_binary_record, publish_record, publish_records, reset
+  subscriber: create, commit_offsets, delete, get_read_position, read_records, reset_offsets
+
+### third_party_applications (9 ops)
+  third_party_application: get
+  version: delete, get, list, upload, upload_snapshot
+  website: deploy, get, undeploy
+
+### widgets (8 ops)
+  dev_mode_settings: enable, set_widget_set_by_id
+  release: delete, get, list
+  repository: get, publish
+  widget_set: get
