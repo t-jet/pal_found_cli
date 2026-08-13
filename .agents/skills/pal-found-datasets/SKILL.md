@@ -5,6 +5,14 @@ description: Foundry Datasets API v2 CLI — 33 operations across 5 resource cli
 
 # Foundry Datasets CLI
 
+## Capability and source
+
+Foundry Datasets stores tabular data with branches, transactions, schemas,
+files, and derived views. This CLI exposes 33 Dataset, Branch, File,
+Transaction, and View operations for those lifecycle and read paths.
+
+Source: [Palantir data integration](https://www.palantir.com/docs/foundry/data-integration/application-reference); reviewed 2026-08-13.
+
 33 Foundry Datasets API v2 operations exposed as CLI subcommands via `pal_found_datasets_cli.py`.
 
 ## Operations
@@ -55,6 +63,18 @@ python pal_found_datasets_cli.py dataset get-schema-batch --dataset-r '["rid1", 
 | `--page-size <n>` | Page size for paginated operations |
 | `--page-token <token>` | Resume pagination from token |
 | `--batch-pages <n>` | Number of pages to fetch in batch |
+
+## Parameters and JSON
+
+All operations accept the common options above. Dataset, branch, file,
+transaction, and view commands use positional `dataset_rid` where shown;
+batch dataset IDs use required `--dataset-r` (a JSON list). Required scalar
+variants include `--name`, `--parent-folder-rid`, `--branch-name`,
+`--file-path`, `--transaction-rid`, `--view-dataset-rid`, and `--primary-key`.
+JSON or list payloads use `--schema`, `--backing-datasets`, and
+`--primary-key` in operation-specific forms; `--branch` selects a view or
+table branch. File content variants accept `--start-transaction-rid` and
+`--end-transaction-rid`. No other JSON flag or short form is accepted.
 
 ## Architecture
 

@@ -5,6 +5,13 @@ description: Run Foundry Checkpoints API v2 operations through the Record client
 
 # Foundry Checkpoints
 
+## Capability and source
+
+Checkpoints store named records used to track external-system state. This CLI
+exposes Record get, batch get, and cursor-paged search, all as semantic reads.
+
+Source: [Palantir Foundry API v2 overview](https://www.palantir.com/docs/foundry/api/v2/general/overview); reviewed 2026-08-13.
+
 Run `pal-found-checkpoints --help` for syntax. The CLI exposes exactly 3 Checkpoints v2 operations: `record get`, `record get-batch`, and `record search`.
 
 `record get` takes one positional `record_rid`. `record get-batch` takes the required `--records-json` flag (a JSON array of `{"recordRid": "ri.checks.main.record.xxx"}` elements, bounded at 100 by the SDK contract) and dispatches its body positionally. `record search` takes the required `--where-json` flag (the search filter object) plus the optional `--sort-direction`.
@@ -16,3 +23,12 @@ All 3 operations are semantic reads. `record get_batch` and `record search` use 
 Client creation and invocation scope use `include_attribution=False`. SDK-native B3 context remains active across client creation and every retry, then restores the caller's prior context. Retries cover only ADR-002 transient conditions; all 3 operations are safe to retry (no mutating or billable side effects). Do not add another automatic retry loop after this CLI exhausts its policy.
 
 Successful results go only to stdout. Logs and errors must not contain credentials, tokens, or record content.
+
+### Parameters and JSON
+
+All commands accept `--timeout`, `--format json|toon|auto`, and `--pretty`.
+`record get` takes positional `record_rid`. `record get-batch` requires
+`--records-json`, a JSON array of record objects. `record search` requires
+`--where-json`, a JSON filter object, and optionally accepts
+`--sort-direction`. Only search accepts `--page-size`, `--page-token`,
+`--all`, and `--max-pages`.

@@ -5,6 +5,14 @@ description: Run Foundry Data Health API v2 operations across the Check client a
 
 # Foundry Data Health
 
+## Capability and source
+
+Foundry Data Health checks resources and exposes check reports for quality
+monitoring. This CLI maps Check and CheckReport to six operations: create,
+delete, get, replace, get-report, and get-latest-report.
+
+Source: [Palantir application reference](https://www.palantir.com/docs/foundry/getting-started/application-reference); reviewed 2026-08-13.
+
 Run `pal-found-data-health --help` for syntax. The CLI exposes exactly 6 Data Health v2 operations: `check create|delete|get|replace`; `check-report get|get-latest`.
 
 `check create` and `check replace` take the required `--config-json` flag — the `CheckConfig` discriminated union (`type` discriminator across all check config kinds) — plus the optional `--intent` string. `check delete` and `check get` take a positional `check_rid`. `check-report get` takes positional `check_rid` and `check_report_rid`. `check-report get-latest` takes a positional `check_rid` and the optional integer `--limit` (default 10, maximum 100; validated locally).
@@ -16,3 +24,12 @@ Access control runs before client construction. The write set is `check.create`,
 Client creation and invocation scope use `include_attribution=False`. SDK-native B3 context remains active across client creation and every retry, then restores the caller's prior context. Retries have at-least-once semantics; retrying `check create` or `check replace` can duplicate checks or re-run validation. Do not add another automatic retry loop after this CLI exhausts its policy.
 
 Successful results go only to stdout. Logs and errors must not contain check configurations, credentials, tokens, or attribution RIDs.
+
+### Parameters and JSON
+
+All commands accept `--timeout`, `--format json|toon|auto`, and `--pretty`.
+`check create` and `check replace` require `--config-json` (a CheckConfig
+object) and optionally accept `--intent`. Delete/get use positional
+`check_rid`; report get uses `check_rid check_report_rid`; get-latest uses
+`check_rid` and optional `--limit` (1-100). No pagination flags or other JSON
+forms are accepted.

@@ -7,6 +7,15 @@ description: Cross-cutting Palantir Foundry knowledge shared by all pal-found-* 
 
 This skill holds the general knowledge that the `pal-found-*` namespace skills share. It explains what the Foundry platform is, what the CLI exposes, how authentication and access control work, and how to interpret output and failures. For a specific namespace, read its own skill file first; this file fills in the context those files assume.
 
+## Platform description
+
+Palantir Foundry is a data operations platform for managing data, developing
+an Ontology, and building analytics, workflows, and applications on top of
+those layers. This CLI exposes selected Foundry API v2 clients; it does not
+replace Foundry applications or change platform permissions.
+
+Source: [Palantir, integrated platforms](https://www.palantir.com/docs/foundry/architecture-center/platforms); reviewed 2026-08-13.
+
 ## 1. Foundry platform concepts
 
 Palantir Foundry is a data platform that combines data management, ontology modeling, and application building. The CLI covers the API v2 surface across these concepts:
