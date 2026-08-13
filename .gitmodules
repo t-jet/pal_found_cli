@@ -1,0 +1,6 @@
+[submodule "foundry_cli_skills"]
+	path = foundry_cli_skills
+	url = https://github.com/t-jet/foundry_cli_skills.git
+[submodule "foundry_cli_tool"]
+	path = foundry_cli_tool
+	url = https://github.com/t-jet/foundry_cli_tool.git
