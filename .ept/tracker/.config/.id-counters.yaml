@@ -1,21 +1,21 @@
 counters:
-  ba_subtask_analysis: 1
-  ba_subtask_design: 1
+  ba_subtask_analysis: 10
+  ba_subtask_design: 11
   bug: 3
   bug_subtask: 11
   codereview: 23
   design: 23
-  dev_story: 23
+  dev_story: 37
   development: 23
   devops: 23
-  epic: 8
-  feature: 1
-  link: 698
-  question: 43
+  epic: 10
+  feature: 10
+  link: 760
+  question: 105
   resource_req: 6
-  sa_subtask_analysis: 1
-  sa_subtask_design: 1
-  task: 2
+  sa_subtask_analysis: 10
+  sa_subtask_design: 10
+  task: 3
   testcase: 23
   testexec: 23
   unittest: 23

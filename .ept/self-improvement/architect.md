@@ -120,7 +120,7 @@ Condition:
 - When creating or updating tracker links, comments, or ticket fields through the tracker CLI
 
 Action:
-- Do run write operations sequentially and verify the resulting ticket/link state after batches; don't parallelize tracker writes because ID allocation can race and silently drop or overwrite intended links.
+- Do run write operations sequentially and verify the resulting ticket/link state after batches; don't parallelize tracker writes because ID allocation can race and silently drop or overwrite intended links. Refinement 2026-08-12 (SA-ANA-010): parallel `comment create` calls via separate ticket-helper subagent invocations each succeeded with distinct IDs (20260812-135354-architect, 20260812-135404-architect). The race risk applies to multiple writes inside one CLI process, not to one write per isolated subagent invocation. Keep one tracking operation per invocation; use hyphens in subjects and compact bodies (em-dash subjects caused a provider 400 on the BA-ANA-005 batch).
 
 ## Improvement: consult the workflow transition map before any status change
 
@@ -211,3 +211,45 @@ Condition:
 
 Action:
 - Do classify access from operation semantics and approved policy, not HTTP verb alone: preserve read classification for search-style POSTs, and add missing mutating verbs such as `launch` or `promote_version` to the shared guard with full regressions. For content downloads, inspect the generated response mode and require `with_streaming_response` plus `BinaryDownloadHandler` when available; don't call the eager decoded method and then claim bounded response memory.
+
+## Improvement: drive SA-ANA analysis sub-tasks end-to-end in one batch
+
+Condition:
+
+- When executing the analysis phase for a set of SA-ANA sub-tasks (sa_subtask_analysis, New) that have dependency QUESTIONS addressed to architect
+
+Action:
+
+- Do run the full lifecycle per sub-task in this order and keep it repeatable: (1) post the New→Open DoD evidence comment, then `update --status Open`; (2) post the architecture plan + Open→In Progress DoD comment (business requirements, acceptance criteria, plan, related docs, deliverables list), then `update --status In Progress`; (3) close the dependency QUESTION: verify parent mapping via `get` and check `list links` for a Blocks link first, post the answer comment, walk New→Open→In Progress, set `time_spent_hours=0.5`, then Resolved→Closed (skip `--field resolution` — the question type has NO resolution field and exits 2); (4) create the deliverable under `.ept/docs/deliverables/architecture/SA-ANA-<n>-architecture-analysis.md` (<300 lines, lint-clean), register it in document_index.md; (5) post the architecture approach + In Progress→Resolved DoD comment (14 criteria incl. time reported, affected services, implementation approach, technology stack, migration approach, BA-ANA In Progress+), set `time_spent_hours=1.0`, then `update --status Resolved`; (6) create the PO approval QUESTION under the sub-task addressed to project-owner WITHOUT a Blocks link so the parent stays Resolved. Confirmed on the full 8-sub-task batch SA-ANA-002..009 on 2026-08-12 (deliverables 85–95 lines each; all 8 dependency QUESTIONS-048..055 closed; approval QUESTIONS-056..063 created; all SA-ANA left at Resolved awaiting PO approval, not Closed, because BA-ANA counterparts are not yet terminal).
+
+## Improvement: em-dash comment subjects under user mandate - honor, fall back on 400
+
+Condition:
+- When a user explicitly mandates a comment subject containing an em dash (e.g. "SA cross-review - BA-ANA-XXX (2026-08-12)") or a tracked deliverable pattern uses one
+
+Action:
+- Do use the mandated subject verbatim and keep the body compact; em-dash subjects succeeded 9/9 in the 2026-08-12 SA cross-review batch (BA-ANA-002..010) plus the SA-ANA-010 naming-update comment. Only on a provider 400 invalid_request_error retry once with hyphens in the subject.
+
+## Improvement: after PO naming decisions land, sweep analysis deliverables and flag design-phase naming updates
+
+Condition:
+- When the PO confirms naming decisions (e.g. pal_found_ rename via QUESTION-072..075) after analysis deliverables were written with assumed or PROPOSED names
+
+Action:
+- Do update the owning SA-ANA deliverable mapping rows to CONFIRMED values (repos/package underscore pal_found_, entry-point and skill folder hyphen pal-found-), mark still-open rows (env vars, historical doc filenames), update migration/risks/coordination sections, post an update comment on the SA-ANA ticket, and include a per-ticket naming-impact note in the SA cross-review comments on the BA-ANA counterparts so the design phase picks them up. Don't approve silently or leave superseded proposals in the mapping table. Confirmed 2026-08-12: SA-ANA-010 rows 2,3,4,6,7,8,9,10 corrected; 9 cross-reviews on BA-ANA-002..010 all APPROVED with naming notes.
+
+## Improvement: close SA-ANA sub-tasks Resolved-to-Closed after PO approval, matching BA counterpart by parent feature
+
+Condition:
+- When a batch of SA-ANA analysis sub-tasks sits at Resolved with PO approval QUESTIONS closed and BA-ANA counterparts terminal, and the manager directs Resolved -> Closed
+
+Action:
+- Do follow per-ticket: get SA-ANA (confirm Resolved, not Blocked; Closed is in allowed_transitions) -> get the BA-ANA counterpart and confirm terminal -> comment create DoD evidence (author architect; subject "Resolved-to-Closed DoD evidence - SA-ANA-00X"; body cites not blocked, no dependents blocked, BA-SUB/UX-SUB N/A, BA-ANA Closed verified via get, approval QUESTION Closed verified via list, deliverable finalized) -> update --status Closed --author architect -> verify get shows Closed with allowed_transitions []. Batch efficiencies that are compliant: match the BA counterpart by PARENT FEATURE, not by number (BA-ANA/SA-ANA IDs can be shifted across features: SA-ANA-003<->BA-ANA-004 on FEATURE-003, SA-ANA-004<->BA-ANA-003 on FEATURE-004); verify all approval QUESTIONS with ONE `list --status Closed --type question`; run `workflow transitions sa_subtask_analysis Resolved` ONCE and reuse for the whole batch (skill sanctions run-or-reuse); run up to two ticket-helper operations in parallel (1 op per invocation). Expect occasional transient KeyboardInterrupt on update/get; retry the exact command once per stored rule. Confirmed 2026-08-12 on the full 9-sub-task batch SA-ANA-002..010 (all exit 0; approval QUESTIONS-056..063 and QUESTION-077 Closed; BA-ANA-002..010 all Closed).
+
+## Improvement: create after post-persist abnormal exit duplicates - treat emitted ticket_id as authoritative
+
+Condition:
+- When a tracker `create` process exits abnormally (KeyboardInterrupt / Ctrl+C, e.g. Windows STATUS_CONTROL_C_EXIT) AFTER printing the full success YAML that includes `ticket_id`
+
+Action:
+- Do NOT retry. The ticket was already persisted; retrying the exact command creates a second identical ticket (confirmed 2026-08-13: SA-DES-004 approval create aborted after persist with exit 1, retry created a duplicate pair QUESTION-089 + QUESTION-090). Treat the emitted `ticket_id` as authoritative proof of success, report the abnormal exit code with that explanation, and verify existence only via a read-only `list`/`get` if needed. If a duplicate still exists, clean it up: mark the non-canonical one `Duplicated` with a RelatesTo link to the canonical ticket plus a reason comment (confirmed: RelatesTo LINK-00760 QUESTION-089->QUESTION-090, comment 20260813-124407-architect, QUESTION-089 Duplicated). This extends the existing 'verify ticket ID when create output omits it' improvement: output WITH ticket_id + abnormal exit = exists, no retry; output WITHOUT ticket_id + clean exit = get to verify.

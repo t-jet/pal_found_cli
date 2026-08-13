@@ -261,3 +261,128 @@ TESTCASE-023,testcase,TESTCASE-023: QA test cases for the foundry/ knowledge ski
 CODEREVIEW-023,codereview,CODEREVIEW-023: Review of the foundry/ knowledge skill content,Closed,High,tech-lead,architect,DEV-STORY-023,tech-lead,DEV-STORY-023/CODEREVIEW-023,2026-08-11,2026-08-11
 DEVOPS-023,devops,DEVOPS-023: Packaging and deployment verification for the foundry/ knowledge skill,Closed,High,devops-engineer,architect,DEV-STORY-023,devops-engineer,DEV-STORY-023/DEVOPS-023,2026-08-11,2026-08-11
 TESTEXEC-023,testexec,TESTEXEC-023: QA execution for the foundry/ knowledge skill,Closed,High,qa-engineer,architect,DEV-STORY-023,qa-engineer,DEV-STORY-023/TESTEXEC-023,2026-08-11,2026-08-11
+EPIC-009,epic,Harness-agnostic distribution and self-contained content of Foundry agent skills,Open,High,project-owner,workflow-mgr,,,EPIC-009,2026-08-11,2026-08-11
+EPIC-010,epic,Public repositories and distribution of the Foundry CLI tool,Open,High,project-owner,workflow-mgr,,,EPIC-010,2026-08-11,2026-08-11
+FEATURE-002,feature,Host all three repositories publicly on GitHub,In Design,High,project-owner,workflow-mgr,,,FEATURE-002,2026-08-11,2026-08-12
+FEATURE-003,feature,Split the project into three repositories,In Design,High,project-owner,workflow-mgr,,,FEATURE-003,2026-08-11,2026-08-12
+FEATURE-004,feature,Publish foundry_cli_tool to PyPI for pip installation,In Design,High,project-owner,workflow-mgr,,,FEATURE-004,2026-08-11,2026-08-12
+FEATURE-005,feature,Publish foundry_cli_tool to a conda channel,In Design,High,project-owner,workflow-mgr,,,FEATURE-005,2026-08-11,2026-08-12
+FEATURE-006,feature,Store skills in a standard .agents/skills folder for all harnesses,In Design,High,project-owner,workflow-mgr,,,FEATURE-006,2026-08-11,2026-08-12
+FEATURE-007,feature,Distribute foundry_cli_skills via git clone and skill copy,In Design,High,project-owner,workflow-mgr,,,FEATURE-007,2026-08-11,2026-08-12
+FEATURE-008,feature,Add Palantir Foundry platform and capability descriptions to skills,In Design,High,project-owner,workflow-mgr,,,FEATURE-008,2026-08-11,2026-08-12
+FEATURE-009,feature,Document all JSON formats and parameter variants in each skill file,In Design,High,project-owner,workflow-mgr,,,FEATURE-009,2026-08-11,2026-08-12
+QUESTION-044,question,DoD evidence falsification on EPIC-010 — correct evidence and re-verify,Closed,High,ba,workflow-mgr,EPIC-010,ba,EPIC-010/QUESTION-044,2026-08-11,2026-08-11
+QUESTION-045,question,DoD evidence falsification on EPIC-009 — correct evidence and re-verify,Closed,High,ba,workflow-mgr,EPIC-009,ba,EPIC-009/QUESTION-045,2026-08-11,2026-08-11
+QUESTION-046,question,DoD evidence invalidation on FEATURE-002 — correct evidence and re-verify,Closed,High,ba,workflow-mgr,FEATURE-002,ba,FEATURE-002/QUESTION-046,2026-08-11,2026-08-11
+QUESTION-047,question,DoD evidence invalidation on FEATURE-003 — correct evidence and re-verify,Closed,High,ba,workflow-mgr,FEATURE-003,ba,FEATURE-003/QUESTION-047,2026-08-11,2026-08-11
+TASK-003,task,Correct BA DoD evidence comments citing Project Owner architecture-change request (2026-08-11),Closed,High,ba,ba,,ba,TASK-003,2026-08-11,2026-08-12
+BA-ANA-002,ba_subtask_analysis,BA analysis: Host all three repositories publicly on GitHub,Closed,High,ba,workflow-mgr,FEATURE-002,,FEATURE-002/BA-ANA-002,2026-08-12,2026-08-12
+SA-ANA-002,sa_subtask_analysis,SA analysis: Host all three repositories publicly on GitHub,Closed,High,architect,workflow-mgr,FEATURE-002,,FEATURE-002/SA-ANA-002,2026-08-12,2026-08-12
+SA-ANA-003,sa_subtask_analysis,SA analysis: Split the project into three repositories,Closed,High,architect,workflow-mgr,FEATURE-003,,FEATURE-003/SA-ANA-003,2026-08-12,2026-08-12
+BA-ANA-003,ba_subtask_analysis,BA analysis: Publish foundry_cli_tool to PyPI for pip installation,Closed,High,ba,workflow-mgr,FEATURE-004,,FEATURE-004/BA-ANA-003,2026-08-12,2026-08-12
+BA-ANA-004,ba_subtask_analysis,BA analysis: Split the project into three repositories,Closed,High,ba,workflow-mgr,FEATURE-003,,FEATURE-003/BA-ANA-004,2026-08-12,2026-08-12
+SA-ANA-004,sa_subtask_analysis,SA analysis: Publish foundry_cli_tool to PyPI for pip installation,Closed,High,architect,workflow-mgr,FEATURE-004,,FEATURE-004/SA-ANA-004,2026-08-12,2026-08-12
+BA-ANA-005,ba_subtask_analysis,BA analysis: Publish foundry_cli_tool to a conda channel,Closed,High,ba,workflow-mgr,FEATURE-005,,FEATURE-005/BA-ANA-005,2026-08-12,2026-08-12
+SA-ANA-005,sa_subtask_analysis,SA analysis: Publish foundry_cli_tool to a conda channel,Closed,High,architect,workflow-mgr,FEATURE-005,,FEATURE-005/SA-ANA-005,2026-08-12,2026-08-12
+BA-ANA-006,ba_subtask_analysis,BA analysis: Store skills in a standard .agents/skills folder for all harnesses,Closed,High,ba,workflow-mgr,FEATURE-006,,FEATURE-006/BA-ANA-006,2026-08-12,2026-08-12
+BA-ANA-007,ba_subtask_analysis,BA analysis: Distribute foundry_cli_skills via git clone and skill copy,Closed,High,ba,workflow-mgr,FEATURE-007,,FEATURE-007/BA-ANA-007,2026-08-12,2026-08-12
+SA-ANA-006,sa_subtask_analysis,SA analysis: Store skills in a standard .agents/skills folder for all harnesses,Closed,High,architect,workflow-mgr,FEATURE-006,,FEATURE-006/SA-ANA-006,2026-08-12,2026-08-12
+BA-ANA-008,ba_subtask_analysis,BA analysis: Add Palantir Foundry platform and capability descriptions to skills,Closed,High,ba,workflow-mgr,FEATURE-008,,FEATURE-008/BA-ANA-008,2026-08-12,2026-08-12
+SA-ANA-007,sa_subtask_analysis,SA analysis: Distribute foundry_cli_skills via git clone and skill copy,Closed,High,architect,workflow-mgr,FEATURE-007,,FEATURE-007/SA-ANA-007,2026-08-12,2026-08-12
+BA-ANA-009,ba_subtask_analysis,BA analysis: Document all JSON formats and parameter variants in each skill file,Closed,High,ba,workflow-mgr,FEATURE-009,,FEATURE-009/BA-ANA-009,2026-08-12,2026-08-12
+SA-ANA-008,sa_subtask_analysis,SA analysis: Add Palantir Foundry platform and capability descriptions to skills,Closed,High,architect,workflow-mgr,FEATURE-008,,FEATURE-008/SA-ANA-008,2026-08-12,2026-08-12
+SA-ANA-009,sa_subtask_analysis,SA analysis: Document all JSON formats and parameter variants in each skill file,Closed,High,architect,workflow-mgr,FEATURE-009,,FEATURE-009/SA-ANA-009,2026-08-12,2026-08-12
+QUESTION-048,question,SA-ANA-002 dependency for BA-ANA-002 resolution,Closed,High,ba,ba,BA-ANA-002,architect,BA-ANA-002/QUESTION-048,2026-08-12,2026-08-12
+QUESTION-049,question,SA-ANA-004 dependency for BA-ANA-003 resolution,Closed,High,ba,ba,BA-ANA-003,architect,BA-ANA-003/QUESTION-049,2026-08-12,2026-08-12
+QUESTION-050,question,SA-ANA-005 dependency for BA-ANA-005 resolution,Closed,High,ba,ba,BA-ANA-005,architect,BA-ANA-005/QUESTION-050,2026-08-12,2026-08-12
+QUESTION-051,question,SA-ANA-003 dependency for BA-ANA-004 resolution,Closed,High,ba,ba,BA-ANA-004,architect,BA-ANA-004/QUESTION-051,2026-08-12,2026-08-12
+QUESTION-052,question,SA-ANA-007 dependency for BA-ANA-007 resolution,Closed,High,ba,ba,BA-ANA-007,architect,BA-ANA-007/QUESTION-052,2026-08-12,2026-08-12
+QUESTION-053,question,SA-ANA-006 dependency for BA-ANA-006 resolution,Closed,High,ba,ba,BA-ANA-006,architect,BA-ANA-006/QUESTION-053,2026-08-12,2026-08-12
+QUESTION-054,question,SA-ANA-009 dependency for BA-ANA-009 resolution,Closed,High,ba,ba,BA-ANA-009,architect,BA-ANA-009/QUESTION-054,2026-08-12,2026-08-12
+QUESTION-055,question,SA-ANA-008 dependency for BA-ANA-008 resolution,Closed,High,ba,ba,BA-ANA-008,architect,BA-ANA-008/QUESTION-055,2026-08-12,2026-08-12
+QUESTION-056,question,SA-ANA-002 architecture analysis approval,Closed,High,architect,architect,SA-ANA-002,project-owner,SA-ANA-002/QUESTION-056,2026-08-12,2026-08-12
+QUESTION-057,question,SA-ANA-003 architecture analysis approval,Closed,High,architect,architect,SA-ANA-003,project-owner,SA-ANA-003/QUESTION-057,2026-08-12,2026-08-12
+QUESTION-058,question,SA-ANA-004 architecture analysis approval,Closed,High,architect,architect,SA-ANA-004,project-owner,SA-ANA-004/QUESTION-058,2026-08-12,2026-08-12
+QUESTION-059,question,SA-ANA-005 architecture analysis approval,Closed,High,architect,architect,SA-ANA-005,project-owner,SA-ANA-005/QUESTION-059,2026-08-12,2026-08-12
+QUESTION-060,question,SA-ANA-006 architecture analysis approval,Closed,High,architect,architect,SA-ANA-006,project-owner,SA-ANA-006/QUESTION-060,2026-08-12,2026-08-12
+QUESTION-061,question,SA-ANA-007 architecture analysis approval,Closed,High,architect,architect,SA-ANA-007,project-owner,SA-ANA-007/QUESTION-061,2026-08-12,2026-08-12
+QUESTION-062,question,SA-ANA-008 architecture analysis approval,Closed,High,architect,architect,SA-ANA-008,project-owner,SA-ANA-008/QUESTION-062,2026-08-12,2026-08-12
+QUESTION-063,question,SA-ANA-009 architecture analysis approval,Closed,High,architect,architect,SA-ANA-009,project-owner,SA-ANA-009/QUESTION-063,2026-08-12,2026-08-12
+FEATURE-010,feature,Rename foundry_ prefix to pal_found_ across all three projects,In Design,High,project-owner,workflow-mgr,,,FEATURE-010,2026-08-12,2026-08-12
+BA-ANA-010,ba_subtask_analysis,BA analysis: Rename foundry_ prefix to pal_found_ across all three projects,Closed,High,ba,workflow-mgr,FEATURE-010,,FEATURE-010/BA-ANA-010,2026-08-12,2026-08-12
+SA-ANA-010,sa_subtask_analysis,SA analysis: Rename foundry_ prefix to pal_found_ across all three projects,Closed,High,architect,workflow-mgr,FEATURE-010,,FEATURE-010/SA-ANA-010,2026-08-12,2026-08-12
+QUESTION-064,question,BA-ANA-003 business analysis approval,Closed,High,ba,ba,BA-ANA-003,project-owner,BA-ANA-003/QUESTION-064,2026-08-12,2026-08-12
+QUESTION-065,question,BA-ANA-002 business analysis approval,Closed,High,ba,ba,BA-ANA-002,project-owner,BA-ANA-002/QUESTION-065,2026-08-12,2026-08-12
+QUESTION-066,question,BA-ANA-005 business analysis approval,Closed,High,ba,ba,BA-ANA-005,project-owner,BA-ANA-005/QUESTION-066,2026-08-12,2026-08-12
+QUESTION-067,question,BA-ANA-004 business analysis approval,Closed,High,ba,ba,BA-ANA-004,project-owner,BA-ANA-004/QUESTION-067,2026-08-12,2026-08-12
+QUESTION-068,question,BA-ANA-006 business analysis approval,Closed,High,ba,ba,BA-ANA-006,project-owner,BA-ANA-006/QUESTION-068,2026-08-12,2026-08-12
+QUESTION-069,question,BA-ANA-007 business analysis approval,Closed,High,ba,ba,BA-ANA-007,project-owner,BA-ANA-007/QUESTION-069,2026-08-12,2026-08-12
+QUESTION-070,question,BA-ANA-009 business analysis approval,Closed,High,ba,ba,BA-ANA-009,project-owner,BA-ANA-009/QUESTION-070,2026-08-12,2026-08-12
+QUESTION-071,question,BA-ANA-008 business analysis approval,Closed,High,ba,ba,BA-ANA-008,project-owner,BA-ANA-008/QUESTION-071,2026-08-12,2026-08-12
+QUESTION-072,question,"BA-ANA-010 naming: confirm repository names (propose pal_found_cli, pal_found_tool, pal_found_skills)",Closed,High,ba,ba,BA-ANA-010,project-owner,BA-ANA-010/QUESTION-072,2026-08-12,2026-08-12
+QUESTION-073,question,BA-ANA-010 naming: confirm Python package name (propose pal_found_cli),Closed,High,ba,ba,BA-ANA-010,project-owner,BA-ANA-010/QUESTION-073,2026-08-12,2026-08-12
+QUESTION-074,question,BA-ANA-010 naming: confirm console entry-point prefix (propose pal_found-),Closed,High,ba,ba,BA-ANA-010,project-owner,BA-ANA-010/QUESTION-074,2026-08-12,2026-08-12
+QUESTION-075,question,BA-ANA-010 naming: confirm agent skill folder prefix (propose pal_found-),Closed,High,ba,ba,BA-ANA-010,project-owner,BA-ANA-010/QUESTION-075,2026-08-12,2026-08-12
+QUESTION-076,question,BA-ANA-010 business analysis approval,Closed,High,ba,ba,BA-ANA-010,project-owner,BA-ANA-010/QUESTION-076,2026-08-12,2026-08-12
+QUESTION-077,question,SA-ANA-010 architecture analysis approval,Closed,High,architect,architect,SA-ANA-010,project-owner,SA-ANA-010/QUESTION-077,2026-08-12,2026-08-12
+SA-DES-002,sa_subtask_design,SA design: Host all three repositories publicly on GitHub,Resolved,High,architect,workflow-mgr,FEATURE-002,,FEATURE-002/SA-DES-002,2026-08-12,2026-08-13
+BA-DES-002,ba_subtask_design,BA design: Host all three repositories publicly on GitHub,Resolved,High,ba,workflow-mgr,FEATURE-002,,FEATURE-002/BA-DES-002,2026-08-12,2026-08-13
+BA-DES-003,ba_subtask_design,BA design: Split the project into three repositories,Duplicated,High,ba,workflow-mgr,FEATURE-003,,FEATURE-003/BA-DES-003,2026-08-12,2026-08-13
+SA-DES-003,sa_subtask_design,SA design: Split the project into three repositories,Resolved,High,architect,workflow-mgr,FEATURE-003,,FEATURE-003/SA-DES-003,2026-08-12,2026-08-13
+BA-DES-004,ba_subtask_design,BA design: Split the project into three repositories,Resolved,High,ba,workflow-mgr,FEATURE-003,,FEATURE-003/BA-DES-004,2026-08-12,2026-08-13
+BA-DES-005,ba_subtask_design,BA design: Publish foundry_cli_tool to PyPI for pip installation,Resolved,High,ba,workflow-mgr,FEATURE-004,,FEATURE-004/BA-DES-005,2026-08-13,2026-08-13
+SA-DES-004,sa_subtask_design,SA design: Publish foundry_cli_tool to PyPI for pip installation,Resolved,High,architect,workflow-mgr,FEATURE-004,,FEATURE-004/SA-DES-004,2026-08-13,2026-08-13
+BA-DES-006,ba_subtask_design,BA design: Publish foundry_cli_tool to a conda channel,Resolved,High,ba,workflow-mgr,FEATURE-005,,FEATURE-005/BA-DES-006,2026-08-13,2026-08-13
+SA-DES-005,sa_subtask_design,SA design: Publish foundry_cli_tool to a conda channel,Resolved,High,architect,workflow-mgr,FEATURE-005,,FEATURE-005/SA-DES-005,2026-08-13,2026-08-13
+SA-DES-006,sa_subtask_design,SA design: Store skills in a standard .agents/skills folder for all harnesses,Resolved,High,architect,workflow-mgr,FEATURE-006,,FEATURE-006/SA-DES-006,2026-08-13,2026-08-13
+BA-DES-007,ba_subtask_design,BA design: Store skills in a standard .agents/skills folder for all harnesses,Resolved,High,ba,workflow-mgr,FEATURE-006,,FEATURE-006/BA-DES-007,2026-08-13,2026-08-13
+BA-DES-008,ba_subtask_design,BA design: Distribute foundry_cli_skills via git clone and skill copy,Resolved,High,ba,workflow-mgr,FEATURE-007,,FEATURE-007/BA-DES-008,2026-08-13,2026-08-13
+SA-DES-007,sa_subtask_design,SA design: Distribute foundry_cli_skills via git clone and skill copy,Resolved,High,architect,workflow-mgr,FEATURE-007,,FEATURE-007/SA-DES-007,2026-08-13,2026-08-13
+SA-DES-008,sa_subtask_design,SA design: Add Palantir Foundry platform and capability descriptions to skills,Resolved,High,architect,workflow-mgr,FEATURE-008,,FEATURE-008/SA-DES-008,2026-08-13,2026-08-13
+BA-DES-009,ba_subtask_design,BA design: Add Palantir Foundry platform and capability descriptions to skills,Resolved,High,ba,workflow-mgr,FEATURE-008,,FEATURE-008/BA-DES-009,2026-08-13,2026-08-13
+SA-DES-009,sa_subtask_design,SA design: Document all JSON formats and parameter variants in each skill file,Resolved,High,architect,workflow-mgr,FEATURE-009,,FEATURE-009/SA-DES-009,2026-08-13,2026-08-13
+BA-DES-010,ba_subtask_design,BA design: Document all JSON formats and parameter variants in each skill file,Resolved,High,ba,workflow-mgr,FEATURE-009,,FEATURE-009/BA-DES-010,2026-08-13,2026-08-13
+BA-DES-011,ba_subtask_design,BA design: Rename foundry_ prefix to pal_found_ across all three projects,Resolved,High,ba,workflow-mgr,FEATURE-010,,FEATURE-010/BA-DES-011,2026-08-13,2026-08-13
+SA-DES-010,sa_subtask_design,SA design: Rename foundry_ prefix to pal_found_ across all three projects,Resolved,High,architect,workflow-mgr,FEATURE-010,,FEATURE-010/SA-DES-010,2026-08-13,2026-08-13
+DEV-STORY-024,dev_story,Split the project into three repositories,New,High,tech-lead,ba,FEATURE-003,,FEATURE-003/DEV-STORY-024,2026-08-13,2026-08-13
+DEV-STORY-025,dev_story,Publish all three repositories publicly on GitHub,New,High,tech-lead,ba,FEATURE-002,,FEATURE-002/DEV-STORY-025,2026-08-13,2026-08-13
+DEV-STORY-026,dev_story,Publish the CLI tool package to PyPI with release verification,New,High,tech-lead,ba,FEATURE-004,,FEATURE-004/DEV-STORY-026,2026-08-13,2026-08-13
+DEV-STORY-027,dev_story,Update cross-repository references after the repository split,New,High,tech-lead,ba,FEATURE-003,,FEATURE-003/DEV-STORY-027,2026-08-13,2026-08-13
+DEV-STORY-028,dev_story,Publish the CLI tool to a conda channel with version alignment,New,High,tech-lead,ba,FEATURE-005,,FEATURE-005/DEV-STORY-028,2026-08-13,2026-08-13
+DEV-STORY-029,dev_story,PyPI package page and installation documentation,New,High,tech-lead,ba,FEATURE-004,,FEATURE-004/DEV-STORY-029,2026-08-13,2026-08-13
+DEV-STORY-030,dev_story,Verify skill discovery per harness and write onboarding instructions,New,High,tech-lead,ba,FEATURE-006,,FEATURE-006/DEV-STORY-030,2026-08-13,2026-08-13
+DEV-STORY-031,dev_story,Migrate and rename all skills into the standard .agents/skills folder,New,High,tech-lead,ba,FEATURE-006,,FEATURE-006/DEV-STORY-031,2026-08-13,2026-08-13
+DEV-STORY-032,dev_story,Add Palantir Foundry platform description to the main skill,New,High,tech-lead,ba,FEATURE-008,,FEATURE-008/DEV-STORY-032,2026-08-13,2026-08-13
+DEV-STORY-033,dev_story,Document git-clone and skill-copy distribution instructions per harness,New,High,tech-lead,ba,FEATURE-007,,FEATURE-007/DEV-STORY-033,2026-08-13,2026-08-13
+DEV-STORY-034,dev_story,Add capability descriptions to every specific skill with source references,New,High,tech-lead,ba,FEATURE-008,,FEATURE-008/DEV-STORY-034,2026-08-13,2026-08-13
+DEV-STORY-035,dev_story,Document all JSON formats and parameter variants in every skill file,New,High,tech-lead,ba,FEATURE-009,,FEATURE-009/DEV-STORY-035,2026-08-13,2026-08-13
+DEV-STORY-036,dev_story,"Rename package, commands, skill folders and repositories per confirmed mapping",New,High,tech-lead,ba,FEATURE-010,,FEATURE-010/DEV-STORY-036,2026-08-13,2026-08-13
+DEV-STORY-037,dev_story,"Documentation sweep, migration notes and behaviour verification for the rename",New,High,tech-lead,ba,FEATURE-010,,FEATURE-010/DEV-STORY-037,2026-08-13,2026-08-13
+QUESTION-078,question,SA-DES-002 dependency for BA-DES-002 resolution,Closed,High,ba,ba,BA-DES-002,architect,BA-DES-002/QUESTION-078,2026-08-13,2026-08-13
+QUESTION-079,question,SA-DES-003 dependency for BA-DES-004 resolution,Closed,High,ba,ba,BA-DES-004,architect,BA-DES-004/QUESTION-079,2026-08-13,2026-08-13
+QUESTION-080,question,SA-DES-004 dependency for BA-DES-005 resolution,Closed,High,ba,ba,BA-DES-005,architect,BA-DES-005/QUESTION-080,2026-08-13,2026-08-13
+QUESTION-081,question,SA-DES-005 dependency for BA-DES-006 resolution,Closed,High,ba,ba,BA-DES-006,architect,BA-DES-006/QUESTION-081,2026-08-13,2026-08-13
+QUESTION-082,question,SA-DES-007 dependency for BA-DES-008 resolution,Closed,High,ba,ba,BA-DES-008,architect,BA-DES-008/QUESTION-082,2026-08-13,2026-08-13
+QUESTION-083,question,SA-DES-006 dependency for BA-DES-007 resolution,Closed,High,ba,ba,BA-DES-007,architect,BA-DES-007/QUESTION-083,2026-08-13,2026-08-13
+QUESTION-084,question,SA-DES-009 dependency for BA-DES-010 resolution,Closed,High,ba,ba,BA-DES-010,architect,BA-DES-010/QUESTION-084,2026-08-13,2026-08-13
+QUESTION-085,question,SA-DES-008 dependency for BA-DES-009 resolution,Closed,High,ba,ba,BA-DES-009,architect,BA-DES-009/QUESTION-085,2026-08-13,2026-08-13
+QUESTION-086,question,SA-DES-010 dependency for BA-DES-011 resolution,Closed,High,ba,ba,BA-DES-011,architect,BA-DES-011/QUESTION-086,2026-08-13,2026-08-13
+QUESTION-087,question,PO approval: SA-DES-003 technical design (FEATURE-003),New,High,architect,architect,SA-DES-003,project-owner,SA-DES-003/QUESTION-087,2026-08-13,2026-08-13
+QUESTION-088,question,PO approval: SA-DES-002 technical design (FEATURE-002),New,High,architect,architect,SA-DES-002,project-owner,SA-DES-002/QUESTION-088,2026-08-13,2026-08-13
+QUESTION-089,question,PO approval: SA-DES-004 technical design (FEATURE-004),Duplicated,High,architect,architect,SA-DES-004,project-owner,SA-DES-004/QUESTION-089,2026-08-13,2026-08-13
+QUESTION-090,question,PO approval: SA-DES-004 technical design (FEATURE-004),New,High,architect,architect,SA-DES-004,project-owner,SA-DES-004/QUESTION-090,2026-08-13,2026-08-13
+QUESTION-091,question,PO approval: SA-DES-005 technical design (FEATURE-005),New,High,architect,architect,SA-DES-005,project-owner,SA-DES-005/QUESTION-091,2026-08-13,2026-08-13
+QUESTION-092,question,PO approval: SA-DES-007 technical design (FEATURE-007),New,High,architect,architect,SA-DES-007,project-owner,SA-DES-007/QUESTION-092,2026-08-13,2026-08-13
+QUESTION-093,question,PO approval: SA-DES-006 technical design (FEATURE-006),New,High,architect,architect,SA-DES-006,project-owner,SA-DES-006/QUESTION-093,2026-08-13,2026-08-13
+QUESTION-094,question,PO approval: SA-DES-008 technical design (FEATURE-008),New,High,architect,architect,SA-DES-008,project-owner,SA-DES-008/QUESTION-094,2026-08-13,2026-08-13
+QUESTION-095,question,PO approval: SA-DES-009 technical design (FEATURE-009),New,High,architect,architect,SA-DES-009,project-owner,SA-DES-009/QUESTION-095,2026-08-13,2026-08-13
+QUESTION-096,question,PO approval: SA-DES-010 technical design (FEATURE-010),New,High,architect,architect,SA-DES-010,project-owner,SA-DES-010/QUESTION-096,2026-08-13,2026-08-13
+QUESTION-097,question,BA-DES-004 business design approval,New,High,ba,ba,BA-DES-004,project-owner,BA-DES-004/QUESTION-097,2026-08-13,2026-08-13
+QUESTION-098,question,BA-DES-002 business design approval,New,High,ba,ba,BA-DES-002,project-owner,BA-DES-002/QUESTION-098,2026-08-13,2026-08-13
+QUESTION-099,question,BA-DES-006 business design approval,New,High,ba,ba,BA-DES-006,project-owner,BA-DES-006/QUESTION-099,2026-08-13,2026-08-13
+QUESTION-100,question,BA-DES-005 business design approval,New,High,ba,ba,BA-DES-005,project-owner,BA-DES-005/QUESTION-100,2026-08-13,2026-08-13
+QUESTION-101,question,BA-DES-008 business design approval,New,High,ba,ba,BA-DES-008,project-owner,BA-DES-008/QUESTION-101,2026-08-13,2026-08-13
+QUESTION-102,question,BA-DES-007 business design approval,New,High,ba,ba,BA-DES-007,project-owner,BA-DES-007/QUESTION-102,2026-08-13,2026-08-13
+QUESTION-103,question,BA-DES-009 business design approval,New,High,ba,ba,BA-DES-009,project-owner,BA-DES-009/QUESTION-103,2026-08-13,2026-08-13
+QUESTION-104,question,BA-DES-010 business design approval,New,High,ba,ba,BA-DES-010,project-owner,BA-DES-010/QUESTION-104,2026-08-13,2026-08-13
+QUESTION-105,question,BA-DES-011 business design approval,New,High,ba,ba,BA-DES-011,project-owner,BA-DES-011/QUESTION-105,2026-08-13,2026-08-13

@@ -1,7 +1,7 @@
 ---
 name: devops-engineer
 description: DevOps Engineer for CI/CD pipeline setup, Python packaging infrastructure, deployment task execution, secrets management, and deployment health verification. Describe your deployment task, pipeline setup, packaging configuration, secrets management, release workflow, or deployment verification needs.
-tools: vscode/memory, execute/runInTerminal, execute/getTerminalOutput, execute/killTerminal, execute/createAndRunTask, read/readFile, read/terminalSelection, read/terminalLastCommand, read/problems, agent/runSubagent, edit/createDirectory, edit/createFile, edit/editFiles, edit/rename, search/codebase, search/fileSearch, search/listDirectory, search/textSearch, search/changes, web/fetch, web/githubRepo, todo
+tools: vscode/extensions, vscode/memory, vscode/resolveMemoryFileUri, vscode/runCommand, vscode/vscodeAPI, vscode/toolSearch, execute, read, agent, browser, vscodeGeneral/rename, vscodeGeneral/usages, vscodeGeneral/toolSearch, vscodeNotebooks/createJupyterNotebook, vscodeNotebooks/editNotebook, 'github/*', edit, search, web, todo, artifacts, artifactRules
 model: local-llama-model
 user-invocable: true
 ---

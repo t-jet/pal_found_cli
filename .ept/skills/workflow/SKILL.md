@@ -15,6 +15,16 @@ This skill guides AI agents on how to organize development work, move features t
 
 ---
 
+## Mandatory ticket handling instructions
+
+- Tickets should not be transitioned from one status to another if the transition has a Definition of Done (DoD) and that DoD is not met.
+- DoD compliance must be documented in ticket comments by the responsible role with supporting evidence and verified by the manager.
+- DoD criteria should be taken from the `ticket-helper` subagent output from the `definitions_of_done` section which defines the DoD for the current status. It includes the QUESTION sub-tasks that need to be resolved for the DoD to be considered met.
+- Strictly follow instructions from the `instructions` section of the ticket-helper output while working on the ticket. This section contains specific instructions for the current status of the ticket and must be followed to ensure proper handling and progression of the ticket through its lifecycle.
+- Evidence should be materialized: a link to the existing durable artifacts or chain-of-thought for the critical thinking in the ticket comment.
+- All questions should be asked exclusively through the QUESTION sub-task type.
+- When creating a ticket, read the DoD criteria for advancing it to the Open status and follow those instructions immediately after creation. Every new ticket must be promoted by its author to the Open status right away.
+
 ## Development Phases and Stages
 
 The project lifecycle has four phases. Each phase produces specific ticket states and artifacts.
