@@ -2,7 +2,7 @@
 id: BA-DES-004
 type: ba_subtask_design
 title: 'BA design: Split the project into three repositories'
-status: Resolved
+status: Closed
 created: 2026-08-12
 updated: 2026-08-13
 priority: High

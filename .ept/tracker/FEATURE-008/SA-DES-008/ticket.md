@@ -2,7 +2,7 @@
 id: SA-DES-008
 type: sa_subtask_design
 title: 'SA design: Add Palantir Foundry platform and capability descriptions to skills'
-status: Resolved
+status: Closed
 created: 2026-08-13
 updated: 2026-08-13
 priority: High

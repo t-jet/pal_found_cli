@@ -14,6 +14,7 @@ Action:
 - Do keep the per-ticket evidence table but trim evidence wording to the minimum that stays concrete (IDs, line counts, statuses)
 - Do not change the tracker command itself; only the prompt payload
 - Do record the retry and its outcome in the final report (observed 2026-08-12: BA-ANA-005 evidence comment succeeded on second retry after two provider 400s; same day 9 cross-review comments with em-dash subjects and short bodies all succeeded first try — the failure driver was body length, not the em dash character; keep bodies short)
+- Reconfirmed 2026-08-13 while closing BA-DES-002..011: provider 400s hit single calls too (BA-DES-011 get, SA-DES-005/006 get pair, BA-DES-007 comment create), each fixed by one compact retry. When BOTH calls in a parallel pair return 400, retry them ONE at a time (sequential), not as a new pair — parallel pairs keep tripping the provider
 
 ## Improvement: hold BA-ANA at In Progress until SA-ANA counterpart reaches In Progress
 
@@ -180,6 +181,7 @@ Condition:
 Action:
 
 - Do re-run the exact same operation once in a fresh invocation with an explicit "include the full raw CLI output verbatim, do not summarize" instruction; do not treat the omission as a tracker failure (tracker exit was 0). Observed 2026-08-12 on FEATURE-009 verification get.
+- Refined 2026-08-13: a summary-only report is ACCEPTABLE without re-run when it states the needed facts explicitly and unambiguously (status + exit code, e.g. SA-DES-005 get summary: "status Resolved, exit 0"); re-run only when status or exit code is missing or ambiguous.
 
 ## Improvement: duplicate design sub-task handling via Duplicated status
 

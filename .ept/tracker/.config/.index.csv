@@ -325,25 +325,25 @@ QUESTION-074,question,BA-ANA-010 naming: confirm console entry-point prefix (pro
 QUESTION-075,question,BA-ANA-010 naming: confirm agent skill folder prefix (propose pal_found-),Closed,High,ba,ba,BA-ANA-010,project-owner,BA-ANA-010/QUESTION-075,2026-08-12,2026-08-12
 QUESTION-076,question,BA-ANA-010 business analysis approval,Closed,High,ba,ba,BA-ANA-010,project-owner,BA-ANA-010/QUESTION-076,2026-08-12,2026-08-12
 QUESTION-077,question,SA-ANA-010 architecture analysis approval,Closed,High,architect,architect,SA-ANA-010,project-owner,SA-ANA-010/QUESTION-077,2026-08-12,2026-08-12
-SA-DES-002,sa_subtask_design,SA design: Host all three repositories publicly on GitHub,Resolved,High,architect,workflow-mgr,FEATURE-002,,FEATURE-002/SA-DES-002,2026-08-12,2026-08-13
-BA-DES-002,ba_subtask_design,BA design: Host all three repositories publicly on GitHub,Resolved,High,ba,workflow-mgr,FEATURE-002,,FEATURE-002/BA-DES-002,2026-08-12,2026-08-13
+SA-DES-002,sa_subtask_design,SA design: Host all three repositories publicly on GitHub,Closed,High,architect,workflow-mgr,FEATURE-002,,FEATURE-002/SA-DES-002,2026-08-12,2026-08-13
+BA-DES-002,ba_subtask_design,BA design: Host all three repositories publicly on GitHub,Closed,High,ba,workflow-mgr,FEATURE-002,,FEATURE-002/BA-DES-002,2026-08-12,2026-08-13
 BA-DES-003,ba_subtask_design,BA design: Split the project into three repositories,Duplicated,High,ba,workflow-mgr,FEATURE-003,,FEATURE-003/BA-DES-003,2026-08-12,2026-08-13
-SA-DES-003,sa_subtask_design,SA design: Split the project into three repositories,Resolved,High,architect,workflow-mgr,FEATURE-003,,FEATURE-003/SA-DES-003,2026-08-12,2026-08-13
-BA-DES-004,ba_subtask_design,BA design: Split the project into three repositories,Resolved,High,ba,workflow-mgr,FEATURE-003,,FEATURE-003/BA-DES-004,2026-08-12,2026-08-13
-BA-DES-005,ba_subtask_design,BA design: Publish foundry_cli_tool to PyPI for pip installation,Resolved,High,ba,workflow-mgr,FEATURE-004,,FEATURE-004/BA-DES-005,2026-08-13,2026-08-13
-SA-DES-004,sa_subtask_design,SA design: Publish foundry_cli_tool to PyPI for pip installation,Resolved,High,architect,workflow-mgr,FEATURE-004,,FEATURE-004/SA-DES-004,2026-08-13,2026-08-13
-BA-DES-006,ba_subtask_design,BA design: Publish foundry_cli_tool to a conda channel,Resolved,High,ba,workflow-mgr,FEATURE-005,,FEATURE-005/BA-DES-006,2026-08-13,2026-08-13
-SA-DES-005,sa_subtask_design,SA design: Publish foundry_cli_tool to a conda channel,Resolved,High,architect,workflow-mgr,FEATURE-005,,FEATURE-005/SA-DES-005,2026-08-13,2026-08-13
-SA-DES-006,sa_subtask_design,SA design: Store skills in a standard .agents/skills folder for all harnesses,Resolved,High,architect,workflow-mgr,FEATURE-006,,FEATURE-006/SA-DES-006,2026-08-13,2026-08-13
-BA-DES-007,ba_subtask_design,BA design: Store skills in a standard .agents/skills folder for all harnesses,Resolved,High,ba,workflow-mgr,FEATURE-006,,FEATURE-006/BA-DES-007,2026-08-13,2026-08-13
-BA-DES-008,ba_subtask_design,BA design: Distribute foundry_cli_skills via git clone and skill copy,Resolved,High,ba,workflow-mgr,FEATURE-007,,FEATURE-007/BA-DES-008,2026-08-13,2026-08-13
-SA-DES-007,sa_subtask_design,SA design: Distribute foundry_cli_skills via git clone and skill copy,Resolved,High,architect,workflow-mgr,FEATURE-007,,FEATURE-007/SA-DES-007,2026-08-13,2026-08-13
-SA-DES-008,sa_subtask_design,SA design: Add Palantir Foundry platform and capability descriptions to skills,Resolved,High,architect,workflow-mgr,FEATURE-008,,FEATURE-008/SA-DES-008,2026-08-13,2026-08-13
-BA-DES-009,ba_subtask_design,BA design: Add Palantir Foundry platform and capability descriptions to skills,Resolved,High,ba,workflow-mgr,FEATURE-008,,FEATURE-008/BA-DES-009,2026-08-13,2026-08-13
-SA-DES-009,sa_subtask_design,SA design: Document all JSON formats and parameter variants in each skill file,Resolved,High,architect,workflow-mgr,FEATURE-009,,FEATURE-009/SA-DES-009,2026-08-13,2026-08-13
-BA-DES-010,ba_subtask_design,BA design: Document all JSON formats and parameter variants in each skill file,Resolved,High,ba,workflow-mgr,FEATURE-009,,FEATURE-009/BA-DES-010,2026-08-13,2026-08-13
-BA-DES-011,ba_subtask_design,BA design: Rename foundry_ prefix to pal_found_ across all three projects,Resolved,High,ba,workflow-mgr,FEATURE-010,,FEATURE-010/BA-DES-011,2026-08-13,2026-08-13
-SA-DES-010,sa_subtask_design,SA design: Rename foundry_ prefix to pal_found_ across all three projects,Resolved,High,architect,workflow-mgr,FEATURE-010,,FEATURE-010/SA-DES-010,2026-08-13,2026-08-13
+SA-DES-003,sa_subtask_design,SA design: Split the project into three repositories,Closed,High,architect,workflow-mgr,FEATURE-003,,FEATURE-003/SA-DES-003,2026-08-12,2026-08-13
+BA-DES-004,ba_subtask_design,BA design: Split the project into three repositories,Closed,High,ba,workflow-mgr,FEATURE-003,,FEATURE-003/BA-DES-004,2026-08-12,2026-08-13
+BA-DES-005,ba_subtask_design,BA design: Publish foundry_cli_tool to PyPI for pip installation,Closed,High,ba,workflow-mgr,FEATURE-004,,FEATURE-004/BA-DES-005,2026-08-13,2026-08-13
+SA-DES-004,sa_subtask_design,SA design: Publish foundry_cli_tool to PyPI for pip installation,Closed,High,architect,workflow-mgr,FEATURE-004,,FEATURE-004/SA-DES-004,2026-08-13,2026-08-13
+BA-DES-006,ba_subtask_design,BA design: Publish foundry_cli_tool to a conda channel,Closed,High,ba,workflow-mgr,FEATURE-005,,FEATURE-005/BA-DES-006,2026-08-13,2026-08-13
+SA-DES-005,sa_subtask_design,SA design: Publish foundry_cli_tool to a conda channel,Closed,High,architect,workflow-mgr,FEATURE-005,,FEATURE-005/SA-DES-005,2026-08-13,2026-08-13
+SA-DES-006,sa_subtask_design,SA design: Store skills in a standard .agents/skills folder for all harnesses,Closed,High,architect,workflow-mgr,FEATURE-006,,FEATURE-006/SA-DES-006,2026-08-13,2026-08-13
+BA-DES-007,ba_subtask_design,BA design: Store skills in a standard .agents/skills folder for all harnesses,Closed,High,ba,workflow-mgr,FEATURE-006,,FEATURE-006/BA-DES-007,2026-08-13,2026-08-13
+BA-DES-008,ba_subtask_design,BA design: Distribute foundry_cli_skills via git clone and skill copy,Closed,High,ba,workflow-mgr,FEATURE-007,,FEATURE-007/BA-DES-008,2026-08-13,2026-08-13
+SA-DES-007,sa_subtask_design,SA design: Distribute foundry_cli_skills via git clone and skill copy,Closed,High,architect,workflow-mgr,FEATURE-007,,FEATURE-007/SA-DES-007,2026-08-13,2026-08-13
+SA-DES-008,sa_subtask_design,SA design: Add Palantir Foundry platform and capability descriptions to skills,Closed,High,architect,workflow-mgr,FEATURE-008,,FEATURE-008/SA-DES-008,2026-08-13,2026-08-13
+BA-DES-009,ba_subtask_design,BA design: Add Palantir Foundry platform and capability descriptions to skills,Closed,High,ba,workflow-mgr,FEATURE-008,,FEATURE-008/BA-DES-009,2026-08-13,2026-08-13
+SA-DES-009,sa_subtask_design,SA design: Document all JSON formats and parameter variants in each skill file,Closed,High,architect,workflow-mgr,FEATURE-009,,FEATURE-009/SA-DES-009,2026-08-13,2026-08-13
+BA-DES-010,ba_subtask_design,BA design: Document all JSON formats and parameter variants in each skill file,Closed,High,ba,workflow-mgr,FEATURE-009,,FEATURE-009/BA-DES-010,2026-08-13,2026-08-13
+BA-DES-011,ba_subtask_design,BA design: Rename foundry_ prefix to pal_found_ across all three projects,Closed,High,ba,workflow-mgr,FEATURE-010,,FEATURE-010/BA-DES-011,2026-08-13,2026-08-13
+SA-DES-010,sa_subtask_design,SA design: Rename foundry_ prefix to pal_found_ across all three projects,Closed,High,architect,workflow-mgr,FEATURE-010,,FEATURE-010/SA-DES-010,2026-08-13,2026-08-13
 DEV-STORY-024,dev_story,Split the project into three repositories,New,High,tech-lead,ba,FEATURE-003,,FEATURE-003/DEV-STORY-024,2026-08-13,2026-08-13
 DEV-STORY-025,dev_story,Publish all three repositories publicly on GitHub,New,High,tech-lead,ba,FEATURE-002,,FEATURE-002/DEV-STORY-025,2026-08-13,2026-08-13
 DEV-STORY-026,dev_story,Publish the CLI tool package to PyPI with release verification,New,High,tech-lead,ba,FEATURE-004,,FEATURE-004/DEV-STORY-026,2026-08-13,2026-08-13
@@ -367,22 +367,22 @@ QUESTION-083,question,SA-DES-006 dependency for BA-DES-007 resolution,Closed,Hig
 QUESTION-084,question,SA-DES-009 dependency for BA-DES-010 resolution,Closed,High,ba,ba,BA-DES-010,architect,BA-DES-010/QUESTION-084,2026-08-13,2026-08-13
 QUESTION-085,question,SA-DES-008 dependency for BA-DES-009 resolution,Closed,High,ba,ba,BA-DES-009,architect,BA-DES-009/QUESTION-085,2026-08-13,2026-08-13
 QUESTION-086,question,SA-DES-010 dependency for BA-DES-011 resolution,Closed,High,ba,ba,BA-DES-011,architect,BA-DES-011/QUESTION-086,2026-08-13,2026-08-13
-QUESTION-087,question,PO approval: SA-DES-003 technical design (FEATURE-003),New,High,architect,architect,SA-DES-003,project-owner,SA-DES-003/QUESTION-087,2026-08-13,2026-08-13
-QUESTION-088,question,PO approval: SA-DES-002 technical design (FEATURE-002),New,High,architect,architect,SA-DES-002,project-owner,SA-DES-002/QUESTION-088,2026-08-13,2026-08-13
+QUESTION-087,question,PO approval: SA-DES-003 technical design (FEATURE-003),Closed,High,architect,architect,SA-DES-003,project-owner,SA-DES-003/QUESTION-087,2026-08-13,2026-08-13
+QUESTION-088,question,PO approval: SA-DES-002 technical design (FEATURE-002),Closed,High,architect,architect,SA-DES-002,project-owner,SA-DES-002/QUESTION-088,2026-08-13,2026-08-13
 QUESTION-089,question,PO approval: SA-DES-004 technical design (FEATURE-004),Duplicated,High,architect,architect,SA-DES-004,project-owner,SA-DES-004/QUESTION-089,2026-08-13,2026-08-13
-QUESTION-090,question,PO approval: SA-DES-004 technical design (FEATURE-004),New,High,architect,architect,SA-DES-004,project-owner,SA-DES-004/QUESTION-090,2026-08-13,2026-08-13
-QUESTION-091,question,PO approval: SA-DES-005 technical design (FEATURE-005),New,High,architect,architect,SA-DES-005,project-owner,SA-DES-005/QUESTION-091,2026-08-13,2026-08-13
-QUESTION-092,question,PO approval: SA-DES-007 technical design (FEATURE-007),New,High,architect,architect,SA-DES-007,project-owner,SA-DES-007/QUESTION-092,2026-08-13,2026-08-13
-QUESTION-093,question,PO approval: SA-DES-006 technical design (FEATURE-006),New,High,architect,architect,SA-DES-006,project-owner,SA-DES-006/QUESTION-093,2026-08-13,2026-08-13
-QUESTION-094,question,PO approval: SA-DES-008 technical design (FEATURE-008),New,High,architect,architect,SA-DES-008,project-owner,SA-DES-008/QUESTION-094,2026-08-13,2026-08-13
-QUESTION-095,question,PO approval: SA-DES-009 technical design (FEATURE-009),New,High,architect,architect,SA-DES-009,project-owner,SA-DES-009/QUESTION-095,2026-08-13,2026-08-13
-QUESTION-096,question,PO approval: SA-DES-010 technical design (FEATURE-010),New,High,architect,architect,SA-DES-010,project-owner,SA-DES-010/QUESTION-096,2026-08-13,2026-08-13
-QUESTION-097,question,BA-DES-004 business design approval,New,High,ba,ba,BA-DES-004,project-owner,BA-DES-004/QUESTION-097,2026-08-13,2026-08-13
-QUESTION-098,question,BA-DES-002 business design approval,New,High,ba,ba,BA-DES-002,project-owner,BA-DES-002/QUESTION-098,2026-08-13,2026-08-13
-QUESTION-099,question,BA-DES-006 business design approval,New,High,ba,ba,BA-DES-006,project-owner,BA-DES-006/QUESTION-099,2026-08-13,2026-08-13
-QUESTION-100,question,BA-DES-005 business design approval,New,High,ba,ba,BA-DES-005,project-owner,BA-DES-005/QUESTION-100,2026-08-13,2026-08-13
-QUESTION-101,question,BA-DES-008 business design approval,New,High,ba,ba,BA-DES-008,project-owner,BA-DES-008/QUESTION-101,2026-08-13,2026-08-13
-QUESTION-102,question,BA-DES-007 business design approval,New,High,ba,ba,BA-DES-007,project-owner,BA-DES-007/QUESTION-102,2026-08-13,2026-08-13
-QUESTION-103,question,BA-DES-009 business design approval,New,High,ba,ba,BA-DES-009,project-owner,BA-DES-009/QUESTION-103,2026-08-13,2026-08-13
-QUESTION-104,question,BA-DES-010 business design approval,New,High,ba,ba,BA-DES-010,project-owner,BA-DES-010/QUESTION-104,2026-08-13,2026-08-13
-QUESTION-105,question,BA-DES-011 business design approval,New,High,ba,ba,BA-DES-011,project-owner,BA-DES-011/QUESTION-105,2026-08-13,2026-08-13
+QUESTION-090,question,PO approval: SA-DES-004 technical design (FEATURE-004),Closed,High,architect,architect,SA-DES-004,project-owner,SA-DES-004/QUESTION-090,2026-08-13,2026-08-13
+QUESTION-091,question,PO approval: SA-DES-005 technical design (FEATURE-005),Closed,High,architect,architect,SA-DES-005,project-owner,SA-DES-005/QUESTION-091,2026-08-13,2026-08-13
+QUESTION-092,question,PO approval: SA-DES-007 technical design (FEATURE-007),Closed,High,architect,architect,SA-DES-007,project-owner,SA-DES-007/QUESTION-092,2026-08-13,2026-08-13
+QUESTION-093,question,PO approval: SA-DES-006 technical design (FEATURE-006),Closed,High,architect,architect,SA-DES-006,project-owner,SA-DES-006/QUESTION-093,2026-08-13,2026-08-13
+QUESTION-094,question,PO approval: SA-DES-008 technical design (FEATURE-008),Closed,High,architect,architect,SA-DES-008,project-owner,SA-DES-008/QUESTION-094,2026-08-13,2026-08-13
+QUESTION-095,question,PO approval: SA-DES-009 technical design (FEATURE-009),Closed,High,architect,architect,SA-DES-009,project-owner,SA-DES-009/QUESTION-095,2026-08-13,2026-08-13
+QUESTION-096,question,PO approval: SA-DES-010 technical design (FEATURE-010),Closed,High,architect,architect,SA-DES-010,project-owner,SA-DES-010/QUESTION-096,2026-08-13,2026-08-13
+QUESTION-097,question,BA-DES-004 business design approval,Closed,High,ba,ba,BA-DES-004,project-owner,BA-DES-004/QUESTION-097,2026-08-13,2026-08-13
+QUESTION-098,question,BA-DES-002 business design approval,Closed,High,ba,ba,BA-DES-002,project-owner,BA-DES-002/QUESTION-098,2026-08-13,2026-08-13
+QUESTION-099,question,BA-DES-006 business design approval,Closed,High,ba,ba,BA-DES-006,project-owner,BA-DES-006/QUESTION-099,2026-08-13,2026-08-13
+QUESTION-100,question,BA-DES-005 business design approval,Closed,High,ba,ba,BA-DES-005,project-owner,BA-DES-005/QUESTION-100,2026-08-13,2026-08-13
+QUESTION-101,question,BA-DES-008 business design approval,Closed,High,ba,ba,BA-DES-008,project-owner,BA-DES-008/QUESTION-101,2026-08-13,2026-08-13
+QUESTION-102,question,BA-DES-007 business design approval,Closed,High,ba,ba,BA-DES-007,project-owner,BA-DES-007/QUESTION-102,2026-08-13,2026-08-13
+QUESTION-103,question,BA-DES-009 business design approval,Closed,High,ba,ba,BA-DES-009,project-owner,BA-DES-009/QUESTION-103,2026-08-13,2026-08-13
+QUESTION-104,question,BA-DES-010 business design approval,Closed,High,ba,ba,BA-DES-010,project-owner,BA-DES-010/QUESTION-104,2026-08-13,2026-08-13
+QUESTION-105,question,BA-DES-011 business design approval,Closed,High,ba,ba,BA-DES-011,project-owner,BA-DES-011/QUESTION-105,2026-08-13,2026-08-13

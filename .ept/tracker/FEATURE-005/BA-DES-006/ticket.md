@@ -2,7 +2,7 @@
 id: BA-DES-006
 type: ba_subtask_design
 title: 'BA design: Publish foundry_cli_tool to a conda channel'
-status: Resolved
+status: Closed
 created: 2026-08-13
 updated: 2026-08-13
 priority: High

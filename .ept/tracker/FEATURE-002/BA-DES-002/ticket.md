@@ -2,7 +2,7 @@
 id: BA-DES-002
 type: ba_subtask_design
 title: 'BA design: Host all three repositories publicly on GitHub'
-status: Resolved
+status: Closed
 created: 2026-08-12
 updated: 2026-08-13
 priority: High

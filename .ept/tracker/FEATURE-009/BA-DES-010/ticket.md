@@ -2,7 +2,7 @@
 id: BA-DES-010
 type: ba_subtask_design
 title: 'BA design: Document all JSON formats and parameter variants in each skill file'
-status: Resolved
+status: Closed
 created: 2026-08-13
 updated: 2026-08-13
 priority: High

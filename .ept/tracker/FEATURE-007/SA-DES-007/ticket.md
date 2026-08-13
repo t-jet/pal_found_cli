@@ -2,7 +2,7 @@
 id: SA-DES-007
 type: sa_subtask_design
 title: 'SA design: Distribute foundry_cli_skills via git clone and skill copy'
-status: Resolved
+status: Closed
 created: 2026-08-13
 updated: 2026-08-13
 priority: High

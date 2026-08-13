@@ -2,7 +2,7 @@
 id: SA-DES-010
 type: sa_subtask_design
 title: 'SA design: Rename foundry_ prefix to pal_found_ across all three projects'
-status: Resolved
+status: Closed
 created: 2026-08-13
 updated: 2026-08-13
 priority: High

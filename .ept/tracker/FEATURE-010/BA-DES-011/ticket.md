@@ -2,7 +2,7 @@
 id: BA-DES-011
 type: ba_subtask_design
 title: 'BA design: Rename foundry_ prefix to pal_found_ across all three projects'
-status: Resolved
+status: Closed
 created: 2026-08-13
 updated: 2026-08-13
 priority: High

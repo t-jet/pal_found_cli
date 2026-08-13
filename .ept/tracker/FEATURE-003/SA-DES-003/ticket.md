@@ -2,7 +2,7 @@
 id: SA-DES-003
 type: sa_subtask_design
 title: 'SA design: Split the project into three repositories'
-status: Resolved
+status: Closed
 created: 2026-08-12
 updated: 2026-08-13
 priority: High

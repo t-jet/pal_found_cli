@@ -2,7 +2,7 @@
 id: SA-DES-009
 type: sa_subtask_design
 title: 'SA design: Document all JSON formats and parameter variants in each skill file'
-status: Resolved
+status: Closed
 created: 2026-08-13
 updated: 2026-08-13
 priority: High

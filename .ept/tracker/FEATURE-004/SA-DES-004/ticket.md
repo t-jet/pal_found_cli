@@ -2,7 +2,7 @@
 id: SA-DES-004
 type: sa_subtask_design
 title: 'SA design: Publish foundry_cli_tool to PyPI for pip installation'
-status: Resolved
+status: Closed
 created: 2026-08-13
 updated: 2026-08-13
 priority: High

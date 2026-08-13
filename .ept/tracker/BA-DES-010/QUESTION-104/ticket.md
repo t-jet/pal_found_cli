@@ -2,13 +2,14 @@
 id: QUESTION-104
 type: question
 title: BA-DES-010 business design approval
-status: New
+status: Closed
 addressed_to: project-owner
 created: 2026-08-13
 updated: 2026-08-13
 priority: High
 assignee: ba
 reporter: ba
+time_spent_hours: 0.5
 ---
 
 # QUESTION-104: BA-DES-010 business design approval

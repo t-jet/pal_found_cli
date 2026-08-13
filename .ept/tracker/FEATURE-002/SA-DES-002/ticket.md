@@ -2,7 +2,7 @@
 id: SA-DES-002
 type: sa_subtask_design
 title: 'SA design: Host all three repositories publicly on GitHub'
-status: Resolved
+status: Closed
 created: 2026-08-12
 updated: 2026-08-13
 priority: High

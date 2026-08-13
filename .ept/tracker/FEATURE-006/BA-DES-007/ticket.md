@@ -2,7 +2,7 @@
 id: BA-DES-007
 type: ba_subtask_design
 title: 'BA design: Store skills in a standard .agents/skills folder for all harnesses'
-status: Resolved
+status: Closed
 created: 2026-08-13
 updated: 2026-08-13
 priority: High
