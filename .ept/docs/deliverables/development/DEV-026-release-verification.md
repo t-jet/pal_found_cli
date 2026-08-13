@@ -7,5 +7,5 @@ installs that exact version into a clean virtual environment, and runs
 
 Trusted publishing uses GitHub OIDC (`id-token: write`). No PyPI API token is
 read by the workflow and no credential belongs in the repository or artifact.
-The project name is `pal_found_cli`; legacy `foundry-*` entry points remain as
-compatibility aliases until the separate rename migration is complete.
+The project name is `pal_found_cli`; the public entry points use the
+`pal-found-*` names defined by the rename mapping.

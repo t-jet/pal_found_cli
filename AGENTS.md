@@ -6,6 +6,9 @@ Skills located in the `.ept/skills` folder available to AI agents and should be 
 Review  the  `.ept/skills/skill-index.md` in this folder to find available skills. You must know they descriptions and be ready to use them before starting any activities.
 Do it now to understand instructions in this file and your role. 
 
+Project skills live in `.agents/skills`. The old `.claude/skills` path contains
+only a migration pointer; add or update skills in the canonical tree.
+
 ## Mandatory instructions for all agents
 
 1. Always use the `caveman` skill in the `ultra` mode for internal thinking, reasoning and delegating tasks to subagents.

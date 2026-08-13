@@ -1,6 +1,6 @@
 [submodule "pal_found_cli_skills"]
-	path = foundry_cli_skills
+	path = pal_found_cli_skills
 	url = https://github.com/t-jet/pal_found_cli_skills.git
 [submodule "pal_found_cli_tool"]
-	path = foundry_cli_tool
+	path = pal_found_cli_tool
 	url = https://github.com/t-jet/pal_found_cli_tool.git

@@ -7,7 +7,7 @@ remote repositories were created or published.
 | --- | --- | --- |
 | Design, requirements, tracker | `pal_found_cli` | `.ept/`, `.github/agents/`, `README.md`, `AGENTS.md`, `CLAUDE.md`, `misc_docs/` |
 | CLI source, tests, packaging, CI | `pal_found_cli_tool` | `src/`, `tests/`, `pyproject.toml`, `.github/workflows/`, `README.md` |
-| Agent skills | `pal_found_cli_skills` | `.agents/skills/` and the skills currently staged under `.claude/skills/` |
+| Agent skills | `pal_found_cli_skills` | `.agents/skills/` |
 
 ## Migration gate
 
@@ -22,3 +22,11 @@ remote repositories were created or published.
 
 `.gitmodules` now points at the final public names. The nested repositories and
 remote publication remain external prerequisites.
+
+## Local rename blocker
+
+This checkout can rename its submodule paths and local URL mapping, which it
+now does. GitHub repository renames and permission changes require repository
+owner access and were not performed here. The root checkout still uses its
+existing filesystem location; update the remote and publish the renamed
+repositories when owner access is available.
