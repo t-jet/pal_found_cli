@@ -116,26 +116,27 @@ This project follows a structured documentation approach organized into logical 
 - [DEV-025 — Public repository publication checklist](deliverables/development/DEV-025-publication-checklist.md) — Secret, anonymous-access, permissions, release, and rollback checks for the three public repositories.
 - [DEV-026 — PyPI release verification](deliverables/development/DEV-026-release-verification.md) — Tag-driven build, Test PyPI staging, clean-environment smoke check, and OIDC publication gate.
 - [DEV-027 — Cross-repository reference register](deliverables/development/DEV-027-reference-register.md) — Canonical repository URLs and relative-link rules after the split.
+- [DEV-037 — Rename migration guide](deliverables/development/DEV-037-rename-migration.md) — Confirmed `pal_found_`/`pal-found-` mapping, clone and install updates, skill migration, redirects, rollback, and verification checks.
 
-- **Common Error Handling Library** (`src/foundry_cli/common/`) — Shared infrastructure components implemented per DESIGN-001 and DEV-002:
+- **Common Error Handling Library** (`src/pal_found_cli/common/`) — Shared infrastructure components implemented per DESIGN-001 and DEV-002:
   - `retry.py` — `RetryHandler`: Exponential backoff with jitter for retryable operations (ADR-002)
   - `error_serializer.py` — `ErrorSerializer`: Exception-to-exit-code mapping per ADR-001 taxonomy
   - `output_formatter.py` — `OutputFormatter`: JSON/TOON output with auto-selection per ADR-004 algorithm
   - `log_setup.py` — `LogSetup`: NDJSON structured logging to stderr per ADR-005
   - `access_control_guard.py` — `AccessControlGuard`: 8-step precedence access-control model and metadata allow-list (SRS §4.2 FR-ACL, ADR-007, exit code 8)
   - `pagination_helper.py` — `PaginationHelper`: page-size/page-token/batch-pages management with stderr metadata emission (SRS §4 FR-PAG, ADR-005)
-- **Namespace Skill Scripts** (`.claude/skills/<namespace>/scripts/`) — CLI entry points that wire the common library into SDK operations per namespace:
-  - `foundry-datasets/scripts/foundry_datasets_cli.py` — Datasets CLI (33 operations) integrating AccessControlGuard, PaginationHelper, RetryHandler, OutputFormatter, and ErrorSerializer
-  - `foundry-connectivity/scripts/foundry_connectivity_cli.py` — Connectivity CLI (20 operations; Connection 7, FileImport 6, TableImport 6, VirtualTable 1) with cursor pagination on file-import/table-import list, bounded JDBC driver upload, 13-op write set, 7/13 metadata-only policy, include_attribution=False
-  - `foundry-media-sets/scripts/foundry_media_sets_cli.py` — Media Sets CLI (19 operations on the single MediaSet client) with four BinaryDownloadHandler downloads, two bounded binary uploads, 9-op write set, 5/14 metadata-only policy, include_attribution=True per FR-ATTR-4
+- **Namespace Skill Scripts** (`.agents/skills/pal-found-*/scripts/`) — CLI entry points that wire the common library into SDK operations per namespace. Launchers use the `pal_found_*_cli.py` module names and the public `pal-found-*` commands.
+  - `pal-found-datasets/scripts/pal_found_datasets_cli.py` — Datasets CLI (33 operations) integrating AccessControlGuard, PaginationHelper, RetryHandler, OutputFormatter, and ErrorSerializer
+  - `pal-found-connectivity/scripts/pal_found_connectivity_cli.py` — Connectivity CLI (20 operations; Connection 7, FileImport 6, TableImport 6, VirtualTable 1) with cursor pagination on file-import/table-import list, bounded JDBC driver upload, 13-op write set, 7/13 metadata-only policy, include_attribution=False
+  - `pal-found-media-sets/scripts/pal_found_media_sets_cli.py` — Media Sets CLI (19 operations on the single MediaSet client) with four BinaryDownloadHandler downloads, two bounded binary uploads, 9-op write set, 5/14 metadata-only policy, include_attribution=True per FR-ATTR-4
 
 ### CI/CD & Infrastructure (DEVOPS-002 / DEVOPS-003)
 
 - **GitHub Actions CI Pipeline** (`.github/workflows/ci.yml`) — Six-stage pipeline: lint (ruff) → type-check (mypy) → test (pytest + coverage, Python 3.11/3.12 matrix) → security-scan (bandit + safety) → build (PEP 517). Third-party actions are pinned to full SHA digests.
-- **GitHub Actions Publish Pipeline** (`.github/workflows/publish.yml`) — Tag-triggered (`v*`) PyPI publication workflow with twine validation; uses `PYPI_API_TOKEN` from GitHub secrets.
+- **GitHub Actions Publish Pipeline** (`.github/workflows/publish.yml`) — Tag-triggered (`v*`) PyPI publication workflow with Test PyPI staging, twine validation, and OIDC trusted publishing.
 - **Coverage Configuration** (`pyproject.toml` `[tool.coverage.*]`) — Branch coverage, 80% repository-wide minimum threshold, XML output for CI reporting. DEVOPS-002 evidence on 2026-07-26 measured 81.65% with 262 tests passing; older 90% checklist wording is treated as aspirational/new-code guidance unless the quality standard is formally raised.
 - **Environment Template** (`.env.example`) — Lists all required and optional environment variables per ADR-006 with inline documentation; `.env` is gitignored.
-- **pyproject.toml** — Package metadata uses `README.md` as the PyPI long description. Runtime dependencies: `foundry-platform-sdk>=1.0.0`, `python-dotenv>=1.0.0`. Dev dependencies: pytest, pytest-asyncio, pytest-cov, mypy, ruff, bandit. Ruff per-file ignores are scoped to tests for import-order and intentionally unused test scaffolding patterns.
+- **pyproject.toml** — Package `pal_found_cli` uses `README.md` as the PyPI long description and exposes 18 `pal-found-*` commands. Runtime dependencies: `foundry-platform-sdk>=1.0.0`, `python-dotenv>=1.0.0`. Dev dependencies: pytest, pytest-asyncio, pytest-cov, mypy, ruff, bandit. Ruff per-file ignores are scoped to tests for import-order and intentionally unused test scaffolding patterns.
 - [DEVOPS-010 - Foundry Audit packaging and deployment report](deliverables/devops/DEVOPS-010-deployment-report.md) - Clean-archive build, wheel/editable installation, entry-point smoke, security gates, and rehearsed rollback evidence for DEV-STORY-010 at commit `87d817c6`.
 - [DEVOPS-011 - Foundry AIP Agents packaging and deployment report](deliverables/devops/DEVOPS-011-aip-agents-deployment-report.md) - Clean-archive build, wheel/editable installation, Python 3.11/3.12 gates, packaged policy, and rehearsed rollback evidence for DEV-STORY-011 at commit `4bc449c`.
 - [DEVOPS-012 - Foundry Language Models packaging and deployment report](deliverables/devops/DEVOPS-012-language-models-deployment-report.md) - Clean-archive build, wheel/editable installation, Python 3.11/3.12 gates, blocked policy, and rehearsed rollback evidence for DEV-STORY-012 at commit `cb8e8d2`.
