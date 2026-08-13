@@ -112,6 +112,11 @@ This project follows a structured documentation approach organized into logical 
 
 ### Development Documentation
 
+- [DEV-024 — Repository split manifest](deliverables/development/DEV-024-repository-split-manifest.md) — Ownership map, history-preserving migration gate, submodule update, verification, and rollback notes. Remote repository creation remains an external prerequisite.
+- [DEV-025 — Public repository publication checklist](deliverables/development/DEV-025-publication-checklist.md) — Secret, anonymous-access, permissions, release, and rollback checks for the three public repositories.
+- [DEV-026 — PyPI release verification](deliverables/development/DEV-026-release-verification.md) — Tag-driven build, Test PyPI staging, clean-environment smoke check, and OIDC publication gate.
+- [DEV-027 — Cross-repository reference register](deliverables/development/DEV-027-reference-register.md) — Canonical repository URLs and relative-link rules after the split.
+
 - **Common Error Handling Library** (`src/foundry_cli/common/`) — Shared infrastructure components implemented per DESIGN-001 and DEV-002:
   - `retry.py` — `RetryHandler`: Exponential backoff with jitter for retryable operations (ADR-002)
   - `error_serializer.py` — `ErrorSerializer`: Exception-to-exit-code mapping per ADR-001 taxonomy
