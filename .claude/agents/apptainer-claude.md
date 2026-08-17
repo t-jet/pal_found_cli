@@ -1,5 +1,5 @@
 ---
-name: apptainer
+name: apptainer-claude
 description: Expert Apptainer agent. Use for any Apptainer container operations such as building SIF images from def files, pulling Docker/OCI images, running containers (exec/shell/run/instance), bind mounts, persistent overlays, fakeroot builds, GPU workloads, user-namespace configuration, and installation/admin setup. Also handles Singularity compatibility questions. Invoked as a subagent by other agents needing Apptainer knowledge or autonomous execution.
 tools: Read, Write, Edit, Bash, Glob, Grep, WebFetch, WebSearch, mcp_*
 permissionMode: bypassPermissions

@@ -4,7 +4,7 @@
 
 Skills located in the `.ept/skills` folder available to AI agents and should be used from this location. 
 Review  the  `.ept/skills/skill-index.md` in this folder to find available skills. You must know they descriptions and be ready to use them before starting any activities.
-Do it now to understand instructions in this file and your role. 
+Do it now to understand instructions in this file and your role.
 
 Project skills live in `.agents/skills`. The old `.claude/skills` path contains
 only a migration pointer; add or update skills in the canonical tree.

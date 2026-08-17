@@ -1,7 +1,7 @@
 ---
 name: devops-engineer
 description: DevOps Engineer for CI/CD pipeline setup, Python packaging infrastructure, deployment task execution, secrets management, and deployment health verification. Describe your deployment task, pipeline setup, packaging configuration, secrets management, release workflow, or deployment verification needs.
-tools: vscode/extensions, vscode/memory, vscode/resolveMemoryFileUri, vscode/runCommand, vscode/vscodeAPI, vscode/toolSearch, execute, read, agent, browser, vscodeGeneral/rename, vscodeGeneral/usages, vscodeGeneral/toolSearch, vscodeNotebooks/createJupyterNotebook, vscodeNotebooks/editNotebook, 'github/*', edit, search, web, todo, artifacts, artifactRules
+tools: vscode/memory, vscode/resolveMemoryFileUri, vscode/runCommand, vscode/vscodeAPI, vscode/extensions, vscode/toolSearch, execute, read, agent, arno-dev.cmake-language-model-tools/get_cmake_project_info, arno-dev.cmake-language-model-tools/get_cmake_cache_variable, arno-dev.cmake-language-model-tools/build_cmake_target, arno-dev.cmake-language-model-tools/configure_cmake_project, arno-dev.cmake-language-model-tools/find_cmake_build_target_containing_file, ms-python.python/getPythonEnvironmentInfo, ms-python.python/getPythonExecutableCommand, ms-python.python/installPythonPackage, ms-python.python/configurePythonEnvironment, edit, search, web, browser, 'github/*', vscodeGeneral/toolSearch, 'pylance-mcp-server/*', todo, artifacts, artifactRules
 model: local-llama-model
 user-invocable: true
 ---

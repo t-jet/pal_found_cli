@@ -1,5 +1,5 @@
 ---
-name: crawl4ai
+name: crawl4ai-claude
 description: Expert Crawl4AI agent for web crawling, content extraction, and data pipeline tasks. Covers AsyncWebCrawler, BrowserConfig, CrawlerRunConfig, LLM-free structured extraction with schema generation, JavaScript-heavy page handling, batch crawling, network interception, and crawl4ai-setup/crawl4ai-doctor diagnostics. Invoked as a subagent by other agents needing Crawl4AI knowledge, code generation, debugging, or autonomous crawl execution.
 tools: Read, Write, Edit, Bash, Glob, Grep, WebFetch, WebSearch, mcp_*
 permissionMode: bypassPermissions

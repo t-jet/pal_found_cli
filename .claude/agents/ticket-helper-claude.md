@@ -1,5 +1,5 @@
 ---
-name: ticket-helper
+name: ticket-helper-claude
 description: Subagent service for executing tracking system operations. Operations include create/get/update/list/search tickets, comments, links, build work queue, and query workflow configuration. Be specific and include all relevant parameters.
 tools: Read, Write, Edit, Bash, Glob, Grep, WebFetch, WebSearch, mcp_*
 permissionMode: bypassPermissions

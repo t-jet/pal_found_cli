@@ -231,3 +231,45 @@ EPIC  ←→  DEV-STORY  (EpicLink field)
 10. **Use `task`** for ad-hoc work that does not belong to any Feature or Epic. Use `workitem` for unclassified sub-tasks within an existing ticket.
 
 11. **Use `resource_req`** when a new agent role or team resource needs to be provisioned for the project.
+
+## Working guidelines
+
+### 1. Think Before implementing
+
+**Don't assume. Don't hide confusion. Surface tradeoffs.**
+
+Before working on tickets:
+- State your assumptions explicitly. If uncertain, ask.
+- If multiple interpretations exist, present them - don't pick silently.
+- If a simpler approach exists, say so. Push back when warranted.
+- If something is unclear, stop. Name what's confusing. Ask.
+
+### 2. Simplicity First
+
+**Minimum footprint that solves the problem. Nothing speculative.**
+
+- No features beyond what was asked.
+- No abstractions for single-use code.
+- No "flexibility" or "configurability" that wasn't requested.
+- No error handling for impossible scenarios.
+- If you write 200 lines and it could be 50, rewrite it.
+
+Ask yourself: "Would a senior specialist say this is overcomplicated?" If yes, simplify.
+
+### 3. Goal-Driven Execution
+
+**Define success criteria. Loop until verified.**
+
+Transform tasks into verifiable goals, e.g. for code it would be:
+- "Add validation" -> "Write tests for invalid inputs, then make them pass"
+- "Fix the bug" -> "Write a test that reproduces it, then make it pass"
+- "Refactor X" -> "Ensure tests pass before and after"
+
+For multi-step tasks, state a brief plan:
+```
+1. [Step] -> verify: [check]
+2. [Step] -> verify: [check]
+3. [Step] -> verify: [check]
+```
+
+Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
