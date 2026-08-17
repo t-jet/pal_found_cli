@@ -19,10 +19,15 @@ coverage.xml
 .mypy_cache/
 .dmypy.json
 
-# Environment & secrets (NEVER commit real credentials)
+# Environment and secrets (never commit real credentials)
 .env
-.env.local
-.env.*.local
+.env.*
+!.env.example
+!.env.template
+*.pem
+*.key
+*.p12
+*.pfx
 
 # IDE
 .vscode/*.json
