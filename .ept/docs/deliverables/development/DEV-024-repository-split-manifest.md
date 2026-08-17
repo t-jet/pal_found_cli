@@ -85,7 +85,7 @@ clone checked out these commits:
 
 | Repository | Verified commit |
 | --- | --- |
-| `pal_found_cli` | `17919823a3a348abdc9f8deedfe1f7f04cd211eb` |
+| `pal_found_cli` | `eda8d5efd906f189a133ed3813cdc5d31ad8749d` |
 | `pal_found_cli_tool` | `370c971b4d05340d80a0dad009bc8b4c0233d345` |
 | `pal_found_cli_skills` | `34b6c404994cdcc4f97b18d2a493fff6c1d3d895` |
 | `foundry-platform-python` | `2da67907be429c35f747eef565867ce81dd2cafc` |
