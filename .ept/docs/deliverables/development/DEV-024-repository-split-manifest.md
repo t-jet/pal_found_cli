@@ -66,17 +66,19 @@ On 2026-08-17, the repository owner renamed the three public GitHub
 repositories from their former `foundry_*` names. Root and nested origins plus
 `.gitmodules` use canonical `pal_found_*` URLs.
 
-A clean recursive clone from
-`https://github.com/t-jet/pal_found_cli.git` completed successfully. The clone
-had no worktree changes and checked out these published commits:
+A credential-disabled recursive clone from
+`https://github.com/t-jet/pal_found_cli.git` completed successfully after the
+split was published. Root and both destination worktrees were clean and the
+clone checked out these commits:
 
 | Repository | Verified commit |
 | --- | --- |
-| `pal_found_cli` | `e4b2bccd8d2a01a41f2d57be26737230d5f42f24` |
-| `pal_found_cli_tool` | `ac9c03f1086916a9145b89368bb3f671cb743144` |
-| `pal_found_cli_skills` | `dcbdb4ec52862ecdf5c5d24e7de9c56b39a967d0` |
+| `pal_found_cli` | `17919823a3a348abdc9f8deedfe1f7f04cd211eb` |
+| `pal_found_cli_tool` | `eb7febea5d84bfc51946c0e799242dbde28c6d52` |
+| `pal_found_cli_skills` | `d347ed4d1466375e2c9933cff920cd179bf5cbba` |
 | `foundry-platform-python` | `2da67907be429c35f747eef565867ce81dd2cafc` |
 
-This earlier clone proved URL and submodule accessibility before content
-migration. The post-split recursive-clone proof is recorded after the three
-split commits are published.
+The clone used `GIT_TERMINAL_PROMPT=0`, an empty askpass value, and
+`credential.helper=`. This proves public anonymous access without cached
+credentials. Root owns no tracked `src`, `tests`, `.agents/skills`, package
+metadata, or release workflow after the split.

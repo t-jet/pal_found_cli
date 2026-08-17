@@ -199,8 +199,8 @@ This project follows a structured documentation approach organized into logical 
 
 ## Resources
 
-- [Available Resources](resources/available_resources.md) - Registry of available agents and capabilities
-- [Agent Definition Template](resources/agent_definition_template.md) - Template for defining new agent roles and capabilities
+- [Available Resources](../resources/available_resources.md) - Registry of available agents and capabilities
+- [Agent Definition Template](../resources/agent_definition_template.md) - Template for defining new agent roles and capabilities
 
 ---
 
