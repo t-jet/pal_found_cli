@@ -59,6 +59,10 @@ Local verification on 2026-08-17:
 - Tool package: sdist and wheel built; `twine check dist/*` passed; all 18
   installed `pal-found-* --help` launchers passed within the test suite.
 - Skills: Ruff passed and 7 validation tests passed.
+- Hosted CI initially failed at job setup because the combined repository had
+  pinned `actions/setup-python` to a nonexistent SHA. Tool commit `7655433`
+  and skills commit `34b6c40` correct the pin to the official `v5.4.0` commit
+  `42375524e23c412d93fb67b49958b491fce71c38`.
 
 ## Publication evidence
 
@@ -74,8 +78,8 @@ clone checked out these commits:
 | Repository | Verified commit |
 | --- | --- |
 | `pal_found_cli` | `17919823a3a348abdc9f8deedfe1f7f04cd211eb` |
-| `pal_found_cli_tool` | `eb7febea5d84bfc51946c0e799242dbde28c6d52` |
-| `pal_found_cli_skills` | `d347ed4d1466375e2c9933cff920cd179bf5cbba` |
+| `pal_found_cli_tool` | `7655433dd215f78f4baa33a1d047facd07547f79` |
+| `pal_found_cli_skills` | `34b6c403eed935de8a229d10b0163bab04c1632f` |
 | `foundry-platform-python` | `2da67907be429c35f747eef565867ce81dd2cafc` |
 
 The clone used `GIT_TERMINAL_PROMPT=0`, an empty askpass value, and
