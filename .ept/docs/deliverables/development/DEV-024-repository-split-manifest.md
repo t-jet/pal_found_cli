@@ -1,7 +1,6 @@
 # Repository split manifest
 
-This manifest records the local split preparation. It does not claim that
-remote repositories were created or published.
+This manifest records the published repository split and its verification.
 
 | Ownership | Destination | Current source paths |
 | --- | --- | --- |
@@ -20,13 +19,28 @@ remote repositories were created or published.
 5. Keep the combined repository read-only until every check passes. Roll back
    by restoring the last tagged combined state if any check fails.
 
-`.gitmodules` now points at the final public names. The nested repositories and
-remote publication remain external prerequisites.
+`.gitmodules` points at the final public names. The repositories are public at:
 
-## Local rename blocker
+- `https://github.com/t-jet/pal_found_cli`
+- `https://github.com/t-jet/pal_found_cli_tool`
+- `https://github.com/t-jet/pal_found_cli_skills`
 
-This checkout can rename its submodule paths and local URL mapping, which it
-now does. GitHub repository renames and permission changes require repository
-owner access and were not performed here. The root checkout still uses its
-existing filesystem location; update the remote and publish the renamed
-repositories when owner access is available.
+## Publication evidence
+
+On 2026-08-17, the repository owner renamed the three public GitHub
+repositories from their former `foundry_*` names. The root and nested origins,
+plus `.gitmodules`, now use the canonical `pal_found_*` URLs.
+
+A clean recursive clone from
+`https://github.com/t-jet/pal_found_cli.git` completed successfully. The clone
+had no worktree changes and checked out these published commits:
+
+| Repository | Verified commit |
+| --- | --- |
+| `pal_found_cli` | `e4b2bccd8d2a01a41f2d57be26737230d5f42f24` |
+| `pal_found_cli_tool` | `ac9c03f1086916a9145b89368bb3f671cb743144` |
+| `pal_found_cli_skills` | `dcbdb4ec52862ecdf5c5d24e7de9c56b39a967d0` |
+| `foundry-platform-python` | `2da67907be429c35f747eef565867ce81dd2cafc` |
+
+The clone also contained the DEV-027 cross-repository reference register, and
+that register resolved all three canonical repository URLs.

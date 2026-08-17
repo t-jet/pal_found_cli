@@ -112,7 +112,7 @@ This project follows a structured documentation approach organized into logical 
 
 ### Development Documentation
 
-- [DEV-024 — Repository split manifest](deliverables/development/DEV-024-repository-split-manifest.md) — Ownership map, history-preserving migration gate, submodule update, verification, and rollback notes. Remote repository creation remains an external prerequisite.
+- [DEV-024 — Repository split manifest](deliverables/development/DEV-024-repository-split-manifest.md) — Ownership map, history-preserving migration gate, canonical public repository URLs, recursive-clone verification, and rollback notes.
 - [DEV-025 — Public repository publication checklist](deliverables/development/DEV-025-publication-checklist.md) — Secret, anonymous-access, permissions, release, and rollback checks for the three public repositories.
 - [DEV-026 — PyPI release verification](deliverables/development/DEV-026-release-verification.md) — Tag-driven build, Test PyPI staging, clean-environment smoke check, and OIDC publication gate.
 - [DEV-027 — Cross-repository reference register](deliverables/development/DEV-027-reference-register.md) — Canonical repository URLs and relative-link rules after the split.
