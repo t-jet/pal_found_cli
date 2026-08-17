@@ -78,8 +78,8 @@ clone checked out these commits:
 | Repository | Verified commit |
 | --- | --- |
 | `pal_found_cli` | `17919823a3a348abdc9f8deedfe1f7f04cd211eb` |
-| `pal_found_cli_tool` | `7655433dd215f78f4baa33a1d047facd07547f79` |
-| `pal_found_cli_skills` | `34b6c403eed935de8a229d10b0163bab04c1632f` |
+| `pal_found_cli_tool` | `7655433334dd3b57a841c6faa5a63b742f30057f` |
+| `pal_found_cli_skills` | `34b6c404994cdcc4f97b18d2a493fff6c1d3d895` |
 | `foundry-platform-python` | `2da67907be429c35f747eef565867ce81dd2cafc` |
 
 The clone used `GIT_TERMINAL_PROMPT=0`, an empty askpass value, and
