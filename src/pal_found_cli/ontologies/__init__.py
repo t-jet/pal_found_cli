@@ -1,1 +1,0 @@
-"""Foundry Ontologies CLI package."""

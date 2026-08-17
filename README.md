@@ -1,56 +1,33 @@
-# Palantir Foundry CLI
+# Palantir Foundry CLI design repository
 
-Palantir Foundry CLI provides command-line access to Foundry resource operations with shared configuration, authentication, retry handling, access-control guards, and structured output helpers.
+This repository holds requirements, architecture, delivery records, and the
+agent workflow used to design and manage the Palantir Foundry CLI project.
+Runtime source and distributable skills live in separate repositories.
 
-## Package
+## Repository map
 
-- Python support: 3.11 and 3.12.
-- Distribution: `pal_found_cli`.
-- Public commands use the `pal-found-` prefix, for example `pal-found-datasets`.
-- Runtime dependencies: `foundry-platform-sdk>=1.0.0` and `python-dotenv>=1.0.0`.
-- PyPI long description source: this `README.md`.
+| Repository | Ownership |
+| --- | --- |
+| [pal_found_cli](https://github.com/t-jet/pal_found_cli) | Design documents, tracker data, agent definitions, and orchestration material |
+| [pal_found_cli_tool](https://github.com/t-jet/pal_found_cli_tool) | Python package, tests, build configuration, and release workflows |
+| [pal_found_cli_skills](https://github.com/t-jet/pal_found_cli_skills) | Canonical `.agents/skills` distribution and validation workflow |
 
-## Install and use
-
-Install the latest verified release from PyPI:
-
-```bash
-python -m pip install pal_found_cli
-pal-found-datasets --help
-```
-
-Upgrade an existing installation with `python -m pip install --upgrade pal_found_cli`.
-Each release is built from a `vX.Y.Z` tag, staged on Test PyPI, installed into a
-clean environment, and smoke-checked before PyPI publication.
-
-The conda recipe uses the same tag-derived version. After a channel release,
-install with `conda install -c t-jet pal_found_cli`.
-
-The project is split into three repositories:
-
-- [design and documentation](https://github.com/t-jet/pal_found_cli)
-- [CLI tool](https://github.com/t-jet/pal_found_cli_tool)
-- [skills](https://github.com/t-jet/pal_found_cli_skills)
-
-See the [rename migration guide](.ept/docs/deliverables/development/DEV-037-rename-migration.md)
-when updating existing clones, scripts, or skill installations.
-
-## Development
-
-Install the project with development dependencies:
+The tool and skills repositories are registered as submodules so a recursive
+clone can reproduce the reviewed cross-repository state.
 
 ```bash
-python -m pip install -e ".[dev]"
+git clone --recurse-submodules https://github.com/t-jet/pal_found_cli.git
 ```
 
-Run the main validation commands:
+## Design navigation
 
-```bash
-ruff check src tests
-mypy src
-pytest tests --cov=pal_found_cli --cov-report=term-missing --cov-report=xml
-python -m build
-twine check dist/*
-```
+Start with the [documentation index](.ept/docs/document_index.md). The
+[repository split manifest](.ept/docs/deliverables/development/DEV-024-repository-split-manifest.md)
+records content ownership, migration history, and verification evidence. The
+[reference register](.ept/docs/deliverables/development/DEV-027-reference-register.md)
+defines stable links between repositories.
 
-The repository coverage gate is 80% branch coverage. Current DEVOPS-002 validation measured 81.65% with 262 tests passing.
+Install and usage instructions belong to the
+[tool repository](https://github.com/t-jet/pal_found_cli_tool). Skill onboarding
+belongs to the
+[skills repository](https://github.com/t-jet/pal_found_cli_skills).

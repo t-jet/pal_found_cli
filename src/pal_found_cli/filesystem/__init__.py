@@ -1,2 +1,0 @@
-"""Foundry Filesystem CLI package."""
-
