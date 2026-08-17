@@ -63,6 +63,10 @@ Local verification on 2026-08-17:
   pinned `actions/setup-python` to a nonexistent SHA. Tool commit `7655433`
   and skills commit `34b6c40` correct the pin to the official `v5.4.0` commit
   `42375524e23c412d93fb67b49958b491fce71c38`.
+- Linux mypy then exposed platform-specific `msvcrt` attribute checks that
+  Windows mypy could not reproduce. Tool commit `b3a2d0f` loads the Windows
+  lock module dynamically, matching the existing POSIX lock boundary; mypy
+  passes for all 70 source files on both Windows and Linux.
 
 ## Publication evidence
 
@@ -78,7 +82,7 @@ clone checked out these commits:
 | Repository | Verified commit |
 | --- | --- |
 | `pal_found_cli` | `17919823a3a348abdc9f8deedfe1f7f04cd211eb` |
-| `pal_found_cli_tool` | `7655433334dd3b57a841c6faa5a63b742f30057f` |
+| `pal_found_cli_tool` | `b3a2d0fb242315a80430ca108c9296b868ee06f1` |
 | `pal_found_cli_skills` | `34b6c404994cdcc4f97b18d2a493fff6c1d3d895` |
 | `foundry-platform-python` | `2da67907be429c35f747eef565867ce81dd2cafc` |
 

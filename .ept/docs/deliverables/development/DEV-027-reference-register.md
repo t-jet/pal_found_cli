@@ -3,7 +3,7 @@
 | Reference | Canonical location | Rule |
 | --- | --- | --- |
 | Design repository | `https://github.com/t-jet/pal_found_cli` | Use absolute URL from other repositories. |
-| CLI tool repository | `https://github.com/t-jet/pal_found_cli_tool` | Use absolute URL for source, releases, and package metadata. Current verified commit: `7655433`. |
+| CLI tool repository | `https://github.com/t-jet/pal_found_cli_tool` | Use absolute URL for source, releases, and package metadata. Current verified commit: `b3a2d0f`. |
 | Skills repository | `https://github.com/t-jet/pal_found_cli_skills` | Use absolute URL for clone and distribution instructions. Current verified commit: `34b6c40`. |
 
 Links within one repository stay relative. Links across repositories include a
