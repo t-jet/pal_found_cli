@@ -2,9 +2,9 @@
 
 | Reference | Canonical location | Verified production commit | Rule |
 | --- | --- | --- | --- |
-| Design repository | `https://github.com/t-jet/pal_found_cli` | Audit baseline `1b20819d7993629faa9e85453f1c82189d665c4b` | Use this absolute URL from other repositories. |
+| Design repository | `https://github.com/t-jet/pal_found_cli` | Closure-audit baseline `98829e4b54411b33e4e13e6d0413e9abd839c055` | Use this absolute URL from other repositories. |
 | CLI tool repository | `https://github.com/t-jet/pal_found_cli_tool` | `0dd826b02c4489eb35aa45cf689efcad4b0c31c9` | Use this absolute URL for source, releases, and package metadata. |
-| Skills repository | `https://github.com/t-jet/pal_found_cli_skills` | `b961b2186ad2c8c98f67ab98d708beff6c944281` | Use this absolute URL for clone and distribution instructions. |
+| Skills repository | `https://github.com/t-jet/pal_found_cli_skills` | `4564e783a948de66d8edb978dc17aaf5ddaeea8d` | Use this absolute URL for clone and distribution instructions. |
 
 Links within one repository stay relative. Links across repositories include a
 stable tag or file path when they target versioned content. The `.gitmodules`
@@ -27,6 +27,17 @@ The audit ran on 2026-08-17 from a credential-disabled recursive clone under
 | Cross-repository links | Every registered canonical URL resolved. Versioned tool and skills links in the document index resolve at the pinned commits. |
 | Former-name sweep | No former `t-jet/foundry_*` URL or operational repository name remains in active READMEs, package metadata, CI, or `.gitmodules`. Historical design records and the rename map retain old names intentionally. |
 | Redirect compatibility | Former `foundry_cli`, `foundry_cli_tool`, and `foundry_cli_skills` web and git URLs redirect to the canonical repositories and resolve to the same heads. |
+
+The FEATURE-003 closure re-audit repeated the credential-disabled recursive
+clone at root `98829e4b54411b33e4e13e6d0413e9abd839c055`. It checked out tool
+`0dd826b02c4489eb35aa45cf689efcad4b0c31c9`, skills
+`4564e783a948de66d8edb978dc17aaf5ddaeea8d`, and SDK
+`2da67907be429c35f747eef565867ce81dd2cafc`, with clean root and destination
+worktrees. Root and tool repository-hygiene tests each passed 3 tests; the
+skills validation suite passed 14 tests. The later skills commits fix the
+PowerShell distribution command and make canonical inventory validation
+atomic; the root gitlink pins both fixes. Hosted CI passed at both destination
+heads: tool run `32026342525` and skills run `32030786308`.
 
 This satisfies AC-004-05 and AC-D-004-05: cross-repository references resolve
 to the correct public locations. It also satisfies SA-DES-003 REF-1 and DOC-1:

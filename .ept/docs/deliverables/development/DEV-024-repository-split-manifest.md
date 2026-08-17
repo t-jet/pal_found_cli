@@ -92,5 +92,28 @@ clone checked out these commits:
 
 The clone used `GIT_TERMINAL_PROMPT=0`, an empty askpass value, and
 `credential.helper=`. This proves public anonymous access without cached
-credentials. Root owns no tracked `src`, `tests`, `.agents/skills`, package
-metadata, or release workflow after the split.
+credentials. Root owns no application `src`, skill content, package metadata,
+or release workflow after the split. Its repository-hygiene test is an
+orchestration guard for that ownership boundary.
+
+## FEATURE-003 closure audit
+
+The architecture closure audit on 2026-08-17 links the two implementation
+stories to the feature contract:
+
+| Feature intent | Durable evidence | Result |
+| --- | --- | --- |
+| AC-004-01 / AC-D-004-01: separate ownership | This manifest records the ownership map; repository-hygiene tests pass in root and the tool repository. | Pass |
+| AC-004-02 / AC-D-004-02: tool source | `pal_found_cli_tool` owns `src/`, tests, packaging, and CI. | Pass |
+| AC-004-03 / AC-D-004-03: skill content | `pal_found_cli_skills` owns 19 canonical `.agents/skills/*/SKILL.md` files, validation tests, and CI. | Pass |
+| AC-004-04 / AC-D-004-04: design and tracking | `pal_found_cli` remains the home of `.ept/` requirements, design, release evidence, and workflow material. | Pass |
+| AC-004-05 / AC-D-004-05: references | [DEV-027](DEV-027-reference-register.md) records the deployed URLs, exact gitlinks, anonymous recursive clone, redirects, and link sweep. | Pass |
+| AC-D-004-06 / TRA-1: history | The retained source-to-destination maps and ancestor checks above prove history preservation without rewriting published branches. | Pass |
+
+DEV-STORY-024 delivered the history-preserving content split. DEV-STORY-027
+delivered and audited the cross-repository references. The repository rename
+did not change application interfaces; the supported name migration and
+former GitHub redirects are recorded in
+[DEV-037](DEV-037-rename-migration.md). Rollback remains a normal revert and
+gitlink update, never a reset or force-push. No unresolved architecture or
+deployment gap remains for FEATURE-003.
