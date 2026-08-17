@@ -191,3 +191,23 @@ Condition:
 
 Action:
 - Do pass the request object, not the bare filter: `{"filter": {"type": "eq", "field": "recordRid", "value": "ri.checks.main.record.xxx"}}`. The SDK `search(where=SearchCheckpointRecordsRequest)` builds `SearchRecordsRequest(where=where)` from it; a bare `{"type":"eq",...}` fails SDK validation with exit 1. Valid eq fields: recordRid, configRid, checkpointType, actingUserId, delegateUserId, organizationRid, namespaceRid, interactionRid, checkpointedItemType (DEVOPS-019 probe, 2026-08-10).
+
+## Improvement: diagnose missing-submodule-mapping by checking gitlinks vs .gitmodules
+
+Condition:
+
+- When `git submodule status` fails with `fatal: no submodule mapping found in .gitmodules for path '<path>'` (exit 128) on a repo whose working tree contains the submodule directory
+
+Action:
+
+- Do compare `git ls-files --stage | Select-String 160000` (gitlink entries) against `.gitmodules` sections; a gitlink without a `.gitmodules` entry is the mapping gap. Fix by adding the `[submodule "<name>"]` block (path + url from the submodule's own `git -C <dir> remote -v`) to `.gitmodules`, then `git submodule init` + `git submodule update --init <path>` and re-run `git submodule status` (expect exit 0, no leading `-`/`+`). Confirmed on QUESTION-117 (2026-08-14): gitlink `2da67907` at `.ept/docs/customer_input/foundry-platform-python` (palantir/foundry-platform-python, tag 1.79.0) was registered but unmapped.
+
+## Improvement: verify conda build/render gates with log-file redirect, not inline pipes
+
+Condition:
+
+- When verifying `conda build`/`conda render` exit codes from PowerShell (e.g., a QA gate expecting exit 0 after installing conda-build)
+
+Action:
+
+- Do run `conda render conda.recipe *> <log> 2>&1; echo "EXIT:$LASTEXITCODE"` and read the log tail; don't pipe through `Select-Object -First N` inline (PowerShell closes the pipe early and reports a false exit 2). Note `conda render` in conda-build 26.7.0 does NOT accept `--json` (exit 2, unrecognized arguments) — use plain `conda render conda.recipe` or `conda build conda.recipe --json`. The tooling prerequisite is `conda install -n base -y conda-build` (mirrors `.github/workflows/publish.yml`). Confirmed on QUESTION-118/119 (2026-08-14): after install, `conda build --version` exit 0, `conda render conda.recipe` exit 0, `conda build conda.recipe --output-folder <dir>` produced `pal_found_cli-0.1.0-py_0.conda`; local noarch install needs explicit runtime deps (`conda install -n <env> -y foundry-platform-sdk python-dotenv requests`) before console-script smoke tests pass.

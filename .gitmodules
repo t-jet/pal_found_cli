@@ -1,3 +1,6 @@
+[submodule "foundry-platform-python"]
+	path = .ept/docs/customer_input/foundry-platform-python
+	url = https://github.com/palantir/foundry-platform-python.git
 [submodule "pal_found_cli_skills"]
 	path = pal_found_cli_skills
 	url = https://github.com/t-jet/pal_found_cli_skills.git

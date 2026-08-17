@@ -39,3 +39,19 @@ Condition:
 
 Action:
 - Do branch on `isinstance(response, dict)` (and `isinstance(response, list)`) BEFORE any `hasattr(response, <key>)` check, because every dict satisfies `hasattr(response, "items")` via its bound `.items()` method, returning the method object instead of the keyed value.
+
+## Improvement: verify artifact/glob fixes against real build output, isolate with diff -w
+
+Condition:
+- When fixing a defect in a tracked config/workflow file (e.g. a publish.yml artifact glob), especially when the working tree already carries uncommitted whitespace or line-ending drift from earlier sessions.
+
+Action:
+- Do confirm the artifact format against real on-disk build evidence (e.g. `.ept/tmp/conda-channel` output) before editing, and confirm the change is content-only with `git diff -w` so pre-existing whitespace noise is not mis-attributed to your edit or accidentally broadened.
+
+## Improvement: git diff --check flags CR at EOL when cr-at-eol not set
+
+Condition:
+- When fixing a trailing-whitespace gate failure (git diff --check) in a repo with mixed line endings (core.autocrlf=false, no .gitattributes, no cr-at-eol), where added lines end with CRLF while unchanged lines stay CRLF.
+
+Action:
+- Do strip trailing whitespace including the CR from the flagged added lines only (keep unchanged line endings intact), then re-verify with the exact gate command. Tools that append to project files (self-improvement memory appends, subagent memory updates) can re-introduce flagged lines, so re-run the strip and the gate after all such appends, as the last step.

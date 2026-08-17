@@ -1,5 +1,13 @@
 # Tech Lead — Improvement Memory
 
+## Improvement: verify explicit child relationship links after ticket creation
+
+Condition:
+- When creating implementation children through the documented tracker CLI, even if the child `parent` field is set
+
+Action:
+- Do run `link list` on each parent story and confirm every DESIGN/DEV/UNITTEST/CODEREVIEW/TESTCASE/TESTEXEC/DEVOPS child has both `Contains` and `ParentChild` rows; create missing rows before advancing the story. Also confirm DEV↔CODEREVIEW `RelatesTo` pairs, DEV→CODEREVIEW `Blocks`, and CODEREVIEW→story `RelatesTo`. Parent fields alone may not register required link-index relationships.
+
 ## Improvement: verify TESTCASE deliverable line anchors against the committed skill before approval
 
 Condition:
@@ -146,6 +154,14 @@ Condition:
 
 Action:
 - Do reuse an existing completed/open `ticket-helper` with `send_input` when one is available, or resume a prior closed `ticket-helper` only if needed; if fresh spawn, reuse, and resume all fail, report blocked with exact failures and unchanged tracker state. Don't bypass the user constraint by reading tracker files or running tracker commands locally.
+
+## Improvement: honor an explicit batch-stop instruction before planned tracker writes
+
+Condition:
+- When the user says to finish the current batch, stop investigating, or do not start new work after a workflow stage has completed
+
+Action:
+- Do stop before creating planned child tickets or advancing further; perform only the minimum documented CLI readback needed to verify durable story and child state, then report the next gate and blockers.
 
 ## Improvement: treat vague child AC as readiness blocker
 
@@ -332,3 +348,21 @@ Condition:
 Action:
 
 - Do enumerate ALL children and links first via ticket-helper: `list --type dev_story --parent <feature>` (expect N/Closed), `list --type question --parent <feature>` (expect all terminal), and `link list <feature>` (expect only Contains/ParentChild to stories, FeatureContains to EPICs, and inbound RelatesTo — no Blocks/DependsOn/Question rows). Retrieve every QUESTION child's answer comment (subject + body) and incorporate the decisions into the closure evidence comment BEFORE transitioning. Sequence: post closure-evidence comment (author explicit) → `update --field resolution=Done` → `update --status Closed` → final `get` to confirm persisted `Closed` + `resolution=Done`. The tracker exposes no `transition` subcommand — status changes go through `update <id> --status <status>`. Feature type's `optional_fields` includes `resolution` (unlike `question` type). (2026-08-11: FEATURE-001 closed Resolved→Closed, resolution=Done, evidence comment 20260811-093056-tech-lead; 23/23 stories Closed, 5/5 QUESTIONS Closed, 55 links no blockers; answer comments QUESTION-001..005 incorporated verbatim.)
+
+## Improvement: bound immediate-closeout diagnostics
+
+Condition:
+
+- When user requests immediate closeout before tracker-helper or long-running checks finish
+
+Action:
+
+- Do stop pending helpers, run only short read-only probes, report exact exit codes and dirty-worktree contamination, and don't claim fixes or ticket unblocking without verification.
+
+## Improvement: report helper lifecycle when immediate closeout interrupts tracker gate
+
+Condition:
+- When an immediate-closeout request interrupts a required ticket-helper read before it returns
+
+Action:
+- Do report helper spawn, wait timeout/interruption, and shutdown explicitly; state that no tracker readback or mutation completed, and base final status only on previously recorded evidence plus bounded local probes.

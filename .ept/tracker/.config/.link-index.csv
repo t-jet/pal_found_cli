@@ -465,3 +465,236 @@ LINK-00757,DEV-STORY-036,EPIC-009,EpicLink,Epic Link,Epic Link,2026-08-13T11:04:
 LINK-00758,DEV-STORY-037,EPIC-009,EpicLink,Epic Link,Epic Link,2026-08-13T11:05:08.088928,ba,
 LINK-00759,DEV-STORY-037,EPIC-010,EpicLink,Epic Link,Epic Link,2026-08-13T11:05:09.078736,ba,
 LINK-00760,QUESTION-089,QUESTION-090,RelatesTo,Relates To,Relates To,2026-08-13T12:44:03.898459,architect,
+LINK-00761,DEV-024,CODEREVIEW-024,RelatesTo,Relates To,Relates To,2026-08-13T18:29:03.018426,tech-lead,
+LINK-00762,CODEREVIEW-024,DEV-024,RelatesTo,Relates To,Relates To,2026-08-13T18:29:03.662620,tech-lead,
+LINK-00763,DEV-024,CODEREVIEW-024,Blocks,Blocks,Is Blocked By,2026-08-13T18:29:04.310476,tech-lead,
+LINK-00764,CODEREVIEW-024,DEV-STORY-024,RelatesTo,Relates To,Relates To,2026-08-13T18:29:04.976090,tech-lead,
+LINK-00765,DEV-025,CODEREVIEW-025,RelatesTo,Relates To,Relates To,2026-08-13T18:29:05.616497,tech-lead,
+LINK-00766,CODEREVIEW-025,DEV-025,RelatesTo,Relates To,Relates To,2026-08-13T18:29:06.263831,tech-lead,
+LINK-00767,DEV-025,CODEREVIEW-025,Blocks,Blocks,Is Blocked By,2026-08-13T18:29:06.900179,tech-lead,
+LINK-00768,CODEREVIEW-025,DEV-STORY-025,RelatesTo,Relates To,Relates To,2026-08-13T18:29:07.553130,tech-lead,
+LINK-00769,DEV-026,CODEREVIEW-026,RelatesTo,Relates To,Relates To,2026-08-13T18:29:08.236396,tech-lead,
+LINK-00770,CODEREVIEW-026,DEV-026,RelatesTo,Relates To,Relates To,2026-08-13T18:29:08.903685,tech-lead,
+LINK-00771,DEV-026,CODEREVIEW-026,Blocks,Blocks,Is Blocked By,2026-08-13T18:29:09.566944,tech-lead,
+LINK-00772,CODEREVIEW-026,DEV-STORY-026,RelatesTo,Relates To,Relates To,2026-08-13T18:29:10.209840,tech-lead,
+LINK-00773,DEV-027,CODEREVIEW-027,RelatesTo,Relates To,Relates To,2026-08-13T18:29:10.876853,tech-lead,
+LINK-00774,CODEREVIEW-027,DEV-027,RelatesTo,Relates To,Relates To,2026-08-13T18:29:11.516272,tech-lead,
+LINK-00775,DEV-027,CODEREVIEW-027,Blocks,Blocks,Is Blocked By,2026-08-13T18:29:12.159481,tech-lead,
+LINK-00776,CODEREVIEW-027,DEV-STORY-027,RelatesTo,Relates To,Relates To,2026-08-13T18:29:12.825344,tech-lead,
+LINK-00777,DEV-028,CODEREVIEW-028,RelatesTo,Relates To,Relates To,2026-08-13T18:29:13.495013,tech-lead,
+LINK-00778,CODEREVIEW-028,DEV-028,RelatesTo,Relates To,Relates To,2026-08-13T18:29:14.140946,tech-lead,
+LINK-00779,DEV-028,CODEREVIEW-028,Blocks,Blocks,Is Blocked By,2026-08-13T18:29:14.781427,tech-lead,
+LINK-00780,CODEREVIEW-028,DEV-STORY-028,RelatesTo,Relates To,Relates To,2026-08-13T18:29:15.451198,tech-lead,
+LINK-00781,DEV-029,CODEREVIEW-029,RelatesTo,Relates To,Relates To,2026-08-13T18:29:16.106563,tech-lead,
+LINK-00782,CODEREVIEW-029,DEV-029,RelatesTo,Relates To,Relates To,2026-08-13T18:29:16.745811,tech-lead,
+LINK-00783,DEV-029,CODEREVIEW-029,Blocks,Blocks,Is Blocked By,2026-08-13T18:29:17.392128,tech-lead,
+LINK-00784,CODEREVIEW-029,DEV-STORY-029,RelatesTo,Relates To,Relates To,2026-08-13T18:29:18.033462,tech-lead,
+LINK-00785,DEV-030,CODEREVIEW-030,RelatesTo,Relates To,Relates To,2026-08-13T18:29:18.675798,tech-lead,
+LINK-00786,CODEREVIEW-030,DEV-030,RelatesTo,Relates To,Relates To,2026-08-13T18:29:19.324991,tech-lead,
+LINK-00787,DEV-030,CODEREVIEW-030,Blocks,Blocks,Is Blocked By,2026-08-13T18:29:19.964682,tech-lead,
+LINK-00788,CODEREVIEW-030,DEV-STORY-033,RelatesTo,Relates To,Relates To,2026-08-13T18:29:20.603992,tech-lead,
+LINK-00789,DEV-STORY-024,DESIGN-024,Contains,Contains,Contained In,2026-08-13T18:32:43.728217,tech-lead,
+LINK-00790,DEV-STORY-024,DESIGN-024,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:32:44.374778,tech-lead,
+LINK-00791,DEV-STORY-024,DEV-024,Contains,Contains,Contained In,2026-08-13T18:32:45.025454,tech-lead,
+LINK-00792,DEV-STORY-024,DEV-024,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:32:45.677182,tech-lead,
+LINK-00793,DEV-STORY-024,UNITTEST-024,Contains,Contains,Contained In,2026-08-13T18:32:46.317104,tech-lead,
+LINK-00794,DEV-STORY-024,UNITTEST-024,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:32:46.956825,tech-lead,
+LINK-00795,DEV-STORY-024,CODEREVIEW-024,Contains,Contains,Contained In,2026-08-13T18:32:47.612415,tech-lead,
+LINK-00796,DEV-STORY-024,CODEREVIEW-024,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:32:48.265756,tech-lead,
+LINK-00797,DEV-STORY-024,TESTCASE-024,Contains,Contains,Contained In,2026-08-13T18:32:48.916111,tech-lead,
+LINK-00798,DEV-STORY-024,TESTCASE-024,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:32:49.610217,tech-lead,
+LINK-00799,DEV-STORY-024,TESTEXEC-024,Contains,Contains,Contained In,2026-08-13T18:32:50.307598,tech-lead,
+LINK-00800,DEV-STORY-024,TESTEXEC-024,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:32:50.982906,tech-lead,
+LINK-00801,DEV-STORY-024,DEVOPS-024,Contains,Contains,Contained In,2026-08-13T18:32:51.657452,tech-lead,
+LINK-00802,DEV-STORY-024,DEVOPS-024,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:32:52.308220,tech-lead,
+LINK-00803,DEV-STORY-025,DESIGN-025,Contains,Contains,Contained In,2026-08-13T18:32:52.958576,tech-lead,
+LINK-00804,DEV-STORY-025,DESIGN-025,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:32:53.608346,tech-lead,
+LINK-00805,DEV-STORY-025,DEV-025,Contains,Contains,Contained In,2026-08-13T18:32:54.255589,tech-lead,
+LINK-00806,DEV-STORY-025,DEV-025,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:32:54.951926,tech-lead,
+LINK-00807,DEV-STORY-025,UNITTEST-025,Contains,Contains,Contained In,2026-08-13T18:32:55.607516,tech-lead,
+LINK-00808,DEV-STORY-025,UNITTEST-025,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:32:56.257167,tech-lead,
+LINK-00809,DEV-STORY-025,CODEREVIEW-025,Contains,Contains,Contained In,2026-08-13T18:32:56.915655,tech-lead,
+LINK-00810,DEV-STORY-025,CODEREVIEW-025,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:32:57.571201,tech-lead,
+LINK-00811,DEV-STORY-025,TESTCASE-025,Contains,Contains,Contained In,2026-08-13T18:32:58.220872,tech-lead,
+LINK-00812,DEV-STORY-025,TESTCASE-025,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:32:58.869586,tech-lead,
+LINK-00813,DEV-STORY-025,TESTEXEC-025,Contains,Contains,Contained In,2026-08-13T18:32:59.519975,tech-lead,
+LINK-00814,DEV-STORY-025,TESTEXEC-025,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:00.189445,tech-lead,
+LINK-00815,DEV-STORY-025,DEVOPS-025,Contains,Contains,Contained In,2026-08-13T18:33:00.839922,tech-lead,
+LINK-00816,DEV-STORY-025,DEVOPS-025,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:01.487480,tech-lead,
+LINK-00817,DEV-STORY-026,DESIGN-026,Contains,Contains,Contained In,2026-08-13T18:33:02.136208,tech-lead,
+LINK-00818,DEV-STORY-026,DESIGN-026,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:02.784383,tech-lead,
+LINK-00819,DEV-STORY-026,DEV-026,Contains,Contains,Contained In,2026-08-13T18:33:03.432705,tech-lead,
+LINK-00820,DEV-STORY-026,DEV-026,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:04.085390,tech-lead,
+LINK-00821,DEV-STORY-026,UNITTEST-026,Contains,Contains,Contained In,2026-08-13T18:33:04.738335,tech-lead,
+LINK-00822,DEV-STORY-026,UNITTEST-026,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:05.417056,tech-lead,
+LINK-00823,DEV-STORY-026,CODEREVIEW-026,Contains,Contains,Contained In,2026-08-13T18:33:06.066253,tech-lead,
+LINK-00824,DEV-STORY-026,CODEREVIEW-026,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:06.719638,tech-lead,
+LINK-00825,DEV-STORY-026,TESTCASE-026,Contains,Contains,Contained In,2026-08-13T18:33:07.372597,tech-lead,
+LINK-00826,DEV-STORY-026,TESTCASE-026,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:08.029389,tech-lead,
+LINK-00827,DEV-STORY-026,TESTEXEC-026,Contains,Contains,Contained In,2026-08-13T18:33:08.702978,tech-lead,
+LINK-00828,DEV-STORY-026,TESTEXEC-026,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:09.348949,tech-lead,
+LINK-00829,DEV-STORY-026,DEVOPS-026,Contains,Contains,Contained In,2026-08-13T18:33:09.991381,tech-lead,
+LINK-00830,DEV-STORY-026,DEVOPS-026,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:10.641633,tech-lead,
+LINK-00831,DEV-STORY-027,DESIGN-027,Contains,Contains,Contained In,2026-08-13T18:33:11.321453,tech-lead,
+LINK-00832,DEV-STORY-027,DESIGN-027,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:11.968866,tech-lead,
+LINK-00833,DEV-STORY-027,DEV-027,Contains,Contains,Contained In,2026-08-13T18:33:12.617847,tech-lead,
+LINK-00834,DEV-STORY-027,DEV-027,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:13.270284,tech-lead,
+LINK-00835,DEV-STORY-027,UNITTEST-027,Contains,Contains,Contained In,2026-08-13T18:33:13.920407,tech-lead,
+LINK-00836,DEV-STORY-027,UNITTEST-027,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:14.567588,tech-lead,
+LINK-00837,DEV-STORY-027,CODEREVIEW-027,Contains,Contains,Contained In,2026-08-13T18:33:15.211392,tech-lead,
+LINK-00838,DEV-STORY-027,CODEREVIEW-027,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:15.857315,tech-lead,
+LINK-00839,DEV-STORY-027,TESTCASE-027,Contains,Contains,Contained In,2026-08-13T18:33:16.525444,tech-lead,
+LINK-00840,DEV-STORY-027,TESTCASE-027,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:17.173751,tech-lead,
+LINK-00841,DEV-STORY-027,TESTEXEC-027,Contains,Contains,Contained In,2026-08-13T18:33:17.821372,tech-lead,
+LINK-00842,DEV-STORY-027,TESTEXEC-027,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:18.468237,tech-lead,
+LINK-00843,DEV-STORY-028,DESIGN-028,Contains,Contains,Contained In,2026-08-13T18:33:19.113537,tech-lead,
+LINK-00844,DEV-STORY-028,DESIGN-028,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:19.757212,tech-lead,
+LINK-00845,DEV-STORY-028,DEV-028,Contains,Contains,Contained In,2026-08-13T18:33:20.402186,tech-lead,
+LINK-00846,DEV-STORY-028,DEV-028,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:21.082827,tech-lead,
+LINK-00847,DEV-STORY-028,UNITTEST-028,Contains,Contains,Contained In,2026-08-13T18:33:21.731763,tech-lead,
+LINK-00848,DEV-STORY-028,UNITTEST-028,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:22.387052,tech-lead,
+LINK-00849,DEV-STORY-028,CODEREVIEW-028,Contains,Contains,Contained In,2026-08-13T18:33:23.034575,tech-lead,
+LINK-00850,DEV-STORY-028,CODEREVIEW-028,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:23.675920,tech-lead,
+LINK-00851,DEV-STORY-028,TESTCASE-028,Contains,Contains,Contained In,2026-08-13T18:33:24.321776,tech-lead,
+LINK-00852,DEV-STORY-028,TESTCASE-028,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:24.965864,tech-lead,
+LINK-00853,DEV-STORY-028,TESTEXEC-028,Contains,Contains,Contained In,2026-08-13T18:33:25.624038,tech-lead,
+LINK-00854,DEV-STORY-028,TESTEXEC-028,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:26.277183,tech-lead,
+LINK-00855,DEV-STORY-028,DEVOPS-027,Contains,Contains,Contained In,2026-08-13T18:33:26.918912,tech-lead,
+LINK-00856,DEV-STORY-028,DEVOPS-027,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:27.564622,tech-lead,
+LINK-00857,DEV-STORY-029,DESIGN-029,Contains,Contains,Contained In,2026-08-13T18:33:28.241315,tech-lead,
+LINK-00858,DEV-STORY-029,DESIGN-029,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:28.907930,tech-lead,
+LINK-00859,DEV-STORY-029,DEV-029,Contains,Contains,Contained In,2026-08-13T18:33:29.563687,tech-lead,
+LINK-00860,DEV-STORY-029,DEV-029,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:30.205621,tech-lead,
+LINK-00861,DEV-STORY-029,UNITTEST-029,Contains,Contains,Contained In,2026-08-13T18:33:30.849866,tech-lead,
+LINK-00862,DEV-STORY-029,UNITTEST-029,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:31.490107,tech-lead,
+LINK-00863,DEV-STORY-029,CODEREVIEW-029,Contains,Contains,Contained In,2026-08-13T18:33:32.138586,tech-lead,
+LINK-00864,DEV-STORY-029,CODEREVIEW-029,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:32.787466,tech-lead,
+LINK-00865,DEV-STORY-029,TESTCASE-029,Contains,Contains,Contained In,2026-08-13T18:33:33.450023,tech-lead,
+LINK-00866,DEV-STORY-029,TESTCASE-029,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:34.119681,tech-lead,
+LINK-00867,DEV-STORY-029,TESTEXEC-029,Contains,Contains,Contained In,2026-08-13T18:33:34.776941,tech-lead,
+LINK-00868,DEV-STORY-029,TESTEXEC-029,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:35.430319,tech-lead,
+LINK-00869,DEV-STORY-033,DESIGN-030,Contains,Contains,Contained In,2026-08-13T18:33:36.076144,tech-lead,
+LINK-00870,DEV-STORY-033,DESIGN-030,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:36.724276,tech-lead,
+LINK-00871,DEV-STORY-033,DEV-030,Contains,Contains,Contained In,2026-08-13T18:33:37.368568,tech-lead,
+LINK-00872,DEV-STORY-033,DEV-030,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:38.016075,tech-lead,
+LINK-00873,DEV-STORY-033,UNITTEST-030,Contains,Contains,Contained In,2026-08-13T18:33:38.663231,tech-lead,
+LINK-00874,DEV-STORY-033,UNITTEST-030,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:39.313147,tech-lead,
+LINK-00875,DEV-STORY-033,CODEREVIEW-030,Contains,Contains,Contained In,2026-08-13T18:33:39.963816,tech-lead,
+LINK-00876,DEV-STORY-033,CODEREVIEW-030,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:40.608523,tech-lead,
+LINK-00877,DEV-STORY-033,TESTCASE-030,Contains,Contains,Contained In,2026-08-13T18:33:41.280820,tech-lead,
+LINK-00878,DEV-STORY-033,TESTCASE-030,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:41.924376,tech-lead,
+LINK-00879,DEV-STORY-033,TESTEXEC-030,Contains,Contains,Contained In,2026-08-13T18:33:42.567184,tech-lead,
+LINK-00880,DEV-STORY-033,TESTEXEC-030,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:43.214183,tech-lead,
+LINK-00881,DEV-STORY-030,DESIGN-031,Contains,Contains,Contained In,2026-08-13T18:48:53.593266,tech_lead,
+LINK-00882,DEV-STORY-030,DEV-031,Contains,Contains,Contained In,2026-08-13T18:48:54.260914,tech_lead,
+LINK-00883,DEV-STORY-030,UNITTEST-031,Contains,Contains,Contained In,2026-08-13T18:48:54.921601,tech_lead,
+LINK-00884,DEV-STORY-030,CODEREVIEW-031,Contains,Contains,Contained In,2026-08-13T18:48:55.579374,tech_lead,
+LINK-00885,DEV-STORY-030,TESTCASE-031,Contains,Contains,Contained In,2026-08-13T18:48:56.242002,tech_lead,
+LINK-00886,DEV-STORY-030,TESTEXEC-031,Contains,Contains,Contained In,2026-08-13T18:48:56.899334,tech_lead,
+LINK-00887,DEV-031,CODEREVIEW-031,RelatesTo,Relates To,Relates To,2026-08-13T18:48:57.562230,tech_lead,
+LINK-00888,CODEREVIEW-031,DEV-031,RelatesTo,Relates To,Relates To,2026-08-13T18:48:58.240878,tech_lead,
+LINK-00890,DEV-STORY-031,DESIGN-032,Contains,Contains,Contained In,2026-08-13T18:49:00.699172,tech_lead,
+LINK-00891,DEV-STORY-031,DEV-032,Contains,Contains,Contained In,2026-08-13T18:49:01.374478,tech_lead,
+LINK-00892,DEV-STORY-031,UNITTEST-032,Contains,Contains,Contained In,2026-08-13T18:49:02.034534,tech_lead,
+LINK-00893,DEV-STORY-031,CODEREVIEW-032,Contains,Contains,Contained In,2026-08-13T18:49:02.698535,tech_lead,
+LINK-00894,DEV-STORY-031,TESTCASE-032,Contains,Contains,Contained In,2026-08-13T18:49:03.356257,tech_lead,
+LINK-00895,DEV-STORY-031,TESTEXEC-032,Contains,Contains,Contained In,2026-08-13T18:49:04.046673,tech_lead,
+LINK-00896,DEV-032,CODEREVIEW-032,RelatesTo,Relates To,Relates To,2026-08-13T18:49:04.713248,tech_lead,
+LINK-00897,CODEREVIEW-032,DEV-032,RelatesTo,Relates To,Relates To,2026-08-13T18:49:05.375956,tech_lead,
+LINK-00899,DEV-STORY-032,DESIGN-033,Contains,Contains,Contained In,2026-08-13T18:49:07.838002,tech_lead,
+LINK-00900,DEV-STORY-032,DEV-033,Contains,Contains,Contained In,2026-08-13T18:49:08.506401,tech_lead,
+LINK-00901,DEV-STORY-032,UNITTEST-033,Contains,Contains,Contained In,2026-08-13T18:49:09.170448,tech_lead,
+LINK-00902,DEV-STORY-032,CODEREVIEW-033,Contains,Contains,Contained In,2026-08-13T18:49:09.840696,tech_lead,
+LINK-00903,DEV-STORY-032,TESTCASE-033,Contains,Contains,Contained In,2026-08-13T18:49:10.505634,tech_lead,
+LINK-00904,DEV-STORY-032,TESTEXEC-033,Contains,Contains,Contained In,2026-08-13T18:49:11.171515,tech_lead,
+LINK-00905,DEV-033,CODEREVIEW-033,RelatesTo,Relates To,Relates To,2026-08-13T18:49:11.836329,tech_lead,
+LINK-00906,CODEREVIEW-033,DEV-033,RelatesTo,Relates To,Relates To,2026-08-13T18:49:12.506300,tech_lead,
+LINK-00908,DEV-STORY-034,DESIGN-034,Contains,Contains,Contained In,2026-08-13T18:49:14.996832,tech_lead,
+LINK-00909,DEV-STORY-034,DEV-034,Contains,Contains,Contained In,2026-08-13T18:49:15.661219,tech_lead,
+LINK-00910,DEV-STORY-034,UNITTEST-034,Contains,Contains,Contained In,2026-08-13T18:49:16.334266,tech_lead,
+LINK-00911,DEV-STORY-034,CODEREVIEW-034,Contains,Contains,Contained In,2026-08-13T18:49:16.995582,tech_lead,
+LINK-00912,DEV-STORY-034,TESTCASE-034,Contains,Contains,Contained In,2026-08-13T18:49:17.899151,tech_lead,
+LINK-00913,DEV-STORY-034,TESTEXEC-034,Contains,Contains,Contained In,2026-08-13T18:49:18.569660,tech_lead,
+LINK-00914,DEV-034,CODEREVIEW-034,RelatesTo,Relates To,Relates To,2026-08-13T18:49:19.237171,tech_lead,
+LINK-00915,CODEREVIEW-034,DEV-034,RelatesTo,Relates To,Relates To,2026-08-13T18:49:19.895245,tech_lead,
+LINK-00917,DEV-STORY-035,DESIGN-035,Contains,Contains,Contained In,2026-08-13T18:49:22.380350,tech_lead,
+LINK-00918,DEV-STORY-035,DEV-035,Contains,Contains,Contained In,2026-08-13T18:49:23.055307,tech_lead,
+LINK-00919,DEV-STORY-035,UNITTEST-035,Contains,Contains,Contained In,2026-08-13T18:49:23.721899,tech_lead,
+LINK-00920,DEV-STORY-035,CODEREVIEW-035,Contains,Contains,Contained In,2026-08-13T18:49:24.397436,tech_lead,
+LINK-00921,DEV-STORY-035,TESTCASE-035,Contains,Contains,Contained In,2026-08-13T18:49:25.072020,tech_lead,
+LINK-00922,DEV-STORY-035,TESTEXEC-035,Contains,Contains,Contained In,2026-08-13T18:49:25.770037,tech_lead,
+LINK-00923,DEV-035,CODEREVIEW-035,RelatesTo,Relates To,Relates To,2026-08-13T18:49:26.451691,tech_lead,
+LINK-00924,CODEREVIEW-035,DEV-035,RelatesTo,Relates To,Relates To,2026-08-13T18:49:27.134184,tech_lead,
+LINK-00926,DEV-STORY-036,DESIGN-036,Contains,Contains,Contained In,2026-08-13T18:49:29.669331,tech_lead,
+LINK-00927,DEV-STORY-036,DEV-036,Contains,Contains,Contained In,2026-08-13T18:49:30.342413,tech_lead,
+LINK-00928,DEV-STORY-036,UNITTEST-036,Contains,Contains,Contained In,2026-08-13T18:49:31.002690,tech_lead,
+LINK-00929,DEV-STORY-036,CODEREVIEW-036,Contains,Contains,Contained In,2026-08-13T18:49:31.666423,tech_lead,
+LINK-00930,DEV-STORY-036,TESTCASE-036,Contains,Contains,Contained In,2026-08-13T18:49:32.322586,tech_lead,
+LINK-00931,DEV-STORY-036,TESTEXEC-036,Contains,Contains,Contained In,2026-08-13T18:49:33.025618,tech_lead,
+LINK-00932,DEV-STORY-036,DEVOPS-028,Contains,Contains,Contained In,2026-08-13T18:49:33.689315,tech_lead,
+LINK-00933,DEV-036,CODEREVIEW-036,RelatesTo,Relates To,Relates To,2026-08-13T18:49:34.354295,tech_lead,
+LINK-00934,CODEREVIEW-036,DEV-036,RelatesTo,Relates To,Relates To,2026-08-13T18:49:35.020034,tech_lead,
+LINK-00936,DEV-STORY-037,DESIGN-037,Contains,Contains,Contained In,2026-08-13T18:49:37.462499,tech_lead,
+LINK-00937,DEV-STORY-037,DEV-037,Contains,Contains,Contained In,2026-08-13T18:49:38.166194,tech_lead,
+LINK-00938,DEV-STORY-037,UNITTEST-037,Contains,Contains,Contained In,2026-08-13T18:49:38.828089,tech_lead,
+LINK-00939,DEV-STORY-037,CODEREVIEW-037,Contains,Contains,Contained In,2026-08-13T18:49:39.495496,tech_lead,
+LINK-00940,DEV-STORY-037,TESTCASE-037,Contains,Contains,Contained In,2026-08-13T18:49:40.191377,tech_lead,
+LINK-00941,DEV-STORY-037,TESTEXEC-037,Contains,Contains,Contained In,2026-08-13T18:49:40.853612,tech_lead,
+LINK-00942,DEV-037,CODEREVIEW-037,RelatesTo,Relates To,Relates To,2026-08-13T18:49:41.510022,tech_lead,
+LINK-00943,CODEREVIEW-037,DEV-037,RelatesTo,Relates To,Relates To,2026-08-13T18:49:42.172999,tech_lead,
+LINK-00945,DEV-STORY-031,DEV-STORY-036,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:44.618927,tech_lead,Ordering: confirmed package/repository mapping (036) precedes physical skill-tree migration (031).
+LINK-00946,DEV-STORY-032,DEV-STORY-031,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:45.286201,tech_lead,Ordering: main-skill content targets final .agents/skills/pal-found path after layout migration.
+LINK-00947,DEV-STORY-032,DEV-STORY-036,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:45.948010,tech_lead,Ordering: main-skill content uses final pal-found naming from 036.
+LINK-00948,DEV-STORY-034,DEV-STORY-031,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:46.612280,tech_lead,Ordering: namespace capability content targets final .agents/skills/pal-found-* paths.
+LINK-00949,DEV-STORY-034,DEV-STORY-036,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:47.272744,tech_lead,Ordering: capability sections use final pal-found names.
+LINK-00950,DEV-STORY-035,DEV-STORY-034,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:47.933290,tech_lead,Ordering: JSON/parameter sections follow capability sections; preserve separate owned sections.
+LINK-00951,DEV-STORY-035,DEV-STORY-031,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:48.592470,tech_lead,Ordering: JSON/parameter work targets final migrated namespace paths.
+LINK-00952,DEV-STORY-035,DEV-STORY-036,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:49.253229,tech_lead,Ordering: JSON/parameter work uses final pal-found namespace names.
+LINK-00953,DEV-STORY-030,DEV-STORY-031,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:49.909614,tech_lead,Ordering: discovery verification runs after canonical layout migration.
+LINK-00954,DEV-STORY-030,DEV-STORY-032,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:50.568441,tech_lead,Ordering: discovery verifies final main-skill content.
+LINK-00955,DEV-STORY-030,DEV-STORY-034,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:51.227977,tech_lead,Ordering: discovery verifies final namespace capability content.
+LINK-00956,DEV-STORY-030,DEV-STORY-035,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:51.917080,tech_lead,Ordering: discovery verifies final namespace usage documentation.
+LINK-00957,DEV-STORY-030,DEV-STORY-036,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:52.582114,tech_lead,Ordering: discovery uses final confirmed names.
+LINK-00958,DEV-STORY-037,DEV-STORY-030,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:53.247553,tech_lead,Ordering: final sweep follows discovery evidence.
+LINK-00959,DEV-STORY-037,DEV-STORY-031,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:53.933869,tech_lead,Ordering: final sweep follows physical skill migration.
+LINK-00960,DEV-STORY-037,DEV-STORY-032,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:54.606912,tech_lead,Ordering: final sweep follows main-skill content.
+LINK-00961,DEV-STORY-037,DEV-STORY-034,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:55.271323,tech_lead,Ordering: final sweep follows capability content.
+LINK-00962,DEV-STORY-037,DEV-STORY-035,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:55.927683,tech_lead,Ordering: final sweep follows JSON/parameter content.
+LINK-00963,DEV-STORY-037,DEV-STORY-036,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:56.586113,tech_lead,Ordering: final sweep follows package/repository rename.
+LINK-00965,QUESTION-106,TESTCASE-035,Question,Asks About,Has Question,2026-08-13T22:43:30.010006,qa-engineer,QUESTION-106 asks whether canonical-only scope and the pre-existing dataset launcher Ruff debt satisfy TESTCASE-035 acceptance.
+LINK-00967,QUESTION-107,TESTEXEC-035,Question,Asks About,Has Question,2026-08-13T22:43:31.169989,qa-engineer,QUESTION-107 asks whether canonical-only scope and the pre-existing dataset launcher Ruff debt satisfy TESTEXEC-035 acceptance.
+LINK-00969,QUESTION-108,TESTCASE-036,Question,Asks About,Has Question,2026-08-13T22:43:32.325909,qa-engineer,QUESTION-108 asks whether canonical-only rename evidence and unrelated tracker-file dirt satisfy TESTCASE-036 acceptance.
+LINK-00971,QUESTION-109,TESTEXEC-036,Question,Asks About,Has Question,2026-08-13T22:43:33.473492,qa-engineer,QUESTION-109 asks whether canonical-only rename evidence and unrelated tracker-file dirt satisfy TESTEXEC-036 acceptance.
+LINK-00973,TESTEXEC-024,QUESTION-110,Question,Asks About,Has Question,2026-08-13T23:39:24.214527,qa-engineer,Records the blocker question for TESTEXEC-024.
+LINK-00975,DEVOPS-024,QUESTION-111,Question,Asks About,Has Question,2026-08-13T23:40:24.409695,qa-engineer,Records the blocker question for DEVOPS-024.
+LINK-00977,TESTCASE-025,QUESTION-112,Question,Asks About,Has Question,2026-08-13T23:40:26.278658,qa-engineer,Records the blocker question for TESTCASE-025.
+LINK-00979,TESTEXEC-025,QUESTION-113,Question,Asks About,Has Question,2026-08-13T23:40:28.173909,qa-engineer,Records the blocker question for TESTEXEC-025.
+LINK-00980,QUESTION-114,DEVOPS-025,Blocks,Blocks,Is Blocked By,2026-08-13T23:40:29.574063,qa-engineer,Blocker question for DEVOPS-025; prior status was Blocked.
+LINK-00981,DEVOPS-025,QUESTION-114,Question,Asks About,Has Question,2026-08-13T23:40:30.042882,qa-engineer,Records the blocker question for DEVOPS-025.
+LINK-00982,QUESTION-115,TESTEXEC-026,Blocks,Blocks,Is Blocked By,2026-08-13T23:40:31.449755,qa-engineer,Blocker question for TESTEXEC-026; prior status was Blocked.
+LINK-00983,TESTEXEC-026,QUESTION-115,Question,Asks About,Has Question,2026-08-13T23:40:31.915905,qa-engineer,Records the blocker question for TESTEXEC-026.
+LINK-00984,QUESTION-116,DEVOPS-026,Blocks,Blocks,Is Blocked By,2026-08-13T23:40:33.315980,qa-engineer,Blocker question for DEVOPS-026; prior status was Blocked.
+LINK-00985,DEVOPS-026,QUESTION-116,Question,Asks About,Has Question,2026-08-13T23:40:33.784530,qa-engineer,Records the blocker question for DEVOPS-026.
+LINK-00987,TESTEXEC-027,QUESTION-117,Question,Asks About,Has Question,2026-08-13T23:40:35.658345,qa-engineer,Records the blocker question for TESTEXEC-027.
+LINK-00989,TESTCASE-028,QUESTION-118,Question,Asks About,Has Question,2026-08-13T23:40:37.524114,qa-engineer,Records the blocker question for TESTCASE-028.
+LINK-00991,TESTEXEC-028,QUESTION-119,Question,Asks About,Has Question,2026-08-13T23:40:39.386970,qa-engineer,Records the blocker question for TESTEXEC-028.
+LINK-00992,QUESTION-120,DEVOPS-027,Blocks,Blocks,Is Blocked By,2026-08-13T23:40:40.782125,qa-engineer,Blocker question for DEVOPS-027; prior status was Blocked.
+LINK-00993,DEVOPS-027,QUESTION-120,Question,Asks About,Has Question,2026-08-13T23:40:41.251815,qa-engineer,Records the blocker question for DEVOPS-027.
+LINK-00994,QUESTION-121,TESTEXEC-029,Blocks,Blocks,Is Blocked By,2026-08-13T23:40:42.653689,qa-engineer,Blocker question for TESTEXEC-029; prior status was Blocked.
+LINK-00995,TESTEXEC-029,QUESTION-121,Question,Asks About,Has Question,2026-08-13T23:40:43.134583,qa-engineer,Records the blocker question for TESTEXEC-029.
+LINK-00996,QUESTION-122,TESTCASE-030,Blocks,Blocks,Is Blocked By,2026-08-13T23:40:44.559689,qa-engineer,Blocker question for TESTCASE-030; prior status was Blocked.
+LINK-00997,TESTCASE-030,QUESTION-122,Question,Asks About,Has Question,2026-08-13T23:40:45.062094,qa-engineer,Records the blocker question for TESTCASE-030.
+LINK-00998,QUESTION-123,TESTEXEC-030,Blocks,Blocks,Is Blocked By,2026-08-13T23:40:46.480428,qa-engineer,Blocker question for TESTEXEC-030; prior status was Blocked.
+LINK-00999,TESTEXEC-030,QUESTION-123,Question,Asks About,Has Question,2026-08-13T23:40:46.947581,qa-engineer,Records the blocker question for TESTEXEC-030.
+LINK-01000,QUESTION-124,TESTCASE-031,Blocks,Blocks,Is Blocked By,2026-08-13T23:40:48.351967,qa-engineer,Blocker question for TESTCASE-031; prior status was Blocked.
+LINK-01001,TESTCASE-031,QUESTION-124,Question,Asks About,Has Question,2026-08-13T23:40:48.819721,qa-engineer,Records the blocker question for TESTCASE-031.
+LINK-01002,QUESTION-125,TESTEXEC-031,Blocks,Blocks,Is Blocked By,2026-08-13T23:40:50.234379,qa-engineer,Blocker question for TESTEXEC-031; prior status was Blocked.
+LINK-01003,TESTEXEC-031,QUESTION-125,Question,Asks About,Has Question,2026-08-13T23:40:50.704181,qa-engineer,Records the blocker question for TESTEXEC-031.
+LINK-01004,QUESTION-126,TESTCASE-032,Blocks,Blocks,Is Blocked By,2026-08-13T23:40:52.138129,qa-engineer,Blocker question for TESTCASE-032; prior status was Blocked.
+LINK-01005,TESTCASE-032,QUESTION-126,Question,Asks About,Has Question,2026-08-13T23:40:52.612918,qa-engineer,Records the blocker question for TESTCASE-032.
+LINK-01006,QUESTION-127,TESTEXEC-032,Blocks,Blocks,Is Blocked By,2026-08-13T23:40:54.026101,qa-engineer,Blocker question for TESTEXEC-032; prior status was Blocked.
+LINK-01007,TESTEXEC-032,QUESTION-127,Question,Asks About,Has Question,2026-08-13T23:40:54.492975,qa-engineer,Records the blocker question for TESTEXEC-032.
+LINK-01008,QUESTION-128,DEVOPS-028,Blocks,Blocks,Is Blocked By,2026-08-13T23:40:55.914704,qa-engineer,Blocker question for DEVOPS-028; prior status was Blocked.
+LINK-01009,DEVOPS-028,QUESTION-128,Question,Asks About,Has Question,2026-08-13T23:40:56.420762,qa-engineer,Records the blocker question for DEVOPS-028.
+LINK-01011,TESTCASE-037,QUESTION-129,Question,Asks About,Has Question,2026-08-13T23:40:58.320231,qa-engineer,Records the blocker question for TESTCASE-037.
+LINK-01013,TESTEXEC-037,QUESTION-130,Question,Asks About,Has Question,2026-08-13T23:41:00.204974,qa-engineer,Records the blocker question for TESTEXEC-037.

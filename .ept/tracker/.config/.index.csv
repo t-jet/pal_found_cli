@@ -263,14 +263,14 @@ DEVOPS-023,devops,DEVOPS-023: Packaging and deployment verification for the foun
 TESTEXEC-023,testexec,TESTEXEC-023: QA execution for the foundry/ knowledge skill,Closed,High,qa-engineer,architect,DEV-STORY-023,qa-engineer,DEV-STORY-023/TESTEXEC-023,2026-08-11,2026-08-11
 EPIC-009,epic,Harness-agnostic distribution and self-contained content of Foundry agent skills,Open,High,project-owner,workflow-mgr,,,EPIC-009,2026-08-11,2026-08-11
 EPIC-010,epic,Public repositories and distribution of the Foundry CLI tool,Open,High,project-owner,workflow-mgr,,,EPIC-010,2026-08-11,2026-08-11
-FEATURE-002,feature,Host all three repositories publicly on GitHub,In Design,High,project-owner,workflow-mgr,,,FEATURE-002,2026-08-11,2026-08-12
-FEATURE-003,feature,Split the project into three repositories,In Design,High,project-owner,workflow-mgr,,,FEATURE-003,2026-08-11,2026-08-12
-FEATURE-004,feature,Publish foundry_cli_tool to PyPI for pip installation,In Design,High,project-owner,workflow-mgr,,,FEATURE-004,2026-08-11,2026-08-12
-FEATURE-005,feature,Publish foundry_cli_tool to a conda channel,In Design,High,project-owner,workflow-mgr,,,FEATURE-005,2026-08-11,2026-08-12
-FEATURE-006,feature,Store skills in a standard .agents/skills folder for all harnesses,In Design,High,project-owner,workflow-mgr,,,FEATURE-006,2026-08-11,2026-08-12
-FEATURE-007,feature,Distribute foundry_cli_skills via git clone and skill copy,In Design,High,project-owner,workflow-mgr,,,FEATURE-007,2026-08-11,2026-08-12
-FEATURE-008,feature,Add Palantir Foundry platform and capability descriptions to skills,In Design,High,project-owner,workflow-mgr,,,FEATURE-008,2026-08-11,2026-08-12
-FEATURE-009,feature,Document all JSON formats and parameter variants in each skill file,In Design,High,project-owner,workflow-mgr,,,FEATURE-009,2026-08-11,2026-08-12
+FEATURE-002,feature,Host all three repositories publicly on GitHub,Waiting for Implementation,High,project-owner,workflow-mgr,,,FEATURE-002,2026-08-11,2026-08-13
+FEATURE-003,feature,Split the project into three repositories,Waiting for Implementation,High,project-owner,workflow-mgr,,,FEATURE-003,2026-08-11,2026-08-13
+FEATURE-004,feature,Publish foundry_cli_tool to PyPI for pip installation,Waiting for Implementation,High,project-owner,workflow-mgr,,,FEATURE-004,2026-08-11,2026-08-13
+FEATURE-005,feature,Publish foundry_cli_tool to a conda channel,Waiting for Implementation,High,project-owner,workflow-mgr,,,FEATURE-005,2026-08-11,2026-08-13
+FEATURE-006,feature,Store skills in a standard .agents/skills folder for all harnesses,Waiting for Implementation,High,project-owner,workflow-mgr,,,FEATURE-006,2026-08-11,2026-08-13
+FEATURE-007,feature,Distribute foundry_cli_skills via git clone and skill copy,Waiting for Implementation,High,project-owner,workflow-mgr,,,FEATURE-007,2026-08-11,2026-08-13
+FEATURE-008,feature,Add Palantir Foundry platform and capability descriptions to skills,Waiting for Implementation,High,project-owner,workflow-mgr,,,FEATURE-008,2026-08-11,2026-08-13
+FEATURE-009,feature,Document all JSON formats and parameter variants in each skill file,Waiting for Implementation,High,project-owner,workflow-mgr,,,FEATURE-009,2026-08-11,2026-08-13
 QUESTION-044,question,DoD evidence falsification on EPIC-010 — correct evidence and re-verify,Closed,High,ba,workflow-mgr,EPIC-010,ba,EPIC-010/QUESTION-044,2026-08-11,2026-08-11
 QUESTION-045,question,DoD evidence falsification on EPIC-009 — correct evidence and re-verify,Closed,High,ba,workflow-mgr,EPIC-009,ba,EPIC-009/QUESTION-045,2026-08-11,2026-08-11
 QUESTION-046,question,DoD evidence invalidation on FEATURE-002 — correct evidence and re-verify,Closed,High,ba,workflow-mgr,FEATURE-002,ba,FEATURE-002/QUESTION-046,2026-08-11,2026-08-11
@@ -308,7 +308,7 @@ QUESTION-060,question,SA-ANA-006 architecture analysis approval,Closed,High,arch
 QUESTION-061,question,SA-ANA-007 architecture analysis approval,Closed,High,architect,architect,SA-ANA-007,project-owner,SA-ANA-007/QUESTION-061,2026-08-12,2026-08-12
 QUESTION-062,question,SA-ANA-008 architecture analysis approval,Closed,High,architect,architect,SA-ANA-008,project-owner,SA-ANA-008/QUESTION-062,2026-08-12,2026-08-12
 QUESTION-063,question,SA-ANA-009 architecture analysis approval,Closed,High,architect,architect,SA-ANA-009,project-owner,SA-ANA-009/QUESTION-063,2026-08-12,2026-08-12
-FEATURE-010,feature,Rename foundry_ prefix to pal_found_ across all three projects,In Design,High,project-owner,workflow-mgr,,,FEATURE-010,2026-08-12,2026-08-12
+FEATURE-010,feature,Rename foundry_ prefix to pal_found_ across all three projects,Waiting for Implementation,High,project-owner,workflow-mgr,,,FEATURE-010,2026-08-12,2026-08-13
 BA-ANA-010,ba_subtask_analysis,BA analysis: Rename foundry_ prefix to pal_found_ across all three projects,Closed,High,ba,workflow-mgr,FEATURE-010,,FEATURE-010/BA-ANA-010,2026-08-12,2026-08-12
 SA-ANA-010,sa_subtask_analysis,SA analysis: Rename foundry_ prefix to pal_found_ across all three projects,Closed,High,architect,workflow-mgr,FEATURE-010,,FEATURE-010/SA-ANA-010,2026-08-12,2026-08-12
 QUESTION-064,question,BA-ANA-003 business analysis approval,Closed,High,ba,ba,BA-ANA-003,project-owner,BA-ANA-003/QUESTION-064,2026-08-12,2026-08-12
@@ -344,20 +344,20 @@ SA-DES-009,sa_subtask_design,SA design: Document all JSON formats and parameter 
 BA-DES-010,ba_subtask_design,BA design: Document all JSON formats and parameter variants in each skill file,Closed,High,ba,workflow-mgr,FEATURE-009,,FEATURE-009/BA-DES-010,2026-08-13,2026-08-13
 BA-DES-011,ba_subtask_design,BA design: Rename foundry_ prefix to pal_found_ across all three projects,Closed,High,ba,workflow-mgr,FEATURE-010,,FEATURE-010/BA-DES-011,2026-08-13,2026-08-13
 SA-DES-010,sa_subtask_design,SA design: Rename foundry_ prefix to pal_found_ across all three projects,Closed,High,architect,workflow-mgr,FEATURE-010,,FEATURE-010/SA-DES-010,2026-08-13,2026-08-13
-DEV-STORY-024,dev_story,Split the project into three repositories,New,High,tech-lead,ba,FEATURE-003,,FEATURE-003/DEV-STORY-024,2026-08-13,2026-08-13
-DEV-STORY-025,dev_story,Publish all three repositories publicly on GitHub,New,High,tech-lead,ba,FEATURE-002,,FEATURE-002/DEV-STORY-025,2026-08-13,2026-08-13
-DEV-STORY-026,dev_story,Publish the CLI tool package to PyPI with release verification,New,High,tech-lead,ba,FEATURE-004,,FEATURE-004/DEV-STORY-026,2026-08-13,2026-08-13
-DEV-STORY-027,dev_story,Update cross-repository references after the repository split,New,High,tech-lead,ba,FEATURE-003,,FEATURE-003/DEV-STORY-027,2026-08-13,2026-08-13
-DEV-STORY-028,dev_story,Publish the CLI tool to a conda channel with version alignment,New,High,tech-lead,ba,FEATURE-005,,FEATURE-005/DEV-STORY-028,2026-08-13,2026-08-13
-DEV-STORY-029,dev_story,PyPI package page and installation documentation,New,High,tech-lead,ba,FEATURE-004,,FEATURE-004/DEV-STORY-029,2026-08-13,2026-08-13
-DEV-STORY-030,dev_story,Verify skill discovery per harness and write onboarding instructions,New,High,tech-lead,ba,FEATURE-006,,FEATURE-006/DEV-STORY-030,2026-08-13,2026-08-13
-DEV-STORY-031,dev_story,Migrate and rename all skills into the standard .agents/skills folder,New,High,tech-lead,ba,FEATURE-006,,FEATURE-006/DEV-STORY-031,2026-08-13,2026-08-13
-DEV-STORY-032,dev_story,Add Palantir Foundry platform description to the main skill,New,High,tech-lead,ba,FEATURE-008,,FEATURE-008/DEV-STORY-032,2026-08-13,2026-08-13
-DEV-STORY-033,dev_story,Document git-clone and skill-copy distribution instructions per harness,New,High,tech-lead,ba,FEATURE-007,,FEATURE-007/DEV-STORY-033,2026-08-13,2026-08-13
-DEV-STORY-034,dev_story,Add capability descriptions to every specific skill with source references,New,High,tech-lead,ba,FEATURE-008,,FEATURE-008/DEV-STORY-034,2026-08-13,2026-08-13
-DEV-STORY-035,dev_story,Document all JSON formats and parameter variants in every skill file,New,High,tech-lead,ba,FEATURE-009,,FEATURE-009/DEV-STORY-035,2026-08-13,2026-08-13
-DEV-STORY-036,dev_story,"Rename package, commands, skill folders and repositories per confirmed mapping",New,High,tech-lead,ba,FEATURE-010,,FEATURE-010/DEV-STORY-036,2026-08-13,2026-08-13
-DEV-STORY-037,dev_story,"Documentation sweep, migration notes and behaviour verification for the rename",New,High,tech-lead,ba,FEATURE-010,,FEATURE-010/DEV-STORY-037,2026-08-13,2026-08-13
+DEV-STORY-024,dev_story,Split the project into three repositories,QA,High,tech-lead,ba,FEATURE-003,,FEATURE-003/DEV-STORY-024,2026-08-13,2026-08-13
+DEV-STORY-025,dev_story,Publish all three repositories publicly on GitHub,QA,High,tech-lead,ba,FEATURE-002,,FEATURE-002/DEV-STORY-025,2026-08-13,2026-08-13
+DEV-STORY-026,dev_story,Publish the CLI tool package to PyPI with release verification,QA,High,tech-lead,ba,FEATURE-004,,FEATURE-004/DEV-STORY-026,2026-08-13,2026-08-13
+DEV-STORY-027,dev_story,Update cross-repository references after the repository split,Deployment,High,tech-lead,ba,FEATURE-003,,FEATURE-003/DEV-STORY-027,2026-08-13,2026-08-14
+DEV-STORY-028,dev_story,Publish the CLI tool to a conda channel with version alignment,Deployment,High,tech-lead,ba,FEATURE-005,,FEATURE-005/DEV-STORY-028,2026-08-13,2026-08-14
+DEV-STORY-029,dev_story,PyPI package page and installation documentation,QA,High,tech-lead,ba,FEATURE-004,,FEATURE-004/DEV-STORY-029,2026-08-13,2026-08-13
+DEV-STORY-030,dev_story,Verify skill discovery per harness and write onboarding instructions,QA,High,tech-lead,ba,FEATURE-006,,FEATURE-006/DEV-STORY-030,2026-08-13,2026-08-13
+DEV-STORY-031,dev_story,Migrate and rename all skills into the standard .agents/skills folder,QA,High,tech-lead,ba,FEATURE-006,,FEATURE-006/DEV-STORY-031,2026-08-13,2026-08-13
+DEV-STORY-032,dev_story,Add Palantir Foundry platform description to the main skill,Deployment,High,tech-lead,ba,FEATURE-008,,FEATURE-008/DEV-STORY-032,2026-08-13,2026-08-13
+DEV-STORY-033,dev_story,Document git-clone and skill-copy distribution instructions per harness,QA,High,tech-lead,ba,FEATURE-007,,FEATURE-007/DEV-STORY-033,2026-08-13,2026-08-13
+DEV-STORY-034,dev_story,Add capability descriptions to every specific skill with source references,Deployment,High,tech-lead,ba,FEATURE-008,,FEATURE-008/DEV-STORY-034,2026-08-13,2026-08-13
+DEV-STORY-035,dev_story,Document all JSON formats and parameter variants in every skill file,Deployment,High,tech-lead,ba,FEATURE-009,,FEATURE-009/DEV-STORY-035,2026-08-13,2026-08-13
+DEV-STORY-036,dev_story,"Rename package, commands, skill folders and repositories per confirmed mapping",Deployment,High,tech-lead,ba,FEATURE-010,,FEATURE-010/DEV-STORY-036,2026-08-13,2026-08-13
+DEV-STORY-037,dev_story,"Documentation sweep, migration notes and behaviour verification for the rename",Deployment,High,tech-lead,ba,FEATURE-010,,FEATURE-010/DEV-STORY-037,2026-08-13,2026-08-14
 QUESTION-078,question,SA-DES-002 dependency for BA-DES-002 resolution,Closed,High,ba,ba,BA-DES-002,architect,BA-DES-002/QUESTION-078,2026-08-13,2026-08-13
 QUESTION-079,question,SA-DES-003 dependency for BA-DES-004 resolution,Closed,High,ba,ba,BA-DES-004,architect,BA-DES-004/QUESTION-079,2026-08-13,2026-08-13
 QUESTION-080,question,SA-DES-004 dependency for BA-DES-005 resolution,Closed,High,ba,ba,BA-DES-005,architect,BA-DES-005/QUESTION-080,2026-08-13,2026-08-13
@@ -386,3 +386,119 @@ QUESTION-102,question,BA-DES-007 business design approval,Closed,High,ba,ba,BA-D
 QUESTION-103,question,BA-DES-009 business design approval,Closed,High,ba,ba,BA-DES-009,project-owner,BA-DES-009/QUESTION-103,2026-08-13,2026-08-13
 QUESTION-104,question,BA-DES-010 business design approval,Closed,High,ba,ba,BA-DES-010,project-owner,BA-DES-010/QUESTION-104,2026-08-13,2026-08-13
 QUESTION-105,question,BA-DES-011 business design approval,Closed,High,ba,ba,BA-DES-011,project-owner,BA-DES-011/QUESTION-105,2026-08-13,2026-08-13
+DESIGN-024,design,DESIGN: three-repository split — technical plan and estimate,Closed,High,tech-lead,tech-lead,DEV-STORY-024,,DEV-STORY-024/DESIGN-024,2026-08-13,2026-08-13
+DEV-024,development,DEV: three-repository split — implementation,Closed,High,python-developer,tech-lead,DEV-STORY-024,,DEV-STORY-024/DEV-024,2026-08-13,2026-08-13
+UNITTEST-024,unittest,UNITTEST: three-repository split — unit and validation coverage,Closed,High,python-developer,tech-lead,DEV-STORY-024,,DEV-STORY-024/UNITTEST-024,2026-08-13,2026-08-13
+CODEREVIEW-024,codereview,CODEREVIEW: three-repository split — architecture and quality review,Closed,High,architect,tech-lead,DEV-STORY-024,,DEV-STORY-024/CODEREVIEW-024,2026-08-13,2026-08-13
+TESTCASE-024,testcase,TESTCASE: three-repository split — QA scenarios,Closed,High,qa-engineer,tech-lead,DEV-STORY-024,,DEV-STORY-024/TESTCASE-024,2026-08-13,2026-08-13
+TESTEXEC-024,testexec,TESTEXEC: three-repository split — QA execution,Open,High,qa-engineer,tech-lead,DEV-STORY-024,,DEV-STORY-024/TESTEXEC-024,2026-08-13,2026-08-15
+DEVOPS-024,devops,DEVOPS: three-repository split — publication and environment setup,Open,High,devops-engineer,tech-lead,DEV-STORY-024,,DEV-STORY-024/DEVOPS-024,2026-08-13,2026-08-15
+DESIGN-025,design,DESIGN: public GitHub repositories — technical plan and estimate,Closed,High,tech-lead,tech-lead,DEV-STORY-025,,DEV-STORY-025/DESIGN-025,2026-08-13,2026-08-13
+DEV-025,development,DEV: public GitHub repositories — implementation,Closed,High,python-developer,tech-lead,DEV-STORY-025,,DEV-STORY-025/DEV-025,2026-08-13,2026-08-13
+UNITTEST-025,unittest,UNITTEST: public GitHub repositories — unit and validation coverage,Closed,High,python-developer,tech-lead,DEV-STORY-025,,DEV-STORY-025/UNITTEST-025,2026-08-13,2026-08-13
+CODEREVIEW-025,codereview,CODEREVIEW: public GitHub repositories — architecture and quality review,Closed,High,architect,tech-lead,DEV-STORY-025,,DEV-STORY-025/CODEREVIEW-025,2026-08-13,2026-08-13
+TESTCASE-025,testcase,TESTCASE: public GitHub repositories — QA scenarios,Open,High,qa-engineer,tech-lead,DEV-STORY-025,,DEV-STORY-025/TESTCASE-025,2026-08-13,2026-08-16
+TESTEXEC-025,testexec,TESTEXEC: public GitHub repositories — QA execution,Open,High,qa-engineer,tech-lead,DEV-STORY-025,,DEV-STORY-025/TESTEXEC-025,2026-08-13,2026-08-16
+DEVOPS-025,devops,DEVOPS: public GitHub repositories — publication and environment setup,Blocked,High,devops-engineer,tech-lead,DEV-STORY-025,,DEV-STORY-025/DEVOPS-025,2026-08-13,2026-08-13
+DESIGN-026,design,DESIGN: PyPI publication — technical plan and estimate,Closed,High,tech-lead,tech-lead,DEV-STORY-026,,DEV-STORY-026/DESIGN-026,2026-08-13,2026-08-13
+DEV-026,development,DEV: PyPI publication — implementation,Closed,High,python-developer,tech-lead,DEV-STORY-026,,DEV-STORY-026/DEV-026,2026-08-13,2026-08-13
+UNITTEST-026,unittest,UNITTEST: PyPI publication — unit and validation coverage,Closed,High,python-developer,tech-lead,DEV-STORY-026,,DEV-STORY-026/UNITTEST-026,2026-08-13,2026-08-13
+CODEREVIEW-026,codereview,CODEREVIEW: PyPI publication — architecture and quality review,Closed,High,architect,tech-lead,DEV-STORY-026,,DEV-STORY-026/CODEREVIEW-026,2026-08-13,2026-08-13
+TESTCASE-026,testcase,TESTCASE: PyPI publication — QA scenarios,Closed,High,qa-engineer,tech-lead,DEV-STORY-026,,DEV-STORY-026/TESTCASE-026,2026-08-13,2026-08-13
+TESTEXEC-026,testexec,TESTEXEC: PyPI publication — QA execution,Blocked,High,qa-engineer,tech-lead,DEV-STORY-026,,DEV-STORY-026/TESTEXEC-026,2026-08-13,2026-08-13
+DEVOPS-026,devops,DEVOPS: PyPI publication — publication and environment setup,Blocked,High,devops-engineer,tech-lead,DEV-STORY-026,,DEV-STORY-026/DEVOPS-026,2026-08-13,2026-08-13
+DESIGN-027,design,DESIGN: cross-repository reference update — technical plan and estimate,Closed,High,tech-lead,tech-lead,DEV-STORY-027,,DEV-STORY-027/DESIGN-027,2026-08-13,2026-08-13
+DEV-027,development,DEV: cross-repository reference update — implementation,Closed,High,python-developer,tech-lead,DEV-STORY-027,,DEV-STORY-027/DEV-027,2026-08-13,2026-08-13
+UNITTEST-027,unittest,UNITTEST: cross-repository reference update — unit and validation coverage,Closed,High,python-developer,tech-lead,DEV-STORY-027,,DEV-STORY-027/UNITTEST-027,2026-08-13,2026-08-13
+CODEREVIEW-027,codereview,CODEREVIEW: cross-repository reference update — architecture and quality review,Closed,High,architect,tech-lead,DEV-STORY-027,,DEV-STORY-027/CODEREVIEW-027,2026-08-13,2026-08-13
+TESTCASE-027,testcase,TESTCASE: cross-repository reference update — QA scenarios,Closed,High,qa-engineer,tech-lead,DEV-STORY-027,,DEV-STORY-027/TESTCASE-027,2026-08-13,2026-08-13
+TESTEXEC-027,testexec,TESTEXEC: cross-repository reference update — QA execution,Closed,High,qa-engineer,tech-lead,DEV-STORY-027,,DEV-STORY-027/TESTEXEC-027,2026-08-13,2026-08-14
+DESIGN-028,design,DESIGN: conda publication — technical plan and estimate,Closed,High,tech-lead,tech-lead,DEV-STORY-028,,DEV-STORY-028/DESIGN-028,2026-08-13,2026-08-13
+DEV-028,development,DEV: conda publication — implementation,Closed,High,python-developer,tech-lead,DEV-STORY-028,,DEV-STORY-028/DEV-028,2026-08-13,2026-08-13
+UNITTEST-028,unittest,UNITTEST: conda publication — unit and validation coverage,Closed,High,python-developer,tech-lead,DEV-STORY-028,,DEV-STORY-028/UNITTEST-028,2026-08-13,2026-08-13
+CODEREVIEW-028,codereview,CODEREVIEW: conda publication — architecture and quality review,Closed,High,architect,tech-lead,DEV-STORY-028,,DEV-STORY-028/CODEREVIEW-028,2026-08-13,2026-08-13
+TESTCASE-028,testcase,TESTCASE: conda publication — QA scenarios,Closed,High,qa-engineer,tech-lead,DEV-STORY-028,,DEV-STORY-028/TESTCASE-028,2026-08-13,2026-08-14
+TESTEXEC-028,testexec,TESTEXEC: conda publication — QA execution,Closed,High,qa-engineer,tech-lead,DEV-STORY-028,,DEV-STORY-028/TESTEXEC-028,2026-08-13,2026-08-14
+DEVOPS-027,devops,DEVOPS: conda publication — publication and environment setup,Blocked,High,devops-engineer,tech-lead,DEV-STORY-028,,DEV-STORY-028/DEVOPS-027,2026-08-13,2026-08-13
+DESIGN-029,design,DESIGN: PyPI page and install docs — technical plan and estimate,Closed,High,tech-lead,tech-lead,DEV-STORY-029,,DEV-STORY-029/DESIGN-029,2026-08-13,2026-08-13
+DEV-029,development,DEV: PyPI page and install docs — implementation,Closed,High,python-developer,tech-lead,DEV-STORY-029,,DEV-STORY-029/DEV-029,2026-08-13,2026-08-13
+UNITTEST-029,unittest,UNITTEST: PyPI page and install docs — unit and validation coverage,Closed,High,python-developer,tech-lead,DEV-STORY-029,,DEV-STORY-029/UNITTEST-029,2026-08-13,2026-08-13
+CODEREVIEW-029,codereview,CODEREVIEW: PyPI page and install docs — architecture and quality review,Closed,High,architect,tech-lead,DEV-STORY-029,,DEV-STORY-029/CODEREVIEW-029,2026-08-13,2026-08-13
+TESTCASE-029,testcase,TESTCASE: PyPI page and install docs — QA scenarios,Closed,High,qa-engineer,tech-lead,DEV-STORY-029,,DEV-STORY-029/TESTCASE-029,2026-08-13,2026-08-13
+TESTEXEC-029,testexec,TESTEXEC: PyPI page and install docs — QA execution,Blocked,High,qa-engineer,tech-lead,DEV-STORY-029,,DEV-STORY-029/TESTEXEC-029,2026-08-13,2026-08-13
+DESIGN-030,design,DESIGN: git-clone and skill-copy instructions — technical plan and estimate,Closed,High,tech-lead,tech-lead,DEV-STORY-033,,DEV-STORY-033/DESIGN-030,2026-08-13,2026-08-13
+DEV-030,development,DEV: git-clone and skill-copy instructions — implementation,Closed,High,python-developer,tech-lead,DEV-STORY-033,,DEV-STORY-033/DEV-030,2026-08-13,2026-08-13
+UNITTEST-030,unittest,UNITTEST: git-clone and skill-copy instructions — unit and validation coverage,Closed,High,python-developer,tech-lead,DEV-STORY-033,,DEV-STORY-033/UNITTEST-030,2026-08-13,2026-08-13
+CODEREVIEW-030,codereview,CODEREVIEW: git-clone and skill-copy instructions — architecture and quality review,Closed,High,architect,tech-lead,DEV-STORY-033,,DEV-STORY-033/CODEREVIEW-030,2026-08-13,2026-08-13
+TESTCASE-030,testcase,TESTCASE: git-clone and skill-copy instructions — QA scenarios,Blocked,High,qa-engineer,tech-lead,DEV-STORY-033,,DEV-STORY-033/TESTCASE-030,2026-08-13,2026-08-13
+TESTEXEC-030,testexec,TESTEXEC: git-clone and skill-copy instructions — QA execution,Blocked,High,qa-engineer,tech-lead,DEV-STORY-033,,DEV-STORY-033/TESTEXEC-030,2026-08-13,2026-08-13
+DESIGN-031,design,DESIGN: harness discovery and onboarding - technical plan and estimate,Closed,High,tech-lead,tech_lead,DEV-STORY-030,,DEV-STORY-030/DESIGN-031,2026-08-13,2026-08-13
+DEV-031,development,DEV: harness discovery and onboarding - implementation,Closed,High,python-developer,tech_lead,DEV-STORY-030,,DEV-STORY-030/DEV-031,2026-08-13,2026-08-13
+UNITTEST-031,unittest,UNITTEST: harness discovery and onboarding - validation coverage,Closed,High,python-developer,tech_lead,DEV-STORY-030,,DEV-STORY-030/UNITTEST-031,2026-08-13,2026-08-13
+CODEREVIEW-031,codereview,CODEREVIEW: harness discovery and onboarding - architecture and quality review,Closed,High,architect,tech_lead,DEV-STORY-030,,DEV-STORY-030/CODEREVIEW-031,2026-08-13,2026-08-13
+TESTCASE-031,testcase,TESTCASE: harness discovery and onboarding - QA scenarios,Blocked,High,qa-engineer,tech_lead,DEV-STORY-030,,DEV-STORY-030/TESTCASE-031,2026-08-13,2026-08-13
+TESTEXEC-031,testexec,TESTEXEC: harness discovery and onboarding - QA execution,Blocked,High,qa-engineer,tech_lead,DEV-STORY-030,,DEV-STORY-030/TESTEXEC-031,2026-08-13,2026-08-13
+DESIGN-032,design,DESIGN: canonical skill-tree migration - technical plan and estimate,Closed,High,tech-lead,tech_lead,DEV-STORY-031,,DEV-STORY-031/DESIGN-032,2026-08-13,2026-08-13
+DEV-032,development,DEV: canonical skill-tree migration - implementation,Closed,High,python-developer,tech_lead,DEV-STORY-031,,DEV-STORY-031/DEV-032,2026-08-13,2026-08-13
+UNITTEST-032,unittest,UNITTEST: canonical skill-tree migration - validation coverage,Closed,High,python-developer,tech_lead,DEV-STORY-031,,DEV-STORY-031/UNITTEST-032,2026-08-13,2026-08-13
+CODEREVIEW-032,codereview,CODEREVIEW: canonical skill-tree migration - architecture and quality review,Closed,High,architect,tech_lead,DEV-STORY-031,,DEV-STORY-031/CODEREVIEW-032,2026-08-13,2026-08-13
+TESTCASE-032,testcase,TESTCASE: canonical skill-tree migration - QA scenarios,Blocked,High,qa-engineer,tech_lead,DEV-STORY-031,,DEV-STORY-031/TESTCASE-032,2026-08-13,2026-08-13
+TESTEXEC-032,testexec,TESTEXEC: canonical skill-tree migration - QA execution,Blocked,High,qa-engineer,tech_lead,DEV-STORY-031,,DEV-STORY-031/TESTEXEC-032,2026-08-13,2026-08-13
+DESIGN-033,design,DESIGN: main-skill platform description - technical plan and estimate,Closed,High,tech-lead,tech_lead,DEV-STORY-032,,DEV-STORY-032/DESIGN-033,2026-08-13,2026-08-13
+DEV-033,development,DEV: main-skill platform description - implementation,Closed,High,python-developer,tech_lead,DEV-STORY-032,,DEV-STORY-032/DEV-033,2026-08-13,2026-08-13
+UNITTEST-033,unittest,UNITTEST: main-skill platform description - validation coverage,Closed,High,python-developer,tech_lead,DEV-STORY-032,,DEV-STORY-032/UNITTEST-033,2026-08-13,2026-08-13
+CODEREVIEW-033,codereview,CODEREVIEW: main-skill platform description - architecture and quality review,Closed,High,architect,tech_lead,DEV-STORY-032,,DEV-STORY-032/CODEREVIEW-033,2026-08-13,2026-08-13
+TESTCASE-033,testcase,TESTCASE: main-skill platform description - QA scenarios,Closed,High,qa-engineer,tech_lead,DEV-STORY-032,,DEV-STORY-032/TESTCASE-033,2026-08-13,2026-08-13
+TESTEXEC-033,testexec,TESTEXEC: main-skill platform description - QA execution,Closed,High,qa-engineer,tech_lead,DEV-STORY-032,,DEV-STORY-032/TESTEXEC-033,2026-08-13,2026-08-13
+DESIGN-034,design,DESIGN: namespace capability descriptions - technical plan and estimate,Closed,High,tech-lead,tech_lead,DEV-STORY-034,,DEV-STORY-034/DESIGN-034,2026-08-13,2026-08-13
+DEV-034,development,DEV: namespace capability descriptions - implementation,Closed,High,python-developer,tech_lead,DEV-STORY-034,,DEV-STORY-034/DEV-034,2026-08-13,2026-08-13
+UNITTEST-034,unittest,UNITTEST: namespace capability descriptions - validation coverage,Closed,High,python-developer,tech_lead,DEV-STORY-034,,DEV-STORY-034/UNITTEST-034,2026-08-13,2026-08-13
+CODEREVIEW-034,codereview,CODEREVIEW: namespace capability descriptions - architecture and quality review,Closed,High,architect,tech_lead,DEV-STORY-034,,DEV-STORY-034/CODEREVIEW-034,2026-08-13,2026-08-13
+TESTCASE-034,testcase,TESTCASE: namespace capability descriptions - QA scenarios,Closed,High,qa-engineer,tech_lead,DEV-STORY-034,,DEV-STORY-034/TESTCASE-034,2026-08-13,2026-08-13
+TESTEXEC-034,testexec,TESTEXEC: namespace capability descriptions - QA execution,Closed,High,qa-engineer,tech_lead,DEV-STORY-034,,DEV-STORY-034/TESTEXEC-034,2026-08-13,2026-08-13
+DESIGN-035,design,DESIGN: JSON and parameter documentation - technical plan and estimate,Closed,High,tech-lead,tech_lead,DEV-STORY-035,,DEV-STORY-035/DESIGN-035,2026-08-13,2026-08-13
+DEV-035,development,DEV: JSON and parameter documentation - implementation,Closed,High,python-developer,tech_lead,DEV-STORY-035,,DEV-STORY-035/DEV-035,2026-08-13,2026-08-13
+UNITTEST-035,unittest,UNITTEST: JSON and parameter documentation - validation coverage,Closed,High,python-developer,tech_lead,DEV-STORY-035,,DEV-STORY-035/UNITTEST-035,2026-08-13,2026-08-13
+CODEREVIEW-035,codereview,CODEREVIEW: JSON and parameter documentation - architecture and quality review,Closed,High,architect,tech_lead,DEV-STORY-035,,DEV-STORY-035/CODEREVIEW-035,2026-08-13,2026-08-13
+TESTCASE-035,testcase,TESTCASE: JSON and parameter documentation - QA scenarios,Closed,High,qa-engineer,tech_lead,DEV-STORY-035,,DEV-STORY-035/TESTCASE-035,2026-08-13,2026-08-13
+TESTEXEC-035,testexec,TESTEXEC: JSON and parameter documentation - QA execution,Closed,High,qa-engineer,tech_lead,DEV-STORY-035,,DEV-STORY-035/TESTEXEC-035,2026-08-13,2026-08-13
+DESIGN-036,design,DESIGN: confirmed package and repository rename - technical plan and estimate,Closed,High,tech-lead,tech_lead,DEV-STORY-036,,DEV-STORY-036/DESIGN-036,2026-08-13,2026-08-13
+DEV-036,development,DEV: confirmed package and repository rename - implementation,Closed,High,python-developer,tech_lead,DEV-STORY-036,,DEV-STORY-036/DEV-036,2026-08-13,2026-08-13
+UNITTEST-036,unittest,UNITTEST: confirmed package and repository rename - validation coverage,Closed,High,python-developer,tech_lead,DEV-STORY-036,,DEV-STORY-036/UNITTEST-036,2026-08-13,2026-08-13
+CODEREVIEW-036,codereview,CODEREVIEW: confirmed package and repository rename - architecture and quality review,Closed,High,architect,tech_lead,DEV-STORY-036,,DEV-STORY-036/CODEREVIEW-036,2026-08-13,2026-08-13
+TESTCASE-036,testcase,TESTCASE: confirmed package and repository rename - QA scenarios,Closed,High,qa-engineer,tech_lead,DEV-STORY-036,,DEV-STORY-036/TESTCASE-036,2026-08-13,2026-08-13
+TESTEXEC-036,testexec,TESTEXEC: confirmed package and repository rename - QA execution,Closed,High,qa-engineer,tech_lead,DEV-STORY-036,,DEV-STORY-036/TESTEXEC-036,2026-08-13,2026-08-13
+DEVOPS-028,devops,DEVOPS: confirmed package and repository rename - pipeline and release coordination,Blocked,High,devops-engineer,tech_lead,DEV-STORY-036,,DEV-STORY-036/DEVOPS-028,2026-08-13,2026-08-13
+DESIGN-037,design,DESIGN: rename documentation sweep and behavior verification - technical plan and estimate,Closed,High,tech-lead,tech_lead,DEV-STORY-037,,DEV-STORY-037/DESIGN-037,2026-08-13,2026-08-13
+DEV-037,development,DEV: rename documentation sweep and migration notes - implementation,Closed,High,python-developer,tech_lead,DEV-STORY-037,,DEV-STORY-037/DEV-037,2026-08-13,2026-08-13
+UNITTEST-037,unittest,UNITTEST: rename behavior and documentation - validation coverage,Closed,High,python-developer,tech_lead,DEV-STORY-037,,DEV-STORY-037/UNITTEST-037,2026-08-13,2026-08-13
+CODEREVIEW-037,codereview,CODEREVIEW: rename documentation sweep and behavior verification - architecture and quality review,Closed,High,architect,tech_lead,DEV-STORY-037,,DEV-STORY-037/CODEREVIEW-037,2026-08-13,2026-08-13
+TESTCASE-037,testcase,TESTCASE: rename documentation sweep and behavior verification - QA scenarios,Closed,High,qa-engineer,tech_lead,DEV-STORY-037,,DEV-STORY-037/TESTCASE-037,2026-08-13,2026-08-14
+TESTEXEC-037,testexec,TESTEXEC: rename documentation sweep and behavior verification - QA execution,Closed,High,qa-engineer,tech_lead,DEV-STORY-037,,DEV-STORY-037/TESTEXEC-037,2026-08-13,2026-08-14
+QUESTION-106,question,Confirm canonical-only JSON documentation QA scope,Closed,Medium,,qa-engineer,TESTCASE-035,architect,TESTCASE-035/QUESTION-106,2026-08-13,2026-08-13
+QUESTION-107,question,Confirm canonical-only JSON documentation execution scope,Closed,Medium,,qa-engineer,TESTEXEC-035,architect,TESTEXEC-035/QUESTION-107,2026-08-13,2026-08-13
+QUESTION-108,question,Confirm rename QA acceptance with dirty tracker files,Closed,Medium,,qa-engineer,TESTCASE-036,architect,TESTCASE-036/QUESTION-108,2026-08-13,2026-08-13
+QUESTION-109,question,Confirm rename execution acceptance with dirty tracker files,Closed,Medium,,qa-engineer,TESTEXEC-036,architect,TESTEXEC-036/QUESTION-109,2026-08-13,2026-08-13
+QUESTION-110,question,Clarify three-repository QA execution prerequisite,Closed,High,qa-engineer,qa-engineer,DEV-STORY-024,project-owner,DEV-STORY-024/QUESTION-110,2026-08-13,2026-08-15
+QUESTION-111,question,Clarify three-repository publication prerequisite,Closed,High,qa-engineer,qa-engineer,DEV-STORY-024,architect,DEV-STORY-024/QUESTION-111,2026-08-13,2026-08-15
+QUESTION-112,question,Provide public GitHub verification access,Closed,High,qa-engineer,qa-engineer,DEV-STORY-025,project-owner,DEV-STORY-025/QUESTION-112,2026-08-13,2026-08-16
+QUESTION-113,question,Provide public GitHub execution access,Closed,High,qa-engineer,qa-engineer,DEV-STORY-025,project-owner,DEV-STORY-025/QUESTION-113,2026-08-13,2026-08-16
+QUESTION-114,question,Authorize public GitHub publication,Open,High,qa-engineer,qa-engineer,DEV-STORY-025,project-owner,DEV-STORY-025/QUESTION-114,2026-08-13,2026-08-14
+QUESTION-115,question,Provide PyPI publication verification,Open,High,qa-engineer,qa-engineer,DEV-STORY-026,project-owner,DEV-STORY-026/QUESTION-115,2026-08-13,2026-08-14
+QUESTION-116,question,Authorize PyPI trusted publishing,Open,High,qa-engineer,qa-engineer,DEV-STORY-026,project-owner,DEV-STORY-026/QUESTION-116,2026-08-13,2026-08-14
+QUESTION-117,question,Resolve submodule and reference-integrity gate,Closed,High,qa-engineer,qa-engineer,DEV-STORY-027,devops-engineer,DEV-STORY-027/QUESTION-117,2026-08-13,2026-08-14
+QUESTION-118,question,Provide conda QA environment,Closed,High,qa-engineer,qa-engineer,DEV-STORY-028,devops-engineer,DEV-STORY-028/QUESTION-118,2026-08-13,2026-08-14
+QUESTION-119,question,Provide conda execution environment,Closed,High,qa-engineer,qa-engineer,DEV-STORY-028,devops-engineer,DEV-STORY-028/QUESTION-119,2026-08-13,2026-08-14
+QUESTION-120,question,Authorize conda channel publication,Open,High,qa-engineer,qa-engineer,DEV-STORY-028,project-owner,DEV-STORY-028/QUESTION-120,2026-08-13,2026-08-14
+QUESTION-121,question,Clarify PyPI page verification prerequisite,Open,High,qa-engineer,qa-engineer,DEV-STORY-029,project-owner,DEV-STORY-029/QUESTION-121,2026-08-13,2026-08-14
+QUESTION-122,question,Clarify git-clone distribution prerequisite,Open,High,qa-engineer,qa-engineer,DEV-STORY-033,project-owner,DEV-STORY-033/QUESTION-122,2026-08-13,2026-08-14
+QUESTION-123,question,Clarify git-clone execution prerequisite,Open,High,qa-engineer,qa-engineer,DEV-STORY-033,project-owner,DEV-STORY-033/QUESTION-123,2026-08-13,2026-08-14
+QUESTION-124,question,Provide harness distribution verification,Open,High,qa-engineer,qa-engineer,DEV-STORY-030,project-owner,DEV-STORY-030/QUESTION-124,2026-08-13,2026-08-14
+QUESTION-125,question,Provide harness distribution execution evidence,Open,High,qa-engineer,qa-engineer,DEV-STORY-030,project-owner,DEV-STORY-030/QUESTION-125,2026-08-13,2026-08-14
+QUESTION-126,question,Provide canonical distribution checkout,Open,High,qa-engineer,qa-engineer,DEV-STORY-031,project-owner,DEV-STORY-031/QUESTION-126,2026-08-13,2026-08-14
+QUESTION-127,question,Provide canonical distribution execution access,Open,High,qa-engineer,qa-engineer,DEV-STORY-031,project-owner,DEV-STORY-031/QUESTION-127,2026-08-13,2026-08-14
+QUESTION-128,question,Provide release and submodule prerequisites,Open,High,qa-engineer,qa-engineer,DEV-STORY-036,project-owner,DEV-STORY-036/QUESTION-128,2026-08-13,2026-08-14
+QUESTION-129,question,Clarify canonical scope for rename QA failures,Closed,High,qa-engineer,qa-engineer,DEV-STORY-037,architect,DEV-STORY-037/QUESTION-129,2026-08-13,2026-08-14
+QUESTION-130,question,Clarify canonical scope for rename execution failures,Closed,High,qa-engineer,qa-engineer,DEV-STORY-037,architect,DEV-STORY-037/QUESTION-130,2026-08-13,2026-08-14
+BUG-SUB-012,bug_subtask,publish.yml conda upload glob targets .tar.bz2 but conda-build 26.7.0 produces .conda artifact,Closed,High,qa-engineer,qa-engineer,DEV-STORY-028,,DEV-STORY-028/BUG-SUB-012,2026-08-14,2026-08-14
+BUG-SUB-013,bug_subtask,BUG-SUB: trailing whitespace on migration-touched project files fails git diff --check (rename docs sweep gate),Closed,High,qa-engineer,qa-engineer,DEV-STORY-037,,DEV-STORY-037/BUG-SUB-013,2026-08-14,2026-08-14

@@ -2,9 +2,9 @@
 id: FEATURE-008
 type: feature
 title: Add Palantir Foundry platform and capability descriptions to skills
-status: In Design
+status: Waiting for Implementation
 created: 2026-08-11
-updated: 2026-08-12
+updated: 2026-08-13
 priority: High
 assignee: project-owner
 reporter: project-owner

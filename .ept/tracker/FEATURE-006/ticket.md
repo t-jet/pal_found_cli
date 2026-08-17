@@ -2,9 +2,9 @@
 id: FEATURE-006
 type: feature
 title: Store skills in a standard .agents/skills folder for all harnesses
-status: In Design
+status: Waiting for Implementation
 created: 2026-08-11
-updated: 2026-08-12
+updated: 2026-08-13
 priority: High
 assignee: project-owner
 reporter: project-owner

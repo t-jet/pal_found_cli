@@ -2,9 +2,9 @@
 id: FEATURE-002
 type: feature
 title: Host all three repositories publicly on GitHub
-status: In Design
+status: Waiting for Implementation
 created: 2026-08-11
-updated: 2026-08-12
+updated: 2026-08-13
 priority: High
 assignee: project-owner
 reporter: project-owner

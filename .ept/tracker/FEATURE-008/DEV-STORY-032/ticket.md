@@ -2,7 +2,7 @@
 id: DEV-STORY-032
 type: dev_story
 title: Add Palantir Foundry platform description to the main skill
-status: New
+status: Deployment
 feature_request: FEATURE-008
 epic: EPIC-009
 created: 2026-08-13
@@ -10,23 +10,20 @@ updated: 2026-08-13
 priority: High
 assignee: tech-lead
 reporter: ba
-release_notes: Palantir Foundry platform description added to main skill with source reference; first release notes placeholder
+story_points: 3
+release_notes: Add a brief official-source-backed Palantir Foundry platform description to the main pal-found skill, with review date and consistent plain-language wording.
 ---
 
-# DEV-STORY-032: Add Palantir Foundry platform description to the main skill
-
 ## Description
-
-TODO: Add description
+Add one brief, plain-language description of the Palantir Foundry platform to the final `pal-found` main skill. Use an official Palantir source, record the source URL and review date, and keep the change limited to static skill content.
 
 ## Acceptance Criteria
-
-- [ ] TODO: Define acceptance criteria
+- [ ] Final `.agents/skills/pal-found/SKILL.md` contains a brief platform description.
+- [ ] The text is traceable to an official Palantir Foundry page.
+- [ ] Source URL and review date appear beside the description.
+- [ ] Wording is readable, factual, and consistent with the main skill.
+- [ ] No executable or packaging behavior changes.
 
 ## Related Documentation
-
-TODO: Add links to related documentation
-
-## Notes
-
-TODO: Add any additional notes
+- `.ept/docs/deliverables/business_design/BA-DES-009-business-design.md`
+- `.ept/docs/deliverables/architecture/SA-DES-008-technical-design.md`

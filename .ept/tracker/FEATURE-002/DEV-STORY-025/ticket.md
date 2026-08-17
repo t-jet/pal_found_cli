@@ -2,7 +2,7 @@
 id: DEV-STORY-025
 type: dev_story
 title: Publish all three repositories publicly on GitHub
-status: New
+status: QA
 feature_request: FEATURE-002
 epic: EPIC-010
 created: 2026-08-13
@@ -10,7 +10,8 @@ updated: 2026-08-13
 priority: High
 assignee: tech-lead
 reporter: ba
-release_notes: Public GitHub hosting of pal_found_cli, pal_found_cli_tool and pal_found_cli_skills; first release notes placeholder
+story_points: 5
+release_notes: Publish pal_found_cli, pal_found_cli_tool, and pal_found_cli_skills as public GitHub repositories with anonymous clone, browse, and release verification.
 ---
 
 # DEV-STORY-025: Publish all three repositories publicly on GitHub

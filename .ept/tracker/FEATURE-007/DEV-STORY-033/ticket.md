@@ -2,7 +2,7 @@
 id: DEV-STORY-033
 type: dev_story
 title: Document git-clone and skill-copy distribution instructions per harness
-status: New
+status: QA
 feature_request: FEATURE-007
 epic: EPIC-009
 created: 2026-08-13
@@ -10,7 +10,8 @@ updated: 2026-08-13
 priority: High
 assignee: tech-lead
 reporter: ba
-release_notes: Git-clone and skill-copy distribution instructions for all harnesses; first release notes placeholder
+story_points: 5
+release_notes: Document clone, copy, discovery verification, and update procedures for pal_found_cli_skills across supported harnesses, using exact target paths.
 ---
 
 # DEV-STORY-033: Document git-clone and skill-copy distribution instructions per harness

@@ -2,9 +2,9 @@
 id: FEATURE-004
 type: feature
 title: Publish foundry_cli_tool to PyPI for pip installation
-status: In Design
+status: Waiting for Implementation
 created: 2026-08-11
-updated: 2026-08-12
+updated: 2026-08-13
 priority: High
 assignee: project-owner
 reporter: project-owner

@@ -2,7 +2,7 @@
 id: DEV-STORY-029
 type: dev_story
 title: PyPI package page and installation documentation
-status: New
+status: QA
 feature_request: FEATURE-004
 epic: EPIC-010
 created: 2026-08-13
@@ -10,7 +10,8 @@ updated: 2026-08-13
 priority: High
 assignee: tech-lead
 reporter: ba
-release_notes: PyPI page content and install docs for pal_found_cli; first release notes placeholder
+story_points: 3
+release_notes: Provide the PyPI project page content and installation/upgrade guidance for pal_found_cli, including pal-found-* command examples and verified release references.
 ---
 
 # DEV-STORY-029: PyPI package page and installation documentation
