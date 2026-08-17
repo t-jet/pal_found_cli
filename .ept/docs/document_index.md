@@ -118,7 +118,7 @@ This project follows a structured documentation approach organized into logical 
 - [DEV-027 — Cross-repository reference register](deliverables/development/DEV-027-reference-register.md) — Canonical repository URLs and relative-link rules after the split.
 - [DEV-037 — Rename migration guide](deliverables/development/DEV-037-rename-migration.md) — Confirmed `pal_found_`/`pal-found-` mapping, clone and install updates, skill migration, redirects, rollback, and verification checks.
 
-- **Common Error Handling Library** ([`src/pal_found_cli/common/`](https://github.com/t-jet/pal_found_cli_tool/tree/b3a2d0f/src/pal_found_cli/common)) — Shared infrastructure components implemented per DESIGN-001 and DEV-002:
+- **Common Error Handling Library** ([`src/pal_found_cli/common/`](https://github.com/t-jet/pal_found_cli_tool/tree/370c971/src/pal_found_cli/common)) — Shared infrastructure components implemented per DESIGN-001 and DEV-002:
   - `retry.py` — `RetryHandler`: Exponential backoff with jitter for retryable operations (ADR-002)
   - `error_serializer.py` — `ErrorSerializer`: Exception-to-exit-code mapping per ADR-001 taxonomy
   - `output_formatter.py` — `OutputFormatter`: JSON/TOON output with auto-selection per ADR-004 algorithm
@@ -132,11 +132,11 @@ This project follows a structured documentation approach organized into logical 
 
 ### CI/CD & Infrastructure (DEVOPS-002 / DEVOPS-003)
 
-- **GitHub Actions CI Pipeline** ([`ci.yml`](https://github.com/t-jet/pal_found_cli_tool/blob/b3a2d0f/.github/workflows/ci.yml)) — Tool pipeline for lint, type checking, tests, security scanning, and build. Third-party actions are pinned to full SHA digests.
-- **GitHub Actions Publish Pipeline** ([`publish.yml`](https://github.com/t-jet/pal_found_cli_tool/blob/b3a2d0f/.github/workflows/publish.yml)) — Tag-triggered (`v*`) PyPI publication workflow with Test PyPI staging, twine validation, and OIDC trusted publishing.
-- **Coverage Configuration** ([`pyproject.toml`](https://github.com/t-jet/pal_found_cli_tool/blob/b3a2d0f/pyproject.toml) `[tool.coverage.*]`) — Branch coverage with an 80% repository-wide minimum threshold and XML output for CI reporting.
-- **Environment Template** ([`.env.example`](https://github.com/t-jet/pal_found_cli_tool/blob/b3a2d0f/.env.example)) — Lists required and optional environment variables per ADR-006; `.env` is gitignored.
-- **Package configuration** ([`pyproject.toml`](https://github.com/t-jet/pal_found_cli_tool/blob/b3a2d0f/pyproject.toml)) — Package `pal_found_cli` exposes 18 `pal-found-*` commands and owns runtime, test, lint, type-check, coverage, and package-data configuration.
+- **GitHub Actions CI Pipeline** ([`ci.yml`](https://github.com/t-jet/pal_found_cli_tool/blob/370c971/.github/workflows/ci.yml)) — Tool pipeline for lint, type checking, tests, security scanning, and build. Third-party actions are pinned to full SHA digests.
+- **GitHub Actions Publish Pipeline** ([`publish.yml`](https://github.com/t-jet/pal_found_cli_tool/blob/370c971/.github/workflows/publish.yml)) — Tag-triggered (`v*`) PyPI publication workflow with Test PyPI staging, twine validation, and OIDC trusted publishing.
+- **Coverage Configuration** ([`pyproject.toml`](https://github.com/t-jet/pal_found_cli_tool/blob/370c971/pyproject.toml) `[tool.coverage.*]`) — Branch coverage with an 80% repository-wide minimum threshold and XML output for CI reporting.
+- **Environment Template** ([`.env.example`](https://github.com/t-jet/pal_found_cli_tool/blob/370c971/.env.example)) — Lists required and optional environment variables per ADR-006; `.env` is gitignored.
+- **Package configuration** ([`pyproject.toml`](https://github.com/t-jet/pal_found_cli_tool/blob/370c971/pyproject.toml)) — Package `pal_found_cli` exposes 18 `pal-found-*` commands and owns runtime, test, lint, type-check, coverage, and package-data configuration.
 - [DEVOPS-010 - Foundry Audit packaging and deployment report](deliverables/devops/DEVOPS-010-deployment-report.md) - Clean-archive build, wheel/editable installation, entry-point smoke, security gates, and rehearsed rollback evidence for DEV-STORY-010 at commit `87d817c6`.
 - [DEVOPS-011 - Foundry AIP Agents packaging and deployment report](deliverables/devops/DEVOPS-011-aip-agents-deployment-report.md) - Clean-archive build, wheel/editable installation, Python 3.11/3.12 gates, packaged policy, and rehearsed rollback evidence for DEV-STORY-011 at commit `4bc449c`.
 - [DEVOPS-012 - Foundry Language Models packaging and deployment report](deliverables/devops/DEVOPS-012-language-models-deployment-report.md) - Clean-archive build, wheel/editable installation, Python 3.11/3.12 gates, blocked policy, and rehearsed rollback evidence for DEV-STORY-012 at commit `cb8e8d2`.
@@ -206,7 +206,7 @@ This project follows a structured documentation approach organized into logical 
 
 **Last Updated:** 2026-08-17
 **Repository Split:** BUG-SUB-014 moved CLI source, tests, package metadata, and
-CI to [`pal_found_cli_tool`](https://github.com/t-jet/pal_found_cli_tool/tree/b3a2d0f),
+CI to [`pal_found_cli_tool`](https://github.com/t-jet/pal_found_cli_tool/tree/370c971),
 and canonical skills plus validation to
 [`pal_found_cli_skills`](https://github.com/t-jet/pal_found_cli_skills/tree/34b6c40).
 Root now owns design, tracker, and orchestration material plus pinned gitlinks.
