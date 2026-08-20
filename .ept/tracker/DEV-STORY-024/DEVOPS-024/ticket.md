@@ -2,13 +2,14 @@
 id: DEVOPS-024
 type: devops
 title: 'DEVOPS: three-repository split — publication and environment setup'
-status: Open
+status: Closed
 created: 2026-08-13
-updated: 2026-08-15
+updated: 2026-08-17
 priority: High
 assignee: devops-engineer
 reporter: tech-lead
 estimated_hours: 12
+time_spent_hours: 0.25
 ---
 
 # DEVOPS-024: DEVOPS: three-repository split — publication and environment setup

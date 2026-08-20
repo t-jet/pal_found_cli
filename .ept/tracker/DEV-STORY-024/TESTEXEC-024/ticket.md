@@ -2,13 +2,14 @@
 id: TESTEXEC-024
 type: testexec
 title: 'TESTEXEC: three-repository split — QA execution'
-status: Open
+status: Closed
 created: 2026-08-13
-updated: 2026-08-15
+updated: 2026-08-17
 priority: High
 assignee: qa-engineer
 reporter: tech-lead
 estimated_hours: 8
+time_spent_hours: 0.236
 ---
 
 # TESTEXEC-024: TESTEXEC: three-repository split — QA execution

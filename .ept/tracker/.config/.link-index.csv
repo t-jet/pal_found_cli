@@ -698,3 +698,17 @@ LINK-01008,QUESTION-128,DEVOPS-028,Blocks,Blocks,Is Blocked By,2026-08-13T23:40:
 LINK-01009,DEVOPS-028,QUESTION-128,Question,Asks About,Has Question,2026-08-13T23:40:56.420762,qa-engineer,Records the blocker question for DEVOPS-028.
 LINK-01011,TESTCASE-037,QUESTION-129,Question,Asks About,Has Question,2026-08-13T23:40:58.320231,qa-engineer,Records the blocker question for TESTCASE-037.
 LINK-01013,TESTEXEC-037,QUESTION-130,Question,Asks About,Has Question,2026-08-13T23:41:00.204974,qa-engineer,Records the blocker question for TESTEXEC-037.
+LINK-01017,DEV-STORY-024,BUG-SUB-014,Contains,Contains,Contained In,2026-08-17T12:59:49.968051,workflow-mgr,Register BUG-SUB-014 as implementation defect child of DEV-STORY-024.
+LINK-01018,DEV-STORY-024,BUG-SUB-014,ParentChild,Is Parent Of,Is Child Of,2026-08-17T12:59:57.036286,workflow-mgr,Mirror BUG-SUB-014 parent nesting in the link index.
+LINK-01019,DEV-STORY-025,BUG-SUB-015,Contains,Contains,Contained In,2026-08-17T14:34:22.554512,workflow-mgr,Register BUG-SUB-015 under its parent story.
+LINK-01020,DEV-STORY-025,BUG-SUB-015,ParentChild,Is Parent Of,Is Child Of,2026-08-17T14:34:23.388457,workflow-mgr,Register BUG-SUB-015 parent-child hierarchy.
+LINK-01022,TESTEXEC-025,QUESTION-131,Contains,Contains,Contained In,2026-08-17T14:35:17.230368,workflow-mgr,Register QUESTION-131 under TESTEXEC-025.
+LINK-01023,TESTEXEC-025,QUESTION-131,ParentChild,Is Parent Of,Is Child Of,2026-08-17T14:35:18.083513,workflow-mgr,Register QUESTION-131 parent-child hierarchy.
+LINK-01024,TESTEXEC-025,QUESTION-131,Question,Asks About,Has Question,2026-08-17T14:35:18.952065,workflow-mgr,TESTEXEC-025 asks for controlled fixtures and owner evidence.
+LINK-01025,QUESTION-131,TESTEXEC-025,Blocks,Blocks,Is Blocked By,2026-08-17T14:35:21.002470,workflow-mgr,Owner-controlled fixtures are required to complete the gated TESTEXEC-025 cases.
+LINK-01026,TESTEXEC-025,QUESTION-132,Contains,Contains,Contained In,2026-08-17T14:36:11.606556,workflow-mgr,Register QUESTION-132 under TESTEXEC-025.
+LINK-01027,TESTEXEC-025,QUESTION-132,ParentChild,Is Parent Of,Is Child Of,2026-08-17T14:36:12.473505,workflow-mgr,Register QUESTION-132 parent-child hierarchy.
+LINK-01028,TESTEXEC-025,QUESTION-132,Question,Asks About,Has Question,2026-08-17T14:36:13.312220,workflow-mgr,TESTEXEC-025 asks for separate rollback authorization.
+LINK-01029,QUESTION-132,TESTEXEC-025,Blocks,Blocks,Is Blocked By,2026-08-17T14:36:15.359168,workflow-mgr,Explicit owner authorization and recovery ownership are required for PUB-TC-020.
+LINK-01030,DEV-STORY-033,BUG-SUB-016,Contains,Contains,Contained In,2026-08-17T15:19:41.902607,workflow-mgr,Register the QA defect under its parent story.
+LINK-01031,DEV-STORY-033,BUG-SUB-016,ParentChild,Is Parent Of,Is Child Of,2026-08-17T15:19:42.756047,workflow-mgr,Record the explicit parent-child relationship.

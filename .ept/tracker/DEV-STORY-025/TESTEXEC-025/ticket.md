@@ -2,13 +2,14 @@
 id: TESTEXEC-025
 type: testexec
 title: 'TESTEXEC: public GitHub repositories — QA execution'
-status: Open
+status: Blocked
 created: 2026-08-13
-updated: 2026-08-16
+updated: 2026-08-17
 priority: High
 assignee: qa-engineer
 reporter: tech-lead
 estimated_hours: 6
+time_spent_hours: 0.13
 ---
 
 # TESTEXEC-025: TESTEXEC: public GitHub repositories — QA execution

@@ -2,12 +2,13 @@
 id: DEV-STORY-027
 type: dev_story
 title: Update cross-repository references after the repository split
-status: Deployment
+status: Closed
 feature_request: FEATURE-003
 epic: EPIC-010
 created: 2026-08-13
-updated: 2026-08-14
+updated: 2026-08-17
 priority: High
+resolution: Done
 assignee: tech-lead
 reporter: ba
 story_points: 5

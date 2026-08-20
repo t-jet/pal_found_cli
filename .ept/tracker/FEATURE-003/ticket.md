@@ -2,10 +2,11 @@
 id: FEATURE-003
 type: feature
 title: Split the project into three repositories
-status: Waiting for Implementation
+status: Closed
 created: 2026-08-11
-updated: 2026-08-13
+updated: 2026-08-17
 priority: High
+resolution: Done
 assignee: project-owner
 reporter: project-owner
 ---

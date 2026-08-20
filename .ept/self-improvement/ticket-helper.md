@@ -21,3 +21,11 @@ Condition:
 
 Action:
 - Do inspect each cited artifact and record exact path:line range, timestamp, environment, test data, per-case result, and a short verbatim code/design snippet before closing. If supplied evidence has only aggregate results or vague citations, document the missing proof and leave the ticket in its current status; do not claim approval or transition it to a terminal status.
+
+## Improvement: audit transitive dependencies before declaring a queue actionable
+
+Condition:
+- When a build queue shows parent stories or features without a direct blocker in the Blocks column
+
+Action:
+- Do inspect their DependsOn links and nonterminal children before calling them actionable. Report direct question blockers separately from transitive dependency blockers, and do not advance a parent while either class remains active.

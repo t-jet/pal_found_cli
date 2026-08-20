@@ -2,13 +2,14 @@
 id: QUESTION-116
 type: question
 title: Authorize PyPI trusted publishing
-status: Open
+status: In Progress
 addressed_to: project-owner
 created: 2026-08-13
-updated: 2026-08-14
+updated: 2026-08-17
 priority: High
 assignee: qa-engineer
 reporter: qa-engineer
+time_spent_hours: 0.02
 ---
 
 # QUESTION-116: Authorize PyPI trusted publishing

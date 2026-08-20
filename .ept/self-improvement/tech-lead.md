@@ -366,3 +366,27 @@ Condition:
 
 Action:
 - Do report helper spawn, wait timeout/interruption, and shutdown explicitly; state that no tracker readback or mutation completed, and base final status only on previously recorded evidence plus bounded local probes.
+
+## Improvement: preserve history without rewriting public destination branches
+
+Condition:
+- When splitting tracked paths into existing public repositories whose published histories must remain intact
+
+Action:
+- Do filter committed source history in a disposable `.ept/tmp` clone, merge each filtered lineage into destination `main` without squashing, verify old remote tip remains an ancestor, then use dry-run and fast-forward pushes only. Record source-to-filtered commit-map examples, destination merge hashes, and anonymous recursive-clone proof.
+
+## Improvement: recheck mutable public-hosting baselines before QA approval
+
+Condition:
+- When reviewing QA cases that embed public repository HEADs, tag/release state, redirects, or GitHub API expectations
+
+Action:
+- Do verify current branch and redirect hashes with anonymous `git ls-remote`, count tags from `ls-remote --tags`, and record REST rate-limit failures separately. Don't treat PowerShell `@($null).Count` as an empty GitHub list count; empty REST responses can become `$null` and falsely report one item.
+
+## Improvement: avoid self-referential deployment evidence hashes
+
+Condition:
+- When a deployment-audit document records the root commit but committing that evidence will create a new root HEAD
+
+Action:
+- Do label the cloned commit as the audit baseline, state that the evidence commit is its docs-only successor, then verify and report the final pushed HEAD separately. Keep destination pins exact and re-run the credential-disabled clone update after push; don't claim the document embeds its own commit hash.

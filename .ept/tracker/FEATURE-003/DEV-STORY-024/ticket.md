@@ -2,12 +2,13 @@
 id: DEV-STORY-024
 type: dev_story
 title: Split the project into three repositories
-status: QA
+status: Closed
 feature_request: FEATURE-003
 epic: EPIC-010
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-08-17
 priority: High
+resolution: Done
 assignee: tech-lead
 reporter: ba
 story_points: 8

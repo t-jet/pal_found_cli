@@ -211,3 +211,13 @@ Condition:
 Action:
 
 - Do run `conda render conda.recipe *> <log> 2>&1; echo "EXIT:$LASTEXITCODE"` and read the log tail; don't pipe through `Select-Object -First N` inline (PowerShell closes the pipe early and reports a false exit 2). Note `conda render` in conda-build 26.7.0 does NOT accept `--json` (exit 2, unrecognized arguments) — use plain `conda render conda.recipe` or `conda build conda.recipe --json`. The tooling prerequisite is `conda install -n base -y conda-build` (mirrors `.github/workflows/publish.yml`). Confirmed on QUESTION-118/119 (2026-08-14): after install, `conda build --version` exit 0, `conda render conda.recipe` exit 0, `conda build conda.recipe --output-folder <dir>` produced `pal_found_cli-0.1.0-py_0.conda`; local noarch install needs explicit runtime deps (`conda install -n <env> -y foundry-platform-sdk python-dotenv requests`) before console-script smoke tests pass.
+
+## Improvement: build clone destinations from an existing temp root
+
+Condition:
+
+- When creating a fresh-clone verification directory whose final path does not exist yet
+
+Action:
+
+- Do resolve the existing `.ept/tmp` root first, then append a unique child name with `Join-Path`. Don't call `Resolve-Path` on the nonexistent child: it returns null, and `git clone <url> $null` silently clones into the current directory using the repository name. Confirmed on DEVOPS-024 (2026-08-17).

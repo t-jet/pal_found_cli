@@ -2,13 +2,14 @@
 id: TESTCASE-025
 type: testcase
 title: 'TESTCASE: public GitHub repositories — QA scenarios'
-status: Open
+status: Closed
 created: 2026-08-13
-updated: 2026-08-16
+updated: 2026-08-17
 priority: High
 assignee: qa-engineer
 reporter: tech-lead
 estimated_hours: 6
+time_spent_hours: 0.53
 ---
 
 # TESTCASE-025: TESTCASE: public GitHub repositories — QA scenarios

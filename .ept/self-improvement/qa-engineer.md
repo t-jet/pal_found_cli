@@ -477,3 +477,51 @@ Condition:
 Action:
 
 - Do follow the ticket's own Resolved instructions instead of the brief's literal order: post the QA verification comment, remove the outbound `Blocks` link FIRST, then transition Resolved -> Closed, then close the downstream testexec once its inbound is-blocked-by link is gone. The bug_subtask Resolved -> Closed DoD requires "no active blocks links", so closing before unlink violates the documented criterion even if a lenient validator would accept it. Verified BUG-SUB-012/TESTEXEC-028 (2026-08-14): QA verification comment 20260814-231839-qa-engineer, LINK-01014 removed exit 0, BUG-SUB-012 Resolved -> Closed exit 0, TESTEXEC-028 Resolved -> Closed exit 0 (closure comment 20260814-232226-qa-engineer, DoD "no active is-blocked-by links" met); post-write gets confirmed both terminal with zero Blocks links remaining. Reconfirmed BUG-SUB-013/TESTEXEC-037/TESTCASE-037 (2026-08-14): QA verification comment 20260814-231821-qa-engineer (zero-apostrophe body), LINK-01015 removed exit 0, then BUG-SUB-013, TESTEXEC-037, TESTCASE-037 each Resolved -> Closed exit 0 (each link list verified clean first: TESTEXEC-037 only LINK-00941 Contains + LINK-01013 Question; TESTCASE-037 only LINK-00940 Contains + LINK-01011 Question, blocks no other ticket); post-write gets confirmed all three terminal with zero Blocks links remaining.
+
+## Improvement: repository URL string tests do not prove a split
+
+Condition:
+- When QA validates a repository split and local tests only assert final URL strings or combined-tree content
+
+Action:
+- Do test each final URL anonymously with credential helpers disabled, perform a fresh recursive clone under `.ept/tmp`, inspect content ownership and submodule origins in that clone, and verify moved-path history in each destination repo. Report local static tests separately because they can pass while all target repositories are private, absent, empty, or stale.
+
+## Improvement: hardcoded session timestamps expire during later regressions
+
+Condition:
+- When session tests create active records with fixed historical timestamps and production cleanup uses a real-time expiry window
+
+Action:
+- Do compare fixture timestamps with the execution date before classifying failures. If cleanup correctly expires the fixture, classify it as temporal test-data drift, prove session persistence separately with a current timestamp or frozen clock, and keep it separate from product defects.
+
+## Improvement: absolute venv Python does not activate launcher PATH
+
+Condition:
+- When a test suite invokes installed console scripts by command name while pytest runs through an absolute virtual-environment Python path
+
+Action:
+- Do prepend the virtual environment `Scripts` or `bin` directory to `PATH` before running the suite. A direct Python path selects the interpreter but does not expose sibling launchers to subprocesses; rerun after correcting `PATH` before classifying command-not-found failures.
+
+## Improvement: preserve empty REST arrays when counting test evidence
+
+Condition:
+- When PowerShell parses a REST list response and an empty JSON array may collapse to `$null`
+
+Action:
+- Do count from the raw response (`[]`) or explicitly handle `$null` before wrapping the result in `@(...)`. In PowerShell, `@($null).Count` is `1`, which can falsely report one issue, tag, or release. Record the HTTP status and raw-array interpretation together before using the count as QA evidence.
+
+## Improvement: execute documentation commands from the documented working directory
+
+Condition:
+- When QA validates clone-and-copy instructions that include shell-specific multiline commands
+
+Action:
+- Do run each command block literally from the directory established by the preceding steps, then assert the resulting file count and sentinel files. A command can return success while copying nothing: PowerShell treats a POSIX `\` continuation as an argument, and a source glob evaluated at the repository root will not find folders nested under `.agents/skills`. Static keyword tests do not prove an onboarding command works.
+
+## Improvement: distribution validation must check identity and every sentinel
+
+Condition:
+- When a copy or packaging command claims to validate a fixed inventory of skill or plugin directories
+
+Action:
+- Do compare the complete expected name set and require the sentinel file in every expected directory before destination mutation. A count plus one representative sentinel is insufficient: replacing one expected directory with a similarly prefixed directory, or removing a namespace sentinel while keeping its directory, can preserve the count and let an incomplete distribution succeed.

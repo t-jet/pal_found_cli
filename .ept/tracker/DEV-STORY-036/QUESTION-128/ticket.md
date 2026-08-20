@@ -2,13 +2,14 @@
 id: QUESTION-128
 type: question
 title: Provide release and submodule prerequisites
-status: Open
+status: In Progress
 addressed_to: project-owner
 created: 2026-08-13
-updated: 2026-08-14
+updated: 2026-08-17
 priority: High
 assignee: qa-engineer
 reporter: qa-engineer
+time_spent_hours: 0.05
 ---
 
 # QUESTION-128: Provide release and submodule prerequisites
