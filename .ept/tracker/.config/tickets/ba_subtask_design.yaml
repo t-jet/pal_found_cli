@@ -133,11 +133,14 @@ ticket_instructions:
       - Collaborate with SA/UX and Project Owner via Question sub-tasks when needed.
       - |
         When producing or updating deliverable documents, follow these composition rules:
-          - IF a deliverable document exceeds 300 lines THEN split it into smaller logically consistent part files.
-          - Create a subdirectory named after the document file (without the `.md` extension) to hold the parts.
-          - In the original document, keep the top-level heading and introductory sections up to the table of contents, then write the remaining content in the part files, putting references (links) to all these files to the main document.
-          - Each part file must not exceed 300 lines.
-          - Create as many parts as needed to cover the full content.
+          - IF a deliverable document, or any part of it, exceeds 300 lines THEN split it into smaller, logically consistent part files.
+          - Create a subdirectory named after the file being split (without the `.md` extension), at the same level as that file, to hold its parts.
+          - In the file being split, keep only the top-level heading, the introductory sections up to the table of contents, and a list of links to its parts; move the remaining content into the part files.
+          - IF a part file itself exceeds 300 lines THEN apply these same rules to it, splitting it into sub-parts under its own subdirectory.
+          - Number sections hierarchically from the top of the document, continuing the numbering into every part and sub-part: 1...N at the top level, 1.1...1.M within part 1, 1.1.1...1.1.K within sub-part 1.1, and so on.
+          - No leaf-level part file may exceed 300 lines.
+          - Create as many parts and sub-parts, at as many levels as needed, to cover the full content.
+          - Prefer clarity and readability over minimizing the number of parts and sub-parts or fitting content into the 300-line limit.
       - Perform only business analysis
       - Use only business terms
       - Avoid implementation details in the analysis and deliverables. Interfaces, data structures, and logic flow should be defined in abstract terms without technical design decisions.
@@ -150,7 +153,7 @@ ticket_instructions:
           - All required deliverables completed
           - Related documents in the `.ept/docs/document_index.md` analyzed and modified to incorporate ticket results
           - "`.ept/docs/document_index.md` updated for changes in deliverables"
-          - All deliverable documents comply with composition rules (no single file exceeds 300 lines; large documents split into subdirectory parts with original containing references)
+          - All deliverable documents comply with composition rules (no leaf-level part file exceeds 300 lines; oversized documents and parts are recursively split into subdirectory parts with hierarchical section numbering, and each split file contains only its heading, introduction, and links to its parts)
           - All document changes documented as a comment on this ticket
           - All requirements documented as a comment on this ticket with links to deliverables when applicable
           - Time reported in subtask frontmatter

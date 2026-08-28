@@ -128,6 +128,7 @@ ticket_instructions:
   In Progress:
     instructions:
       - Document test cases and expected results as a comment on this ticket.
+      - Test cases must use Gherkin syntax.
       - "CORRECTIVE ACTION FOR PHANTOM TEST CASES: IF test scenarios reference non-existent features THEN test cases are invalid; IF test cases cannot be executed due to missing implementation THEN do NOT move to Resolved; IF creating test cases for phantom implementation THEN block on real implementation first."
     transition_dods:
       - target_statuses: [Resolved]
