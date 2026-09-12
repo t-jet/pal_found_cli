@@ -1,3 +1,11 @@
 {
-    "markdown.validate.enabled": true
+  "markdown.validate.enabled": true
+  "chat.agentFilesLocations": {
+    ".github/agents": true,
+    ".claude/agents": false,
+    "~/.copilot/agents": false,
+    "~/.claude/agents": false
+  },
+  "chat.useClaudeMdFile": false,
+  "github.copilot.chat.organizationCustomAgents.enabled": false
 }

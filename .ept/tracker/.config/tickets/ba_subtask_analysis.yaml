@@ -140,10 +140,14 @@ ticket_instructions:
           - Create a subdirectory named after the file being split (without the `.md` extension), at the same level as that file, to hold its parts.
           - In the file being split, keep only the top-level heading, the introductory sections up to the table of contents, and a list of links to its parts; move the remaining content into the part files.
           - IF a part file itself exceeds 300 lines THEN apply these same rules to it, splitting it into sub-parts under its own subdirectory.
-          - Number sections hierarchically from the top of the document, continuing the numbering into every part and sub-part: 1...N at the top level, 1.1...1.M within part 1, 1.1.1...1.1.K within sub-part 1.1, and so on.
+          - "Number sections hierarchically from the top of the document, continuing the numbering into every part and sub-part: 1...N at the top level, 1.1...1.M within part 1, 1.1.1...1.1.K within sub-part 1.1, and so on."
           - No leaf-level part file may exceed 300 lines.
           - Create as many parts and sub-parts, at as many levels as needed, to cover the full content.
           - Prefer clarity and readability over minimizing the number of parts and sub-parts or fitting content into the 300-line limit.
+          - Give each sentence an explicit actor and one main action when ambiguity can change behavior.
+          - Reuse one term per concept, prefer direct verbs, split stacked instructions and conditions, and preserve modality and exceptions.
+          - Apply the non-certified, ASD-STE100-inspired discipline in the page-style reference.
+          - Do not force a shorter sentence when precision would fall.
       - Perform only business analysis
       - Use only business terms
       - Avoid technical design or implementation details in the analysis and deliverables.

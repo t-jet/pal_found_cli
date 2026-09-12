@@ -1,6 +1,6 @@
 ---
 name: workflow
-description: Guides AI agents on organizing development work, moving features through project stages, selecting and linking the correct ticket types, and respecting role responsibilities at each stage.
+description: Provides instructions to AI agents on organizing development work, moving features through project stages, selecting and linking the correct ticket types, and respecting role responsibilities at each stage.
 license: Apache-2.0
 metadata:
   author: t-jet
