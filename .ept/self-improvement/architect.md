@@ -37,7 +37,7 @@ Action:
 ## Improvement: tracker CLI comment syntax
 
 Condition:
-- When adding a comment via `.ept/skills/tracking-system/tracker/tracker_cli.py`
+- When adding a comment via `.ept/tools/tracker/tracker_cli.py`
 
 Action:
 - Do use the `comment create` subcommand (not `comment <ticket_id>`); required flags are `--subject` and `--text` (the CLI decodes literal two-character `\n` sequences into newlines, so pass `\n` not actual line breaks inside `--text`). Don't use `--text-file` for comments — it is NOT a documented option and `ticket-helper` will abort at validation. For long Markdown comment bodies on Windows PowerShell: (1) replace backticks with plain text or single-quotes because PowerShell treats backtick as its escape char inside double quotes; (2) pass the whole body as a single `--text` value with `\n` escapes; (3) single-quoted inner text (e.g. quoted ticket titles) needs no escaping inside the double-quoted `--text` value — confirmed on DEV-STORY-013 comments 20260809-193823/195044/195048/195052. If the body is truly large, split it or put the artifact in the ticket body via `update --description-file` (which IS documented and reads a file) and post a short pointer comment. `update --description-file` replaces the ticket body; it does not append, so reserve it for body updates not for audit-trail comments.

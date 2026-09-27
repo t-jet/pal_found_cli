@@ -120,6 +120,8 @@ fields:
     type: date
     description: "Date ticket was last modified (ISO 8601)."
 
+assignee_field: assignee
+
 
 # ─────────────────────────────────────────
 # TICKET TYPES

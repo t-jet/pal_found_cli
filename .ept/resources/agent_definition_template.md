@@ -4,22 +4,19 @@ Use these instructions only for role-based agents that own work such as analysis
 
 Do not use them for service, utility, protocol, or tool-wrapper agents. Those agents need definitions designed for their service contract and are outside this template's scope.
 
-## Files to create
+## Agent source to create
 
-Create four files for each role-based agent:
+Create one source file for each role-based agent:
 
 ```text
-.ept/agents/<agent-name>.md
-.claude/agents/<agent-name>.md
-.codex/agents/<agent-name>.toml
-.github/agents/<agent-name>.agent.md
+.ept/resources/agent_sources/<agent-name>/parameters.yaml
 ```
 
-The `.ept/agents` file is the sole source of role instructions. The other three files are platform-specific loaders. They contain metadata, platform tool configuration where supported, and a reference to the `.ept/agents` file. They must not duplicate its contents.
+The composer renders `.github/agents/<agent-name>.agent.md`, `.claude/agents/<agent-name>.md`, and `.codex/agents/<agent-name>.toml` from this source. Generated files must not be created or edited directly.
 
 ## Create the authoritative role content
 
-Use [.ept/resources/agent_content_template.md](agent_content_template.md) as the literal source for `.ept/agents/<agent-name>.md`.
+Use [.ept/resources/agent_content_template.md](agent_content_template.md) as the literal source for the `agent_instructions` value in `parameters.yaml`.
 
 Copy the entire template. Preserve every instruction, heading, XML tag, section, line order, and fixed phrase. Do not add, remove, reorder, summarize, or rewrite fixed content. Replace only the placeholders listed below.
 
@@ -47,7 +44,7 @@ Copy the entire template. Preserve every instruction, heading, XML tag, section,
 
 This replacement may contain additional complete sentences when a list alone cannot define the role. State observable capabilities, not personality traits or promotional claims. Because the template supplies the final period, omit a trailing period from the replacement.
 
-`{{agent_name}}` is the stable machine identifier. Use lowercase kebab-case, such as `solution-architect` or `qa-engineer`. The same value must be used in the `.ept/agents` filename, improvement-memory filename, and all three platform-loader filenames. Do not use a display name, spaces, underscores, or a tracker label here.
+`{{agent_name}}` is the stable machine identifier. Use lowercase kebab-case, such as `solution-architect` or `qa-engineer`. The same value must be used for the source directory, the `name` field, and the improvement-memory filename. Do not use a display name, spaces, underscores, or a tracker label here.
 
 `{{tracker_assignee}}` is the exact assignee token accepted by the tracking system. Obtain it from the role registry or tracker configuration. It may differ from `{{agent_name}}`, so do not derive or normalize it. Insert only the token, without quotes, backticks, or explanatory text.
 
@@ -76,25 +73,11 @@ Replacement text may span multiple lines where the placeholder represents a sect
 
 The completed file must contain no unresolved placeholder tokens.
 
-## Create the Claude Code loader
+## Select harness tools
 
-Create `.claude/agents/<agent-name>.md`:
+Choose the smallest supported tool sets that cover the role, then place them in `copilot.tools` and `claude.tools` in `parameters.yaml`. The Codex mapping remains `codex: {}` because the composer supports no Codex-specific tool configuration.
 
-```markdown
----
-name: <display-name>
-description: <role scope and invocation guidance>
-tools: <Claude Code tool list>
-permissionMode: bypassPermissions
-model: inherit
----
-
-## Instructions
-
-Load and strictly follow all instructions in [.ept/agents/<agent-name>.md](.ept/agents/<agent-name>.md) before doing anything else. That file is the authoritative definition of your role, workflow, tool-use rules, and standards.
-```
-
-Use Claude Code tool names. Select the smallest set that covers the role:
+Use Claude Code tool names for `claude.tools`:
 
 | Capability | Claude Code tools |
 | --- | --- |
@@ -107,41 +90,7 @@ Use Claude Code tool names. Select the smallest set that covers the role:
 
 The role's workflow requires `Agent` when it must call `ticket-helper` or another subagent. Do not grant unrelated tools.
 
-## Create the Codex loader
-
-Create `.codex/agents/<agent-name>.toml`:
-
-```toml
-name = "<display-name>"
-description = "<concise role scope and invocation guidance>"
-developer_instructions = """
-## Instructions
-
-Load and strictly follow all instructions in .ept/agents/<agent-name>.md before doing anything else. That file is the authoritative definition of your role, workflow, tool-use rules, and standards.
-"""
-```
-
-Do not add `tools`, `permissionMode`, `model`, or `user-invocable`. Codex supplies agent categories and tools through its runtime configuration. The TOML file only registers the role and points it to the authoritative instructions.
-
-## Create the GitHub Copilot loader
-
-Create `.github/agents/<agent-name>.agent.md`:
-
-```markdown
----
-name: <display-name>
-description: <role scope and invocation guidance>
-tools: <Copilot tool list>
-model: local-llama-model
-user-invocable: true
----
-
-## Instructions
-
-Load and strictly follow all instructions in [.ept/agents/<agent-name>.md](.ept/agents/<agent-name>.md) before doing anything else. That file is the authoritative definition of your role, workflow, tool-use rules, and standards.
-```
-
-Use Copilot and VS Code tool identifiers. Build the tool list from the role's responsibilities:
+Use Copilot and VS Code tool identifiers for `copilot.tools`. Build the tool list from the role's responsibilities:
 
 | Capability | Copilot tools |
 | --- | --- |
@@ -157,44 +106,57 @@ Use Copilot and VS Code tool identifiers. Build the tool list from the role's re
 
 Add Python, language-service, browser, diagram, notebook, or extension tools only when the role requires them. Use exact identifiers installed in the target Copilot environment. Do not use Claude Code tool names in this file.
 
-The role's workflow requires `agent/runSubagent` when it must call `ticket-helper` or another subagent.
+The role's workflow requires `agent/runSubagent` when it must call `ticket-helper` or another subagent. Set `copilot.user_invocable` according to whether users should be able to select the agent directly, and set `claude.permission_mode` according to its required execution permissions.
 
-## Names and descriptions
+## Source fields
 
-Use one lowercase kebab-case `<agent-name>` for all filenames and template paths. Use one display name consistently across platform loaders.
+Use the same lowercase kebab-case `<agent-name>` for the source directory and `name` field. Do not add a display-name field; the composer derives all harness metadata from the shared source fields.
 
-Descriptions are discovery metadata. State the role, its responsibilities, and requests that should invoke it. Description length may differ by platform, but scope must remain consistent.
+`description` is shared discovery metadata. State the role, its responsibilities, and requests that should invoke it.
+
+Create the source using this schema. Place the completed role body from `agent_content_template.md` under `agent_instructions`.
+
+```yaml
+name: <agent-name>
+description: <role scope and invocation guidance>
+copilot:
+  tools: [<Copilot tool identifiers>]
+  user_invocable: true
+claude:
+  tools: [<Claude Code tool names>]
+  permission_mode: bypassPermissions
+codex: {}
+agent_instructions: |-
+  <completed role content>
+```
 
 ## Creation procedure
 
 1. Confirm the new agent is role-based. Stop if it is a service, utility, protocol, or tool-wrapper agent.
 2. Choose `<agent-name>`, display name, tracker assignee, responsibilities, specialization, standards, and quality requirements.
-3. Copy `.ept/resources/agent_content_template.md` to `.ept/agents/<agent-name>.md`.
-4. Replace only the six documented placeholders. Preserve all other content literally.
-5. Create the Claude loader and select Claude Code tools for the role.
-6. Create the Codex loader without platform tool fields.
-7. Create the Copilot loader and select Copilot tools for the role.
-8. Confirm all three loaders reference `.ept/agents/<agent-name>.md`.
-9. Create `.ept/self-improvement/<agent-name>.md` if the memory file does not exist.
-10. Update role registries or resource documentation required by the repository.
-11. Run the validation checklist.
+3. Create `.ept/resources/agent_sources/<agent-name>/parameters.yaml`.
+4. Copy the complete role-content template into `agent_instructions` and replace only the six documented placeholders.
+5. Select Copilot and Claude tools using the tables above, then set the required harness fields in `parameters.yaml`.
+6. Run `python .ept/tools/compose_agents.py --agent <agent-name>`.
+7. Run `python .ept/tools/compose_agents.py --agent <agent-name> --check`.
+8. Create `.ept/self-improvement/<agent-name>.md` if the memory file does not exist.
+9. Update role registries or resource documentation required by the repository.
+10. Run the validation checklist.
 
 ## Validation checklist
 
 - [ ] Agent is role-based, not a service, utility, protocol, or tool-wrapper agent.
-- [ ] `.ept/agents/<agent-name>.md` is a complete copy of `agent_content_template.md` with only documented placeholders replaced.
+- [ ] `parameters.yaml` contains a complete `agent_instructions` body based on `agent_content_template.md`, with only documented placeholders replaced.
 - [ ] No fixed instruction, heading, XML tag, section, or line order changed.
 - [ ] No unresolved placeholder tokens remain.
 - [ ] Tracker assignee is valid for the role.
-- [ ] Improvement-memory path uses the same `<agent-name>` as the files.
+- [ ] Improvement-memory path uses the same `<agent-name>` as the source directory and `name` field.
 - [ ] Role-specific standards are inside `<Deliverable_Quality_Standards>`.
-- [ ] Platform loaders contain metadata and the authoritative-file reference only.
-- [ ] Claude loader uses Claude Code tools.
-- [ ] Codex loader contains no platform tool list.
-- [ ] Copilot loader uses role-specific Copilot tool identifiers.
-- [ ] All loaders reference the same `.ept/agents/<agent-name>.md` path.
-- [ ] Filename stem and display name are consistent across platforms.
+- [ ] `claude.tools` uses role-specific Claude Code tool names.
+- [ ] `copilot.tools` uses role-specific Copilot tool identifiers.
+- [ ] `codex` is an empty mapping.
+- [ ] The composer generates and validates all three harness definitions.
 
 ## Final rule
 
-Change role wording only through placeholders in `agent_content_template.md`. Keep all shared instructions and structure literal. Treat Claude Code, Codex, and GitHub Copilot loaders as separate platform adapters with different metadata and tool models.
+Change role wording only through placeholders in `agent_content_template.md`. Keep all shared instructions and structure literal. Treat `parameters.yaml` as the only editable agent source and the composer outputs as generated artifacts.

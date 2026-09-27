@@ -1,0 +1,3 @@
+copilot: local-llama-model
+claude: inherit
+codex: gpt-5.6

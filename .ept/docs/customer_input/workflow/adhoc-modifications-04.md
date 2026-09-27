@@ -10,7 +10,7 @@ New features are:
 3. For the `list` command add a new `--non-terminal-only` option wich should exclude all tickets in the terminal statuses.
 4. Implement additional `build-queue` command to generate a prioritized list of non-terminal tickets based on their blocking relationships and priorities.
 
-Implementation to be modified located in `.ept/skills/tracking-system/tracker` folder.
+Implementation to be modified located in `.ept/tools/tracker` folder.
 
 ## Detailed Requirements
 

@@ -2,6 +2,8 @@
 
 from pathlib import Path
 import subprocess
+import sys
+import tomllib
 
 
 ROOT = Path(__file__).parent.parent
@@ -52,3 +54,20 @@ def test_no_live_credential_pattern_is_tracked() -> None:
             unsafe.append(tracked_path)
 
     assert not unsafe, f"tracked credential-pattern files: {unsafe}"
+
+
+def test_generated_agent_definitions_are_current() -> None:
+    result = subprocess.run(
+        (sys.executable, ".ept/tools/compose_agents.py", "--all", "--check"),
+        cwd=ROOT,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+    assert result.returncode == 0, result.stdout + result.stderr
+
+
+def test_generated_codex_definitions_are_valid_toml() -> None:
+    for path in (ROOT / ".codex" / "agents").glob("*.toml"):
+        tomllib.loads(path.read_text(encoding="utf-8"))
