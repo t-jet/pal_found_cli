@@ -669,32 +669,20 @@ LINK-00973,TESTEXEC-024,QUESTION-110,Question,Asks About,Has Question,2026-08-13
 LINK-00975,DEVOPS-024,QUESTION-111,Question,Asks About,Has Question,2026-08-13T23:40:24.409695,qa-engineer,Records the blocker question for DEVOPS-024.
 LINK-00977,TESTCASE-025,QUESTION-112,Question,Asks About,Has Question,2026-08-13T23:40:26.278658,qa-engineer,Records the blocker question for TESTCASE-025.
 LINK-00979,TESTEXEC-025,QUESTION-113,Question,Asks About,Has Question,2026-08-13T23:40:28.173909,qa-engineer,Records the blocker question for TESTEXEC-025.
-LINK-00980,QUESTION-114,DEVOPS-025,Blocks,Blocks,Is Blocked By,2026-08-13T23:40:29.574063,qa-engineer,Blocker question for DEVOPS-025; prior status was Blocked.
 LINK-00981,DEVOPS-025,QUESTION-114,Question,Asks About,Has Question,2026-08-13T23:40:30.042882,qa-engineer,Records the blocker question for DEVOPS-025.
-LINK-00982,QUESTION-115,TESTEXEC-026,Blocks,Blocks,Is Blocked By,2026-08-13T23:40:31.449755,qa-engineer,Blocker question for TESTEXEC-026; prior status was Blocked.
 LINK-00983,TESTEXEC-026,QUESTION-115,Question,Asks About,Has Question,2026-08-13T23:40:31.915905,qa-engineer,Records the blocker question for TESTEXEC-026.
-LINK-00984,QUESTION-116,DEVOPS-026,Blocks,Blocks,Is Blocked By,2026-08-13T23:40:33.315980,qa-engineer,Blocker question for DEVOPS-026; prior status was Blocked.
 LINK-00985,DEVOPS-026,QUESTION-116,Question,Asks About,Has Question,2026-08-13T23:40:33.784530,qa-engineer,Records the blocker question for DEVOPS-026.
 LINK-00987,TESTEXEC-027,QUESTION-117,Question,Asks About,Has Question,2026-08-13T23:40:35.658345,qa-engineer,Records the blocker question for TESTEXEC-027.
 LINK-00989,TESTCASE-028,QUESTION-118,Question,Asks About,Has Question,2026-08-13T23:40:37.524114,qa-engineer,Records the blocker question for TESTCASE-028.
 LINK-00991,TESTEXEC-028,QUESTION-119,Question,Asks About,Has Question,2026-08-13T23:40:39.386970,qa-engineer,Records the blocker question for TESTEXEC-028.
-LINK-00992,QUESTION-120,DEVOPS-027,Blocks,Blocks,Is Blocked By,2026-08-13T23:40:40.782125,qa-engineer,Blocker question for DEVOPS-027; prior status was Blocked.
 LINK-00993,DEVOPS-027,QUESTION-120,Question,Asks About,Has Question,2026-08-13T23:40:41.251815,qa-engineer,Records the blocker question for DEVOPS-027.
-LINK-00994,QUESTION-121,TESTEXEC-029,Blocks,Blocks,Is Blocked By,2026-08-13T23:40:42.653689,qa-engineer,Blocker question for TESTEXEC-029; prior status was Blocked.
 LINK-00995,TESTEXEC-029,QUESTION-121,Question,Asks About,Has Question,2026-08-13T23:40:43.134583,qa-engineer,Records the blocker question for TESTEXEC-029.
-LINK-00996,QUESTION-122,TESTCASE-030,Blocks,Blocks,Is Blocked By,2026-08-13T23:40:44.559689,qa-engineer,Blocker question for TESTCASE-030; prior status was Blocked.
 LINK-00997,TESTCASE-030,QUESTION-122,Question,Asks About,Has Question,2026-08-13T23:40:45.062094,qa-engineer,Records the blocker question for TESTCASE-030.
-LINK-00998,QUESTION-123,TESTEXEC-030,Blocks,Blocks,Is Blocked By,2026-08-13T23:40:46.480428,qa-engineer,Blocker question for TESTEXEC-030; prior status was Blocked.
 LINK-00999,TESTEXEC-030,QUESTION-123,Question,Asks About,Has Question,2026-08-13T23:40:46.947581,qa-engineer,Records the blocker question for TESTEXEC-030.
-LINK-01000,QUESTION-124,TESTCASE-031,Blocks,Blocks,Is Blocked By,2026-08-13T23:40:48.351967,qa-engineer,Blocker question for TESTCASE-031; prior status was Blocked.
 LINK-01001,TESTCASE-031,QUESTION-124,Question,Asks About,Has Question,2026-08-13T23:40:48.819721,qa-engineer,Records the blocker question for TESTCASE-031.
-LINK-01002,QUESTION-125,TESTEXEC-031,Blocks,Blocks,Is Blocked By,2026-08-13T23:40:50.234379,qa-engineer,Blocker question for TESTEXEC-031; prior status was Blocked.
 LINK-01003,TESTEXEC-031,QUESTION-125,Question,Asks About,Has Question,2026-08-13T23:40:50.704181,qa-engineer,Records the blocker question for TESTEXEC-031.
-LINK-01004,QUESTION-126,TESTCASE-032,Blocks,Blocks,Is Blocked By,2026-08-13T23:40:52.138129,qa-engineer,Blocker question for TESTCASE-032; prior status was Blocked.
 LINK-01005,TESTCASE-032,QUESTION-126,Question,Asks About,Has Question,2026-08-13T23:40:52.612918,qa-engineer,Records the blocker question for TESTCASE-032.
-LINK-01006,QUESTION-127,TESTEXEC-032,Blocks,Blocks,Is Blocked By,2026-08-13T23:40:54.026101,qa-engineer,Blocker question for TESTEXEC-032; prior status was Blocked.
 LINK-01007,TESTEXEC-032,QUESTION-127,Question,Asks About,Has Question,2026-08-13T23:40:54.492975,qa-engineer,Records the blocker question for TESTEXEC-032.
-LINK-01008,QUESTION-128,DEVOPS-028,Blocks,Blocks,Is Blocked By,2026-08-13T23:40:55.914704,qa-engineer,Blocker question for DEVOPS-028; prior status was Blocked.
 LINK-01009,DEVOPS-028,QUESTION-128,Question,Asks About,Has Question,2026-08-13T23:40:56.420762,qa-engineer,Records the blocker question for DEVOPS-028.
 LINK-01011,TESTCASE-037,QUESTION-129,Question,Asks About,Has Question,2026-08-13T23:40:58.320231,qa-engineer,Records the blocker question for TESTCASE-037.
 LINK-01013,TESTEXEC-037,QUESTION-130,Question,Asks About,Has Question,2026-08-13T23:41:00.204974,qa-engineer,Records the blocker question for TESTEXEC-037.
@@ -705,10 +693,11 @@ LINK-01020,DEV-STORY-025,BUG-SUB-015,ParentChild,Is Parent Of,Is Child Of,2026-0
 LINK-01022,TESTEXEC-025,QUESTION-131,Contains,Contains,Contained In,2026-08-17T14:35:17.230368,workflow-mgr,Register QUESTION-131 under TESTEXEC-025.
 LINK-01023,TESTEXEC-025,QUESTION-131,ParentChild,Is Parent Of,Is Child Of,2026-08-17T14:35:18.083513,workflow-mgr,Register QUESTION-131 parent-child hierarchy.
 LINK-01024,TESTEXEC-025,QUESTION-131,Question,Asks About,Has Question,2026-08-17T14:35:18.952065,workflow-mgr,TESTEXEC-025 asks for controlled fixtures and owner evidence.
-LINK-01025,QUESTION-131,TESTEXEC-025,Blocks,Blocks,Is Blocked By,2026-08-17T14:35:21.002470,workflow-mgr,Owner-controlled fixtures are required to complete the gated TESTEXEC-025 cases.
 LINK-01026,TESTEXEC-025,QUESTION-132,Contains,Contains,Contained In,2026-08-17T14:36:11.606556,workflow-mgr,Register QUESTION-132 under TESTEXEC-025.
 LINK-01027,TESTEXEC-025,QUESTION-132,ParentChild,Is Parent Of,Is Child Of,2026-08-17T14:36:12.473505,workflow-mgr,Register QUESTION-132 parent-child hierarchy.
 LINK-01028,TESTEXEC-025,QUESTION-132,Question,Asks About,Has Question,2026-08-17T14:36:13.312220,workflow-mgr,TESTEXEC-025 asks for separate rollback authorization.
-LINK-01029,QUESTION-132,TESTEXEC-025,Blocks,Blocks,Is Blocked By,2026-08-17T14:36:15.359168,workflow-mgr,Explicit owner authorization and recovery ownership are required for PUB-TC-020.
 LINK-01030,DEV-STORY-033,BUG-SUB-016,Contains,Contains,Contained In,2026-08-17T15:19:41.902607,workflow-mgr,Register the QA defect under its parent story.
 LINK-01031,DEV-STORY-033,BUG-SUB-016,ParentChild,Is Parent Of,Is Child Of,2026-08-17T15:19:42.756047,workflow-mgr,Record the explicit parent-child relationship.
+LINK-01038,QUESTION-135,QUESTION-134,RelatesTo,Relates To,Relates To,2026-09-28T04:01:38.259208,devops-engineer,"QUESTION-135 duplicates QUESTION-134 (same ANACONDA_API_TOKEN scope issue, created by interrupted retry)."
+LINK-01040,QUESTION-137,TESTEXEC-030,Question,Asks About,Has Question,2026-09-28T11:45:34.886868,qa-engineer,Question link for TESTCASE-030 wording reconciliation
+LINK-01044,TESTEXEC-025,QUESTION-139,Question,Asks About,Has Question,2026-09-28T12:29:44.233381,qa-engineer,

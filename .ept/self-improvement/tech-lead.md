@@ -1,5 +1,23 @@
 # Tech Lead — Improvement Memory
 
+## Improvement: verify epic auto-transition Open->In Progress premise before expecting cascade
+
+Condition:
+- When asked whether an EPIC should auto-advance to Resolved/Done after all linked DEV-STORYs reach terminal, and the EPIC current status is Open
+
+Action:
+- Do check the epic type's automatic_transitions: the Open->In Progress rule (AT-2 `first_child_reaches_status`) is a SEPARATE rule from In Progress->Resolved (AT-1 `all_children_reach_status`) and Resolved->Done. If the EPIC is stuck in Open, AT-2 did not fire (stories advanced before the epic left Open, or the trigger was never evaluated); AT-1 cannot fire while the epic is Open. Do NOT manually transition the EPIC to manufacture the cascade; report the Open stall and let Architect/BA execute Open->In Progress first.
+- Do enumerate ALL EpicLink DEV-STORY statuses before predicting Done: EPIC-009 all 8 stories (030-037) Closed (could proceed In Progress->Resolved->Done) but EPIC-010 has DEV-STORY-026 (QA) + DEV-STORY-029 (QA) non-terminal so must NOT advance regardless of the Open stall.
+
+## Improvement: use PowerShell single-quoted strings for tracker comment --text with \n
+
+Condition:
+- When posting a tracker comment body/answer via `comment create`/`comment update` with a multi-line body and embedded double quotes (e.g. quoting doc text, "$var", or "pal-found*")
+
+Action:
+- Do pass the whole `--subject` and `--text` as a PowerShell single-quoted '...' string and use literal `\n` escape sequences for newlines; do NOT double-quote the argument and do NOT escape inner quotes with backslash (PowerShell passes the backslash literally -> comment stores a broken/empty body with a generic "Ticket updated" subject).
+- Do fix a broken comment in place with `comment update <ticket> <comment-id> --subject '...' --text '...\n...' --author <role>`, then verify the body with `comment get`.
+
 ## Improvement: verify explicit child relationship links after ticket creation
 
 Condition:
@@ -187,6 +205,16 @@ Condition:
 Action:
 - Do verify the real SDK return protocol first (`inspect.signature`, awaitable check, `__aiter__`, cursor attrs), then use a test double that consumes the iterator with the same protocol as production; don't accept dict/page-envelope mocks or wrapper-call assertions when production returns an async iterator because they can hide broken async iteration and pagination metadata.
 - Do verify the public streamed-response surface before designing header propagation. If no public headers accessor exists, pass `None` to bounded-download metadata inputs and test unknown-length probing; don't reach through private fields such as `response._response`.
+
+## Improvement: set dev_story resolution before Resolved->Closed; closure needs no separate PO status
+
+Condition:
+- When advancing a dev_story from Resolved to Closed and the `instructions` say "Set resolution (Done/Canceled)", or when a closure DoD lists Tech Lead + Project Owner as responsible roles
+
+Action:
+- Do set resolution via `update <id> --field resolution=Done --author tech-lead` BEFORE transition; `--field` requires `key=value` format (no separate `--value` flag). Then post a closure evidence comment mapping every DoD criterion to concrete evidence, then `update --status Closed`.
+- Do NOT force Close for a genuine PO gap, but also do NOT invent a PO gate that doesn't exist: dev_story Resolved->Closed has NO separate "waiting for PO approval" status. PO approval is embedded in the closed deployment QUESTIONs (publication/credential/scope approvals). Precedent DEV-STORY-027 closed via evidence + resolution=Done. If all sub-tasks (incl DEVOPS + BUG-SUB) Closed, all QUESTIONs terminal, deployment verified live, release_notes populated, all links registered, no Blocks links, and resolution set, Close is legitimate for the responsible role that owns the ticket.
+- Do ground adjacent deployment-stage (Deployment->Resolved) closures with QA execution-log evidence + live HEAD reachability; note `DEVOPS (if exists) N/A` when content-only stories have no DEVOPS child.
 
 ## Improvement: keep review commands shell-native
 
@@ -390,3 +418,35 @@ Condition:
 
 Action:
 - Do label the cloned commit as the audit baseline, state that the evidence commit is its docs-only successor, then verify and report the final pushed HEAD separately. Keep destination pins exact and re-run the credential-disabled clone update after push; don't claim the document embeds its own commit hash.
+
+## Improvement: verify published PyPI metadata via core-metadata/provenance, not just the JSON API
+
+Condition:
+- When verifying a just-published PyPI release (new version or re-publish) exposes project_urls/license/classifiers/updated long description
+
+Action:
+- Do poll both https://pypi.org/pypi/<pkg>/json AND the release-specific /pypi/<pkg>/<ver>/json, and read the sorted wheel core-metadata from files.pythonhosted.org using the URL scraped from the simple index. The JSON `info` (latest release) lags due to eventual consistency seconds-minutes after upload; the pinned <ver>/json and the .whl.metadata byte stream are authoritative and update first. This task: the JSON `info` still showed 0.1.2/null/[] while the simple index and 0.1.3 core-metadata already proved the fix live; by the next poll info.version=0.1.3 with project_urls/license_expression/classifiers populated.
+
+## Improvement: metadata/long-description changes require a version bump when prod publish uses skip-existing:false
+
+Condition:
+- When asked to re-publish the same PyPI version after a pyproject.toml/README metadata change (BUG-SUB for missing project URLs/license/classifiers or stale long description)
+
+Action:
+- Do bump to the next patch version (0.1.2 -> 0.1.3) and cite why: a finalized PyPI release cannot re-upload rebuilt binaries (prod step runs skip-existing:false; same-version filenames 400). Confirm the previous version pin evidence (Closed QUESTION-115/116, DEVOPS-026 comments) permits the bump, then push the fix commit + new v* tag. The `[project.scripts]`/interface is unchanged so the patch bump is valid; the publish workflow derives the version from the tag (setuptools-scm tag.strict+tag.prefix=v), so the workflow builds clean 0.1.3 only when the v0.1.3 tag exists.
+
+## Improvement: Test PyPI verify step races its own just-uploaded version; re-run the workflow
+
+Condition:
+- When the publish workflow "Verify staged release" step fails with "Could not find a version that satisfies pal_found_cli==X.Y.Z (from versions: ...)" immediately after the Test PyPI upload of a brand-new version
+
+Action:
+- Do NOT treat it as a real defect. Test PyPI's simple index is eventually consistent; pip resolves the version seconds after upload misses it. Confirm the version is indexed (test.pypi.org JSON lists the release), then `POST /actions/runs/<id>/rerun` (same run id) and poll — the re-run passes the verify step and reaches the production publish. Production PyPI is untouched by the failed first attempt. (Run 36684065636: first attempt failed at verify; re-run success.)
+
+## Improvement: parse .gh_token password line before building authenticated push URLs
+
+Condition:
+- When pushing to GitHub via an x-access-token push URL and the token file holds full GCM output
+
+Action:
+- Do extract only the `password=<token>` line with a regex `(?ms)^password=(\S+)` before embedding in the push URL; reading the whole file and using it as the token fails with "credential url cannot be parsed" (the file starts with protocol=/host=/username=/password=). Python helper: regex-extract the password token, set the authenticated remote URL, push main + tag, then restore the original remote URL in a finally block.

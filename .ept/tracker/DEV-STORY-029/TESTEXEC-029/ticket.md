@@ -2,13 +2,14 @@
 id: TESTEXEC-029
 type: testexec
 title: 'TESTEXEC: PyPI page and install docs — QA execution'
-status: Blocked
+status: Closed
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-09-30
 priority: High
 assignee: qa-engineer
 reporter: tech-lead
 estimated_hours: 4
+time_spent_hours: 2.5
 ---
 
 # TESTEXEC-029: TESTEXEC: PyPI page and install docs — QA execution

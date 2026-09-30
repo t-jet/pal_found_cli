@@ -2,13 +2,14 @@
 id: TESTEXEC-032
 type: testexec
 title: 'TESTEXEC: canonical skill-tree migration - QA execution'
-status: Blocked
+status: Closed
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-09-28
 priority: High
 assignee: qa-engineer
 reporter: tech_lead
 estimated_hours: 8
+time_spent_hours: 5
 ---
 
 # TESTEXEC-032: TESTEXEC: canonical skill-tree migration - QA execution

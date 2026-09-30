@@ -2,13 +2,14 @@
 id: DEVOPS-027
 type: devops
 title: 'DEVOPS: conda publication — publication and environment setup'
-status: Blocked
+status: Closed
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-09-28
 priority: High
 assignee: devops-engineer
 reporter: tech-lead
 estimated_hours: 16
+time_spent_hours: 1.5
 ---
 
 # DEVOPS-027: DEVOPS: conda publication — publication and environment setup

@@ -420,6 +420,7 @@ Condition:
 Action:
 
 - Do NOT expect AT-6 or AT-5 to fire — verified 2026-08-14 on QUESTION-117/118/119/129/130: closing each question with its Blocks link still present left the parent Blocked, and removing the link did not trigger AT-5 either. Manually complete the restore: (1) remove the Blocks link (satisfies the question's Closed DoD "blocking link removed"), (2) recover the parent's TRUE pre-blocking status from its status-transition comment history (the auto-generated "Ticket updated ... status=Open" right after creation) — the blocker-record comment's "Prior status" line records the parent's state at question-creation (already Blocked from the earlier QA-gate failure), NOT the pre-blocking status; (3) update the parent `Blocked -> <prior_status>` (all five parents restored Open). Also verify each question's real Blocks-link target via `link list` before restoring — the user brief listed 4 parents but the actual targets were 5 (TESTEXEC-027, TESTCASE-028, TESTEXEC-028, TESTCASE-037, TESTEXEC-037; TESTCASE-037 was omitted). Reconfirmed QUESTION-110/TESTEXEC-024 (2026-08-15): the brief's "close Resolved->Closed FIRST, then remove link, then restore parent" order is ACCEPTED for the question type — the validator allows question Resolved->Closed while the Blocks link is still present (unlike `bug_subtask` Resolved->Closed which enforces "no active blocks links", see bug_subtask close-order entry), so follow the brief order for questions, then remove the Blocks link and manually restore the parent `Blocked -> Open`. Verified final state via post-write get + link list: QUESTION-110 Closed terminal with only the Question link (LINK-00973) remaining, TESTEXEC-024 Open with no Blocks link. Reconfirmed QUESTION-112/TESTCASE-025 (2026-08-16): full requester lifecycle Open -> In Progress -> Resolved -> Closed accepted (time_spent_hours=0.5 set before In Progress -> Resolved per DoD), and question Resolved -> Closed was accepted with the Blocks link LINK-00976 still present; the blocker-record comment again said "Prior status: Blocked" twice while the true pre-blocking status was Open (create-time transition comment 20260813-182758 records status=Open); after closure removed LINK-00976 and manually restored TESTCASE-025 Blocked -> Open. Final state verified via post-write get + link list: QUESTION-112 Closed terminal with only the Question link (LINK-00977) remaining, TESTCASE-025 Open with zero Blocks links.
+Reconfirmed at batch scale (2026-09-28, 14 questions: QUESTION-114/115/116/120/121/122/123/124/125/126/127/128/131/132): every Resolved->Closed left its Blocks target Blocked, and removing each Blocks link never fired AT-5. Additional batch learnings: (a) Blocks targets were mostly SIBLING sub-tasks (DEVOPS/TESTEXEC/TESTCASE under the same DEV-STORY), not the direct parent, so check `link list <question>` for the real target before reporting the parent; (b) the true prior status comes from the target's earliest "Ticket updated ... status=Open" comment (all 13 sibling targets were Open; TESTEXEC-025 was In Progress per manager audit 20260817-143650); (c) some targets had SECONDARY blocker links (BUG-SUB-015 LINK-01021, BUG-SUB-016 LINK-01032/01033/01034/01035) already removed before this batch — verify via `link list <bug>` so the confirmation comment states the real remaining-link state; (d) do NOT manually transition Blocked targets per user brief — record the required manual restoration in a confirmation comment instead. All 14 questions closed terminal with only Contains/ParentChild/Question links remaining.
 
 ## Improvement: static workflow-glob verification catches upload format drift
 
@@ -525,3 +526,57 @@ Condition:
 
 Action:
 - Do compare the complete expected name set and require the sentinel file in every expected directory before destination mutation. A count plus one representative sentinel is insufficient: replacing one expected directory with a similarly prefixed directory, or removing a namespace sentinel while keeping its directory, can preserve the count and let an incomplete distribution succeed.
+## Improvement: batch restore of QA sub-tasks after Blocked auto-restore fails
+
+Condition:
+- When QA sub-tasks sit in Blocked after their QUESTION blockers reached terminal status and Blocks links were removed, but AT-5/AT-6 auto-restore never fired
+
+Action:
+- Do restore each via update <id> --status <prior> --author qa-engineer, one ticket at a time. Before restore: get <id> to confirm Blocked, link list <id> to confirm zero Blocks links, and read the restore-confirmation/manager comments for the true prior status. After restore: get <id> to verify the persisted status. Do NOT run tracker writes in parallel (shared-terminal output interleaves and ID allocation can race). Do NOT perform further QA work (test design/execution) during the restore - that is a later stage. Verified 2026-09-28: TESTEXEC-025 -> In Progress; TESTEXEC-026/029, TESTCASE-030, TESTEXEC-030, TESTCASE-031, TESTEXEC-031, TESTCASE-032, TESTEXEC-032 -> Open; all exit 0, all post-write gets confirmed.
+## Improvement: TESTCASE over-broad premises vs documented contract -> reconcile QUESTION, not BUG-SUB
+
+Condition:
+- When a TESTCASE expected-output is broader than the implemented/documented contract, and the repo's own executable tests pin the narrower contract (e.g. GCD-TC-007 expected removing extra non-canonical pal-found* folders while README + test_published_powershell_copy_is_complete_and_safe_to_rerun say the command replaces only the 19 canonical targets and preserves non-canonical user folders; GCD-TC-009 expected empty-sentinel detection while the command and test_published_powershell_copy_rejects_missing_sentinel_atomically validate existence only; SMT-TC-006 expected repository AGENTS.md in the skills repo while DEV-024 split-manifest assigns AGENTS.md to pal_found_cli)
+
+Action:
+- Do verify the ACTUAL contract first (read the repo's own tests/executable checks + the README commands), record the case PASS for the documented behavior, flag the premise over-reach in the execution log, and raise a reconcile QUESTION to tech-lead (Blocks link auto-blocks the TESTEXEC via AT-4). Do NOT file a BUG-SUB when the implementation matches its documented+tested contract and the over-reach is a test-case wording issue. Verified TESTEXEC-030/032 (2026-09-28): 31/31 cases PASS across GCD+SMT with 3 spec flags (QUESTION-137); no BUG-SUB.
+
+## Improvement: public skills repo QA gate uses anonymous clone at pinned baseline
+
+Condition:
+- When QA executes distribution/harness/migration cases against the canonical public skills repo https://github.com/t-jet/pal_found_cli_skills
+
+Action:
+- Do anonymous clone with GIT_TERMINAL_PROMPT=0 + empty GIT_ASKPASS + empty credential helper; verify .agents/skills has exactly 19 pal-found* folders each with SKILL.md and .claude/skills pointer-only (README.md). Confirm HEAD matches the DEV-027 baseline (4564e783a948de66d8edb978dc17aaf5ddaeea8d) but assert the 19-name manifest from README, not a hard-coded SHA (live HEAD may drift). Run the repo's own pytest suite as first-party evidence (distribution, migration, hygiene = 14 passed) alongside the literal documented README commands. Verified TESTEXEC-030/031/032 (2026-09-28).
+
+## Improvement: no-credential and POSIX cases need explicit cross-platform evidence
+
+Condition:
+- When GCD-TC-016 (POSIX copy) or similar cross-platform cases run on a Windows host
+
+Action:
+- Do execute the literal POSIX block via WSL bash (/usr/bin/find, /usr/bin/cp) writing evidence to a log; assert exit code + 19 folders + sentinels. For no-package-manager cases, demonstrate all clone/copy/verify used only git + file tools with no prompt. Verified TESTEXEC-030 (2026-09-28): GCD-TC-016 PASS via WSL, GCD-TC-017 PASS from aggregate evidence.
+
+## Improvement: branch protection may be modern rulesets, not classic endpoint
+
+Condition:
+- When validating a PUBLIC repo branch-protection read (PUB-TC-012-style) after the owner grants Administration: Read, and classic GET /repos/{repo}/branches/main/protection returns 404 while /branches shows main protected=True
+
+Action:
+- Do NOT treat 404 as failure or token denial. A change from 403 (scope denial) to 404 (Branch not protected) proves the admin scope is EFFECTIVE; on GitHub the protection may be enforced via MODERN REPOSITORY RULESETS instead of classic branch protection. Probe GET /repos/{repo}/rulesets and read the ruleset detail at its _links.self.href. Capture the real rules (deletion, non_fast_forward, pull_request with required_approving_review_count, dismissal, allowed_merge_methods) and bypass_actors. Record protected=false repos (no rulesets, branch protected flag false) as a documented fact, not a defect. Verified TESTEXEC-025/PUB-TC-012 (2026-09-29): root pal_found_cli no rulesets (protected=false); tool ruleset 24088544 + skills ruleset 24088414 both branch-rules include [~ALL], deletion+non_fast_forward+pull_request (approval count 1 skills / 0 tool), Admin-role bypass always.
+
+## Improvement: PyPI page rendered-HTML is CAPTCHA-walled — use JSON API as authoritative
+
+Condition:
+- When QA must verify a PyPI project page (name/version/description/links/license/classifiers) and an anonymous HTTP GET (or headless browser) on https://pypi.org/project/<name>/ returns a Fastly client-challenge / CAPTCHA page ("Client Challenge", maybe a "verify your browser" or image CAPTCHA) instead of the real page
+
+Action:
+- Do NOT treat the challenge as a package defect. Use the anonymous JSON API https://pypi.org/pypi/<name>/json (returns 200, no challenge) as the authoritative data source the page renders from, and validate name, version, description, requires_python, project_urls, license, classifiers there. Record the rendered-HTML assertion as environmentally BLOCKED when only the challenge page is reachable (do not brute-force or solve the CAPTCHA). Verified TESTEXEC-029 (2026-09-30): name/version/description/requires_python all confirmed from JSON; page links/license could not be shown because project_urls/license/classifiers are actually NULL in the published metadata (real defect -> BUG-SUB-017), not because of the challenge wall.
+
+## Improvement: PyPI package metadata gaps must be checked via pyproject + published JSON
+
+Condition:
+- When QA validates PyPI page link/metadata cases and the published JSON shows project_urls=null, license=null, classifiers=[], and the project page cannot render Repository/Homepage/Documentation links or a license/classifier section
+
+Action:
+- Do cross-check pyproject.toml for a missing [project.urls] table, missing license field, and missing classifiers ; confirm no LICENSE file present; then file a BUG-SUB (classification: real metadata/publication gap, requires republish). The install-doc auth/.env gap (README/PyPI long description with no FOUNDRY_TOKEN/dotenv guidance while .env.example exists but is unreferenced) is a separate BUG-SUB. Both keep the TESTEXEC Blocked (Blocks links) until resolved. Verified TESTEXEC-029 (2026-09-30): BUG-SUB-017 (High, links/license/classifiers) + BUG-SUB-018 (Medium, auth/.env guidance), both Open.

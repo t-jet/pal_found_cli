@@ -2,13 +2,14 @@
 id: TESTCASE-030
 type: testcase
 title: 'TESTCASE: git-clone and skill-copy instructions — QA scenarios'
-status: Blocked
+status: Closed
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-09-28
 priority: High
 assignee: qa-engineer
 reporter: tech-lead
 estimated_hours: 8
+time_spent_hours: 4
 ---
 
 # TESTCASE-030: TESTCASE: git-clone and skill-copy instructions — QA scenarios

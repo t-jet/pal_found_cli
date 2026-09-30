@@ -2,13 +2,14 @@
 id: TESTEXEC-026
 type: testexec
 title: 'TESTEXEC: PyPI publication — QA execution'
-status: Blocked
+status: Closed
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-09-30
 priority: High
 assignee: qa-engineer
 reporter: tech-lead
 estimated_hours: 8
+time_spent_hours: 2
 ---
 
 # TESTEXEC-026: TESTEXEC: PyPI publication — QA execution

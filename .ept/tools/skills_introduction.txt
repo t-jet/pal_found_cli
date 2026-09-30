@@ -1,5 +1,6 @@
 Skills provide specialized capabilities, domain knowledge, and refined workflows for producing high-quality outputs.
 Each skill can be provided as an inline instructions in the `<skill>` sections below or as a reference to the file. Skills provided inline have a `<instructions>` section with the skill's instructions. Skills provided as a reference have a `<file>` section with the path to the skill's instructions file relative to the root of the project repository.
+For inline skills base directory for relative references contained in skill instructions is `.ept\resources\skills`, for skills with file references use their folder as a base.
 Multiple skills can be combined when a task requires different capabilities.
 BLOCKING REQUIREMENT: When one or more skills provided as a reference to the file applies to the user's request, you MUST load and read the SKILL.md file IMMEDIATELY as your first action for all applied skills, BEFORE generating any other response or taking any other action on the task. Use appropriate file reading tool to load the relevant skill(s).
 NEVER just mention or reference a skill in your response without actually reading its content first. If a skill is relevant, load it before proceeding.

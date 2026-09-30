@@ -2,13 +2,14 @@
 id: DEVOPS-025
 type: devops
 title: 'DEVOPS: public GitHub repositories — publication and environment setup'
-status: Blocked
+status: Closed
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-09-28
 priority: High
 assignee: devops-engineer
 reporter: tech-lead
 estimated_hours: 8
+time_spent_hours: 1.0
 ---
 
 # DEVOPS-025: DEVOPS: public GitHub repositories — publication and environment setup

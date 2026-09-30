@@ -2,10 +2,11 @@
 id: FEATURE-007
 type: feature
 title: Distribute foundry_cli_skills via git clone and skill copy
-status: Waiting for Implementation
+status: Closed
 created: 2026-08-11
-updated: 2026-08-13
+updated: 2026-09-30
 priority: High
+resolution: Done
 assignee: project-owner
 reporter: project-owner
 ---

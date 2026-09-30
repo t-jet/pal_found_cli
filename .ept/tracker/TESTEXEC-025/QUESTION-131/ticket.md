@@ -2,10 +2,10 @@
 id: QUESTION-131
 type: question
 title: Provide controlled GitHub test fixtures and owner evidence for TESTEXEC-025
-status: In Progress
+status: Closed
 addressed_to: project-owner
 created: 2026-08-17
-updated: 2026-08-17
+updated: 2026-09-28
 priority: High
 assignee: qa-engineer
 reporter: qa-engineer

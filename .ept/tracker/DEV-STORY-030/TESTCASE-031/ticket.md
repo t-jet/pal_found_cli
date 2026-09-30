@@ -2,13 +2,14 @@
 id: TESTCASE-031
 type: testcase
 title: 'TESTCASE: harness discovery and onboarding - QA scenarios'
-status: Blocked
+status: Closed
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-09-28
 priority: High
 assignee: qa-engineer
 reporter: tech_lead
 estimated_hours: 4
+time_spent_hours: 2
 ---
 
 # TESTCASE-031: TESTCASE: harness discovery and onboarding - QA scenarios

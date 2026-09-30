@@ -2,12 +2,13 @@
 id: DEV-STORY-032
 type: dev_story
 title: Add Palantir Foundry platform description to the main skill
-status: Deployment
+status: Closed
 feature_request: FEATURE-008
 epic: EPIC-009
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-09-30
 priority: High
+resolution: Done
 assignee: tech-lead
 reporter: ba
 story_points: 3

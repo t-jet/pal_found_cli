@@ -2,9 +2,9 @@
 id: TESTEXEC-025
 type: testexec
 title: 'TESTEXEC: public GitHub repositories — QA execution'
-status: Blocked
+status: Closed
 created: 2026-08-13
-updated: 2026-08-17
+updated: 2026-09-29
 priority: High
 assignee: qa-engineer
 reporter: tech-lead

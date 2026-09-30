@@ -2,12 +2,13 @@
 id: DEV-STORY-028
 type: dev_story
 title: Publish the CLI tool to a conda channel with version alignment
-status: Deployment
+status: Closed
 feature_request: FEATURE-005
 epic: EPIC-010
 created: 2026-08-13
-updated: 2026-08-14
+updated: 2026-09-29
 priority: High
+resolution: Done
 assignee: tech-lead
 reporter: ba
 story_points: 8

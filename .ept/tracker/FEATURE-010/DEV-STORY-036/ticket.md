@@ -2,12 +2,13 @@
 id: DEV-STORY-036
 type: dev_story
 title: Rename package, commands, skill folders and repositories per confirmed mapping
-status: Deployment
+status: Closed
 feature_request: FEATURE-010
 epic: EPIC-010
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-09-30
 priority: High
+resolution: Done
 assignee: tech-lead
 reporter: ba
 story_points: 13

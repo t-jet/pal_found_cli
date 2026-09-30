@@ -2,10 +2,11 @@
 id: EPIC-009
 type: epic
 title: Harness-agnostic distribution and self-contained content of Foundry agent skills
-status: Open
+status: Done
 created: 2026-08-11
-updated: 2026-08-11
+updated: 2026-09-30
 priority: High
+resolution: Done
 assignee: project-owner
 reporter: project-owner
 ---

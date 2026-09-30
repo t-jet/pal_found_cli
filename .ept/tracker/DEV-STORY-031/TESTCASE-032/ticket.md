@@ -2,13 +2,14 @@
 id: TESTCASE-032
 type: testcase
 title: 'TESTCASE: canonical skill-tree migration - QA scenarios'
-status: Blocked
+status: Closed
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-09-28
 priority: High
 assignee: qa-engineer
 reporter: tech_lead
 estimated_hours: 6
+time_spent_hours: 3
 ---
 
 # TESTCASE-032: TESTCASE: canonical skill-tree migration - QA scenarios

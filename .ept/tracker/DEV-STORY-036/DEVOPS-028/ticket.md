@@ -2,13 +2,14 @@
 id: DEVOPS-028
 type: devops
 title: 'DEVOPS: confirmed package and repository rename - pipeline and release coordination'
-status: Blocked
+status: Closed
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-09-28
 priority: High
 assignee: devops-engineer
 reporter: tech_lead
 estimated_hours: 12
+time_spent_hours: 1.5
 ---
 
 # DEVOPS-028: DEVOPS: confirmed package and repository rename - pipeline and release coordination

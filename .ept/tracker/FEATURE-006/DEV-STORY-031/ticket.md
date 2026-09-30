@@ -2,12 +2,13 @@
 id: DEV-STORY-031
 type: dev_story
 title: Migrate and rename all skills into the standard .agents/skills folder
-status: QA
+status: Closed
 feature_request: FEATURE-006
 epic: EPIC-009
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-09-30
 priority: High
+resolution: Done
 assignee: tech-lead
 reporter: ba
 story_points: 8

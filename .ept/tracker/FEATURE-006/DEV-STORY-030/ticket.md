@@ -2,12 +2,13 @@
 id: DEV-STORY-030
 type: dev_story
 title: Verify skill discovery per harness and write onboarding instructions
-status: QA
+status: Closed
 feature_request: FEATURE-006
 epic: EPIC-009
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-09-30
 priority: High
+resolution: Done
 assignee: tech-lead
 reporter: ba
 story_points: 5

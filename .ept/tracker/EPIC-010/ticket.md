@@ -2,10 +2,11 @@
 id: EPIC-010
 type: epic
 title: Public repositories and distribution of the Foundry CLI tool
-status: Open
+status: Done
 created: 2026-08-11
-updated: 2026-08-11
+updated: 2026-09-30
 priority: High
+resolution: Done
 assignee: project-owner
 reporter: project-owner
 ---

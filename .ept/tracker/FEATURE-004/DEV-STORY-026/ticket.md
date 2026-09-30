@@ -2,12 +2,13 @@
 id: DEV-STORY-026
 type: dev_story
 title: Publish the CLI tool package to PyPI with release verification
-status: QA
+status: Closed
 feature_request: FEATURE-004
 epic: EPIC-010
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-09-30
 priority: High
+resolution: Done
 assignee: tech-lead
 reporter: ba
 story_points: 8

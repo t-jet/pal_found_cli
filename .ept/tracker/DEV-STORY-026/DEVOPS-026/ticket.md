@@ -2,9 +2,9 @@
 id: DEVOPS-026
 type: devops
 title: 'DEVOPS: PyPI publication — publication and environment setup'
-status: Blocked
+status: Closed
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-09-30
 priority: High
 assignee: devops-engineer
 reporter: tech-lead

@@ -2,10 +2,11 @@
 id: FEATURE-010
 type: feature
 title: Rename foundry_ prefix to pal_found_ across all three projects
-status: Waiting for Implementation
+status: Closed
 created: 2026-08-12
-updated: 2026-08-13
+updated: 2026-09-30
 priority: High
+resolution: Done
 assignee: project-owner
 reporter: project-owner
 ---

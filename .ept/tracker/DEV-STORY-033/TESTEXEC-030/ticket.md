@@ -2,13 +2,14 @@
 id: TESTEXEC-030
 type: testexec
 title: 'TESTEXEC: git-clone and skill-copy instructions — QA execution'
-status: Blocked
+status: Closed
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-09-29
 priority: High
 assignee: qa-engineer
 reporter: tech-lead
 estimated_hours: 6
+time_spent_hours: 6
 ---
 
 # TESTEXEC-030: TESTEXEC: git-clone and skill-copy instructions — QA execution

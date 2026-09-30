@@ -2,12 +2,13 @@
 id: DEV-STORY-025
 type: dev_story
 title: Publish all three repositories publicly on GitHub
-status: QA
+status: Closed
 feature_request: FEATURE-002
 epic: EPIC-010
 created: 2026-08-13
-updated: 2026-08-13
+updated: 2026-09-29
 priority: High
+resolution: Done
 assignee: tech-lead
 reporter: ba
 story_points: 5
