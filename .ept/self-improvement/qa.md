@@ -1,5 +1,16 @@
 # QA self-improvement memory
 
+## Improvement: independent review must check submodule push + parent gitlink separately
+
+Condition:
+
+- When independently reviewing a QA batch where the deliverable lives in a git submodule (e.g., pal_found_cli_skills) and QA validated the submodule worktree HEAD
+
+Action:
+
+- Do treat "worktree content validated by QA" and "submodule integrated for deploy" as two separate facts: verify worktree HEAD content (git ls-tree, SKILL.md scans, pytest) AND separately verify (a) the parent repo gitlink (`git ls-tree HEAD <sub>` vs worktree `rev-parse HEAD`, `git submodule status` `+` prefix = uncommitted), and (b) whether the submodule commits are pushed (`git status -sb` ahead N, `git rev-parse origin/main`).
+- Do NOT assume QA's validated HEAD is deployable; report uncommitted parent pin + unpushed submodule commits as a deployment-blocking ISSUE even when QA closure is fully correct.
+
 ## Improvement: question batch resolution workflow
 
 Condition:
@@ -58,3 +69,16 @@ Condition:
 Action:
 
 - Do re-`get` the comment list before retrying; if the first comment already posted, update the retry comment to mark it superseded/duplicate instead of leaving two similar blocker records.
+
+## Improvement: doc-only skills QA evidence workflow (FEATURE-011 stories)
+
+Condition:
+
+- When QA executes TESTCASE/TESTEXEC for doc-only skill conversion stories where the repo change is pure documentation/removal (no runtime behavior to run)
+
+Action:
+
+- Do verify with git-tree evidence first: `git ls-tree -r HEAD --name-only .agents/skills` proves no .py/scripts/ remains; confirm deletion history with `git log --all --diff-filter=D --name-only --pretty=format:%h %s -- <glob>`.
+- Do scan SKILL.md content with exact-string checks (conda `-c t-jet`, pip, uv lines; stale-ref regex `python\s+[\w/._\-]*_cli\.py`), and verify tool-side op counts from the installed CLI `--help` strings (authoritative) plus parser dumps, not just docs.
+- Do run the unit-test suite at HEAD as the authoritative test check (16 passed) and save evidence JSON to `.ept/tmp/` for durable linkage in comments.
+- Do advance TESTEXEC New→Open→In Progress→Resolved→Closed only after posting per-case PASS/FAIL matrix with evidence file paths; then confirm the parent DEV-STORY auto-advanced QA→Deployment (AT-1) — do not force the story transition.

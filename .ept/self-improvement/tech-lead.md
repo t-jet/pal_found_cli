@@ -450,3 +450,107 @@ Condition:
 
 Action:
 - Do extract only the `password=<token>` line with a regex `(?ms)^password=(\S+)` before embedding in the push URL; reading the whole file and using it as the token fails with "credential url cannot be parsed" (the file starts with protocol=/host=/username=/password=). Python helper: regex-extract the password token, set the authenticated remote URL, push main + tag, then restore the original remote URL in a finally block.
+
+## Improvement: approve design-stage QUESTIONs after grounding feasibility in repo surface
+
+Condition:
+
+- When acting as the Lead Developers approval gate for design deliverables (QUESTION addressed to tech-lead on a ba_subtask_design/sa_subtask_design parent), and the approval hinges on "the tool already exposes the commands" or "operation parity"
+
+Action:
+
+- Do verify the repo surface BEFORE posting the approval: `pyproject.toml [project.scripts]` entry-point count and names, and count the CLI operations from the parser builder (datasets=33 across 5 resource clients verified by reading `build_parser()`; ontologies=67). Ground the parity claim (superset/operation counts) in the installed artifact, not the design doc's own table.
+- Do advance the approval question New→Open→In Progress→Resolved→Closed in one bounded chain after `workflow transitions question <status>` confirms each hop, then remove the Blocks link (NOT the Question link) to the parent. The parents stay Blocked held by their remaining PO approval QUESTIONs (Q-150/Q-151) which at that point have no Blocks links created yet — expect that asymmetry and report it rather than treating it as a gap.
+- Do post the approval comment with evidence (verified entry points, operation counts, install-requirement propagation, DEV-STORY mapping) so the closure is falsifiable, mirroring the "ground backward-compat closure claim" pattern.
+
+## Improvement: verify `--assignee` applied on tracker create; correct silently-defaulted authors post-hoc
+
+Condition:
+
+- When creating implementation sub-tasks (design/development/unittest/codereview/testcase/testexec) via the unified tracker CLI with `--assignee <role>` and `--parent`
+
+Action:
+
+- Do `get` a sample of children after creation and confirm `assignee` persisted. Observed 2026-10-01 FEATURE-011 batch: ALL 15 sub-tasks defaulted to `tech-lead` (the `--author` role) despite explicit `--assignee python-developer/qa-engineer`; the CLI silently ignored the assignee option on create. Fix with `update <id> --assignee <role> --author <role>` before advancing status gates (DEV-038/UNITTEST-038/039/040 → python-developer; TESTCASE/TESTEXEC-038/039/040 → qa-engineer; CODEREVIEW-039/040 → architect). Verify assignee after the fix.
+
+## Improvement: tracker comment+update chains abort with ^C; run one mutation per call
+
+Condition:
+
+- When chaining `comment create` then `update --status` (or two `update` mutations) back-to-back in one terminal call, especially after a long comment body
+
+Action:
+
+- Do run each tracker mutation as its own sync command. Observed twice in the FEATURE-011 batch (DEV-039 plan comment interrupted; DEV-040 time+resolve chain interrupted with ^C before the first mutation). Retry the failed single command rather than re-running the whole chain. Plan: comment → verify exit 0 → update (separate call).
+
+## Improvement: New→In Progress is invalid for implementation sub-tasks
+
+Condition:
+
+- When advancing a `development`/`unittest`/`testcase`/`testexec` sub-task from New
+
+Action:
+
+- Do run `New → Open → In Progress` (New allows only Open/Canceled/Rejected/Duplicated; New→In Progress is ValidationError [2]). `design` type follows the same New→Open→In Progress path. CODEREVIEW differs: New→Open directly (no In Progress; review moves Open→Correction/Corrected→Closed or Open→Closed on approval).
+
+## Improvement: scope doc-only skill tests to the current story during migration
+
+Condition:
+
+- When a DEV sub-task rewrites a repository-wide doc-only assertion while sibling stories still hold launchers/scripts
+
+Action:
+
+- Do scope the assertion to the story's own folders (DEV-039: datasets/ontologies only) so the suite stays green mid-migration; generalize to all namespace skills when the final conversion story (DEV-038) lands. A full-tree assertion fails on sibling launchers and blocks the PR. Also delete `scripts/` dirs with `git rm` (empty dirs vanish from git; no `Remove-Item` needed) and verify with `git status --porcelain`.
+
+## Improvement: escape backticks in PowerShell content writes; verify appended markdown
+
+Condition:
+
+- When appending markdown containing backtick-wrapped identifiers (e.g. `` `pal-found-<ns>` ``) via PowerShell `Add-Content`/`Set-Content` with double-quoted strings
+
+Action:
+
+- Do use single-quoted strings for literal backtick content or escape every backtick; double-quoted PowerShell strings treat `` ` `` as the escape character and silently strip it. Observed: 12 SKILL.md install-requirement blocks lost the backticks around `pal-found-<ns>` (rendered plain `pal-found-aip-agents is provided by...`). Fixed with a follow-up `.Replace()` pass. Verify appended content with `read_file` and a per-skill regex check (escape backticks: `` ` `` in the pattern) before committing.
+
+## Improvement: commit split content-only dev work as multiple commits to avoid partial `git add` abort
+
+Condition:
+
+- When `git add` mixes already-staged deletions (via `git rm`) with new modified files and one pathspec no longer matches
+
+Action:
+
+- Do run `git add <specific paths>` for the modified files separately from the `git rm`-staged deletions, or use `git add -A`; a single `git add <deleted-path> <modified-path>` aborts on the missing deleted pathspec and leaves modified files unstaged (observed: DEV-039 commit captured only deletions; SKILL.md+test landed in a second commit). Check `git show --stat` after commit and commit the remainder if the working tree is not clean.
+
+## Improvement: verify EPIC AT-2 fire when reviewing a story batch that passed through Development
+
+Condition:
+
+- When independently reviewing a DEV-STORY batch that advanced through Development to QA, and the batch claims auto-transitions fired correctly
+
+Action:
+
+- Do check the parent EPIC status separately: `type-info epic` shows AT-2 (first_child_reaches_status on EpicLink dev_story) fires from Open→In Progress, but it does NOT retroactively fire once stories already passed Development and sit in QA. Observed 2026-10-01: EPIC-011 stuck Open while all 3 linked stories (038/039/040) are in QA — the auto-rule missed its window. Report it as a data-integrity issue for Architect/BA to transition manually; do not manufacture the cascade.
+- Do AST-count `_add_operation` registrations when a tool CLI does NOT use an OP_SPECS tuple literal (datasets build_parser style = 33 ops from 15 direct + 18 loop-expanded calls); ontologies uses OP_SPECS tuple (67 exact). Verify operation parity claims against the tool-side parser, not the SKILL.md table alone.
+- Do count test functions per commit (`git show <c>:` + regex `def test_`) to validate 14/14→16/16 trajectory claims; run the suite at HEAD as the authoritative check.
+
+## Improvement: post closure evidence comment BEFORE Resolved->Closed and set resolution via --field
+
+Condition:
+
+- When closing a dev_story (Resolved -> Closed) per the Resolved instructions ("Set resolution (Done/Canceled)" then "WHEN DoD met THEN move to Closed")
+
+Action:
+
+- Do set resolution first via `update <t> --author <role> --field resolution=Done` (repeatable key=value), then post the acceptance-mapped completion evidence comment, then `update <t> --author <role> --status Closed`. The `update` success line's priority display is unreliable (showed Medium while `get` reports High) - confirm real state with `get`. Remember the story-level Close DoD requires NO active blocker link on the STORY; a CODEREVIEW child showing `Blocked=Yes` from an inbound DEV->CODEREVIEW `Blocks` link (targets the child) is cosmetic and must NOT block closure - confirm via `link list <story>` (Contains + EpicLink only) and proceed.,
+
+## Improvement: FEATURE auto-advances on story close but EPIC In Progress->Resolved can stall - report, don't force
+
+Condition:
+
+- When all a feature's dev_story children close and the request asks whether auto-transition rules advanced FEATURE and EPIC
+
+Action:
+
+- Do verify observed statuses WITHOUT manual transitions: `get FEATURE-011` (Waiting for Implementation -> Resolved fired via AT-1 all_children_reach_status dev_story [Closed,...]) and `get EPIC-011` (still In Progress even when all EpicLink stories are Closed - In Progress->Resolved AT-1 did NOT fire). Confirm the EpicLink sibling set with `link list EPIC-011` (038/039/040 all Closed) to rule out a non-terminal sibling. Report the stall as an observed state for an Architect/BA decision; do NOT manually force the epic transition to manufacture the cascade.

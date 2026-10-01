@@ -2,15 +2,45 @@
 
 ## Improvement History
 
+## Improvement: read the sibling deliverable's CURRENT content before approving a QUESTION, don't trust a prior snapshot
+
+Condition:
+- When an SA (or BA) cross-review/approval QUESTION (e.g. QUESTION-143 approval of BA-DES-012) is addressed to the architect and the sibling deliverable may have been updated after a shared PO change request
+
+Action:
+- Do re-read the sibling deliverable's current file (and its recent comments) before approving; another role may already have incorporated the shared requirement (e.g. the BA updated BA-DES-012 on 2026-10-01 with BR-D-012-07/AC-D-012-09 mirroring the approved install-requirement BR-011-08 before the SA reviewed it). Do not assume the file still matches an earlier session snapshot, and do not force the reviewer to re-add content that is already present. Also verify the QUESTION's actual blocker set (`link list` on the parent) rather than assuming which questions still hold it: a PO approval question (e.g. QUESTION-150) may exist without a Blocks link yet, so the parent can remain already-Blocked by the remaining active blocker (e.g. QUESTION-144). Confirmed 2026-10-01 on QUESTION-143: BA-DES-012 already carried the install-requirement; I approved after verifying install commands against pyproject.toml name + conda.recipe + tool README + lint, advanced Q-143 New->Open->In Progress->Resolved->Closed, removed Blocks link LINK-01065 keeping Question link LINK-01067; BA-DES-012 stayed Blocked by Q-144.
+
+## Improvement: cross-review approval verifies claims against actual artifacts, not sibling docs
+
+Condition:
+- When performing a mandatory SA (or BA) cross-review approval of a sibling analysis deliverable (e.g. QUESTION approval of BA-ANA-012/SA-ANA-012), the deliverable's inventory tables and prose cite sizes/counts
+
+Action:
+- Do verify every checkable claim against the actual artifacts before approving: skill script line counts via Get-Content .Count, tool source parser registration (datasets 33 ops / ontologies 67 ops verified in build_parser/OPERATION_BY_RESOURCE), package install commands against pyproject.toml name + conda.recipe meta.yaml + tool README, and cross-check the sibling DESIGN doc (which may carry correct counts where the BA doc is stale). If the substance passes but a metric (e.g. inventory line counts) is stale, APPROVE with a named non-blocking data-accuracy finding recommending a refresh at next edit, and document the actual vs claimed values in the approval comment. Do not force-approve by skipping verification; do not block approval for illustrative metrics that change no AC or migration decision. Confirmed 2026-10-01 on QUESTION-145: BA-ANA-012 inventory claims datasets 467 / ontologies 442 / admin 26 / wrappers 10 lines, actual 526 / 503 / 33 / 14 (12 wrappers 14 each, audit/filesystem/functions 32/32/33); classification and 33/67 op supersets verified against tool source; SA-DES-011 already carries correct counts so downstream unaffected; approved with finding and Closed.
+
+## Improvement: SA-DES close requires BA-DES terminal; verify actual DEV-STORYs, don't assume boundaries
+
+Condition:
+- When an SA design sub-task (sa_subtask_design) reaches Resolved and its Resolved->Closed DoD requires the BA-SUB (ba_subtask_design) in a terminal status and QUESTION approvals
+
+Action:
+- Do complete the design and advance Open->In Progress->Resolved with deliverables registered in `.ept/docs/document_index.md`, time reported (`--field time_spent_hours=...`, not `resolution`), and map the design to the BA-created DEV-STORYs by re-listing the parent FEATURE links (`link list <FEATURE>` reveals DEV-STORY-NNN IDs the BA created during BA-DES) instead of assuming story boundaries. If the BA-DES sibling is In Progress (not terminal), do NOT force-close the SA against the DoD: hold it Resolved and post a closure-dependency comment naming the unmet DoD criterion (BA-SUB terminal, approvals). Confirm no UX-DES sub-task exists before claiming that clause is N/A. Confirmed on SA-DES-011 2026-09-30: held Resolved because BA-DES-012 stayed In Progress; design mapped 1:1 to the three BA-created DEV-STORYs (038 16 wrappers, 039 datasets/ontologies migration, 040 distribution/onboarding); no QUESTION raised.
+
 ## Improvement: verify blocked-target unblock after resolving a QUESTION
 
 Condition:
 - When resolving a QUESTION (move to Resolved) whose Blocks link targets a sub-task (e.g. DEVOPS-024) rather than the ticket's own parent, and tracker auto-rule AT-6 should return the target to prior status
 
 Action:
-- Do re-get the blocked target and re-list the Blocks link right after the Resolved transition. If the target is still Blocked with the Blocks link present, don't assume the auto-rule fired: flag the transition-map gap to `workflow-mgr` (per the consult-the-transition-map rule) or remove the link per the question Resolved instructions if the mandate allows. Also verify the actual ticket status before transitioning: the QUESTION-111 narrative claimed the target was Blocked, but the question itself was Open, and the "no substantive blocker" comment 20260813-190418-qa-engineer predated the real blocker record 20260813-234024-qa-engineer. Confirmed 2026-08-15 on QUESTION-111: moved Open → In Progress → Resolved with answer comment 20260815-024325-architect; DEVOPS-024 remained Blocked with LINK-00974 present after Resolved — AT-6 did not fire.
+- Do re-get the blocked target and re-list the Blocks link right after the Resolved transition. If the target is still Blocked with the Blocks link present, don't assume the auto-rule fired: flag the transition-map gap to `workflow-mgr` (per the consult-the-transition-map rule) or remove the link per the question Resolved instructions if the mandate allows. Also verify the actual ticket status before transitioning: the QUESTION-111 narrative claimed the target was Blocked, but the question itself was Open, and the "no substantive blocker" comment 20260813-190418-qa-engineer predated the real blocker record 20260813-234024-qa-engineer. Confirmed 2026-08-15 on QUESTION-111: moved Open → In Progress → Resolved with answer comment 20260815-024325-architect; DEVOPS-024 remained Blocked with LINK-00974 present after Resolved — AT-6 did not fire. Confirmed a second time 2026-09-30 on QUESTION-141/BA-ANA-012: SA-ANA-012 progressed to In Progress resolved the BA-ANA-012 dependency; QUESTION-141 moved In Progress → Resolved → Closed; I removed the Blocks link LINK-01053 per the question Resolved instructions, and BA-ANA-012 stayed Blocked through both Resolved and Closed until I restored it to In Progress manually per the BA Blocked instructions ('IF all blocking links removed THEN return this ticket to prior status'). Also note: the `question` type rejects a `resolution` field at create/update (use `--field time_spent_hours` instead); and the SA-ANA Resolved→Closed mutual dependency — SA-ANA Resolved Closed-DoD requires BA-ANA terminal, while BA-ANA Resolved required SA-ANA ≥ In Progress — means two analysis sub-tasks can deadlock on closure; the architect must not force-close the SA against the DoD, but hold it Resolved and restore BA-ANA to prior status so the BA can proceed to terminal.
 
-## Improvement: publication-prerequisite evidence via read-only git probes
+## Improvement: terminal parent still holds governance approval QUESTION links
+
+Condition:
+- When remediating a skipped workflow gate by attaching approval QUESTION sub-tasks to a parent sub-task that is already in a terminal status (e.g. ba_subtask_analysis/sa_subtask_analysis Closed)
+
+Action:
+- Do create the approval QUESTION (with `--parent`, `--addressed-to`, `--assignee`, `--priority High`) and add a Blocks link then a Question link from it to the parent. The auto-block rule (AT-4 child_blocker_created) will log a warning "Invalid status transition ... terminal status" and leave the terminal parent terminal, but the Blocks + Question links ARE still created (exit 0) for the governance/approval trail — that is the correct, expected outcome; don't treat the warning as a failure. Do NOT close anything and do NOT advance any DEV-STORY. Confirmed 2026-09-30 on FEATURE-011 remediation: QUESTION-145 (SA approval of BA-ANA-012, Blocks LINK-01069 / Question LINK-01070) attached to terminal-Closed BA-ANA-012; SA-DES-011 auto-blocked Resolved→Blocked by QUESTION-146/147; BA-DES-012 already Blocked.
 
 Condition:
 - When a QUESTION/DEVOPS ticket asks for the missing repository-publication/environment prerequisite and required evidence for a multi-repository split
@@ -148,6 +178,7 @@ Action:
 - Do re-`get` the ticket immediately before each planned follow-up transition: epic auto-transitions fire right after a manual status move when all EpicLink children are already terminal (confirmed on EPIC-007 2026-08-11: manual New→Open then AT-2 + AT-1×2 fired instantly, landing the epic in terminal Done before the planned Open→In Progress update; the transition call then failed exit 2 with 'Done is a terminal status'). A transition map validated earlier can go stale the moment auto-rules run, so verify actual current status rather than trusting the last known value.
 - Do set the epic `resolution` field (`update --field resolution=Done`) BEFORE the manual In Progress→Resolved transition; the AT-1 Resolved→Done auto-transition then lands the epic in Done already carrying the resolution. Confirmed on the epic-closure batch 2026-08-11 (EPIC-005/006/008): all three were In Progress with all EpicLink DEV-STORYs Closed; each `update --status Resolved` exited 0 reporting pre-auto context `Resolved`, then the immediately-following `get` showed `Done` with `allowed_transitions: []` and `resolution: Done` present in Ticket Details — so the manual Resolved→Done step was skipped every time. When auto-rules can reach the target first, sequence: set resolution → post evidence comment → manual transition → re-get → skip redundant manual transition if terminal already landed.
 - Confirmed a fourth time on EPIC-010 2026-09-30: epic stuck in Open with all 8 EpicLink DEV-STORYs already Closed; manual Open→In Progress exited 0 reporting `In Progress`, then the immediately-following `get` showed `Done` with `allowed_transitions: []` — AT-2 did not need to fire (stories already past Development) but AT-1×2 (In Progress→Resolved→Done) cascaded instantly; `resolution: Done` pre-set via `--field resolution=Done` carried into Done. Sequence confirmed again: pre-set resolution → manual Open→In Progress (the Architect-owned step) → re-get → terminal Done already landed, no further manual transitions needed.
+- Confirmed a fifth time on EPIC-011 2026-10-01: epic already In Progress with all 3 EpicLink DEV-STORYs Closed (038/039/040); manual In Progress→Resolved exited 0 reporting pre-auto `Resolved`, then the immediately-following `get` showed `Done` with `allowed_transitions: []` and `resolution: Done` — AT-1 In Progress→Resolved→Done cascaded instantly; no manual Resolved→Done step was needed. Same sequence held: pre-set resolution → evidence comment → manual transition → re-get → skip redundant manual transition.
 
 ## Improvement: epic Blocked status does not automatically block child story pre-Development transitions
 
@@ -286,3 +317,11 @@ Condition:
 
 Action:
 - Do re-verify the current public heads, exact gitlinks, anonymous recursive clone, redirects, ownership guards, destination CI, and retained history. Add one feature-level acceptance matrix to the release manifest and refresh the reference register's current pins. Keep historical baselines intact and distinguish them from the closure-audit baseline. When tracker access is forbidden, use supplied workflow status only in the closure recommendation and derive technical approval solely from canonical documents and public repository evidence.
+
+## Improvement: EPIC-011 AT-2 window gap confirmed third time (2026-10-01)
+
+Condition:
+- When an epic sits Open with all linked dev_stories already past Development (in QA), and the AT-2 auto-rule (Open to In Progress on first EpicLink story entering Development) did not fire
+
+Action:
+- Do validate readiness (`workflow status epic Open`, `workflow transitions epic Open`, `link list <EPIC>` for EpicLink stories, `get` each story to confirm QA), then execute the Architect-owned manual `update <EPIC> --status "In Progress" --author architect` transition, post a short evidence comment via `comment create` (the first comment create right after the status update can return no output and silently fail - verify with `comment list` and retry once), and do NOT advance to Resolved/Done while stories are non-terminal. Confirmed 2026-10-01 on EPIC-011: DEV-STORY-038/039/040 all QA, transition executed, evidence comment 20261001-145956-architect.

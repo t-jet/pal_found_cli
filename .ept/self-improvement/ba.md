@@ -16,6 +16,19 @@ Action:
 - Do record the retry and its outcome in the final report (observed 2026-08-12: BA-ANA-005 evidence comment succeeded on second retry after two provider 400s; same day 9 cross-review comments with em-dash subjects and short bodies all succeeded first try — the failure driver was body length, not the em dash character; keep bodies short)
 - Reconfirmed 2026-08-13 while closing BA-DES-002..011: provider 400s hit single calls too (BA-DES-011 get, SA-DES-005/006 get pair, BA-DES-007 comment create), each fixed by one compact retry. When BOTH calls in a parallel pair return 400, retry them ONE at a time (sequential), not as a new pair — parallel pairs keep tripping the provider
 
+## Improvement: resolve BA/SA analysis mutual closure when SA is Resolved
+
+Condition:
+
+- When closing the BA-ANA + SA-ANA pair for a FEATURE Analysis→In Design transition, and SA-ANA is already Resolved while BA-ANA is at In Progress
+
+Action:
+
+- Do advance BA-ANA In Progress→Resolved→Closed first: SA-ANA at Resolved satisfies BA-ANA's "SA Analysis Sub-Task in In Progress or later" Resolved DoD; BA-ANA Closed then satisfies SA-ANA's Resolved→Closed "BA-ANA terminal" DoD
+- Do attempt `update SA-ANA-XXX --status Closed --author ba` for the SA-ANA Close — the CLI permits a non-creator role author to transition SA sub-task status when all DoD dependencies are met (verified exit 0, 2026-09-30)
+- Do create BA-DES + SA-DES under the FEATURE then set both design sub-tasks New→Open before advancing FEATURE Analysis→In Design
+- Do confirm the EPIC FeatureContains link (e.g. LINK-01052) is present before advancing the Feature
+
 ## Improvement: hold BA-ANA at In Progress until SA-ANA counterpart reaches In Progress
 
 Condition:
@@ -205,6 +218,31 @@ Action:
 - Do create `Contains` link (source=FEATURE, target=DEV-STORY) and `EpicLink` link (source=DEV-STORY, target=EPIC) right after creation; for a feature linked to two EPICs (FEATURE-010 → EPIC-009 + EPIC-010), create two EpicLink links per story
 - Do record all assigned LINK IDs for the DoD evidence table. Observed 2026-08-13: 14 DEV-STORYs (024..037), Contains LINK-00730..00743, EpicLink LINK-00744..00759, all exit 0.
 
+## Improvement: verify tool-side entry-point parity before claiming net-new tool work (CLI-only skills features)
+
+Condition:
+- When a FEATURE mandates "skills must use CLI only / no python scripts in skills / move implementations to tool"
+
+Action:
+- Do first grep the tool `pyproject.toml` for the `pal-found-*` console entries and inspect `pal_found_cli_tool/src/pal_found_cli/<ns>/` before claiming the skills scripts are the sole implementation or that new tool commands are needed. Tool already exposes all 18 `pal-found-*` entry points incl. datasets/ontologies (verified 2026-09-30). The requirement is primarily a skills-repo doc refactor plus datasets/ontologies parity migration, not net-new tool commands.
+- Do classify each skills script (16 thin wrappers vs 2 full standalone datasets/ontologies) in the work-plan comment with line counts from direct file reads.
+
+## Improvement: create BA-ANA and SA-ANA sub-tasks sequentially; link Contains source=subtask, target=feature
+
+Condition:
+- When creating the BA Analysis and SA Analysis sub-tasks under a FEATURE during Open->Analysis promotion and linking them
+
+Action:
+- Do run the two `create` commands as separate sequential CLI invocations, not one paired `;`-joined line (the paired one-liner was interrupted with ^C once; one-at-a-time each exited 0). Verify each ticket ID and exit code, then `link create <sub> <feature> Contains --author ba` (source=subtask, target=feature) for each, then `link list FEATURE-XXX` to confirm, then `update FEATURE-XXX --status Analysis --author ba`.
+
+## Improvement: new Epic warranted decision for doc-only skills model
+
+Condition:
+- When analyzing a requirement that changes the delivered skill-content model (e.g. skills become documentation-only, launcher scripts removed, impl moved into tool) and related EPICs are already Done/archived
+
+Action:
+- Do treat it as a NEW Epic (BA/Architect creates at design start), not a standalone feature and not a relink to archived EPICs. Do NOT fabricate an Epic link when no Epic exists; record the decision in the work-plan comment and note the Epic-for-creation. Verify via `list --type epic` that no in-flight Epic fits.
+
 ## Improvement: hold BA-DES at In Progress with dependency QUESTION when SA-DES is New
 
 Condition:
@@ -214,4 +252,44 @@ Condition:
 Action:
 
 - Do complete all In Progress deliverables (business design doc, DEV-STORYs + links, time_spent_hours, document_index update, requirements comment), then create one QUESTION per BA-DES addressed to architect (addressed_to=architect, parent=BA-DES, priority High, assignee ba, NO Blocks link so the parent stays In Progress, not Blocked), then leave BA-DES at In Progress
+- Refinement 2026-09-30 (BA-ANA-012): the BA-ANA/SA-ANA analysis sub-task instructions explicitly FORBID advancing a BA-ANA to Resolved while SA-ANA is below In Progress AND the BA-ANA Open/analysis instructions say to create a QUESTION with a Blocks link and set status Blocked until resolved. So for analysis sub-tasks a Blocks link + at-Blocked is the documented holding state (prior status In Progress recorded for restore). Distinguish the design-phase BA-DES convention (no Blocks link, stay In Progress) from the analysis-phase BA-ANA convention (Blocks link, hold Blocked). Do not fabricate Resolved/Closed while the cross-role counterpart is below In Progress.
 - Do poll `list --type sa_subtask_design` before deciding on promotion; do not fabricate Resolved. Same pattern as BA-ANA phase (QUESTION-048..055). Observed 2026-08-13: QUESTIONS-078..086 created, all 9 BA-DES stay In Progress.
+
+## Improvement: BA-DES design deliverable + DEV-STORY creation pattern
+
+Condition:
+
+- When designing a feature (Phase 3 Design) and creating DEV-STORYs under it
+
+Action:
+
+- Do produce the design deliverable under .ept/docs/deliverables/business_design/BA-DES-XXX-*.md under 300 lines (composition rule), register it in document_index.md under Business Design, and mirror the Status field in the index.
+- Do create DEV-STORYs via 'create dev_story --parent <FEATURE> --assignee <role> --field component=skills --field story_points=N --field feature_request=<FEATURE> --field epic=<EPIC> --field release_notes=... --field priority=High --author ba'. --parent does NOT auto-create links; manually create Contains (FEATURE->STORY) and EpicLink (STORY->EPIC).
+- Do promote stories New->Open immediately and set release_notes (pre-grooming) + assignee (pre-development).
+- Do check Resolved->Closed DoD requires SA-SUB terminal status; do NOT fabricate Close when SA-DES sibling still In Progress. Hold at Resolved, document the dependency, no QUESTION (not ambiguity).
+
+## Improvement: cross-review approval QUESTION creation and terminal-parent behavior
+
+Condition:
+
+- When remediating a workflow-probe violation by creating cross-review approval QUESTIONs (SA-ANA/BA-DES approvals) with a Blocks + Question link to a parent sub-task
+
+Action:
+
+- Do use 'create question --parent <subtask> --addressed-to <role> --assignee <role> --priority High'; then 'link create <QUESTION> <parent> Blocks' and 'link create <QUESTION> <parent> Question' (both required by BA _Standards cross-review).
+- Do expect the auto-block to fire on the FIRST Blocks link when the parent is non-terminal (ba_subtask_design Resolved -> Blocked); later Blocks/Question links warn "Blocked -> Blocked" harmlessly.
+- Do NOT expect auto-block on a terminal parent: sa_subtask_analysis Closed is terminal with NO outgoing transitions, so the "[automations warning] ... terminal status and cannot be transitioned" is expected and SAFE. The parent stays Closed; holding is conceptual, not enforced by state.
+- Do report terminal parents honestly (Closed, not Blocked); never claim a Blocked state the tracker does not show. Addressed_to/assignee per available_resources.md: sa_subtask approval reviewer = ba; ba_subtask_design approvers = architect (SA) + tech-lead (Lead Developers); PO approval handled separately.
+- Do record exact IDs (QUESTION-XXX, LINK-XXXXX) in the final report (observed 2026-09-30: FEATURE-011 approvals QUESTION-142/143/144, links LINK-01063..01068).
+
+Condition:
+
+- When designing a feature (Phase 3 Design) and creating DEV-STORYs under it
+
+Action:
+
+- Do produce the design deliverable under .ept/docs/deliverables/business_design/BA-DES-XXX-*.md under 300 lines (composition rule), register it in document_index.md under Business Design, and mirror the Status field in the index.
+- Do create DEV-STORYs via 'create dev_story --parent <FEATURE> --assignee <role> --field component=skills --field story_points=N --field feature_request=<FEATURE> --field epic=<EPIC> --field release_notes=... --field priority=High --author ba'. --parent does NOT auto-create links; manually create Contains (FEATURE->STORY) and EpicLink (STORY->EPIC).
+- Do promote stories New->Open immediately and set release_notes (pre-grooming) + assignee (pre-development).
+- Do check Resolved->Closed DoD requires SA-SUB terminal status; do NOT fabricate Close when SA-DES sibling still In Progress. Hold at Resolved, document the dependency, no QUESTION (not ambiguity).
+

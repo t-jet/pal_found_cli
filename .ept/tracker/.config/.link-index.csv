@@ -701,3 +701,53 @@ LINK-01031,DEV-STORY-033,BUG-SUB-016,ParentChild,Is Parent Of,Is Child Of,2026-0
 LINK-01038,QUESTION-135,QUESTION-134,RelatesTo,Relates To,Relates To,2026-09-28T04:01:38.259208,devops-engineer,"QUESTION-135 duplicates QUESTION-134 (same ANACONDA_API_TOKEN scope issue, created by interrupted retry)."
 LINK-01040,QUESTION-137,TESTEXEC-030,Question,Asks About,Has Question,2026-09-28T11:45:34.886868,qa-engineer,Question link for TESTCASE-030 wording reconciliation
 LINK-01044,TESTEXEC-025,QUESTION-139,Question,Asks About,Has Question,2026-09-28T12:29:44.233381,qa-engineer,
+LINK-01048,BA-ANA-012,FEATURE-011,Contains,Contains,Contained In,2026-09-30T13:37:17.385890,ba,
+LINK-01049,SA-ANA-012,FEATURE-011,Contains,Contains,Contained In,2026-09-30T13:37:17.877246,ba,
+LINK-01050,BA-ANA-011,BA-ANA-012,RelatesTo,Relates To,Relates To,2026-09-30T13:40:07.471517,ba,Duplicate of BA-ANA-012 (canonical). Identical title and parent FEATURE-011. Orphan created in error; FEATURE-011 Contains links only to BA-ANA-012.
+LINK-01051,SA-ANA-011,SA-ANA-012,RelatesTo,Relates To,Relates To,2026-09-30T13:40:12.003929,ba,Duplicate of SA-ANA-012 (canonical). Identical title and parent FEATURE-011. Orphan created in error; FEATURE-011 Contains links only to SA-ANA-012.
+LINK-01052,FEATURE-011,EPIC-011,FeatureContains,Feature Contains,Is Contained In Feature,2026-09-30T13:40:48.309124,ba,Bidirectional FeatureContains link: FEATURE-011 (Feature Contains) <-> EPIC-011 (Is Contained In Feature). New Epic for documentation-only skill model and command migration to tool.
+LINK-01054,QUESTION-141,BA-ANA-012,Question,Asks About,Has Question,2026-09-30T13:47:21.302180,ba,
+LINK-01055,BA-DES-012,FEATURE-011,Contains,Contains,Contained In,2026-09-30T13:59:25.430100,ba,BA design sub-task links to parent FEATURE-011
+LINK-01056,SA-DES-011,FEATURE-011,Contains,Contains,Contained In,2026-09-30T13:59:25.926543,ba,SA design sub-task links to parent FEATURE-011
+LINK-01057,FEATURE-011,DEV-STORY-038,Contains,Contains,Contained In,2026-09-30T14:04:51.231488,ba,
+LINK-01058,DEV-STORY-038,EPIC-011,EpicLink,Epic Link,Epic Link,2026-09-30T14:04:51.827889,ba,
+LINK-01059,FEATURE-011,DEV-STORY-039,Contains,Contains,Contained In,2026-09-30T14:04:52.337954,ba,
+LINK-01060,DEV-STORY-039,EPIC-011,EpicLink,Epic Link,Epic Link,2026-09-30T14:04:53.275040,ba,
+LINK-01061,FEATURE-011,DEV-STORY-040,Contains,Contains,Contained In,2026-09-30T14:04:53.783600,ba,
+LINK-01062,DEV-STORY-040,EPIC-011,EpicLink,Epic Link,Epic Link,2026-09-30T14:04:54.287337,ba,
+LINK-01064,QUESTION-142,SA-ANA-012,Question,Asks About,Has Question,2026-09-30T14:12:31.941196,ba,
+LINK-01067,QUESTION-143,BA-DES-012,Question,Asks About,Has Question,2026-09-30T14:12:50.775647,ba,
+LINK-01068,QUESTION-144,BA-DES-012,Question,Asks About,Has Question,2026-09-30T14:12:51.345338,ba,
+LINK-01070,QUESTION-145,BA-ANA-012,Question,Asks About,Has Question,2026-09-30T14:16:01.595243,architect,Asks about BA-ANA-012 analysis approval
+LINK-01072,QUESTION-146,SA-DES-011,Question,Asks About,Has Question,2026-09-30T14:16:12.145637,architect,Asks about SA-DES-011 design approval
+LINK-01074,QUESTION-147,SA-DES-011,Question,Asks About,Has Question,2026-09-30T14:16:21.781693,architect,Asks about SA-DES-011 design approval
+LINK-01075,DEV-STORY-038,DESIGN-038,Contains,Contains,Contained In,2026-10-01T14:12:33.112563,tech-lead,
+LINK-01076,DEV-STORY-038,DEV-038,Contains,Contains,Contained In,2026-10-01T14:12:33.619944,tech-lead,
+LINK-01077,DEV-STORY-038,UNITTEST-038,Contains,Contains,Contained In,2026-10-01T14:12:34.121325,tech-lead,
+LINK-01078,DEV-STORY-038,CODEREVIEW-038,Contains,Contains,Contained In,2026-10-01T14:12:34.618099,tech-lead,
+LINK-01079,DEV-STORY-038,TESTCASE-038,Contains,Contains,Contained In,2026-10-01T14:12:35.111685,tech-lead,
+LINK-01080,DEV-STORY-038,TESTEXEC-038,Contains,Contains,Contained In,2026-10-01T14:12:35.609205,tech-lead,
+LINK-01081,DEV-038,CODEREVIEW-038,RelatesTo,Relates To,Relates To,2026-10-01T14:12:41.650129,tech-lead,
+LINK-01082,CODEREVIEW-038,DEV-038,RelatesTo,Relates To,Relates To,2026-10-01T14:12:42.154388,tech-lead,
+LINK-01083,DEV-STORY-039,DESIGN-039,Contains,Contains,Contained In,2026-10-01T14:12:48.791753,tech-lead,
+LINK-01084,DEV-STORY-039,DEV-039,Contains,Contains,Contained In,2026-10-01T14:12:49.312859,tech-lead,
+LINK-01085,DEV-STORY-039,UNITTEST-039,Contains,Contains,Contained In,2026-10-01T14:12:49.814161,tech-lead,
+LINK-01086,DEV-STORY-039,CODEREVIEW-039,Contains,Contains,Contained In,2026-10-01T14:12:50.318240,tech-lead,
+LINK-01087,DEV-STORY-039,TESTCASE-039,Contains,Contains,Contained In,2026-10-01T14:12:50.825597,tech-lead,
+LINK-01088,DEV-STORY-039,TESTEXEC-039,Contains,Contains,Contained In,2026-10-01T14:12:51.333363,tech-lead,
+LINK-01089,DEV-039,CODEREVIEW-039,RelatesTo,Relates To,Relates To,2026-10-01T14:12:51.832869,tech-lead,
+LINK-01090,CODEREVIEW-039,DEV-039,RelatesTo,Relates To,Relates To,2026-10-01T14:12:52.339281,tech-lead,
+LINK-01091,DEV-STORY-040,DESIGN-040,Contains,Contains,Contained In,2026-10-01T14:12:57.929960,tech-lead,
+LINK-01092,DEV-STORY-040,DEV-040,Contains,Contains,Contained In,2026-10-01T14:12:58.435627,tech-lead,
+LINK-01093,DEV-STORY-040,UNITTEST-040,Contains,Contains,Contained In,2026-10-01T14:12:58.943562,tech-lead,
+LINK-01094,DEV-STORY-040,CODEREVIEW-040,Contains,Contains,Contained In,2026-10-01T14:12:59.450409,tech-lead,
+LINK-01095,DEV-STORY-040,TESTCASE-040,Contains,Contains,Contained In,2026-10-01T14:12:59.958060,tech-lead,
+LINK-01096,DEV-STORY-040,TESTEXEC-040,Contains,Contains,Contained In,2026-10-01T14:13:00.470418,tech-lead,
+LINK-01097,DEV-040,CODEREVIEW-040,RelatesTo,Relates To,Relates To,2026-10-01T14:13:00.974160,tech-lead,
+LINK-01098,CODEREVIEW-040,DEV-040,RelatesTo,Relates To,Relates To,2026-10-01T14:13:01.473409,tech-lead,
+LINK-01099,DEV-039,CODEREVIEW-039,Blocks,Blocks,Is Blocked By,2026-10-01T14:22:56.793152,tech-lead,
+LINK-01100,DEV-040,CODEREVIEW-040,Blocks,Blocks,Is Blocked By,2026-10-01T14:30:27.749788,tech-lead,
+LINK-01101,DEV-038,CODEREVIEW-038,Blocks,Blocks,Is Blocked By,2026-10-01T14:35:10.018330,tech-lead,
+LINK-01102,DEV-STORY-038,DEVOPS-029,Contains,Contains,Contained In,2026-10-01T15:20:41.653760,devops-engineer,Contains link for Deployment-stage DEVOPS sub-task
+LINK-01103,DEV-STORY-039,DEVOPS-030,Contains,Contains,Contained In,2026-10-01T15:20:42.161146,devops-engineer,Contains link for Deployment-stage DEVOPS sub-task
+LINK-01104,DEV-STORY-040,DEVOPS-031,Contains,Contains,Contained In,2026-10-01T15:20:42.672955,devops-engineer,Contains link for Deployment-stage DEVOPS sub-task
