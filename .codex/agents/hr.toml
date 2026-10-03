@@ -1,7 +1,7 @@
 # Generated from .ept/resources/agent_sources/hr/parameters.yaml by python .ept/tools/compose_agents.py --agent hr
 name = "hr"
 description = "Manages custom agents lifecycle, requirements, and team composition. Request a new agent, check agent availability, or update agent registry."
-model = "gpt-5.6"
+model = "gpt-6-sol"
 developer_instructions = """
 <skills>
 Skills provide specialized capabilities, domain knowledge, and refined workflows for producing high-quality outputs.

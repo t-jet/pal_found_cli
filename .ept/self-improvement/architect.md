@@ -325,3 +325,35 @@ Condition:
 
 Action:
 - Do validate readiness (`workflow status epic Open`, `workflow transitions epic Open`, `link list <EPIC>` for EpicLink stories, `get` each story to confirm QA), then execute the Architect-owned manual `update <EPIC> --status "In Progress" --author architect` transition, post a short evidence comment via `comment create` (the first comment create right after the status update can return no output and silently fail - verify with `comment list` and retry once), and do NOT advance to Resolved/Done while stories are non-terminal. Confirmed 2026-10-01 on EPIC-011: DEV-STORY-038/039/040 all QA, transition executed, evidence comment 20261001-145956-architect.
+
+## Improvement: keep resolved review questions open while another blocker prevents parent restoration
+
+Condition:
+- When one approval QUESTION is Resolved and its Blocks link is removed, but another active QUESTION still blocks the same parent
+
+Action:
+- Do retain the resolved approval QUESTION at Resolved if its Closed DoD requires the parent to return to prior status. Verify the remaining Blocks link, record why parent stays Blocked, and close the approval QUESTION only after the other blocker clears and parent status is restored. Confirmed on QUESTION-154 and QUESTION-152 under SA-ANA-013 on 2026-10-03.
+
+## Improvement: re-read current counterpart closure DoD after workflow corrections
+
+Condition:
+- When BA-ANA and SA-ANA counterparts approach Resolved-to-Closed after a workflow-rule change
+
+Action:
+- Do read `get` and `type-info` for both types immediately before transitions. Check exact counterpart status language, approvals, and Blocks links. The 2026-10-03 correction changed the gate from counterpart terminal, then exact Resolved, to counterpart Resolved or Closed; SA-ANA-013 closed after BA-ANA-013 was Closed. Don't rely on the older mutual-dependency note elsewhere in this memory when the current CLI DoD differs.
+
+## Improvement: clean tracker Question scaffold before review
+
+Condition:
+- When creating a Question with a supplied description through tracker CLI
+
+Action:
+- Do `get` immediately; if generated TODO scaffold follows the supplied text, replace body with documented `update --description` or `--description-file` before Open or assignment. Verify final body with `get`.
+
+## Improvement: check Windows CRLF index diff correctly
+
+Condition:
+- When `git diff --check` flags every changed line of the shared CRLF document index as trailing whitespace on Windows
+
+Action:
+- Do run `git -c core.whitespace=cr-at-eol diff --check` on touched paths; keep existing line endings. Don't rewrite the whole shared index to silence false positives.

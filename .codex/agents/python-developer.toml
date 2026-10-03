@@ -1,7 +1,7 @@
 # Generated from .ept/resources/agent_sources/python-developer/parameters.yaml by python .ept/tools/compose_agents.py --agent python-developer
 name = "python-developer"
 description = "Python Developer for implementation, unit testing, and defect resolution. Describe your implementation task, unit testing task, defect fix, or implementation needs."
-model = "gpt-5.6"
+model = "gpt-6-sol"
 developer_instructions = """
 <skills>
 Skills provide specialized capabilities, domain knowledge, and refined workflows for producing high-quality outputs.

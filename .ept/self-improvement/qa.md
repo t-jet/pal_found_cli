@@ -82,3 +82,15 @@ Action:
 - Do scan SKILL.md content with exact-string checks (conda `-c t-jet`, pip, uv lines; stale-ref regex `python\s+[\w/._\-]*_cli\.py`), and verify tool-side op counts from the installed CLI `--help` strings (authoritative) plus parser dumps, not just docs.
 - Do run the unit-test suite at HEAD as the authoritative test check (16 passed) and save evidence JSON to `.ept/tmp/` for durable linkage in comments.
 - Do advance TESTEXEC New→Open→In Progress→Resolved→Closed only after posting per-case PASS/FAIL matrix with evidence file paths; then confirm the parent DEV-STORY auto-advanced QA→Deployment (AT-1) — do not force the story transition.
+
+## Improvement: semantic coverage for offline skill guidance
+
+Condition:
+
+- When QA plans coverage for Foundry skills that explain CLI operation meaning to offline agents
+
+Action:
+
+- Do compare every documented operation and input with a pinned installed CLI parser/dispatch inventory in both directions, and check copied local links without network access.
+- Do require source-backed human review of Foundry effects, parameter meaning, result interpretation, and failure uncertainty; parser and heading checks alone cannot prove semantics.
+- Do use safe mock or recorded-response agent exercises across each namespace, including pagination, permission failure, pending results, and timeout uncertainty.

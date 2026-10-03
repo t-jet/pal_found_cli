@@ -560,3 +560,36 @@ TESTEXEC-040,testexec,TESTEXEC-040: Execute QA cases for distribution/onboarding
 DEVOPS-029,devops,"Deploy+verify DEV-STORY-038 doc-only skills (push commits, parent gitlink, fresh recursive clone)",Closed,High,devops-engineer,devops-engineer,DEV-STORY-038,,DEV-STORY-038/DEVOPS-029,2026-10-01,2026-10-01
 DEVOPS-030,devops,"Deploy+verify DEV-STORY-039 datasets/ontologies migration (tool parity 33/67, stale copies removed)",Closed,High,devops-engineer,devops-engineer,DEV-STORY-039,,DEV-STORY-039/DEVOPS-030,2026-10-01,2026-10-01
 DEVOPS-031,devops,"Deploy+verify DEV-STORY-040 distribution/onboarding/evidence (doc-only, install prereq conda/pip/uv)",Closed,High,devops-engineer,devops-engineer,DEV-STORY-040,,DEV-STORY-040/DEVOPS-031,2026-10-01,2026-10-01
+FEATURE-012,feature,Make Foundry skill definitions sufficient for offline agents,In Design,Medium,project-manager,project-manager,,,FEATURE-012,2026-10-03,2026-10-03
+EPIC-012,epic,Use Foundry CLI skills with no external guidance,Open,Medium,project-manager,project-manager,,,EPIC-012,2026-10-03,2026-10-03
+BA-ANA-013,ba_subtask_analysis,BA analysis: Offline Foundry skill knowledge,Closed,Medium,ba,project-manager,FEATURE-012,,FEATURE-012/BA-ANA-013,2026-10-03,2026-10-03
+SA-ANA-013,sa_subtask_analysis,SA analysis: Offline Foundry skill knowledge,Closed,Medium,architect,project-manager,FEATURE-012,,FEATURE-012/SA-ANA-013,2026-10-03,2026-10-03
+QUESTION-152,question,May offline Foundry skills ship linked local reference parts?,Closed,Medium,project-owner,architect,SA-ANA-013,project-owner,SA-ANA-013/QUESTION-152,2026-10-03,2026-10-03
+QUESTION-153,question,Architecture review of BA-ANA-013 requirements,Closed,Medium,architect,ba,BA-ANA-013,architect,BA-ANA-013/QUESTION-153,2026-10-03,2026-10-03
+QUESTION-154,question,BA review of SA-ANA-013 architecture analysis,Closed,Medium,ba,architect,SA-ANA-013,ba,SA-ANA-013/QUESTION-154,2026-10-03,2026-10-03
+QUESTION-155,question,Approve BA-ANA-013 offline skill requirements,Closed,Medium,project-owner,ba,BA-ANA-013,project-owner,BA-ANA-013/QUESTION-155,2026-10-03,2026-10-03
+QUESTION-156,question,Project Owner approval of SA-ANA-013 architecture analysis,Closed,Medium,project-owner,architect,SA-ANA-013,project-owner,SA-ANA-013/QUESTION-156,2026-10-03,2026-10-03
+QUESTION-157,question,Approve coordinated BA and SA analysis closure for FEATURE-012,Canceled,Medium,project-manager,project-manager,FEATURE-012,project-owner,FEATURE-012/QUESTION-157,2026-10-03,2026-10-03
+QUESTION-158,question,Allow analysis counterpart to be Resolved or Closed,Closed,Medium,project-manager,project-manager,FEATURE-012,project-owner,FEATURE-012/QUESTION-158,2026-10-03,2026-10-03
+BA-DES-013,ba_subtask_design,BA design: Offline Foundry skill guidance,Blocked,Medium,ba,project-manager,FEATURE-012,,FEATURE-012/BA-DES-013,2026-10-03,2026-10-03
+SA-DES-012,sa_subtask_design,SA design: Offline Foundry skill guidance,Resolved,Medium,architect,project-manager,FEATURE-012,,FEATURE-012/SA-DES-012,2026-10-03,2026-10-03
+DEV-STORY-041,dev_story,Document offline Foundry platform primer and navigation,New,Medium,ba,ba,FEATURE-012,,FEATURE-012/DEV-STORY-041,2026-10-03,2026-10-03
+QUESTION-159,question,BA review of SA-DES-012 offline Foundry skill technical design,Closed,Medium,ba,architect,SA-DES-012,ba,SA-DES-012/QUESTION-159,2026-10-03,2026-10-03
+DEV-STORY-042,dev_story,Document offline Admin identity and access operations,New,Medium,ba,ba,FEATURE-012,,FEATURE-012/DEV-STORY-042,2026-10-03,2026-10-03
+DEV-STORY-043,dev_story,Document offline Admin governance and Audit operations,New,Medium,ba,ba,FEATURE-012,,FEATURE-012/DEV-STORY-043,2026-10-03,2026-10-03
+DEV-STORY-044,dev_story,Document offline Datasets operations,New,Medium,ba,ba,FEATURE-012,,FEATURE-012/DEV-STORY-044,2026-10-03,2026-10-03
+DEV-STORY-045,dev_story,Document offline Filesystem operations,New,Medium,ba,ba,FEATURE-012,,FEATURE-012/DEV-STORY-045,2026-10-03,2026-10-03
+DEV-STORY-046,dev_story,Document offline Ontology discovery operations,New,Medium,ba,ba,FEATURE-012,,FEATURE-012/DEV-STORY-046,2026-10-03,2026-10-03
+DEV-STORY-047,dev_story,Document offline Ontology actions and rich properties,New,Medium,ba,ba,FEATURE-012,,FEATURE-012/DEV-STORY-047,2026-10-03,2026-10-03
+DEV-STORY-048,dev_story,Document offline Connectivity Checkpoints and Data Health operations,New,Medium,ba,ba,FEATURE-012,,FEATURE-012/DEV-STORY-048,2026-10-03,2026-10-03
+DEV-STORY-049,dev_story,Document offline AIP Agents Functions and Language Models operations,New,Medium,ba,ba,FEATURE-012,,FEATURE-012/DEV-STORY-049,2026-10-03,2026-10-03
+DEV-STORY-050,dev_story,Document offline Models operations,New,Medium,ba,ba,FEATURE-012,,FEATURE-012/DEV-STORY-050,2026-10-03,2026-10-03
+DEV-STORY-051,dev_story,Document offline Orchestration and SQL Queries operations,New,Medium,ba,ba,FEATURE-012,,FEATURE-012/DEV-STORY-051,2026-10-03,2026-10-03
+DEV-STORY-052,dev_story,Document offline Streams operations,New,Medium,ba,ba,FEATURE-012,,FEATURE-012/DEV-STORY-052,2026-10-03,2026-10-03
+DEV-STORY-053,dev_story,Document offline Media Sets operations,New,Medium,ba,ba,FEATURE-012,,FEATURE-012/DEV-STORY-053,2026-10-03,2026-10-03
+DEV-STORY-054,dev_story,Document offline Third Party Applications and Widgets operations,New,Medium,ba,ba,FEATURE-012,,FEATURE-012/DEV-STORY-054,2026-10-03,2026-10-03
+DEV-STORY-055,dev_story,Verify all offline Foundry skill coverage and copied bundles,New,Medium,ba,ba,FEATURE-012,,FEATURE-012/DEV-STORY-055,2026-10-03,2026-10-03
+QUESTION-160,question,Project Owner approval of SA-DES-012 offline Foundry skill technical design,Closed,Medium,project-owner,architect,SA-DES-012,project-owner,SA-DES-012/QUESTION-160,2026-10-03,2026-10-03
+QUESTION-161,question,Architect review of BA-DES-013 offline Foundry skill business design,Closed,Medium,architect,ba,BA-DES-013,architect,BA-DES-013/QUESTION-161,2026-10-03,2026-10-03
+QUESTION-162,question,Lead developer review of BA-DES-013 and DEV-STORY-041..055,Closed,Medium,tech-lead,ba,BA-DES-013,tech-lead,BA-DES-013/QUESTION-162,2026-10-03,2026-10-03
+QUESTION-163,question,Project Owner approval of BA-DES-013 offline Foundry skill business design,In Progress,Medium,project-owner,ba,BA-DES-013,project-owner,BA-DES-013/QUESTION-163,2026-10-03,2026-10-03

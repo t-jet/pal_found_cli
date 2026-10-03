@@ -179,8 +179,9 @@ ticket_instructions:
         dod_criteria:
           - Ticket not blocked (no active is-blocked-by links)
           - Ticket doesn't block others (all dependent tickets unblocked or resolved)
-          - SA-SUB and UX-SUB (if exists) in a terminal status (as determined by the ticket type workflow configuration)
-          - All approvals obtained (all created QUESTION tickets in terminal status)
+          - BA-ANA, SA-ANA and UX-ANA (if exists) for the parent FEATURE in the terminal status (as determined by the ticket type workflow configuration)
+          - SA-DES and UX-DES (if exists) for the parent FEATURE in the Resolved or Closed status and all their approvals obtained (approval QUESTION tickets in terminal status)
+          - All approvals obtained (all created QUESTION tickets for this ticket in terminal status)
 
   Closed:
     instructions:

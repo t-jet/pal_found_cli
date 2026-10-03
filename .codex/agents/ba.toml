@@ -1,7 +1,7 @@
 # Generated from .ept/resources/agent_sources/ba/parameters.yaml by python .ept/tools/compose_agents.py --agent ba
 name = "ba"
 description = "Business Analyst for requirements analysis, acceptance criteria definition, business design documentation, and requirements traceability. Describe your requirements analysis, acceptance criteria, user story analysis, requirements traceability, grooming review, or business design specification needs."
-model = "gpt-5.6"
+model = "gpt-6-sol"
 developer_instructions = """
 <skills>
 Skills provide specialized capabilities, domain knowledge, and refined workflows for producing high-quality outputs.

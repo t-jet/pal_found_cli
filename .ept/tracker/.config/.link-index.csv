@@ -751,3 +751,78 @@ LINK-01101,DEV-038,CODEREVIEW-038,Blocks,Blocks,Is Blocked By,2026-10-01T14:35:1
 LINK-01102,DEV-STORY-038,DEVOPS-029,Contains,Contains,Contained In,2026-10-01T15:20:41.653760,devops-engineer,Contains link for Deployment-stage DEVOPS sub-task
 LINK-01103,DEV-STORY-039,DEVOPS-030,Contains,Contains,Contained In,2026-10-01T15:20:42.161146,devops-engineer,Contains link for Deployment-stage DEVOPS sub-task
 LINK-01104,DEV-STORY-040,DEVOPS-031,Contains,Contains,Contained In,2026-10-01T15:20:42.672955,devops-engineer,Contains link for Deployment-stage DEVOPS sub-task
+LINK-01105,FEATURE-012,EPIC-012,FeatureContains,Feature Contains,Is Contained In Feature,2026-10-03T01:52:53.852343,project-manager,Offline Foundry skill use case
+LINK-01106,FEATURE-012,BA-ANA-013,ParentChild,Is Parent Of,Is Child Of,2026-10-03T01:54:29.680890,project-manager,
+LINK-01107,FEATURE-012,SA-ANA-013,ParentChild,Is Parent Of,Is Child Of,2026-10-03T01:54:30.381545,project-manager,
+LINK-01109,QUESTION-152,SA-ANA-013,Question,Asks About,Has Question,2026-10-03T02:00:08.513873,architect,Project Owner decision requested on offline content packaging.
+LINK-01111,QUESTION-153,BA-ANA-013,Question,Asks About,Has Question,2026-10-03T02:01:22.201439,ba,
+LINK-01114,QUESTION-155,BA-ANA-013,Question,Asks About,Has Question,2026-10-03T02:05:40.651395,ba,
+LINK-01115,QUESTION-154,SA-ANA-013,Question,Asks About,Has Question,2026-10-03T02:05:41.535060,architect,BA review of SA-ANA-013 analysis.
+LINK-01116,FEATURE-012,FEATURE-008,RelatesTo,Relates To,Relates To,2026-10-03T10:51:49.305506,project-manager,Extends brief platform and capability descriptions
+LINK-01117,FEATURE-012,FEATURE-009,RelatesTo,Relates To,Relates To,2026-10-03T10:51:50.020159,project-manager,Adds Foundry semantics to documented formats and variants
+LINK-01118,FEATURE-012,FEATURE-011,RelatesTo,Relates To,Relates To,2026-10-03T10:51:50.738613,project-manager,Approved local Markdown parts refine the single-file skill design; CLI-only execution remains
+LINK-01119,QUESTION-156,SA-ANA-013,Question,Asks About,Has Question,2026-10-03T10:54:25.873308,architect,Project Owner approval review of resolved SA analysis.
+LINK-01121,QUESTION-157,FEATURE-012,Question,Asks About,Has Question,2026-10-03T11:00:21.052192,project-manager,Project Owner workflow decision for BA-ANA-013 and SA-ANA-013 closure.
+LINK-01123,QUESTION-158,FEATURE-012,Question,Asks About,Has Question,2026-10-03T11:44:06.774702,project-manager,Project Owner workflow wording clarification.
+LINK-01124,FEATURE-012,BA-DES-013,ParentChild,Is Parent Of,Is Child Of,2026-10-03T12:02:39.332219,project-manager,BA design handoff for approved analysis.
+LINK-01125,FEATURE-012,SA-DES-012,ParentChild,Is Parent Of,Is Child Of,2026-10-03T12:02:40.057720,project-manager,SA design handoff for approved analysis.
+LINK-01126,FEATURE-012,DEV-STORY-041,Contains,Contains,Contained In,2026-10-03T16:01:36.404180,ba,
+LINK-01127,DEV-STORY-041,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:01:37.123140,ba,
+LINK-01129,FEATURE-012,DEV-STORY-042,Contains,Contains,Contained In,2026-10-03T16:02:41.545333,ba,
+LINK-01130,DEV-STORY-042,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:02:42.263532,ba,
+LINK-01131,FEATURE-012,DEV-STORY-043,Contains,Contains,Contained In,2026-10-03T16:02:43.822556,ba,
+LINK-01132,DEV-STORY-043,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:02:44.559234,ba,
+LINK-01133,FEATURE-012,DEV-STORY-044,Contains,Contains,Contained In,2026-10-03T16:02:46.035531,ba,
+LINK-01134,DEV-STORY-044,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:02:46.753535,ba,
+LINK-01135,FEATURE-012,DEV-STORY-045,Contains,Contains,Contained In,2026-10-03T16:02:48.236551,ba,
+LINK-01136,DEV-STORY-045,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:02:48.955830,ba,
+LINK-01137,FEATURE-012,DEV-STORY-046,Contains,Contains,Contained In,2026-10-03T16:02:50.425902,ba,
+LINK-01138,DEV-STORY-046,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:02:51.141702,ba,
+LINK-01139,FEATURE-012,DEV-STORY-047,Contains,Contains,Contained In,2026-10-03T16:02:52.592990,ba,
+LINK-01140,DEV-STORY-047,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:02:53.322629,ba,
+LINK-01141,FEATURE-012,DEV-STORY-048,Contains,Contains,Contained In,2026-10-03T16:02:54.803994,ba,
+LINK-01142,DEV-STORY-048,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:02:55.521408,ba,
+LINK-01143,FEATURE-012,DEV-STORY-049,Contains,Contains,Contained In,2026-10-03T16:02:56.996868,ba,
+LINK-01144,DEV-STORY-049,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:02:57.716688,ba,
+LINK-01145,FEATURE-012,DEV-STORY-050,Contains,Contains,Contained In,2026-10-03T16:02:59.189432,ba,
+LINK-01146,DEV-STORY-050,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:02:59.917933,ba,
+LINK-01147,FEATURE-012,DEV-STORY-051,Contains,Contains,Contained In,2026-10-03T16:03:01.388079,ba,
+LINK-01148,DEV-STORY-051,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:03:02.110229,ba,
+LINK-01149,FEATURE-012,DEV-STORY-052,Contains,Contains,Contained In,2026-10-03T16:03:03.584723,ba,
+LINK-01150,DEV-STORY-052,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:03:04.307236,ba,
+LINK-01151,FEATURE-012,DEV-STORY-053,Contains,Contains,Contained In,2026-10-03T16:03:05.779947,ba,
+LINK-01152,DEV-STORY-053,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:03:06.520012,ba,
+LINK-01153,FEATURE-012,DEV-STORY-054,Contains,Contains,Contained In,2026-10-03T16:03:08.008744,ba,
+LINK-01154,DEV-STORY-054,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:03:08.724922,ba,
+LINK-01155,FEATURE-012,DEV-STORY-055,Contains,Contains,Contained In,2026-10-03T16:03:10.187326,ba,
+LINK-01156,DEV-STORY-055,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:03:10.908162,ba,
+LINK-01157,DEV-STORY-042,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:06:54.751006,ba,
+LINK-01158,DEV-STORY-043,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:06:55.482911,ba,
+LINK-01159,DEV-STORY-044,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:06:56.198230,ba,
+LINK-01160,DEV-STORY-045,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:06:56.920809,ba,
+LINK-01161,DEV-STORY-046,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:06:57.633013,ba,
+LINK-01162,DEV-STORY-047,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:06:58.345736,ba,
+LINK-01163,DEV-STORY-048,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:06:59.071123,ba,
+LINK-01164,DEV-STORY-049,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:06:59.790369,ba,
+LINK-01165,DEV-STORY-050,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:00.510651,ba,
+LINK-01166,DEV-STORY-051,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:01.229193,ba,
+LINK-01167,DEV-STORY-052,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:01.944279,ba,
+LINK-01168,DEV-STORY-053,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:02.660163,ba,
+LINK-01169,DEV-STORY-054,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:03.379177,ba,
+LINK-01170,DEV-STORY-043,DEV-STORY-042,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:04.103322,ba,
+LINK-01171,DEV-STORY-047,DEV-STORY-046,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:04.834738,ba,
+LINK-01172,DEV-STORY-055,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:05.548874,ba,
+LINK-01173,DEV-STORY-055,DEV-STORY-042,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:06.267774,ba,
+LINK-01174,DEV-STORY-055,DEV-STORY-043,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:06.979280,ba,
+LINK-01175,DEV-STORY-055,DEV-STORY-044,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:07.707346,ba,
+LINK-01176,DEV-STORY-055,DEV-STORY-045,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:08.426296,ba,
+LINK-01177,DEV-STORY-055,DEV-STORY-046,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:09.148553,ba,
+LINK-01178,DEV-STORY-055,DEV-STORY-047,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:09.865766,ba,
+LINK-01179,DEV-STORY-055,DEV-STORY-048,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:10.586576,ba,
+LINK-01180,DEV-STORY-055,DEV-STORY-049,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:11.296987,ba,
+LINK-01181,DEV-STORY-055,DEV-STORY-050,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:12.010342,ba,
+LINK-01182,DEV-STORY-055,DEV-STORY-051,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:12.723170,ba,
+LINK-01183,DEV-STORY-055,DEV-STORY-052,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:13.439718,ba,
+LINK-01184,DEV-STORY-055,DEV-STORY-053,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:14.152265,ba,
+LINK-01185,DEV-STORY-055,DEV-STORY-054,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:14.864690,ba,
+LINK-01189,QUESTION-163,BA-DES-013,Blocks,Blocks,Is Blocked By,2026-10-03T16:15:38.513849,ba,

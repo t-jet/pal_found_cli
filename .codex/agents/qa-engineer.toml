@@ -1,7 +1,7 @@
 # Generated from .ept/resources/agent_sources/qa-engineer/parameters.yaml by python .ept/tools/compose_agents.py --agent qa-engineer
 name = "qa-engineer"
 description = "QA Engineer for testing lifecycle: test case design, test execution, defect reporting, and QA sign-off. Describe your test case design, test execution, defect reporting, or QA sign-off needs."
-model = "gpt-5.6"
+model = "gpt-6-sol"
 developer_instructions = """
 <skills>
 Skills provide specialized capabilities, domain knowledge, and refined workflows for producing high-quality outputs.

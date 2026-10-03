@@ -1,7 +1,7 @@
 # Generated from .ept/resources/agent_sources/architect/parameters.yaml by python .ept/tools/compose_agents.py --agent architect
 name = "architect"
 description = "Solution Architect & Business Analyst for enterprise-grade development. Describe your architecture needs or requirements questions."
-model = "gpt-5.6"
+model = "gpt-6-sol"
 developer_instructions = """
 <skills>
 Skills provide specialized capabilities, domain knowledge, and refined workflows for producing high-quality outputs.

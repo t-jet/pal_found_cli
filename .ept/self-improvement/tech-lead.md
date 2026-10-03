@@ -21,10 +21,10 @@ Action:
 ## Improvement: verify explicit child relationship links after ticket creation
 
 Condition:
-- When creating implementation children through the documented tracker CLI, even if the child `parent` field is set
+- When creating or reviewing implementation-child links while the child `parent` field is set
 
 Action:
-- Do run `link list` on each parent story and confirm every DESIGN/DEV/UNITTEST/CODEREVIEW/TESTCASE/TESTEXEC/DEVOPS child has both `Contains` and `ParentChild` rows; create missing rows before advancing the story. Also confirm DEV↔CODEREVIEW `RelatesTo` pairs, DEV→CODEREVIEW `Blocks`, and CODEREVIEW→story `RelatesTo`. Parent fields alone may not register required link-index relationships.
+- Do read the current `type-info` and ticket instructions first, then verify only links required for that child type with `link list`. Do not impose `ParentChild` on DEV-STORYs when the live rule requires `Contains` plus `EpicLink`; their `parent` field does not make `ParentChild` mandatory. For implementation subtasks, verify required `Contains`, review, and blocking links against the live workflow before advancing.
 
 ## Improvement: verify TESTCASE deliverable line anchors against the committed skill before approval
 
