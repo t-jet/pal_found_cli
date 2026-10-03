@@ -228,6 +228,8 @@ This project follows a structured documentation approach organized into logical 
 
 **Last Updated:** 2026-10-03
 
+**Major Change:** Completed FEATURE-012 offline Foundry skill guidance implementation (DEV-041..055, all Resolved, pending CODEREVIEW). Authored in `pal_found_cli_skills` across 15 commits (1e94797..22acd1f): the general `pal-found` skill became a platform primer + navigation map backed by `references/01..04`; each of the 18 namespace skills now documents its full frozen per-operation register offline via `references/*.md` parts (300-line leaf limit, offline-resolving relative links, preserved FEATURE-008/009 content and FEATURE-011 conda/pip/uv install blocks), with Widgets 4 legacy negatives recorded as unsupported. Added reusable `tests/test_offline_skill_gate.py` covering leaf/install/local-link/operation-coverage/count/negative gates (all 19 skills). Full suite: `python -m pytest pal_found_cli_skills/tests/ -q` => 23 passed. Commit `22acd1f` is the skills evaluation pin (previous `7b1b99f`). Traceable to FEATURE-012, EPIC-012, DEV-STORY-041..055.
+
 **Major Change:** Closed SA-ANA-013 after the corrected Resolved-to-Closed DoD accepted the Closed BA-ANA-013 counterpart; updated its architecture deliverable and index status. QUESTION-158 records the workflow correction, and QUESTION-157 was canceled (2026-10-03).
 
 **Major Change:** Recorded Project Owner approval of the complete SA-ANA-013 architecture analysis in QUESTION-156. The deliverable and index now show the approval; SA-ANA-013 remains Resolved while QUESTION-157 addresses the mutual BA/SA closure DoD (2026-10-03).
