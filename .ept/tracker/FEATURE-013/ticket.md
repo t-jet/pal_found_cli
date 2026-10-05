@@ -2,10 +2,11 @@
 id: FEATURE-013
 type: feature
 title: Make Foundry skills user-facing and add development knowledge
-status: Waiting for Implementation
+status: Closed
 created: 2026-10-04
 updated: 2026-10-05
 priority: High
+resolution: Done
 assignee: project-manager
 reporter: project-manager
 component: skills

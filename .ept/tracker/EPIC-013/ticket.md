@@ -2,10 +2,11 @@
 id: EPIC-013
 type: epic
 title: Develop Foundry pipelines and applications with task-based guidance
-status: Open
+status: Done
 created: 2026-10-04
-updated: 2026-10-04
+updated: 2026-10-05
 priority: High
+resolution: Done
 assignee: ba
 reporter: ba
 ---

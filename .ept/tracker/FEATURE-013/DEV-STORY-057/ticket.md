@@ -2,12 +2,13 @@
 id: DEV-STORY-057
 type: dev_story
 title: Write Foundry development navigation, pipeline, and operations guides
-status: Deployment
+status: Closed
 feature_request: FEATURE-013
 epic: EPIC-013
 created: 2026-10-04
 updated: 2026-10-05
 priority: High
+resolution: Done
 assignee: python-developer
 reporter: ba
 component: skills

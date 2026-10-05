@@ -699,7 +699,7 @@ TESTCASE-055,testcase,TESTCASE-055: QA test cases for offline integration review
 TESTEXEC-055,testexec,TESTEXEC-055: QA execution for offline integration review and copied bundle gate,New,High,qa-engineer,tech-lead,DEV-STORY-055,,DEV-STORY-055/TESTEXEC-055,2026-10-03,2026-10-03
 DEVOPS-046,devops,DEVOPS-055: Distribution and copy validation of the final assembled 19-folder bundle,New,High,devops-engineer,tech-lead,DEV-STORY-055,,DEV-STORY-055/DEVOPS-046,2026-10-03,2026-10-03
 BUG-SUB-019,bug_subtask,Repair Datasets paginated SDK iterator handling,In Progress,High,python-developer,project-manager,DEV-STORY-044,,DEV-STORY-044/BUG-SUB-019,2026-10-04,2026-10-04
-FEATURE-013,feature,Make Foundry skills user-facing and add development knowledge,Waiting for Implementation,High,project-manager,project-manager,,,FEATURE-013,2026-10-04,2026-10-05
+FEATURE-013,feature,Make Foundry skills user-facing and add development knowledge,Closed,High,project-manager,project-manager,,,FEATURE-013,2026-10-04,2026-10-05
 BA-ANA-014,ba_subtask_analysis,Analyze user-facing Foundry skill requirements,Closed,High,ba,project-manager,FEATURE-013,,FEATURE-013/BA-ANA-014,2026-10-04,2026-10-04
 SA-ANA-014,sa_subtask_analysis,Analyze Foundry development skill architecture and sources,Closed,High,architect,project-manager,FEATURE-013,,FEATURE-013/SA-ANA-014,2026-10-04,2026-10-04
 QUESTION-164,question,Approve BA-ANA-014 Foundry skill requirements,Closed,High,architect,ba,BA-ANA-014,architect,BA-ANA-014/QUESTION-164,2026-10-04,2026-10-04
@@ -708,12 +708,12 @@ QUESTION-166,question,Approve SA-ANA-014 development-skill architecture (BA),Clo
 QUESTION-167,question,Approve SA-ANA-014 Foundry development skill architecture (Project Owner),Closed,High,project-owner,architect,SA-ANA-014,Project Owner,SA-ANA-014/QUESTION-167,2026-10-04,2026-10-04
 BA-DES-014,ba_subtask_design,Design user-facing Foundry skill content and acceptance,Closed,High,ba,project-manager,FEATURE-013,,FEATURE-013/BA-DES-014,2026-10-04,2026-10-05
 SA-DES-013,sa_subtask_design,Design self-contained Foundry development skill,Closed,High,architect,project-manager,FEATURE-013,,FEATURE-013/SA-DES-013,2026-10-04,2026-10-05
-EPIC-013,epic,Develop Foundry pipelines and applications with task-based guidance,Open,High,ba,ba,,,EPIC-013,2026-10-04,2026-10-04
-DEV-STORY-056,dev_story,Remove authoring and packaging instructions from Foundry skills,Deployment,High,python-developer,ba,FEATURE-013,,FEATURE-013/DEV-STORY-056,2026-10-04,2026-10-05
-DEV-STORY-057,dev_story,"Write Foundry development navigation, pipeline, and operations guides",Deployment,High,python-developer,ba,FEATURE-013,,FEATURE-013/DEV-STORY-057,2026-10-04,2026-10-05
-DEV-STORY-058,dev_story,"Write Foundry Ontology, Compute, application, branching, and security guides",Deployment,High,python-developer,ba,FEATURE-013,,FEATURE-013/DEV-STORY-058,2026-10-04,2026-10-05
-DEV-STORY-059,dev_story,Write Foundry REST API development guide,Deployment,High,python-developer,ba,FEATURE-013,,FEATURE-013/DEV-STORY-059,2026-10-04,2026-10-05
-DEV-STORY-060,dev_story,Verify Foundry development skill coverage and offline distribution,Deployment,High,python-developer,ba,FEATURE-013,,FEATURE-013/DEV-STORY-060,2026-10-04,2026-10-05
+EPIC-013,epic,Develop Foundry pipelines and applications with task-based guidance,Done,High,ba,ba,,,EPIC-013,2026-10-04,2026-10-05
+DEV-STORY-056,dev_story,Remove authoring and packaging instructions from Foundry skills,Closed,High,python-developer,ba,FEATURE-013,,FEATURE-013/DEV-STORY-056,2026-10-04,2026-10-05
+DEV-STORY-057,dev_story,"Write Foundry development navigation, pipeline, and operations guides",Closed,High,python-developer,ba,FEATURE-013,,FEATURE-013/DEV-STORY-057,2026-10-04,2026-10-05
+DEV-STORY-058,dev_story,"Write Foundry Ontology, Compute, application, branching, and security guides",Closed,High,python-developer,ba,FEATURE-013,,FEATURE-013/DEV-STORY-058,2026-10-04,2026-10-05
+DEV-STORY-059,dev_story,Write Foundry REST API development guide,Closed,High,python-developer,ba,FEATURE-013,,FEATURE-013/DEV-STORY-059,2026-10-04,2026-10-05
+DEV-STORY-060,dev_story,Verify Foundry development skill coverage and offline distribution,Closed,High,python-developer,ba,FEATURE-013,,FEATURE-013/DEV-STORY-060,2026-10-04,2026-10-05
 QUESTION-168,question,Approve BA-DES-014 Foundry skill business design (SA),Closed,High,architect,ba,BA-DES-014,architect,BA-DES-014/QUESTION-168,2026-10-04,2026-10-05
 QUESTION-169,question,Approve BA-DES-014 story boundaries (lead developer),Closed,High,tech-lead,ba,BA-DES-014,tech-lead,BA-DES-014/QUESTION-169,2026-10-04,2026-10-05
 QUESTION-170,question,Approve BA-DES-014 Foundry skill business design (Project Owner),Closed,High,project-owner,ba,BA-DES-014,project-owner,BA-DES-014/QUESTION-170,2026-10-04,2026-10-05

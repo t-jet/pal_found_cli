@@ -2,12 +2,13 @@
 id: DEV-STORY-056
 type: dev_story
 title: Remove authoring and packaging instructions from Foundry skills
-status: Deployment
+status: Closed
 feature_request: FEATURE-013
 epic: EPIC-013
 created: 2026-10-04
 updated: 2026-10-05
 priority: High
+resolution: Done
 assignee: python-developer
 reporter: ba
 component: skills
