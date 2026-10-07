@@ -2,15 +2,16 @@
 id: DEV-STORY-049
 type: dev_story
 title: Document offline AIP Agents Functions and Language Models operations
-status: New
+status: Development
 feature_request: FEATURE-012
 epic: EPIC-012
 created: 2026-10-03
 updated: 2026-10-03
 priority: Medium
-assignee: ba
+assignee: python-developer
 reporter: ba
 component: skills
+story_points: 11
 release_notes: AIP Agents, Functions and Language Models operations have complete offline Foundry guidance.
 ---
 

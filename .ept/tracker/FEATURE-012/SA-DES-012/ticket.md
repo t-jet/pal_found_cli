@@ -2,7 +2,7 @@
 id: SA-DES-012
 type: sa_subtask_design
 title: 'SA design: Offline Foundry skill guidance'
-status: Resolved
+status: Closed
 created: 2026-10-03
 updated: 2026-10-03
 priority: Medium

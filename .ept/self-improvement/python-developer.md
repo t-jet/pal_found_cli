@@ -55,3 +55,35 @@ Condition:
 
 Action:
 - Do strip trailing whitespace including the CR from the flagged added lines only (keep unchanged line endings intact), then re-verify with the exact gate command. Tools that append to project files (self-improvement memory appends, subagent memory updates) can re-introduce flagged lines, so re-run the strip and the gate after all such appends, as the last step.
+
+## Improvement: hygiene test forbids `_cli.py`/`scripts/` in SKILL.md, not in references
+
+Condition:
+- When authoring doc-only skill content that splits operation detail into `references/*.md` and cites the CLI parser path (e.g. `.../scripts/pal_found_<ns>_cli.py`) as a source locator.
+
+Action:
+- Do keep parser/`scripts/` source locators OUT of `SKILL.md` (the repository-hygiene test scans only `pal-found-*/SKILL.md` for `python ..._cli.py` / `scripts/`) and place those source pins only in `references/*.md` parts, which the test does not scan.
+
+## Improvement: batch `update --status` commands can ^C after already completing server-side
+
+Condition:
+- When running two chained tracker commands in one terminal call (e.g. `update --status Open; update --status "In Progress"`), the second can render as `^C` while the server already applied both transitions.
+
+Action:
+- Do verify actual current status with `get <id>` after a ^C in a chained batch before retrying; do not assume a failed transition. Re-running a now-invalid transition (`In Progress -> Open`) is the tell that the batch already succeeded.
+
+## Improvement: validate CLI create arguments against SDK signature
+
+Condition:
+- When a CLI operation wraps an SDK create method and fails because a required SDK argument is absent.
+
+Action:
+- Do compare the local SDK docs and installed method signature, then test both parser requirement and exact async SDK call arguments.
+
+## Improvement: preserve cursor semantics for SDK async iterators
+
+Condition:
+- When a CLI exposes page tokens for an SDK method returning `AsyncResourceIterator`.
+
+Action:
+- Do use the SDK's public raw-response wrapper to fetch and decode one page per request; test an empty page with continuation, the initial cursor, page bounds, and the returned next cursor across affected operations.

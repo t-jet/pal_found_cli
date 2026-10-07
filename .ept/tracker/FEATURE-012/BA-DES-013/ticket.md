@@ -2,7 +2,7 @@
 id: BA-DES-013
 type: ba_subtask_design
 title: 'BA design: Offline Foundry skill guidance'
-status: Blocked
+status: Closed
 created: 2026-10-03
 updated: 2026-10-03
 priority: Medium

@@ -2,15 +2,16 @@
 id: DEV-STORY-055
 type: dev_story
 title: Verify all offline Foundry skill coverage and copied bundles
-status: New
+status: Development
 feature_request: FEATURE-012
 epic: EPIC-012
 created: 2026-10-03
 updated: 2026-10-03
 priority: Medium
-assignee: ba
+assignee: python-developer
 reporter: ba
 component: skills
+story_points: 16
 release_notes: All 351 supported Foundry operations are covered and copied skill bundles work offline.
 ---
 

@@ -293,3 +293,28 @@ Action:
 - Do record exact IDs (QUESTION-XXX, LINK-XXXXX) in the final report (observed 2026-09-30: FEATURE-011 approvals QUESTION-142/143/144, links LINK-01063..01068).
 
 
+## Improvement: independent manager verification review of batch story promotions
+
+Condition:
+
+- When acting as an INDEPENDENT reviewer to verify a batch of DEV-STORY New->Open promotions (user says verify independently, do not rely on prior agent report)
+
+Action:
+
+- Do NOT copy the prior agent's report; re-derive every fact from the CLI: `get` each ticket (confirm status Open), `link list` each ticket (confirm Contains FEATURE + EpicLink to EPIC), `comment list`/`comment get` for promotion + doc-gate evidence, and `get` the parent FEATURE (confirm Waiting for Implementation) plus the linked EPIC.
+- Do verify terminal status of any linked QUESTION tickets (Question links on parent) so the DoD "no open questions" criterion is provable.
+- Do record PASS/FAIL per review criterion on each ticket as a `comment create --subject "Manager verification review" --text ...` (verification only: never modify status or links).
+- Do independently confirm special anomalies: labeled duplicate promotion comments (subject "Duplicate of <canonical-id> ...") and in-place-corrected canonical promotion comments with valid Contains/EpicLink LINK IDs.
+- Observed 2026-10-03: FEATURE-012 DEV-STORY-041..055 all verified PASS; duplicate-labelled promotions on 053/054/055 (164422/164427/164432) confirmed canonical (164417/164417/164418) has valid link IDs; 045 promotion 20261003-164344-ba corrected in place with Contains LINK-01135 / EpicLink LINK-01136.
+
+## Improvement: a visibly-interrupted chained comment command may have fully executed; check for duplicates before retrying
+
+Condition:
+
+- When a ';'-chained multi-command terminal invocation prints ^C but the individual comment create / update operations may actually have completed
+
+Action:
+
+- Do NOT immediately re-run the individual operations in new calls after a ^C echo; first run `comment list <ticket>` for each target to check whether a complete comment already exists
+- Do only create the comment if it is absent; if the chained command already wrote a complete copy, flag the redundant second copy by `comment update`-ing its subject to `Duplicate of <canonical-comment-id>` (no comment-delete subcommand exists)
+- Do verify the canonical comment body is complete (not truncated) via `comment get` before treating it as authoritative. Observed 2026-10-03: the 053/054/055 chained promotion comments fully executed (164417/164417/164418) despite a ^C echo; individual retries created one duplicate each (164422/164427/164432), all flagged

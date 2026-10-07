@@ -580,3 +580,27 @@ Condition:
 
 Action:
 - Do cross-check pyproject.toml for a missing [project.urls] table, missing license field, and missing classifiers ; confirm no LICENSE file present; then file a BUG-SUB (classification: real metadata/publication gap, requires republish). The install-doc auth/.env gap (README/PyPI long description with no FOUNDRY_TOKEN/dotenv guidance while .env.example exists but is unreferenced) is a separate BUG-SUB. Both keep the TESTEXEC Blocked (Blocks links) until resolved. Verified TESTEXEC-029 (2026-09-30): BUG-SUB-017 (High, links/license/classifiers) + BUG-SUB-018 (Medium, auth/.env guidance), both Open.
+## Improvement: parse documented CLI examples with real namespace parser
+
+Condition:
+- When checking a catalog of skill examples against a CLI whose argparse subclass hides errors behind a generic message
+
+Action:
+- Do run each standalone operation example through its local namespace `build_parser()` with shell-aware tokenization, check selected resource and operation, and temporarily expose argparse error text so missing flags and stray arguments point authors to a specific fix.
+
+## Improvement: verify source matrices and executable documentation
+
+Condition:
+- When QA reviews a skill with a source coverage matrix or executable paging example
+
+Action:
+- Do compare every matrix URL with the exact mapped skill section, probe public links, and execute fenced examples with mocked normal and malformed responses; a bound on returned items alone does not bound empty-page requests.
+
+## Improvement: verify paged SDK wrappers against real iterator contract
+
+Condition:
+- When QA checks CLI pagination around generated SDK iterator methods
+
+Action:
+- Do inspect installed method return type and raw-response wrapper, verify page models carry data and next_page_token, then test initial cursor, empty page with continuation, batch bound, final cursor, and no ordinary iterator call for every paged operation.
+

@@ -2,15 +2,16 @@
 id: DEV-STORY-041
 type: dev_story
 title: Document offline Foundry platform primer and navigation
-status: New
+status: Development
 feature_request: FEATURE-012
 epic: EPIC-012
 created: 2026-10-03
 updated: 2026-10-03
 priority: Medium
-assignee: ba
+assignee: python-developer
 reporter: ba
 component: skills
+story_points: 13
 release_notes: Agents can use an offline Foundry primer and namespace navigation to select supported capabilities.
 ---
 

@@ -2,6 +2,22 @@
 
 ## Improvement History
 
+## Improvement: verify per-part counts, not just totals, in doc deliverable reviews; totals-only gates can mask label swaps
+
+Condition:
+- When reviewing documentation deliverables (skill docs, indexes, reference parts) that advertise operation counts per section, and a gate test checks only the namespace total (e.g. "66 Foundry Admin API v2 operations")
+
+Action:
+- Do independently recount the actual documented records per part (count operation headings per resource client), not just the sum. A 15/23 vs 20/18 label swap preserves the total (66) and passes a totals-only gate while being factually wrong in the index and reference headers. Fix = three label edits (index table + each ref header line 3). Confirmed 2026-10-03 on CODEREVIEW-042: pal-found-admin op-count labels 15/23 swapped vs actual 20/18; defect sent to Correction; gate test test_summary_counts_match_frozen_register only checks the total line so it did not catch it.
+
+## Improvement: codereview lifecycle is New->Open->Correction/Closed; AT-3 activation may not fire; rework = Correction status, not Resolved
+
+Condition:
+- When executing CODEREVIEW tickets whose linked DEV sub-task is already Resolved
+
+Action:
+- Do verify the actual `type-info codereview` + `workflow transitions codereview` before acting: the lifecycle is New -> Open -> Correction (rework, assignee=implementer) / Closed (approved); there is NO In Progress/Resolved for codereview, and Closed/Canceled/Rejected/Duplicated are terminal. AT-3 (linked_ticket_reaches_status Resolved -> Open) may NOT have auto-fired even when the DEV is Resolved - tickets can sit New+Blocked; perform the manual New->Open transition after verifying the DEV is Resolved and the block is clear. Approve = Open->Closed (post findings comment first). Rework = Open->Correction (assignee=implementer) and record the defect on BOTH the CODEREVIEW and the paired DEV sub-task comments so the implementer can fix and move Correction->Corrected for re-review. After approval, remove the DEV->CODEREVIEW Blocks link to unblock the DEV for closure. Confirmed 2026-10-03 on the FEATURE-012 batch (CODEREVIEW-041..055): 14 Closed + 1 Correction.
+
 ## Improvement: read the sibling deliverable's CURRENT content before approving a QUESTION, don't trust a prior snapshot
 
 Condition:
@@ -357,3 +373,11 @@ Condition:
 
 Action:
 - Do run `git -c core.whitespace=cr-at-eol diff --check` on touched paths; keep existing line endings. Don't rewrite the whole shared index to silence false positives.
+
+## Improvement: check operation page before approving API limits
+
+Condition:
+- When a general API guide states an endpoint-specific limit or behavior
+
+Action:
+- Do compare the claim with the operation's current official page and local SDK method docs before approving. General pages can omit storage-version exceptions; correct the guide and its example, then check the source matrix cites the operation page.

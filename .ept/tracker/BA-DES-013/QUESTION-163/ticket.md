@@ -2,7 +2,7 @@
 id: QUESTION-163
 type: question
 title: Project Owner approval of BA-DES-013 offline Foundry skill business design
-status: In Progress
+status: Closed
 addressed_to: project-owner
 created: 2026-10-03
 updated: 2026-10-03

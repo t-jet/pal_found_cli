@@ -1,5 +1,13 @@
 # DevOps Engineer Improvement Memory
 
+## Improvement: verify documentation skill deployment through pinned copy
+
+Condition:
+- When a documentation-only skill release uses a parent gitlink and folder-copy distribution
+
+Action:
+- Do confirm parent gitlink equals clean skills checkout, copy the canonical skill folders into `.ept/tmp`, compare every copied file hash, and resolve local links in the copied tree. Record target path, revisions, counts, smoke result, and rollback in deployment comments before resolving stories.
+
 ## Improvement: use comment get (not show) and verify prior status before Blocked restore
 
 Condition:
@@ -327,3 +335,11 @@ Action:
   publish attestations"), and skip-existing: true on staging for idempotent re-runs (400 "File already exists"
   otherwise). Confirmed 2026-09-30 DEVOPS-026: run 36634536438 built 20260929 from the co-located qa-verify tag;
   after the fix run 36681617309 built 0.1.2 and published to pypi.org.
+
+## Improvement: treat repeated TestPyPI audience 503 as service blocker
+
+Condition:
+- When tagged release builds pass but TestPyPI trusted publishing audience fetch returns HTTP 503 on repeated GitHub Actions attempts
+
+Action:
+- Do inspect failed job logs, check whether Conda published independently, and retry failed jobs only after the run completes. If the same 503 repeats, keep the release ticket Blocked with a linked recovery work item. Record the run, failed attempts, current public versions, and exact rerun and smoke checks needed after service recovery. Don't mark release complete from a successful Conda job alone.

@@ -2,15 +2,16 @@
 id: DEV-STORY-043
 type: dev_story
 title: Document offline Admin governance and Audit operations
-status: New
+status: Development
 feature_request: FEATURE-012
 epic: EPIC-012
 created: 2026-10-03
 updated: 2026-10-03
 priority: Medium
-assignee: ba
+assignee: python-developer
 reporter: ba
 component: skills
+story_points: 12
 release_notes: Admin governance and Audit operations have complete offline Foundry guidance.
 ---
 

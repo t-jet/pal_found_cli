@@ -74,6 +74,14 @@ Condition:
 Action:
 - Do update the test in the same commit so it asserts the ADR-correct behaviour; do not leave the test enforcing the bug and creating a regression trap for the next reviewer.
 
+## Improvement: after a ^C-interrupted `;`-chained comment batch, verify duplicates before retrying
+
+Condition:
+- When a `;`-chained `comment create` batch in one terminal call returns `^C` (interrupted), then the terminal exits non-zero without showing the create result
+
+Action:
+- Do `comment list <each-ticket>` to check what actually posted; the interrupted batch commands often COMPLETE server-side and create the comments anyway, so an immediate one-at-a-time retry duplicates them (this batch: DEV-046 got two identical correction comments, 180608 + 180614). Mark the extra as SUPERSEDED via `comment update` (do not delete) and keep the earliest as canonical. For the rest of the batch run one `comment create` per terminal call to avoid the ^C ambiguity (DEV-050..055 done one-per-call, zero duplicates).
+
 ## Improvement: verify blocking link exists before trying to remove it, and trust AT-5 for terminal-source blocks
 
 Condition:
