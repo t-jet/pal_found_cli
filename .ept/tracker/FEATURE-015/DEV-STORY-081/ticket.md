@@ -2,16 +2,16 @@
 id: DEV-STORY-081
 type: dev_story
 title: 'Author offline REST SDK contracts: v2 Ontology objects sets scenarios and transactions'
-status: Grooming
+status: Development
 feature_request: FEATURE-015
 epic: EPIC-015
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-07
 priority: High
-assignee: tech-lead
+assignee: python-developer
 reporter: ba
 component: skills
-story_points: 5
+story_points: 8
 release_notes: Offline SDK1.101.0 knowledge for v2 Ontology objects sets scenarios and transactions; every owned contract available locally.
 ---
 
@@ -35,4 +35,4 @@ T37 partition R8; 22 canonical operations in frozen SDK 1.101.0 (v2.ontologies: 
 BA-DES-015 revision2; SA-DES-014 revision2 and SDK inventory 1.101.0; WORK-003; approved historical BA-ANA-016/SA-ANA-016.
 
 ## Planning and delivery
-Candidate 5 points. Grooming must validate authoring and independent review capacity, exact model-dependency effort and one-sprint feasibility; split further by explicit operation-ID subsets if needed without changing the complete425 union. Requires approved design, DEV-STORY-061 audit/routing and DEV-STORY-069 frozen catalog/common patterns. Stories remain New until FEATURE-015 Waiting for Implementation. No authoring begins during design. Deliver content and review evidence to REST acceptance story and DEV-STORY-070 integration; final publication remains GitHub-only.
+Groomed estimate: 8 points;72 contributor hours with first-three measurement/resplit checkpoint. Grooming must validate authoring and independent review capacity, exact model-dependency effort and one-sprint feasibility; split further by explicit operation-ID subsets if needed without changing the complete425 union. Requires approved design, DEV-STORY-061 audit/routing and DEV-STORY-069 frozen catalog/common patterns. Stories remain New until FEATURE-015 Waiting for Implementation. No authoring begins during design. Deliver content and review evidence to REST acceptance story and DEV-STORY-070 integration; final publication remains GitHub-only.

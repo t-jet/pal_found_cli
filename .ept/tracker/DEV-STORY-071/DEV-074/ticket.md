@@ -2,7 +2,7 @@
 id: DEV-074
 type: development
 title: DEV-STORY-071 development identity and membership lifecycle REST contracts
-status: Open
+status: In Progress
 created: 2026-10-07
 updated: 2026-10-07
 priority: High

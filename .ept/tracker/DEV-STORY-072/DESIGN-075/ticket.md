@@ -2,7 +2,7 @@
 id: DESIGN-075
 type: design
 title: DEV-STORY-072 design authorization policy and marking lifecycle REST contracts
-status: In Progress
+status: Closed
 created: 2026-10-07
 updated: 2026-10-07
 priority: High

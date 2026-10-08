@@ -2,9 +2,9 @@
 id: CODEREVIEW-071
 type: codereview
 title: 'DEV-STORY-063: Review SQL and Code Workspaces source fidelity'
-status: New
+status: Open
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-07
 priority: High
 assignee: architect
 reporter: tech-lead

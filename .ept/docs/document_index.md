@@ -1,5 +1,6 @@
 # Project Documentation Index
 
+- [FEATURE-015 application and widget source review](../../pal_found_cli_skills/maintainer/applications-widget-independent-source-review.json): source/API review of six local guides and their examples, with explicit fixture and live-platform limits. Final candidate checks remain part of implementation acceptance.
 - [FEATURE-015 REST authoring handoff](deliverables/development/FEATURE-015-rest-authoring-contract.md): core and domain ownership, local reader fixtures, source reconciliation and review boundaries.
 - [FEATURE-015 exact REST operation partitions](deliverables/development/FEATURE-015-rest-operation-partitions.json): exclusive ownership of all 425 SDK 1.101.0 operations and partition hashes.
 

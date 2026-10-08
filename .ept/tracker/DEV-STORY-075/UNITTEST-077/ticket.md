@@ -2,7 +2,7 @@
 id: UNITTEST-077
 type: unittest
 title: DEV-STORY-075 unittest build scheduling checkpoints and health lifecycle REST contracts
-status: Open
+status: In Progress
 created: 2026-10-07
 updated: 2026-10-07
 priority: High

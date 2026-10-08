@@ -2,7 +2,7 @@
 id: DEV-075
 type: development
 title: DEV-STORY-072 development authorization policy and marking lifecycle REST contracts
-status: Open
+status: In Progress
 created: 2026-10-07
 updated: 2026-10-07
 priority: High

@@ -2,9 +2,9 @@
 id: UNITTEST-071
 type: unittest
 title: 'DEV-STORY-065: Verify Compute Modules examples'
-status: Open
+status: In Progress
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-07
 priority: High
 assignee: python-developer
 reporter: tech-lead

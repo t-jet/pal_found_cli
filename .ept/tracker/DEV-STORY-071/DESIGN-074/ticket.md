@@ -2,7 +2,7 @@
 id: DESIGN-074
 type: design
 title: DEV-STORY-071 design identity and membership lifecycle REST contracts
-status: In Progress
+status: Closed
 created: 2026-10-07
 updated: 2026-10-07
 priority: High

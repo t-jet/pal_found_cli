@@ -2,13 +2,14 @@
 id: DEV-070
 type: development
 title: 'DEV-STORY-066: Author offline applications and widgets'
-status: In Progress
+status: Resolved
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-08
 priority: High
 assignee: python-developer
 reporter: tech-lead
 estimated_hours: 28
+time_spent_hours: untracked
 ---
 
 # Author offline applications and widgets

@@ -2,7 +2,7 @@
 id: UNITTEST-075
 type: unittest
 title: DEV-STORY-072 unittest authorization policy and marking lifecycle REST contracts
-status: Open
+status: In Progress
 created: 2026-10-07
 updated: 2026-10-07
 priority: High

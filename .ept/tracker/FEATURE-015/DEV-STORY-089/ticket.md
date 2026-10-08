@@ -2,13 +2,13 @@
 id: DEV-STORY-089
 type: dev_story
 title: 'Author offline REST SDK contracts: Connectivity streams and SQL queries'
-status: Grooming
+status: Development
 feature_request: FEATURE-015
 epic: EPIC-015
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-07
 priority: High
-assignee: tech-lead
+assignee: python-developer
 reporter: ba
 component: skills
 story_points: 8

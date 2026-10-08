@@ -2,7 +2,7 @@
 id: UNITTEST-076
 type: unittest
 title: DEV-STORY-074 unittest versioned dataset branch and transaction lifecycle REST contracts
-status: Open
+status: In Progress
 created: 2026-10-07
 updated: 2026-10-07
 priority: High

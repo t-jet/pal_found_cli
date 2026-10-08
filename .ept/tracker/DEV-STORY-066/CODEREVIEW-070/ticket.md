@@ -4,9 +4,9 @@ type: codereview
 title: 'DEV-STORY-066: Review application and widget source fidelity'
 status: New
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-08
 priority: High
-assignee: architect
+assignee: tech-lead
 reporter: tech-lead
 estimated_hours: 4
 ---

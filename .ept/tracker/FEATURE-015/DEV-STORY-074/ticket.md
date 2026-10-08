@@ -2,13 +2,13 @@
 id: DEV-STORY-074
 type: dev_story
 title: 'Author offline REST SDK contracts: Datasets across both API versions'
-status: Grooming
+status: Development
 feature_request: FEATURE-015
 epic: EPIC-015
 created: 2026-10-06
 updated: 2026-10-07
 priority: High
-assignee: tech-lead
+assignee: python-developer
 reporter: ba
 component: skills
 story_points: 8

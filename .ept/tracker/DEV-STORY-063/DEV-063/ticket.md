@@ -2,13 +2,14 @@
 id: DEV-063
 type: development
 title: 'DEV-STORY-063: Author offline knowledge and examples'
-status: In Progress
+status: Resolved
 created: 2026-10-06
 updated: 2026-10-07
 priority: High
 assignee: python-developer
 reporter: tech-lead
 estimated_hours: 16
+time_spent_hours: untracked
 ---
 
 # Author offline SQL and Code Workspaces

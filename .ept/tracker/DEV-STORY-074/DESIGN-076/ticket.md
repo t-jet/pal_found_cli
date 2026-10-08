@@ -2,7 +2,7 @@
 id: DESIGN-076
 type: design
 title: DEV-STORY-074 design versioned dataset branch and transaction lifecycle REST contracts
-status: In Progress
+status: Closed
 created: 2026-10-07
 updated: 2026-10-07
 priority: High

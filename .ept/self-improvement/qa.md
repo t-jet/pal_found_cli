@@ -94,3 +94,4 @@ Action:
 - Do compare every documented operation and input with a pinned installed CLI parser/dispatch inventory in both directions, and check copied local links without network access.
 - Do require source-backed human review of Foundry effects, parameter meaning, result interpretation, and failure uncertainty; parser and heading checks alone cannot prove semantics.
 - Do use safe mock or recorded-response agent exercises across each namespace, including pagination, permission failure, pending results, and timeout uncertainty.
+- Do label a reader result provisional when the skill-only boundary and public-network denial were described but not enforced; retain the formal TESTEXEC gate until approved cases, isolated inputs, and observed outputs are recorded.

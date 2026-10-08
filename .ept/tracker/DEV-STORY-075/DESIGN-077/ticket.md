@@ -2,7 +2,7 @@
 id: DESIGN-077
 type: design
 title: DEV-STORY-075 design build scheduling checkpoints and health lifecycle REST contracts
-status: In Progress
+status: Closed
 created: 2026-10-07
 updated: 2026-10-07
 priority: High
