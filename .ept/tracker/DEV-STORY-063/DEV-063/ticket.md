@@ -2,9 +2,9 @@
 id: DEV-063
 type: development
 title: 'DEV-STORY-063: Author offline knowledge and examples'
-status: Resolved
+status: Closed
 created: 2026-10-06
-updated: 2026-10-07
+updated: 2026-10-11
 priority: High
 assignee: python-developer
 reporter: tech-lead

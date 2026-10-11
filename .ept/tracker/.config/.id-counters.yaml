@@ -2,7 +2,7 @@ counters:
   ba_subtask_analysis: 16
   ba_subtask_design: 15
   bug: 5
-  bug_subtask: 23
+  bug_subtask: 26
   codereview: 85
   design: 84
   dev_story: 93
@@ -10,7 +10,7 @@ counters:
   devops: 47
   epic: 15
   feature: 15
-  link: 1890
+  link: 1895
   question: 186
   resource_req: 6
   sa_subtask_analysis: 16

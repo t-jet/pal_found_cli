@@ -2,13 +2,14 @@
 id: UNITTEST-070
 type: unittest
 title: 'DEV-STORY-063: Verify SQL and Code Workspaces examples'
-status: In Progress
+status: Closed
 created: 2026-10-06
-updated: 2026-10-07
+updated: 2026-10-11
 priority: High
 assignee: python-developer
 reporter: tech-lead
 estimated_hours: 4
+time_spent_hours: untracked
 ---
 
 # Verify SQL and Code Workspaces examples

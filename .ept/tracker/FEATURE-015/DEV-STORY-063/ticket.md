@@ -2,11 +2,11 @@
 id: DEV-STORY-063
 type: dev_story
 title: Author local SQL and Code Workspace development procedures
-status: Development
+status: QA
 feature_request: FEATURE-015
 epic: EPIC-015
 created: 2026-10-06
-updated: 2026-10-07
+updated: 2026-10-11
 priority: High
 assignee: python-developer
 reporter: ba

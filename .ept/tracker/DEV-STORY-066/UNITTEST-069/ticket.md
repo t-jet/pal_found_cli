@@ -2,7 +2,7 @@
 id: UNITTEST-069
 type: unittest
 title: 'DEV-STORY-066: Verify application and widget examples'
-status: Resolved
+status: Closed
 created: 2026-10-06
 updated: 2026-10-08
 priority: High

@@ -1469,4 +1469,6 @@ LINK-01886,DEV-STORY-091,TESTEXEC-084,Contains,Contains,Contained In,2026-10-07T
 LINK-01887,DEV-084,CODEREVIEW-085,RelatesTo,Relates To,Relates To,2026-10-07T16:02:18.453066,tech-lead,
 LINK-01888,CODEREVIEW-085,DEV-084,RelatesTo,Relates To,Relates To,2026-10-07T16:02:19.122006,tech-lead,
 LINK-01889,DEV-084,CODEREVIEW-085,Blocks,Blocks,Is Blocked By,2026-10-07T16:02:19.801709,tech-lead,
-LINK-01890,CODEREVIEW-071,DEV-063,Blocks,Blocks,Is Blocked By,2026-10-07T23:23:28.566923,project-manager,Independent review required after author Resolved; no author selfapproval
+LINK-01893,BUG-SUB-025,DEV-STORY-074,RelatesTo,Relates To,Relates To,2026-10-09T09:29:15.651134,qa-engineer,J12 staged/committed Dataset File view fix coordinated with orchestration owner
+LINK-01894,BUG-SUB-025,TESTEXEC-064,Blocks,Blocks,Is Blocked By,2026-10-09T09:29:16.541781,qa-engineer,J12 integrated reader failure blocks complete REST acceptance until fresh blind retest
+LINK-01895,BUG-SUB-026,TESTEXEC-064,Blocks,Blocks,Is Blocked By,2026-10-09T19:30:03.134544,qa-engineer,Audit bounded pagination reader failure blocks complete REST acceptance until retest

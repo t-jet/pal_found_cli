@@ -2,7 +2,7 @@
 id: DEV-070
 type: development
 title: 'DEV-STORY-066: Author offline applications and widgets'
-status: Resolved
+status: Closed
 created: 2026-10-06
 updated: 2026-10-08
 priority: High

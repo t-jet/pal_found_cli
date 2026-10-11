@@ -1,5 +1,29 @@
 # Tech Lead — Improvement Memory
 
+## Improvement: exclude tests from coverage gate denominator
+
+Condition:
+- When reviewing unit coverage of bundled example Python modules under project minimum
+
+Action:
+- Do measure executable source with `--omit '*test*.py'`, include standalone fixture runs in same coverage data, and report unavailable runtime modules separately; don't pass a gate from test-file coverage inflating aggregate.
+
+## Improvement: test offline gates for bypass paths before claiming isolation
+
+Condition:
+- When reviewing an offline fixture gate built with language-level socket or DNS monkeypatches
+
+Action:
+- Do probe direct IP, UDP sends, child processes and runtime fetch paths as applicable; inspect what the gate actually patches. Describe it as a cooperative fixture guard unless an OS boundary also blocks egress. Do not infer complete network isolation from DNS denial or fixture success.
+
+## Improvement: bound paged SDK calls by requests, not returned items
+
+Condition:
+- When reviewing a Foundry SDK `ResourceIterator` loop with a finite item cap
+
+Action:
+- Do inspect `PageIterator` behavior for empty pages and repeated tokens. An `islice` item cap can issue unlimited requests when pages stay empty. For a hard budget, call the paged method once per page, read its already fetched `.data` and `.next_page_token` without iterating, and cap requests, items, wall time, and repeated cursors. When SDK timeout requires positive integer seconds, stop before a request if less than one whole second remains; recheck deadline after the response and mark returned data partial on overrun. Do not claim a blocking request can be forcibly preempted.
+
 ## Improvement: verify epic auto-transition Open->In Progress premise before expecting cascade
 
 Condition:
@@ -100,6 +124,7 @@ Condition:
 - When reviewing a namespace CLI whose OP_SPECS arg names are expected to map 1:1 to SDK kwargs, and the mock-driven unit tests pass
 
 Action:
+- Do check the exact installed SDK version and the frozen source commit before accepting a MockTransport run; a customer-input SDK checkout may have moved ahead of the frozen release, so rerun without a checkout `PYTHONPATH` when the approved version is installed.
 - Do `inspect.signature` every op with structured/JSON args against the INSTALLED SDK (not the vendored docs) and run a small runtime probe with valid-shaped inputs through the real SDK wrapper; a mock test asserting the wrong kwarg (e.g. `filters=` instead of SDK-required `file_import_filters=`) passes while the real call fails at validation. This batch caught a P1 (connectivity file_import create/replace can NEVER succeed — `ValidationError: file_import_filters Missing required keyword only argument`) only via the runtime probe; the vendored DESIGN table also carried the wrong arg name. Also probe pydantic `validate_call` extra-arg behavior before calling an extra flag a defect: `maybe_ignore_preview` strips unknown `preview` kwargs with only a UserWarning, and `validate_call` default is `extra='ignore'` — both downgrade what looks like a runtime error to a doc-only mismatch (P3).
 - Do also check the SDK's per-op explicit `attribution` kwarg against the global `ATTRIBUTION_VAR` context header (http_client applies `attribution` header to ALL requests from the context var); an unreferenced per-op kwarg is usually P3 cosmetic when the context-var path satisfies the requirement.
 - Do probe nested resource clients that are `cached_property` mounts by importing the resource module directly (`foundry_sdk.v2.widgets.release.AsyncReleaseClient`), NOT via `AsyncWidgetSetClient.Release.<method>` — the attribute is a `cached_property` object, so `inspect.signature`/`getattr` on it fails (`AttributeError: cached_property object has no attribute`). Discover the mount via `inspect.getsource` of the parent client's `__init__`/`cached_property`, and check `dir()` on the *module* (client classes live in per-resource modules, not exposed as top-level package attrs). (Batch 25: verified Release.delete/get/list this way; also confirmed instance-only attrs mean `dir(AsyncWidgetsClient)` prints nothing.)
@@ -562,3 +587,21 @@ Condition:
 Action:
 
 - Do verify observed statuses WITHOUT manual transitions: `get FEATURE-011` (Waiting for Implementation -> Resolved fired via AT-1 all_children_reach_status dev_story [Closed,...]) and `get EPIC-011` (still In Progress even when all EpicLink stories are Closed - In Progress->Resolved AT-1 did NOT fire). Confirm the EpicLink sibling set with `link list EPIC-011` (038/039/040 all Closed) to rule out a non-terminal sibling. Report the stall as an observed state for an Architect/BA decision; do NOT manually force the epic transition to manufacture the cascade.
+
+## Improvement: check split-guide targets and versioned selectors
+
+Condition:
+
+- When reviewing generated per-operation SDK guides and manifests
+
+Action:
+
+- Do verify every manifest behavior path contains its exact method heading; check each v1/v2 explanation against that version's source signature, especially branch and transaction selectors. Counted files or passing resource-client fixtures cannot prove a reader can find or call the composed route.
+
+## Improvement: separate generated model fidelity from reader meaning
+
+Condition:
+- When reviewing generated SDK model/error pages against frozen source
+
+Action:
+- Do normalize line endings before comparing source snippets; verify source hashes, AST dependencies, consumers, code fences and local page hashes per symbol. Then review reader meaning separately, including docstrings attached after aliases, missing JSON examples and source-silent errors. Don't count structural closure as semantic acceptance.

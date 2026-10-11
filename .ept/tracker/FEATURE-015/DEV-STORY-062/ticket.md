@@ -2,11 +2,11 @@
 id: DEV-STORY-062
 type: dev_story
 title: Author complete local Python pipeline development procedures
-status: Development
+status: Deployment
 feature_request: FEATURE-015
 epic: EPIC-015
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-11
 priority: High
 assignee: python-developer
 reporter: ba

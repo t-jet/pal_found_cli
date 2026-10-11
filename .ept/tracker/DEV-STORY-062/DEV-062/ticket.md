@@ -2,13 +2,14 @@
 id: DEV-062
 type: development
 title: 'DEV-STORY-062: Author offline knowledge and examples'
-status: Resolved
+status: Closed
 created: 2026-10-06
-updated: 2026-10-07
+updated: 2026-10-10
 priority: High
 assignee: python-developer
 reporter: tech-lead
 estimated_hours: 28
+time_spent_hours: untracked
 ---
 
 # DEV-062: DEV-STORY-062: Author offline knowledge and examples

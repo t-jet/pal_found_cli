@@ -2,13 +2,14 @@
 id: TESTCASE-069
 type: testcase
 title: 'DEV-STORY-066: Define independent application and widget cases'
-status: Open
+status: Closed
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-10
 priority: High
 assignee: qa-engineer
 reporter: tech-lead
 estimated_hours: 3
+time_spent_hours: untracked
 ---
 
 # Define independent application and widget cases

@@ -87,3 +87,85 @@ Condition:
 
 Action:
 - Do use the SDK's public raw-response wrapper to fetch and decode one page per request; test an empty page with continuation, the initial cursor, page bounds, and the returned next cursor across affected operations.
+
+## Improvement: isolated SDK reader acceptance
+
+Condition:
+- When source-blind SDK reader task requires independent namespace acceptance
+
+Action:
+- Do copy owning skill into isolated snapshot, hash snapshot and prepared SDK, run public composed FoundryClient routes through denied-network fake transport, and label detached resource fixtures as smoke only.
+
+## Improvement: inspect iterator API before rejecting page access
+
+Condition:
+- When SDK method annotation says `ResourceIterator` but guide reads `.data` or `.next_page_token`.
+
+Action:
+- Do inspect iterator class properties and page-fetch timing, then run guide call through composed client MockTransport before filing route defect. Return annotation alone insufficient.
+
+## Improvement: measure example coverage without test files
+
+Condition:
+- When docs examples need unit coverage but hosted runtime modules unavailable.
+
+Action:
+- Do measure non-test modules with `coverage report --omit '*test*.py'`; invoke actual entry points through narrow dependency stubs and assert rows, modes, and failures. Label hosted runtime unexecuted.
+
+## Improvement: semantic schema checks before example writes
+
+Condition:
+- When prepared-runtime example groups or sums pandas values before a dataset write.
+
+Action:
+- Do test nonnumeric input and output values against actual example code; reject wrong types before write with a check that still runs under optimized Python. Coverage percent alone cannot prove valid output schema.
+
+## Improvement: SDK source fences versus offline reader prose
+
+Condition:
+- When generating offline API model pages from SDK definitions containing public links or placeholder comments
+
+Action:
+- Do keep exact SDK source in fenced blocks, add complete local meaning in reader prose, and record per-symbol source/page hashes with independent review pending. When a Python alias is `Any`, check pinned SDK documentation for type/encoding tables and emit source-backed valid JSON examples plus documentation hash. Do check source fidelity separately from prose tests that normalize optional attribution links.
+
+
+## Improvement: root SDK mock transport must cover lazy clients
+
+Condition:
+- When testing an operation through public FoundryClient with a patched HTTP-client constructor
+
+Action:
+- Do keep constructor patch active through nested resource access and request; root client constructs resource clients lazily. Assert fake transport handled request before claiming offline success.
+
+## Improvement: compare inventories to distributed records
+
+Condition:
+- When testing preservation of documented operation IDs against frozen baseline
+
+Action:
+- Do extract IDs from actual distributed operation headings and compare exact sorted hash; don't hash another frozen constant as the "actual" result.
+
+## Improvement: uncertain REST write fixture
+
+Condition:
+- When offline SDK guidance handles a lost upload or commit reply
+
+Action:
+- Do mutate fake server state before raising transport timeout, reconcile through known RID and staged or branch reads, and assert exactly one mutation; never let a passing fixture hide automatic replay.
+
+## Improvement: unmeasured ticket time
+
+Condition:
+- When subtask DoD requires time in frontmatter but actual contributor hours were not measured
+
+Action:
+- Do record time as untracked in ticket comment and ask manager for workflow treatment before Resolved; don't invent hours or set numeric zero.
+
+## Improvement: integer request timeout cannot certify wall deadline
+
+Condition:
+- When SDK request timeout accepts positive whole seconds and app promises a shorter elapsed-time budget.
+
+Action:
+- Do stop before call if fewer than one whole second remains; pass integer timeout no greater than remaining whole seconds; recheck clock after response before claiming complete. Preserve partial result on overrun and test slow or noncooperative transport. Don't promise hard preemption of a blocking call.
+

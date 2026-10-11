@@ -381,3 +381,10 @@ Condition:
 
 Action:
 - Do compare the claim with the operation's current official page and local SDK method docs before approving. General pages can omit storage-version exceptions; correct the guide and its example, then check the source matrix cites the operation page.
+## Improvement: test authored example with invalid typed input before review approval
+
+Condition:
+- When a skill shows runnable transform code and claims an output schema or validation step
+
+Action:
+- Do run the actual authored asset with valid, null, missing-column, string, Boolean, complex, and supported decimal values; inspect what reaches the output write. Check both input and aggregate type guards and compare inline guide code with the runnable asset. Re-run the original failing test after correction before approving.

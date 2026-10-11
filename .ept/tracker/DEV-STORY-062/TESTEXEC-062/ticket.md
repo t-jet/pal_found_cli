@@ -2,13 +2,14 @@
 id: TESTEXEC-062
 type: testexec
 title: 'DEV-STORY-062: Execute independent offline topic acceptance'
-status: Open
+status: Closed
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-11
 priority: High
 assignee: qa-engineer
 reporter: tech-lead
 estimated_hours: 10
+time_spent_hours: untracked
 ---
 
 # TESTEXEC-062: DEV-STORY-062: Execute independent offline topic acceptance

@@ -2,7 +2,7 @@
 id: CODEREVIEW-070
 type: codereview
 title: 'DEV-STORY-066: Review application and widget source fidelity'
-status: New
+status: Closed
 created: 2026-10-06
 updated: 2026-10-08
 priority: High

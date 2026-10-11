@@ -2,13 +2,14 @@
 id: TESTCASE-062
 type: testcase
 title: 'DEV-STORY-062: Design independent offline topic cases'
-status: Open
+status: Closed
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-11
 priority: High
 assignee: qa-engineer
 reporter: tech-lead
 estimated_hours: 3
+time_spent_hours: untracked
 ---
 
 # TESTCASE-062: DEV-STORY-062: Design independent offline topic cases

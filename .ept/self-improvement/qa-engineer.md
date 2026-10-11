@@ -604,3 +604,11 @@ Condition:
 Action:
 - Do inspect installed method return type and raw-response wrapper, verify page models carry data and next_page_token, then test initial cursor, empty page with continuation, batch bound, final cursor, and no ordinary iterator call for every paged operation.
 
+## Improvement: check SDK timeout translation in offline fixtures
+
+Condition:
+- When MockTransport raises httpx timeout inside public Foundry SDK call
+
+Action:
+- Do verify public SDK exception type in installed release; catch that type in recovery code, and flag guide gap if local contract omits translation.
+

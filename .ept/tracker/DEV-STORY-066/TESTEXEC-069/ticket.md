@@ -2,13 +2,14 @@
 id: TESTEXEC-069
 type: testexec
 title: 'DEV-STORY-066: Execute independent offline application and widget acceptance'
-status: Open
+status: Closed
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-11
 priority: High
 assignee: qa-engineer
 reporter: tech-lead
 estimated_hours: 10
+time_spent_hours: untracked
 ---
 
 # Execute independent offline application and widget acceptance

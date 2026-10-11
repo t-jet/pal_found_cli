@@ -95,3 +95,4 @@ Action:
 - Do require source-backed human review of Foundry effects, parameter meaning, result interpretation, and failure uncertainty; parser and heading checks alone cannot prove semantics.
 - Do use safe mock or recorded-response agent exercises across each namespace, including pagination, permission failure, pending results, and timeout uncertainty.
 - Do label a reader result provisional when the skill-only boundary and public-network denial were described but not enforced; retain the formal TESTEXEC gate until approved cases, isolated inputs, and observed outputs are recorded.
+- Do record sorted file-hash manifest for each isolated reader snapshot and keep an independent reader's files separate when earlier evidence has unclear provenance; distinguish cooperative in-process network denial from an OS sandbox.
