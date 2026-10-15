@@ -15,6 +15,10 @@ Snapshot: 2026-10-15. FEATURE-012 skills, CLI tool, and parent pins are publishe
 
 Parent `main` was published at `2a95dfbc697e5b9bb999da8bb617d6352ac388e2`. A fresh recursive clone from that ref resolved the skills, tool, and SDK revisions in the table and passed the 351-operation audit again.
 
+## Scope of publication
+
+The release used isolated commits containing the reviewed FEATURE-012 skill files and paired CLI corrections. The active parent and submodule working trees still contain uncommitted edits and do not match published `main`. Local `pal-found-dev` REST work, the Data Health check-config guide, tracker records, and other project notes were outside these release commits. Those changes need separate review and integration before the active checkout represents the published revision.
+
 ## Verification from fresh clone
 
 | Check | Result |
