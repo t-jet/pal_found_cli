@@ -1,6 +1,6 @@
 # WORK-007 release pin verification
 
-Snapshot: 2026-10-15. FEATURE-012 skills and CLI tool have a tested, paired parent release branch. PyPI package publication is complete. WORK-007 remains open until the parent default branch is published.
+Snapshot: 2026-10-15. FEATURE-012 skills, CLI tool, and parent pins are published. The CLI package is available on PyPI and Anaconda.
 
 ## Published candidate
 
@@ -12,6 +12,8 @@ Snapshot: 2026-10-15. FEATURE-012 skills and CLI tool have a tested, paired pare
 | SDK evidence revision | `2da67907be429c35f747eef565867ce81dd2cafc` |
 
 `git ls-tree HEAD pal_found_cli_skills pal_found_cli_tool` in the isolated parent worktree confirms both gitlinks. A fresh clone of the remote parent release branch with `--recurse-submodules` resolved the same pair. The skills commit has tag `feature-012-offline-qa-20261014-v2`; skills CI run `38636503091` succeeded. Tool tag `v0.1.5` resolves to its pinned commit; tool CI run `38636495025` passed all eight jobs.
+
+Parent `main` was published at `2a95dfbc697e5b9bb999da8bb617d6352ac388e2`. A fresh recursive clone from that ref resolved the skills, tool, and SDK revisions in the table and passed the 351-operation audit again.
 
 ## Verification from fresh clone
 
@@ -30,4 +32,4 @@ Earlier local QA also passed WORK-006's five focused offline novice cases. BUG-0
 
 Tool publish run `38637176438` succeeded. It built the release, published to Test PyPI, installed the staged package in a clean environment, published to PyPI, and built and uploaded the conda package. PyPI serves wheel `pal_found_cli-0.1.5-py3-none-any.whl` with SHA-256 `7bcbd479d9b3a4b8fac8d14bbf590a2485d34e9a1b81a113a3c512791aee08f7` and source archive `pal_found_cli-0.1.5.tar.gz` with SHA-256 `be5db56dd1fafdaa53bf39e497137b4c0967772db2d0d1720d37d344a9a0e969`. Anaconda serves `noarch/pal_found_cli-0.1.5-py_0.conda`.
 
-Publish the paired parent commit to `main`, confirm remote gitlinks and a fresh recursive clone from `main`, then close WORK-007.
+The paired parent revision, copied skill bundle, installed CLI, and package artifacts have passed release checks. WORK-007 can be closed after the tracker records this evidence.
