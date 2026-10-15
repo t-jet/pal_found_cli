@@ -1,5 +1,9 @@
 # Project Documentation Index
 
+- [WORK-007 release pin verification](deliverables/qa/WORK-007-release-pin-plan.md): parent and paired submodule revisions, fresh-clone checks, and pending CLI publication.
+- [WORK-007 historical skills candidate](deliverables/qa/WORK-007-skills-candidate-evidence.md): earlier isolated skills checks and [83-file manifest](deliverables/qa/WORK-007-skills-candidate-manifest.json).
+- [WORK-007 historical tool candidate](deliverables/qa/WORK-007-tool-candidate-evidence.md): earlier isolated CLI changes, hashes, and test result.
+
 ## Documentation Structure
 
 This project follows a structured documentation approach organized into logical folders:

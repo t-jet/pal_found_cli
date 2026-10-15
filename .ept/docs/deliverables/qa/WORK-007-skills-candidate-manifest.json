@@ -1,0 +1,339 @@
+{
+  "base_commit": "bb26037813cda6dab5f51c03af9a0b08162a5f7e",
+  "candidate_tree": "5989d93e7990cf5f517643fefbb870df899c8c31",
+  "changed_count": 83,
+  "files": [
+    {
+      "path": ".agents/skills/pal-found-admin/references/01-identity-auth-users.md",
+      "sha256": "c7bfb33917ec7361aec6046bca2bf91f2bc1a106ae08decce85bb5d28d69dc10"
+    },
+    {
+      "path": ".agents/skills/pal-found-admin/references/02-identity-groups-roles.md",
+      "sha256": "d7690f0d49f1654b6e64572ef9af8ff1de55f529a9846e1abd33c65c3fc1c0ca"
+    },
+    {
+      "path": ".agents/skills/pal-found-admin/references/03-governance.md",
+      "sha256": "b6b6248e6c86de0c082df1f3ebecef6c726cc0395ce58e9d281e4c7bd6aa0cc7"
+    },
+    {
+      "path": ".agents/skills/pal-found-admin/references/04-governance-access.md",
+      "sha256": "d92e884a4d56b84b7121705934a61684e5d87a3463fd7c19f1e76aed29605cbb"
+    },
+    {
+      "path": ".agents/skills/pal-found-aip-agents/references/agent-version.md",
+      "sha256": "3215b062099aba2f29c27a1167a24d0a1677f04a870d1f81153f83f41ddc95e5"
+    },
+    {
+      "path": ".agents/skills/pal-found-aip-agents/references/agent.md",
+      "sha256": "9d4c944432fe250122bc0a6aa288be37418cd7725ba26b7e0522a6dec5949bcb"
+    },
+    {
+      "path": ".agents/skills/pal-found-aip-agents/references/session.md",
+      "sha256": "0163ee97390a97dd9512a283529d7973c3e62a063db6751401ca7cf24fcceeef"
+    },
+    {
+      "path": ".agents/skills/pal-found-checkpoints/references/01-record.md",
+      "sha256": "5c9a4c81dd5b024453d3de437a88afdcaa141606d5fcf4ed002d3a5142a28fe7"
+    },
+    {
+      "path": ".agents/skills/pal-found-connectivity/references/01-connection.md",
+      "sha256": "752b98c17df36201da35c91ed55d0fbf4e37c5f2281c1c02f90d994ee69ba650"
+    },
+    {
+      "path": ".agents/skills/pal-found-connectivity/references/02-imports.md",
+      "sha256": "e56612fd619237e28abd76e33474b0ef8eaa8b929f656d17663f921a17365887"
+    },
+    {
+      "path": ".agents/skills/pal-found-connectivity/SKILL.md",
+      "sha256": "98a3d2b81e5c47f55ad2e5c5fcd0680b6c37c526ff1b1a97f568186d11395a89"
+    },
+    {
+      "path": ".agents/skills/pal-found-datasets/references/01-dataset.md",
+      "sha256": "bcbcbe31773a4e16f847d111ae87419e73d303d711f3c814a6fd3417230b1298"
+    },
+    {
+      "path": ".agents/skills/pal-found-datasets/references/02-branch.md",
+      "sha256": "44e64e2becbdf9d09bc9dea23d2472e0736bd2135367b1314d65770b01e27263"
+    },
+    {
+      "path": ".agents/skills/pal-found-datasets/references/03-file.md",
+      "sha256": "45c90ff539ce4fc74c8afc82056e29396401fc0a92e5766751c9ef355cdb0aef"
+    },
+    {
+      "path": ".agents/skills/pal-found-datasets/references/05-view.md",
+      "sha256": "b36e13838fd86862cdfa935292c014dbe56bd16aa10af0a75531c8393900509e"
+    },
+    {
+      "path": ".agents/skills/pal-found-datasets/SKILL.md",
+      "sha256": "b5c3b5e0f275e42805b57d66d0fb6a94381e6a1c104fb192e348f4320cb42a26"
+    },
+    {
+      "path": ".agents/skills/pal-found-filesystem/references/01-folder-project.md",
+      "sha256": "b3a30694e8da237251993c428ca8f755c5b9ac4a12d8a27a03bf44482fbc0eba"
+    },
+    {
+      "path": ".agents/skills/pal-found-filesystem/references/02-resource.md",
+      "sha256": "3b026accb42fb2bb4ca3c31d73b2e6be411dde7f1a6be743e4d1431a94037665"
+    },
+    {
+      "path": ".agents/skills/pal-found-filesystem/references/03-resource-role-space.md",
+      "sha256": "33685b7d7ed258d81fcaa9ea469df43dbafda37ea2411b6052daffe27b66a3c2"
+    },
+    {
+      "path": ".agents/skills/pal-found-filesystem/SKILL.md",
+      "sha256": "1a07ac71f2af4718740e6af18f59644ae699aaa4cf3f23a4390ad7144985d2a7"
+    },
+    {
+      "path": ".agents/skills/pal-found-functions/references/inputs.md",
+      "sha256": "d4a3ec95cca0ac17ffd1d92160794ce8c67e97c86d73a52ca06c6d723a4f8221"
+    },
+    {
+      "path": ".agents/skills/pal-found-functions/references/query.md",
+      "sha256": "7a0156e14058d6fd750833b23c0eb9fae7edab712e65208b33a52dd5bdfe0a27"
+    },
+    {
+      "path": ".agents/skills/pal-found-functions/SKILL.md",
+      "sha256": "012eb1c8c39f017ec2a4d62b65621a4847f6ca2329cd50af224056674d92760a"
+    },
+    {
+      "path": ".agents/skills/pal-found-language-models/SKILL.md",
+      "sha256": "846dfc34b535a8a8926b1d77fd4527b24135fb8f2f9b941a544cec773c687f4c"
+    },
+    {
+      "path": ".agents/skills/pal-found-models/references/experiment-artifact-table.md",
+      "sha256": "3bcfeb412a96d26acafe6596b5bf0454ccb8d015dfd6438c759e6319f242f0d0"
+    },
+    {
+      "path": ".agents/skills/pal-found-models/references/experiment-series.md",
+      "sha256": "130e548ecdf4d644136b2c60b19693bcb8ec859d3e8720a3857b10a723c3c33f"
+    },
+    {
+      "path": ".agents/skills/pal-found-models/references/experiment.md",
+      "sha256": "432731a0e185915e88b0424a2698d28dad3a4300aeeb738d0741115b939b9adf"
+    },
+    {
+      "path": ".agents/skills/pal-found-models/references/model-studio-config-version.md",
+      "sha256": "67c6967bdb8fa7470de1f579e959834a377264de79cd0e41320cf72c7d9f68a3"
+    },
+    {
+      "path": ".agents/skills/pal-found-models/references/model-studio-run.md",
+      "sha256": "7865d12d8564856f0ce96e76868a47caa64cb5100d8c0ee9d45366dd07a986eb"
+    },
+    {
+      "path": ".agents/skills/pal-found-models/references/model-studio-trainer.md",
+      "sha256": "ea7ae4661634026d8ce654489acd976fb0ccd62e2e85379fd282eb8ccc646773"
+    },
+    {
+      "path": ".agents/skills/pal-found-models/references/model-studio.md",
+      "sha256": "b2dfc742b39e9bffe0db19d08bb060d8719a033dc8a7e9baf39496197f2d48c2"
+    },
+    {
+      "path": ".agents/skills/pal-found-models/references/model-version.md",
+      "sha256": "563bae00849505704df0069b6abac0dbe4c7c2675b236f816f051efcaca4b72c"
+    },
+    {
+      "path": ".agents/skills/pal-found-models/SKILL.md",
+      "sha256": "6843c248b87c0a779ee3c75f66cfc5c1df091b6b32afd9519c9dba8fa9411f27"
+    },
+    {
+      "path": ".agents/skills/pal-found-ontologies/references/action-type-full-metadata.md",
+      "sha256": "30f6be26b60708fa90ef60f749365a52a142d6d06f1beef2ae20c99e74391743"
+    },
+    {
+      "path": ".agents/skills/pal-found-ontologies/references/action-type.md",
+      "sha256": "e6bd02b0a42e74b79fad16d69b91cf3d8f14c5804a87ba61ac22254f24d0f497"
+    },
+    {
+      "path": ".agents/skills/pal-found-ontologies/references/action.md",
+      "sha256": "c2b5dedba679221c8080cf69a5f810f30dccaf9470b6d8cdd15056d7a49ba202"
+    },
+    {
+      "path": ".agents/skills/pal-found-ontologies/references/attachment-property.md",
+      "sha256": "fd39543250bbe92128a90390731429ff812b7b64b2ea08b53e9effb2953636b0"
+    },
+    {
+      "path": ".agents/skills/pal-found-ontologies/references/geotemporal-series-property.md",
+      "sha256": "fee74c6cc5f69f597e67c4f18fb4f34fa15ea367aaed79c54b38107de61ebc52"
+    },
+    {
+      "path": ".agents/skills/pal-found-ontologies/references/linked-object.md",
+      "sha256": "cbd070da12702f4d1f4cc2122c8106834f4e67e713556485127c4f8a3f79f570"
+    },
+    {
+      "path": ".agents/skills/pal-found-ontologies/references/media-reference-property.md",
+      "sha256": "22fe605932aed44f1599c9e2c2685b9c1881e462b815548d604ee94e689adff6"
+    },
+    {
+      "path": ".agents/skills/pal-found-ontologies/references/object-type.md",
+      "sha256": "d47e8a7a815bcedd9dd19a2c0de4a0bd457ef072ad4f9756882400a97b400ae5"
+    },
+    {
+      "path": ".agents/skills/pal-found-ontologies/references/ontology-interface.md",
+      "sha256": "9d5eb1553f15689f00c8246910ad00f101cf9764704c5e509d5c507b31b06be7"
+    },
+    {
+      "path": ".agents/skills/pal-found-ontologies/references/ontology-object-set.md",
+      "sha256": "852ec634fcc61677dc0f9dcafa722d5b9941d2659162d59034272b1c71cb172f"
+    },
+    {
+      "path": ".agents/skills/pal-found-ontologies/references/ontology-object.md",
+      "sha256": "960ab1e98b4e20f5e33e334f9d502ec217493280b8bddedaf780ea3502e80748"
+    },
+    {
+      "path": ".agents/skills/pal-found-ontologies/references/ontology-transaction.md",
+      "sha256": "55fe9f3d500b891932abdf74c1784550cba5afcf8abf1020ece2eff92105ebf8"
+    },
+    {
+      "path": ".agents/skills/pal-found-ontologies/references/ontology-value-type.md",
+      "sha256": "a8f35d941a2abade913ec728ae5ddc4ce32acd6e3ad1e0ce148ce6d18896bd49"
+    },
+    {
+      "path": ".agents/skills/pal-found-ontologies/references/ontology.md",
+      "sha256": "40f839c7dd79f4deb7612bcd463b08c8c5e7df504d8cac53e759fa21bcc3c15f"
+    },
+    {
+      "path": ".agents/skills/pal-found-ontologies/references/query-type.md",
+      "sha256": "1723a95b839635ed7708b98b33b906a25172d5a2db907fd2fec2ce43a6d9bf4f"
+    },
+    {
+      "path": ".agents/skills/pal-found-ontologies/references/query.md",
+      "sha256": "f7b78474341ba7cc3bb6a5bfe4679c423848600b74adfa5358a62ef0d5d03ed7"
+    },
+    {
+      "path": ".agents/skills/pal-found-ontologies/references/time-series-property-v2.md",
+      "sha256": "ec17a2a52200e1d23162dd3c6d84802edce5228e50a7122779adf17f08c56bbb"
+    },
+    {
+      "path": ".agents/skills/pal-found-ontologies/references/time-series-value-bank-property.md",
+      "sha256": "bdc2ac7eb8eec9442e3aa679dd66d863b7c50296d673103433b524ef42e545ff"
+    },
+    {
+      "path": ".agents/skills/pal-found-ontologies/SKILL.md",
+      "sha256": "d21e100512dc105f3190d1e96a9fdc7371bfe4ecb53f7e6aa132ace1284c016a"
+    },
+    {
+      "path": ".agents/skills/pal-found-orchestration/references/01-build-job.md",
+      "sha256": "4e2065098e22e444a67393904c7f858030dfa139a645eafa6e27209bcb9095d9"
+    },
+    {
+      "path": ".agents/skills/pal-found-orchestration/references/02-schedule.md",
+      "sha256": "447cfa58084b8143bd8a98fcce2a0a4a264630ed531cca151dd68ddef7c27467"
+    },
+    {
+      "path": ".agents/skills/pal-found-orchestration/SKILL.md",
+      "sha256": "e25a1af7afdc692038b066a4a2c79a78526e08ee3fc5050853b121c8bc6fef5c"
+    },
+    {
+      "path": ".agents/skills/pal-found-sql-queries/references/01-query.md",
+      "sha256": "add2447ba4bd5e212b3910e5265e2b1e003c62582848042b50eba3ef579e3491"
+    },
+    {
+      "path": ".agents/skills/pal-found-third-party-applications/references/01-applications.md",
+      "sha256": "8f00b367d4afa7184662a6474c9e5cd7c90519cbeae6af2fc686b339802ac737"
+    },
+    {
+      "path": ".agents/skills/pal-found-third-party-applications/SKILL.md",
+      "sha256": "8df2f2a83f0893ad14a7fb35d080294d003c7f36d469c389700f01826eb05e99"
+    },
+    {
+      "path": ".agents/skills/pal-found-widgets/references/01-repository.md",
+      "sha256": "9ef67a790714a2c2cd8123c98151ed18b0c3742494adf70d85640f826f1d10a9"
+    },
+    {
+      "path": ".agents/skills/pal-found-widgets/SKILL.md",
+      "sha256": "bb8b12a787fd9ce997824b0b33cb54709e9fbea55feb42addccf842c2a4aa952"
+    },
+    {
+      "path": ".agents/skills/pal-found/references/03-output-success-failure.md",
+      "sha256": "78cf60ce830ef2e64dcf0dc821b77cac03a4e17f0c425d99d7564f2cb6593a9b"
+    },
+    {
+      "path": ".agents/skills/pal-found/SKILL.md",
+      "sha256": "5623a98de2292cff8ad99ce32537358aa79b353506a49254b137d43b7edefe14"
+    },
+    {
+      "path": "maintainer/feature012-independent-semantic-audit.json",
+      "sha256": "a9bfb1b5237ef75ca8265df703d53e7c2189b48e235ef16c1b318d6faee145a1"
+    },
+    {
+      "path": "maintainer/feature012-semantic-reviews/pal-found-admin.json",
+      "sha256": "c6637b4f6f67a82b7d2dc7368dc44ee13590eb484670bf5b4f3888e83efc08ee"
+    },
+    {
+      "path": "maintainer/feature012-semantic-reviews/pal-found-aip-agents.json",
+      "sha256": "5fbe0c7bc04ff77a9526f6bbc964b2bc387b07e0768f0e089021394b6f9d345f"
+    },
+    {
+      "path": "maintainer/feature012-semantic-reviews/pal-found-audit.json",
+      "sha256": "e373bbecacdde971cc787a5188843406cf7d30d940867667c10ec0796d74902b"
+    },
+    {
+      "path": "maintainer/feature012-semantic-reviews/pal-found-checkpoints.json",
+      "sha256": "830d51599d3505f33c6f3d504c386fdaada3e0943529731d8f48b3376c139560"
+    },
+    {
+      "path": "maintainer/feature012-semantic-reviews/pal-found-connectivity.json",
+      "sha256": "98dbbf60e02110c7466f7aa3eadc22a4606d710a5f111b5a94692aa990bc9c66"
+    },
+    {
+      "path": "maintainer/feature012-semantic-reviews/pal-found-data-health.json",
+      "sha256": "3a7dba28b73080e401c0246cb33ecf8b8065cb24caa897df004de1ffac3c643f"
+    },
+    {
+      "path": "maintainer/feature012-semantic-reviews/pal-found-datasets.json",
+      "sha256": "cc1f9c59e2e0bf08f7ffcb72835244b99f81071aaf9fee35025f39c5f2fbded9"
+    },
+    {
+      "path": "maintainer/feature012-semantic-reviews/pal-found-filesystem.json",
+      "sha256": "0e0faecaa0a8aba93da53414084812da7bd60451252ec9747414b9289fea6cfb"
+    },
+    {
+      "path": "maintainer/feature012-semantic-reviews/pal-found-functions.json",
+      "sha256": "8427abd26dd8ed52bd456d2cbf5c4dc4af72295d4205a9da3cf90beeca1c93d2"
+    },
+    {
+      "path": "maintainer/feature012-semantic-reviews/pal-found-language-models.json",
+      "sha256": "f93464c326e4bba741ba6b4fa791920c2278d15cc37ba9bd626de5f33caf33fd"
+    },
+    {
+      "path": "maintainer/feature012-semantic-reviews/pal-found-media-sets.json",
+      "sha256": "a193e3ef979e5d9d453abe1e7969b79a9c1ceec9d791ce023f0a19bd50a0a99c"
+    },
+    {
+      "path": "maintainer/feature012-semantic-reviews/pal-found-models.json",
+      "sha256": "67704bc07a751feeaa7b697a1be84cb6070cf1dc126d31ae46e1c68b3b588816"
+    },
+    {
+      "path": "maintainer/feature012-semantic-reviews/pal-found-ontologies.json",
+      "sha256": "5e6449886cc816331b15d751970117c307b93620543a9bbb721843c768036429"
+    },
+    {
+      "path": "maintainer/feature012-semantic-reviews/pal-found-orchestration.json",
+      "sha256": "27018f5bdc39c13060e02678e2cedc951fb4705768b207779b3c347fa7d80c84"
+    },
+    {
+      "path": "maintainer/feature012-semantic-reviews/pal-found-sql-queries.json",
+      "sha256": "f611b740dee636705767678054e16434479fe1e99ed35e57d1789838248d352f"
+    },
+    {
+      "path": "maintainer/feature012-semantic-reviews/pal-found-streams.json",
+      "sha256": "2e576bda77e963a871b07566b3f7b4208d9704bdbf7aa4601d1bcf3f539f1090"
+    },
+    {
+      "path": "maintainer/feature012-semantic-reviews/pal-found-third-party-applications.json",
+      "sha256": "f47a5e2ba2371b7d1dcef8c47df065233fa984b82beb07a1cacf9f539bfb50a3"
+    },
+    {
+      "path": "maintainer/feature012-semantic-reviews/pal-found-widgets.json",
+      "sha256": "c87c76f51865f94b24e39ff538ddcbda3f367c6db792f214103d53d5998c7912"
+    },
+    {
+      "path": "scripts/feature012_semantic_audit.py",
+      "sha256": "8f3bf9b3df60dfc66ab2ab1d63dc44dfbbe4e4ced7b4eac42cf0f9bcb5e4ade8"
+    },
+    {
+      "path": "tests/test_skill_documentation.py",
+      "sha256": "af65aa11e77758c4519356067ddca2317e712bb1c947d43e22953f3fe14867b3"
+    }
+  ]
+}
