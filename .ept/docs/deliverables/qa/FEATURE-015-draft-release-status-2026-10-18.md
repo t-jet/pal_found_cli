@@ -6,7 +6,7 @@ FEATURE-015 is not released. The branches below are draft review candidates. No 
 |---|---|---|---|
 | Skills | [PR #1](https://github.com/t-jet/pal_found_cli_skills/pull/1) | `416747d` (content freeze `d6e2b8e`) | 632 local tests and GitHub validation passed |
 | CLI tool | [PR #1](https://github.com/t-jet/pal_found_cli_tool/pull/1) | `0963e6e` | 51 focused Data Health tests and all eight GitHub checks passed |
-| Parent | [PR #6](https://github.com/t-jet/pal_found_cli/pull/6) | Draft integration branch | Both candidate submodules initialize; 173 document-index links resolve; tracker suite passes |
+| Parent | [PR #6](https://github.com/t-jet/pal_found_cli/pull/6) | Draft integration branch | Both candidate submodules initialize; 174 document-index links resolve; tracker suite passes |
 
 The parent draft combines smaller parent PRs for Data Health design and QA cases, tracker engine, source documents, and tracker history. [Tracker PR #5](https://github.com/t-jet/pal_found_cli/pull/5) preserves the raw snapshot before documented repairs. Its final index has 1,014 tickets and 1,543 valid links. The original payload of `LINK-01279` could not be recovered; the repair ledger records that limit. Independent tracker data QA remains open.
 
