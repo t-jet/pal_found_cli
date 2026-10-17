@@ -18,6 +18,6 @@ DEV-STORY-072 has 35 semantic passes and five uncertain private beta operations.
 
 ## Local checkout
 
-The live parent checkout remains dirty and diverged from remote `main`. A byte comparison of its reported changes with the combined parent draft found 1,234 matching files. The remaining differences include superseded tracker engine files, the two intentional tracker index repairs, a newer document index, and separate agent configuration and self-improvement notes. The live submodule checkouts also remain at older commits; the parent draft pins the candidate SHAs above. Do not treat the live checkout's dirty state as a release artifact.
+The live parent checkout remains dirty and diverged from remote `main`. A byte comparison of its 1,253 reported changes found 1,245 files published byte for byte across the combined draft and the separate [agent configuration draft PR #7](https://github.com/t-jet/pal_found_cli/pull/7). Six files differ because the drafts contain newer tracker engine fixes, intentional index repairs, and a newer document index. The two live submodule checkouts remain at older commits; the combined parent draft pins the candidate SHAs above. The four deleted temporary files from local history were not carried into the drafts. Do not treat the live checkout's dirty state as a release artifact.
 
 Keep all release PRs draft until the outstanding reviews and QA records are complete. Re-run the gate and verify exact GitHub heads before any merge or tag.
