@@ -2,6 +2,7 @@
 
 WORK-007 entries below record an earlier release and its distribution checks. For current skill instructions, use the pinned pal_found_cli_skills submodule. FEATURE-015 is still under review; its candidate is not a released baseline.
 
+- [FEATURE-015 draft release status](deliverables/qa/FEATURE-015-draft-release-status-2026-10-18.md): candidate commits, passing checks, open QA, and local checkout limits.
 - [WORK-007 release pin verification](deliverables/qa/WORK-007-release-pin-plan.md): published parent and paired submodule revisions, fresh-clone checks, and CLI package publication.
 - [WORK-007 CLI candidate evidence](deliverables/qa/WORK-007-tool-candidate-evidence.md): isolated ten-file tool candidate, checksums, and full-suite result.
 - [WORK-007 skills candidate evidence](deliverables/qa/WORK-007-skills-candidate-evidence.md): isolated 83-file skills candidate, source-backed audit, copied-bundle checks, and [manifest](deliverables/qa/WORK-007-skills-candidate-manifest.json).
