@@ -6,14 +6,14 @@ counters:
   ux_subtask_analysis: 0
   development: 84
   codereview: 85
-  testcase: 84
+  testcase: 85
   question: 189
   resource_req: 6
   sa_subtask_analysis: 16
   unittest: 84
   task: 6
-  link: 1980
-  testexec: 84
+  link: 1981
+  testexec: 85
   sa_subtask_design: 14
   dev_story: 93
   bug: 35
