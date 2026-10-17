@@ -2,178 +2,243 @@
 
 ## Improvement History
 
+## Improvement: verify per-part counts, not just totals, in doc deliverable reviews; totals-only gates can mask label swaps
+
+Condition:
+
+- When reviewing documentation deliverables (skill docs, indexes, reference parts) that advertise operation counts per section, and a gate test checks only the namespace total (e.g. "66 Foundry Admin API v2 operations")
+
+Action:
+
+- Do independently recount the actual documented records per part (count operation headings per resource client), not just the sum. A 15/23 vs 20/18 label swap preserves the total (66) and passes a totals-only gate while being factually wrong in the index and reference headers. Fix = three label edits (index table + each ref header line 3). Confirmed 2026-10-03 on CODEREVIEW-042: pal-found-admin op-count labels 15/23 swapped vs actual 20/18; defect sent to Correction; gate test test_summary_counts_match_frozen_register only checks the total line so it did not catch it. RE-REVIEW CONFIRMED 2026-10-12 (CODEREVIEW-042 Corrected -> Closed): on re-review, recount from the CURRENT workspace, not the implementer comment - `Select-String '^### '` per reference file gave 01=20, 02=18, 03=12, 04=16 (total 66) with the identity split 38=20+18 matching the frozen register, SKILL.md index lines 47-48 showed 20/18, and both reference headers had dropped their inline counts. Gate re-run: `pytest pal_found_cli_skills/tests/test_offline_skill_gate.py -q` -> 9 passed exit 0. The gate regex `(\d+)\s+Foundry` still matches only the FIRST per-file count line, so the harness remains totals-only - the implementer's "no action" residual gate-strengthening observation is valid, record it as a non-blocking follow-up rather than reopening the review.
+
+## Improvement: codereview lifecycle is New->Open->Correction/Closed; AT-3 activation may not fire; rework = Correction status, not Resolved
+
+Condition:
+
+- When executing CODEREVIEW tickets whose linked DEV sub-task is already Resolved
+
+Action:
+
+- Do verify the actual `type-info codereview` + `workflow transitions codereview` before acting: the lifecycle is New -> Open -> Correction (rework, assignee=implementer) / Closed (approved); there is NO In Progress/Resolved for codereview, and Closed/Canceled/Rejected/Duplicated are terminal. AT-3 (linked_ticket_reaches_status Resolved -> Open) may NOT have auto-fired even when the DEV is Resolved - tickets can sit New+Blocked; perform the manual New->Open transition after verifying the DEV is Resolved and the block is clear. Approve = Open->Closed (post findings comment first). Rework = Open->Correction (assignee=implementer) and record the defect on BOTH the CODEREVIEW and the paired DEV sub-task comments so the implementer can fix and move Correction->Corrected for re-review. After approval, remove the DEV->CODEREVIEW Blocks link to unblock the DEV for closure. Confirmed 2026-10-03 on the FEATURE-012 batch (CODEREVIEW-041..055): 14 Closed + 1 Correction.
+- Do (Corrected re-review path) first independently re-verify the correction in the CURRENT workspace with concrete file/line citations and an independent recount against the authoritative source, then post the re-review findings + decision comment, then remove the blocker link, then move Corrected -> Closed. Confirm the implementer's claimed counts by direct measurement, not by trusting the summary comment. Confirmed 2026-10-12 on CODEREVIEW-042 (fully re-verified the 20/18 admin labels, gate 9 passed, then link remove LINK-01210 -> Closed).
+
 ## Improvement: read the sibling deliverable's CURRENT content before approving a QUESTION, don't trust a prior snapshot
 
 Condition:
+
 - When an SA (or BA) cross-review/approval QUESTION (e.g. QUESTION-143 approval of BA-DES-012) is addressed to the architect and the sibling deliverable may have been updated after a shared PO change request
 
 Action:
+
 - Do re-read the sibling deliverable's current file (and its recent comments) before approving; another role may already have incorporated the shared requirement (e.g. the BA updated BA-DES-012 on 2026-10-01 with BR-D-012-07/AC-D-012-09 mirroring the approved install-requirement BR-011-08 before the SA reviewed it). Do not assume the file still matches an earlier session snapshot, and do not force the reviewer to re-add content that is already present. Also verify the QUESTION's actual blocker set (`link list` on the parent) rather than assuming which questions still hold it: a PO approval question (e.g. QUESTION-150) may exist without a Blocks link yet, so the parent can remain already-Blocked by the remaining active blocker (e.g. QUESTION-144). Confirmed 2026-10-01 on QUESTION-143: BA-DES-012 already carried the install-requirement; I approved after verifying install commands against pyproject.toml name + conda.recipe + tool README + lint, advanced Q-143 New->Open->In Progress->Resolved->Closed, removed Blocks link LINK-01065 keeping Question link LINK-01067; BA-DES-012 stayed Blocked by Q-144.
 
 ## Improvement: cross-review approval verifies claims against actual artifacts, not sibling docs
 
 Condition:
+
 - When performing a mandatory SA (or BA) cross-review approval of a sibling analysis deliverable (e.g. QUESTION approval of BA-ANA-012/SA-ANA-012), the deliverable's inventory tables and prose cite sizes/counts
 
 Action:
+
 - Do verify every checkable claim against the actual artifacts before approving: skill script line counts via Get-Content .Count, tool source parser registration (datasets 33 ops / ontologies 67 ops verified in build_parser/OPERATION_BY_RESOURCE), package install commands against pyproject.toml name + conda.recipe meta.yaml + tool README, and cross-check the sibling DESIGN doc (which may carry correct counts where the BA doc is stale). If the substance passes but a metric (e.g. inventory line counts) is stale, APPROVE with a named non-blocking data-accuracy finding recommending a refresh at next edit, and document the actual vs claimed values in the approval comment. Do not force-approve by skipping verification; do not block approval for illustrative metrics that change no AC or migration decision. Confirmed 2026-10-01 on QUESTION-145: BA-ANA-012 inventory claims datasets 467 / ontologies 442 / admin 26 / wrappers 10 lines, actual 526 / 503 / 33 / 14 (12 wrappers 14 each, audit/filesystem/functions 32/32/33); classification and 33/67 op supersets verified against tool source; SA-DES-011 already carries correct counts so downstream unaffected; approved with finding and Closed.
 
 ## Improvement: SA-DES close requires BA-DES terminal; verify actual DEV-STORYs, don't assume boundaries
 
 Condition:
+
 - When an SA design sub-task (sa_subtask_design) reaches Resolved and its Resolved->Closed DoD requires the BA-SUB (ba_subtask_design) in a terminal status and QUESTION approvals
 
 Action:
+
 - Do complete the design and advance Open->In Progress->Resolved with deliverables registered in `.ept/docs/document_index.md`, time reported (`--field time_spent_hours=...`, not `resolution`), and map the design to the BA-created DEV-STORYs by re-listing the parent FEATURE links (`link list <FEATURE>` reveals DEV-STORY-NNN IDs the BA created during BA-DES) instead of assuming story boundaries. If the BA-DES sibling is In Progress (not terminal), do NOT force-close the SA against the DoD: hold it Resolved and post a closure-dependency comment naming the unmet DoD criterion (BA-SUB terminal, approvals). Confirm no UX-DES sub-task exists before claiming that clause is N/A. Confirmed on SA-DES-011 2026-09-30: held Resolved because BA-DES-012 stayed In Progress; design mapped 1:1 to the three BA-created DEV-STORYs (038 16 wrappers, 039 datasets/ontologies migration, 040 distribution/onboarding); no QUESTION raised.
 
 ## Improvement: verify blocked-target unblock after resolving a QUESTION
 
 Condition:
+
 - When resolving a QUESTION (move to Resolved) whose Blocks link targets a sub-task (e.g. DEVOPS-024) rather than the ticket's own parent, and tracker auto-rule AT-6 should return the target to prior status
 
 Action:
+
 - Do re-get the blocked target and re-list the Blocks link right after the Resolved transition. If the target is still Blocked with the Blocks link present, don't assume the auto-rule fired: flag the transition-map gap to `workflow-mgr` (per the consult-the-transition-map rule) or remove the link per the question Resolved instructions if the mandate allows. Also verify the actual ticket status before transitioning: the QUESTION-111 narrative claimed the target was Blocked, but the question itself was Open, and the "no substantive blocker" comment 20260813-190418-qa-engineer predated the real blocker record 20260813-234024-qa-engineer. Confirmed 2026-08-15 on QUESTION-111: moved Open → In Progress → Resolved with answer comment 20260815-024325-architect; DEVOPS-024 remained Blocked with LINK-00974 present after Resolved — AT-6 did not fire. Confirmed a second time 2026-09-30 on QUESTION-141/BA-ANA-012: SA-ANA-012 progressed to In Progress resolved the BA-ANA-012 dependency; QUESTION-141 moved In Progress → Resolved → Closed; I removed the Blocks link LINK-01053 per the question Resolved instructions, and BA-ANA-012 stayed Blocked through both Resolved and Closed until I restored it to In Progress manually per the BA Blocked instructions ('IF all blocking links removed THEN return this ticket to prior status'). Also note: the `question` type rejects a `resolution` field at create/update (use `--field time_spent_hours` instead); and the SA-ANA Resolved→Closed mutual dependency — SA-ANA Resolved Closed-DoD requires BA-ANA terminal, while BA-ANA Resolved required SA-ANA ≥ In Progress — means two analysis sub-tasks can deadlock on closure; the architect must not force-close the SA against the DoD, but hold it Resolved and restore BA-ANA to prior status so the BA can proceed to terminal.
 
 ## Improvement: terminal parent still holds governance approval QUESTION links
 
 Condition:
+
 - When remediating a skipped workflow gate by attaching approval QUESTION sub-tasks to a parent sub-task that is already in a terminal status (e.g. ba_subtask_analysis/sa_subtask_analysis Closed)
 
 Action:
+
 - Do create the approval QUESTION (with `--parent`, `--addressed-to`, `--assignee`, `--priority High`) and add a Blocks link then a Question link from it to the parent. The auto-block rule (AT-4 child_blocker_created) will log a warning "Invalid status transition ... terminal status" and leave the terminal parent terminal, but the Blocks + Question links ARE still created (exit 0) for the governance/approval trail — that is the correct, expected outcome; don't treat the warning as a failure. Do NOT close anything and do NOT advance any DEV-STORY. Confirmed 2026-09-30 on FEATURE-011 remediation: QUESTION-145 (SA approval of BA-ANA-012, Blocks LINK-01069 / Question LINK-01070) attached to terminal-Closed BA-ANA-012; SA-DES-011 auto-blocked Resolved→Blocked by QUESTION-146/147; BA-DES-012 already Blocked.
 
 Condition:
+
 - When a QUESTION/DEVOPS ticket asks for the missing repository-publication/environment prerequisite and required evidence for a multi-repository split
 
 Action:
+
 - Do gather read-only evidence before answering: `.gitmodules` URLs vs submodule local remotes (`git -C <submodule> remote -v`), root `git remote -v`, and `git ls-remote <repo-url> HEAD` (exit code + HEAD SHA) for BOTH canonical and pre-split names; then cross-check the split manifest and cross-repository reference register deliverables (e.g. DEV-024, DEV-027) and their document_index entries. Answer pattern = publish/rename the remote repos to canonical names (owner access, external prerequisite) plus required evidence (ls-remote exit 0 for all canonical URLs, remote/.gitmodules alignment, fresh `clone --recurse-submodules` check, manifest updated). Confirmed 2026-08-15 on QUESTION-111: canonical `pal_found_cli*` URLs all 404 (exit 128) while pre-split `foundry_cli*` names reachable; DEV-024 manifest explicitly states remote publication was not performed.
 
 ## Improvement: story-title operation counts must be re-verified against the vendored SDK before grooming
 
 Condition:
+
 - When a DEV-STORY title or an ADR/SAD entry claims a namespace operation count (e.g. streams "17 operations") and grooming scope must be defined
 
 Action:
+
 - Do enumerate the leaf client methods from the vendored SDK source (`foundry_sdk/v2/<ns>/`), then cross-check the canonical env-var reference and metadata allow-list row counts. When all three concord on a different number than the title/ADR/SAD, correct the count in the scope comment and DESIGN deliverable (flagged as stale), rather than silently implementing the claimed number. Confirmed on DEV-STORY-016 2026-08-10: title/ADR-003/SAD-001 say 17, SDK exposes exactly 15 (Dataset 1, Stream 7, Subscriber 7); sql_queries stays 5 across all three sources. Confirmed again on DEV-STORY-017 2026-08-10: title/SAD-001 say 15, SDK exposes exactly 20 (Connection 7, FileImport 6, TableImport 6, VirtualTable 1) with env-ref and allow-list concordant at 20; DEV-STORY-018 media_sets 19 was confirmed accurate across all three sources. Confirmed a third time on DEV-STORY-019/020 2026-08-10: checkpoints "3" CONFIRMED (Record get/get_batch/search, env-ref 3, allow-list 3 all PERMITTED); data_health title/SAD-001 say 4, SDK exposes exactly 6 (Check 4: create/delete/get/replace + CheckReport 2: get/get_latest) with env-ref and allow-list concordant at 6 (3 PERMITTED / 3 BLOCKED). Confirmed a fourth time on DEV-STORY-021/022 2026-08-10: third_party_applications "9" CONFIRMED (ThirdPartyApplication 1 + Website 3 + Version 5; env-ref 9, allow-list 9 with 4 PERMITTED / 5 BLOCKED) and widgets "12" CONFIRMED (DevModeSettings 6 + Release 3 + Repository 2 + WidgetSet 1; env-ref 12, allow-list 12 with 5 PERMITTED / 7 BLOCKED) — run the full three-source validation even when the title is accurate, because the cross-check also yields the metadata-only policy and write set that the DESIGN deliverable needs. Confirmed a fifth time on DEV-STORY-023 2026-08-11 (knowledge-skill documentation story): for the 20-namespace overview table, use the test-asserted OP_SPECS counts for the 18 implemented namespaces (admin 66, aip_agents 15, audit 2, checkpoints 3, connectivity 20, data_health 6, datasets 33, filesystem 31, functions 7, language_models 2, media_sets 19, models 23, ontologies 67, orchestration 20, sql_queries 5, streams 15, third_party_applications 9, widgets 12) with geo and core explicitly documented at 0 public operations (SDK source has only errors.py + models.py, SAD-001 AA-3); total 355 concordant across SAD-001, ENV-REF-001, META-ALLOW-001. For a knowledge skill, record the widgets runtime drift (12 design vs 8 installed per QUESTION-043) as a known limitation in the content and DESIGN rather than correcting the count.
 
 ## Improvement: verify ticket ID when create output omits it
 
 Condition:
+
 - When a tracker `create` command's YAML output lacks the `ticket_id` field (e.g. codereview/devops create returned only `current_status` onwards)
 
 Action:
+
 - Do run `get <expected-ticket-id> --author <role>` to confirm the ticket exists and carries the expected fields (priority, assignee, parent, estimated_hours) before reporting success; confirmed on CODEREVIEW-015, DEVOPS-016 on 2026-08-10, and again on the DEV-STORY-017/018 sub-task batches 2026-08-10 (design/development/unittest/codereview/devops creates all omit `ticket_id`; testcase/testexec include it). NOTE 2026-08-11 (DEV-STORY-023 batch): all seven sub-task creates (design/development/unittest/codereview/testcase/testexec/devops) DID include `ticket_id` — the omission behavior is run/version-specific, so always read the actual output and only fall back to `get` verification when the id line is genuinely absent.
 
 ## Improvement: tracker CLI comment syntax
 
 Condition:
+
 - When adding a comment via `.ept/tools/tracker/tracker_cli.py`
 
 Action:
+
 - Do use the `comment create` subcommand (not `comment <ticket_id>`); required flags are `--subject` and `--text` (the CLI decodes literal two-character `\n` sequences into newlines, so pass `\n` not actual line breaks inside `--text`). Don't use `--text-file` for comments — it is NOT a documented option and `ticket-helper` will abort at validation. For long Markdown comment bodies on Windows PowerShell: (1) replace backticks with plain text or single-quotes because PowerShell treats backtick as its escape char inside double quotes; (2) pass the whole body as a single `--text` value with `\n` escapes; (3) single-quoted inner text (e.g. quoted ticket titles) needs no escaping inside the double-quoted `--text` value — confirmed on DEV-STORY-013 comments 20260809-193823/195044/195048/195052. If the body is truly large, split it or put the artifact in the ticket body via `update --description-file` (which IS documented and reads a file) and post a short pointer comment. `update --description-file` replaces the ticket body; it does not append, so reserve it for body updates not for audit-trail comments.
 
 ## Improvement: groom a DEV-STORY end-to-end in one handoff
 
 Condition:
+
 - When a dev_story ticket is in Analysis with its Analysis DoD met and the Grooming stage is next
 
 Action:
+
 - Do drive the full Grooming in one session: (1) validate `workflow transitions dev_story <status>` before each move; (2) create ALL grooming sub-tasks together (DESIGN required first, then DEV, UNITTEST, CODEREVIEW, TESTCASE, TESTEXEC, DEVOPS if applicable) with per-role assignees, `addressed_to`, `estimated_hours`, checked acceptance criteria in `--description-file` bodies, and parent DEV-STORY links (Contains + ParentChild; CODEREVIEW gets bidirectional RelatesTo to DEV plus a Blocks link so the review stays blocked until DEV Resolved); (3) produce the DESIGN deliverable under `.ept/docs/deliverables/architecture/DESIGN-<n>-<ns>-cli.md` mirroring DESIGN-012, register it in `.ept/docs/document_index.md`, keep markdown tables lint-clean (space-padded separators satisfy MD060); (4) walk DESIGN to Closed (New→Open→In Progress→Resolved→Closed) with evidence comments at each stage; (5) post "DESIGN sub-task created", "Execution plan", and "Grooming complete" (DoD checklist) comments; (6) transition to Development. Use one sibling story (e.g. DEV-STORY-008) as the field/title/body convention reference. Confirmed twice: DEV-STORY-013 and DEV-STORY-014 (batch 1 and 2, 2026-08-09).
 
 ## Improvement: new deliverable docs must match sibling lint conventions
 
 Condition:
+
 - When creating a new markdown deliverable that mirrors an existing sibling document (e.g. a new DESIGN-XXX doc)
 
 Action:
+
 - Do run `get_errors` on the new file before committing; MD060/table-column-style flags compact separator rows, so use space-padded separator rows (`| --- | --- |`) matching clean siblings, and confirm the sibling file itself passes lint before copying its table style. Also update `.ept/docs/document_index.md` (deliverable entry plus Last Updated and Major Change footer) and re-check lint on the index.
 
 ## Improvement: exhaust all ADRs before claiming a requirement is absent
 
 Condition:
+
 - When deciding an AC-vs-implementation conflict and justifying the decision with "the requirement is not in any upstream contract"
 
 Action:
+
 - Do grep/read ALL relevant ADRs (not just the SRS and the directly-named ADR) for the keyword before making the absence claim. ADRs cross-reference each other and a decision clause in a sibling ADR (e.g. ADR-005 §Consequences) can mandate the very behavior under dispute. List the ADRs actually consulted in the decision comment so the reviewer can verify coverage.
 
 ## Improvement: post a visible correction when a prior decision was wrong
 
 Condition:
+
 - When a prior decision comment is discovered to be based on incomplete research after the ticket has already transitioned to Resolved (and the workflow forbids reopening)
 
 Action:
+
 - Do post a new comment titled "CORRECTION: supersedes prior decision" that explicitly names the prior comment ID, states what was wrong, cites the missed evidence, and gives the revised decision. Do not silently leave the wrong decision standing and do not edit/hide the prior comment — transparency lets the requester and implementer trace the reasoning.
 
 ## Improvement: memory read before any user-facing update
 
 Condition:
+
 - When starting any architect task or user request, including cases where a higher-priority instruction first requires loading `.ept/agents/architect.md` or another local preflight file
 
 Action:
+
 - Do complete required local preflight reads in strict order before any acknowledgement, progress update, planning, skill announcement, repository/task read, or efficiency batching. If `.ept/agents/architect.md` must be loaded first, the first tool call may read only that file; the next single-purpose tool call must read `.ept/skills/self-improvement/SKILL.md` plus `.ept/self-improvement/architect.md`. Don't batch architect preflight with skill index, workflow docs, tracker context, or other repo reads. The first visible assistant text may appear only after both mandatory reads are complete. If you catch a preflight-order miss, recover at once with the missing memory read, state the gap plainly if needed, and keep all later actions within protocol.
 
 ## Improvement: ticket tracker boundary
 
 Condition:
+
 - When gathering ticket context under a workflow that requires `ticket-helper` or tracking-system CLI use
 
 Action:
+
 - Don't use `rg`, `Get-Content`, or other filesystem reads against `.ept/tracker`; use only the allowed ticket interface for ticket state, links, comments, and workflow data. If `ticket-helper` is required but no subagent tool is exposed, say the limitation before using the documented tracking CLI as the only available ticket interface.
 
 ## Improvement: tracker storage exclusion when searching helper docs
 
 Condition:
+
 - When searching repository docs for ticket-helper or workflow instructions and direct tracker storage access is forbidden
 
 Action:
+
 - Do use exact ripgrep excludes with no stray spaces, for example `rg "ticket-helper" .ept -g "!.ept/tracker/**"`. Don't trust a malformed glob like `-g '! .ept/tracker/**'`, because it can list tracker files and break the ticket-helper-only rule.
 
 ## Improvement: no callable ticket-helper tool
 
 Condition:
+
 - When workflow requires `ticket-helper` subagent but the current host exposes no callable subagent tool (note: availability varies by host — some expose `ticket-helper` as a real subagent, others do not)
 
 Action:
+
 - Do state tool gap, read `.ept/agents/ticket-helper.md`, then use only documented tracker CLI commands through that protocol; don't read or write `.ept/tracker` files directly. If the subagent IS exposed, delegate all get/list/comment/link/update/workflow calls to it and verify its reported normalization of undocumented command forms.
 
 ## Improvement: DEV-STORY AC body template source
 
 Condition:
+
 - When writing Given/When/Then AC + operation catalog + technical scope for a DEV-STORY body, and a brief names DEV-STORY-00X as the "reference pattern"
 
 Action:
+
 - Do GET both DEV-STORY-008 (functions) AND the named reference sibling's FULL body before copying any pattern. DEV-STORY-008 currently holds the canonical AC/catalog/scope template (operation-catalog table + numbered Given/When/Then AC + Related Documentation links + Technical Scope bullets). Some sibling bodies (DEV-STORY-009 admin) are still TODO placeholders because their ACs live in comments, not the body — don't copy those. Template the author. dev_story body order: Description -> Authoritative operation catalog table -> Acceptance Criteria (Given/When/Then, numbered) -> Related Documentation (concrete doc links) -> Technical Scope -> Notes.
 
 ## Improvement: enumerate SDK namespace operations via nested cached_property traversal
 
 Condition:
+
 - When enumerating operations for a foundry_sdk v2 namespace (DEV-STORY triage / New->Open DoD), the operation count must be authoritative
 
 Action:
+
 - Do cross-validate the count against THREE independent sources and state all three in the DoD comment: (1) SDK source `.ept/docs/customer_input/foundry-platform-python/foundry_sdk/v2/<ns>/` — read `<ns>/_client.py` for `@cached_property` sub-client accessors, then each sub-client `.py` for public methods; (2) canonical-env-var-reference.md namespace table rows; (3) metadata-allow-list.md namespace block rows. For nested clients (audit.Organization.LogFile, filesystem.Resource.Role), enumerate the leaf client methods only — the intermediate client has no ops itself. Flag `bytes`-returning methods (need BinaryDownloadHandler, tier-3 BLOCKED) and paged/`ResourceIterator`-returning methods (need PaginationHelper). Check FR-ATTR-4 scope to confirm whether attribution applies (audit/admin/filesystem are excluded). When placeholder ticket prose claims operations absent from all three sources, call out the conflict and replace that prose with the concordant SDK contract; don't open a clarification question when primary sources fully resolve it.
 
 ## Improvement: tracker update optional named fields use --field key=value
 
 Condition:
+
 - When setting a non-standard optional field on a ticket via `tracker_cli.py update` (e.g. release_notes, epic, feature_request)
 
 Action:
+
 - Do use `--field key=value` form; don't assume a `--<field-name>` flag exists. The documented `update` flags are limited to `--status`, `--assignee`, `--priority`, `--author`, `--description` plus `--field key=value` for any other named field. A `--release-notes` flag is NOT recognized and silently degrades; the release_notes field is required by the dev_story Analysis→Grooming DoD, so verify with a follow-up `get` that the field actually populated before transitioning.
 
 ## Improvement: serialize tracker writes
 
 Condition:
+
 - When creating or updating tracker links, comments, or ticket fields through the tracker CLI
 
 Action:
+
 - Do run write operations sequentially and verify the resulting ticket/link state after batches; don't parallelize tracker writes because ID allocation can race and silently drop or overwrite intended links. Refinement 2026-08-12 (SA-ANA-010): parallel `comment create` calls via separate ticket-helper subagent invocations each succeeded with distinct IDs (20260812-135354-architect, 20260812-135404-architect). The race risk applies to multiple writes inside one CLI process, not to one write per isolated subagent invocation. Keep one tracking operation per invocation; use hyphens in subjects and compact bodies (em-dash subjects caused a provider 400 on the BA-ANA-005 batch).
 
 ## Improvement: consult the workflow transition map before any status change
 
 Condition:
+
 - When a ticket update, auto-transition rule, or stakeholder instruction requires moving a ticket to a new status (including cases where an auto-transition rule like AT-x 'should have fired' but did not)
 
 Action:
+
 - Do call `tracker_cli.py workflow transitions <type> <status-name>` (via ticket-helper) — NO `get` prefix; `get` is only for ticket bodies — and only transition to a status in the returned allowed list. If the rule's intended target is not reachable, do NOT force an invalid transition; instead document the rule-handler / transition-map gap in a comment on the affected ticket, escalate to `workflow-mgr`, and leave the ticket in a non-terminal status. Cite the verbatim transition-map output as the refusal evidence so the reviewer can verify.
 - Do re-`get` the ticket immediately before each planned follow-up transition: epic auto-transitions fire right after a manual status move when all EpicLink children are already terminal (confirmed on EPIC-007 2026-08-11: manual New→Open then AT-2 + AT-1×2 fired instantly, landing the epic in terminal Done before the planned Open→In Progress update; the transition call then failed exit 2 with 'Done is a terminal status'). A transition map validated earlier can go stale the moment auto-rules run, so verify actual current status rather than trusting the last known value.
 - Do set the epic `resolution` field (`update --field resolution=Done`) BEFORE the manual In Progress→Resolved transition; the AT-1 Resolved→Done auto-transition then lands the epic in Done already carrying the resolution. Confirmed on the epic-closure batch 2026-08-11 (EPIC-005/006/008): all three were In Progress with all EpicLink DEV-STORYs Closed; each `update --status Resolved` exited 0 reporting pre-auto context `Resolved`, then the immediately-following `get` showed `Done` with `allowed_transitions: []` and `resolution: Done` present in Ticket Details — so the manual Resolved→Done step was skipped every time. When auto-rules can reach the target first, sequence: set resolution → post evidence comment → manual transition → re-get → skip redundant manual transition if terminal already landed.
@@ -183,81 +248,101 @@ Action:
 ## Improvement: epic Blocked status does not automatically block child story pre-Development transitions
 
 Condition:
+
 - When a parent epic is in Blocked status and a child DEV-STORY needs to advance through any pre-Development status (New → Open → Analysis → Grooming)
 
 Action:
+
 - Do check whether a formal `Blocks` link from the epic to the story exists. If no Blocks link exists, the epic's Blocked status does not block the story's transition. Document the epic anomaly in the triage comment and note that the epic/DEV-STORY-001..004 upstream dependency applies to the Development phase (implementation), not to New/Open/Analysis/Grooming (registration, triage, scope definition, decomposition). Re-evaluate the epic block only when the story approaches Development. This has now been confirmed for both New → Open (DEV-STORY-006 / EPIC-002) and Open → Analysis.
 
 ## Improvement: preserve safety bounds when exact metadata is unknowable
 
 Condition:
+
 - When a contract requires exact response metadata but the transport may omit it and learning it would cross a configured safety limit
 
 Action:
+
 - Do preserve the safety limit, expose exact values only when verified, and represent unknown values with nullable fields plus proven lower bounds. Don't consume an unbounded response or invent an exact value to satisfy wording.
 
 ## Improvement: pass explicit author to ticket-helper writes
 
 Condition:
+
 - When delegating tracker write ops to `ticket-helper`, including comments, updates, links, or ticket creation
 
 Action:
+
 - Do name explicit tracker actor in first delegation, usually current role such as `architect`. Don't rely on helper to infer `--author`; it will fail validation before running tracker CLI.
 
 ## Improvement: default checklist placeholder is not fatal when description has real AC
 
 Condition:
+
 - When a sub-task body has a generated `## Acceptance Criteria` TODO section but the `## Description` contains specific, actionable acceptance criteria
 
 Action:
+
 - Do treat the detailed Description criteria as usable scope evidence for triage if required workflow fields and links are valid. Don't block New -> Open solely because the placeholder checklist remains, but document this explicitly in the triage comment for implementer visibility.
 
 ## Improvement: spawn typed subagents without full-history fork
 
 Condition:
+
 - When spawning a specific subagent type such as `ticket-helper`
 
 Action:
+
 - Don't set `fork_context: true` with `agent_type`; this host rejects that combination. Do pass all needed context in the message and spawn isolated typed subagent.
 
 ## Improvement: prove tracing at outbound transport
 
 Condition:
+
 - When an acceptance criterion claims distributed trace propagation from logs or SDK context values
 
 Action:
+
 - Do distinguish correlation logging from outbound propagation. Trace SDK ContextVars through client construction to transport headers, require client creation and retries inside one trace scope, and test emitted headers. When SDK resolves headers during HTTP-client construction, verify scope entry precedes client creation and assert exact transport headers (`X-B3-TraceId`, `X-B3-SpanId`, `X-B3-Sampled`) with tracing both enabled and disabled. Don't treat scope-entry mocks or stderr fields as propagation proof, and don't claim W3C when contract supports only B3.
 
 ## Improvement: readiness authorization needs complete direct-source cross-check
 
 Condition:
+
 - When asked for DEV-STORY New-to-Open readiness and an early stop interrupts the required SDK, environment-variable, metadata, SRS, SAD, and ADR review
 
 Action:
+
 - Do return proven evidence as partial, name each unverified contract, and fail transition authorization. Don't infer ACL classes, target paths, or acceptance criteria from operation names alone.
 
 ## Improvement: source-only readiness handoff
 
 Condition:
+
 - When a manager requests one readiness package and explicitly forbids tracker access, file delivery, and subagents
 
 Action:
+
 - Do treat supplied ticket facts as fixed, verify technical claims from SDK and project documents only, and return the full catalog, contracts, acceptance criteria, replacement body, DoD comment, and verdict in one response. Don't invoke the normal ticket gate or mutate delivery files.
 
 ## Improvement: classify local destructive commands beside SDK operations
 
 Condition:
+
 - When a namespace story adds a local destructive command outside its authoritative SDK operation catalog, such as session cache purge
 
 Action:
+
 - Do keep the local command outside SDK operation counts, then cross-check access-control write verbs, operation-level env mapping, metadata-only behavior, and documentation. Require access control before filesystem mutation; don't let an unrecognized verb bypass read-only mode.
 
 ## Improvement: verify ACL semantics and transport mode independently of generated method names
 
 Condition:
+
 - When a generated SDK catalog includes POST reads, mutating verbs absent from `AccessControlGuard`, or decoded byte/TableResponse methods that also expose `with_streaming_response`
 
 Action:
+
 - Do classify access from operation semantics and approved policy, not HTTP verb alone: preserve read classification for search-style POSTs, and add missing mutating verbs such as `launch` or `promote_version` to the shared guard with full regressions. For content downloads, inspect the generated response mode and require `with_streaming_response` plus `BinaryDownloadHandler` when available; don't call the eager decoded method and then claim bounded response memory.
 
 ## Improvement: drive SA-ANA analysis sub-tasks end-to-end in one batch
@@ -273,55 +358,129 @@ Action:
 ## Improvement: em-dash comment subjects under user mandate - honor, fall back on 400
 
 Condition:
+
 - When a user explicitly mandates a comment subject containing an em dash (e.g. "SA cross-review - BA-ANA-XXX (2026-08-12)") or a tracked deliverable pattern uses one
 
 Action:
+
 - Do use the mandated subject verbatim and keep the body compact; em-dash subjects succeeded 9/9 in the 2026-08-12 SA cross-review batch (BA-ANA-002..010) plus the SA-ANA-010 naming-update comment. Only on a provider 400 invalid_request_error retry once with hyphens in the subject.
 
 ## Improvement: after PO naming decisions land, sweep analysis deliverables and flag design-phase naming updates
 
 Condition:
+
 - When the PO confirms naming decisions (e.g. pal_found_ rename via QUESTION-072..075) after analysis deliverables were written with assumed or PROPOSED names
 
 Action:
+
 - Do update the owning SA-ANA deliverable mapping rows to CONFIRMED values (repos/package underscore pal_found_, entry-point and skill folder hyphen pal-found-), mark still-open rows (env vars, historical doc filenames), update migration/risks/coordination sections, post an update comment on the SA-ANA ticket, and include a per-ticket naming-impact note in the SA cross-review comments on the BA-ANA counterparts so the design phase picks them up. Don't approve silently or leave superseded proposals in the mapping table. Confirmed 2026-08-12: SA-ANA-010 rows 2,3,4,6,7,8,9,10 corrected; 9 cross-reviews on BA-ANA-002..010 all APPROVED with naming notes.
 
 ## Improvement: close SA-ANA / SA-DES sub-tasks Resolved-to-Closed after PO approval, matching BA counterpart by parent feature
 
 Condition:
+
 - When a batch of SA-ANA analysis or SA-DES design sub-tasks sits at Resolved with PO approval QUESTIONS closed and BA counterparts terminal (or being closed in the same coordinated batch), and the manager directs Resolved -> Closed
 
 Action:
+
 - Do follow per-ticket: get the SA sub-task (confirm Resolved, not Blocked; Closed is in allowed_transitions) -> get the BA counterpart and confirm terminal (if still Resolved mid-batch, note it is being closed in the same coordinated batch) -> comment create DoD evidence (author architect; subject "Resolved-to-Closed DoD evidence - SA-ANA-00X" / "SA-DES-00X"; body cites not blocked, no dependents blocked, BA-SUB/UX-SUB N/A, BA counterpart status verified via get, approval QUESTION Closed verified via list, deliverable finalized) -> update --status Closed --author architect -> verify get shows Closed with allowed_transitions []. Batch efficiencies that are compliant: match the BA counterpart by PARENT FEATURE, not by number (BA/SA IDs can be shifted across features: SA-DES-003<->BA-DES-004 on FEATURE-003, SA-DES-004<->BA-DES-005 on FEATURE-004); verify all approval QUESTIONS with ONE `list --status Closed --type question`; run `workflow transitions sa_subtask_analysis Resolved` / `sa_subtask_design Resolved` ONCE and reuse for the whole batch (skill sanctions run-or-reuse); run up to two ticket-helper operations in parallel (1 op per invocation). Expect occasional transient KeyboardInterrupt on update/get and stale terminal output when terminals are shared with parallel agents; retry the exact command once per stored rule. Confirmed 2026-08-12 on the full 9-sub-task batch SA-ANA-002..010 (all exit 0; approval QUESTIONS-056..063 and QUESTION-077 Closed; BA-ANA-002..010 all Closed) and 2026-08-13 on the full 9-sub-task batch SA-DES-002..010 (all exit 0; approval QUESTIONS-087, 088, 090..096 Closed, QUESTION-089 Duplicated; BA-DES-002..011 Resolved mid-batch being closed in parallel by BA; SA-DES-009 update needed one stale-output retry).
 
 ## Improvement: create after post-persist abnormal exit duplicates - treat emitted ticket_id as authoritative
 
 Condition:
+
 - When a tracker `create` process exits abnormally (KeyboardInterrupt / Ctrl+C, e.g. Windows STATUS_CONTROL_C_EXIT) AFTER printing the full success YAML that includes `ticket_id`
 
 Action:
+
 - Do NOT retry. The ticket was already persisted; retrying the exact command creates a second identical ticket (confirmed 2026-08-13: SA-DES-004 approval create aborted after persist with exit 1, retry created a duplicate pair QUESTION-089 + QUESTION-090). Treat the emitted `ticket_id` as authoritative proof of success, report the abnormal exit code with that explanation, and verify existence only via a read-only `list`/`get` if needed. If a duplicate still exists, clean it up: mark the non-canonical one `Duplicated` with a RelatesTo link to the canonical ticket plus a reason comment (confirmed: RelatesTo LINK-00760 QUESTION-089->QUESTION-090, comment 20260813-124407-architect, QUESTION-089 Duplicated). This extends the existing 'verify ticket ID when create output omits it' improvement: output WITH ticket_id + abnormal exit = exists, no retry; output WITHOUT ticket_id + clean exit = get to verify.
 
 ## Improvement: verify stale QA evidence by re-running the exact recorded command, then categorize findings into canonical scope
 
 Condition:
+
 - When a QUESTION ticket claims a QA/CI failure (e.g. N failed launcher probes, `git diff --check` whitespace) and asks whether the finding is in canonical scope for a rename/migration story
 
 Action:
+
 - Do re-run the exact recorded command(s) on the current tree before accepting or dismissing the claim. Same command now exit 0 => recorded failure was a stale mid-migration artifact, not reproducible; say so with the numbers. Then categorize: canonical launcher probes are the renamed scripts under `.agents/skills/pal-found-*/scripts/pal_found_*_cli.py` (18), NOT the legacy `.claude/skills` paths (pointer-only dir, enforced by `test_legacy_skill_path_is_pointer_only`); cite BA-ANA-010/SA-ANA-010 mapping ND-010-01..04, SA-DES-010, DEV-XXX-rename-migration.md, plus enforcing tests (`test_rename_migration.py`, `test_skill_tree_migration.py`). For `git diff --check` findings, group flagged files into tracker internals `.ept/tracker/**` (generated by tracker CLI, never hand-edited, out of scope/accepted, exclude from gate) vs project-owned migration-touched files (in scope, required trivial trailing-whitespace fix). Accepted evidence for the QA gate: migration tests green, full gates (ruff/mypy/compileall/pytest >=80% coverage) exit 0, all 18 renamed entry-point smoke probes, tied to final commit + final namespace. Confirmed 2026-08-14 on QUESTION-129/130: recorded 1101 passed/16 failed in `.claude/skills/pal-found-*` probes; exact re-run gave 1127 passed/0 failed/86.40%; previously erroring datasets/ontologies files 250 passed; migration tests 7/7; `git diff --check` exit 2 with 10 project-owned + 29 tracker files flagged, zero in src/, tests/, .agents/skills/, .ept/docs/.
 
 ## Improvement: consolidate multi-story feature closure in durable release evidence
 
 Condition:
+
 - When a feature's acceptance evidence is split across implementation and deployment stories, and live repository heads have advanced beyond the last recorded audit
 
 Action:
+
 - Do re-verify the current public heads, exact gitlinks, anonymous recursive clone, redirects, ownership guards, destination CI, and retained history. Add one feature-level acceptance matrix to the release manifest and refresh the reference register's current pins. Keep historical baselines intact and distinguish them from the closure-audit baseline. When tracker access is forbidden, use supplied workflow status only in the closure recommendation and derive technical approval solely from canonical documents and public repository evidence.
 
 ## Improvement: EPIC-011 AT-2 window gap confirmed third time (2026-10-01)
 
 Condition:
+
 - When an epic sits Open with all linked dev_stories already past Development (in QA), and the AT-2 auto-rule (Open to In Progress on first EpicLink story entering Development) did not fire
 
 Action:
+
 - Do validate readiness (`workflow status epic Open`, `workflow transitions epic Open`, `link list <EPIC>` for EpicLink stories, `get` each story to confirm QA), then execute the Architect-owned manual `update <EPIC> --status "In Progress" --author architect` transition, post a short evidence comment via `comment create` (the first comment create right after the status update can return no output and silently fail - verify with `comment list` and retry once), and do NOT advance to Resolved/Done while stories are non-terminal. Confirmed 2026-10-01 on EPIC-011: DEV-STORY-038/039/040 all QA, transition executed, evidence comment 20261001-145956-architect.
+
+## Improvement: keep resolved review questions open while another blocker prevents parent restoration
+
+Condition:
+
+- When one approval QUESTION is Resolved and its Blocks link is removed, but another active QUESTION still blocks the same parent
+
+Action:
+
+- Do retain the resolved approval QUESTION at Resolved if its Closed DoD requires the parent to return to prior status. Verify the remaining Blocks link, record why parent stays Blocked, and close the approval QUESTION only after the other blocker clears and parent status is restored. Confirmed on QUESTION-154 and QUESTION-152 under SA-ANA-013 on 2026-10-03.
+
+## Improvement: re-read current counterpart closure DoD after workflow corrections
+
+Condition:
+
+- When BA-ANA and SA-ANA counterparts approach Resolved-to-Closed after a workflow-rule change
+
+Action:
+
+- Do read `get` and `type-info` for both types immediately before transitions. Check exact counterpart status language, approvals, and Blocks links. The 2026-10-03 correction changed the gate from counterpart terminal, then exact Resolved, to counterpart Resolved or Closed; SA-ANA-013 closed after BA-ANA-013 was Closed. Don't rely on the older mutual-dependency note elsewhere in this memory when the current CLI DoD differs.
+
+## Improvement: clean tracker Question scaffold before review
+
+Condition:
+
+- When creating a Question with a supplied description through tracker CLI
+
+Action:
+
+- Do `get` immediately; if generated TODO scaffold follows the supplied text, replace body with documented `update --description` or `--description-file` before Open or assignment. Verify final body with `get`.
+
+## Improvement: check Windows CRLF index diff correctly
+
+Condition:
+
+- When `git diff --check` flags every changed line of the shared CRLF document index as trailing whitespace on Windows
+
+Action:
+
+- Do run `git -c core.whitespace=cr-at-eol diff --check` on touched paths; keep existing line endings. Don't rewrite the whole shared index to silence false positives.
+
+## Improvement: check operation page before approving API limits
+
+Condition:
+
+- When a general API guide states an endpoint-specific limit or behavior
+
+Action:
+
+- Do compare the claim with the operation's current official page and local SDK method docs before approving. General pages can omit storage-version exceptions; correct the guide and its example, then check the source matrix cites the operation page.
+
+## Improvement: test authored example with invalid typed input before review approval
+
+Condition:
+
+- When a skill shows runnable transform code and claims an output schema or validation step
+
+Action:
+
+- Do run the actual authored asset with valid, null, missing-column, string, Boolean, complex, and supported decimal values; inspect what reaches the output write. Check both input and aggregate type guards and compare inline guide code with the runnable asset. Re-run the original failing test after correction before approving.
