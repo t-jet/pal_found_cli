@@ -13,6 +13,10 @@ from .index import get_ticket
 from .utils import now_timestamp, sanitize_author
 
 
+# Upper bound on same-second id suffixes considered before giving up.
+_MAX_COMMENT_ID_ATTEMPTS: int = 10_000
+
+
 # ── Path helpers ─────────────────────────────────────────────────────────────
 
 
@@ -75,7 +79,12 @@ def _parse_comment_metadata(file_path: Path) -> dict[str, str]:
 
     body = "\n".join(lines[4:]).strip()
     stem = file_path.stem
-    match = re.match(r"^(\d{8}-\d{6})-(.+)$", stem)
+    # New IDs mark the author boundary with @ and reserve ~ for collisions.
+    # Neither character can occur in a sanitized author. Legacy IDs remain
+    # readable, though their original _NNN suffix is inherently ambiguous.
+    match = re.fullmatch(r"(\d{8}-\d{6})-@(.+?)(?:~\d{3,})?", stem)
+    if match is None:
+        match = re.fullmatch(r"(\d{8}-\d{6})-(.+?)(?:_\d{3})?", stem)
     timestamp_id = match.group(1) if match else ""
     author = match.group(2) if match else ""
 
@@ -99,7 +108,13 @@ def create_comment(
     subject: str,
     text: str,
 ) -> str:
-    """Create a comment file and return the comment ID."""
+    """Create a comment file and return its unique comment ID.
+
+    Comment IDs are ``<YYYYMMDD-HHMMSS>-@<author>[~NNN]``. The @ and ~
+    markers cannot occur in a sanitized author, so numeric author suffixes
+    remain distinct from collision suffixes. Exclusive creation protects
+    concurrent writes. Existing IDs retain their original filenames.
+    """
     if not subject.strip():
         raise ValidationError(
             "Comment subject is required. Fix: pass --subject 'Short summary'"
@@ -108,20 +123,37 @@ def create_comment(
     comments_dir = _comments_dir(ticket_id)
     file_stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
     safe_author = sanitize_author(author)
-    comment_id = f"{file_stamp}-{safe_author}"
-    file_path = comments_dir / f"{comment_id}.md"
+    base_id = f"{file_stamp}-@{safe_author}"
     now = now_timestamp()
- 
+
     content = COMMENT_TEMPLATE.format(
         subject=subject.strip(), created=now, updated=now, text=text.lstrip('\ufeff').strip(),
     )
-    try:
-        with open(file_path, "w", encoding="utf-8") as f:
-            f.write(content)
-    except Exception as e:
-        raise FileOperationError(f"Failed to create comment for {ticket_id}: {e}")
 
-    return comment_id
+    # The stamp is second-granular. Allocate a distinct ID for each write and
+    # open in exclusive mode so concurrent writers cannot replace each other.
+    comment_id = base_id
+    suffix = 0
+    while True:
+        file_path = comments_dir / f"{comment_id}.md"
+        try:
+            with open(file_path, "x", encoding="utf-8") as f:
+                f.write(content)
+        except FileExistsError:
+            suffix += 1
+            if suffix > _MAX_COMMENT_ID_ATTEMPTS:
+                raise FileOperationError(
+                    f"Failed to allocate a unique comment id for {ticket_id} "
+                    f"after {_MAX_COMMENT_ID_ATTEMPTS} attempts"
+                )
+            # The marker is outside sanitize_author's alphabet; zero-padding
+            # keeps second and tenth collisions in numeric order.
+            comment_id = f"{base_id}~{suffix:03d}"
+            continue
+        except Exception as e:
+            raise FileOperationError(f"Failed to create comment for {ticket_id}: {e}")
+
+        return comment_id
 
 
 def list_comments(ticket_id: str) -> list[dict[str, str]]:
