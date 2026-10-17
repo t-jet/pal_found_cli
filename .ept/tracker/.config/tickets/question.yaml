@@ -76,7 +76,7 @@ allowed_transitions:
   Clarified:     [Clarification, Resolved, Blocked, Canceled, Rejected, Duplicated]
   Resolved:      [Closed, Canceled, Rejected, Duplicated, Blocked]
   Blocked:       [Open, In Progress, Clarification, Clarified, Canceled, Rejected, Duplicated, Resolved]
-  Closed:        []
+  Closed:        [Clarification]
   Canceled:      []
   Rejected:      []
   Duplicated:    []
