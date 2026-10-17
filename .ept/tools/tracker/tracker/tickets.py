@@ -16,6 +16,7 @@ from .index import (
     get_next_ticket_id,
     get_ticket,
     increment_counter,
+    interprocess_lock,
     read_canonical_index,
     read_index,
     ticket_exists,
@@ -111,7 +112,33 @@ def create_ticket(
     description: str = "",
     extra_fields: dict[str, str] | None = None,
 ) -> str:
-    """Create a new ticket and return its ID."""
+    """Create a ticket under a cross-process ID and index transaction."""
+    with interprocess_lock("tickets"):
+        ticket_id = _create_ticket_locked(
+            ticket_type, title, author, priority, assignee, parent,
+            addressed_to, description, extra_fields,
+        )
+
+    # Rules may update tickets, so run them after releasing the write lock.
+    from .automations import evaluate_automatic_transitions
+    evaluate_automatic_transitions(ticket_id, "ticket_created")
+    if parent:
+        evaluate_automatic_transitions(parent, "child_created")
+    return ticket_id
+
+
+def _create_ticket_locked(
+    ticket_type: str,
+    title: str,
+    author: str,
+    priority: str,
+    assignee: str,
+    parent: str,
+    addressed_to: str,
+    description: str,
+    extra_fields: dict[str, str] | None,
+) -> str:
+    """Persist one ticket while the ticket creation lock is held."""
     cfg = get_runtime_config()
     paths = get_paths()
     validate_ticket_type(ticket_type)
@@ -241,12 +268,6 @@ def create_ticket(
         f"Created ticket of type '{ticket_type}'",
     )
 
-    # Post-create automations triggers
-    from .automations import evaluate_automatic_transitions
-    evaluate_automatic_transitions(ticket_id, "ticket_created")
-    if parent:
-        evaluate_automatic_transitions(parent, "child_created")
-
     return ticket_id
 
 
@@ -339,6 +360,35 @@ def update_ticket(
     _system: bool = False,
 ) -> dict[str, str]:
     """Update ticket metadata and synchronise index + file."""
+    with interprocess_lock("tickets"):
+        ticket, run_automations = _update_ticket_locked(
+            ticket_id, author, status, assignee, priority,
+            extra_fields=extra_fields, description=description, _system=_system,
+        )
+
+    # Rules may call update_ticket again; run them outside the write lock.
+    if run_automations:
+        from .automations import evaluate_automatic_transitions
+        evaluate_automatic_transitions(ticket_id, "ticket_updated")
+        parent_id = ticket.get("parent", "")
+        if parent_id:
+            evaluate_automatic_transitions(parent_id, "child_status_changed")
+
+    return ticket
+
+
+def _update_ticket_locked(
+    ticket_id: str,
+    author: str,
+    status: str | None,
+    assignee: str | None,
+    priority: str | None,
+    *,
+    extra_fields: dict[str, str] | None,
+    description: str | None,
+    _system: bool,
+) -> tuple[dict[str, str], bool]:
+    """Persist one update while the ticket write lock is held."""
     from .validators import validate_status_transition, validate_status_value
 
     cfg = get_runtime_config()
@@ -433,15 +483,7 @@ def update_ticket(
             f"Updated fields: {', '.join(changed_parts)}",
         )
 
-        # Post-update automations trigger (skip for system-generated updates)
-        if not _system and status:
-            from .automations import evaluate_automatic_transitions
-            evaluate_automatic_transitions(ticket_id, "ticket_updated")
-            parent_id = ticket.get("parent", "")
-            if parent_id:
-                evaluate_automatic_transitions(parent_id, "child_status_changed")
-
-    return ticket
+    return ticket, bool(updated and not _system and status)
 
 
 def search_tickets(
