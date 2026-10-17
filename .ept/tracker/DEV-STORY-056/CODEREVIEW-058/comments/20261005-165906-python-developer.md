@@ -1,0 +1,5 @@
+Subject: Ticket updated
+Created: 2026-10-05T16:59:06
+Updated: 2026-10-05T16:59:06
+---
+Updated fields: assignee=architect
