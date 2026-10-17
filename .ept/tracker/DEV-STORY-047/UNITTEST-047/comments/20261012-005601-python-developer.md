@@ -1,0 +1,9 @@
+Subject: python-developer: Resolved->Closed DoD evidence
+Created: 2026-10-12T00:56:01
+Updated: 2026-10-12T00:56:01
+---
+## Resolved -> Closed DoD
+
+- Blocker check: `link list UNITTEST-047` shows only the parent `Contains` link; no active `Blocks` / is-blocked-by link. Blocked column = No.
+- Closed DoD = Ticket not blocked (no active is-blocked-by links) -> **satisfied**.
+- All cited tests passed; time recorded untracked. Date: 2026-10-12.
