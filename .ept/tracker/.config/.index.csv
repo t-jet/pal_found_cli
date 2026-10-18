@@ -1011,5 +1011,6 @@ BUG-SUB-031,bug_subtask,Classification parser example loses requested string out
 BUG-SUB-032,bug_subtask,DEV-STORY-081 beta REST fixtures omit preview query,Open,High,python-developer,qa-engineer,DEV-STORY-081,,DEV-STORY-081/BUG-SUB-032,2026-10-16,2026-10-16
 BUG-035,bug,Audit skill omits required log API permission and OAuth scope,Open,High,python-developer,qa-engineer,,,BUG-035,2026-10-16,2026-10-16
 BUG-SUB-033,bug_subtask,DEV-STORY-081 object and link examples lack meaningful result and error checks,Open,High,python-developer,qa-engineer,DEV-STORY-081,,DEV-STORY-081/BUG-SUB-033,2026-10-16,2026-10-16
-TESTCASE-085,testcase,Review DHT-TC-021 Data Health preview cases,Open,High,qa-engineer,project-manager,BUG-034,,BUG-034/TESTCASE-085,2026-10-18,2026-10-18
-TESTEXEC-085,testexec,Execute DHT-TC-021 against reviewed release candidates,Blocked,High,qa-engineer,project-manager,BUG-034,,BUG-034/TESTEXEC-085,2026-10-18,2026-10-18
+TESTCASE-085,testcase,Review DHT-TC-021 Data Health preview cases,Closed,High,qa-engineer,project-manager,BUG-034,,BUG-034/TESTCASE-085,2026-10-18,2026-10-18
+TESTEXEC-085,testexec,Execute DHT-TC-021 against reviewed release candidates,Closed,High,qa-engineer,project-manager,BUG-034,,BUG-034/TESTEXEC-085,2026-10-18,2026-10-18
+BUG-SUB-034,bug_subtask,DEV-STORY-081 Scenario edited responses use full objects instead of locators,Closed,High,python-developer,project-manager,DEV-STORY-081,,DEV-STORY-081/BUG-SUB-034,2026-10-18,2026-10-18

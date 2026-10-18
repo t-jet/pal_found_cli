@@ -2,12 +2,13 @@
 id: TESTCASE-085
 type: testcase
 title: Review DHT-TC-021 Data Health preview cases
-status: Open
+status: Closed
 created: 2026-10-18
 updated: 2026-10-18
 priority: High
 assignee: qa-engineer
 reporter: project-manager
+time_spent_hours: 0.5
 ---
 
 # TESTCASE-085: Review DHT-TC-021 Data Health preview cases
