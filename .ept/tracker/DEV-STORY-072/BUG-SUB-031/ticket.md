@@ -2,12 +2,13 @@
 id: BUG-SUB-031
 type: bug_subtask
 title: Classification parser example loses requested string outcome
-status: Open
+status: Closed
 created: 2026-10-16
-updated: 2026-10-16
+updated: 2026-10-18
 priority: High
 assignee: python-developer
 reporter: qa-engineer
+time_spent_hours: 0.25
 ---
 
 # BUG-SUB-031: Classification parser example loses requested string outcome
