@@ -2,13 +2,14 @@
 id: BUG-SUB-033
 type: bug_subtask
 title: DEV-STORY-081 object and link examples lack meaningful result and error checks
-status: Open
+status: Closed
 created: 2026-10-16
-updated: 2026-10-16
+updated: 2026-10-18
 priority: High
 assignee: python-developer
 reporter: qa-engineer
 component: skills
+time_spent_hours: 1.0
 ---
 
 # BUG-SUB-033: DEV-STORY-081 object and link examples lack meaningful result and error checks

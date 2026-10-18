@@ -1530,11 +1530,9 @@ LINK-01966,BUG-SUB-029,TESTEXEC-075,RelatesTo,Relates To,Relates To,2026-10-16T2
 LINK-01967,BUG-SUB-030,TESTEXEC-075,RelatesTo,Relates To,Relates To,2026-10-16T20:05:38.444694,qa-engineer,Independent preflight finding; formal TESTEXEC-075 Open
 LINK-01968,BUG-SUB-031,TESTEXEC-075,RelatesTo,Relates To,Relates To,2026-10-16T20:05:42.147389,qa-engineer,Independent preflight finding; formal TESTEXEC-075 Open
 LINK-01969,BUG-SUB-030,BUG-SUB-028,RelatesTo,Relates To,Relates To,2026-10-16T20:05:45.596034,qa-engineer,Same empty get_batch result fixture pattern in separate owned partitions
-LINK-01970,BUG-SUB-032,TESTEXEC-080,Blocks,Blocks,Is Blocked By,2026-10-16T20:05:55.127333,qa-engineer,Beta preview omission must be corrected and independently retested before TESTEXEC-080 closure.
 LINK-01971,BUG-035,DEV-STORY-061,Blocks,Blocks,Is Blocked By,2026-10-16T20:06:08.255923,qa-engineer,Audit skill access prerequisites block independent offline closure
 LINK-01972,BUG-035,DEV-STORY-043,RelatesTo,Relates To,Relates To,2026-10-16T20:06:11.903429,qa-engineer,Historical Audit skill authoring scope
 LINK-01973,BUG-035,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-16T20:06:14.817198,qa-engineer,Offline development prerequisite criterion
-LINK-01974,BUG-SUB-033,TESTEXEC-080,Blocks,Blocks,Is Blocked By,2026-10-16T20:06:26.817892,qa-engineer,Object/link example assertions must be made meaningful and independently retested before TESTEXEC-080 closure.
 LINK-01975,DEV-STORY-071,BUG-SUB-027,Contains,Contains,Contained In,2026-10-17T01:09:24.678829,qa-engineer,Defect subtask in identity REST partition
 LINK-01976,DEV-STORY-071,BUG-SUB-028,Contains,Contains,Contained In,2026-10-17T01:09:27.450420,qa-engineer,Defect subtask in identity REST partition
 LINK-01977,DEV-STORY-072,BUG-SUB-029,Contains,Contains,Contained In,2026-10-17T01:09:30.806899,qa-engineer,Defect subtask in governance REST partition

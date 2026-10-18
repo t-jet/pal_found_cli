@@ -2,13 +2,14 @@
 id: BUG-SUB-032
 type: bug_subtask
 title: DEV-STORY-081 beta REST fixtures omit preview query
-status: Open
+status: Closed
 created: 2026-10-16
-updated: 2026-10-16
+updated: 2026-10-18
 priority: High
 assignee: python-developer
 reporter: qa-engineer
 component: skills
+time_spent_hours: 0.2
 ---
 
 # BUG-SUB-032: DEV-STORY-081 beta REST fixtures omit preview query
