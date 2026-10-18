@@ -1,7 +1,7 @@
 counters:
   epic: 15
   ba_subtask_design: 15
-  bug_subtask: 33
+  bug_subtask: 34
   ux_subtask_design: 0
   ux_subtask_analysis: 0
   development: 84
@@ -12,7 +12,7 @@ counters:
   sa_subtask_analysis: 16
   unittest: 84
   task: 6
-  link: 1981
+  link: 1982
   testexec: 85
   sa_subtask_design: 14
   dev_story: 93

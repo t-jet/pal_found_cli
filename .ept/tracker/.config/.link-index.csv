@@ -1541,4 +1541,4 @@ LINK-01977,DEV-STORY-072,BUG-SUB-029,Contains,Contains,Contained In,2026-10-17T0
 LINK-01978,DEV-STORY-072,BUG-SUB-030,Contains,Contains,Contained In,2026-10-17T01:09:34.178111,qa-engineer,Defect subtask in governance REST partition
 LINK-01979,DEV-STORY-072,BUG-SUB-031,Contains,Contains,Contained In,2026-10-17T01:09:37.717343,qa-engineer,Defect subtask in governance REST partition
 LINK-01981,FEATURE-015,DEV-STORY-092,Contains,Contains,Contained In,2026-10-06T16:23:58.207947,ba,
-LINK-01980,TESTCASE-085,TESTEXEC-085,Blocks,Blocks,Is Blocked By,2026-10-18T00:07:43.805520,project-manager,Execute DHT-TC-021 only after independent case review and approval.
+LINK-01982,TESTEXEC-085,TESTCASE-085,RelatesTo,Relates To,Relates To,2026-10-18T12:09:59.341123,qa-engineer,Execution follows Tech Lead approved DHT-TC-021 case
