@@ -258,6 +258,14 @@ Action:
 
 - Do confirm each endpoint's requirement in its official API reference before marking omission FAIL. Mark comparable but unverified endpoints UNCERTAIN and state inference. A passing mock that expects no preview does not prove a live request works.
 
+## Improvement: check server bounds against frozen SDK text
+
+Condition:
+- When a frozen SDK docstring describes a request list or batch limit
+
+Action:
+- Do compare current official endpoint bounds, empty input errors, and duplicate handling with the local contract. Use a mock transport to see whether the SDK validates or forwards boundary inputs. Record version uncertainty where needed; don't treat a passing success fixture as boundary coverage.
+
 ## Improvement: tracker snapshot branches need live ID recapture check
 
 Condition:

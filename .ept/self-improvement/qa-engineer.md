@@ -393,15 +393,15 @@ Action:
 
 - Do plan and request the full allowed chain explicitly: `Open -> In Progress -> Resolved -> Closed`; the tracker validator rejects jumps (Open->Resolved not allowed; the helper preflight aborts cleanly). Prepare each transition's DoD evidence before requesting it (Open->In Progress: implementation exists + plan comment + TESTCASE/DEV/UNITTEST/CODEREVIEW terminal; In Progress->Resolved: per-case evidence + time reported; Resolved->Closed: no active is-blocked-by links). Also single-quote multi-word status values (`--status 'In Progress'`) — unquoted, PowerShell splits them and the CLI errors "unrecognized arguments". Verified TESTEXEC-017/018 (2026-08-10).
 
-## Improvement: comment bodies with literal apostrophes break PowerShell single-quoting
+## Improvement: preserve Markdown tracker comments in PowerShell
 
 Condition:
 
-- When writing a tracker comment body that contains literal apostrophes inside a PowerShell single-quoted `--text` argument (e.g. Python dict/tuple literals like `{'check': 4, 'check_report': 2}` or `('Check',)`), the single quote terminates the argument early and the CLI errors "unrecognized arguments" (exit 2) with truncated text
+- When sending a Markdown tracker comment through PowerShell, especially one with code backticks or apostrophes
 
 Action:
 
-- Do double every literal apostrophe (`''`) inside the single-quoted `--text` string before sending, so PowerShell keeps the argument intact and the stored body matches byte-for-byte; verify with a `comment get` when fidelity matters, and check no comment was committed before retrying (the argparse failure happens before any write, so no duplicate risk). Verified TESTCASE-020 (2026-08-10): attempt 1 aborted at exit 2 on `{'check': 4, 'check_report': 2}`; attempt 2 with doubled apostrophes committed `20260810-190859-qa-engineer` byte-identical. PREFERRED alternative (reconfirmed TESTCASE-037, 2026-08-14): author the body with ZERO apostrophes up front — no contractions, no possessives, no Python dict/tuple literals with quotes — so the single-quoted `--text` is trivially safe and needs no escaping; all three TESTCASE-037 comment bodies (20260814-172441/172912/173133-qa-engineer) committed byte-identical this way.
+- Do single-quote the `--text` argument and double any internal apostrophes (`''`). Avoid PowerShell double quotes: they consume Markdown backticks and can corrupt following characters while the CLI still exits 0. Read the stored text with `comment get` before dependent tracker writes; correct it with `comment update` if needed.
 
 ## Improvement: pre-existing 3.12 audit wheel flake classified as harness, not defect
 
@@ -743,3 +743,14 @@ Condition:
 Action:
 
 - Do assert each requested ID or string appears in the expected result or a documented error path, and assert response identity matches request. Empty batch maps, omitted CBAC marking IDs, and empty parsed/error maps can pass transport fixtures while missing the operation's meaning.
+
+## Improvement: run worked snippets through root SDK client
+
+Condition:
+
+- When reviewing Markdown code that uses nested SDK clients or raw paged responses
+
+Action:
+
+- Do execute fenced snippet with real root client and a schema-valid mock transport; keep transport patch active through lazy resource access and calls. Check decoded pages and forwarded tokens, not fixture entry points alone.
+
