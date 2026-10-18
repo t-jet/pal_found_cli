@@ -202,7 +202,7 @@ Condition:
 
 Action:
 
-- Do put candidate `src` first on `sys.path` or `PYTHONPATH`, print imported package `__file__`, and assert the path points into the candidate before counting test results.
+- Do put candidate `src` first on `sys.path` or `PYTHONPATH` before the first test run, print imported package `__file__`, and assert the path points into the candidate before counting test results.
 - Do compare candidate commit and clean status with the advertised remote ref; report parent gitlink and release tag separately.
 
 ## Improvement: SDK model semantic review beyond hashes
@@ -257,3 +257,11 @@ Condition:
 Action:
 
 - Do confirm each endpoint's requirement in its official API reference before marking omission FAIL. Mark comparable but unverified endpoints UNCERTAIN and state inference. A passing mock that expects no preview does not prove a live request works.
+
+## Improvement: tracker snapshot branches need live ID recapture check
+
+Condition:
+- When QA reviews a tracker data branch while agents keep writing to the live tracker
+
+Action:
+- Do compare ticket counts, recent comments, and new link IDs through the documented CLI in both branch and live checkout before calling the branch merge ready. A branch can be internally consistent while a later live link reuses an ID assigned by the branch repair.

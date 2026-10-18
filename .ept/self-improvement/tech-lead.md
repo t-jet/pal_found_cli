@@ -803,3 +803,11 @@ Condition:
 Action:
 
 - Do re-read with `comment list` / `get` before retrying; the write typically completed server-side (this session: the Answer comment and the Open transition both landed despite `^C`). Kill the wedged terminal with a valid id or start a fresh call, then verify state. Do not blind-retry a `comment create` or it duplicates.
+
+## Improvement: separate SDK constructor preview from CLI preview
+
+Condition:
+- When approving a preview-query test that creates a real SDK client
+
+Action:
+- Do capture CLI-built kwargs as well as the serialized request URL; an SDK client initialized with preview=True can make a wire assertion pass even when the CLI omits preview. Check one query value, all endpoint paths, and parser rejection before client creation.

@@ -361,6 +361,8 @@ Action:
 
 - Do use `D:\app\Python\python.exe` (Python 3.11.9, pytest 8.3.5) with `$env:PYTHONPATH="src"` — the canonical QA evidence baseline (matches QA batch and devops rerun logs); when the ticket's own evidence log recorded a different env, prefer that interpreter instead (BUG-SUB-013/TESTEXEC-037 verification 2026-08-14 used the project `.venv`, py3.11.9 pytest 9.0.3, matching the TESTEXEC-037 evidence baseline, while the active miniforge interpreter lacked pytest); probe `python -m pytest --version` before assuming the env is ready; don't treat a missing-pytest interpreter as a product defect or phantom-implementation signal. Verified TESTEXEC-027 (2026-08-14): miniforge env lacked pytest; `D:\app\Python\python.exe` reran the focused suite 1127 passed / 86.40% / exit 0 at HEAD 5746815.
 
+- Do set `PYTHONPATH` to the absolute `src` of the exact checkout under test and print the target module's `__file__` before pytest. TESTEXEC-085 first imported an older live checkout and failed 9 preview cases; pinned isolated `src` passed 19/19. Classify wrong-source failures as harness errors after proving the import path.
+
 ## Improvement: Closed siblings satisfy TESTEXEC "Resolved state" gate
 
 Condition:
