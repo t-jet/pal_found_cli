@@ -4,7 +4,7 @@ FEATURE-015 remains in draft review. No release merge or tag has been performed 
 
 | Repository | Review branch | Candidate | Verification |
 |---|---|---|---|
-| Skills | [PR #1](https://github.com/t-jet/pal_found_cli_skills/pull/1) | `5d50cf8` (content freeze `68d569c`) | 533 focused tests passed at the content freeze; subsequent commits record independent reviews only. Five ledger and gate tests passed after T06. GitHub validation at the latest head must pass before merge. |
+| Skills | [PR #1](https://github.com/t-jet/pal_found_cli_skills/pull/1) | `5d50cf8` (content freeze `68d569c`) | 533 focused tests passed at the content freeze; subsequent commits record independent reviews only. Five ledger and gate tests passed after T06. GitHub validation passed at this exact head. |
 | CLI tool | [PR #1](https://github.com/t-jet/pal_found_cli_tool/pull/1) | `0963e6e` | 18 formal DHT-TC-021 CLI scenarios, 51 focused Data Health tests, and all eight GitHub checks passed. |
 | Parent | [PR #6](https://github.com/t-jet/pal_found_cli/pull/6) | Draft integration branch | Both candidate submodules initialize; 174 document-index links resolve; the combined tracker suite passed 442 tests after the final tracker snapshot merge. |
 
