@@ -2,9 +2,9 @@
 id: TESTCASE-082
 type: testcase
 title: DEV-STORY-085 testcase Function execution value type and version lifecycle REST contracts
-status: Open
+status: In Progress
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-19
 priority: High
 assignee: qa-engineer
 reporter: tech-lead

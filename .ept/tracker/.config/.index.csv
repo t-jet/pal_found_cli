@@ -947,10 +947,10 @@ CODEREVIEW-082,codereview,DEV-STORY-083 codereview v2 Ontology Action Query atta
 TESTCASE-081,testcase,DEV-STORY-083 testcase v2 Ontology Action Query attachment and timeseries lifecycle REST contracts,Open,High,qa-engineer,tech-lead,DEV-STORY-083,,DEV-STORY-083/TESTCASE-081,2026-10-07,2026-10-07
 TESTEXEC-081,testexec,DEV-STORY-083 testexec v2 Ontology Action Query attachment and timeseries lifecycle REST contracts,Open,High,qa-engineer,tech-lead,DEV-STORY-083,,DEV-STORY-083/TESTEXEC-081,2026-10-07,2026-10-07
 DESIGN-082,design,DEV-STORY-085 design Function execution value type and version lifecycle REST contracts,Closed,High,tech-lead,tech-lead,DEV-STORY-085,,DEV-STORY-085/DESIGN-082,2026-10-07,2026-10-07
-DEV-082,development,DEV-STORY-085 development Function execution value type and version lifecycle REST contracts,In Progress,High,python-developer,tech-lead,DEV-STORY-085,,DEV-STORY-085/DEV-082,2026-10-07,2026-10-07
-UNITTEST-082,unittest,DEV-STORY-085 unittest Function execution value type and version lifecycle REST contracts,Open,High,python-developer,tech-lead,DEV-STORY-085,,DEV-STORY-085/UNITTEST-082,2026-10-07,2026-10-07
-CODEREVIEW-083,codereview,DEV-STORY-085 codereview Function execution value type and version lifecycle REST contracts,Blocked,High,architect,tech-lead,DEV-STORY-085,,DEV-STORY-085/CODEREVIEW-083,2026-10-07,2026-10-07
-TESTCASE-082,testcase,DEV-STORY-085 testcase Function execution value type and version lifecycle REST contracts,Open,High,qa-engineer,tech-lead,DEV-STORY-085,,DEV-STORY-085/TESTCASE-082,2026-10-07,2026-10-07
+DEV-082,development,DEV-STORY-085 development Function execution value type and version lifecycle REST contracts,Resolved,High,python-developer,tech-lead,DEV-STORY-085,,DEV-STORY-085/DEV-082,2026-10-07,2026-10-19
+UNITTEST-082,unittest,DEV-STORY-085 unittest Function execution value type and version lifecycle REST contracts,Closed,High,python-developer,tech-lead,DEV-STORY-085,,DEV-STORY-085/UNITTEST-082,2026-10-07,2026-10-19
+CODEREVIEW-083,codereview,DEV-STORY-085 codereview Function execution value type and version lifecycle REST contracts,Open,High,architect,tech-lead,DEV-STORY-085,,DEV-STORY-085/CODEREVIEW-083,2026-10-07,2026-10-19
+TESTCASE-082,testcase,DEV-STORY-085 testcase Function execution value type and version lifecycle REST contracts,In Progress,High,qa-engineer,tech-lead,DEV-STORY-085,,DEV-STORY-085/TESTCASE-082,2026-10-07,2026-10-19
 TESTEXEC-082,testexec,DEV-STORY-085 testexec Function execution value type and version lifecycle REST contracts,Open,High,qa-engineer,tech-lead,DEV-STORY-085,,DEV-STORY-085/TESTEXEC-082,2026-10-07,2026-10-07
 DESIGN-083,design,DEV-STORY-089 design connectivity stream and SQL query lifecycle REST contracts,Closed,High,tech-lead,tech-lead,DEV-STORY-089,,DEV-STORY-089/DESIGN-083,2026-10-07,2026-10-07
 DEV-083,development,DEV-STORY-089 development connectivity stream and SQL query lifecycle REST contracts,In Progress,High,python-developer,tech-lead,DEV-STORY-089,,DEV-STORY-089/DEV-083,2026-10-07,2026-10-07
@@ -1005,8 +1005,8 @@ BUG-033,bug,Windows counter-file replace causes concurrent tracker read failure,
 BUG-034,bug,Data Health CLI omits required preview query on six endpoints,Open,High,python-developer,qa-engineer,,,BUG-034,2026-10-16,2026-10-16
 BUG-SUB-027,bug_subtask,Admin membership expiration example sends empty replacement,Open,High,python-developer,qa-engineer,DEV-STORY-071,,DEV-STORY-071/BUG-SUB-027,2026-10-16,2026-10-16
 BUG-SUB-028,bug_subtask,Admin get_batch examples accept empty results for requested IDs,Open,Medium,python-developer,qa-engineer,DEV-STORY-071,,DEV-STORY-071/BUG-SUB-028,2026-10-16,2026-10-16
-BUG-SUB-029,bug_subtask,CBAC examples omit marking IDs while asserting marking-specific results,Open,High,python-developer,qa-engineer,DEV-STORY-072,,DEV-STORY-072/BUG-SUB-029,2026-10-16,2026-10-16
-BUG-SUB-030,bug_subtask,Admin marking and role batch examples accept empty results,Open,Medium,python-developer,qa-engineer,DEV-STORY-072,,DEV-STORY-072/BUG-SUB-030,2026-10-16,2026-10-16
+BUG-SUB-029,bug_subtask,CBAC examples omit marking IDs while asserting marking-specific results,Closed,High,python-developer,qa-engineer,DEV-STORY-072,,DEV-STORY-072/BUG-SUB-029,2026-10-16,2026-10-18
+BUG-SUB-030,bug_subtask,Admin marking and role batch examples accept empty results,Closed,Medium,python-developer,qa-engineer,DEV-STORY-072,,DEV-STORY-072/BUG-SUB-030,2026-10-16,2026-10-18
 BUG-SUB-031,bug_subtask,Classification parser example loses requested string outcome,Closed,High,python-developer,qa-engineer,DEV-STORY-072,,DEV-STORY-072/BUG-SUB-031,2026-10-16,2026-10-18
 BUG-SUB-032,bug_subtask,DEV-STORY-081 beta REST fixtures omit preview query,Closed,High,python-developer,qa-engineer,DEV-STORY-081,,DEV-STORY-081/BUG-SUB-032,2026-10-16,2026-10-18
 BUG-035,bug,Audit skill omits required log API permission and OAuth scope,Open,High,python-developer,qa-engineer,,,BUG-035,2026-10-16,2026-10-16
@@ -1014,3 +1014,4 @@ BUG-SUB-033,bug_subtask,DEV-STORY-081 object and link examples lack meaningful r
 TESTCASE-085,testcase,Review DHT-TC-021 Data Health preview cases,Closed,High,qa-engineer,project-manager,BUG-034,,BUG-034/TESTCASE-085,2026-10-18,2026-10-18
 TESTEXEC-085,testexec,Execute DHT-TC-021 against reviewed release candidates,Closed,High,qa-engineer,project-manager,BUG-034,,BUG-034/TESTEXEC-085,2026-10-18,2026-10-18
 BUG-SUB-034,bug_subtask,DEV-STORY-081 Scenario edited responses use full objects instead of locators,Closed,High,python-developer,project-manager,DEV-STORY-081,,DEV-STORY-081/BUG-SUB-034,2026-10-18,2026-10-18
+QUESTION-190,question,Confirm Functions unit coverage and treatment of unmeasured prior hours,Closed,High,tech-lead,python-developer,UNITTEST-082,tech-lead,UNITTEST-082/QUESTION-190,2026-10-18,2026-10-19

@@ -2,12 +2,13 @@
 id: BUG-SUB-030
 type: bug_subtask
 title: Admin marking and role batch examples accept empty results
-status: Open
+status: Closed
 created: 2026-10-16
-updated: 2026-10-16
+updated: 2026-10-18
 priority: Medium
 assignee: python-developer
 reporter: qa-engineer
+time_spent_hours: 0.01
 ---
 
 # BUG-SUB-030: Admin marking and role batch examples accept empty results

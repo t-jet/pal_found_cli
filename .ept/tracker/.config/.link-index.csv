@@ -1443,7 +1443,6 @@ LINK-01867,DEV-STORY-085,TESTCASE-082,Contains,Contains,Contained In,2026-10-07T
 LINK-01868,DEV-STORY-085,TESTEXEC-082,Contains,Contains,Contained In,2026-10-07T16:00:57.681891,tech-lead,
 LINK-01869,DEV-082,CODEREVIEW-083,RelatesTo,Relates To,Relates To,2026-10-07T16:00:58.356147,tech-lead,
 LINK-01870,CODEREVIEW-083,DEV-082,RelatesTo,Relates To,Relates To,2026-10-07T16:00:59.021557,tech-lead,
-LINK-01871,DEV-082,CODEREVIEW-083,Blocks,Blocks,Is Blocked By,2026-10-07T16:00:59.679512,tech-lead,
 LINK-01872,DEV-STORY-089,DESIGN-083,Contains,Contains,Contained In,2026-10-07T16:01:13.302082,tech-lead,
 LINK-01873,DEV-STORY-089,DEV-083,Contains,Contains,Contained In,2026-10-07T16:01:18.050704,tech-lead,
 LINK-01874,DEV-STORY-089,UNITTEST-083,Contains,Contains,Contained In,2026-10-07T16:01:22.807362,tech-lead,
@@ -1540,3 +1539,6 @@ LINK-01978,DEV-STORY-072,BUG-SUB-030,Contains,Contains,Contained In,2026-10-17T0
 LINK-01979,DEV-STORY-072,BUG-SUB-031,Contains,Contains,Contained In,2026-10-17T01:09:37.717343,qa-engineer,Defect subtask in governance REST partition
 LINK-01981,FEATURE-015,DEV-STORY-092,Contains,Contains,Contained In,2026-10-06T16:23:58.207947,ba,
 LINK-01982,TESTEXEC-085,TESTCASE-085,RelatesTo,Relates To,Relates To,2026-10-18T12:09:59.341123,qa-engineer,Execution follows Tech Lead approved DHT-TC-021 case
+LINK-01983,QUESTION-190,UNITTEST-082,Question,Asks About,Has Question,2026-10-18T22:46:53.510546,python-developer,
+LINK-01985,QUESTION-190,DEV-082,Question,Asks About,Has Question,2026-10-18T22:47:06.433313,python-developer,
+LINK-01987,CODEREVIEW-083,DEV-082,Blocks,Blocks,Is Blocked By,2026-10-19T07:06:08.360312,python-developer,Development awaits independent architect code review after DEV-082 Resolved.
