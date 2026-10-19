@@ -2,12 +2,13 @@
 id: BUG-SUB-029
 type: bug_subtask
 title: CBAC examples omit marking IDs while asserting marking-specific results
-status: Open
+status: Closed
 created: 2026-10-16
-updated: 2026-10-16
+updated: 2026-10-18
 priority: High
 assignee: python-developer
 reporter: qa-engineer
+time_spent_hours: 0.02
 ---
 
 # BUG-SUB-029: CBAC examples omit marking IDs while asserting marking-specific results

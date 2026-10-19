@@ -7,12 +7,12 @@ counters:
   development: 84
   codereview: 85
   testcase: 85
-  question: 189
+  question: 190
   resource_req: 6
   sa_subtask_analysis: 16
   unittest: 84
   task: 6
-  link: 1982
+  link: 1987
   testexec: 85
   sa_subtask_design: 14
   dev_story: 93

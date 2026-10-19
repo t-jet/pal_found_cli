@@ -2,9 +2,9 @@
 id: CODEREVIEW-083
 type: codereview
 title: DEV-STORY-085 codereview Function execution value type and version lifecycle REST contracts
-status: Blocked
+status: Open
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-19
 priority: High
 assignee: architect
 reporter: tech-lead
