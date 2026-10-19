@@ -1,27 +1,39 @@
-# FEATURE-015 draft release status - 2026-10-18
+# FEATURE-015 draft release status
 
-FEATURE-015 remains in draft review. No release merge or tag has been performed in this workflow.
+Last verified: 2026-10-19 (Europe/Sofia). FEATURE-015 remains in draft review. No release merge or tag has been performed in this workflow.
 
-| Repository | Review branch | Candidate | Verification |
+| Repository | Draft | Candidate | Verification |
 |---|---|---|---|
-| Skills | [PR #1](https://github.com/t-jet/pal_found_cli_skills/pull/1) | `5d50cf8` (content freeze `68d569c`) | 533 focused tests passed at the content freeze; subsequent commits record independent reviews only. Five ledger and gate tests passed after T06. GitHub validation passed at this exact head. |
-| CLI tool | [PR #1](https://github.com/t-jet/pal_found_cli_tool/pull/1) | `0963e6e` | 18 formal DHT-TC-021 CLI scenarios, 51 focused Data Health tests, and all eight GitHub checks passed. |
-| Parent | [PR #6](https://github.com/t-jet/pal_found_cli/pull/6) | Draft integration branch | Both candidate submodules initialize; 174 document-index links resolve; the combined tracker suite passed 442 tests after the final tracker snapshot merge. |
+| Skills | [PR #1](https://github.com/t-jet/pal_found_cli_skills/pull/1) | `cb096d1`, content freeze `6205cd7` | GitHub validation passed. All 36 development topics have independent semantic/source acceptance; nine topic/author tests passed. Actual TypeScript 7.0.2 compiled the application/widget examples with zero diagnostics. |
+| CLI tool | [PR #1](https://github.com/t-jet/pal_found_cli_tool/pull/1) | `0963e6e` | All eight GitHub checks passed. Formal DHT-TC-021 passed 18 CLI scenarios and 51 focused Data Health tests. |
+| Parent | [PR #6](https://github.com/t-jet/pal_found_cli/pull/6) | Integration branch, with both pins above | Combined tracker suite passed 442 tests after the latest snapshot merge. |
 
-The parent draft combines smaller PRs for Data Health design and QA cases, tracker engine fixes, source documents, and tracker history. [Tracker PR #5](https://github.com/t-jet/pal_found_cli/pull/5) at `5cf46a84` preserves the raw snapshot before documented repairs. It contains 1,015 indexed tickets, 1,541 unique links with valid endpoints, and 10,261 comment files matching live bytes. Its tracker suite passed 426 tests. Independent delta QA passed at this exact head: no status drift or link conflicts, and all 33 current comments on BUG-SUB-031/032/033 match the live CLI content. The CLI-only review verified the highest active link ID, 1982; separate branch validation checked the stored counter. The original payload of `LINK-01279` could not be recovered and is documented in the repair ledger. Independent document QA passed all 174 index links and confirmed 102 snapshot documents match their sources.
+The topic review corrected two substantive omissions: Action Test run can execute result-producing external calls, and Compute Module Pipeline mode manages its output dataset transactions. Both corrections passed independent retest. Their source and audit hashes match current bytes. Seven unchanged source URL locations were moved to their new lines; the historical whole-bundle URL scan was not promoted to a new scan. Application/widget compile evidence uses a synthetic schema and proves no tenant binding or execution.
 
-## Release gate
+The latest Data Health capability correction removes an unsupported pagination-helper claim. `get-latest --limit` bounds a single response. This authored correction is published, but its full-page independent retest remains pending because the assigned reviewer hit an agent usage limit. Five current ledger/URL checks passed. No acceptance was inferred from the interrupted review.
 
-`python scripts/verify_feature015_release.py` reports no stale candidate or asset hashes at `5d50cf8`. It remains blocked by 353 semantic operation reviews, 425 formal operation QA and provenance items, 139 skill pages, and 31 topics. Topics T01 through T06 have independent acceptance evidence at their current page hashes. Independent review also passed the narrow no-installation correction on 20 pages, including 68 relative links and 39 unique external source URLs. Broader page and journey QA remains open. The earlier whole-bundle URL scan remains historical evidence.
+## Remaining release gates
 
-BUG-SUB-031 is Closed after the parser example and boundary handling were corrected and independently retested. DEV-STORY-072 has 34 accepted semantic reviews and six pending operation reviews in the current register; TESTCASE-075 and TESTEXEC-075 remain Open. BUG-SUB-032/033/034 are Closed after independent retests of preview serialization, Object/LinkedObject inputs, and Scenario locators. All 22 REST-081 fixtures execute, but eleven private beta operation semantics remain uncertain and TESTCASE-080/TESTEXEC-080 are Open. The historical REST-081 review record has not been promoted to a full formal QA pass.
+The verifier reports no stale candidate or asset hashes. It remains blocked by:
 
-BUG-034's DHT-TC-021 case and execution are Closed: nine preview wire requests, nine explicit-false rejects, 51 focused tests, and Ruff passed at the pinned tool commit. Live Foundry tenant behavior remains unverified. BUG-034 remains Open pending the broader release workflow. BUG-035's Audit access correction has a diagnostic PASS; broader page review remains open.
+- 425 formal operation QA items and their provenance.
+- 336 semantic operation reviews and their provenance.
+- 109 skill-review gate items: 108 pages plus the overall audit signoff.
 
-## Local checkout and publication audit
+The T01-T36 topic gate is complete. T37 REST, journey acceptance, other skill pages, and live Foundry behavior have separate scopes. Existing independent FEATURE-012 evidence still matches 343 operation records, tool code, and SDK hashes; this supports those record portions, not whole-page acceptance.
 
-The live parent checkout remains dirty and diverged from remote `main`. A full audit found 1,303 changed entries: 1,301 files and two submodule pointers. Of those files, 1,296 match exact bytes in published draft branches. Five live file versions differ from every draft: `test_links.py`, tracker `index.py` and `tickets.py`, `.id-counters.yaml`, and `.link-index.csv`. The drafts contain newer tracker locking fixes, equivalent counters in a different YAML order, and repaired link rows; the live link index contains malformed rows. These differences are intentional and must not be overwritten by copying the live tree wholesale.
+DEV-STORY-072 now has all 40 operation semantic reviews accepted against frozen SDK 1.101.0 and current fixtures. BUG-SUB-029/030/031 are Closed after independent retests; TESTCASE-075 and TESTEXEC-075 remain Open. DEV-STORY-081 has eleven non-private operation semantic reviews accepted and eleven private-beta reviews pending. BUG-SUB-032/033/034 are Closed, while TESTCASE-080 and TESTEXEC-080 remain Open. Historical defect findings remain preserved with current retest evidence.
 
-The live skills (`04e860f3`) and tool (`b9c5f8a1`) checkouts are internally clean, with no untracked or unpublished files. Both commits are ancestors of their published draft candidates. Their parent pointers are older than the release pins above. [Agent configuration PR #7](https://github.com/t-jet/pal_found_cli/pull/7) at `e2aedd91` captures the latest self-improvement notes; its composer check passes. Four legacy temporary text files outside `.ept/tmp` already exist on remote `main`; this release draft did not introduce them.
+For DEV-STORY-085, UNITTEST-082 and QUESTION-190 are Closed, DEV-082 is Resolved, CODEREVIEW-083 is Open, TESTCASE-082 is In Progress, and TESTEXEC-082 is Open. Two source-derived Functions edge tests are integrated. Formal code review and test-case design were interrupted by agent usage limits; the eleven operation QA statuses remain pending. Historical implementation hours are unknown; tracker entries record only measured work from these sessions.
 
-Keep release PRs draft until outstanding reviews and QA records are complete. Re-run the gate and verify exact GitHub heads before any merge or tag.
+BUG-034 remains Open pending the broader workflow despite its closed DHT-TC-021 case/execution. BUG-035 has a targeted Audit correction PASS; broader page review remains open.
+
+## Tracker and local checkout
+
+[Tracker PR #5](https://github.com/t-jet/pal_found_cli/pull/5) at `9f3c1eba` contains 1,016 indexed tickets, 1,543 unique links with valid endpoints, counter 1987, and 10,308 comment files matching live bytes. Snapshot validation found zero errors. It preserves the raw snapshot and documented repairs, including the unrecoverable `LINK-01279` limit. The review blocker now runs from CODEREVIEW-083 to DEV-082; its obsolete reverse link was removed through the live workflow. This latest capture has local validation; an additional independent delta review is still pending.
+
+The live parent checkout remains dirty and diverged from remote `main`. The latest byte audit found 1,355 changed entries: 1,347 files match the integration or agent-configuration draft, six file versions differ, and two entries are submodule pointers. The differing files are the document index, three older tracker code/test files, counter YAML ordering, and the malformed live link CSV. Drafts contain newer documentation/code and repaired links. Copying the live tree wholesale would discard those repairs.
+
+Live skills and tool checkouts are internally clean at older commits that are ancestors of their published candidates. [Agent configuration PR #7](https://github.com/t-jet/pal_found_cli/pull/7) at `f8e567e2` matches all live self-improvement notes byte for byte and passes the composer check. Four legacy temporary text files outside `.ept/tmp` already exist on remote `main`; this release draft did not introduce them.
+
+Keep release PRs draft. Resume independent page reviews, Functions code/test-case review, and formal operation execution when delegated review capacity is available. Verify exact heads and rerun the release gate before any merge or tag.
