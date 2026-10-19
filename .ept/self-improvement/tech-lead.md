@@ -811,3 +811,11 @@ Condition:
 
 Action:
 - Do capture CLI-built kwargs as well as the serialized request URL; an SDK client initialized with preview=True can make a wire assertion pass even when the CLI omits preview. Check one query value, all endpoint paths, and parser rejection before client creation.
+
+## Improvement: distinguish operation coverage from package coverage and partial time
+
+Condition:
+- When a documentation skill subtask asks whether per-operation fixtures meet coverage DoD and historic contributor hours are unknown
+
+Action:
+- Do check the skill design for its own coverage rule before borrowing a numeric threshold from a separate tool package. Require each owned operation and source-derived edge cases to pass; keep independent QA separate. Record only measured work in `time_spent_hours`, with a ticket comment naming the measured interval and unknown earlier work. Don't copy one subtask's measured time into another.

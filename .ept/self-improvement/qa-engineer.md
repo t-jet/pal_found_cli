@@ -754,3 +754,13 @@ Action:
 
 - Do execute fenced snippet with real root client and a schema-valid mock transport; keep transport patch active through lazy resource access and calls. Check decoded pages and forwarded tokens, not fixture entry points alone.
 
+## Improvement: compare preview and transaction effects by mode
+
+Condition:
+
+- When reviewing platform guides with Test run, preview, or Pipeline execution steps
+
+Action:
+
+- Do check official source for external calls, skipped effects, and transaction owner in each mode. Verify page says which effects can occur before accepting whole-page guidance.
+

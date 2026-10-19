@@ -216,7 +216,7 @@ Condition:
 
 Action:
 
-- Do record time as untracked in ticket comment and ask manager for workflow treatment before Resolved; don't invent hours or set numeric zero.
+- Do ask responsible lead for workflow treatment before Resolved. If approved, enter only a measured partial minimum in `time_spent_hours`, name its exact interval in a comment, and exclude unknown historical hours. Don't copy one subtask's interval to another or substitute estimate hours.
 
 ## Improvement: integer request timeout cannot certify wall deadline
 
