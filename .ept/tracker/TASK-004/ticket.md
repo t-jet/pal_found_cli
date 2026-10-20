@@ -2,12 +2,12 @@
 id: TASK-004
 type: task
 title: Publish pal_found_cli_tool v0.1.4 to PyPI and t-jet Conda
-status: Blocked
+status: Closed
 priority: High
 assignee: devops-engineer
 reporter: project-manager
 created: 2026-10-05
-updated: 2026-10-06
+updated: 2026-10-11
 component: distribution
 ---
 

@@ -2,9 +2,9 @@
 id: DEV-042
 type: development
 title: 'DEV-042: Author offline Admin identity and access operations in Admin skill'
-status: Resolved
+status: Closed
 created: 2026-10-03
-updated: 2026-10-03
+updated: 2026-10-12
 priority: High
 assignee: python-developer
 reporter: tech-lead

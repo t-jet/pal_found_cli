@@ -1,5 +1,9 @@
 # Project Documentation Index
 
+- [WORK-007 release pin verification](deliverables/qa/WORK-007-release-pin-plan.md): published parent and paired submodule revisions, fresh-clone checks, and CLI package publication.
+- [WORK-007 CLI candidate evidence](deliverables/qa/WORK-007-tool-candidate-evidence.md): isolated ten-file tool candidate, checksums, and full-suite result.
+- [WORK-007 skills candidate evidence](deliverables/qa/WORK-007-skills-candidate-evidence.md): isolated 83-file skills candidate, source-backed audit, copied-bundle checks, and [manifest](deliverables/qa/WORK-007-skills-candidate-manifest.json).
+- [WORK-006 independent offline reader QA](deliverables/qa/WORK-006-offline-novice-agent-evidence.md): copied 20-skill bundle, nine mocked CLI/result cases, eight isolated reader answers across five namespaces, BUG-009 pagination retest, and TESTEXEC-055 evidence limits.
 - [FEATURE-015 REST model review matrix](../../pal_found_cli_skills/maintainer/rest-model-semantic-matrix.json): source hashes, dependencies and operation consumers for 3,251 local SDK definitions. Source fidelity and local meaning require independent review; this inventory does not establish semantic acceptance.
 - [FEATURE-015 retained QA evidence manifest](../../pal_found_cli_skills/tests/fixtures/feature015_qa/evidence/evidence_manifest.json): hashes and verdict boundaries for selected preserved reader artifacts, including original failures and retests. Local fixture evidence and provisional scores remain separate from final acceptance.
 - [FEATURE-015 application and widget source review](../../pal_found_cli_skills/maintainer/applications-widget-independent-source-review.json): source/API review of six local guides and their examples, with explicit fixture and live-platform limits. Final candidate checks remain part of implementation acceptance.

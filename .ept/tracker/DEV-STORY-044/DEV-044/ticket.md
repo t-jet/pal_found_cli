@@ -2,9 +2,9 @@
 id: DEV-044
 type: development
 title: 'DEV-044: Author offline Datasets operations in Datasets skill'
-status: Resolved
+status: Closed
 created: 2026-10-03
-updated: 2026-10-03
+updated: 2026-10-12
 priority: High
 assignee: python-developer
 reporter: tech-lead

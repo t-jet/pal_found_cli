@@ -2,9 +2,9 @@
 id: DEV-047
 type: development
 title: 'DEV-047: Author offline Ontology actions and rich properties content'
-status: Resolved
+status: Closed
 created: 2026-10-03
-updated: 2026-10-03
+updated: 2026-10-12
 priority: High
 assignee: python-developer
 reporter: tech-lead

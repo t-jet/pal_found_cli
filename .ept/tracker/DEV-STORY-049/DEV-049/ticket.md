@@ -2,9 +2,9 @@
 id: DEV-049
 type: development
 title: 'DEV-049: Author offline AIP Agents Functions and Language Models operations'
-status: Resolved
+status: Closed
 created: 2026-10-03
-updated: 2026-10-03
+updated: 2026-10-12
 priority: High
 assignee: python-developer
 reporter: tech-lead

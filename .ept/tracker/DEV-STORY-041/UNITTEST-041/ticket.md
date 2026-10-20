@@ -2,13 +2,14 @@
 id: UNITTEST-041
 type: unittest
 title: 'UNITTEST-041: Verification of offline Foundry primer and navigation content'
-status: New
+status: Closed
 created: 2026-10-03
-updated: 2026-10-03
+updated: 2026-10-12
 priority: High
 assignee: python-developer
 reporter: tech-lead
 estimated_hours: 8
+time_spent_hours: untracked
 ---
 
 # UNITTEST-041: UNITTEST-041: Verification of offline Foundry primer and navigation content

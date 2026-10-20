@@ -3,9 +3,9 @@ id: DEV-041
 type: development
 title: 'DEV-041: Author offline Foundry platform primer and namespace navigation in pal-found
   skill'
-status: Resolved
+status: Closed
 created: 2026-10-03
-updated: 2026-10-03
+updated: 2026-10-12
 priority: High
 assignee: python-developer
 reporter: tech-lead

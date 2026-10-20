@@ -2,9 +2,9 @@
 id: EPIC-012
 type: epic
 title: Use Foundry CLI skills with no external guidance
-status: In Progress
+status: Done
 created: 2026-10-03
-updated: 2026-10-03
+updated: 2026-10-12
 priority: Medium
 assignee: project-manager
 reporter: project-manager

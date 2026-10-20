@@ -2,13 +2,14 @@
 id: TESTCASE-041
 type: testcase
 title: 'TESTCASE-041: QA test cases for offline Foundry primer and navigation content'
-status: New
+status: Closed
 created: 2026-10-03
-updated: 2026-10-03
+updated: 2026-10-12
 priority: High
 assignee: qa-engineer
 reporter: tech-lead
 estimated_hours: 4
+time_spent_hours: untracked
 ---
 
 # TESTCASE-041: TESTCASE-041: QA test cases for offline Foundry primer and navigation content

@@ -3,9 +3,9 @@ id: DEV-055
 type: development
 title: 'DEV-055: Build reusable offline integration review harness and final copied-bundle
   gate'
-status: Resolved
+status: Closed
 created: 2026-10-03
-updated: 2026-10-03
+updated: 2026-10-12
 priority: High
 assignee: python-developer
 reporter: tech-lead

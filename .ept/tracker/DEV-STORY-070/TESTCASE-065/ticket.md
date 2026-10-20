@@ -2,9 +2,9 @@
 id: TESTCASE-065
 type: testcase
 title: Prepare source-derived topic and twenty-skill acceptance cases
-status: Open
+status: In Progress
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-16
 priority: High
 assignee: qa-engineer
 reporter: qa-engineer

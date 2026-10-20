@@ -2,9 +2,9 @@
 id: DEV-046
 type: development
 title: 'DEV-046: Author offline Ontology discovery operations with Ontologies SKILL.md navigation'
-status: Resolved
+status: Closed
 created: 2026-10-03
-updated: 2026-10-03
+updated: 2026-10-12
 priority: High
 assignee: python-developer
 reporter: tech-lead

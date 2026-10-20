@@ -2,14 +2,14 @@
 id: WORK-002
 type: workitem
 title: Retry PyPI v0.1.4 release after TestPyPI service recovery
-status: In Progress
+status: Closed
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-11
 priority: High
 assignee: devops-engineer
 reporter: devops-engineer
 estimated_hours: 1
-time_spent_hours: 0.1
+time_spent_hours: 1.0
 ---
 
 # Retry PyPI v0.1.4 release

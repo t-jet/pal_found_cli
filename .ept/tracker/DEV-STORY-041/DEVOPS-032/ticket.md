@@ -2,13 +2,14 @@
 id: DEVOPS-032
 type: devops
 title: 'DEVOPS-041: Distribution and copy validation for offline Foundry primer and navigation'
-status: New
+status: Closed
 created: 2026-10-03
-updated: 2026-10-03
+updated: 2026-10-12
 priority: High
 assignee: devops-engineer
 reporter: tech-lead
 estimated_hours: 3
+time_spent_hours: 1.5
 ---
 
 # DEVOPS-032: DEVOPS-041: Distribution and copy validation for offline Foundry primer and navigation

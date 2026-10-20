@@ -3,13 +3,14 @@ id: UNITTEST-049
 type: unittest
 title: 'UNITTEST-049: Verification of offline AIP Agents Functions and Language Models operations
   content'
-status: New
+status: Closed
 created: 2026-10-03
-updated: 2026-10-03
+updated: 2026-10-12
 priority: High
 assignee: python-developer
 reporter: tech-lead
 estimated_hours: 5
+time_spent_hours: untracked
 ---
 
 # UNITTEST-049: UNITTEST-049: Verification of offline AIP Agents Functions and Language Models operations content

@@ -2,12 +2,13 @@
 id: BUG-005
 type: bug
 title: Preserve tracker comments during same-second writes
-status: Open
+status: Closed
 affected_version: current-workspace-tracker
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-12
 priority: High
-assignee: tech-lead
+resolution: Done
+assignee: qa-engineer
 reporter: project-manager
 component: tracker
 ---

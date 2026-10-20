@@ -3,13 +3,14 @@ id: TESTEXEC-048
 type: testexec
 title: 'TESTEXEC-048: QA execution for offline Connectivity Checkpoints Data Health operations
   content'
-status: New
+status: Closed
 created: 2026-10-03
-updated: 2026-10-03
+updated: 2026-10-12
 priority: High
 assignee: qa-engineer
 reporter: tech-lead
 estimated_hours: 6
+time_spent_hours: untracked
 ---
 
 # TESTEXEC-048: TESTEXEC-048: QA execution for offline Connectivity Checkpoints Data Health operations content

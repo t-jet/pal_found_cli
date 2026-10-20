@@ -1,117 +1,211 @@
 # Tech Lead — Improvement Memory
 
+## Improvement: audit every reader and writer of shared tracker state
+
+Condition:
+- When a concurrency fix changes tracker ID counters or CSV indexes
+
+Action:
+- Do enumerate all readers and writers of each shared counter and index, then test mixed operations in separate processes. A link-only lock let ticket creation overwrite shared YAML; direct ticket-index truncation made concurrent `ticket_exists` report an existing ticket missing. Use complete temporary writes plus atomic replacement, bounded Windows PermissionError retries on readers and writers, and persistent-denial tests. Preserve monotonic counters under one lock and recover IDs from durable indexes.
+
+## Improvement: check every branch that overrides a serialized exit
+
+Condition:
+- When reviewing CLI exception handlers after an envelope and process exit fix
+
+Action:
+- Do compare `ErrorSerializer.serialize` return with the final process code in every branch. Probe special `OSError` errno cases: Admin and Filesystem once emitted envelope 9 but returned 7 for errno 11/115, even after their TypeError mismatch was fixed.
+
+## Improvement: keep QA expectations independent of code under test
+
+Condition:
+- When approving regression design for a generated operation catalogue or CLI exit behavior
+
+Action:
+- Do enumerate expected operations from the SDK contract separately from implementation sets, then compare both; a test parametrized only from the implementation can miss an omitted operation. Distinguish CLI policy denial (exit 8) from SDK HTTP 403 (exit 3), and assert each at its own boundary.
+
+## Improvement: check mutable page state across whole-batch retries
+
+Condition:
+- When a retry wrapper calls a paginated batch with a shared helper or accumulator
+
+Action:
+- Do inject a transient failure on page two after page one succeeds, then compare final stdout items with page/item metadata. Reset per-attempt counters or retry pages individually; otherwise failed-attempt pages inflate counts. If page boundaries come from an SDK private iterator, fail closed when that boundary is absent instead of using an item limit that can skip oversized-page records.
+
+## Improvement: verify current status before executing a batch "advance" request
+
+Condition:
+
+- When a batch request says tickets are in status X and instructs "advance to Y", especially for tickets whose children are already terminal
+
+Action:
+
+- Do `get`/`list` every target ticket FIRST; the automatic transition (e.g. dev_story AT-1 `all_children_reach_status`) often already moved them, so X is stale. Do not attempt the requested transition when the ticket is already at or past the target (it fails as invalid); post the DoD-evidence comment instead and report "already advanced by auto-rule".
+- Don't trust a per-ticket premise in the request either: the request said DEV-STORY-042 was Blocked, but `get` showed QA. Verify each claimed exception against its own source of truth.
+
+## Improvement: derive a blocked ticket's prior status from its own history comments
+
+Condition:
+
+- When restoring a blocked ticket to its "prior status" and a comment records that prior status
+
+Action:
+
+- Do read the ticket's own status-change comments (the `Updated fields: status=X` rows) and confirm the immediate predecessor; a recorded "Prior status: New" can be wrong when the ticket did New->Open seconds before blocking. Also check the transition map - Blocked->New may not be allowed for that type (unittest Blocked allows Open but not New), which independently proves the recorded claim wrong. Restore to the actual predecessor and post a correction comment.
+- Don't create a fake blocking link because the DoD says "remove the blocking link" - a manual block may carry no `Blocks` row (the block was via the bug-sub `Contains` link). Verify with `link list`; if no `Blocks` link exists, state that and skip removal; keep the terminal containment row for lineage.
+
+## Improvement: allocate timestamp-based file identities with exclusive-create retry
+
+Condition:
+
+- When fixing or implementing an identity/filename derived from a second-granular timestamp (e.g. tracker comment id `YYYYMMDD-HHMMSS-author`)
+
+Action:
+
+- Do treat the base id as non-unique: allocate a unique id with a loop that opens the target with exclusive mode `"x"` and, on `FileExistsError`, retries with a numeric suffix, bounded by a max-attempts constant. `"w"` silently truncates an earlier artifact and `exists()`-then-write races under concurrency; only exclusive create is atomic. Use `_` + zero-padded suffix so suffixed ids still sort chronologically after the base and keep `_002 < _010`. Keep the first write at the unchanged base id so existing references stay valid. Anchor the clock in tests by monkeypatching the module's `datetime` symbol to a frozen instance with a `now()` method (importing `from datetime import datetime` binds the symbol, so patching the module attribute is what takes effect).
+- Do not trust "the fix writes a new file" alone for evidence; run an isolated end-to-end repro through the real CLI surface plus a live same-second probe, and read back with `get`/`list` to prove both writes are durable.
+
 ## Improvement: exclude tests from coverage gate denominator
 
 Condition:
+
 - When reviewing unit coverage of bundled example Python modules under project minimum
 
 Action:
+
 - Do measure executable source with `--omit '*test*.py'`, include standalone fixture runs in same coverage data, and report unavailable runtime modules separately; don't pass a gate from test-file coverage inflating aggregate.
 
 ## Improvement: test offline gates for bypass paths before claiming isolation
 
 Condition:
+
 - When reviewing an offline fixture gate built with language-level socket or DNS monkeypatches
 
 Action:
+
 - Do probe direct IP, UDP sends, child processes and runtime fetch paths as applicable; inspect what the gate actually patches. Describe it as a cooperative fixture guard unless an OS boundary also blocks egress. Do not infer complete network isolation from DNS denial or fixture success.
 
 ## Improvement: bound paged SDK calls by requests, not returned items
 
 Condition:
+
 - When reviewing a Foundry SDK `ResourceIterator` loop with a finite item cap
 
 Action:
+
 - Do inspect `PageIterator` behavior for empty pages and repeated tokens. An `islice` item cap can issue unlimited requests when pages stay empty. For a hard budget, call the paged method once per page, read its already fetched `.data` and `.next_page_token` without iterating, and cap requests, items, wall time, and repeated cursors. When SDK timeout requires positive integer seconds, stop before a request if less than one whole second remains; recheck deadline after the response and mark returned data partial on overrun. Do not claim a blocking request can be forcibly preempted.
 
 ## Improvement: verify epic auto-transition Open->In Progress premise before expecting cascade
 
 Condition:
+
 - When asked whether an EPIC should auto-advance to Resolved/Done after all linked DEV-STORYs reach terminal, and the EPIC current status is Open
 
 Action:
+
 - Do check the epic type's automatic_transitions: the Open->In Progress rule (AT-2 `first_child_reaches_status`) is a SEPARATE rule from In Progress->Resolved (AT-1 `all_children_reach_status`) and Resolved->Done. If the EPIC is stuck in Open, AT-2 did not fire (stories advanced before the epic left Open, or the trigger was never evaluated); AT-1 cannot fire while the epic is Open. Do NOT manually transition the EPIC to manufacture the cascade; report the Open stall and let Architect/BA execute Open->In Progress first.
 - Do enumerate ALL EpicLink DEV-STORY statuses before predicting Done: EPIC-009 all 8 stories (030-037) Closed (could proceed In Progress->Resolved->Done) but EPIC-010 has DEV-STORY-026 (QA) + DEV-STORY-029 (QA) non-terminal so must NOT advance regardless of the Open stall.
 
 ## Improvement: use PowerShell single-quoted strings for tracker comment --text with \n
 
 Condition:
+
 - When posting a tracker comment body/answer via `comment create`/`comment update` with a multi-line body and embedded double quotes (e.g. quoting doc text, "$var", or "pal-found*")
 
 Action:
+
 - Do pass the whole `--subject` and `--text` as a PowerShell single-quoted '...' string and use literal `\n` escape sequences for newlines; do NOT double-quote the argument and do NOT escape inner quotes with backslash (PowerShell passes the backslash literally -> comment stores a broken/empty body with a generic "Ticket updated" subject).
 - Do fix a broken comment in place with `comment update <ticket> <comment-id> --subject '...' --text '...\n...' --author <role>`, then verify the body with `comment get`.
+- Do NOT put apostrophes (e.g. "doesn't", "ticket's") inside a single-quoted '...' `--text`; the apostrophe closes the string, PowerShell drops to a `>>` continuation prompt, the command never completes and no comment is created. Rewrite with no apostrophes or double the apostrophe (''); never retry blind - first run `comment list` to confirm the comment was not created, then `kill_terminal` the stuck shell before re-posting.
 
 ## Improvement: verify explicit child relationship links after ticket creation
 
 Condition:
+
 - When creating or reviewing implementation-child links while the child `parent` field is set
 
 Action:
+
 - Do read the current `type-info` and ticket instructions first, then verify only links required for that child type with `link list`. Do not impose `ParentChild` on DEV-STORYs when the live rule requires `Contains` plus `EpicLink`; their `parent` field does not make `ParentChild` mandatory. For implementation subtasks, verify required `Contains`, review, and blocking links against the live workflow before advancing.
 
 ## Improvement: verify TESTCASE deliverable line anchors against the committed skill before approval
 
 Condition:
+
 - When approving a TESTCASE set whose content-accuracy cases cite specific line ranges of a static documentation skill (e.g. `.claude/skills/foundry/SKILL.md`), and the deliverable was authored against the working tree or an earlier blob
 
 Action:
+
 - Do verify every cited line anchor against the committed blob (`git rev-parse --short HEAD` + line counts + heading/table grep) before approving; section-level anchors matched exactly but inner-table/paragraph anchors drifted 1-8 lines in ~10 of 24 cases (KNW-TC-002 cited L12-37 vs actual L14-38; KNW-TC-003 L43-63 vs actual L44-65; KNW-TC-005 widgets row L60 vs actual L63; KNW-TC-010 datasets block L77 vs actual L85; KNW-TC-014 READONLY prose L151 vs actual L158). Also cross-check expected-value counts in the Test data table against the actual artifact (KNW-TC-002 title says "22 concept rows", actual 23). Content assertions were all accurate — classify as P3 non-blocking with an executor note ("treat anchors as approximate, verify content within the named section"), and keep the approval gate PASS unless a case references non-existent content.
 
 ## Improvement: verify skill deliverable presence before approving namespace CLIs
 
 Condition:
+
 - When reviewing a DEV sub-task for a new namespaced CLI/skill, and the DESIGN component breakdown lists "Claude skill and launcher for {namespace}"
 
 Action:
+
 - Do `git ls-tree -r --name-only {commit}` and grep for `.claude/skills/{namespace}/` before approving; prior namespace commits (62c269f connectivity/media-sets, 0c88063 sql_queries/streams) always ship SKILL.md + thin launcher in the DEV commit. Missing skill dir = P1 deliverable gap → Correction, even when the CLI code itself is fully approved. Cite DESIGN component-breakdown + story title + precedent commit as evidence. Also verify `pyproject.toml` package-data covers the metadata-allow-list.md and ruff E402 scope for the new namespace.
 
 ## Improvement: separate review-request test-count claims from actual count
 
 Condition:
+
 - When the reviewer reads a DEV review-request comment claiming a test count (e.g. "27 tests")
 
 Action:
+
 - Do count `def test_*` occurrences in the test file before citing the count; developer comments can misreport counts (this batch: checkpoints claimed 27, actual 25; data-health claimed 25, actual 27). Classify as P3 cosmetic, cite the actual count.
 
 ## Improvement: note SDK plain-int alias args as server-side-boundary only
 
 Condition:
+
 - When reviewing a CLI whose DESIGN says an int option has documented bounds (e.g. `--limit` "default 10, maximum 100") but the SDK model is a plain `int` alias (no Annotated bounds) and the CLI applies only `type=int`
 
 Action:
+
 - Do record the bound gap as P3 non-blocking follow-up (server enforces; graceful exit 1 via BadRequestError→exit 1), and state both the CLI-level and SDK-level verification evidence in the review comment. Do not make it a Correction unless the missing bound skips validation before side effects.
 
 ## Improvement: verify reviewer ADR claims against code before fixing
 
 Condition:
+
 - When addressing a code-review finding that cites an ADR (e.g. "ADR-004 says errors go to stderr")
 
 Action:
+
 - Do read the cited ADR section directly before applying the fix; reviewers occasionally cite the wrong ADR number or invert the rule, and blindly matching their wording propagates the error.
 
 ## Improvement: flip tests asserting the bug when fixing correctness findings
 
 Condition:
+
 - When a code-review finding flags a correctness bug (e.g. wrong stream, wrong exit code) and the existing unit test asserts the buggy behaviour
 
 Action:
+
 - Do update the test in the same commit so it asserts the ADR-correct behaviour; do not leave the test enforcing the bug and creating a regression trap for the next reviewer.
 
 ## Improvement: after a ^C-interrupted `;`-chained comment batch, verify duplicates before retrying
 
 Condition:
+
 - When a `;`-chained `comment create` batch in one terminal call returns `^C` (interrupted), then the terminal exits non-zero without showing the create result
 
 Action:
+
 - Do `comment list <each-ticket>` to check what actually posted; the interrupted batch commands often COMPLETE server-side and create the comments anyway, so an immediate one-at-a-time retry duplicates them (this batch: DEV-046 got two identical correction comments, 180608 + 180614). Mark the extra as SUPERSEDED via `comment update` (do not delete) and keep the earliest as canonical. For the rest of the batch run one `comment create` per terminal call to avoid the ^C ambiguity (DEV-050..055 done one-per-call, zero duplicates).
 
 ## Improvement: verify blocking link exists before trying to remove it, and trust AT-5 for terminal-source blocks
 
 Condition:
+
 - When closing a ticket whose DoD says "remove the blocking link" or "no active is-blocked-by links", OR when advancing a ticket that is blocked by another ticket nearing a terminal status
 
 Action:
+
 - Do `link list` on the source AND target tickets before assuming a `Blocks` link exists; in this repo link topology is inconsistent (some codereviews only carry `ParentChild`, others carry `DEV Blocks CODEREVIEW`). Only remove a link that is actually a blocking relationship; if none exists, note "no blocking link present" and skip the removal step.
 - Do NOT expect the `Blocks` link record to be deleted when the source ticket reaches a terminal status — AT-5 clears blocks *semantically* (the link row stays). Verify "not blocked" by attempting the transition, not by re-running `link list` and looking for the row to vanish.
 - Do ignore child-level `Blocked=Yes` flags when validating a parent story for closure: a closed child (e.g. CODEREVIEW-013) can still show `Blocked=Yes` because its own inbound `Blocks` link (e.g. DEV-013 → CODEREVIEW-013 LINK-00490) targets the child, not the story. Run `link list <child-id>` to confirm the link's target is the child itself; it does not block the parent. Parent closure only requires no `Blocks`/`Question`/`DependsOn` links on the story.
@@ -121,9 +215,11 @@ Action:
 ## Improvement: probe SDK kwarg names against real installed signatures before approval
 
 Condition:
+
 - When reviewing a namespace CLI whose OP_SPECS arg names are expected to map 1:1 to SDK kwargs, and the mock-driven unit tests pass
 
 Action:
+
 - Do check the exact installed SDK version and the frozen source commit before accepting a MockTransport run; a customer-input SDK checkout may have moved ahead of the frozen release, so rerun without a checkout `PYTHONPATH` when the approved version is installed.
 - Do `inspect.signature` every op with structured/JSON args against the INSTALLED SDK (not the vendored docs) and run a small runtime probe with valid-shaped inputs through the real SDK wrapper; a mock test asserting the wrong kwarg (e.g. `filters=` instead of SDK-required `file_import_filters=`) passes while the real call fails at validation. This batch caught a P1 (connectivity file_import create/replace can NEVER succeed — `ValidationError: file_import_filters Missing required keyword only argument`) only via the runtime probe; the vendored DESIGN table also carried the wrong arg name. Also probe pydantic `validate_call` extra-arg behavior before calling an extra flag a defect: `maybe_ignore_preview` strips unknown `preview` kwargs with only a UserWarning, and `validate_call` default is `extra='ignore'` — both downgrade what looks like a runtime error to a doc-only mismatch (P3).
 - Do also check the SDK's per-op explicit `attribution` kwarg against the global `ATTRIBUTION_VAR` context header (http_client applies `attribution` header to ALL requests from the context var); an unreferenced per-op kwarg is usually P3 cosmetic when the context-var path satisfies the requirement.
@@ -133,18 +229,22 @@ Action:
 ## Improvement: verify epic auto-transition premises by enumerating all same-link siblings
 
 Condition:
+
 - When asked to verify whether an EPIC auto-transition (In Progress → Resolved) should fire after a DEV-STORY closure, especially when the request asserts the closed story was "the last one"
 
 Action:
+
 - Do `link list` the EPIC and `get` every DEV-STORY linked via EpicLink BEFORE predicting the cascade; the rule fires only when ALL linked DEV-STORYs are terminal, not when the most-recently-closed one is. Treat a user-supplied "all siblings done" premise as falsifiable — this task found 3 of 4 siblings (QA/Grooming/New) still non-terminal despite the premise.
 - Don't manually transition the EPIC to manufacture the expected state; report the actual sibling-status matrix and let the auto-rule condition fail loud.
 
 ## Improvement: ground backward-compat closure claim on additive-skill evidence checklist
 
 Condition:
+
 - When a DEV-STORY closure DoD asks "backward compatibility guaranteed OR new major version increased" for a NEW namespaced skill/CLI added to an existing multi-namespace CLI repo
 
 Action:
+
 - Do verify four concrete code facts BEFORE writing the determination comment and keep version unchanged only if all hold: (1) pyproject [project.scripts] appends the new entry point without removing/renaming any prior one; (2) the new CLI imports only `common.*` shared infra (consume-only) and imports nothing from sibling namespace CLIs; (3) shared-infra diffs are purely additive (e.g. a new verb appended to the `_WRITE_VERBS` frozenset plus a regression test) with no existing symbol removed, renamed, or re-behaved; (4) a test asserts the operation-count contract (`len(cli.OP_SPECS) == N`). Absent any Incompatible API change, no major bump is required (SemVer additive). Cite each fact inline in the closure comment so the determination is falsifiable, not boilerplate.
 - Do count OP_SPECS entries by AST-walking the `OP_SPECS: tuple[OperationSpec, ...]` AnnAssign and counting its `_op(...)` Call elements (resource/operation are the first two literal args). Naive tuple-element/regex counting over-counts nested per-op argument tuples (probe returned 6/35 instead of 5/15 in DEV-STORY-015/016 closure). Read the catalog's definition style before probing.
 - Don't rubber-stamp "additive and backward-compatible" from the ticket title alone — reviewers can't tell a real review from a templated one.
@@ -152,158 +252,208 @@ Action:
 ## Improvement: prefer best-effort optional imports for SDK exception mapping
 
 Condition:
+
 - When mapping third-party SDK exception types to project exit codes and the SDK may not be installed in every environment (CI, unit tests, lightweight runners)
 
 Action:
+
 - Do wrap the SDK import in try/except inside a registration helper that returns a base mapping plus SDK additions; document HTTP status classification as the primary fallback so reviewers understand the layered design.
 
 ## Improvement: obey nested preflight ordering
 
 Condition:
+
 - When repo or developer instructions require loading a role file before work, and that role file may contain stricter preflight rules
 
 Action:
+
 - Do read the required role file as a single-purpose first command. Do not batch it with AGENTS skill-index reads, repo scans, or other setup. If it reveals a stricter memory preflight, immediately read only the memory skill and memory file before any user-facing update, skill-index read, workflow/ticket read, parallel batch, or task analysis. If the first action already violated this, state the slip briefly, stop all task-context reads, load the missing memory preflight alone or in a memory-only pair, then continue from the strictest remaining gate.
 
 ## Improvement: honor tracker-forbidden review mode
 
 Condition:
+
 - When tech-lead workflow requires ticket-helper/tracker steps but user explicitly forbids tracker operations
 
 Action:
+
 - Do state tracker gate is skipped due user constraint, then perform bounded repo/doc review only; don't create, search, update, comment, link, or transition tickets.
 
 ## Improvement: stop tracker integrity repair when helper has no approved write path
 
 Condition:
+
 - When tracker metadata is malformed and the user forbids direct tracker file access, while `ticket-helper` reports that documented CLI commands validate before they can repair the malformed record
 
 Action:
+
 - Do make one narrow follow-up asking `ticket-helper` for any approved data-integrity repair path; if it still reports none, stop and report blocked with exact failed command, exit code, unchanged tickets/comments/files, and verification not run.
 
 ## Improvement: keep ticket-helper as sole executor for constrained ticket workflows
 
 Condition:
+
 - When user explicitly requires `ticket-helper` for all ticket data and operations, especially for close/unblock/restore workflows
 
 Action:
+
 - Do delegate retrieval, workflow checks, link changes, field/body updates, comments, status transitions, and final verification to `ticket-helper` in one bounded task; ask helper to report before/after status, exact tracker actions, link ids/types, changed fields, evidence comments, transition result, blockers, and file paths. Don't run tracker commands or inspect tracker internals locally.
 - Do provide an explicit `time_spent_hours` value before asking `ticket-helper` to resolve subtask tickets whose DoD requires time reporting; don't make the helper stop and ask/infer time after approval evidence is already recorded.
 
 ## Improvement: close design tickets with explicit evidence gaps covered
 
 Condition:
+
 - When closing a DESIGN ticket after manager verification flags missing DoD evidence
 
 Action:
+
 - Do add concise tracker comments for each named evidence gap before closing: document-index impact (updated or no update needed with reason), responsible-person mapping from available resources and child assignees, active blocker check, and terminal transition result.
 
 ## Improvement: stop when required ticket-helper cannot spawn
 
 Condition:
+
 - When a ticket workflow explicitly requires `ticket-helper` subagent-only access and subagent spawning fails because the agent thread limit is reached
 
 Action:
+
 - Do reuse an existing completed/open `ticket-helper` with `send_input` when one is available, or resume a prior closed `ticket-helper` only if needed; if fresh spawn, reuse, and resume all fail, report blocked with exact failures and unchanged tracker state. Don't bypass the user constraint by reading tracker files or running tracker commands locally.
 
 ## Improvement: honor an explicit batch-stop instruction before planned tracker writes
 
 Condition:
+
 - When the user says to finish the current batch, stop investigating, or do not start new work after a workflow stage has completed
 
 Action:
+
 - Do stop before creating planned child tickets or advancing further; perform only the minimum documented CLI readback needed to verify durable story and child state, then report the next gate and blockers.
 
 ## Improvement: treat vague child AC as readiness blocker
 
 Condition:
+
 - When checking Grooming -> Development readiness and DoD requires child subtasks ready with criteria covering named scope or edge constraints
 
 Action:
+
 - Do compare each child task's concrete AC against every named scope item; block readiness when AC says generic or representative coverage where full coverage is required, even if ticket description has broader intent.
 
 ## Improvement: separate commit review from dirty workspace fixes
 
 Condition:
+
 - When re-review asks about a named correction commit and workspace has uncommitted changes touching same files
 
 Action:
+
 - Do verify findings against committed blobs first. If imports, tests, lint, or type checks can pass because of untracked/unstaged files, run clean archive/worktree validation of the named commit before approving. Report current-workspace results as contaminated when later local files change outcome; don't approve commit-only review based on unstaged or untracked fixes.
 
 ## Improvement: make iterator tests consume stream
 
 Condition:
+
 - When review checks iterator handling for streaming, binary download, or SDK pagination paths
 
 Action:
+
 - Do verify the real SDK return protocol first (`inspect.signature`, awaitable check, `__aiter__`, cursor attrs), then use a test double that consumes the iterator with the same protocol as production; don't accept dict/page-envelope mocks or wrapper-call assertions when production returns an async iterator because they can hide broken async iteration and pagination metadata.
 - Do verify the public streamed-response surface before designing header propagation. If no public headers accessor exists, pass `None` to bounded-download metadata inputs and test unknown-length probing; don't reach through private fields such as `response._response`.
 
 ## Improvement: set dev_story resolution before Resolved->Closed; closure needs no separate PO status
 
 Condition:
+
 - When advancing a dev_story from Resolved to Closed and the `instructions` say "Set resolution (Done/Canceled)", or when a closure DoD lists Tech Lead + Project Owner as responsible roles
 
 Action:
+
 - Do set resolution via `update <id> --field resolution=Done --author tech-lead` BEFORE transition; `--field` requires `key=value` format (no separate `--value` flag). Then post a closure evidence comment mapping every DoD criterion to concrete evidence, then `update --status Closed`.
-- Do NOT force Close for a genuine PO gap, but also do NOT invent a PO gate that doesn't exist: dev_story Resolved->Closed has NO separate "waiting for PO approval" status. PO approval is embedded in the closed deployment QUESTIONs (publication/credential/scope approvals). Precedent DEV-STORY-027 closed via evidence + resolution=Done. If all sub-tasks (incl DEVOPS + BUG-SUB) Closed, all QUESTIONs terminal, deployment verified live, release_notes populated, all links registered, no Blocks links, and resolution set, Close is legitimate for the responsible role that owns the ticket.
+- Do NOT force Close for a genuine PO gap, but also do NOT invent a PO gate that doesn't exist: dev_story Resolved->Closed has NO separate "waiting for PO approval" status. PO approval is embedded in the closed deployment QUESTIONs (publication/credential/scope approvals) or the closed feature-design QUESTION (e.g. QUESTION-163 approving BA-DES-013); if that question is already terminal, do NOT create a new QUESTION for the closure. Precedent: DEV-STORY-027/038/040/056 all closed ~Resolved->Closed by tech-lead. If all sub-tasks (incl DEVOPS + BUG-SUB) Closed, all QUESTIONs terminal, deployment verified live, release_notes populated, all links registered, no Blocks links, and resolution set, Close is legitimate for the responsible role that owns the ticket.
 - Do ground adjacent deployment-stage (Deployment->Resolved) closures with QA execution-log evidence + live HEAD reachability; note `DEVOPS (if exists) N/A` when content-only stories have no DEVOPS child.
+
+## Improvement: enumerate dev_story children by parent, never by id-offset guess
+
+Condition:
+
+- When validating a dev_story for closure and its child tickets carry ids offset from the story (e.g. the DEVOPS child of DEV-STORY-041 is DEVOPS-032, not DEVOPS-041)
+
+Action:
+
+- Do enumerate children with `list --parent <story>` and assert every returned child is terminal; the DEVOPS child id is NOT the story number. In this repo DEV-STORY-NN -> DEVOPS-(NN-9) for NN 41..55 (DEVOPS-032..046). Do not assume `DEVOPS-NN` exists or reuse a sibling story's DEVOPS id.
+- Do close a batch of dev_story tickets one story at a time with a single driver that per story does: get + `list --parent` + `link list` -> guard (all children terminal, no `Blocks`/`Question` link, release_notes non-empty) -> `update --field resolution=Done` -> `comment create` evidence -> `sleep ~1s` -> `update --status Closed` -> `get` readback, treating every process exit code as the source of truth. Posting the evidence comment and the status update as SEPARATE invocations with a short gap yields distinct comment ids (the next-write "Ticket updated" auto-comment is what collides on a same-second double write).
+- Do treat a story-level `DependsOn` edge only as outbound (other stories depend on it) and never as an inbound blocker; a `DependsOn` from DEV-STORY-055 -> 041..054 does not block 041..054 closure.
 
 ## Improvement: keep review commands shell-native
 
 Condition:
+
 - When environment detection says PowerShell or Windows and review needs git diff, line extraction, temp validation, or file comparison
 
 Action:
+
 - Do use PowerShell-native constructs such as `ForEach-Object`, temp files, or separate `git show` reads; don't use POSIX process substitution or shell syntax that PowerShell rejects.
 - Do delimit interpolated variable names before colons (`${path}:...`) and test smart punctuation through Unicode code points; don't place curly apostrophes inside single-quoted PowerShell regex strings.
 
 ## Improvement: package verified scope without reopening discovery
 
 Condition:
+
 - When manager supplies architect-verified scope and asks for a bounded readiness package without tracker access
 
 Action:
+
 - Do reuse supplied evidence, verify only missing implementation contracts such as exact SDK signatures, and return title, description, catalog, acceptance criteria, paths, risks, and transition evidence in one response. Don't reopen broad architecture discovery or mutate tracker/repo deliverables.
 
 ## Improvement: test packaged ACL policy outside repository cwd
 
 Condition:
+
 - When a namespace CLI depends on metadata allow-list files or other policy assets loaded by relative path
 
 Action:
+
 - Do test metadata-only decisions from an empty working directory against the installed or archived package. Verify every required policy asset is packaged and resolved independently of repository cwd; don't accept a repo-root test that passes only because `.ept/docs` exists nearby.
 
 ## Improvement: probe parser failures through console boundary
 
 Condition:
+
 - When reviewing a CLI whose requirements say every error must use a structured stdout envelope
 
 Action:
+
 - Do run missing-command, missing-positional, invalid-choice, and invalid-type probes through the real console boundary. Assert JSON on stdout and the required exit code; don't rely on happy-path parser unit tests because `argparse` can exit before application error handling.
 
 ## Improvement: classify local destructive commands in ACL design
 
 Condition:
+
 - When a namespace adds a local-only command that mutates files or persisted state, such as `session purge`
 
 Action:
+
 - Do verify the command's verb is classified as a write by `AccessControlGuard`, include it in namespace and operation policy keys, and test read-only and metadata-only denial before filesystem mutation. Don't assume SDK operation catalogs cover local commands.
 
 ## Improvement: verify the in-flight correction landed before approving gated cases
 
 Condition:
+
 - When approving a TESTCASE set whose launcher/packaging cases are conditioned on an in-flight CODEREVIEW P1 correction (e.g. a missing `.claude/skills/<ns>/` skill deliverable), and the mission brief says the correction "has landed"
 
 Action:
+
 - Do `git log --oneline -3` + `git ls-tree -r --name-only HEAD -- .claude/skills/<ns>` + `git status --porcelain` first; confirm the skill dir is committed at the named HEAD before declaring the launcher cases valid and unconditional. Also verify the correction actually shipped with the expected contract (SKILL.md present, launcher thin/reexports packaged interfaces) rather than accepting the brief's claim. This approval gate (TESTCASE-019/020) confirmed f63a12c contains both skills and rechecked the deliverable's source-baseline note (which still said "in flight") was stale relative to HEAD — no correction to the deliverable was needed because the cases' precondition text is satisfied.
 
 ## Improvement: verify JSON-suffixed CLI inputs against SDK scalar aliases
 
 Condition:
+
 - When grooming a generated-SDK CLI design that names an option `--*-json` or assigns it an object/list shape
 
 Action:
+
 - Do inspect the authoritative SDK model alias and validate a representative value before approval; block readiness when the design requires an object but the SDK contract is scalar, because DEV and UNITTEST would otherwise encode incompatible behavior.
 
 ## Improvement: verify catalog required/optional marking against installed SDK signatures
@@ -423,65 +573,81 @@ Action:
 ## Improvement: report helper lifecycle when immediate closeout interrupts tracker gate
 
 Condition:
+
 - When an immediate-closeout request interrupts a required ticket-helper read before it returns
 
 Action:
+
 - Do report helper spawn, wait timeout/interruption, and shutdown explicitly; state that no tracker readback or mutation completed, and base final status only on previously recorded evidence plus bounded local probes.
 
 ## Improvement: preserve history without rewriting public destination branches
 
 Condition:
+
 - When splitting tracked paths into existing public repositories whose published histories must remain intact
 
 Action:
+
 - Do filter committed source history in a disposable `.ept/tmp` clone, merge each filtered lineage into destination `main` without squashing, verify old remote tip remains an ancestor, then use dry-run and fast-forward pushes only. Record source-to-filtered commit-map examples, destination merge hashes, and anonymous recursive-clone proof.
 
 ## Improvement: recheck mutable public-hosting baselines before QA approval
 
 Condition:
+
 - When reviewing QA cases that embed public repository HEADs, tag/release state, redirects, or GitHub API expectations
 
 Action:
+
 - Do verify current branch and redirect hashes with anonymous `git ls-remote`, count tags from `ls-remote --tags`, and record REST rate-limit failures separately. Don't treat PowerShell `@($null).Count` as an empty GitHub list count; empty REST responses can become `$null` and falsely report one item.
 
 ## Improvement: avoid self-referential deployment evidence hashes
 
 Condition:
+
 - When a deployment-audit document records the root commit but committing that evidence will create a new root HEAD
 
 Action:
+
 - Do label the cloned commit as the audit baseline, state that the evidence commit is its docs-only successor, then verify and report the final pushed HEAD separately. Keep destination pins exact and re-run the credential-disabled clone update after push; don't claim the document embeds its own commit hash.
 
 ## Improvement: verify published PyPI metadata via core-metadata/provenance, not just the JSON API
 
 Condition:
+
 - When verifying a just-published PyPI release (new version or re-publish) exposes project_urls/license/classifiers/updated long description
 
 Action:
-- Do poll both https://pypi.org/pypi/<pkg>/json AND the release-specific /pypi/<pkg>/<ver>/json, and read the sorted wheel core-metadata from files.pythonhosted.org using the URL scraped from the simple index. The JSON `info` (latest release) lags due to eventual consistency seconds-minutes after upload; the pinned <ver>/json and the .whl.metadata byte stream are authoritative and update first. This task: the JSON `info` still showed 0.1.2/null/[] while the simple index and 0.1.3 core-metadata already proved the fix live; by the next poll info.version=0.1.3 with project_urls/license_expression/classifiers populated.
+
+- Do poll both <https://pypi.org/pypi/><pkg>/json AND the release-specific /pypi/<pkg>/<ver>/json, and read the sorted wheel core-metadata from files.pythonhosted.org using the URL scraped from the simple index. The JSON `info` (latest release) lags due to eventual consistency seconds-minutes after upload; the pinned <ver>/json and the .whl.metadata byte stream are authoritative and update first. This task: the JSON `info` still showed 0.1.2/null/[] while the simple index and 0.1.3 core-metadata already proved the fix live; by the next poll info.version=0.1.3 with project_urls/license_expression/classifiers populated.
 
 ## Improvement: metadata/long-description changes require a version bump when prod publish uses skip-existing:false
 
 Condition:
+
 - When asked to re-publish the same PyPI version after a pyproject.toml/README metadata change (BUG-SUB for missing project URLs/license/classifiers or stale long description)
 
 Action:
+
 - Do bump to the next patch version (0.1.2 -> 0.1.3) and cite why: a finalized PyPI release cannot re-upload rebuilt binaries (prod step runs skip-existing:false; same-version filenames 400). Confirm the previous version pin evidence (Closed QUESTION-115/116, DEVOPS-026 comments) permits the bump, then push the fix commit + new v* tag. The `[project.scripts]`/interface is unchanged so the patch bump is valid; the publish workflow derives the version from the tag (setuptools-scm tag.strict+tag.prefix=v), so the workflow builds clean 0.1.3 only when the v0.1.3 tag exists.
 
 ## Improvement: Test PyPI verify step races its own just-uploaded version; re-run the workflow
 
 Condition:
+
 - When the publish workflow "Verify staged release" step fails with "Could not find a version that satisfies pal_found_cli==X.Y.Z (from versions: ...)" immediately after the Test PyPI upload of a brand-new version
 
 Action:
+
 - Do NOT treat it as a real defect. Test PyPI's simple index is eventually consistent; pip resolves the version seconds after upload misses it. Confirm the version is indexed (test.pypi.org JSON lists the release), then `POST /actions/runs/<id>/rerun` (same run id) and poll — the re-run passes the verify step and reaches the production publish. Production PyPI is untouched by the failed first attempt. (Run 36684065636: first attempt failed at verify; re-run success.)
 
 ## Improvement: parse .gh_token password line before building authenticated push URLs
 
 Condition:
+
 - When pushing to GitHub via an x-access-token push URL and the token file holds full GCM output
 
 Action:
+
 - Do extract only the `password=<token>` line with a regex `(?ms)^password=(\S+)` before embedding in the push URL; reading the whole file and using it as the token fails with "credential url cannot be parsed" (the file starts with protocol=/host=/username=/password=). Python helper: regex-extract the password token, set the authenticated remote URL, push main + tag, then restore the original remote URL in a finally block.
 
 ## Improvement: approve design-stage QUESTIONs after grounding feasibility in repo surface
@@ -601,7 +767,55 @@ Action:
 ## Improvement: separate generated model fidelity from reader meaning
 
 Condition:
+
 - When reviewing generated SDK model/error pages against frozen source
 
 Action:
-- Do normalize line endings before comparing source snippets; verify source hashes, AST dependencies, consumers, code fences and local page hashes per symbol. Then review reader meaning separately, including docstrings attached after aliases, missing JSON examples and source-silent errors. Don't count structural closure as semantic acceptance.
+
+- Do normalize line endings before comparing source snippets; verify source hashes, AST dependencies, consumers, code fences and local page hashes per symbol. For formal case approval, recompute every cited contract and example SHA-256 from candidate bytes; put any corrected hash in approval evidence so the executor has one exact identity. Then review reader meaning separately, including docstrings attached after aliases, missing JSON examples and source-silent errors. Don't count structural closure as semantic acceptance.
+
+## Improvement: question Resolved->Closed needs no resolution field; Resolved DoD removes Blocks link only
+
+Condition:
+
+- When closing a `question` ticket after posting the Answer
+
+Action:
+
+- Do transition Resolved -> Closed directly; `resolution` is NOT an allowed field for `question` (`--field resolution=Done` returns exit 2 ValidationError listing allowed fields). Answer acceptance is signalled by Close itself. The Resolved DoD "remove the blocking link from this question to its parent" means remove the `Blocks` rows only and KEEP the `Question` (Asks About) rows; both exist as separate links. AT-6 does not auto-restore a manually-blocked parent (no `prior_status` field is set on a manual block), and it only unblocks on Closed, so a Resolved question leaves the parent Blocked.
+
+## Improvement: distributed-skill doc-only violation hides under examples/ not scripts/
+
+Condition:
+
+- When validating a distributed skill folder for the SA-DES-012 doc-only rule ("no script files"), especially the 18 CLI namespace skills
+
+Action:
+
+- Do check for ANY non-Markdown asset in the folder, not just `scripts/`. A fixture script shipped under `examples/` passes `scripts/*.py` gates. Classify by namespace-skill vs knowledge skill: `pal-found-dev` legitimately ships ~493 example files (including `.py`) under its own FEATURE-013/015 design; the 18 CLI namespace skills must be Markdown only. Reconciliation is (a) express required QA payloads as documented static examples and relocate the executable harness to `tests/fixtures/offline/<ns>/` (mirroring the topic-acceptance runner's approval), not a blind delete. Strengthen the gate to reject `examples/` dirs and executable suffixes anywhere in a namespace skill, then prove it with a reintroduce-then-remove negative probe.
+
+## Improvement: ^C terminal display after a tracker write usually means the write already committed
+
+Condition:
+
+- When a `comment create` or `update --status` call renders `PS ...> ^C` and no exit code, on the shared pwsh terminal
+
+Action:
+
+- Do re-read with `comment list` / `get` before retrying; the write typically completed server-side (this session: the Answer comment and the Open transition both landed despite `^C`). Kill the wedged terminal with a valid id or start a fresh call, then verify state. Do not blind-retry a `comment create` or it duplicates.
+
+## Improvement: separate SDK constructor preview from CLI preview
+
+Condition:
+- When approving a preview-query test that creates a real SDK client
+
+Action:
+- Do capture CLI-built kwargs as well as the serialized request URL; an SDK client initialized with preview=True can make a wire assertion pass even when the CLI omits preview. Check one query value, all endpoint paths, and parser rejection before client creation.
+
+## Improvement: distinguish operation coverage from package coverage and partial time
+
+Condition:
+- When a documentation skill subtask asks whether per-operation fixtures meet coverage DoD and historic contributor hours are unknown
+
+Action:
+- Do check the skill design for its own coverage rule before borrowing a numeric threshold from a separate tool package. Require each owned operation and source-derived edge cases to pass; keep independent QA separate. Record only measured work in `time_spent_hours`, with a ticket comment naming the measured interval and unknown earlier work. Don't copy one subtask's measured time into another.

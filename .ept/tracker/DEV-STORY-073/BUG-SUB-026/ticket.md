@@ -2,12 +2,13 @@
 id: BUG-SUB-026
 type: bug_subtask
 title: Audit LogFile list guide cannot complete bounded pagination
-status: Open
+status: Closed
 created: 2026-10-09
-updated: 2026-10-09
+updated: 2026-10-11
 priority: High
 assignee: python-developer
 reporter: qa-engineer
+time_spent_hours: untracked
 ---
 
 ## Severity and affected candidate

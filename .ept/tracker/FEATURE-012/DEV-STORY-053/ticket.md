@@ -2,12 +2,13 @@
 id: DEV-STORY-053
 type: dev_story
 title: Document offline Media Sets operations
-status: Development
+status: Closed
 feature_request: FEATURE-012
 epic: EPIC-012
 created: 2026-10-03
-updated: 2026-10-03
+updated: 2026-10-12
 priority: Medium
+resolution: Done
 assignee: python-developer
 reporter: ba
 component: skills

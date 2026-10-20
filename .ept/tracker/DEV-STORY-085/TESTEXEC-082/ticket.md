@@ -2,13 +2,14 @@
 id: TESTEXEC-082
 type: testexec
 title: DEV-STORY-085 testexec Function execution value type and version lifecycle REST contracts
-status: Open
+status: Closed
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-20
 priority: High
 assignee: qa-engineer
 reporter: tech-lead
 estimated_hours: 10
+time_spent_hours: 0.036
 ---
 
 # DEV-STORY-085 testexec

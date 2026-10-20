@@ -2,9 +2,9 @@
 id: DEV-053
 type: development
 title: 'DEV-053: Author offline Media Sets operations'
-status: Resolved
+status: Closed
 created: 2026-10-03
-updated: 2026-10-03
+updated: 2026-10-12
 priority: High
 assignee: python-developer
 reporter: tech-lead

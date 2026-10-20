@@ -2,13 +2,14 @@
 id: DEVOPS-036
 type: devops
 title: 'DEVOPS-045: Distribution and copy validation for offline Filesystem operations'
-status: New
+status: Closed
 created: 2026-10-03
-updated: 2026-10-03
+updated: 2026-10-12
 priority: High
 assignee: devops-engineer
 reporter: tech-lead
 estimated_hours: 3
+time_spent_hours: 1.5
 ---
 
 # DEVOPS-036: DEVOPS-045: Distribution and copy validation for offline Filesystem operations

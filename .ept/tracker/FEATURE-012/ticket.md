@@ -2,10 +2,11 @@
 id: FEATURE-012
 type: feature
 title: Make Foundry skill definitions sufficient for offline agents
-status: Waiting for Implementation
+status: Closed
 created: 2026-10-03
-updated: 2026-10-03
+updated: 2026-10-15
 priority: Medium
+resolution: Done
 assignee: project-manager
 reporter: project-manager
 component: skills

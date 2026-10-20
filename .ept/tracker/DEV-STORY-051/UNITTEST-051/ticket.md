@@ -2,13 +2,14 @@
 id: UNITTEST-051
 type: unittest
 title: 'UNITTEST-051: Verification of offline Orchestration and SQL Queries operations content'
-status: New
+status: Closed
 created: 2026-10-03
-updated: 2026-10-03
+updated: 2026-10-12
 priority: High
 assignee: python-developer
 reporter: tech-lead
 estimated_hours: 5
+time_spent_hours: untracked
 ---
 
 # UNITTEST-051: UNITTEST-051: Verification of offline Orchestration and SQL Queries operations content

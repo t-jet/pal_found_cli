@@ -2,9 +2,9 @@
 id: EPIC-015
 type: epic
 title: Develop on Foundry using a complete offline skill knowledge bundle
-status: Open
+status: In Progress
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-12
 priority: High
 assignee: project-manager
 reporter: project-manager

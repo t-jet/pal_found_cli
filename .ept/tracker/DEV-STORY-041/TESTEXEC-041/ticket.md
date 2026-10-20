@@ -2,13 +2,14 @@
 id: TESTEXEC-041
 type: testexec
 title: 'TESTEXEC-041: QA execution for offline Foundry primer and navigation content'
-status: New
+status: Closed
 created: 2026-10-03
-updated: 2026-10-03
+updated: 2026-10-12
 priority: High
 assignee: qa-engineer
 reporter: tech-lead
 estimated_hours: 6
+time_spent_hours: untracked
 ---
 
 # TESTEXEC-041: TESTEXEC-041: QA execution for offline Foundry primer and navigation content

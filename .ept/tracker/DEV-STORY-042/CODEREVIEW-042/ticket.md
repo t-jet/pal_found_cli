@@ -2,11 +2,11 @@
 id: CODEREVIEW-042
 type: codereview
 title: 'CODEREVIEW-042: Review of offline Admin identity and access operations content'
-status: Correction
+status: Closed
 created: 2026-10-03
-updated: 2026-10-03
+updated: 2026-10-12
 priority: High
-assignee: python-developer
+assignee: architect
 reporter: tech-lead
 estimated_hours: 4
 ---

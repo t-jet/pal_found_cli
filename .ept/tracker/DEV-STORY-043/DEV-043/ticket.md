@@ -2,9 +2,9 @@
 id: DEV-043
 type: development
 title: 'DEV-043: Author offline Admin governance and Audit operations in Admin/Audit skills'
-status: Resolved
+status: Closed
 created: 2026-10-03
-updated: 2026-10-03
+updated: 2026-10-12
 priority: High
 assignee: python-developer
 reporter: tech-lead

@@ -2,9 +2,9 @@
 id: DEV-048
 type: development
 title: 'DEV-048: Author offline Connectivity Checkpoints and Data Health operations'
-status: Resolved
+status: Closed
 created: 2026-10-03
-updated: 2026-10-03
+updated: 2026-10-12
 priority: High
 assignee: python-developer
 reporter: tech-lead

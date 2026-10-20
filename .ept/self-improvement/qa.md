@@ -96,3 +96,180 @@ Action:
 - Do use safe mock or recorded-response agent exercises across each namespace, including pagination, permission failure, pending results, and timeout uncertainty.
 - Do label a reader result provisional when the skill-only boundary and public-network denial were described but not enforced; retain the formal TESTEXEC gate until approved cases, isolated inputs, and observed outputs are recorded.
 - Do record sorted file-hash manifest for each isolated reader snapshot and keep an independent reader's files separate when earlier evidence has unclear provenance; distinguish cooperative in-process network denial from an OS sandbox.
+- Do refresh signed record, CLI, and SDK hashes only after reviewing current source diffs and related defect retests; a stale hash on corrected code is a prompt to recheck the verdict, not proof the old failure remains.
+- Do run the offline gate on both the source tree and a freshly copied skill bundle after concurrent edits; report any unrelated namespace failure separately from the reviewed ticket.
+
+## Improvement: verify a CI-fix BUG independently at Resolved
+
+Condition:
+
+- When QA verifies a `bug` ticket whose fix is a committed CI/dependency-policy change and the DevOps comment claims a green run
+
+Action:
+
+- Do verify three independent layers, not the comment: (1) repo artifact — `git ls-tree -r HEAD` + `git show --stat <commit>` + `git show HEAD:<file>` confirm the file is committed at HEAD with the claimed content (reason + expiry) and that the branch is pushed (`git status -sb` clean); (2) gate integrity — grep the workflow for `|| true`/`continue-on-error`/inline `--ignore` and read the exact run lines; (3) live CI — query the GitHub run for the HEAD sha and record the workflow `conclusion` plus per-job `conclusion`, then read the scan step log for the policy-file line and the vulnerability count.
+- Do independently re-check the remediation premise (e.g., PyPI JSON API for latest release and scanner `requires_dist`) to confirm no fixed release exists before accepting a time-bound suppression as acceptable.
+- Do post one Markdown verification comment with the run/job table, AC check table, and DoD checklist; then `update <id> --status Closed --field resolution=Done`.
+- Do NOT trust claimed run/job IDs — re-derive them from the HEAD sha; a claim about a run that does not match the commit under review is not evidence.
+
+## Improvement: independent repro of comment-id allocation must account for auto comments
+
+Condition:
+
+- When writing an independent repro or test for tracker comment-id uniqueness under a frozen same-second clock (e.g. BUG-005 same-second writes), reusing the ticket create author for the manual comments.
+
+Action:
+
+- Do isolate the manual-comment author from the create author (create the ticket under a different author) OR explicitly account for the create-time auto comment consuming the base id, before asserting that the first manual comment has the unsuffixed base id; otherwise a correct fix reads as a failure and wastes a cycle.
+- Don't gate an aggregate check on a shared failures list; count the per-item PASS results in a local counter so earlier unrelated failures do not cascade into a false aggregate failure.
+
+## Improvement: offline-skill TESTCASE design batch closure pattern
+
+Condition:
+
+- When designin and closing TESTCASE sub-tasks for offline skill/content stories (e.g. DEV-STORY-041..055) that each have a paired TESTEXEC and comments-only output is required
+
+Action:
+
+- Do post one combined "readiness, plan and test cases" comment per ticket (scope + docs reviewed + plan + preconditions + Gherkin cases TC-NNN-01..N plus NEG cases + expected outputs + DoD checklist), then advance New->Open->In Progress->Resolved (`--field time_spent_hours=untracked`)->Closed, posting a short "Resolved to Closed check" comment that cites the plan-comment id, the single parent Contains link id, and "no Blocks / no QUESTION".
+- Do derive cases from the frozen per-namespace register `pal_found_cli_skills/tests/test_offline_skill_gate.py` (FROZEN_OPERATIONS) plus the story scope split, and ground each case in real `references/*.md` filenames.
+- Don't create deliverable files when the user says record work as comments only; the `testcase` type stores cases as comments, not files.
+
+## Improvement: tracker --text multiline from PowerShell
+
+Condition:
+
+- When posting long multi-line Markdown as `comment create --text` from PowerShell on Windows
+
+Action:
+
+- Do write the whole body inside one single-quoted PowerShell string using literal `\n` (backslash-n) as the line separator for the CLI to decode; verify once with `comment get` that newlines rendered.
+- Don't include literal apostrophes, `$`, or stray backslashes in the body (use "does not" instead of the contraction).
+- Don't treat the `^C` echoed after a tracker command as failure: re-`get` the ticket to confirm the status, since the transition often succeeded.
+- Don't chain tracker operations with `;`; run one documented CLI command per invocation.
+
+## Improvement: cross-namespace SDK mock shapes
+
+Condition:
+
+- When one QA probe compares paginated or HTTP error behavior across Ontology, Admin, and Filesystem collectors
+
+Action:
+
+- Do model each namespace's actual page envelope (`data` for Ontology, `items` for Admin/Filesystem) and attach HTTP status at `exception.response.status_code`; inspect extraction helpers before interpreting a mock failure as a defect.
+- Do assert envelope exit code and returned process code together, including generic TypeError and OSError errno branches.
+
+## Improvement: semantic review hashes during concurrent doc edits
+
+Condition:
+
+- When several agents edit different skill namespaces while QA signs source-hashed operation rows
+
+Action:
+
+- Do recalculate each owned row from current record body, CLI file, and SDK file; verify all three hashes and exact line locators before reporting a namespace result.
+- Do report owned namespace results separately if aggregate register generation stops on another namespace's stale hash; ask that namespace owner to refresh it after edits settle.
+- Don't treat a clean local review as a passing 351-row aggregate gate or feature sign-off.
+
+## Improvement: Windows tracker races need repeated mixed-process QA
+
+Condition:
+
+- When verifying tracker fixes that replace shared CSV or YAML files while ticket and link processes run concurrently
+
+Action:
+
+- Do repeat mixed ticket/link subprocess tests on fresh isolated fixtures; check child exits, unique IDs, retained rows, and follow-on IDs through CLI.
+- Do run full tracker suite after focused PASS; one clean race run can miss Windows read failures.
+- Do inspect both writer and reader paths: atomic replace needs bounded PermissionError retry, while in-place CSV truncation can expose header-only data.
+- Do test persistent read denial returns bounded file-error exit 4, then keep parent defect open until every linked regression passes.
+
+## Improvement: serialize tracker writes
+
+Condition:
+
+- When creating tracker links or comments while agents share tracker state
+
+Action:
+
+- Do run one tracker mutation at a time, then check returned ID with `link list` or `comment list`; coordinate write windows with other agents. Concurrent link creation can return same link ID for distinct links.
+
+## Improvement: isolated candidate imports
+
+Condition:
+
+- When QA tests a release candidate beside an installed editable checkout of the same Python package
+
+Action:
+
+- Do put candidate `src` first on `sys.path` or `PYTHONPATH` before the first test run, print imported package `__file__`, and assert the path points into the candidate before counting test results.
+- Do compare candidate commit and clean status with the advertised remote ref; report parent gitlink and release tag separately.
+
+## Improvement: SDK model semantic review beyond hashes
+
+Condition:
+
+- When reviewing generated local SDK model pages against a frozen SDK source, especially name-only docstrings or localized summaries
+
+Action:
+
+- Do compare each symbol's full source description, exact definition, field names and wire aliases, linked types, and consuming operations; record per-symbol meaning verdict and page/source hashes. Do not approve from counts or hashes alone.
+- Do treat a copied SDK description that conflicts with field use as a local meaning defect, then retest the corrected page at an immutable candidate commit and verify the affected-page diff before carrying other verdicts forward.
+
+## Improvement: verify real semantic ledgers before release
+
+Condition:
+
+- When a feature has source and semantic review ledgers plus passing structural tests
+
+Action:
+
+- Do count real accepted, pending and failed rows, verify every recorded content hash against the candidate, and check that final tests consume the real ledgers. Don't treat tests of synthetic guard inputs as proof that the candidate passed its acceptance gate.
+
+## Improvement: stream fixtures need real framing
+
+Condition:
+
+- When reviewing SDK methods that return SSE context managers or binary streams
+
+Action:
+
+- Do use fake transport responses with actual declared content type and framed payload, then exercise ordinary and wrapper lifetime, typed events, error events, and finite budgets. Don't accept a raw-response JSON decode fixture as proof of SSE behavior.
+- Do distinguish a decoded-event byte budget and between-event deadline from a hard wire-byte or stalled-event bound; report the remaining limit explicitly.
+
+## Improvement: source review and formal QA stay separate
+
+Condition:
+
+- When an independent source reviewer runs diagnostic fixtures before TESTCASE and TESTEXEC close
+
+Action:
+
+- Do record per-ID semantic verdict, reviewer, source and asset hashes in review evidence; keep formal QA status pending and QA agent unset until approved test design and execution meet their workflow DoD.
+- Do label fixture outcomes diagnostic and verify TESTCASE and TESTEXEC statuses through tracker CLI before claiming QA acceptance.
+
+## Improvement: verify preview per operation
+
+Condition:
+
+- When SDK fixtures omit `preview=true` for beta endpoints
+
+Action:
+
+- Do confirm each endpoint's requirement in its official API reference before marking omission FAIL. Mark comparable but unverified endpoints UNCERTAIN and state inference. A passing mock that expects no preview does not prove a live request works.
+
+## Improvement: check server bounds against frozen SDK text
+
+Condition:
+- When a frozen SDK docstring describes a request list or batch limit
+
+Action:
+- Do compare current official endpoint bounds, empty input errors, and duplicate handling with the local contract. Use a mock transport to see whether the SDK validates or forwards boundary inputs. Record version uncertainty where needed; don't treat a passing success fixture as boundary coverage.
+
+## Improvement: tracker snapshot branches need live ID recapture check
+
+Condition:
+- When QA reviews a tracker data branch while agents keep writing to the live tracker
+
+Action:
+- Do compare ticket counts, recent comments, and new link IDs through the documented CLI in both branch and live checkout before calling the branch merge ready. A branch can be internally consistent while a later live link reuses an ID assigned by the branch repair.

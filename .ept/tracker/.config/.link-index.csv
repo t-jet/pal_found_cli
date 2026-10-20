@@ -694,8 +694,8 @@ LINK-01022,TESTEXEC-025,QUESTION-131,Contains,Contains,Contained In,2026-08-17T1
 LINK-01023,TESTEXEC-025,QUESTION-131,ParentChild,Is Parent Of,Is Child Of,2026-08-17T14:35:18.083513,workflow-mgr,Register QUESTION-131 parent-child hierarchy.
 LINK-01024,TESTEXEC-025,QUESTION-131,Question,Asks About,Has Question,2026-08-17T14:35:18.952065,workflow-mgr,TESTEXEC-025 asks for controlled fixtures and owner evidence.
 LINK-01026,TESTEXEC-025,QUESTION-132,Contains,Contains,Contained In,2026-08-17T14:36:11.606556,workflow-mgr,Register QUESTION-132 under TESTEXEC-025.
-LINK-01027,TESTEXEC-025,QUESTION-132,ParentChild,Is Parent Of,Is Child Of,2026-08-17T14:36:12.473505,workflow-mgr,Register QUESTION-132 parent-child hierarchy.
-LINK-01028,TESTEXEC-025,QUESTION-132,Question,Asks About,Has Question,2026-08-17T14:36:13.312220,workflow-mgr,TESTEXEC-025 asks for separate rollback authorization.
+LINK-01027,TESTEXEC-025,QUESTION-132,ParentChild,Is Parent Of,Is ,,,
+Question,2026-08-17T14:36:13.312220,workflow-mgr,TESTEXEC-025 asks for separate rollback authorization.,,,,,
 LINK-01030,DEV-STORY-033,BUG-SUB-016,Contains,Contains,Contained In,2026-08-17T15:19:41.902607,workflow-mgr,Register the QA defect under its parent story.
 LINK-01031,DEV-STORY-033,BUG-SUB-016,ParentChild,Is Parent Of,Is Child Of,2026-08-17T15:19:42.756047,workflow-mgr,Record the explicit parent-child relationship.
 LINK-01038,QUESTION-135,QUESTION-134,RelatesTo,Relates To,Relates To,2026-09-28T04:01:38.259208,devops-engineer,"QUESTION-135 duplicates QUESTION-134 (same ANACONDA_API_TOKEN scope issue, created by interrupted retry)."
@@ -844,7 +844,6 @@ LINK-01206,DEV-STORY-042,TESTEXEC-042,Contains,Contains,Contained In,2026-10-03T
 LINK-01207,DEV-STORY-042,DEVOPS-033,Contains,Contains,Contained In,2026-10-03T17:10:19.077274,tech-lead,
 LINK-01208,DEV-042,CODEREVIEW-042,RelatesTo,Relates To,Relates To,2026-10-03T17:10:25.900835,tech-lead,
 LINK-01209,CODEREVIEW-042,DEV-042,RelatesTo,Relates To,Relates To,2026-10-03T17:10:26.447624,tech-lead,
-LINK-01210,DEV-042,CODEREVIEW-042,Blocks,Blocks,Is Blocked By,2026-10-03T17:10:26.993621,tech-lead,
 LINK-01211,CODEREVIEW-042,DEV-STORY-042,RelatesTo,Relates To,Relates To,2026-10-03T17:10:27.529546,tech-lead,
 LINK-01212,DEV-STORY-043,DESIGN-043,Contains,Contains,Contained In,2026-10-03T17:14:00.228465,tech-lead,
 LINK-01213,DEV-STORY-043,DEV-043,Contains,Contains,Contained In,2026-10-03T17:14:00.769747,tech-lead,
@@ -1069,7 +1068,6 @@ LINK-01468,TASK-004,WORK-001,ParentChild,Is Parent Of,Is Child Of,2026-10-05T22:
 LINK-01469,TASK-005,FEATURE-013,RelatesTo,Relates To,Relates To,2026-10-06T09:56:17.642980,devops-engineer,
 LINK-01470,TASK-005,FEATURE-014,RelatesTo,Relates To,Relates To,2026-10-06T09:56:18.441313,devops-engineer,
 LINK-01472,BUG-004,FEATURE-013,RelatesTo,Relates To,Relates To,2026-10-06T10:01:37.635675,devops-engineer,
-LINK-01473,WORK-002,TASK-004,Blocks,Blocks,Is Blocked By,2026-10-06T10:13:02.738410,devops-engineer,TestPyPI trusted publishing audience endpoint returned HTTP 503 on three GitHub runner attempts; production PyPI publication depends on service recovery.
 LINK-01474,FEATURE-015,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-06T14:52:38.106774,project-manager,
 LINK-01475,FEATURE-015,FEATURE-013,RelatesTo,Relates To,Relates To,2026-10-06T14:52:38.909380,project-manager,
 LINK-01476,FEATURE-015,EPIC-015,FeatureContains,Feature Contains,Is Contained In Feature,2026-10-06T14:52:56.410944,project-manager,
@@ -1450,7 +1448,6 @@ LINK-01867,DEV-STORY-085,TESTCASE-082,Contains,Contains,Contained In,2026-10-07T
 LINK-01868,DEV-STORY-085,TESTEXEC-082,Contains,Contains,Contained In,2026-10-07T16:00:57.681891,tech-lead,
 LINK-01869,DEV-082,CODEREVIEW-083,RelatesTo,Relates To,Relates To,2026-10-07T16:00:58.356147,tech-lead,
 LINK-01870,CODEREVIEW-083,DEV-082,RelatesTo,Relates To,Relates To,2026-10-07T16:00:59.021557,tech-lead,
-LINK-01871,DEV-082,CODEREVIEW-083,Blocks,Blocks,Is Blocked By,2026-10-07T16:00:59.679512,tech-lead,
 LINK-01872,DEV-STORY-089,DESIGN-083,Contains,Contains,Contained In,2026-10-07T16:01:13.302082,tech-lead,
 LINK-01873,DEV-STORY-089,DEV-083,Contains,Contains,Contained In,2026-10-07T16:01:18.050704,tech-lead,
 LINK-01874,DEV-STORY-089,UNITTEST-083,Contains,Contains,Contained In,2026-10-07T16:01:22.807362,tech-lead,
@@ -1471,4 +1468,104 @@ LINK-01888,CODEREVIEW-085,DEV-084,RelatesTo,Relates To,Relates To,2026-10-07T16:
 LINK-01889,DEV-084,CODEREVIEW-085,Blocks,Blocks,Is Blocked By,2026-10-07T16:02:19.801709,tech-lead,
 LINK-01893,BUG-SUB-025,DEV-STORY-074,RelatesTo,Relates To,Relates To,2026-10-09T09:29:15.651134,qa-engineer,J12 staged/committed Dataset File view fix coordinated with orchestration owner
 LINK-01894,BUG-SUB-025,TESTEXEC-064,Blocks,Blocks,Is Blocked By,2026-10-09T09:29:16.541781,qa-engineer,J12 integrated reader failure blocks complete REST acceptance until fresh blind retest
-LINK-01895,BUG-SUB-026,TESTEXEC-064,Blocks,Blocks,Is Blocked By,2026-10-09T19:30:03.134544,qa-engineer,Audit bounded pagination reader failure blocks complete REST acceptance until retest
+LINK-01896,TASK-004,WORK-002,ParentChild,Is Parent Of,Is Child Of,2026-10-11T23:22:15.248747,devops-engineer,Register parent-child link for work item WORK-002 (parity with WORK-001 LINK-01468).
+LINK-01898,QUESTION-187,UNITTEST-044,Question,Asks About,Has Question,2026-10-12T00:56:51.705430,python-developer,
+LINK-01899,DEV-STORY-049,DEV-049,Contains,Contains,Contained In,2026-10-12T01:08:25.542913,tech-lead,Restore missing Contains link DEV-STORY-049 -> DEV-049 to match sibling stories
+LINK-01901,QUESTION-188,DEVOPS-037,Question,Asks About,Has Question,2026-10-12T02:16:07.883028,devops-engineer,
+LINK-01903,QUESTION-188,DEVOPS-038,Question,Asks About,Has Question,2026-10-12T02:16:09.209062,devops-engineer,
+LINK-01905,QUESTION-188,DEVOPS-046,Question,Asks About,Has Question,2026-10-12T02:16:10.534240,devops-engineer,
+LINK-01907,QUESTION-189,DEVOPS-039,Question,Asks About,Has Question,2026-10-12T02:16:11.862457,devops-engineer,
+LINK-01909,QUESTION-189,DEVOPS-046,Question,Asks About,Has Question,2026-10-12T02:16:13.191454,devops-engineer,
+LINK-01910,TASK-006,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-12T11:02:31.577346,project-manager,Independent acceptance QA follow-up for DEV-STORY-041..055
+LINK-01911,BUG-008,BUG-005,RelatesTo,Relates To,Relates To,2026-10-12T11:03:59.511637,project-manager,Independent QA regression found while verifying BUG-005
+LINK-01912,BUG-008,BUG-007,RelatesTo,Relates To,Relates To,2026-10-12T11:06:19.716968,project-manager,BUG-008 duplicates earlier BUG-007; keep BUG-007 as primary defect
+LINK-01913,BUG-009,TASK-006,RelatesTo,Relates To,Relates To,2026-10-12T11:11:27.954282,project-manager,Found during additional FEATURE-012 acceptance QA
+LINK-01914,TASK-006,WORK-005,ParentChild,Is Parent Of,Is Child Of,2026-10-12T11:13:23.371569,project-manager,Independent QA work item
+LINK-01915,TASK-006,WORK-006,ParentChild,Is Parent Of,Is Child Of,2026-10-12T11:13:24.420553,project-manager,Independent QA work item
+LINK-01916,TASK-006,WORK-007,ParentChild,Is Parent Of,Is Child Of,2026-10-12T11:13:25.501116,project-manager,Independent QA work item
+LINK-01917,BUG-010,TASK-006,RelatesTo,Relates To,Relates To,2026-10-12T16:01:24.055395,project-manager,Found in WORK-005 semantic audit
+LINK-01918,BUG-011,TASK-006,RelatesTo,Relates To,Relates To,2026-10-12T16:05:57.772965,project-manager,Ontology runtime defect found during WORK-005 audit
+LINK-01919,BUG-012,TASK-006,RelatesTo,Relates To,Relates To,2026-10-12T16:08:25.243943,project-manager,Found during independent pagination review
+LINK-01920,BUG-014,TASK-006,RelatesTo,Relates To,Relates To,2026-10-12T16:12:25.041175,project-manager,Grouped Dataset and Filesystem source review findings
+LINK-01921,TASK-006,BUG-013,RelatesTo,Relates To,Relates To,2026-10-12T22:36:58.396533,project-manager,Independent FEATURE-012 QA finding
+LINK-01922,TASK-006,BUG-015,RelatesTo,Relates To,Relates To,2026-10-12T22:37:02.687161,project-manager,Independent FEATURE-012 QA finding
+LINK-01923,BUG-016,TASK-006,RelatesTo,Relates To,Relates To,2026-10-12T22:37:39.201568,qa-engineer,Independent FEATURE-012 ontology semantic QA finding
+LINK-01924,BUG-016,BUG-013,RelatesTo,Relates To,Relates To,2026-10-12T22:37:42.575581,qa-engineer,Record correction for object primary key accompanies CLI fix
+LINK-01925,BUG-017,TASK-006,RelatesTo,Relates To,Relates To,2026-10-12T22:38:02.469639,qa-engineer,Independent FEATURE-012 ontology semantic QA finding
+LINK-01926,BUG-018,TASK-006,RelatesTo,Relates To,Relates To,2026-10-13T11:33:54.168978,qa-engineer,Independent Ontology QA found SDK 403 exit-code mismatch.
+LINK-01927,BUG-018,BUG-011,RelatesTo,Relates To,Relates To,2026-10-13T11:33:59.474684,qa-engineer,Discovered during Ontology pagination correction QA; separate error-classification defect.
+LINK-01928,BUG-019,TASK-006,RelatesTo,Relates To,Relates To,2026-10-13T17:24:28.648850,qa-engineer,Independent FEATURE-012 semantic audit finding
+LINK-01929,BUG-020,TASK-006,RelatesTo,Relates To,Relates To,2026-10-13T17:24:45.954962,qa-engineer,Independent FEATURE-012 semantic QA finding
+LINK-01930,BUG-020,DEV-STORY-050,RelatesTo,Relates To,Relates To,2026-10-13T17:24:46.865580,qa-engineer,Models skill correction after archived story
+LINK-01931,BUG-021,TASK-006,RelatesTo,Relates To,Relates To,2026-10-13T17:24:51.811346,qa-engineer,
+LINK-01932,BUG-021,BUG-017,RelatesTo,Relates To,Relates To,2026-10-13T17:24:52.749679,qa-engineer,
+LINK-01933,BUG-022,TASK-006,RelatesTo,Relates To,Relates To,2026-10-13T17:25:10.110977,qa-engineer,Independent FEATURE-012 semantic QA finding
+LINK-01934,BUG-022,DEV-STORY-051,RelatesTo,Relates To,Relates To,2026-10-13T17:25:11.017320,qa-engineer,Orchestration skill correction after archived story
+LINK-01935,BUG-023,TASK-006,RelatesTo,Relates To,Relates To,2026-10-13T17:26:56.204264,qa-engineer,Found during 67-operation Ontology semantic review.
+LINK-01936,BUG-023,BUG-016,RelatesTo,Relates To,Relates To,2026-10-13T17:27:01.643736,qa-engineer,Ontology skill required-input wording must be reconciled with parser fix.
+LINK-01937,BUG-024,TASK-006,RelatesTo,Relates To,Relates To,2026-10-13T17:27:12.367120,qa-engineer,
+LINK-01938,BUG-025,TASK-006,RelatesTo,Relates To,Relates To,2026-10-13T17:28:05.389060,tech-lead,
+LINK-01939,BUG-025,BUG-011,RelatesTo,Relates To,Relates To,2026-10-13T17:28:06.305302,tech-lead,
+LINK-01940,BUG-026,TASK-006,RelatesTo,Relates To,Relates To,2026-10-13T17:28:07.201026,tech-lead,
+LINK-01941,BUG-026,BUG-011,RelatesTo,Relates To,Relates To,2026-10-13T17:28:08.110333,tech-lead,
+LINK-01942,BUG-026,BUG-012,RelatesTo,Relates To,Relates To,2026-10-13T17:28:09.004159,tech-lead,
+LINK-01943,BUG-027,TASK-006,RelatesTo,Relates To,Relates To,2026-10-13T17:28:09.897217,tech-lead,
+LINK-01944,BUG-027,BUG-012,RelatesTo,Relates To,Relates To,2026-10-13T17:28:10.800862,tech-lead,
+LINK-01945,BUG-028,TASK-006,RelatesTo,Relates To,Relates To,2026-10-13T17:29:34.234415,qa-engineer,
+LINK-01946,BUG-029,TASK-006,RelatesTo,Relates To,Relates To,2026-10-13T23:32:35.751223,qa-engineer,
+LINK-01947,BUG-030,TASK-006,RelatesTo,Relates To,Relates To,2026-10-13T23:32:41.353460,qa-engineer,Three Ontology semantic rows lose SDK response metadata.
+LINK-01948,BUG-030,BUG-011,RelatesTo,Relates To,Relates To,2026-10-13T23:32:44.710188,qa-engineer,Pagination normalization currently drops object-set response metadata.
+LINK-01950,BUG-031,TASK-006,RelatesTo,Relates To,Relates To,2026-10-14T09:32:57.356007,project-manager,
+LINK-01951,BUG-031,DEV-STORY-042,RelatesTo,Relates To,Relates To,2026-10-14T09:32:58.284303,project-manager,
+LINK-01952,BUG-032,TASK-006,RelatesTo,Relates To,Relates To,2026-10-14T17:07:31.997366,project-manager,
+LINK-01953,BUG-032,BUG-031,RelatesTo,Relates To,Relates To,2026-10-14T17:07:32.841582,project-manager,
+LINK-01955,BUG-033,TASK-006,RelatesTo,Relates To,Relates To,2026-10-14T17:15:01.181349,qa-engineer,BUG-032 independent QA regression during TASK-006
+LINK-01956,BUG-034,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-16T15:03:40.595098,qa-engineer,
+LINK-01957,BUG-034,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-16T15:03:45.922372,qa-engineer,
+LINK-01958,BUG-034,DEV-STORY-061,Blocks,Blocks,Is Blocked By,2026-10-16T15:03:49.391084,qa-engineer,
+LINK-01959,BUG-034,DEV-STORY-070,Blocks,Blocks,Is Blocked By,2026-10-16T15:03:52.702568,qa-engineer,
+LINK-01960,BUG-034,TESTEXEC-048,RelatesTo,Relates To,Relates To,2026-10-16T15:03:59.943795,qa-engineer,
+LINK-01961,BUG-SUB-027,TESTEXEC-074,RelatesTo,Relates To,Relates To,2026-10-16T15:04:26.253087,qa-engineer,Independent preflight finding; formal TESTEXEC-074 remains Open
+LINK-01962,BUG-SUB-028,TESTEXEC-074,RelatesTo,Relates To,Relates To,2026-10-16T15:04:29.910114,qa-engineer,Independent preflight finding; formal TESTEXEC-074 remains Open
+LINK-01963,BUG-034,DESIGN-020,RelatesTo,Relates To,Relates To,2026-10-16T15:05:31.183965,architect,BUG-034 corrects DESIGN-020 preview exclusion for six Data Health operations
+LINK-01964,BUG-034,DEV-STORY-020,RelatesTo,Relates To,Relates To,2026-10-16T15:05:34.118853,architect,Original six-operation CLI story; regression affects released implementation
+LINK-01965,BUG-034,DEV-STORY-048,RelatesTo,Relates To,Relates To,2026-10-16T15:05:37.030791,architect,Offline Data Health guidance needs correction and independent retest after CLI fix
+LINK-01966,BUG-SUB-029,TESTEXEC-075,RelatesTo,Relates To,Relates To,2026-10-16T20:05:35.553846,qa-engineer,Independent preflight finding; formal TESTEXEC-075 Open
+LINK-01967,BUG-SUB-030,TESTEXEC-075,RelatesTo,Relates To,Relates To,2026-10-16T20:05:38.444694,qa-engineer,Independent preflight finding; formal TESTEXEC-075 Open
+LINK-01968,BUG-SUB-031,TESTEXEC-075,RelatesTo,Relates To,Relates To,2026-10-16T20:05:42.147389,qa-engineer,Independent preflight finding; formal TESTEXEC-075 Open
+LINK-01969,BUG-SUB-030,BUG-SUB-028,RelatesTo,Relates To,Relates To,2026-10-16T20:05:45.596034,qa-engineer,Same empty get_batch result fixture pattern in separate owned partitions
+LINK-01971,BUG-035,DEV-STORY-061,Blocks,Blocks,Is Blocked By,2026-10-16T20:06:08.255923,qa-engineer,Audit skill access prerequisites block independent offline closure
+LINK-01972,BUG-035,DEV-STORY-043,RelatesTo,Relates To,Relates To,2026-10-16T20:06:11.903429,qa-engineer,Historical Audit skill authoring scope
+LINK-01973,BUG-035,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-16T20:06:14.817198,qa-engineer,Offline development prerequisite criterion
+LINK-01975,DEV-STORY-071,BUG-SUB-027,Contains,Contains,Contained In,2026-10-17T01:09:24.678829,qa-engineer,Defect subtask in identity REST partition
+LINK-01976,DEV-STORY-071,BUG-SUB-028,Contains,Contains,Contained In,2026-10-17T01:09:27.450420,qa-engineer,Defect subtask in identity REST partition
+LINK-01977,DEV-STORY-072,BUG-SUB-029,Contains,Contains,Contained In,2026-10-17T01:09:30.806899,qa-engineer,Defect subtask in governance REST partition
+LINK-01978,DEV-STORY-072,BUG-SUB-030,Contains,Contains,Contained In,2026-10-17T01:09:34.178111,qa-engineer,Defect subtask in governance REST partition
+LINK-01979,DEV-STORY-072,BUG-SUB-031,Contains,Contains,Contained In,2026-10-17T01:09:37.717343,qa-engineer,Defect subtask in governance REST partition
+LINK-01982,TESTEXEC-085,TESTCASE-085,RelatesTo,Relates To,Relates To,2026-10-18T11:56:55.261905,qa-engineer,Execution follows Tech Lead approved DHT-TC-021 case
+LINK-01983,QUESTION-190,UNITTEST-082,Question,Asks About,Has Question,2026-10-18T22:46:53.510546,python-developer,
+LINK-01985,QUESTION-190,DEV-082,Question,Asks About,Has Question,2026-10-18T22:47:06.433313,python-developer,
+LINK-01988,QUESTION-191,TESTCASE-082,Question,Asks About,Has Question,2026-10-19T12:55:47.640070,qa-engineer,Formal review request for TESTCASE-082
+LINK-01990,BUG-036,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-20T10:26:37.153913,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
+LINK-01991,BUG-036,DEV-STORY-002,RelatesTo,Relates To,Relates To,2026-10-20T10:26:37.877795,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
+LINK-01992,BUG-036,DEV-STORY-070,Blocks,Blocks,Is Blocked By,2026-10-20T10:26:38.597913,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
+LINK-01993,BUG-037,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-20T10:26:40.152288,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
+LINK-01994,BUG-037,DEV-STORY-002,RelatesTo,Relates To,Relates To,2026-10-20T10:26:40.874038,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
+LINK-01995,BUG-037,DEV-STORY-070,Blocks,Blocks,Is Blocked By,2026-10-20T10:26:41.587858,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
+LINK-01996,BUG-037,QUESTION-012,RelatesTo,Relates To,Relates To,2026-10-20T10:26:42.321434,project-manager,Existing approved TOON decision remains authoritative; no waiver or duplicate design question.
+LINK-01997,BUG-038,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-20T10:26:43.877372,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
+LINK-01998,BUG-038,DEV-STORY-002,RelatesTo,Relates To,Relates To,2026-10-20T10:26:44.592617,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
+LINK-01999,BUG-038,DEV-STORY-070,Blocks,Blocks,Is Blocked By,2026-10-20T10:26:45.308284,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
+LINK-02000,BUG-039,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-20T10:26:46.874200,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
+LINK-02001,BUG-039,DEV-STORY-002,RelatesTo,Relates To,Relates To,2026-10-20T10:26:47.626170,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
+LINK-02002,BUG-039,DEV-STORY-070,Blocks,Blocks,Is Blocked By,2026-10-20T10:26:48.343841,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
+LINK-02003,BUG-040,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-20T10:26:49.904110,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
+LINK-02004,BUG-040,DEV-STORY-002,RelatesTo,Relates To,Relates To,2026-10-20T10:26:50.628172,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
+LINK-02005,BUG-040,DEV-STORY-070,Blocks,Blocks,Is Blocked By,2026-10-20T10:26:51.339240,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
+LINK-02007,QUESTION-192,BUG-039,Question,Asks About,Has Question,2026-10-20T10:27:25.979618,project-manager,
+LINK-02009,BUG-041,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-20T10:28:56.047659,project-manager,Distinct tool correction scope; affected shared guidance acceptance remains pending independently verified fix.
+LINK-02010,BUG-041,DEV-STORY-070,Blocks,Blocks,Is Blocked By,2026-10-20T10:28:56.800205,project-manager,Distinct tool correction scope; affected shared guidance acceptance remains pending independently verified fix.
+LINK-02011,BUG-041,BUG-034,RelatesTo,Relates To,Relates To,2026-10-20T10:28:57.538866,project-manager,Distinct tool correction scope; affected shared guidance acceptance remains pending independently verified fix.
+LINK-02012,BUG-042,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-20T10:28:59.197568,project-manager,Distinct tool correction scope; affected shared guidance acceptance remains pending independently verified fix.
+LINK-02013,BUG-042,DEV-STORY-070,Blocks,Blocks,Is Blocked By,2026-10-20T10:28:59.971443,project-manager,Distinct tool correction scope; affected shared guidance acceptance remains pending independently verified fix.
+LINK-02014,BUG-042,BUG-022,RelatesTo,Relates To,Relates To,2026-10-20T10:29:00.725976,project-manager,Distinct tool correction scope; affected shared guidance acceptance remains pending independently verified fix.
