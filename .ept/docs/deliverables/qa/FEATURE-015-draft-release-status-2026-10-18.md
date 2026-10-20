@@ -6,7 +6,7 @@ Last verified: 2026-10-20 (Europe/Sofia). FEATURE-015 remains in draft review. N
 |---|---|---|---|
 | Skills | [PR #1](https://github.com/t-jet/pal_found_cli_skills/pull/1) | `f1b5db8`, content freeze `7e79d1c` | Fifteen additional whole pages and 47 REST semantic reviews accepted. Eleven Functions operations passed formal QA. Focused suite passed 540 tests; four Functions evidence tests passed. All 36 development topics retain acceptance. |
 | CLI tool | [PR #1](https://github.com/t-jet/pal_found_cli_tool/pull/1) | `0963e6e` | All eight GitHub checks passed. Formal DHT-TC-021 passed 18 CLI scenarios and 51 focused Data Health tests. |
-| Parent | [PR #6](https://github.com/t-jet/pal_found_cli/pull/6) | Integration branch, with both pins above | Combined tracker suite passed 442 tests after the latest snapshot merge. |
+| Parent | [PR #6](https://github.com/t-jet/pal_found_cli/pull/6) | Integration branch, with both pins above | Tracker engine previously passed 442 tests. Latest data-only capture passed independent integrity and byte-comparison QA; engine source is unchanged. |
 
 The topic review corrected two substantive omissions: Action Test run can execute result-producing external calls, and Compute Module Pipeline mode manages its output dataset transactions. Both corrections passed independent retest. Their source and audit hashes match current bytes. Seven unchanged source URL locations were moved to their new lines; the historical whole-bundle URL scan was not promoted to a new scan. Application/widget compile evidence uses a synthetic schema and proves no tenant binding or execution.
 
