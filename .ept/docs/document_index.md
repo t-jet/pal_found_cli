@@ -66,6 +66,8 @@ This project follows a structured documentation approach organized into logical 
 
 ### Architecture Documentation
 
+- [Shared CLI contract amendment (2026-10-20)](deliverables/architecture/FEATURE-015-shared-cli-contract-amendment-2026-10-20.md): QUESTION-192/193 timeout, total-attempt and TOON dependency/API decisions; implementation and release gates remain open.
+
 - [SAD-001 — Solution Architecture Document](deliverables/architecture/SAD-001-foundry-cli.md) — Full architectural design including C4 L1–L4 diagrams, sequence flows, technology stack, deployment topology, and implementation roadmap (8 EPICs, 23 DEV-STORYs). Status: Draft.
 - [DESIGN-005 — Binary Downloads, Sessions, and Tracing](deliverables/architecture/DESIGN-005-common-components.md) — Approved component contracts for bounded binary streaming, atomic session persistence, and SDK-native B3 propagation. Includes integration order, security controls, test matrix, and estimates.
 - [DESIGN-008 — Foundry Functions CLI](deliverables/architecture/DESIGN-008-functions-cli.md) — Design for DEV-STORY-008 covering the 7-operation Functions namespace CLI, client routing, JSON arguments, tests, and packaging.
