@@ -742,7 +742,7 @@ Condition:
 
 Action:
 
-- Do assert each requested ID or string appears in the expected result or a documented error path, and assert response identity matches request. Empty batch maps, omitted CBAC marking IDs, and empty parsed/error maps can pass transport fixtures while missing the operation's meaning.
+- Do assert each requested ID or string appears in the expected result or a documented error path, and assert response identity matches request. For path lookup, use an absolute path that matches the returned resource; for deploy, check the returned deployed version matches the requested version. Empty batch maps, omitted CBAC marking IDs, and empty parsed/error maps can pass transport fixtures while missing the operation's meaning.
 
 ## Improvement: run worked snippets through root SDK client
 
@@ -764,3 +764,12 @@ Action:
 
 - Do check official source for external calls, skipped effects, and transaction owner in each mode. Verify page says which effects can occur before accepting whole-page guidance.
 
+## Improvement: separate frozen SDK oracle from current API drift
+
+Condition:
+
+- When formal QA targets a pinned SDK while current official API pages expose newer request fields or version rules
+
+Action:
+
+- Do derive executable method and wire assertions from pinned SDK source; use current official pages for explicit preview and permission context, mark newer fields as version drift, and require tenant verification for live behavior. Keep diagnostic reviewer records separate from formal TESTCASE approval.

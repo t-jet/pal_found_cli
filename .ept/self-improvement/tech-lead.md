@@ -772,7 +772,7 @@ Condition:
 
 Action:
 
-- Do normalize line endings before comparing source snippets; verify source hashes, AST dependencies, consumers, code fences and local page hashes per symbol. Then review reader meaning separately, including docstrings attached after aliases, missing JSON examples and source-silent errors. Don't count structural closure as semantic acceptance.
+- Do normalize line endings before comparing source snippets; verify source hashes, AST dependencies, consumers, code fences and local page hashes per symbol. For formal case approval, recompute every cited contract and example SHA-256 from candidate bytes; put any corrected hash in approval evidence so the executor has one exact identity. Then review reader meaning separately, including docstrings attached after aliases, missing JSON examples and source-silent errors. Don't count structural closure as semantic acceptance.
 
 ## Improvement: question Resolved->Closed needs no resolution field; Resolved DoD removes Blocks link only
 
