@@ -7,7 +7,7 @@ feature_request: FEATURE-015
 epic: EPIC-015
 created: 2026-10-06
 updated: 2026-10-06
-priority: High
+priority: High 
 assignee: qa-engineer
 reporter: ba
 component: skills

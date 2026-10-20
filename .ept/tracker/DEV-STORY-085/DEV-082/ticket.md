@@ -2,7 +2,7 @@
 id: DEV-082
 type: development
 title: DEV-STORY-085 development Function execution value type and version lifecycle REST contracts
-status: Resolved
+status: Closed
 created: 2026-10-07
 updated: 2026-10-19
 priority: High
