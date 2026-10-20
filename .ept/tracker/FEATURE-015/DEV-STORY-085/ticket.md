@@ -2,11 +2,11 @@
 id: DEV-STORY-085
 type: dev_story
 title: 'Author offline REST SDK contracts: Functions REST invocation and metadata'
-status: Development
+status: Deployment
 feature_request: FEATURE-015
 epic: EPIC-015
 created: 2026-10-06
-updated: 2026-10-07
+updated: 2026-10-20
 priority: High
 assignee: python-developer
 reporter: ba

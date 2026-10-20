@@ -12,7 +12,7 @@ estimated_hours: 4
 time_spent_hours: 0.3
 ---
 
-# Plan independent complete REST acceptance
+# Plan independent complete REST acceptance 
 
 ## Scope and acceptance
 

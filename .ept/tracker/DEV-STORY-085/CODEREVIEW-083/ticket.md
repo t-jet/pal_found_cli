@@ -2,7 +2,7 @@
 id: CODEREVIEW-083
 type: codereview
 title: DEV-STORY-085 codereview Function execution value type and version lifecycle REST contracts
-status: Open
+status: Closed
 created: 2026-10-07
 updated: 2026-10-19
 priority: High
