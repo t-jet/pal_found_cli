@@ -1,30 +1,34 @@
 # FEATURE-015 draft release status
 
-Last verified: 2026-10-19 (Europe/Sofia). FEATURE-015 remains in draft review. No release merge or tag has been performed in this workflow.
+Last verified: 2026-10-20 (Europe/Sofia). FEATURE-015 remains in draft review. No release merge or tag has been performed in this workflow.
 
 | Repository | Draft | Candidate | Verification |
 |---|---|---|---|
-| Skills | [PR #1](https://github.com/t-jet/pal_found_cli_skills/pull/1) | `cb096d1`, content freeze `6205cd7` | GitHub validation passed. All 36 development topics have independent semantic/source acceptance; nine topic/author tests passed. Actual TypeScript 7.0.2 compiled the application/widget examples with zero diagnostics. |
+| Skills | [PR #1](https://github.com/t-jet/pal_found_cli_skills/pull/1) | `f1b5db8`, content freeze `7e79d1c` | Fifteen additional whole pages and 47 REST semantic reviews accepted. Eleven Functions operations passed formal QA. Focused suite passed 540 tests; four Functions evidence tests passed. All 36 development topics retain acceptance. |
 | CLI tool | [PR #1](https://github.com/t-jet/pal_found_cli_tool/pull/1) | `0963e6e` | All eight GitHub checks passed. Formal DHT-TC-021 passed 18 CLI scenarios and 51 focused Data Health tests. |
 | Parent | [PR #6](https://github.com/t-jet/pal_found_cli/pull/6) | Integration branch, with both pins above | Combined tracker suite passed 442 tests after the latest snapshot merge. |
 
 The topic review corrected two substantive omissions: Action Test run can execute result-producing external calls, and Compute Module Pipeline mode manages its output dataset transactions. Both corrections passed independent retest. Their source and audit hashes match current bytes. Seven unchanged source URL locations were moved to their new lines; the historical whole-bundle URL scan was not promoted to a new scan. Application/widget compile evidence uses a synthetic schema and proves no tenant binding or execution.
 
-The latest Data Health capability correction removes an unsupported pagination-helper claim. `get-latest --limit` bounds a single response. This authored correction is published, but its full-page independent retest remains pending because the assigned reviewer hit an agent usage limit. Five current ledger/URL checks passed. No acceptance was inferred from the interrupted review.
+Both Data Health pages passed independent whole-page review at current hashes. `get-latest --limit` bounds a single response. Core, Checkpoints and Orchestration reviews corrected CLI examples, configuration precedence, error/output behavior, build-search filtering, schedule recovery and seven preview limitations. Three Admin pages passed retest after six preview examples, two nonpaged lists, CBAC handling and mutation recovery were corrected. These reviews establish accurate guidance for pinned tool `0963e6e`; underlying tool defects remain open.
 
 ## Remaining release gates
 
 The verifier reports no stale candidate or asset hashes. It remains blocked by:
 
-- 425 formal operation QA items and their provenance.
-- 336 semantic operation reviews and their provenance.
-- 109 skill-review gate items: 108 pages plus the overall audit signoff.
+- 414 formal operation QA items and their provenance.
+- 289 semantic operation reviews and their provenance.
+- 94 skill-review gate items: 93 pages plus the overall audit signoff.
 
 The T01-T36 topic gate is complete. T37 REST, journey acceptance, other skill pages, and live Foundry behavior have separate scopes. Existing independent FEATURE-012 evidence still matches 343 operation records, tool code, and SDK hashes; this supports those record portions, not whole-page acceptance.
 
 DEV-STORY-072 now has all 40 operation semantic reviews accepted against frozen SDK 1.101.0 and current fixtures. BUG-SUB-029/030/031 are Closed after independent retests; TESTCASE-075 and TESTEXEC-075 remain Open. DEV-STORY-081 has eleven non-private operation semantic reviews accepted and eleven private-beta reviews pending. BUG-SUB-032/033/034 are Closed, while TESTCASE-080 and TESTEXEC-080 remain Open. Historical defect findings remain preserved with current retest evidence.
 
-For DEV-STORY-085, UNITTEST-082 and QUESTION-190 are Closed, DEV-082 is Resolved, CODEREVIEW-083 is Open, TESTCASE-082 is In Progress, and TESTEXEC-082 is Open. Two source-derived Functions edge tests are integrated. Formal code review and test-case design were interrupted by agent usage limits; the eleven operation QA statuses remain pending. Historical implementation hours are unknown; tracker entries record only measured work from these sessions.
+DEV-STORY-073 now has 47 semantic operation acceptances. Five corrected fixtures passed independent retest and 13 mutation regression tests. `Resource.restore` remains uncertain because its documented active-resource behavior conflicts with a declared error. Historical findings remain preserved; formal operation execution is pending.
+
+DEV-STORY-085 is Deployment. All six children, including CODEREVIEW-083, TESTCASE-082 and TESTEXEC-082, are Closed. Independent formal execution passed all eleven cases with 91 checks and denied public sockets; source and asset identities match accepted records. Archived harness, log and closure exports have integrity checks. Historical implementation hours are unknown; tracker entries record only measured session work.
+
+BUG-036 through BUG-042 block affected DEV-STORY-070 acceptance: environment format default, genuine TOON encoding, structured parser errors, timeout consistency, total attempt count, seven required preview selectors, and build-search filter validation. Implementation is underway in an isolated tool checkout; the published tool pin remains `0963e6e` pending review and QA. QUESTION-192 records one effective SDK/outer timeout and four total calls by default. QUESTION-193 explicitly corrects the historical TOON dependency/API to `toon-format==1.2.0` and `toon_format.dumps()`. Implementation and packaging checks remain separate gates.
 
 BUG-034 remains Open pending the broader workflow despite its closed DHT-TC-021 case/execution. BUG-035 has a targeted Audit correction PASS; broader page review remains open.
 
@@ -36,4 +40,4 @@ The live parent checkout remains dirty and diverged from remote `main`. The late
 
 Live skills and tool checkouts are internally clean at older commits that are ancestors of their published candidates. [Agent configuration PR #7](https://github.com/t-jet/pal_found_cli/pull/7) at `f8e567e2` matches all live self-improvement notes byte for byte and passes the composer check. Four legacy temporary text files outside `.ept/tmp` already exist on remote `main`; this release draft did not introduce them.
 
-Keep release PRs draft. Resume independent page reviews, Functions code/test-case review, and formal operation execution when delegated review capacity is available. Verify exact heads and rerun the release gate before any merge or tag.
+Keep release PRs draft. Independent page/REST reviews, shared tool correction and tracker snapshot verification continue. Verify exact heads and rerun the release gate before any merge or tag.
