@@ -1,0 +1,180 @@
+{
+  "reviewer": "/root/tracker_capture_qa_21",
+  "started_at": "2026-10-21T20:51:28.119760+00:00",
+  "finished_at": "2026-10-21T20:51:29.653886+00:00",
+  "source_sha256": "c8275e60093853a552c32edd3fcc1d0df885da194e48bc0f2fe4642507091d17",
+  "tests_sha256": "19b18c4698b77727b3e813331d0823df147e2dc147c5773451b69d0d7a4d441e",
+  "commit": "a3a38ec434fdb046c329b850e716dc541fa87ecd",
+  "scope": "Offline real SDK HTTP serialization and bounded output. No live tenant verification.",
+  "source_review": "Download adapter reuses normal invocation required/optional/timeout kwargs and removes local output before SDK call.",
+  "sdk_results": [
+    {
+      "sdk_release": "1.101.0",
+      "sdk_source_sha256": "6ebab8c71790c0dccaadf8e5a0faaace31ef79be8d5532b43018638e56b43515",
+      "baseline_source_sha256": "d7bc8f0efb218e48a3d8f10f5fb3c1291e8ee0ee40bbb9bda3e3e57562289017",
+      "before_counterexample": [
+        {
+          "case": "before_required_query",
+          "error_type": "ValidationError",
+          "error": "1 validation error for AsyncSqlQueryClient.execute_ontology\nquery\n  Missing required keyword only argument [type=missing_keyword_only_argument, input_value=ArgsKwargs((<foundry_sdk.... 'request_timeout': 17}), input_type=ArgsKwargs]\n    For further information visit https://errors.pydantic.dev/2.12/v/missing_keyword_only_argument",
+          "http_requests": 0
+        }
+      ],
+      "cases": [
+        {
+          "case": "minimal_required_query",
+          "verdict": "PASS",
+          "request_body": {
+            "query": "select * from example where region = :region"
+          },
+          "path": "/api/v2/sqlQueries/executeOntology",
+          "timeout": 17,
+          "limit": 100,
+          "stored_bytes": 16,
+          "response_closed": true
+        },
+        {
+          "case": "optional_parameters",
+          "verdict": "PASS",
+          "request_body": {
+            "query": "select * from example where region = :region",
+            "dryRun": true,
+            "parameters": {
+              "type": "namedParameterMapping",
+              "mapping": {
+                "region": {
+                  "type": "string",
+                  "value": "west"
+                }
+              }
+            },
+            "rowLimit": 7
+          },
+          "path": "/api/v2/sqlQueries/executeOntology",
+          "timeout": 17,
+          "limit": 100,
+          "stored_bytes": 16,
+          "response_closed": true
+        },
+        {
+          "case": "bounded_download",
+          "verdict": "PASS",
+          "request_body": {
+            "query": "select * from example where region = :region"
+          },
+          "path": "/api/v2/sqlQueries/executeOntology",
+          "timeout": 17,
+          "limit": 4,
+          "stored_bytes": 4,
+          "response_closed": true
+        },
+        {
+          "case": "results_local_output",
+          "verdict": "PASS",
+          "request_body": null,
+          "path": "/api/v2/sqlQueries/independent-query/getResults",
+          "timeout": 17,
+          "limit": 100,
+          "stored_bytes": 16,
+          "response_closed": true
+        },
+        {
+          "case": "results_bounded_output",
+          "verdict": "PASS",
+          "request_body": null,
+          "path": "/api/v2/sqlQueries/independent-query/getResults",
+          "timeout": 17,
+          "limit": 4,
+          "stored_bytes": 4,
+          "response_closed": true
+        }
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "sdk_release": "1.111.0",
+      "sdk_source_sha256": "3357bba0f435a504815a420195f3ec956678a394cb38c77a3d7167989995b51a",
+      "baseline_source_sha256": "d7bc8f0efb218e48a3d8f10f5fb3c1291e8ee0ee40bbb9bda3e3e57562289017",
+      "before_counterexample": [
+        {
+          "case": "before_required_query",
+          "error_type": "ValidationError",
+          "error": "1 validation error for AsyncSqlQueryClient.execute_ontology\nquery\n  Missing required keyword only argument [type=missing_keyword_only_argument, input_value=ArgsKwargs((<foundry_sdk.... 'request_timeout': 17}), input_type=ArgsKwargs]\n    For further information visit https://errors.pydantic.dev/2.14/v/missing_keyword_only_argument",
+          "http_requests": 0
+        }
+      ],
+      "cases": [
+        {
+          "case": "minimal_required_query",
+          "verdict": "PASS",
+          "request_body": {
+            "query": "select * from example where region = :region"
+          },
+          "path": "/api/v2/sqlQueries/executeOntology",
+          "timeout": 17,
+          "limit": 100,
+          "stored_bytes": 16,
+          "response_closed": true
+        },
+        {
+          "case": "optional_parameters",
+          "verdict": "PASS",
+          "request_body": {
+            "query": "select * from example where region = :region",
+            "dryRun": true,
+            "parameters": {
+              "type": "namedParameterMapping",
+              "mapping": {
+                "region": {
+                  "type": "string",
+                  "value": "west"
+                }
+              }
+            },
+            "rowLimit": 7
+          },
+          "path": "/api/v2/sqlQueries/executeOntology",
+          "timeout": 17,
+          "limit": 100,
+          "stored_bytes": 16,
+          "response_closed": true
+        },
+        {
+          "case": "bounded_download",
+          "verdict": "PASS",
+          "request_body": {
+            "query": "select * from example where region = :region"
+          },
+          "path": "/api/v2/sqlQueries/executeOntology",
+          "timeout": 17,
+          "limit": 4,
+          "stored_bytes": 4,
+          "response_closed": true
+        },
+        {
+          "case": "results_local_output",
+          "verdict": "PASS",
+          "request_body": null,
+          "path": "/api/v2/sqlQueries/independent-query/getResults",
+          "timeout": 17,
+          "limit": 100,
+          "stored_bytes": 16,
+          "response_closed": true
+        },
+        {
+          "case": "results_bounded_output",
+          "verdict": "PASS",
+          "request_body": null,
+          "path": "/api/v2/sqlQueries/independent-query/getResults",
+          "timeout": 17,
+          "limit": 4,
+          "stored_bytes": 4,
+          "response_closed": true
+        }
+      ],
+      "verdict": "PASS"
+    }
+  ],
+  "errors": [],
+  "verdict": "PASS"
+}
