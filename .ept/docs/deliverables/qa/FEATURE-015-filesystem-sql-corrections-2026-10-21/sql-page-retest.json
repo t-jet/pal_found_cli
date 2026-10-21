@@ -1,0 +1,122 @@
+{
+  "reviewer_agent": "/root/tracker_capture_qa_21",
+  "review_date": "2026-10-21T20:58:24.946255+00:00",
+  "scope": "Whole pages read. Offline parser and installed SDK HTTP serialization; no live enrollment verification.",
+  "pages": {
+    "pal-found-sql-queries/SKILL.md": {
+      "sha256": "4929491a6e9e5cffcb7987a8e606253515eea6d5292ae9107af643e4999f9bde",
+      "verdict": "PASS"
+    },
+    "pal-found-sql-queries/references/01-query.md": {
+      "sha256": "30c7ff573463a7a93faba72b8a2a7d7967a64458bb75b1b710cb2f7a95ffdccd",
+      "verdict": "PASS"
+    }
+  },
+  "initial_findings": [
+    {
+      "path": "pal-found-sql-queries/SKILL.md",
+      "severity": "semantic",
+      "finding": "Ontology endpoint described as private beta; frozen official documentation contract says Public Beta.",
+      "source": "v2.sql_queries.SqlQuery.execute_ontology",
+      "stage": "Public Beta"
+    },
+    {
+      "path": "pal-found-sql-queries/references/01-query.md",
+      "severity": "semantic",
+      "finding": "Ontology endpoint described as private beta; frozen official documentation contract says Public Beta.",
+      "source": "v2.sql_queries.SqlQuery.execute_ontology",
+      "stage": "Public Beta"
+    },
+    {
+      "path": "pal-found-sql-queries/references/01-query.md",
+      "severity": "semantic",
+      "finding": "Opening fallback sentence implies retry after execution failure; SDK and later sentence specify first existing fallback branch for an unqualified dataset reference."
+    }
+  ],
+  "findings": [],
+  "probes": [
+    {
+      "command": "pal-found-sql-queries query execute --query 'SELECT * FROM `/Operations/Orders` LIMIT 10' --fallback-branch-ids-json '[\"master\"]'",
+      "operation": "execute",
+      "verdict": "PASS",
+      "http_method": "POST",
+      "http_path": "/api/v2/sqlQueries/execute",
+      "http_body": {
+        "query": "SELECT * FROM `/Operations/Orders` LIMIT 10",
+        "fallbackBranchIds": [
+          "master"
+        ]
+      },
+      "sdk_validation": "PASS",
+      "result_validation": "PASS"
+    },
+    {
+      "command": "pal-found-sql-queries query get-status '<SQL_QUERY_ID>'",
+      "operation": "get_status",
+      "verdict": "PASS",
+      "http_method": "GET",
+      "http_path": "/api/v2/sqlQueries/independent-sql-id/getStatus",
+      "http_body": null,
+      "sdk_validation": "PASS",
+      "result_validation": "PASS"
+    },
+    {
+      "command": "pal-found-sql-queries query get-results '<SQL_QUERY_ID>' --output orders.arrow",
+      "operation": "get_results",
+      "verdict": "PASS",
+      "http_method": "GET",
+      "http_path": "/api/v2/sqlQueries/independent-sql-id/getResults",
+      "http_body": null,
+      "sdk_validation": "PASS",
+      "result_validation": "PASS"
+    },
+    {
+      "command": "pal-found-sql-queries query cancel '<SQL_QUERY_ID>'",
+      "operation": "cancel",
+      "verdict": "PASS",
+      "http_method": "POST",
+      "http_path": "/api/v2/sqlQueries/independent-sql-id/cancel",
+      "http_body": null,
+      "sdk_validation": "PASS",
+      "result_validation": "PASS"
+    },
+    {
+      "command": "pal-found-sql-queries query execute-ontology --query 'SELECT * FROM `ri.ontology.main.object-type.example`' --row-limit 10",
+      "operation": "execute_ontology",
+      "verdict": "PASS",
+      "http_method": "POST",
+      "http_path": "/api/v2/sqlQueries/executeOntology",
+      "http_body": {
+        "query": "SELECT * FROM `ri.ontology.main.object-type.example`",
+        "rowLimit": 10
+      },
+      "sdk_validation": "PASS",
+      "result_validation": "PASS"
+    }
+  ],
+  "source_hashes": {
+    "sdk_sql_query": "6ebab8c71790c0dccaadf8e5a0faaace31ef79be8d5532b43018638e56b43515",
+    "source_oracle": "5b6926046cb5c50663f4900747353bc743b2d5799829187e481abe333e6330d1",
+    "contract_register": "a6144d4f0808bbb7cc6581f8638f44c7460099204a4857585c235993c2073cfe",
+    "cli_module": "c8275e60093853a552c32edd3fcc1d0df885da194e48bc0f2fe4642507091d17"
+  },
+  "source_checks": {
+    "SELECT_only": "SDK execute docstring",
+    "branch_resolution": "SDK execute fallback_branch_ids docstring",
+    "owner_and_default_million_rows": "SDK execute docstring",
+    "one_minute_long_poll": "SDK get_results docstring",
+    "cancel_noop_and_none": "SDK cancel docstring and real typed 204",
+    "stage": {
+      "method": "POST",
+      "resource_path": "/v2/sqlQueries/executeOntology",
+      "stage": "Public Beta",
+      "doc_sha256": "641d3d6ed444ca13e5afb4922e9708822aedc9aa08e5b541445d7770a472d788"
+    },
+    "synchronous_ontology_arrow": "SDK execute_ontology docstring and real streamed HTTP probe"
+  },
+  "limits": [
+    "Mock responses do not validate SQL server syntax, grants, beta enablement, branch existence, query lifecycle effects, or Arrow payload validity.",
+    "Placeholder query ID replaced by independent-sql-id; example dataset/object references remain illustrative."
+  ],
+  "verdict": "PASS"
+}

@@ -1,0 +1,885 @@
+{
+  "cli_commit": "ddfab5d13bd01a1f244a4446cd10764c9091f65a",
+  "cli_sha256": "39ed94e3556a550baebed95f09a40258ba8fb93be237d357d53eeae722f239d7",
+  "sdk_release": "1.101.0",
+  "network": "socket.connect and socket.create_connection denied; httpx.MockTransport only",
+  "pages": [
+    {
+      "path": ".ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-filesystem\\references\\01-folder-project.md",
+      "sha256": "b3a30694e8da237251993c428ca8f755c5b9ac4a12d8a27a03bf44482fbc0eba",
+      "records": [
+        "folder.children",
+        "folder.create",
+        "folder.get",
+        "folder.get_batch",
+        "folder.replace",
+        "project.add_organizations",
+        "project.create",
+        "project.create_from_template",
+        "project.get",
+        "project.organizations",
+        "project.remove_organizations",
+        "project.replace"
+      ]
+    },
+    {
+      "path": ".ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-filesystem\\references\\02-resource.md",
+      "sha256": "3b026accb42fb2bb4ca3c31d73b2e6be411dde7f1a6be743e4d1431a94037665",
+      "records": [
+        "resource.add_markings",
+        "resource.delete",
+        "resource.get",
+        "resource.get_access_requirements",
+        "resource.get_batch",
+        "resource.get_by_path",
+        "resource.get_by_path_batch",
+        "resource.markings",
+        "resource.permanently_delete",
+        "resource.remove_markings",
+        "resource.restore"
+      ]
+    },
+    {
+      "path": ".ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-filesystem\\references\\03-resource-role-space.md",
+      "sha256": "33685b7d7ed258d81fcaa9ea469df43dbafda37ea2411b6052daffe27b66a3c2",
+      "records": [
+        "resource_role.add",
+        "resource_role.list",
+        "resource_role.remove",
+        "space.create",
+        "space.delete",
+        "space.get",
+        "space.list",
+        "space.replace"
+      ]
+    },
+    {
+      "path": ".ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-filesystem\\SKILL.md",
+      "sha256": "39598fa638dbb67f0050d938e29ae42f71995f7436088fe7bbf5361e9da6eb25",
+      "records": []
+    }
+  ],
+  "operations": [
+    {
+      "operation": "folder.children",
+      "command": "pal-found-filesystem folder children FOLDER_RID",
+      "executed_command": "pal-found-filesystem folder children ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.folder",
+      "sdk_source_sha256": "71e0591612f76319049b0cf646633ea2445a3c5e73c85ca99717f6a63e6103e0",
+      "sdk_signature": "(self, folder_rid: typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')], *, page_size: Optional[int] = None, page_token: Optional[str] = None, request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> foundry_sdk._core.resource_iterator.AsyncResourceIterator[foundry_sdk.v2.filesystem.models.Resource]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "GET",
+          "url": "https://offline.invalid/api/v2/filesystem/folders/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8/children?pageSize=100",
+          "body": "",
+          "content_type": null
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": []
+    },
+    {
+      "operation": "folder.create",
+      "command": "pal-found-filesystem folder create --display-name Orders --parent-folder-rid PARENT_FOLDER_RID",
+      "executed_command": "pal-found-filesystem folder create --display-name Orders --parent-folder-rid ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.folder",
+      "sdk_source_sha256": "71e0591612f76319049b0cf646633ea2445a3c5e73c85ca99717f6a63e6103e0",
+      "sdk_signature": "(self, *, display_name: str, parent_folder_rid: typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')], request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> Awaitable[foundry_sdk.v2.filesystem.models.Folder]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "POST",
+          "url": "https://offline.invalid/api/v2/filesystem/folders",
+          "body": "{\"parentFolderRid\": \"ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8\", \"displayName\": \"Orders\"}",
+          "content_type": "application/json"
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": []
+    },
+    {
+      "operation": "folder.get",
+      "command": "pal-found-filesystem folder get FOLDER_RID",
+      "executed_command": "pal-found-filesystem folder get ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.folder",
+      "sdk_source_sha256": "71e0591612f76319049b0cf646633ea2445a3c5e73c85ca99717f6a63e6103e0",
+      "sdk_signature": "(self, folder_rid: typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')], *, request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> Awaitable[foundry_sdk.v2.filesystem.models.Folder]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "GET",
+          "url": "https://offline.invalid/api/v2/filesystem/folders/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8",
+          "body": "",
+          "content_type": null
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": []
+    },
+    {
+      "operation": "folder.get_batch",
+      "command": "pal-found-filesystem folder get-batch '[{\"folderRid\":\"ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8\"}]'",
+      "executed_command": "pal-found-filesystem folder get-batch '[{\"folderRid\":\"ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8\"}]'",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.folder",
+      "sdk_source_sha256": "71e0591612f76319049b0cf646633ea2445a3c5e73c85ca99717f6a63e6103e0",
+      "sdk_signature": "(self, body: Annotated[List[foundry_sdk.v2.filesystem.models.GetFoldersBatchRequestElement], Len(min_length=1, max_length=1000)], *, request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> Awaitable[foundry_sdk.v2.filesystem.models.GetFoldersBatchResponse]",
+      "source_oracle_hash_matches": true,
+      "exception": "ValidationError",
+      "exception_text": "1 validation error for AsyncFolderClient.get_batch\n1\n  Input should be a valid list [type=list_type, input_value='[{\"folderRid\":\"ri.compas...db-a585-9ffe221536e8\"}]', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.12/v/list_type",
+      "mock_http_requests": [],
+      "sdk_validation_and_serialization": "FAIL",
+      "boolean_flag_probes": []
+    },
+    {
+      "operation": "folder.replace",
+      "command": "pal-found-filesystem folder replace FOLDER_RID --display-name Orders --parent-folder-rid PARENT_FOLDER_RID",
+      "executed_command": "pal-found-filesystem folder replace ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8 --display-name Orders --parent-folder-rid ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.folder",
+      "sdk_source_sha256": "71e0591612f76319049b0cf646633ea2445a3c5e73c85ca99717f6a63e6103e0",
+      "sdk_signature": "(self, folder_rid: typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')], *, display_name: str, parent_folder_rid: typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')], preview: Optional[bool] = None, request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> Awaitable[foundry_sdk.v2.filesystem.models.Folder]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "PUT",
+          "url": "https://offline.invalid/api/v2/filesystem/folders/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8",
+          "body": "{\"parentFolderRid\": \"ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8\", \"displayName\": \"Orders\"}",
+          "content_type": "application/json"
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": [
+        {
+          "flag": "preview",
+          "exception": "PermissionDeniedError",
+          "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+          "requests": [
+            {
+              "method": "PUT",
+              "url": "https://offline.invalid/api/v2/filesystem/folders/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8?preview=true",
+              "body": "{\"parentFolderRid\": \"ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8\", \"displayName\": \"Orders\"}",
+              "content_type": "application/json"
+            }
+          ],
+          "validation": "PASS"
+        }
+      ]
+    },
+    {
+      "operation": "project.add_organizations",
+      "command": "pal-found-filesystem project add-organizations PROJECT_RID --organization-rids '[\"ORGANIZATION_RID\"]'",
+      "executed_command": "pal-found-filesystem project add-organizations ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8 --organization-rids '[\"ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8\"]'",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.project",
+      "sdk_source_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3",
+      "sdk_signature": "(self, project_rid: typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')], *, organization_rids: List[Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')]], request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> Awaitable[NoneType]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "POST",
+          "url": "https://offline.invalid/api/v2/filesystem/projects/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8/addOrganizations",
+          "body": "{\"organizationRids\": [\"ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8\"]}",
+          "content_type": "application/json"
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": []
+    },
+    {
+      "operation": "project.create",
+      "command": "pal-found-filesystem project create --default-roles '[\"8bf49052-dc37-4528-8bf0-b551cfb71268\"]' --display-name Orders --organization-rids '[\"ORGANIZATION_RID\"]' --role-grants '{\"8bf49052-dc37-4528-8bf0-b551cfb71268\":[{\"principalId\":\"f05f8da4-b84c-4fca-9c77-8af0b13d11de\",\"principalType\":\"GROUP\"}]}' --space-rid SPACE_RID",
+      "executed_command": "pal-found-filesystem project create --default-roles '[\"8bf49052-dc37-4528-8bf0-b551cfb71268\"]' --display-name Orders --organization-rids '[\"ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8\"]' --role-grants '{\"8bf49052-dc37-4528-8bf0-b551cfb71268\":[{\"principalId\":\"f05f8da4-b84c-4fca-9c77-8af0b13d11de\",\"principalType\":\"GROUP\"}]}' --space-rid ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.project",
+      "sdk_source_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3",
+      "sdk_signature": "(self, *, default_roles: List[str], display_name: str, organization_rids: List[Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')]], role_grants: Dict[str, List[foundry_sdk.v2.filesystem.models.PrincipalWithId]], space_rid: typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')], description: Optional[str] = None, resource_level_role_grants_allowed: Optional[bool] = None, request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> Awaitable[foundry_sdk.v2.filesystem.models.Project]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "POST",
+          "url": "https://offline.invalid/api/v2/filesystem/projects/create",
+          "body": "{\"displayName\": \"Orders\", \"spaceRid\": \"ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8\", \"roleGrants\": {\"8bf49052-dc37-4528-8bf0-b551cfb71268\": [{\"principalId\": \"f05f8da4-b84c-4fca-9c77-8af0b13d11de\", \"principalType\": \"GROUP\", \"type\": \"principalWithId\"}]}, \"defaultRoles\": [\"8bf49052-dc37-4528-8bf0-b551cfb71268\"], \"organizationRids\": [\"ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8\"]}",
+          "content_type": "application/json"
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": [
+        {
+          "flag": "resource_level_role_grants_allowed",
+          "exception": "PermissionDeniedError",
+          "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+          "requests": [
+            {
+              "method": "POST",
+              "url": "https://offline.invalid/api/v2/filesystem/projects/create",
+              "body": "{\"displayName\": \"Orders\", \"spaceRid\": \"ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8\", \"roleGrants\": {\"8bf49052-dc37-4528-8bf0-b551cfb71268\": [{\"principalId\": \"f05f8da4-b84c-4fca-9c77-8af0b13d11de\", \"principalType\": \"GROUP\", \"type\": \"principalWithId\"}]}, \"defaultRoles\": [\"8bf49052-dc37-4528-8bf0-b551cfb71268\"], \"organizationRids\": [\"ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8\"], \"resourceLevelRoleGrantsAllowed\": true}",
+              "content_type": "application/json"
+            }
+          ],
+          "validation": "PASS"
+        }
+      ]
+    },
+    {
+      "operation": "project.create_from_template",
+      "command": "pal-found-filesystem project create-from-template --template-rid TEMPLATE_RID --variable-values '{\"name\":\"my project name\"}'",
+      "executed_command": "pal-found-filesystem project create-from-template --template-rid ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8 --variable-values '{\"name\":\"my project name\"}'",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.project",
+      "sdk_source_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3",
+      "sdk_signature": "(self, *, template_rid: typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')], variable_values: Dict[str, str], default_roles: Optional[List[str]] = None, organization_rids: Optional[List[Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')]]] = None, project_description: Optional[str] = None, request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> Awaitable[foundry_sdk.v2.filesystem.models.Project]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "POST",
+          "url": "https://offline.invalid/api/v2/filesystem/projects/createFromTemplate",
+          "body": "{\"templateRid\": \"ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8\", \"variableValues\": {\"name\": \"my project name\"}}",
+          "content_type": "application/json"
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": []
+    },
+    {
+      "operation": "project.get",
+      "command": "pal-found-filesystem project get PROJECT_RID",
+      "executed_command": "pal-found-filesystem project get ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.project",
+      "sdk_source_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3",
+      "sdk_signature": "(self, project_rid: typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')], *, request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> Awaitable[foundry_sdk.v2.filesystem.models.Project]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "GET",
+          "url": "https://offline.invalid/api/v2/filesystem/projects/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8",
+          "body": "",
+          "content_type": null
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": []
+    },
+    {
+      "operation": "project.organizations",
+      "command": "pal-found-filesystem project organizations PROJECT_RID",
+      "executed_command": "pal-found-filesystem project organizations ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.project",
+      "sdk_source_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3",
+      "sdk_signature": "(self, project_rid: typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')], *, page_size: Optional[int] = None, page_token: Optional[str] = None, request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> foundry_sdk._core.resource_iterator.AsyncResourceIterator[typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')]]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "GET",
+          "url": "https://offline.invalid/api/v2/filesystem/projects/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8/organizations?pageSize=100",
+          "body": "",
+          "content_type": null
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": []
+    },
+    {
+      "operation": "project.remove_organizations",
+      "command": "pal-found-filesystem project remove-organizations PROJECT_RID --organization-rids '[\"ORGANIZATION_RID\"]'",
+      "executed_command": "pal-found-filesystem project remove-organizations ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8 --organization-rids '[\"ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8\"]'",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.project",
+      "sdk_source_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3",
+      "sdk_signature": "(self, project_rid: typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')], *, organization_rids: List[Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')]], request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> Awaitable[NoneType]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "POST",
+          "url": "https://offline.invalid/api/v2/filesystem/projects/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8/removeOrganizations",
+          "body": "{\"organizationRids\": [\"ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8\"]}",
+          "content_type": "application/json"
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": []
+    },
+    {
+      "operation": "project.replace",
+      "command": "pal-found-filesystem project replace PROJECT_RID --display-name Orders",
+      "executed_command": "pal-found-filesystem project replace ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8 --display-name Orders",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.project",
+      "sdk_source_sha256": "ec1dbe1cca41db7362a00348382f90ce4bd3725ab4202b5f7e30cd2b387fb4f3",
+      "sdk_signature": "(self, project_rid: typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')], *, display_name: str, description: Optional[str] = None, preview: Optional[bool] = None, request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> Awaitable[foundry_sdk.v2.filesystem.models.Project]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "PUT",
+          "url": "https://offline.invalid/api/v2/filesystem/projects/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8",
+          "body": "{\"displayName\": \"Orders\"}",
+          "content_type": "application/json"
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": [
+        {
+          "flag": "preview",
+          "exception": "PermissionDeniedError",
+          "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+          "requests": [
+            {
+              "method": "PUT",
+              "url": "https://offline.invalid/api/v2/filesystem/projects/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8?preview=true",
+              "body": "{\"displayName\": \"Orders\"}",
+              "content_type": "application/json"
+            }
+          ],
+          "validation": "PASS"
+        }
+      ]
+    },
+    {
+      "operation": "resource.add_markings",
+      "command": "pal-found-filesystem resource add-markings RESOURCE_RID --marking-ids '[\"18212f9a-0e63-4b79-96a0-aae04df23336\"]'",
+      "executed_command": "pal-found-filesystem resource add-markings ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8 --marking-ids '[\"18212f9a-0e63-4b79-96a0-aae04df23336\"]'",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.resource",
+      "sdk_source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "sdk_signature": "(self, resource_rid: typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')], *, marking_ids: List[str], request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> Awaitable[NoneType]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "POST",
+          "url": "https://offline.invalid/api/v2/filesystem/resources/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8/addMarkings",
+          "body": "{\"markingIds\": [\"18212f9a-0e63-4b79-96a0-aae04df23336\"]}",
+          "content_type": "application/json"
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": []
+    },
+    {
+      "operation": "resource.delete",
+      "command": "pal-found-filesystem resource delete RESOURCE_RID",
+      "executed_command": "pal-found-filesystem resource delete ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.resource",
+      "sdk_source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "sdk_signature": "(self, resource_rid: typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')], *, request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> Awaitable[NoneType]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "DELETE",
+          "url": "https://offline.invalid/api/v2/filesystem/resources/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8",
+          "body": "",
+          "content_type": null
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": []
+    },
+    {
+      "operation": "resource.get",
+      "command": "pal-found-filesystem resource get RESOURCE_RID",
+      "executed_command": "pal-found-filesystem resource get ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.resource",
+      "sdk_source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "sdk_signature": "(self, resource_rid: typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')], *, request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> Awaitable[foundry_sdk.v2.filesystem.models.Resource]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "GET",
+          "url": "https://offline.invalid/api/v2/filesystem/resources/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8",
+          "body": "",
+          "content_type": null
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": []
+    },
+    {
+      "operation": "resource.get_access_requirements",
+      "command": "pal-found-filesystem resource get-access-requirements RESOURCE_RID",
+      "executed_command": "pal-found-filesystem resource get-access-requirements ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.resource",
+      "sdk_source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "sdk_signature": "(self, resource_rid: typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')], *, request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> Awaitable[foundry_sdk.v2.filesystem.models.AccessRequirements]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "GET",
+          "url": "https://offline.invalid/api/v2/filesystem/resources/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8/getAccessRequirements",
+          "body": "",
+          "content_type": null
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": []
+    },
+    {
+      "operation": "resource.get_batch",
+      "command": "pal-found-filesystem resource get-batch '[{\"resourceRid\":\"ri.foundry.main.dataset.c26f11c8-cdb3-4f44-9f5d-9816ea1c82da\"}]'",
+      "executed_command": "pal-found-filesystem resource get-batch '[{\"resourceRid\":\"ri.foundry.main.dataset.c26f11c8-cdb3-4f44-9f5d-9816ea1c82da\"}]'",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.resource",
+      "sdk_source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "sdk_signature": "(self, body: Annotated[List[foundry_sdk.v2.filesystem.models.GetResourcesBatchRequestElement], Len(min_length=1, max_length=1000)], *, request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> Awaitable[foundry_sdk.v2.filesystem.models.GetResourcesBatchResponse]",
+      "source_oracle_hash_matches": true,
+      "exception": "ValidationError",
+      "exception_text": "1 validation error for AsyncResourceClient.get_batch\n1\n  Input should be a valid list [type=list_type, input_value='[{\"resourceRid\":\"ri.foun...44-9f5d-9816ea1c82da\"}]', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.12/v/list_type",
+      "mock_http_requests": [],
+      "sdk_validation_and_serialization": "FAIL",
+      "boolean_flag_probes": []
+    },
+    {
+      "operation": "resource.get_by_path",
+      "command": "pal-found-filesystem resource get-by-path --path '/Example Project/Orders'",
+      "executed_command": "pal-found-filesystem resource get-by-path --path '/Example Project/Orders'",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.resource",
+      "sdk_source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "sdk_signature": "(self, *, path: str, request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> Awaitable[foundry_sdk.v2.filesystem.models.Resource]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "GET",
+          "url": "https://offline.invalid/api/v2/filesystem/resources/getByPath?path=%2FExample+Project%2FOrders",
+          "body": "",
+          "content_type": null
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": []
+    },
+    {
+      "operation": "resource.get_by_path_batch",
+      "command": "pal-found-filesystem resource get-by-path-batch '[{\"path\":\"/My Organization-abcd/My Important Project/My Dataset\"}]'",
+      "executed_command": "pal-found-filesystem resource get-by-path-batch '[{\"path\":\"/My Organization-abcd/My Important Project/My Dataset\"}]'",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.resource",
+      "sdk_source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "sdk_signature": "(self, body: Annotated[List[foundry_sdk.v2.filesystem.models.GetByPathResourcesBatchRequestElement], Len(min_length=1, max_length=1000)], *, request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> Awaitable[foundry_sdk.v2.filesystem.models.GetByPathResourcesBatchResponse]",
+      "source_oracle_hash_matches": true,
+      "exception": "ValidationError",
+      "exception_text": "1 validation error for AsyncResourceClient.get_by_path_batch\n1\n  Input should be a valid list [type=list_type, input_value='[{\"path\":\"/My Organizati...t Project/My Dataset\"}]', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.12/v/list_type",
+      "mock_http_requests": [],
+      "sdk_validation_and_serialization": "FAIL",
+      "boolean_flag_probes": []
+    },
+    {
+      "operation": "resource.markings",
+      "command": "pal-found-filesystem resource markings RESOURCE_RID",
+      "executed_command": "pal-found-filesystem resource markings ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.resource",
+      "sdk_source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "sdk_signature": "(self, resource_rid: typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')], *, page_size: Optional[int] = None, page_token: Optional[str] = None, request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> foundry_sdk._core.resource_iterator.AsyncResourceIterator[str]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "GET",
+          "url": "https://offline.invalid/api/v2/filesystem/resources/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8/markings?pageSize=100",
+          "body": "",
+          "content_type": null
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": []
+    },
+    {
+      "operation": "resource.permanently_delete",
+      "command": "pal-found-filesystem resource permanently-delete RESOURCE_RID",
+      "executed_command": "pal-found-filesystem resource permanently-delete ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.resource",
+      "sdk_source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "sdk_signature": "(self, resource_rid: typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')], *, request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> Awaitable[NoneType]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "POST",
+          "url": "https://offline.invalid/api/v2/filesystem/resources/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8/permanentlyDelete",
+          "body": "",
+          "content_type": null
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": []
+    },
+    {
+      "operation": "resource.remove_markings",
+      "command": "pal-found-filesystem resource remove-markings RESOURCE_RID --marking-ids '[\"18212f9a-0e63-4b79-96a0-aae04df23336\"]'",
+      "executed_command": "pal-found-filesystem resource remove-markings ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8 --marking-ids '[\"18212f9a-0e63-4b79-96a0-aae04df23336\"]'",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.resource",
+      "sdk_source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "sdk_signature": "(self, resource_rid: typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')], *, marking_ids: List[str], request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> Awaitable[NoneType]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "POST",
+          "url": "https://offline.invalid/api/v2/filesystem/resources/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8/removeMarkings",
+          "body": "{\"markingIds\": [\"18212f9a-0e63-4b79-96a0-aae04df23336\"]}",
+          "content_type": "application/json"
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": []
+    },
+    {
+      "operation": "resource.restore",
+      "command": "pal-found-filesystem resource restore RESOURCE_RID",
+      "executed_command": "pal-found-filesystem resource restore ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.resource",
+      "sdk_source_sha256": "70a48d6aab58350fc8d676af0cf4f7e5d1e61e7488752e209e46c9d4b6d6231a",
+      "sdk_signature": "(self, resource_rid: typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')], *, request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> Awaitable[NoneType]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "POST",
+          "url": "https://offline.invalid/api/v2/filesystem/resources/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8/restore",
+          "body": "",
+          "content_type": null
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": []
+    },
+    {
+      "operation": "resource_role.add",
+      "command": "pal-found-filesystem resource-role add RESOURCE_RID --roles '[{\"resourceRolePrincipal\":{\"type\":\"principalIdOnly\",\"principalId\":\"f05f8da4-b84c-4fca-9c77-8af0b13d11de\"},\"roleId\":\"8bf49052-dc37-4528-8bf0-b551cfb71268\"}]'",
+      "executed_command": "pal-found-filesystem resource-role add ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8 --roles '[{\"resourceRolePrincipal\":{\"type\":\"principalIdOnly\",\"principalId\":\"f05f8da4-b84c-4fca-9c77-8af0b13d11de\"},\"roleId\":\"8bf49052-dc37-4528-8bf0-b551cfb71268\"}]'",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.resource_role",
+      "sdk_source_sha256": "71c9a83326cc70948e2935ae9e980eec333dd9ccc7cc40da838e823802194486",
+      "sdk_signature": "(self, resource_rid: typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')], *, roles: List[foundry_sdk.v2.filesystem.models.ResourceRoleIdentifier], request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> Awaitable[NoneType]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "POST",
+          "url": "https://offline.invalid/api/v2/filesystem/resources/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8/roles/add",
+          "body": "{\"roles\": [{\"resourceRolePrincipal\": {\"principalId\": \"f05f8da4-b84c-4fca-9c77-8af0b13d11de\", \"type\": \"principalIdOnly\"}, \"roleId\": \"8bf49052-dc37-4528-8bf0-b551cfb71268\"}]}",
+          "content_type": "application/json"
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": []
+    },
+    {
+      "operation": "resource_role.list",
+      "command": "pal-found-filesystem resource-role list RESOURCE_RID",
+      "executed_command": "pal-found-filesystem resource-role list ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.resource_role",
+      "sdk_source_sha256": "71c9a83326cc70948e2935ae9e980eec333dd9ccc7cc40da838e823802194486",
+      "sdk_signature": "(self, resource_rid: typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')], *, include_inherited: Optional[bool] = None, page_size: Optional[int] = None, page_token: Optional[str] = None, request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> foundry_sdk._core.resource_iterator.AsyncResourceIterator[foundry_sdk.v2.filesystem.models.ResourceRole]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "GET",
+          "url": "https://offline.invalid/api/v2/filesystem/resources/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8/roles?pageSize=100",
+          "body": "",
+          "content_type": null
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": [
+        {
+          "flag": "include_inherited",
+          "exception": "PermissionDeniedError",
+          "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+          "requests": [
+            {
+              "method": "GET",
+              "url": "https://offline.invalid/api/v2/filesystem/resources/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8/roles?includeInherited=true&pageSize=100",
+              "body": "",
+              "content_type": null
+            }
+          ],
+          "validation": "PASS"
+        }
+      ]
+    },
+    {
+      "operation": "resource_role.remove",
+      "command": "pal-found-filesystem resource-role remove RESOURCE_RID --roles '[{\"resourceRolePrincipal\":{\"type\":\"principalIdOnly\",\"principalId\":\"f05f8da4-b84c-4fca-9c77-8af0b13d11de\"},\"roleId\":\"8bf49052-dc37-4528-8bf0-b551cfb71268\"}]'",
+      "executed_command": "pal-found-filesystem resource-role remove ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8 --roles '[{\"resourceRolePrincipal\":{\"type\":\"principalIdOnly\",\"principalId\":\"f05f8da4-b84c-4fca-9c77-8af0b13d11de\"},\"roleId\":\"8bf49052-dc37-4528-8bf0-b551cfb71268\"}]'",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.resource_role",
+      "sdk_source_sha256": "71c9a83326cc70948e2935ae9e980eec333dd9ccc7cc40da838e823802194486",
+      "sdk_signature": "(self, resource_rid: typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')], *, roles: List[foundry_sdk.v2.filesystem.models.ResourceRoleIdentifier], request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> Awaitable[NoneType]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "POST",
+          "url": "https://offline.invalid/api/v2/filesystem/resources/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8/roles/remove",
+          "body": "{\"roles\": [{\"resourceRolePrincipal\": {\"principalId\": \"f05f8da4-b84c-4fca-9c77-8af0b13d11de\", \"type\": \"principalIdOnly\"}, \"roleId\": \"8bf49052-dc37-4528-8bf0-b551cfb71268\"}]}",
+          "content_type": "application/json"
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": []
+    },
+    {
+      "operation": "space.create",
+      "command": "pal-found-filesystem space create --deletion-policy-organizations '[\"ri.multipass..organization.c30ee6ad-b5e4-4afe-a74f-fe4a289f2faa\"]' --display-name Orders --enrollment-rid ENROLLMENT_RID --organizations '[\"ri.multipass..organization.c30ee6ad-b5e4-4afe-a74f-fe4a289f2faa\"]'",
+      "executed_command": "pal-found-filesystem space create --deletion-policy-organizations '[\"ri.multipass..organization.c30ee6ad-b5e4-4afe-a74f-fe4a289f2faa\"]' --display-name Orders --enrollment-rid ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8 --organizations '[\"ri.multipass..organization.c30ee6ad-b5e4-4afe-a74f-fe4a289f2faa\"]'",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.space",
+      "sdk_source_sha256": "24fa254828573ccb520b15f3062a84b56a187ac9ba7a25bcd81ce7b9414e0317",
+      "sdk_signature": "(self, *, deletion_policy_organizations: List[Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')]], display_name: str, enrollment_rid: typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')], organizations: List[Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')]], default_role_set_id: Optional[str] = None, description: Optional[str] = None, file_system_id: Optional[str] = None, preview: Optional[bool] = None, usage_account_rid: Optional[Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')]] = None, request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> Awaitable[foundry_sdk.v2.filesystem.models.Space]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "POST",
+          "url": "https://offline.invalid/api/v2/filesystem/spaces",
+          "body": "{\"enrollmentRid\": \"ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8\", \"displayName\": \"Orders\", \"organizations\": [\"ri.multipass..organization.c30ee6ad-b5e4-4afe-a74f-fe4a289f2faa\"], \"deletionPolicyOrganizations\": [\"ri.multipass..organization.c30ee6ad-b5e4-4afe-a74f-fe4a289f2faa\"]}",
+          "content_type": "application/json"
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": [
+        {
+          "flag": "preview",
+          "exception": "PermissionDeniedError",
+          "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+          "requests": [
+            {
+              "method": "POST",
+              "url": "https://offline.invalid/api/v2/filesystem/spaces?preview=true",
+              "body": "{\"enrollmentRid\": \"ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8\", \"displayName\": \"Orders\", \"organizations\": [\"ri.multipass..organization.c30ee6ad-b5e4-4afe-a74f-fe4a289f2faa\"], \"deletionPolicyOrganizations\": [\"ri.multipass..organization.c30ee6ad-b5e4-4afe-a74f-fe4a289f2faa\"]}",
+              "content_type": "application/json"
+            }
+          ],
+          "validation": "PASS"
+        }
+      ]
+    },
+    {
+      "operation": "space.delete",
+      "command": "pal-found-filesystem space delete SPACE_RID",
+      "executed_command": "pal-found-filesystem space delete ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.space",
+      "sdk_source_sha256": "24fa254828573ccb520b15f3062a84b56a187ac9ba7a25bcd81ce7b9414e0317",
+      "sdk_signature": "(self, space_rid: typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')], *, preview: Optional[bool] = None, request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> Awaitable[NoneType]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "DELETE",
+          "url": "https://offline.invalid/api/v2/filesystem/spaces/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8",
+          "body": "",
+          "content_type": null
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": [
+        {
+          "flag": "preview",
+          "exception": "PermissionDeniedError",
+          "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+          "requests": [
+            {
+              "method": "DELETE",
+              "url": "https://offline.invalid/api/v2/filesystem/spaces/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8?preview=true",
+              "body": "",
+              "content_type": null
+            }
+          ],
+          "validation": "PASS"
+        }
+      ]
+    },
+    {
+      "operation": "space.get",
+      "command": "pal-found-filesystem space get SPACE_RID",
+      "executed_command": "pal-found-filesystem space get ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.space",
+      "sdk_source_sha256": "24fa254828573ccb520b15f3062a84b56a187ac9ba7a25bcd81ce7b9414e0317",
+      "sdk_signature": "(self, space_rid: typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')], *, preview: Optional[bool] = None, request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> Awaitable[foundry_sdk.v2.filesystem.models.Space]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "GET",
+          "url": "https://offline.invalid/api/v2/filesystem/spaces/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8",
+          "body": "",
+          "content_type": null
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": [
+        {
+          "flag": "preview",
+          "exception": "PermissionDeniedError",
+          "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+          "requests": [
+            {
+              "method": "GET",
+              "url": "https://offline.invalid/api/v2/filesystem/spaces/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8?preview=true",
+              "body": "",
+              "content_type": null
+            }
+          ],
+          "validation": "PASS"
+        }
+      ]
+    },
+    {
+      "operation": "space.list",
+      "command": "pal-found-filesystem space list",
+      "executed_command": "pal-found-filesystem space list",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.space",
+      "sdk_source_sha256": "24fa254828573ccb520b15f3062a84b56a187ac9ba7a25bcd81ce7b9414e0317",
+      "sdk_signature": "(self, *, page_size: Optional[int] = None, page_token: Optional[str] = None, request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> foundry_sdk._core.resource_iterator.AsyncResourceIterator[foundry_sdk.v2.filesystem.models.Space]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "GET",
+          "url": "https://offline.invalid/api/v2/filesystem/spaces?pageSize=100",
+          "body": "",
+          "content_type": null
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": []
+    },
+    {
+      "operation": "space.replace",
+      "command": "pal-found-filesystem space replace SPACE_RID --display-name Orders",
+      "executed_command": "pal-found-filesystem space replace ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8 --display-name Orders",
+      "placeholder_note": "Documented RID placeholders substituted with syntactically valid offline RID; no existence or authorization claimed",
+      "parser": "PASS",
+      "sdk_module": "foundry_sdk.v2.filesystem.space",
+      "sdk_source_sha256": "24fa254828573ccb520b15f3062a84b56a187ac9ba7a25bcd81ce7b9414e0317",
+      "sdk_signature": "(self, space_rid: typing.Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')], *, display_name: str, default_role_set_id: Optional[str] = None, description: Optional[str] = None, preview: Optional[bool] = None, usage_account_rid: Optional[Annotated[str, StringConstraints(strip_whitespace=None, to_upper=None, to_lower=None, strict=None, min_length=None, max_length=None, pattern='^ri\\\\.[a-z][a-z0-9-]*\\\\.([a-z0-9][a-z0-9\\\\-]*)?\\\\.[a-z][a-z0-9-]*\\\\.[a-zA-Z0-9._-]+$')]] = None, request_timeout: Optional[Annotated[int, FieldInfo(annotation=NoneType, required=True, metadata=[Gt(gt=0)])]] = None, _sdk_internal: foundry_sdk._core.api_client.SdkInternal = {}) -> Awaitable[foundry_sdk.v2.filesystem.models.Space]",
+      "source_oracle_hash_matches": true,
+      "exception": "PermissionDeniedError",
+      "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+      "mock_http_requests": [
+        {
+          "method": "PUT",
+          "url": "https://offline.invalid/api/v2/filesystem/spaces/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8",
+          "body": "{\"displayName\": \"Orders\"}",
+          "content_type": "application/json"
+        }
+      ],
+      "sdk_validation_and_serialization": "PASS",
+      "boolean_flag_probes": [
+        {
+          "flag": "preview",
+          "exception": "PermissionDeniedError",
+          "exception_text": "{\n    \"errorCode\": \"PERMISSION_DENIED\",\n    \"errorInstanceId\": \"00000000-0000-0000-0000-000000000000\",\n    \"errorName\": \"OfflineReviewDenied\",\n    \"parameters\": {}\n}",
+          "requests": [
+            {
+              "method": "PUT",
+              "url": "https://offline.invalid/api/v2/filesystem/spaces/ri.compass.main.folder.01a79a9d-e293-48db-a585-9ffe221536e8?preview=true",
+              "body": "{\"displayName\": \"Orders\"}",
+              "content_type": "application/json"
+            }
+          ],
+          "validation": "PASS"
+        }
+      ]
+    }
+  ],
+  "paging_probe": {
+    "result": [],
+    "requests": [
+      "https://offline.invalid/api/v2/filesystem/spaces?pageSize=100",
+      "https://offline.invalid/api/v2/filesystem/spaces?pageSize=100&pageToken=second"
+    ],
+    "pages_fetched": 2,
+    "next_page_token": null
+  }
+}

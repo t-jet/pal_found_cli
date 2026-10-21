@@ -1,4 +1,6 @@
 # Software Requirements Specification  
+
+Current dependency/API and retry/timeout corrections are recorded in the [2026-10-20 shared CLI contract amendment](../architecture/FEATURE-015-shared-cli-contract-amendment-2026-10-20.md). Original text below is retained as decision history.
 ## Foundry CLI — Agentic Toolset for Palantir Foundry API v2
 
 | Field | Value |

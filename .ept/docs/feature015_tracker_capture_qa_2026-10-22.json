@@ -1,0 +1,93 @@
+{
+  "reviewer": "/root/tracker_capture_qa_21",
+  "started_at": "2026-10-21T21:01:48.002555+00:00",
+  "finished_at": "2026-10-21T21:01:52.682936+00:00",
+  "branch": "feature015/parent-tracker-data",
+  "observed_at_local": "2026-10-22T00:01:52.682936+03:00",
+  "local_timezone": "Europe/Sofia (UTC+03:00 on 2026-10-22)",
+  "checkout_head": "9fcbac92531500bc6b8d8393f87be164390bfc47",
+  "repair_baseline_commit": "9f3c1eba219e7b8c457d92ac864490c48e2a6139",
+  "scope": "Tracker capture only. No FEATURE release approval or J12 waiver.",
+  "tickets": 1029,
+  "links": 1566,
+  "comments_byte_equal_live": 10870,
+  "source_files": 11933,
+  "captured_files": 11932,
+  "source_stable": true,
+  "capture_stable": true,
+  "source_before_sha256": "7be968cfb4bcc7f73c39185badc02eeb55c97d3b471ac554f49a39ea538335ac",
+  "source_after_sha256": "7be968cfb4bcc7f73c39185badc02eeb55c97d3b471ac554f49a39ea538335ac",
+  "capture_before_sha256": "39bdb76885fc2c9065d2a01b5224a82037aef748f558ed32aeabc99de50070e2",
+  "capture_after_sha256": "39bdb76885fc2c9065d2a01b5224a82037aef748f558ed32aeabc99de50070e2",
+  "live_index_sha256": "22c0aac4fff1e83255815fcc8a2417dbfc04cb4ed6887555f2f9b72346112a97",
+  "captured_index_sha256": "22c0aac4fff1e83255815fcc8a2417dbfc04cb4ed6887555f2f9b72346112a97",
+  "live_links_sha256": "0be8e795d4eeb10933635b83ba6f89d853559c031503283da73382c89b9b32c6",
+  "captured_links_sha256": "3cb1bdc10d83f5aa14a355b4108e179c2de7b0db405ee04ddf9de6f26d43fde7",
+  "link_counter": 2028,
+  "maximum_surviving_link": 2027,
+  "six_repair_rows_preserved": [
+    "LINK-01027",
+    "LINK-01028",
+    "LINK-01278",
+    "LINK-01612",
+    "LINK-01981",
+    "LINK-01982"
+  ],
+  "archive_sha256": "9351494e8b1522c534b4b7adefd10e1effc03c828d62256c39dff11471036d9f",
+  "tracker_engine_delta_from_capture_head": [],
+  "tracker_engine_files": 45,
+  "tracker_engine_sha256": "1eb43cc02db8308f1654790d09503c600491c7b132bc60d5fcb284d0f3dc0c37",
+  "engine_test_policy": "Data-only capture: tracker engine unchanged from capture HEAD. Prior 442-test engine evidence is separate and was not repeated or compared with live historical engine files.",
+  "status_checks": {
+    "BUG-036": "Closed",
+    "BUG-037": "Closed",
+    "BUG-038": "Closed",
+    "BUG-039": "Closed",
+    "BUG-040": "Closed",
+    "BUG-041": "Closed",
+    "BUG-042": "Closed",
+    "BUG-043": "Closed",
+    "BUG-044": "Closed",
+    "BUG-045": "Closed",
+    "QUESTION-192": "Closed",
+    "QUESTION-193": "Closed",
+    "DEV-STORY-072": {
+      "status": "Deployment",
+      "children": {
+        "DESIGN-075": "Closed",
+        "DEV-075": "Closed",
+        "UNITTEST-075": "Closed",
+        "CODEREVIEW-076": "Closed",
+        "TESTCASE-075": "Closed",
+        "TESTEXEC-075": "Closed"
+      }
+    },
+    "DEV-STORY-085": {
+      "status": "Deployment",
+      "children": {
+        "DESIGN-082": "Closed",
+        "DEV-082": "Closed",
+        "UNITTEST-082": "Closed",
+        "CODEREVIEW-083": "Closed",
+        "TESTCASE-082": "Closed",
+        "TESTEXEC-082": "Closed"
+      }
+    },
+    "DEV-STORY-074": {
+      "status": "Deployment",
+      "children": {
+        "DESIGN-076": "Closed",
+        "DEV-076": "Closed",
+        "UNITTEST-076": "Closed",
+        "CODEREVIEW-077": "Closed",
+        "TESTCASE-076": "Closed",
+        "TESTEXEC-076": "Closed"
+      }
+    },
+    "BUG-SUB-025": "In Progress",
+    "TESTEXEC-064": "Open",
+    "FEATURE-015": "Waiting for Implementation"
+  },
+  "errors": [],
+  "verdict": "PASS"
+}

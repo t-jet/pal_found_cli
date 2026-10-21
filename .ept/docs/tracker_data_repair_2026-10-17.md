@@ -1,0 +1,30 @@
+# Tracker data repair, 2026-10-17
+
+Commit `435ccb5c` records the live `.ept/tracker` directory byte for byte before these repairs. It is the source for any later recovery of discarded fragments or the unindexed ticket copy.
+
+The link index had five stray CSV rows. Three held only fragments of already complete rows (`andoff.`, `2937`, and `55.502029`). Two followed broken rows. I removed all five fragments.
+
+- Restored `LINK-01027` and `LINK-01028` from `origin/main`. The snapshot had a truncated `LINK-01027` and only a fragment of `LINK-01028`; the committed upstream rows contain their full fields.
+- Rebuilt `LINK-01278` from its two surviving fragments. The source, target, type, timestamp, and author were present. Its standard `Contains` target role is `Contained In`; its comment remains empty.
+- Kept both relationships recorded as `LINK-01612`. The `DEV-STORY-091` dependency keeps that ID. The `FEATURE-015` to `DEV-STORY-092` relationship was first reassigned `LINK-01980` in the repair commit. A later QA link used that ID in the live tracker, so the final branch assigns this historical relationship `LINK-01981`; its other recorded fields are unchanged.
+- Moved the unindexed root `CODEREVIEW-002/ticket.md` to [legacy_codereview_002_unindexed.md](legacy_codereview_002_unindexed.md) without changing its bytes. The indexed `DEV-STORY-002/CODEREVIEW-002/ticket.md` remains the active ticket. The archived copy has SHA-256 `9351494e8b1522c534b4b7adefd10e1effc03c828d62256c39dff11471036d9f`.
+
+`LINK-01279` has no recoverable row in the snapshot or `origin/main`. Its ID stays unused. This repair does not assert which tickets it linked or when it was created.
+
+Validation of the repair commit found 1,012 indexed tickets and matching ticket files, 1,542 unique links with existing endpoints, and no duplicate relationship triples. Only the two config files and the archived root ticket differed from the raw tracker snapshot; comment files were untouched.
+
+The first QA capture added `TESTCASE-085`, `TESTEXEC-085`, and their then-active `LINK-01980` blocking relationship. After QA approved the case and closed both tickets, the link was removed. The later capture copies their final ticket files and comments, adds the closed `BUG-SUB-034` ticket and its comments, and retains `BUG-034` as Open.
+
+The live tracker used `LINK-01981` for a temporary `BUG-SUB-034` blocker, then removed it at closure. This branch already uses that ID for the repaired historical `FEATURE-015` relationship, so it keeps that relationship. The tracker CLI created `LINK-01982` for the live `TESTEXEC-085` to `TESTCASE-085` `RelatesTo` relationship. Its timestamp records the draft CLI action; the live row was created earlier on 2026-10-18 at 11:56:55.261905. At that capture, the branch had 1,015 indexed tickets, 1,543 unique links, and a link counter of 1982. Raw snapshot and repair commits remain unchanged in history.
+
+Later QA closed `BUG-SUB-031`, `BUG-SUB-032`, and `BUG-SUB-033`. Their final ticket files, index statuses, and comments are copied from the live tracker. The tracker CLI removed `LINK-01970` and `LINK-01974`, the two blockers for `TESTEXEC-080`, after the related defects closed. `LINK-01968` and `LINK-01979` remain; `TESTEXEC-075` is still Open. This capture has 1,015 indexed tickets and 1,541 unique links. The link counter remains 1982.
+
+The 2026-10-19 capture adds the closed `QUESTION-190` ticket and comments, closes `BUG-SUB-029` and `BUG-SUB-030`, and records the live `DEV-STORY-085` child workflow. At capture, `DEV-082` was Resolved, `UNITTEST-082` was Closed, `CODEREVIEW-083` was Open, `TESTCASE-082` was In Progress, and `TESTEXEC-082` was Open. The new `LINK-01983` and `LINK-01985` rows were copied from the live index with their recorded fields. `LINK-01987` now records code review blocking development closure; the obsolete reverse blocker `LINK-01871` was removed through the live workflow. The live index has no rows for `LINK-01984` or `LINK-01986`; these IDs remain unused, with no relationship inferred. The link counter is 1987 and the question counter is 190. This capture has 1,016 indexed tickets, 1,543 unique links, and 10,308 comment files matching live bytes. The repaired historical links, including `LINK-01981` and `LINK-01982`, remain in place.
+
+The 2026-10-20 capture contains 1,026 indexed tickets, 1,566 unique links with valid endpoints, and 10,421 comment files matching live bytes. Link counter 2015 exceeds the maximum surviving ID 2014 because the QUESTION-193 blocker was removed at closure. QUESTION-192 and QUESTION-193 are Closed; BUG-036 through BUG-042 are In Progress. DEV-STORY-085 is Deployment with all six children Closed. All live ticket/index/counter bytes were captured after writers stopped; the documented CSV repairs and archived root ticket exception remain unchanged. Validation reported zero errors; this data capture does not approve the open tool defects or FEATURE-015 release.
+
+Independent acceptance: [2026-10-20 tracker capture QA](feature015_tracker_capture_qa_2026-10-20.json).
+
+The 2026-10-22 capture (Europe/Sofia) contains 1,029 indexed tickets, 1,566 unique links with valid endpoints and 10,870 comment files matching live bytes. Link counter 2028 exceeds the maximum surviving ID 2027 because the verified BUG-045 blocker was removed. BUG-036 through BUG-045 are Closed. DEV-STORY-072, DEV-STORY-074 and DEV-STORY-085 are Deployment with all six workflow children Closed. BUG-034's `LINK-01959` and the separate J12 dependency remain unchanged.
+
+Independent [capture QA](feature015_tracker_capture_qa_2026-10-22.json) verified stable live and captured fingerprints, every indexed path/status, comment bytes, counters, all six historical repair rows and the original archive hash. The unrecoverable `LINK-01279` remains absent. The 45 tracked tracker-engine files are unchanged from this capture branch's previous head; this data review makes no claim that older live engine files equal the separately reviewed integration code. No FEATURE-015 or J12 release approval is implied.
