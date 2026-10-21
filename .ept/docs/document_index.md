@@ -202,6 +202,8 @@ This project follows a structured documentation approach organized into logical 
 
 ### QA Deliverables
 
+- [Functions SSE adapter QA (2026-10-21)](deliverables/qa/FEATURE-015-functions-sse-correction-2026-10-21/README.md): independent BUG-043 regression, six-page retest and passing CI at tool ddfab5d.
+
 - [Shared CLI correction QA (2026-10-20)](deliverables/qa/FEATURE-015-shared-cli-corrections-2026-10-20/README.md): independent runtime, packaging and guidance evidence for BUG-036 through BUG-042 at tool657215f.
 
 - [TESTCASE-004 — AccessControlGuard and PaginationHelper QA Test Cases](deliverables/qa/TESTCASE-004-test-cases.md) — Test case design for DEV-STORY-003 covering ACL precedence, metadata-only allow-list behavior, pagination controls, stderr metadata, parser exposure, and smoke/environment labels.

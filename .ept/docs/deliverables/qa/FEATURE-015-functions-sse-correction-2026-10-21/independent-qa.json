@@ -1,0 +1,222 @@
+{
+  "reviewed_at_utc": "2026-10-21T12:35:52.927946+00:00",
+  "status": "PASS",
+  "cli_commit": "ddfab5d13bd01a1f244a4446cd10764c9091f65a",
+  "skills_commit": "e5c0dabd3ecee8ea758ec2775d94d7cc4ee56e7d",
+  "initial_review": {
+    "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_functions_pages_initial_review.json",
+    "sha256": "2b48ada72956795411aa5191b2f72eb03371b283e8961ccd0d38990fde853f9a",
+    "status": "FAIL",
+    "preserved": true
+  },
+  "sdk": {
+    "version": "1.101.0",
+    "source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
+    "query_sha256": "5242d695ca2cc7ae2ea0afccc814bece3f3d77bea98a5c11beb53ec2e4dedcde",
+    "query_hash_matches_frozen_formal085": true,
+    "compatibility_boundary": "Independent Functions wire/wrapper tests also pass installed1.111.0; this does not establish all SDK versions."
+  },
+  "baseline_counterexample": {
+    "example": "pal-found-functions query streaming-execute <QUERY_API_NAME> --parameters '{\"limit\":10}'",
+    "requests": [
+      {
+        "method": "POST",
+        "path": "/api/v2/functions/queries/exampleQuery/streamingExecute",
+        "query": "",
+        "accept": "text/event-stream",
+        "body": "{\"parameters\": {\"limit\": 10}}"
+      }
+    ],
+    "return_class": "AsyncSseContextManager",
+    "requests_before_decode": 0,
+    "exception": {
+      "type": "AttributeError",
+      "message": "'AsyncSseContextManager' object has no attribute 'decode'"
+    },
+    "status": "FAIL_CLI_SDK_RETURN_CONTRACT",
+    "typed_events": [
+      {
+        "value": [
+          {
+            "label": "caf\u00e9",
+            "n": 10
+          }
+        ],
+        "type": "data"
+      },
+      {
+        "errorCode": "INVALID_ARGUMENT",
+        "errorName": "QueryRuntimeError",
+        "errorInstanceId": "3f8a9c7b-2e4d-4a1f-9b8c-7d6e5f4a3b2c",
+        "errorDescription": "offline fixture",
+        "parameters": {},
+        "type": "error"
+      }
+    ]
+  },
+  "seven_examples": [
+    {
+      "example": "pal-found-functions query execute <QUERY_API_NAME> --parameters '{\"limit\":10}'",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/functions/queries/exampleQuery/execute",
+          "query": "",
+          "accept": "application/json",
+          "body": "{\"parameters\": {\"limit\": 10}}"
+        }
+      ],
+      "status": "PASS_REQUEST_SERIALIZATION",
+      "page": "references\\query.md"
+    },
+    {
+      "example": "pal-found-functions query get <QUERY_API_NAME>",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/functions/queries/exampleQuery",
+          "query": "",
+          "accept": "application/json",
+          "body": ""
+        }
+      ],
+      "status": "PASS_REQUEST_SERIALIZATION",
+      "page": "references\\query.md"
+    },
+    {
+      "example": "pal-found-functions query get-by-rid --rid <RID>",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/functions/queries/getByRid",
+          "query": "rid=ri.function-registry.main.function.example",
+          "accept": "application/json",
+          "body": ""
+        }
+      ],
+      "status": "PASS_REQUEST_SERIALIZATION",
+      "page": "references\\query.md"
+    },
+    {
+      "example": "pal-found-functions query get-by-rid-batch '[{\"rid\":\"ri.function-registry.main.function.example\"}]'",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/functions/queries/getByRidBatch",
+          "query": "",
+          "accept": "application/json",
+          "body": "[{\"rid\": \"ri.function-registry.main.function.example\"}]"
+        }
+      ],
+      "status": "PASS_REQUEST_SERIALIZATION",
+      "page": "references\\query.md"
+    },
+    {
+      "example": "pal-found-functions query streaming-execute <QUERY_API_NAME> --parameters '{\"limit\":10}'",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v2/functions/queries/exampleQuery/streamingExecute",
+          "query": "",
+          "accept": "text/event-stream",
+          "body": "{\"parameters\": {\"limit\": 10}}"
+        }
+      ],
+      "return_class": "bytes",
+      "output": "{\"value\":[{\"label\":\"caf\u00e9\",\"n\":10}],\"type\":\"data\"}\n{\"errorCode\":\"INVALID_ARGUMENT\",\"errorName\":\"QueryRuntimeError\",\"errorInstanceId\":\"3f8a9c7b-2e4d-4a1f-9b8c-7d6e5f4a3b2c\",\"errorDescription\":\"offline fixture\",\"parameters\":{},\"type\":\"error\"}\n",
+      "status": "PASS_REAL_SDK_SSE_TO_NDJSON",
+      "page": "references\\query.md"
+    },
+    {
+      "example": "pal-found-functions value-type get <VALUE_TYPE_RID>",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/functions/valueTypes/ri.value-types.main.value-type.example",
+          "query": "",
+          "accept": "application/json",
+          "body": ""
+        }
+      ],
+      "status": "PASS_REQUEST_SERIALIZATION",
+      "page": "references\\value-type.md"
+    },
+    {
+      "example": "pal-found-functions version-id get <VALUE_TYPE_RID> 123e4567-e89b-12d3-a456-426614174000",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v2/functions/valueTypes/ri.value-types.main.value-type.example/versionIds/123e4567-e89b-12d3-a456-426614174000",
+          "query": "",
+          "accept": "application/json",
+          "body": ""
+        }
+      ],
+      "status": "PASS_REQUEST_SERIALIZATION",
+      "page": "references\\version-id.md"
+    }
+  ],
+  "boundaries": {
+    "actual_sdk_typed_data_error": "PASS",
+    "SSE_multiline_heartbeat_split_utf8": "PASS",
+    "empty_stream": "PASS",
+    "timeout_iteration_retry_no_duplicate_output": "PASS",
+    "timeout_exhaustion_no_partial_stdout": "PASS",
+    "cancellation_closes_response_no_stdout": "PASS",
+    "read_error_single_structured_envelope": "PASS",
+    "invalid_JSON_invalid_model_wrong_content_type": "PASS",
+    "legacy_bytes_and_console_wrappers": "PASS"
+  },
+  "tests": [
+    {
+      "command": ".ept/tmp/feature015_shared_cli_qa_env/Scripts/python.exe .ept/tmp/feature015_functions_independent_probe.py",
+      "result": "7/7 examples pass parser and actual SDK HTTP serialization; streaming data/error SSE converts to NDJSON; baseline ddfab5d^ reproduces AttributeError before HTTP."
+    },
+    {
+      "command": "SDK1.101 pytest Functions wire + Functions CLI + console wrapper + retry timeout contract",
+      "result": "103 passed in1.89s"
+    },
+    {
+      "command": "SDK1.111 isolated environment with candidate src PYTHONPATH; pytest Functions wire + Functions CLI + console wrapper",
+      "result": "46 passed in1.66s"
+    }
+  ],
+  "page_review": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_functions_pages_review.json",
+  "source_files": [
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\functions\\scripts\\pal_found_functions_cli.py",
+      "sha256": "ab7bdadfdd063ccba01ae5908d8b6aa51d95b5838f9c0fe4d9b93328b73d07ef"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_functions_streaming_wire.py",
+      "sha256": "bec77b2ef8bb89d9ada2aba871fa7e44cf1b53a9861a7f19ab17d372154c5be7"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_pal_found_functions_cli.py",
+      "sha256": "2c152ae968dc784a7673fa98165cbacfe0b25cf4e29be0b3a3385a07058fb025"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\v2\\functions\\query.py",
+      "sha256": "5242d695ca2cc7ae2ea0afccc814bece3f3d77bea98a5c11beb53ec2e4dedcde"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\v2\\functions\\value_type.py",
+      "sha256": "780378bcab6eba283c8d17b36d725ebdd7cd2492e8a9d39126a43da2e18966d8"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\v2\\functions\\version_id.py",
+      "sha256": "6ac45540f6f850eaf9c54017c799ddb1196c41e811d35b231e92233c756aa1ba"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\_core\\sse.py",
+      "sha256": "546cb6b7c9c998fd832c68346564450ad40ca4440d0602dda0071e03b4626313"
+    }
+  ],
+  "limitations": [
+    "All transport fixtures are offline MockTransport, no live Foundry request.",
+    "Six nonstreaming examples verify request validation/serialization; tenant authorization, resource existence and successful server responses are not exercised.",
+    "SDK1.101 is frozen source oracle; SDK1.111 is separately tested compatibility point. No general all-version claim.",
+    "Buffered stream output uses memory proportional to completed stream payload.",
+    "BUG043 status and page promotion remain root-owned pending CI; this report changes neither."
+  ]
+}

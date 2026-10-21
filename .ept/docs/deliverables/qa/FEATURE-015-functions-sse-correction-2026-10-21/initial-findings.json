@@ -1,0 +1,268 @@
+{
+  "reviewed_at_utc": "2026-10-21T07:07:21.764006+00:00",
+  "status": "FAIL",
+  "scope": "All six actual Markdown pages under pal-found-functions; reviewer made no documentation, ledger or tracker edits.",
+  "sdk": {
+    "version": "1.101.0",
+    "source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
+    "path": "D:\\app\\Python\\Lib\\site-packages\\foundry_sdk",
+    "query_hash_matches_frozen_formal085": true,
+    "note": "Supplied customer SDK snapshot has unpublished0.0.0 and older protocol; not used as frozen1.101 oracle."
+  },
+  "cli_head_at_review": "2feb1fed64406ddc987d036ce7ae667d3bd11d9d",
+  "pages": [
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-functions\\references\\01-query.md",
+      "sha256": "30d882f6b46ed7e839f235c4c060f1d9ae4279ba007a946aef0265978c03857d",
+      "relative_path": "references/01-query.md",
+      "status": "PASS",
+      "checks": [
+        "Read complete index; all three relative resource links resolve and collectively cover seven operation records. No behavioral claim beyond linked resources."
+      ],
+      "findings": [],
+      "uncertainty": []
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-functions\\references\\inputs.md",
+      "sha256": "d4a3ec95cca0ac17ffd1d92160794ce8c67e97c86d73a52ca06c6d723a4f8221",
+      "relative_path": "references/inputs.md",
+      "status": "FAIL",
+      "checks": [
+        "Read complete identifier/parameter guidance. Verified API name versus RID selection, JSON object parameters, plain-string attribution, batch maximum100 and filtering, versions/branch semantics, value-type metadata reads. Streaming protocol claim needs correction."
+      ],
+      "findings": [
+        "FUNCTIONS-WP-01"
+      ],
+      "uncertainty": []
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-functions\\references\\query.md",
+      "sha256": "7a0156e14058d6fd750833b23c0eb9fae7edab712e65208b33a52dd5bdfe0a27",
+      "relative_path": "references/query.md",
+      "status": "FAIL",
+      "checks": [
+        "Read every paragraph, all five operation records, option lists, parameters, preconditions, results, errors, examples. All five examples parse; four serialize immediately. Streaming example fails actual SDK return handling. SDK confirms branch/version defaults, prerelease selector, batch omission/100 limit, query names and RID dispatch. Transaction, ontology, streaming claims fail."
+      ],
+      "findings": [
+        "FUNCTIONS-WP-01",
+        "FUNCTIONS-WP-02",
+        "FUNCTIONS-WP-03",
+        "FUNCTIONS-WP-04"
+      ],
+      "uncertainty": []
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-functions\\references\\value-type.md",
+      "sha256": "5693968867b57e5944f490ae188c349047b2750fd73ab9af795ca339e78b0f50",
+      "relative_path": "references/value-type.md",
+      "status": "PASS",
+      "checks": [
+        "Read whole operation record. Input/parser/SDK required RID and optional preview, latest-value-type semantics, returned ValueType, no execution and error behavior match. Example parser and real SDK wire serialization pass."
+      ],
+      "findings": [],
+      "uncertainty": []
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-functions\\references\\version-id.md",
+      "sha256": "d32c1de65fc7a869a7cac2d06d10ece1e4d8ba69db73a6add9503211cfe8f6fd",
+      "relative_path": "references/version-id.md",
+      "status": "FAIL",
+      "checks": [
+        "Read whole record. Nested ValueType.VersionId dispatch, two positionals, optional preview and returned VersionId match SDK. Example1 fails UUID type validation; versionId source guidance needs correction."
+      ],
+      "findings": [
+        "FUNCTIONS-WP-05"
+      ],
+      "uncertainty": []
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-functions\\SKILL.md",
+      "sha256": "019e4acd4207b71650d36ff4acfe5a3061cd8646d63e52f49f87553a855230ca",
+      "relative_path": "SKILL.md",
+      "status": "FAIL",
+      "checks": [
+        "Read complete capability, usage, index, options and parameters. Verified seven CLI operations, metadata versus execution, common parser, guard/retry/errors/output/B3 components. Official Functions overview/query guide consulted. Protocol and execute-status claims fail frozen source; see findings."
+      ],
+      "findings": [
+        "FUNCTIONS-WP-01",
+        "FUNCTIONS-WP-06"
+      ],
+      "uncertainty": []
+    }
+  ],
+  "findings": [
+    {
+      "id": "FUNCTIONS-WP-01",
+      "pages": [
+        "SKILL.md",
+        "references/inputs.md",
+        "references/query.md"
+      ],
+      "status": "FAIL",
+      "claim": "SDK streaming_execute returns NDJSON bytes and CLI successfully writes returned bytes.",
+      "evidence": "Frozen SDK1.101 source query SHA5242d695ca2cc7ae2ea0afccc814bece3f3d77bea98a5c11beb53ec2e4dedcde matches formal085 oracle. Method returns AsyncSseContextManager with text/event-stream. Actual CLI _invoke returns that manager; .decode raises AttributeError before HTTP. Entering manager with MockTransport decodes typed data/error events.",
+      "supported_patch": "Implement CLI consumption of typed SSE, retaining intended NDJSON stdout. Explain server SSE and CLI conversion accurately. Independently retest actual transport, error events, timeout and cleanup after implementation."
+    },
+    {
+      "id": "FUNCTIONS-WP-02",
+      "pages": [
+        "references/query.md"
+      ],
+      "status": "FAIL",
+      "claim": "Timeout can interrupt stream after partial stdout.",
+      "evidence": "Current CLI awaits result before a single stdout write, and actual SDK manager fails decode. No NDJSON is emitted before failure.",
+      "supported_patch": "Match timeout/partial-output guidance to final streaming implementation; do not claim partial stdout without evidence."
+    },
+    {
+      "id": "FUNCTIONS-WP-03",
+      "pages": [
+        "references/query.md"
+      ],
+      "status": "FAIL",
+      "claim": "transaction-id reads or applies changes.",
+      "evidence": "Both execute and streaming_execute SDK docs define transaction ID as transaction to read from, with experimental workflow support.",
+      "supported_patch": "Replace both descriptions with reads from specified transaction; transaction support is experimental and not all workflows may be supported."
+    },
+    {
+      "id": "FUNCTIONS-WP-04",
+      "pages": [
+        "references/query.md"
+      ],
+      "status": "FAIL",
+      "claim": "ontology selects Ontology used to resolve query object inputs.",
+      "evidence": "SDK ontology parameter selects ontology-scoped function; absence selects global function. execute endpoint handles global functions.",
+      "supported_patch": "Describe function execution scope explicitly; supplied ontology RID/API name executes ontology-scoped query, omission executes global query. Clarify execute scope."
+    },
+    {
+      "id": "FUNCTIONS-WP-05",
+      "pages": [
+        "references/version-id.md"
+      ],
+      "status": "FAIL",
+      "claim": "Version-id example uses integer 1; prose points to version listing.",
+      "evidence": "ValueTypeVersionId is constrained core.UUID; real SDK rejects 1 before HTTP. ValueType and VersionId metadata carry versionId; this CLI has no listing operation.",
+      "supported_patch": "Use a UUID version ID, distinguish versionId from numeric version, and obtain it from value-type get metadata."
+    },
+    {
+      "id": "FUNCTIONS-WP-06",
+      "pages": [
+        "SKILL.md"
+      ],
+      "status": "FAIL",
+      "claim": "Frozen SDK marks execute backward-compatibility-only.",
+      "evidence": "This sentence exists in older supplied unpublished0.0.0 snapshot. Frozen1.101 execute docstring describes global execution and directs incremental streaming callers to streamingExecute, without backward-compatibility-only status.",
+      "supported_patch": "Describe current frozen1.101 global execution scope and streaming alternative without attributing obsolete status to frozen SDK."
+    }
+  ],
+  "source_files": [
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\functions\\scripts\\pal_found_functions_cli.py",
+      "sha256": "0de3328a40cf709b641d119da705f90b6d4b9f7f42c28974ee35ca4984db3d8e"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_pal_found_functions_cli.py",
+      "sha256": "c284de6012d84e27c0e6c4e1d38ed986f312a2d920dfe5a2cb11f1f8753acfdc"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\pagination_helper.py",
+      "sha256": "b831ea4c2d64b48e5ed5a9558da2a19f4933d27d4290922d266030db1796e5db"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\config_loader.py",
+      "sha256": "b7ccddda86b733302f1f8f1800dfd172207361bdc661045b64871ded0e8af7bc"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\access_control_guard.py",
+      "sha256": "62aca2ad1b1504dbcdf1b1cee92f8e025cb3870694f506971bb24eb23efead61"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\retry.py",
+      "sha256": "3464aa78aaeaf3a592e789e5f0fb612f4c14cbc412ad0b37919f9b4c4487dda0"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\error_serializer.py",
+      "sha256": "8ef68e5e0065411c297d7119d40ee0898693062c2f7df02d2318c679151ac02b"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\output_formatter.py",
+      "sha256": "4b7f78a68cddb999a0474195f76545bd8f755d80ee18e71c9d0628c4718b7383"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\tracing_provider.py",
+      "sha256": "0cdc2b00727b83b723329cc71ac6179bb73860e47f0c4fcf14a6fec7f3b1cc56"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\async_client_factory.py",
+      "sha256": "6ca5c512a625ca019ff6070f8b4d9808db8946aa3dd18cce0268d0d3a62cd6b4"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\common\\timeout_config.py",
+      "sha256": "76b9896c096f689734e106b9be559ea59d2f22123799d423f39446172263e4c7"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\v2\\functions\\query.py",
+      "sha256": "5242d695ca2cc7ae2ea0afccc814bece3f3d77bea98a5c11beb53ec2e4dedcde"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\v2\\functions\\value_type.py",
+      "sha256": "780378bcab6eba283c8d17b36d725ebdd7cd2492e8a9d39126a43da2e18966d8"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\v2\\functions\\version_id.py",
+      "sha256": "6ac45540f6f850eaf9c54017c799ddb1196c41e811d35b231e92233c756aa1ba"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\v2\\functions\\models.py",
+      "sha256": "76ca5cd28f73937872a26f41937ad8251ffa4a6186dfefe09d84edaca5e852ec"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\_core\\sse.py",
+      "sha256": "546cb6b7c9c998fd832c68346564450ad40ca4440d0602dda0071e03b4626313"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\_version.py",
+      "sha256": "ef3616a11d49a728332e0138b0e505b884af85103aef2fa277fbf8c4adb1aa7e"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_rest085_formal_qa.json",
+      "sha256": "134c1dec26f4453d9bc2baf85cd80b8f7f3c22bde7708ae582de68db65bb7396"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_functions_probe.py",
+      "sha256": "1bb864bebecbc8c1515ce8b2b9ce97f3bca7b36c270d4b6231c8f1f8c211de7b"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_functions_probe_results.json",
+      "sha256": "8f73f9a4132c9e653e414b5514541cfb3f4837ba70f8d41adeddf4a42c62cfcb"
+    }
+  ],
+  "actual_probes": [
+    {
+      "command": ".ept/tmp/feature015_shared_cli_qa_env/Scripts/python.exe -m pytest .ept/tmp/feature015_shared_cli_fixes/tests/test_pal_found_functions_cli.py -q --basetemp=.ept/tmp/feature015_functions_review_tests",
+      "result": "33 passed in0.26s",
+      "interpretation": "Existing streaming test mocks bytes; passing tests do not establish real SDK stream compatibility."
+    },
+    {
+      "command": ".ept/tmp/feature015_shared_cli_qa_env/Scripts/python.exe .ept/tmp/feature015_functions_probe.py",
+      "result": "Seven parser examples checked; five serialize; streaming fails CLI .decode contract; version1 fails UUID. Real SSE response fixture decodes typed data and error after entering manager. All HTTP local MockTransport; no live requests."
+    }
+  ],
+  "primary_links": [
+    {
+      "url": "https://www.palantir.com/docs/foundry/functions/overview",
+      "checked": "Server-side authored logic, Ontology workflows and isolation."
+    },
+    {
+      "url": "https://www.palantir.com/docs/foundry/functions/query-functions/",
+      "checked": "Published query API consumption and typed inputs/outputs."
+    },
+    {
+      "url": "https://github.com/palantir/foundry-platform-python/blob/168d51910570b6966afa2320333ab36f6a3f7ccf/foundry_sdk/v2/functions/query.py",
+      "checked": "Frozen source linkage from formal085; locally verified exact source hash."
+    }
+  ],
+  "limitations": [
+    "No tenant requests; authorization and resource existence checked from SDK/docs, without a running Foundry instance.",
+    "Review captures pre-fix pages/tool. Root assigned separate CLI and documentation authors; no correction is approved by this report."
+  ]
+}
