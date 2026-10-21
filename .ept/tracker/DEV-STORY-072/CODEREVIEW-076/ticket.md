@@ -2,9 +2,9 @@
 id: CODEREVIEW-076
 type: codereview
 title: DEV-STORY-072 codereview authorization policy and marking lifecycle REST contracts
-status: Blocked
+status: Closed
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-21
 priority: High
 assignee: architect
 reporter: tech-lead

@@ -2,13 +2,14 @@
 id: TESTEXEC-075
 type: testexec
 title: DEV-STORY-072 testexec authorization policy and marking lifecycle REST contracts
-status: Open
+status: Closed
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-21
 priority: High
 assignee: qa-engineer
 reporter: tech-lead
 estimated_hours: 10
+time_spent_hours: 0.001120714055555507
 ---
 
 # DEV-STORY-072 testexec

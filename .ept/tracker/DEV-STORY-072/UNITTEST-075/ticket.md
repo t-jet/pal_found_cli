@@ -2,13 +2,14 @@
 id: UNITTEST-075
 type: unittest
 title: DEV-STORY-072 unittest authorization policy and marking lifecycle REST contracts
-status: In Progress
+status: Closed
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-21
 priority: High
 assignee: python-developer
 reporter: tech-lead
 estimated_hours: 8
+time_spent_hours: 0.001216667
 ---
 
 # DEV-STORY-072 unittest
