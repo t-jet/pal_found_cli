@@ -1,0 +1,118 @@
+{
+  "reviewer": "/root/shared_cli_independent_qa",
+  "date": "2026-10-20",
+  "candidate_sha": "ea4f772b172e99283253d3f6e43573bcde038318",
+  "baseline_sha": "0963e6e006f82ad1997be0e22c6b750ed0bbce3b",
+  "overall_result": "FAIL: broad regression gate requires test corrections and a passing independent rerun",
+  "independent_contract_probes": {
+    "result": "PASS",
+    "checks": 330,
+    "format_parser": 271,
+    "retry_counts_bounds_cancellation": 20,
+    "sdk_outer_timeout": 30,
+    "actual_sdk_wire": 9
+  },
+  "broad_suite": {
+    "result": "FAIL",
+    "passed": 1574,
+    "failed": 109,
+    "total": 1683,
+    "baseline_passed": 1523,
+    "baseline_failed": 5,
+    "baseline_total": 1528,
+    "all_candidate_failures_passed_baseline": true,
+    "classification_counts": {
+      "Zero-keyword RetryHandler test double rejects newly required effective timeout forwarding": 26,
+      "QA environment dependency absent in subprocess; rerun with approved wheel installed": 5,
+      "Parser expectation still requires argparse SystemExit; approved contract now structured CLIInputError": 20,
+      "Obsolete aligned-table separator oracle; approved output now real TOON": 2,
+      "Cross-test timeout environment contamination and/or new preview kwargs; inspect exact expected/actual calls": 56
+    }
+  },
+  "source_review": {
+    "result": "PASS for bounded runtime correction design; regression gate remains open",
+    "findings_retested": [
+      "Parser exceptions suppress argparse context with raise from None; raw invalid values absent in actual JSON traceback output.",
+      "Unexpected encoder failure emits generic stderr warning and preserves result through JSON fallback.",
+      "Checkpoint pagination now sends preview=true on every captured SDK request.",
+      "Shared timeout resolver reaches SDK kwargs and outer wait_for consistently; Streams retains separate default120 and normalization."
+    ],
+    "coverage": [
+      "All18 namespace parser/default-format imports and main formatter paths;216 environment/explicit-output combinations with actual TOON decoding.",
+      "Shared retry actual call and sleep counts, legacy retries, bounded awaitable cancellation.",
+      "Three representative main/dispatch paths: Filesystem, Streams and Checkpoints,30 timeout/default/bounds cases.",
+      "Seven preview operations with real SDK request encoding, two actual search pages, four real SDK HTTP503 wire attempts at default.",
+      "Reviewed root legacy import/attribution fixture corrections against production and SDK1.101.0 source."
+    ],
+    "decision_sources": [
+      "QUESTION-192 original Architect timeout/count decision and 20261020-152757-@architect terminal-code correction: timeout5,4297,5036.",
+      "QUESTION-193 approved actual toon-format1.2.0 dumps/loads, shape selection and defensive fallback."
+    ],
+    "packaging_only_continuity": {
+      "later_sha": "4802092a58ca9b953168703fa621e862636541db",
+      "python_and_test_diff": []
+    }
+  },
+  "qa_environment": {
+    "python": "D:/app/Python/python.exe, Python3.11",
+    "sdk": "foundry-platform-sdk1.101.0",
+    "toon": "Approved extracted toon-format1.2.0 during first run; subsequent isolated QA venv has actual installed wheel.",
+    "isolated_qa_venv": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_qa_env",
+    "wheel_sha256": "d94db4b088a281a7bbc85e75d7fbd24e6a0ec7bc110edb129285259eca6522c0",
+    "pytest": "8.3.5",
+    "network": "External socket connections denied in broad in-process runner; loopback allowed for Windows asyncio and local fixtures. Real SDK wire probes use httpx MockTransport. No live Foundry access."
+  },
+  "limits": [
+    "330 focused contract checks establish bounded behavior, not a passing release regression gate.",
+    "Formatting main probes replace auth, payload validation and operation execution; separate SDK wire probes cover actual forwarding.",
+    "Five broad audit subprocess failures were caused by required dependency unavailable after their PYTHONPATH replacement; rerun in prepared venv is required.",
+    "The56 environment/preview mismatches need fixture isolation and approved preview expectations. No production resolver change is justified by those failures.",
+    "No ticket closure, production deployment, PyPI publication or global FEATURE-015 acceptance is claimed."
+  ],
+  "changed_file_hashes": {
+    ".github/workflows/publish.yml": "60938c221b13aaed538ed7e5aaaa0c6fbacd663d2c3376c0a46994add56a55ec",
+    "conda.recipe/meta.yaml": "c2d02a07cbe2de217ecf62f6b5c0a009a2096d52b3fd2461beca6caeaab48f2b",
+    "conda.recipe/toon-format/meta.yaml": "5a56aca19ab5feda37ee65f1d4c92ad8c9640bb617ce03d8d781d2739aee3f96",
+    "pyproject.toml": "6cab6232880f66448ebfb752cd5d583d4093566116a39dad9e4023c8a30683be",
+    "src/pal_found_cli/admin/scripts/pal_found_admin_cli.py": "64f63914cb4b200a9de837aab8715dc96d414c2fa1319a824204a6bb211cbee6",
+    "src/pal_found_cli/aip_agents/scripts/pal_found_aip_agents_cli.py": "ba5e20290917f5b7845abbf2822c3fa1668d891b62694aa2324e99b506a89ccb",
+    "src/pal_found_cli/audit/scripts/pal_found_audit_cli.py": "c6157ccbad678429bfd41f92681d55382ac2f8cf8fea21dfd5a44a223f3b1664",
+    "src/pal_found_cli/checkpoints/scripts/pal_found_checkpoints_cli.py": "ba14171f2675956385cabaf1460c699cd6516c4eccfb8f5e82df95edbc13b399",
+    "src/pal_found_cli/common/cli_parser.py": "35a813c652ecb5cfb791479c73bd88a74189b7e97d94c4f409d9d373ef0a5f47",
+    "src/pal_found_cli/common/config_loader.py": "b7ccddda86b733302f1f8f1800dfd172207361bdc661045b64871ded0e8af7bc",
+    "src/pal_found_cli/common/output_formatter.py": "4b7f78a68cddb999a0474195f76545bd8f755d80ee18e71c9d0628c4718b7383",
+    "src/pal_found_cli/common/retry.py": "3464aa78aaeaf3a592e789e5f0fb612f4c14cbc412ad0b37919f9b4c4487dda0",
+    "src/pal_found_cli/common/timeout_config.py": "76b9896c096f689734e106b9be559ea59d2f22123799d423f39446172263e4c7",
+    "src/pal_found_cli/connectivity/scripts/pal_found_connectivity_cli.py": "d92b3a9127fefc4ea3b8d17ae90a6f5fe3983e6f9653af9f2fec3bbd8627e20d",
+    "src/pal_found_cli/data_health/scripts/pal_found_data_health_cli.py": "826f07a038eaaf2aecec3486d3cb744b3dcac8f5105ae3371a4fe58a23a8e3a0",
+    "src/pal_found_cli/datasets/scripts/pal_found_datasets_cli.py": "c6a1597371c8425f6649b718dfac1f2fa114609d764f1a976ca96951dc538829",
+    "src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py": "feea75e894ba263672feb3ec0a6250a900043620a47f35288df77c1d190ff596",
+    "src/pal_found_cli/functions/scripts/pal_found_functions_cli.py": "2d7c2b8e6ff7a40be2f3c7bd77e020083aa575c6bfd81ae1431f70667dbe2c9f",
+    "src/pal_found_cli/language_models/scripts/pal_found_language_models_cli.py": "cbec77f413460511456db7b0158c279240c467c6da0f809cad2102b1ee8acd85",
+    "src/pal_found_cli/media_sets/scripts/pal_found_media_sets_cli.py": "f70e1ed60ae9e4133bc4505d780e0a92fdf27f83fab58713daa3536e5ad25a03",
+    "src/pal_found_cli/models/scripts/pal_found_models_cli.py": "0aae43647a16423796675a3c0d019f1987c410e417d914193aa1f8352d0437fd",
+    "src/pal_found_cli/ontologies/scripts/pal_found_ontologies_cli.py": "6fd6d2c8981167a4f6037f2c693e526df50eff1c6b2d12e53125606046f02fd5",
+    "src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py": "8fd187487a2e895cdfa6a2a75e5b233f58e4bce5b0b49564d9385059668d6cb2",
+    "src/pal_found_cli/sql_queries/scripts/pal_found_sql_queries_cli.py": "d7bc8f0efb218e48a3d8f10f5fb3c1291e8ee0ee40bbb9bda3e3e57562289017",
+    "src/pal_found_cli/streams/scripts/pal_found_streams_cli.py": "824c9b2a280ef564e7f99843195d2dd52baf2160a41e863a32956f977e6fc232",
+    "src/pal_found_cli/third_party_applications/scripts/pal_found_third_party_applications_cli.py": "b3a976e0c90c11fab60d0dca01dfd1baed37c4e6ecb24018bc085a9743aa4989",
+    "src/pal_found_cli/widgets/scripts/pal_found_widgets_cli.py": "905a6eee42d6e62bd577617dea43fda3f31045c3fc8bd9df824110f4538b41fa",
+    "tests/test_cli_parser_contract.py": "b146b6881893af666d600e0539a151c5d0f5cf51d1c88e43b2b606bf31bae741",
+    "tests/test_exec_retry_error_output_log.py": "7f7c5657cf53476e0a197cc97a4225fa98357a81394650d7947597c9842ed181",
+    "tests/test_output_format_contract.py": "f64096f6206dce727a127c260331deb295de5ba0297ab6c864e373a4aefea31d",
+    "tests/test_required_preview_wire.py": "62d081e6b68ab0f1289e7c86273e18a33e944b324f2e7708a07f0460e8fa50c4",
+    "tests/test_retry_timeout_contract.py": "725f39c0b9e4f649b04c28e89e9ab7e701fd51411d36fd192bf5ed0eb9710078",
+    "tests/test_shared_cli_contracts.py": "fa237ac458748e939501f5bf1528f36d96bfe88d51c2c0e2a3c7c4654f60a1b0",
+    "tests/unit_test_common_components.py": "52cd7623a2c863b0b882a2db4eb9c642fe5f0b5ac8a709533ceb4763cf52ce6a",
+    "tests/unit_test_retry_error_output_log.py": "2c0854a7b9bff717b85c2f666ee16b7e0329b7080689827c6589644a004f9173"
+  },
+  "evidence_sha256": {
+    "feature015_shared_cli_probe_final.json": "6ccbdc31c4aacfe7eb37760a9915520ab693f7bc96ddfe8f2dafddb27ee37bae",
+    "feature015_shared_cli_retry_final.json": "4bf589e62f033ff481e2bc58a2ffddae4d2fade09aad9f8fdbec4a2b85b5ba84",
+    "feature015_shared_cli_timeout_final.json": "68c648baca960d7ada829c0addbfc458b7fbceed05ed78d5c1f5e3d115469a4c",
+    "feature015_shared_cli_wire_final.json": "2573cc25ea77d33c72ac93b8bfd3dfbf00cde9dd28f69d2fd41a616d7bac63f0",
+    "feature015_shared_cli_qa_suite.xml": "4ec7e9e7d5f60196548f2e1dd4f8164c00850bb486006ac9c575528df8d5777f",
+    "feature015_shared_cli_qa_suite_baseline.xml": "2edea082503e80882699060abfe628b60c7ebe98bce939d622f33fcc932036af",
+    "feature015_shared_cli_qa_failure_classification.json": "d7ed9b93664c954ac2f9591e559906efe1d04e020cc6ceb21c8f1ccb4172dc3d"
+  }
+}
