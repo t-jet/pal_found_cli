@@ -790,9 +790,9 @@ QUESTION-182,question,Project Owner approval of BA-DES-015 offline development b
 WORK-003,workitem,Revise offline REST business scope for all SDK operations,Closed,High,ba,project-manager,FEATURE-015,,FEATURE-015/WORK-003,2026-10-06,2026-10-06
 WORK-004,workitem,Revise offline REST architecture for all SDK operations,Closed,High,architect,project-manager,FEATURE-015,,FEATURE-015/WORK-004,2026-10-06,2026-10-06
 DEV-STORY-071,dev_story,Author offline REST SDK contracts: Admin identity and membership,Development,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-071,2026-10-06,2026-10-07
-DEV-STORY-072,dev_story,Author offline REST SDK contracts: Admin organization authorization and markings,Development,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-072,2026-10-06,2026-10-07
+DEV-STORY-072,dev_story,Author offline REST SDK contracts: Admin organization authorization and markings,Deployment,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-072,2026-10-06,2026-10-21
 DEV-STORY-073,dev_story,Author offline REST SDK contracts: Filesystem governance audit and application registration,Development,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-073,2026-10-06,2026-10-06
-DEV-STORY-074,dev_story,Author offline REST SDK contracts: Datasets across both API versions,Development,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-074,2026-10-06,2026-10-07
+DEV-STORY-074,dev_story,Author offline REST SDK contracts: Datasets across both API versions,Deployment,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-074,2026-10-06,2026-10-21
 DEV-STORY-075,dev_story,Author offline REST SDK contracts: Pipeline orchestration checkpoints and health,Development,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-075,2026-10-06,2026-10-07
 DEV-STORY-076,dev_story,Author offline REST SDK contracts: Admin identity and membership,Duplicated,High,ba,ba,FEATURE-015,,FEATURE-015/DEV-STORY-076,2026-10-06,2026-10-06
 DEV-STORY-077,dev_story,Author offline REST SDK contracts: Legacy v1 Ontology contracts,Development,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-077,2026-10-06,2026-10-07
@@ -904,17 +904,17 @@ CODEREVIEW-075,codereview,DEV-STORY-071 codereview identity and membership lifec
 TESTCASE-074,testcase,DEV-STORY-071 testcase identity and membership lifecycle REST contracts,Open,High,qa-engineer,tech-lead,DEV-STORY-071,,DEV-STORY-071/TESTCASE-074,2026-10-07,2026-10-07
 TESTEXEC-074,testexec,DEV-STORY-071 testexec identity and membership lifecycle REST contracts,Open,High,qa-engineer,tech-lead,DEV-STORY-071,,DEV-STORY-071/TESTEXEC-074,2026-10-07,2026-10-07
 DESIGN-075,design,DEV-STORY-072 design authorization policy and marking lifecycle REST contracts,Closed,High,tech-lead,tech-lead,DEV-STORY-072,,DEV-STORY-072/DESIGN-075,2026-10-07,2026-10-07
-DEV-075,development,DEV-STORY-072 development authorization policy and marking lifecycle REST contracts,In Progress,High,python-developer,tech-lead,DEV-STORY-072,,DEV-STORY-072/DEV-075,2026-10-07,2026-10-07
-UNITTEST-075,unittest,DEV-STORY-072 unittest authorization policy and marking lifecycle REST contracts,In Progress,High,python-developer,tech-lead,DEV-STORY-072,,DEV-STORY-072/UNITTEST-075,2026-10-07,2026-10-07
-CODEREVIEW-076,codereview,DEV-STORY-072 codereview authorization policy and marking lifecycle REST contracts,Blocked,High,architect,tech-lead,DEV-STORY-072,,DEV-STORY-072/CODEREVIEW-076,2026-10-07,2026-10-07
-TESTCASE-075,testcase,DEV-STORY-072 testcase authorization policy and marking lifecycle REST contracts,Open,High,qa-engineer,tech-lead,DEV-STORY-072,,DEV-STORY-072/TESTCASE-075,2026-10-07,2026-10-07
-TESTEXEC-075,testexec,DEV-STORY-072 testexec authorization policy and marking lifecycle REST contracts,Open,High,qa-engineer,tech-lead,DEV-STORY-072,,DEV-STORY-072/TESTEXEC-075,2026-10-07,2026-10-07
+DEV-075,development,DEV-STORY-072 development authorization policy and marking lifecycle REST contracts,Closed,High,python-developer,tech-lead,DEV-STORY-072,,DEV-STORY-072/DEV-075,2026-10-07,2026-10-21
+UNITTEST-075,unittest,DEV-STORY-072 unittest authorization policy and marking lifecycle REST contracts,Closed,High,python-developer,tech-lead,DEV-STORY-072,,DEV-STORY-072/UNITTEST-075,2026-10-07,2026-10-21
+CODEREVIEW-076,codereview,DEV-STORY-072 codereview authorization policy and marking lifecycle REST contracts,Closed,High,architect,tech-lead,DEV-STORY-072,,DEV-STORY-072/CODEREVIEW-076,2026-10-07,2026-10-21
+TESTCASE-075,testcase,DEV-STORY-072 testcase authorization policy and marking lifecycle REST contracts,Closed,High,qa-engineer,tech-lead,DEV-STORY-072,,DEV-STORY-072/TESTCASE-075,2026-10-07,2026-10-21
+TESTEXEC-075,testexec,DEV-STORY-072 testexec authorization policy and marking lifecycle REST contracts,Closed,High,qa-engineer,tech-lead,DEV-STORY-072,,DEV-STORY-072/TESTEXEC-075,2026-10-07,2026-10-21
 DESIGN-076,design,DEV-STORY-074 design versioned dataset branch and transaction lifecycle REST contracts,Closed,High,tech-lead,tech-lead,DEV-STORY-074,,DEV-STORY-074/DESIGN-076,2026-10-07,2026-10-07
-DEV-076,development,DEV-STORY-074 development versioned dataset branch and transaction lifecycle REST contracts,In Progress,High,python-developer,tech-lead,DEV-STORY-074,,DEV-STORY-074/DEV-076,2026-10-07,2026-10-07
-UNITTEST-076,unittest,DEV-STORY-074 unittest versioned dataset branch and transaction lifecycle REST contracts,In Progress,High,python-developer,tech-lead,DEV-STORY-074,,DEV-STORY-074/UNITTEST-076,2026-10-07,2026-10-07
-CODEREVIEW-077,codereview,DEV-STORY-074 codereview versioned dataset branch and transaction lifecycle REST contracts,Blocked,High,architect,tech-lead,DEV-STORY-074,,DEV-STORY-074/CODEREVIEW-077,2026-10-07,2026-10-07
-TESTCASE-076,testcase,DEV-STORY-074 testcase versioned dataset branch and transaction lifecycle REST contracts,Open,High,qa-engineer,tech-lead,DEV-STORY-074,,DEV-STORY-074/TESTCASE-076,2026-10-07,2026-10-07
-TESTEXEC-076,testexec,DEV-STORY-074 testexec versioned dataset branch and transaction lifecycle REST contracts,Open,High,qa-engineer,tech-lead,DEV-STORY-074,,DEV-STORY-074/TESTEXEC-076,2026-10-07,2026-10-07
+DEV-076,development,DEV-STORY-074 development versioned dataset branch and transaction lifecycle REST contracts,Closed,High,python-developer,tech-lead,DEV-STORY-074,,DEV-STORY-074/DEV-076,2026-10-07,2026-10-21
+UNITTEST-076,unittest,DEV-STORY-074 unittest versioned dataset branch and transaction lifecycle REST contracts,Closed,High,python-developer,tech-lead,DEV-STORY-074,,DEV-STORY-074/UNITTEST-076,2026-10-07,2026-10-21
+CODEREVIEW-077,codereview,DEV-STORY-074 codereview versioned dataset branch and transaction lifecycle REST contracts,Closed,High,architect,tech-lead,DEV-STORY-074,,DEV-STORY-074/CODEREVIEW-077,2026-10-07,2026-10-21
+TESTCASE-076,testcase,DEV-STORY-074 testcase versioned dataset branch and transaction lifecycle REST contracts,Closed,High,qa-engineer,tech-lead,DEV-STORY-074,,DEV-STORY-074/TESTCASE-076,2026-10-07,2026-10-21
+TESTEXEC-076,testexec,DEV-STORY-074 testexec versioned dataset branch and transaction lifecycle REST contracts,Closed,High,qa-engineer,tech-lead,DEV-STORY-074,,DEV-STORY-074/TESTEXEC-076,2026-10-07,2026-10-21
 DESIGN-077,design,DEV-STORY-075 design build scheduling checkpoints and health lifecycle REST contracts,Closed,High,tech-lead,tech-lead,DEV-STORY-075,,DEV-STORY-075/DESIGN-077,2026-10-07,2026-10-07
 DEV-077,development,DEV-STORY-075 development build scheduling checkpoints and health lifecycle REST contracts,In Progress,High,python-developer,tech-lead,DEV-STORY-075,,DEV-STORY-075/DEV-077,2026-10-07,2026-10-07
 UNITTEST-077,unittest,DEV-STORY-075 unittest build scheduling checkpoints and health lifecycle REST contracts,In Progress,High,python-developer,tech-lead,DEV-STORY-075,,DEV-STORY-075/UNITTEST-077,2026-10-07,2026-10-07
@@ -1016,12 +1016,15 @@ TESTEXEC-085,testexec,Execute DHT-TC-021 against reviewed release candidates,Clo
 BUG-SUB-034,bug_subtask,DEV-STORY-081 Scenario edited responses use full objects instead of locators,Closed,High,python-developer,project-manager,DEV-STORY-081,,DEV-STORY-081/BUG-SUB-034,2026-10-18,2026-10-18
 QUESTION-190,question,Confirm Functions unit coverage and treatment of unmeasured prior hours,Closed,High,tech-lead,python-developer,UNITTEST-082,tech-lead,UNITTEST-082/QUESTION-190,2026-10-18,2026-10-19
 QUESTION-191,question,Review TESTCASE-082 Functions formal cases,Closed,High,tech-lead,qa-engineer,TESTCASE-082,tech-lead,TESTCASE-082/QUESTION-191,2026-10-19,2026-10-19
-BUG-036,bug,Namespace parser masks environment default output format,In Progress,High,python-developer,project-manager,,,BUG-036,2026-10-20,2026-10-20
-BUG-037,bug,OutputFormatter custom table violates approved TOON library contract,In Progress,High,python-developer,project-manager,,,BUG-037,2026-10-20,2026-10-20
-BUG-038,bug,Filesystem argparse errors bypass structured JSON stdout,In Progress,High,python-developer,project-manager,,,BUG-038,2026-10-20,2026-10-20
-BUG-039,bug,RetryHandler outer timeout bypasses approved range and CLI override,In Progress,High,python-developer,project-manager,,,BUG-039,2026-10-20,2026-10-20
-BUG-040,bug,Retry MAX_ATTEMPTS=4 executes five calls instead of four total,In Progress,High,python-developer,project-manager,,,BUG-040,2026-10-20,2026-10-20
+BUG-036,bug,Namespace parser masks environment default output format,Closed,High,python-developer,project-manager,,,BUG-036,2026-10-20,2026-10-21
+BUG-037,bug,OutputFormatter custom table violates approved TOON library contract,Closed,High,python-developer,project-manager,,,BUG-037,2026-10-20,2026-10-21
+BUG-038,bug,Filesystem argparse errors bypass structured JSON stdout,Closed,High,python-developer,project-manager,,,BUG-038,2026-10-20,2026-10-21
+BUG-039,bug,RetryHandler outer timeout bypasses approved range and CLI override,Closed,High,python-developer,project-manager,,,BUG-039,2026-10-20,2026-10-21
+BUG-040,bug,Retry MAX_ATTEMPTS=4 executes five calls instead of four total,Closed,High,python-developer,project-manager,,,BUG-040,2026-10-20,2026-10-21
 QUESTION-192,question,Clarify shared timeout precedence and total attempt bounds while preserving approved defaults,Closed,High,architect,project-manager,BUG-039,architect,BUG-039/QUESTION-192,2026-10-20,2026-10-20
-BUG-041,bug,Checkpoints and Orchestration CLI omit required preview query on seven endpoints,In Progress,High,python-developer,project-manager,,,BUG-041,2026-10-20,2026-10-20
-BUG-042,bug,Orchestration build search parser accepts missing SDK-required where filter,In Progress,High,python-developer,project-manager,,,BUG-042,2026-10-20,2026-10-20
+BUG-041,bug,Checkpoints and Orchestration CLI omit required preview query on seven endpoints,Closed,High,python-developer,project-manager,,,BUG-041,2026-10-20,2026-10-21
+BUG-042,bug,Orchestration build search parser accepts missing SDK-required where filter,Closed,High,python-developer,project-manager,,,BUG-042,2026-10-20,2026-10-21
 QUESTION-193,question,Correct TOON distribution version and API references without changing library requirement,Closed,High,architect,architect,BUG-037,architect,BUG-037/QUESTION-193,2026-10-20,2026-10-20
+BUG-043,bug,Functions streaming-execute decodes SDK SSE context manager before opening HTTP stream,Closed,High,python-developer,qa-engineer,,,BUG-043,2026-10-21,2026-10-21
+BUG-044,bug,Filesystem positional JSON batch bodies reach SDK as strings,Closed,High,python-developer,python-developer,,,BUG-044,2026-10-21,2026-10-21
+BUG-045,bug,Ontology SQL download drops the required query before SDK invocation,Closed,High,python-developer,project-manager,,,BUG-045,2026-10-21,2026-10-21

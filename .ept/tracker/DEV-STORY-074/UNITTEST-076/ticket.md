@@ -2,13 +2,14 @@
 id: UNITTEST-076
 type: unittest
 title: DEV-STORY-074 unittest versioned dataset branch and transaction lifecycle REST contracts
-status: In Progress
+status: Closed
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-21
 priority: High
 assignee: python-developer
 reporter: tech-lead
 estimated_hours: 8
+time_spent_hours: 0.0014802777777782063
 ---
 
 # DEV-STORY-074 unittest
@@ -16,7 +17,7 @@ estimated_hours: 8
 ## Owned scope
 52 exact operation IDs in .ept/docs/deliverables/development/FEATURE-015-rest-operation-partitions.json; partition hash 8efcd5e310fd263c31e9b81224f23458c799c29de027fdbb4b2d1f5f5eab1c8d.
 Resources: v1.datasets.Branch, v1.datasets.Dataset, v1.datasets.File, v1.datasets.Transaction, v2.datasets.Branch, v2.datasets.Dataset, v2.datasets.File, v2.datasets.Transaction, v2.datasets.View.
-Core069 owns structural contracts, full models/errors, service indexes and common patterns. This story owns resource behavior under references/rest/<version>/<service>/<Resource>.md (numbered leaves at most300lines) and reader examples/fixtures examples/rest/074/ inside standalone pal-found-dev. Tests own tests/test_offline_rest_074.py.
+Core069 owns structural contracts, full models/errors, service indexes and common patterns. This story owns resource behavior under references/rest/<version>/<service>/<Resource>.md (numbered leaves at most300lines) and reader examples/fixtures examples/rest/074/ inside standalone pal-found-dev. Tests own tests/test_offline_rest_074_semantics.py.
 
 ## Acceptance criteria
 Implement offline SDK-backed fake-transport serialization/response/error assertions for every owned method. Include actual async iterator/raw/stream/SSE lifetimes and finite work. Derive expected values from source; counts cannot approve behavior.
