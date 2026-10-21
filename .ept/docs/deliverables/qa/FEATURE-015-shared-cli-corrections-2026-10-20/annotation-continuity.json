@@ -1,0 +1,433 @@
+{
+  "reviewer": "/root/bug036_042_finish_closure",
+  "status": "PASS",
+  "old_source_sha": "657215f37a242889c8b36d104e15bff49587ffb4",
+  "new_source_sha": "2feb1fed64406ddc987d036ce7ae667d3bd11d9d",
+  "scope": "Independent annotation continuity review only; prior regression, package and guidance execution reports remain observations at old_source_sha. No tracker writes or full-suite/package re-execution.",
+  "actual_checks": {
+    "direct_parent": true,
+    "candidate_clean": true,
+    "changed_paths_exactly_three": true,
+    "full_modules_compiled_in_memory": 6,
+    "normalized_module_ast_comparisons": 3,
+    "factory_runtime_input_comparisons": 24,
+    "package_metadata_or_other_file_changes": false
+  },
+  "files": [
+    {
+      "path": "src/pal_found_cli/admin/scripts/pal_found_admin_cli.py",
+      "before_sha256": "64f63914cb4b200a9de837aab8715dc96d414c2fa1319a824204a6bb211cbee6",
+      "after_sha256": "82ad3f6b388fc6b2f34f006b640291d8f951266a807a0bf1819b8472e61217c7",
+      "compile_old_new": "PASS",
+      "only_return_annotation_ast_changed": true,
+      "postponed_annotations": true,
+      "factory_executable_bytecode_equal": true,
+      "action_signatures_equal": true,
+      "runtime_comparisons": [
+        {
+          "paginated": false,
+          "argv": [],
+          "result": {
+            "namespace": {
+              "timeout": null,
+              "format": null,
+              "pretty": false
+            }
+          },
+          "match": true
+        },
+        {
+          "paginated": false,
+          "argv": [
+            "--format",
+            "json"
+          ],
+          "result": {
+            "namespace": {
+              "timeout": null,
+              "format": "json",
+              "pretty": false
+            }
+          },
+          "match": true
+        },
+        {
+          "paginated": false,
+          "argv": [
+            "--format",
+            "auto"
+          ],
+          "result": {
+            "namespace": {
+              "timeout": null,
+              "format": "auto",
+              "pretty": false
+            }
+          },
+          "match": true
+        },
+        {
+          "paginated": false,
+          "argv": [
+            "--timeout",
+            "120"
+          ],
+          "result": {
+            "namespace": {
+              "timeout": 120,
+              "format": null,
+              "pretty": false
+            }
+          },
+          "match": true
+        },
+        {
+          "paginated": false,
+          "argv": [
+            "--timeout",
+            "bad"
+          ],
+          "result": {
+            "error_type": "CLIInputError",
+            "message": "Invalid command input",
+            "exit_code": 1
+          },
+          "match": true
+        },
+        {
+          "paginated": false,
+          "argv": [
+            "--unknown"
+          ],
+          "result": {
+            "error_type": "CLIInputError",
+            "message": "Invalid command input",
+            "exit_code": 1
+          },
+          "match": true
+        },
+        {
+          "paginated": true,
+          "argv": [],
+          "result": {
+            "namespace": {
+              "timeout": null,
+              "format": null,
+              "pretty": false,
+              "page_size": null,
+              "page_token": null,
+              "batch_pages": null
+            }
+          },
+          "match": true
+        },
+        {
+          "paginated": true,
+          "argv": [
+            "--format",
+            "json"
+          ],
+          "result": {
+            "namespace": {
+              "timeout": null,
+              "format": "json",
+              "pretty": false,
+              "page_size": null,
+              "page_token": null,
+              "batch_pages": null
+            }
+          },
+          "match": true
+        },
+        {
+          "paginated": true,
+          "argv": [
+            "--format",
+            "auto"
+          ],
+          "result": {
+            "namespace": {
+              "timeout": null,
+              "format": "auto",
+              "pretty": false,
+              "page_size": null,
+              "page_token": null,
+              "batch_pages": null
+            }
+          },
+          "match": true
+        },
+        {
+          "paginated": true,
+          "argv": [
+            "--timeout",
+            "120"
+          ],
+          "result": {
+            "namespace": {
+              "timeout": 120,
+              "format": null,
+              "pretty": false,
+              "page_size": null,
+              "page_token": null,
+              "batch_pages": null
+            }
+          },
+          "match": true
+        },
+        {
+          "paginated": true,
+          "argv": [
+            "--timeout",
+            "bad"
+          ],
+          "result": {
+            "error_type": "CLIInputError",
+            "message": "Invalid command input",
+            "exit_code": 1
+          },
+          "match": true
+        },
+        {
+          "paginated": true,
+          "argv": [
+            "--unknown"
+          ],
+          "result": {
+            "error_type": "CLIInputError",
+            "message": "Invalid command input",
+            "exit_code": 1
+          },
+          "match": true
+        }
+      ]
+    },
+    {
+      "path": "src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py",
+      "before_sha256": "feea75e894ba263672feb3ec0a6250a900043620a47f35288df77c1d190ff596",
+      "after_sha256": "39ed94e3556a550baebed95f09a40258ba8fb93be237d357d53eeae722f239d7",
+      "compile_old_new": "PASS",
+      "only_return_annotation_ast_changed": true,
+      "postponed_annotations": true,
+      "factory_executable_bytecode_equal": true,
+      "action_signatures_equal": true,
+      "runtime_comparisons": [
+        {
+          "paginated": null,
+          "argv": [],
+          "result": {
+            "namespace": {
+              "timeout": null,
+              "format": null,
+              "pretty": false,
+              "page_size": null,
+              "page_token": null,
+              "batch_pages": null
+            }
+          },
+          "match": true
+        },
+        {
+          "paginated": null,
+          "argv": [
+            "--format",
+            "json"
+          ],
+          "result": {
+            "namespace": {
+              "timeout": null,
+              "format": "json",
+              "pretty": false,
+              "page_size": null,
+              "page_token": null,
+              "batch_pages": null
+            }
+          },
+          "match": true
+        },
+        {
+          "paginated": null,
+          "argv": [
+            "--format",
+            "auto"
+          ],
+          "result": {
+            "namespace": {
+              "timeout": null,
+              "format": "auto",
+              "pretty": false,
+              "page_size": null,
+              "page_token": null,
+              "batch_pages": null
+            }
+          },
+          "match": true
+        },
+        {
+          "paginated": null,
+          "argv": [
+            "--timeout",
+            "120"
+          ],
+          "result": {
+            "namespace": {
+              "timeout": 120,
+              "format": null,
+              "pretty": false,
+              "page_size": null,
+              "page_token": null,
+              "batch_pages": null
+            }
+          },
+          "match": true
+        },
+        {
+          "paginated": null,
+          "argv": [
+            "--timeout",
+            "bad"
+          ],
+          "result": {
+            "error_type": "CLIInputError",
+            "message": "Invalid command input",
+            "exit_code": 1
+          },
+          "match": true
+        },
+        {
+          "paginated": null,
+          "argv": [
+            "--unknown"
+          ],
+          "result": {
+            "error_type": "CLIInputError",
+            "message": "Invalid command input",
+            "exit_code": 1
+          },
+          "match": true
+        }
+      ]
+    },
+    {
+      "path": "src/pal_found_cli/functions/scripts/pal_found_functions_cli.py",
+      "before_sha256": "2d7c2b8e6ff7a40be2f3c7bd77e020083aa575c6bfd81ae1431f70667dbe2c9f",
+      "after_sha256": "0de3328a40cf709b641d119da705f90b6d4b9f7f42c28974ee35ca4984db3d8e",
+      "compile_old_new": "PASS",
+      "only_return_annotation_ast_changed": true,
+      "postponed_annotations": true,
+      "factory_executable_bytecode_equal": true,
+      "action_signatures_equal": true,
+      "runtime_comparisons": [
+        {
+          "paginated": null,
+          "argv": [],
+          "result": {
+            "namespace": {
+              "timeout": null,
+              "format": null,
+              "pretty": false
+            }
+          },
+          "match": true
+        },
+        {
+          "paginated": null,
+          "argv": [
+            "--format",
+            "json"
+          ],
+          "result": {
+            "namespace": {
+              "timeout": null,
+              "format": "json",
+              "pretty": false
+            }
+          },
+          "match": true
+        },
+        {
+          "paginated": null,
+          "argv": [
+            "--format",
+            "auto"
+          ],
+          "result": {
+            "namespace": {
+              "timeout": null,
+              "format": "auto",
+              "pretty": false
+            }
+          },
+          "match": true
+        },
+        {
+          "paginated": null,
+          "argv": [
+            "--timeout",
+            "120"
+          ],
+          "result": {
+            "namespace": {
+              "timeout": 120,
+              "format": null,
+              "pretty": false
+            }
+          },
+          "match": true
+        },
+        {
+          "paginated": null,
+          "argv": [
+            "--timeout",
+            "bad"
+          ],
+          "result": {
+            "error_type": "CLIInputError",
+            "message": "Invalid command input",
+            "exit_code": 1
+          },
+          "match": true
+        },
+        {
+          "paginated": null,
+          "argv": [
+            "--unknown"
+          ],
+          "result": {
+            "error_type": "CLIInputError",
+            "message": "Invalid command input",
+            "exit_code": 1
+          },
+          "match": true
+        }
+      ]
+    }
+  ],
+  "continuity_assessment": "Only _common_parser return annotations narrow to its already constructed shared ArgumentParser subtype. Function bodies, parser options, runtime bytecode, shared helpers, dependencies, package configuration, tests and guidance bytes remain unchanged. Prior 657 regression/330 contract/6 install/8 guide evidence supports unchanged behavior; it does not claim those suites executed at 2feb. CI remains a separate required gate.",
+  "prior_reports": {
+    "regression_contract": {
+      "path": "feature015_shared_cli_independent_qa_release.json",
+      "reviewer": "/root/shared_cli_independent_qa",
+      "executed_source_sha": "657215f37a242889c8b36d104e15bff49587ffb4",
+      "sha256": "96b5abc42890d5b2f2a8377488c12d021eca2c1640faf514f96c37f36604d55c"
+    },
+    "packaging": {
+      "path": "feature015_shared_cli_packaging_qa_release.json",
+      "reviewer": "/root/final_tool_packaging_verify",
+      "executed_source_sha": "657215f37a242889c8b36d104e15bff49587ffb4",
+      "sha256": "14e0ed00f0753fc072377666a881016289861277268ee09b66e6dfc8c982c551"
+    },
+    "guidance": {
+      "path": "feature015_corrected_tool_guidance_review.json",
+      "reviewer": "/root/corrected_tool_guidance_retest",
+      "tool_source_sha": "657215f37a242889c8b36d104e15bff49587ffb4",
+      "sha256": "f4d09411c7cab06195b3ff39bdd7be85d9f4c751ab386a9fe2db2c03b015b9dc"
+    }
+  },
+  "limits": [
+    "Return annotation metadata intentionally differs; introspection reflects the actual subclass.",
+    "Runtime continuity probes execute extracted parser factories and use no SDK transport or Foundry calls.",
+    "No claim of full regression, clean installs, CI completion or release acceptance at new SHA."
+  ],
+  "tracker_mutations": []
+}
