@@ -2,14 +2,15 @@
 id: BUG-035
 type: bug
 title: Audit skill omits required log API permission and OAuth scope
-status: Open
+status: Resolved
 affected_version: f30c97242c8fef553b72984bdaf02b3fe52d34db
 created: 2026-10-16
-updated: 2026-10-16
+updated: 2026-10-22
 priority: High
 assignee: python-developer
 reporter: qa-engineer
 component: skills
+fix_version: 2190c40c3f73636b91348167b86cdb1bd7fb6fd7
 ---
 
 # BUG-035: Audit skill omits required log API permission and OAuth scope
@@ -54,12 +55,18 @@ The overview says `nextPageToken` is always present, even with empty data, while
 
 ## Acceptance Criteria
 
-- [ ] TODO: Define acceptance criteria
+- [x] Standalone Audit skill names the required organization workflow for the token user or application service user.
+- [x] Developer Console guidance names `api:audit-read` and explains that OAuth scope does not grant the organization role.
+- [x] Both list and content prerequisites are explicit; cursor guidance handles empty pages and absent continuation tokens.
+- [x] Independent whole-page review and current focused Audit tests verify the correction.
 
 ## Related Documentation
 
-TODO: Add links to related documentation
+- `pal_found_cli_skills/.agents/skills/pal-found-audit/SKILL.md`, Access prerequisites.
+- `pal_found_cli_skills/maintainer/skill-independent-review-admin-governance-audit.json`.
+- `.ept/tmp/feature015_bug034_035_readiness_20261022.json`, independent continuity and focused test evidence.
+- `.ept/docs/document_index.md`, FEATURE-015 QA and release evidence index.
 
 ## Notes
 
-TODO: Add any additional notes
+Offline documentation acceptance only. FEATURE-015 coordinated release acceptance remains pending; BUG-034 stays open.

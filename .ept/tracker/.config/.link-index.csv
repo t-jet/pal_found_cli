@@ -1384,7 +1384,6 @@ LINK-01802,DEV-STORY-072,TESTCASE-075,Contains,Contains,Contained In,2026-10-07T
 LINK-01803,DEV-STORY-072,TESTEXEC-075,Contains,Contains,Contained In,2026-10-07T10:16:31.497735,tech-lead,
 LINK-01804,DEV-075,CODEREVIEW-076,RelatesTo,Relates To,Relates To,2026-10-07T10:16:32.149307,tech-lead,
 LINK-01805,CODEREVIEW-076,DEV-075,RelatesTo,Relates To,Relates To,2026-10-07T10:16:32.798775,tech-lead,
-LINK-01806,DEV-075,CODEREVIEW-076,Blocks,Blocks,Is Blocked By,2026-10-07T10:16:33.444137,tech-lead,
 LINK-01807,DEV-STORY-074,DESIGN-076,Contains,Contains,Contained In,2026-10-07T10:16:47.076114,tech-lead,
 LINK-01808,DEV-STORY-074,DEV-076,Contains,Contains,Contained In,2026-10-07T10:16:51.764451,tech-lead,
 LINK-01809,DEV-STORY-074,UNITTEST-076,Contains,Contains,Contained In,2026-10-07T10:16:56.524373,tech-lead,
@@ -1393,7 +1392,6 @@ LINK-01811,DEV-STORY-074,TESTCASE-076,Contains,Contains,Contained In,2026-10-07T
 LINK-01812,DEV-STORY-074,TESTEXEC-076,Contains,Contains,Contained In,2026-10-07T10:17:11.152237,tech-lead,
 LINK-01813,DEV-076,CODEREVIEW-077,RelatesTo,Relates To,Relates To,2026-10-07T10:17:11.796546,tech-lead,
 LINK-01814,CODEREVIEW-077,DEV-076,RelatesTo,Relates To,Relates To,2026-10-07T10:17:12.430782,tech-lead,
-LINK-01815,DEV-076,CODEREVIEW-077,Blocks,Blocks,Is Blocked By,2026-10-07T10:17:13.110866,tech-lead,
 LINK-01816,DEV-STORY-075,DESIGN-077,Contains,Contains,Contained In,2026-10-07T10:17:26.701276,tech-lead,
 LINK-01817,DEV-STORY-075,DEV-077,Contains,Contains,Contained In,2026-10-07T10:17:31.453795,tech-lead,
 LINK-01818,DEV-STORY-075,UNITTEST-077,Contains,Contains,Contained In,2026-10-07T10:17:36.137164,tech-lead,
@@ -1548,24 +1546,26 @@ LINK-01985,QUESTION-190,DEV-082,Question,Asks About,Has Question,2026-10-18T22:4
 LINK-01988,QUESTION-191,TESTCASE-082,Question,Asks About,Has Question,2026-10-19T12:55:47.640070,qa-engineer,Formal review request for TESTCASE-082
 LINK-01990,BUG-036,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-20T10:26:37.153913,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
 LINK-01991,BUG-036,DEV-STORY-002,RelatesTo,Relates To,Relates To,2026-10-20T10:26:37.877795,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
-LINK-01992,BUG-036,DEV-STORY-070,Blocks,Blocks,Is Blocked By,2026-10-20T10:26:38.597913,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
 LINK-01993,BUG-037,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-20T10:26:40.152288,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
 LINK-01994,BUG-037,DEV-STORY-002,RelatesTo,Relates To,Relates To,2026-10-20T10:26:40.874038,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
-LINK-01995,BUG-037,DEV-STORY-070,Blocks,Blocks,Is Blocked By,2026-10-20T10:26:41.587858,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
 LINK-01996,BUG-037,QUESTION-012,RelatesTo,Relates To,Relates To,2026-10-20T10:26:42.321434,project-manager,Existing approved TOON decision remains authoritative; no waiver or duplicate design question.
 LINK-01997,BUG-038,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-20T10:26:43.877372,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
 LINK-01998,BUG-038,DEV-STORY-002,RelatesTo,Relates To,Relates To,2026-10-20T10:26:44.592617,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
-LINK-01999,BUG-038,DEV-STORY-070,Blocks,Blocks,Is Blocked By,2026-10-20T10:26:45.308284,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
 LINK-02000,BUG-039,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-20T10:26:46.874200,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
 LINK-02001,BUG-039,DEV-STORY-002,RelatesTo,Relates To,Relates To,2026-10-20T10:26:47.626170,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
-LINK-02002,BUG-039,DEV-STORY-070,Blocks,Blocks,Is Blocked By,2026-10-20T10:26:48.343841,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
 LINK-02003,BUG-040,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-20T10:26:49.904110,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
 LINK-02004,BUG-040,DEV-STORY-002,RelatesTo,Relates To,Relates To,2026-10-20T10:26:50.628172,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
-LINK-02005,BUG-040,DEV-STORY-070,Blocks,Blocks,Is Blocked By,2026-10-20T10:26:51.339240,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
 LINK-02007,QUESTION-192,BUG-039,Question,Asks About,Has Question,2026-10-20T10:27:25.979618,project-manager,
 LINK-02009,BUG-041,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-20T10:28:56.047659,project-manager,Distinct tool correction scope; affected shared guidance acceptance remains pending independently verified fix.
-LINK-02010,BUG-041,DEV-STORY-070,Blocks,Blocks,Is Blocked By,2026-10-20T10:28:56.800205,project-manager,Distinct tool correction scope; affected shared guidance acceptance remains pending independently verified fix.
 LINK-02011,BUG-041,BUG-034,RelatesTo,Relates To,Relates To,2026-10-20T10:28:57.538866,project-manager,Distinct tool correction scope; affected shared guidance acceptance remains pending independently verified fix.
 LINK-02012,BUG-042,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-20T10:28:59.197568,project-manager,Distinct tool correction scope; affected shared guidance acceptance remains pending independently verified fix.
-LINK-02013,BUG-042,DEV-STORY-070,Blocks,Blocks,Is Blocked By,2026-10-20T10:28:59.971443,project-manager,Distinct tool correction scope; affected shared guidance acceptance remains pending independently verified fix.
 LINK-02014,BUG-042,BUG-022,RelatesTo,Relates To,Relates To,2026-10-20T10:29:00.725976,project-manager,Distinct tool correction scope; affected shared guidance acceptance remains pending independently verified fix.
+LINK-02017,BUG-043,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-21T10:08:00.955500,qa-engineer,Existing Functions CLI defect; preserve archived ownership and original requirements.
+LINK-02018,BUG-043,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-21T10:08:01.695587,qa-engineer,Existing Functions CLI defect; preserve archived ownership and original requirements.
+LINK-02019,BUG-043,DEV-STORY-008,RelatesTo,Relates To,Relates To,2026-10-21T10:08:02.620484,qa-engineer,Existing Functions CLI defect; preserve archived ownership and original requirements.
+LINK-02021,BUG-044,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-21T15:47:14.834424,python-developer,Filesystem positional JSON adapter defect; preserve archived ownership and current feature scope.
+LINK-02022,BUG-044,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-21T15:47:15.578091,python-developer,Filesystem positional JSON adapter defect; preserve archived ownership and current feature scope.
+LINK-02023,BUG-044,DEV-STORY-006,RelatesTo,Relates To,Relates To,2026-10-21T15:47:16.311713,python-developer,Filesystem positional JSON adapter defect; preserve archived ownership and current feature scope.
+LINK-02025,BUG-045,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-21T23:52:20.726188,project-manager,Preserve original ownership; independently discovered SQL CLI adapter defect.
+LINK-02026,BUG-045,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-21T23:52:21.462342,project-manager,Preserve original ownership; independently discovered SQL CLI adapter defect.
+LINK-02027,BUG-045,DEV-STORY-015,RelatesTo,Relates To,Relates To,2026-10-21T23:52:22.181710,project-manager,Preserve original ownership; independently discovered SQL CLI adapter defect.

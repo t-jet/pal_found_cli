@@ -2,13 +2,14 @@
 id: DEV-075
 type: development
 title: DEV-STORY-072 development authorization policy and marking lifecycle REST contracts
-status: In Progress
+status: Closed
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-21
 priority: High
 assignee: python-developer
 reporter: tech-lead
 estimated_hours: 32
+time_spent_hours: 2.1666666666659593e-05
 ---
 
 # DEV-STORY-072 development

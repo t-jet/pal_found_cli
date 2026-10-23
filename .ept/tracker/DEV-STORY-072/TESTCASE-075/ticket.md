@@ -2,13 +2,14 @@
 id: TESTCASE-075
 type: testcase
 title: DEV-STORY-072 testcase authorization policy and marking lifecycle REST contracts
-status: Open
+status: Closed
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-21
 priority: High
 assignee: qa-engineer
 reporter: tech-lead
 estimated_hours: 6
+time_spent_hours: 0.0038280555555555416
 ---
 
 # DEV-STORY-072 testcase

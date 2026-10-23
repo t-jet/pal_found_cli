@@ -2,11 +2,12 @@
 id: BUG-042
 type: bug
 title: Orchestration build search parser accepts missing SDK-required where filter
-status: In Progress
+status: Closed
 affected_version: 0963e6e006f82ad1997be0e22c6b750ed0bbce3b
 created: 2026-10-20
-updated: 2026-10-20
+updated: 2026-10-21
 priority: High
+resolution: Done
 assignee: python-developer
 reporter: project-manager
 component: orchestration-cli

@@ -4,8 +4,8 @@ type: bug_subtask
 title: Admin get_batch examples accept empty results for requested IDs
 status: Open
 created: 2026-10-16
-updated: 2026-10-16
-priority: Medium
+updated: 2026-10-22
+priority: High
 assignee: python-developer
 reporter: qa-engineer
 ---
