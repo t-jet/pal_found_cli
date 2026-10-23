@@ -49,3 +49,43 @@ Condition:
 Action:
 
 - Do retry the exact command once and check exit code. Don't change the command or assume it succeeded.
+
+## Improvement: Match review structure to ticket-type precedent
+
+Condition:
+
+- When ticket needs code review and the type is bug, not dev_story
+
+Action:
+
+- Do check precedent first (search closed siblings of the same type). Record review as a comment on the bug ticket. Don't create a CODEREVIEW sub-ticket; workflow defines CODEREVIEW only under DEV-STORY.
+
+## Improvement: Verify submodule pin is forward-only before bump
+
+Condition:
+
+- When bumping a parent gitlink to a new submodule commit
+
+Action:
+
+- Do run `git merge-base --is-ancestor <old> <new>` first. Only bump when exit 0 (strict descendant). Don't bump to a diverged or unrelated commit; that would drop release content.
+
+## Improvement: Leave gitlink bumps to the ticket that owns them
+
+Condition:
+
+- When a push or merge changes a submodule working-tree pointer
+
+Action:
+
+- Do stage only the intended files; leave the parent gitlink unstaged unless the ticket scope is the pin bump. Don't fold a release pin change into an unrelated commit.
+
+## Improvement: Track merge and push steps as tickets
+
+Condition:
+
+- When executing expert-directed merge or push work
+
+Action:
+
+- Do create a task ticket, record plan as comment, advance Open/In Progress/Resolved/Closed, and record results with exact SHAs. Don't execute repo mutations without a ticket.
