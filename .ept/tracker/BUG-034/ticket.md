@@ -2,11 +2,12 @@
 id: BUG-034
 type: bug
 title: Data Health CLI omits required preview query on six endpoints
-status: Open
+status: Closed
 affected_version: b9c5f8a1a0595fc5fa0cbb27a7a92dba9c1bc67e
 created: 2026-10-16
-updated: 2026-10-16
+updated: 2026-10-23
 priority: High
+resolution: Done
 assignee: python-developer
 reporter: qa-engineer
 component: data-health-cli

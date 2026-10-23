@@ -345,3 +345,33 @@ Condition:
 
 Action:
 - Do reserve separators outside the sanitizer alphabet, mark the new ID format, and test mixed names, same-second retries, concurrent writes, and legacy references. Do not claim exact author recovery for ambiguous legacy filenames without stored metadata.
+
+## Improvement: verify a fix commit by extracting its tree, not the working copy
+
+Condition:
+
+- When a bug fix already exists as a commit on an unmerged branch and you must document root cause, fix and verification without modifying code.
+
+Action:
+
+- Do git archive <sha> | tar -x -C .ept/tmp/<name> into a scratch tree and run probes against that tree with PYTHONPATH=src, plus the same probe against the parent commit's tree so the defect is shown present before and absent after. Never test through the working copy, which sits on main and does not contain the fix.
+
+## Improvement: system python may lack project deps; use the venv interpreter for probes
+
+Condition:
+
+- When a scratch tree's test or probe run fails at import with ModuleNotFoundError for a project dependency (e.g. toon_format), or the system interpreter only has an older SDK.
+
+Action:
+
+- Do rerun with the workspace venv interpreter (.venv/Scripts/python.exe) which carries the full dependency set, and record the SDK version in the evidence comment. Do not report the import failure as a defect in the fix.
+
+## Improvement: a reuse-free wire probe must supply schema-valid fixtures
+
+Condition:
+
+- When writing an independent CLI-to-wire probe for an SDK-calling CLI, with the intent of not reusing the branch's own test helpers.
+
+Action:
+
+- Do read the SDK schema or the branch fixtures for the exact request payload shape; a minimal placeholder config (e.g. {type: statusCheckConfig}) fails SDK validation, makes requests empty, and yields a false negative. Print exit code and captured stdout on the failure path so an empty capture is distinguishable from a real omission.

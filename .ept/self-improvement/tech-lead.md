@@ -819,3 +819,23 @@ Condition:
 
 Action:
 - Do check the skill design for its own coverage rule before borrowing a numeric threshold from a separate tool package. Require each owned operation and source-derived edge cases to pass; keep independent QA separate. Record only measured work in `time_spent_hours`, with a ticket comment naming the measured interval and unknown earlier work. Don't copy one subtask's measured time into another.
+
+## Improvement: align review tree with venv deps and launcher installs
+
+Condition:
+
+- When reviewing a branch commit that adds a new runtime dependency (e.g. `toon-format==1.2.0`) and running tests at the branch tip
+
+Action:
+
+- Do install the branch-declared dependency into the active venv before judging tests, and run lint (Ruff) and the fix-file's own suite at the tip. Classify console-entry-point/launcher test failures as P3 environment when the failing interpreter is a different install (global `D:/app/Python/Scripts/...exe` vs workspace `.venv`); don't count them as defects. Read the SDK method signatures and `maybe_ignore_preview` before asserting a kwarg reaches the wire.
+
+## Improvement: separate the named fix commit from sibling branch commits
+
+Condition:
+
+- When an isolated branch carries the named fix plus unrelated commits touching shared modules
+
+Action:
+
+- Do confirm the reviewed line is unchanged between the fix commit and branch tip, then scope findings to the fix commit and run the shared-module suites only as a regression check. Report sibling-commit gaps (e.g. a now-dead `_validate_timeout` at tip) as P3 with the branch-tip file evidence, not as defects in the reviewed commit.

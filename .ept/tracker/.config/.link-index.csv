@@ -1520,8 +1520,6 @@ LINK-01953,BUG-032,BUG-031,RelatesTo,Relates To,Relates To,2026-10-14T17:07:32.8
 LINK-01955,BUG-033,TASK-006,RelatesTo,Relates To,Relates To,2026-10-14T17:15:01.181349,qa-engineer,BUG-032 independent QA regression during TASK-006
 LINK-01956,BUG-034,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-16T15:03:40.595098,qa-engineer,
 LINK-01957,BUG-034,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-16T15:03:45.922372,qa-engineer,
-LINK-01958,BUG-034,DEV-STORY-061,Blocks,Blocks,Is Blocked By,2026-10-16T15:03:49.391084,qa-engineer,
-LINK-01959,BUG-034,DEV-STORY-070,Blocks,Blocks,Is Blocked By,2026-10-16T15:03:52.702568,qa-engineer,
 LINK-01960,BUG-034,TESTEXEC-048,RelatesTo,Relates To,Relates To,2026-10-16T15:03:59.943795,qa-engineer,
 LINK-01961,BUG-SUB-027,TESTEXEC-074,RelatesTo,Relates To,Relates To,2026-10-16T15:04:26.253087,qa-engineer,Independent preflight finding; formal TESTEXEC-074 remains Open
 LINK-01962,BUG-SUB-028,TESTEXEC-074,RelatesTo,Relates To,Relates To,2026-10-16T15:04:29.910114,qa-engineer,Independent preflight finding; formal TESTEXEC-074 remains Open
@@ -1570,3 +1568,4 @@ LINK-02025,BUG-045,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-21T23:52:
 LINK-02026,BUG-045,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-21T23:52:21.462342,project-manager,Preserve original ownership; independently discovered SQL CLI adapter defect.
 LINK-02027,BUG-045,DEV-STORY-015,RelatesTo,Relates To,Relates To,2026-10-21T23:52:22.181710,project-manager,Preserve original ownership; independently discovered SQL CLI adapter defect.
 LINK-02029,TASK-009,TASK-008,RelatesTo,Relates To,Relates To,2026-10-23T17:21:44.194206,project-manager,Pin bump follows TASK-008 push of skills main 716a85b
+LINK-02030,TASK-010,BUG-034,RelatesTo,Relates To,Relates To,2026-10-23T20:12:08.393846,project-manager,Merge follows BUG-034 closure

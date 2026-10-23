@@ -1,27 +1,27 @@
 counters:
-  unittest: 84
-  question: 193
-  design: 84
-  resource_req: 6
+  sa_subtask_design: 14
   devops: 47
-  task: 9
-  epic: 15
-  sa_subtask_analysis: 16
-  link: 2029
-  dev_story: 93
-  development: 84
+  testexec: 85
+  feature: 15
+  link: 2030
   ba_subtask_design: 15
   ba_subtask_analysis: 16
-  testcase: 85
-  workitem: 7
-  ux_subtask_design: 0
-  bug_subtask: 34
-  feature: 15
-  ux_subtask_analysis: 0
-  testexec: 85
-  sa_subtask_design: 14
-  codereview: 85
   bug: 45
+  development: 84
+  dev_story: 93
+  epic: 15
+  workitem: 7
+  design: 84
+  bug_subtask: 34
+  unittest: 84
+  ux_subtask_analysis: 0
+  sa_subtask_analysis: 16
+  codereview: 86
+  task: 10
+  testcase: 85
+  ux_subtask_design: 0
+  question: 193
+  resource_req: 6
 padding:
   link: 5
   ticket: 3

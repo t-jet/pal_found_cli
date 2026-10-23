@@ -273,3 +273,23 @@ Condition:
 
 Action:
 - Do compare ticket counts, recent comments, and new link IDs through the documented CLI in both branch and live checkout before calling the branch merge ready. A branch can be internally consistent while a later live link reuses an ID assigned by the branch repair.
+
+## Improvement: exercise a fix from its own commit tree
+
+Condition:
+
+- When QA verifies a bug fix that lives on a feature branch while the workspace worktree stays on main
+
+Action:
+
+- Do extract the reviewed SHA (`git archive <sha> | tar -x -C .ept/tmp/<dir>`) and prepend its `src` to `PYTHONPATH`, then prove resolution by printing the imported module path; never trust a suite run against the worktree import. Use `python -B` so stale bytecode cannot mask edits. Explain an extraction-only failure (for example `git check-ignore` tests over `git archive`) by re-running that file in the real repository instead of filing a defect.
+
+## Improvement: discharge outbound Blocks links at bug closure
+
+Condition:
+
+- When QA closes a bug that still holds outbound `Blocks` links to dependent stories
+
+Action:
+
+- Do remove the link IDs owned by the fixed bug once the fix is verified, keep every `RelatesTo`, and leave other bugs' `Blocks` links to the same story alone. Record the instruction clause, the dependent acceptance criteria and any sibling closure precedent in one comment, then re-check each dependent's Blocked flag and report it. Do not treat a fix awaiting merge to main as a reason to keep the ticket open.

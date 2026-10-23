@@ -1002,7 +1002,7 @@ BUG-030,bug,Ontology object-set load drops SDK mapping and page fields,Closed,Hi
 BUG-031,bug,Admin search counts response envelopes instead of search results,Closed,High,python-developer,qa-engineer,,,BUG-031,2026-10-14,2026-10-14
 BUG-032,bug,Concurrent link creation assigns duplicate IDs and makes removal ambiguous,Closed,High,project-manager,project-manager,,,BUG-032,2026-10-14,2026-10-14
 BUG-033,bug,Windows counter-file replace causes concurrent tracker read failure,Closed,High,project-manager,qa-engineer,,,BUG-033,2026-10-14,2026-10-14
-BUG-034,bug,Data Health CLI omits required preview query on six endpoints,Open,High,python-developer,qa-engineer,,,BUG-034,2026-10-16,2026-10-16
+BUG-034,bug,Data Health CLI omits required preview query on six endpoints,Closed,High,python-developer,qa-engineer,,,BUG-034,2026-10-16,2026-10-23
 BUG-SUB-027,bug_subtask,Admin membership expiration example sends empty replacement,Open,High,python-developer,qa-engineer,DEV-STORY-071,,DEV-STORY-071/BUG-SUB-027,2026-10-16,2026-10-16
 BUG-SUB-028,bug_subtask,Admin get_batch examples accept empty results for requested IDs,Open,High,python-developer,qa-engineer,DEV-STORY-071,,DEV-STORY-071/BUG-SUB-028,2026-10-16,2026-10-22
 BUG-SUB-029,bug_subtask,CBAC examples omit marking IDs while asserting marking-specific results,Closed,High,python-developer,qa-engineer,DEV-STORY-072,,DEV-STORY-072/BUG-SUB-029,2026-10-16,2026-10-18
@@ -1031,3 +1031,5 @@ BUG-045,bug,Ontology SQL download drops the required query before SDK invocation
 TASK-007,task,Inspect current work progress across tracker,Closed,High,project-manager,project-manager,,,TASK-007,2026-10-22,2026-10-22
 TASK-008,task,Analyze repo branch divergence blocking commit and push to GitHub,Closed,High,project-manager,project-manager,,,TASK-008,2026-10-22,2026-10-23
 TASK-009,task,Bump parent submodule pin for pal_found_cli_skills to merged main 716a85b,Closed,High,project-manager,project-manager,,,TASK-009,2026-10-23,2026-10-23
+CODEREVIEW-086,codereview,BUG-034: Review Data Health preview fix 56ec439,Canceled,High,project-manager,project-manager,BUG-034,,BUG-034/CODEREVIEW-086,2026-10-23,2026-10-23
+TASK-010,task,Merge feature015/data-health-preview-fix into pal_found_cli_tool main,Closed,High,project-manager,project-manager,,,TASK-010,2026-10-23,2026-10-23
