@@ -1569,3 +1569,4 @@ LINK-02026,BUG-045,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-21T23:52:
 LINK-02027,BUG-045,DEV-STORY-015,RelatesTo,Relates To,Relates To,2026-10-21T23:52:22.181710,project-manager,Preserve original ownership; independently discovered SQL CLI adapter defect.
 LINK-02029,TASK-009,TASK-008,RelatesTo,Relates To,Relates To,2026-10-23T17:21:44.194206,project-manager,Pin bump follows TASK-008 push of skills main 716a85b
 LINK-02030,TASK-010,BUG-034,RelatesTo,Relates To,Relates To,2026-10-23T20:12:08.393846,project-manager,Merge follows BUG-034 closure
+LINK-02031,TASK-011,TASK-010,RelatesTo,Relates To,Relates To,2026-10-23T21:57:45.154983,project-manager,Tool gitlink bump follows TASK-010 merge
