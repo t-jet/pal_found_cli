@@ -1,5 +1,19 @@
 # Data Health skills release pin
 
+## Revision 2026-10-23 — parent pin bump
+
+| Submodule | Pinned commit | Change |
+| --- | --- | --- |
+| Skills | `716a85bfd6a1a4e4532b390f3726532a8f24eaf1` | Was `04e860f3`; forward-only (27 commits), keeps the 2026-10-15 snapshot below. |
+| CLI tool | `b9c5f8a1a0595fc5fa0cbb27a7a92dba9c1bc67e` | Unchanged. |
+| SDK | `2da67907be429c35f747eef565867ce81dd2cafc` | Unchanged. |
+
+The new skills pin is the merge of published skills `main` `04e860f3` with local `main` `419b261`. It is a strict descendant of the 2026-10-15 pin, so every Data Health contract and fixture from that snapshot is preserved. It also carries the Closed QUESTION-189 correction: the QA fixture moved out of `.agents/skills/pal-found-data-health/` into `tests/fixtures/offline/data-health/`, the reader guide is prose-only, and the doc-only gate rejects any `.py` file in a namespace skill folder.
+
+Bumped under expert approval recorded on TASK-009. The 2026-10-15 snapshot below is retained as history and is superseded by this revision.
+
+## Revision 2026-10-15 — original snapshot
+
 Snapshot: 2026-10-15. This parent candidate starts from published parent `ca32046a4b2a6dd2fc25f43423038a0b3e6fe9cd`.
 
 | Submodule | Pinned commit |

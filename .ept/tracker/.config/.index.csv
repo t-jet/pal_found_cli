@@ -1029,4 +1029,5 @@ BUG-043,bug,Functions streaming-execute decodes SDK SSE context manager before o
 BUG-044,bug,Filesystem positional JSON batch bodies reach SDK as strings,Closed,High,python-developer,python-developer,,,BUG-044,2026-10-21,2026-10-21
 BUG-045,bug,Ontology SQL download drops the required query before SDK invocation,Closed,High,python-developer,project-manager,,,BUG-045,2026-10-21,2026-10-21
 TASK-007,task,Inspect current work progress across tracker,Closed,High,project-manager,project-manager,,,TASK-007,2026-10-22,2026-10-22
-TASK-008,task,Analyze repo branch divergence blocking commit and push to GitHub,Open,High,project-manager,project-manager,,,TASK-008,2026-10-22,2026-10-22
+TASK-008,task,Analyze repo branch divergence blocking commit and push to GitHub,Closed,High,project-manager,project-manager,,,TASK-008,2026-10-22,2026-10-23
+TASK-009,task,Bump parent submodule pin for pal_found_cli_skills to merged main 716a85b,In Progress,High,project-manager,project-manager,,,TASK-009,2026-10-23,2026-10-23
