@@ -2,7 +2,7 @@
 id: TASK-009
 type: task
 title: Bump parent submodule pin for pal_found_cli_skills to merged main 716a85b
-status: In Progress
+status: Closed
 priority: High
 assignee: project-manager
 reporter: project-manager
