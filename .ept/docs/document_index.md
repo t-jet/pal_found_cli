@@ -1,5 +1,7 @@
 # Project Documentation Index
 
+- [FEATURE-015 draft skills CI checkpoint](deliverables/qa/FEATURE-015-skills-ci-6df64cc.json): GitHub validate job succeeded for draft skills commit `6df64cce16bf0619bee124f831e1e8686c08cccf` on 2026-10-29. This checkpoint does not establish G1-G7 release acceptance.
+
 - [WORK-007 release pin verification](deliverables/qa/WORK-007-release-pin-plan.md): published parent and paired submodule revisions, fresh-clone checks, and CLI package publication.
 - [WORK-007 CLI candidate evidence (historical)](deliverables/qa/WORK-007-tool-candidate-evidence.md): isolated ten-file tool candidate, checksums, and full-suite result.
 - [WORK-007 skills candidate evidence (historical)](deliverables/qa/WORK-007-skills-candidate-evidence.md): isolated 83-file skills candidate, source-backed audit, copied-bundle checks, and [manifest](deliverables/qa/WORK-007-skills-candidate-manifest.json).
