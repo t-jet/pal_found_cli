@@ -2,6 +2,26 @@
 
 ## Improvement History
 
+## Improvement: for merge reviews, prove the non-taken side carries no unique content before accepting a resolve-all-to-one-side tree
+
+Condition:
+
+- When reviewing a merge commit whose tree equals ONE parent's tree exactly (resolve-all-to-integration/main style), especially when the two parents diverged (criss-cross bases)
+
+Action:
+
+- Do not stop at "tree equals tip = nothing dropped". That equality is only safe if the OTHER side carries no unique content. Verify with three git checks: (1) `git merge-base --is-ancestor <other-parent> <taken-parent>` and, when the other side is itself a merge, check BOTH its parents are ancestors; (2) `git diff --diff-filter=D <other-parent> <merge>` must be empty (taken side deletes no path the other side had); (3) `git merge-tree --write-tree <p1> <p2>` to enumerate true conflicts, then diff the auto-merge result vs the actual merge - only the resolved file(s) should differ, proving a faithful three-way merge. Also `git rev-list --left-right --count p1...p2` to size the divergence. Confirmed 2026-10-25 on CODEREVIEW-087 (DEV-085 merge cee3d98): tree == integration tip, main's only unique commit 716a85b had BOTH parents as integration ancestors, 0 deletions, merge-tree showed exactly 1 conflict (the gate file), auto-merge e7e84b0 differed from cee3d98 only in that file -> APPROVE. Also independently re-derive fix presence per commit (`--is-ancestor` for 65430e9/1ece38f/27b147f/d2ce40a) and re-run the gate suites rather than trusting the DEV ticket body.
+
+## Improvement: PowerShell generic git plumbing - quote ^{tree}, never pipe object content for hashes
+
+Condition:
+
+- When running git plumbing in pwsh to compare trees or hash blobs/artifacts
+
+Action:
+
+- Do quote revision expressions containing `^{tree}`/`^{}`, e.g. `git rev-parse "cee3d98^{tree}"` - unquoted, PowerShell mangles `^{...}` into a `-encodedCommand` / `dAByAGUAZQA=` argument and the command fails. Do NOT compute artifact SHA256 by piping git output (e.g. `git show <sha>:<path> | Out-File; Get-FileHash`): the pipe injects a BOM/CRLF and yields a WRONG hash (saw 69817186 vs the true 90f95b40). Use binary-safe extraction instead - `cmd /c "git cat-file blob <blobsha> > %TEMP%\x"` then Get-FileHash, and cross-check `git cat-file -s <blobsha>` byte size against the worktree file size. Confirm `git rev-parse HEAD` matches the reviewed commit before trusting any worktree read.
+
 ## Improvement: verify per-part counts, not just totals, in doc deliverable reviews; totals-only gates can mask label swaps
 
 Condition:
@@ -141,6 +161,16 @@ Action:
 
 - Do grep/read ALL relevant ADRs (not just the SRS and the directly-named ADR) for the keyword before making the absence claim. ADRs cross-reference each other and a decision clause in a sibling ADR (e.g. ADR-005 §Consequences) can mandate the very behavior under dispute. List the ADRs actually consulted in the decision comment so the reviewer can verify coverage.
 
+## Improvement: read link direction (source->target) before asserting who blocks whom
+
+Condition:
+
+- When a review or governance comment states that a ticket "is blocked by" a link, or reasons about whether a ticket can close
+
+Action:
+
+- Do read the `link list` columns literally: `source -> target` with the type. A row `DEV-085 -> CODEREVIEW-066 Blocks` means DEV-085 is the BLOCKER and CODEREVIEW-066 is blocked, the reverse of what the arrow-free phrasing suggests. Confirm the claimed state with `list --parent <parent>` and its `Blocked` column before writing the governance sentence. If the direction was stated wrong in an already-posted comment, post a CORRECTION comment (do not edit the original) naming the prior comment id and the corrected state. Confirmed 2026-10-25 on CODEREVIEW-087: initial note said DEV-085 was blocked by LINK-02038; it is the blocker, and DEV-085 showed Resolved/Blocked=No; corrected via comment 20261025-235354-@architect.
+
 ## Improvement: post a visible correction when a prior decision was wrong
 
 Condition:
@@ -244,6 +274,28 @@ Action:
 - Do set the epic `resolution` field (`update --field resolution=Done`) BEFORE the manual In Progress→Resolved transition; the AT-1 Resolved→Done auto-transition then lands the epic in Done already carrying the resolution. Confirmed on the epic-closure batch 2026-08-11 (EPIC-005/006/008): all three were In Progress with all EpicLink DEV-STORYs Closed; each `update --status Resolved` exited 0 reporting pre-auto context `Resolved`, then the immediately-following `get` showed `Done` with `allowed_transitions: []` and `resolution: Done` present in Ticket Details — so the manual Resolved→Done step was skipped every time. When auto-rules can reach the target first, sequence: set resolution → post evidence comment → manual transition → re-get → skip redundant manual transition if terminal already landed.
 - Confirmed a fourth time on EPIC-010 2026-09-30: epic stuck in Open with all 8 EpicLink DEV-STORYs already Closed; manual Open→In Progress exited 0 reporting `In Progress`, then the immediately-following `get` showed `Done` with `allowed_transitions: []` — AT-2 did not need to fire (stories already past Development) but AT-1×2 (In Progress→Resolved→Done) cascaded instantly; `resolution: Done` pre-set via `--field resolution=Done` carried into Done. Sequence confirmed again: pre-set resolution → manual Open→In Progress (the Architect-owned step) → re-get → terminal Done already landed, no further manual transitions needed.
 - Confirmed a fifth time on EPIC-011 2026-10-01: epic already In Progress with all 3 EpicLink DEV-STORYs Closed (038/039/040); manual In Progress→Resolved exited 0 reporting pre-auto `Resolved`, then the immediately-following `get` showed `Done` with `allowed_transitions: []` and `resolution: Done` — AT-1 In Progress→Resolved→Done cascaded instantly; no manual Resolved→Done step was needed. Same sequence held: pre-set resolution → evidence comment → manual transition → re-get → skip redundant manual transition.
+
+## Improvement: verify a reproduction claim by content hash before endorsing a cherry-pick; re-measure a "stronger" gate claim
+
+Condition:
+
+- When ruling on how to land reviewed commits from an integration branch (merge vs cherry-pick) and the ticket asserts (a) cherry-picking named fix commits reproduces the accepted artifacts, and (b) one side's quality gate is "strengthened" or "weaker"
+
+Action:
+
+- Do verify claim (a) by computing the accepted artifact's content hash for EACH candidate commit, not just the branch tip: `git show <fix>:<path>` piped to sha256. A fix commit's own content can differ from the branch tip and from the recorded accepted hash when a later commit (e.g. a distribution-prose cleanup) superseded it — then a cherry-pick lands a SUPERSEDED artifact and re-opens the bug even though the commit subject matches. If the accepted hash is reproducible only from the integration lineage, cherry-pick is impossible for that fix and the ruling must be merge (or cherry-pick the whole tail), documented with the per-ref hash table.
+- Do verify claim (b) by diffing both gate blobs (`git diff <base> <side> -- <gate>`) and enumerating the banned patterns on each side. Do not trust the ticket's phrasing — the premise can be inverted: on QUESTION-195 the ticket called main's gate "strengthened", but the integration gate was a strict superset (banned an extra `examples/` dir and 8 suffixes vs 1), so the correct conflict resolution was the OPPOSITE side. Taking the "strengthened" side would have been a silent gate regression. Also check `git merge-base --all`: criss-cross histories yield TWO merge bases, and the stage-1 blob comes from one of them, so a single-merge-base assumption can misattribute the conflict.
+- Do confirm the merge loses nothing by listing the merge-tree conflict set (`git merge-tree --write-tree <a> <b>` prints only conflicted paths) and re-measuring the gate on the merged tree blob. Confirmed 2026-10-25 on QUESTION-195 (skills repo): 65430e9 sha256 f648831f ≠ accepted 90f95b40 (produced by later 1ece38f); integration gate 9a82c8cf was the superset; merge-tree showed exactly one conflicted file; ruling = merge integration, resolve gate to integration side, publish/pin owned by DEV-STORY-070/DEVOPS-047, execution by python-developer/devops-engineer.
+
+## Improvement: after a QUESTION reaches Resolved, manually restore the parent when AT-6 does not fire
+
+Condition:
+
+- When resolving a `question` whose Blocks link targets a parent ticket, and the parent's prior status is recorded (e.g. In Progress) but AT-6 (`this_ticket_reaches_status` on Resolved) does not restore it
+
+Action:
+
+- Do the Resolved-instruction sequence explicitly rather than relying on the auto-rule: (1) get the parent, (2) `link remove <blocks-link>` per the question Resolved instructions, (3) re-get the parent and list its links to confirm no blocking link remains, (4) read the parent's own blocker comment for the recorded prior status, (5) transition the parent back to that status, (6) post a comment on the parent recording the link change, the restore, and the next steps per the ruling. Confirmed 2026-10-25 on QUESTION-195: after Resolved, TASK-013 stayed Blocked with LINK-02034 present; removed it, then TASK-013 In Progress restored manually (comment 20261025-230551-@architect). The Question link (LINK-02035) stays for traceability; do not remove it.
 
 ## Improvement: epic Blocked status does not automatically block child story pre-Development transitions
 
