@@ -1,0 +1,5 @@
+Subject: Source audit and file verification
+Created: 2026-10-05T10:28:18
+Updated: 2026-10-05T10:28:18
+---
+Changed only pal-found-dev/SKILL.md, references/pipelines.md, references/operations.md. Verified all three exist; 58/128/60 lines. All seven local links in SKILL.md and both backlink/cross-links in owned parts resolve inside the skill folder. Removed ../pal-found cross-folder dependency. Audited coverage-map groups 1, 2 and 9: tool selection/environment, Python and SQL transforms, test/release/build/transaction behavior, lineage/health/observability/scheduling/support. 63 distinct official Palantir documentation URLs in owned files returned HTTP 200 on 2026-10-05. Checked substantive constraints against official considerations-pb-cr, transforms-sql/overview, transforms-python/transforms, code-workspaces/getting-started, data-lineage and schedules/health pages. No SDK path, ADR, ticket, internal document or copy-folder direction appears in owned prose. Central commit and integration test update remain pending under PM coordination.

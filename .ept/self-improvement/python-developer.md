@@ -198,6 +198,36 @@ Action:
 
 - Do extract IDs from actual distributed operation headings and compare exact sorted hash; don't hash another frozen constant as the "actual" result.
 
+## Improvement: prove a merge conflict resolution is byte-exact
+
+Condition:
+
+- When resolving a merge conflict by taking one side wholesale (e.g. `git checkout --theirs -- <path>`).
+
+Action:
+
+- Do prove the resolved file equals the intended side's blob: `git hash-object <path>` and `git ls-files -s <path>` (stage 0) must match the blob sha that `git merge-tree --write-tree --messages <ours> <theirs>` reported for that side. Then scan the whole tree with `git grep -E '^(<<<<<<<|>>>>>>>)'` and confirm `git diff --name-only --diff-filter=U` is empty. Also record why the resolution is safe by diffing both conflict sides, not by asserting it.
+
+## Improvement: classify a post-merge test failure before attributing it to the merge
+
+Condition:
+
+- When a full test suite run after a merge fails on a test outside the conflict.
+
+Action:
+
+- Do reproduce the failing test on the pristine pre-merge base in a throwaway worktree (`git worktree add <tmp> <base-sha> --detach`, run, then `git worktree remove --force` + `git worktree prune`). Identical failure there proves it pre-exists. Also confirm the merge did not touch the failing path via `git rev-parse <ref1>:<path> <ref2>:<path>` (equal blob = untouched). Don't report it as a regression.
+
+## Improvement: don't force a blocked review ticket open to satisfy a DoD
+
+Condition:
+
+- When a Development DoD requires a CodeReview sub-task with a relates-to link, but the only candidate review ticket is paired to a different, still-open DEV ticket (holds a Blocks link) and is therefore Blocked.
+
+Action:
+
+- Do create the bidirectional RelatesTo and the Blocks links to the candidate review, then document in a handoff comment that the review cannot be opened without violating its own gate, and recommend the scoping decision to the manager. Don't move the blocked review to Open and don't create a duplicate review ticket unilaterally.
+
 ## Improvement: uncertain REST write fixture
 
 Condition:
@@ -345,3 +375,33 @@ Condition:
 
 Action:
 - Do reserve separators outside the sanitizer alphabet, mark the new ID format, and test mixed names, same-second retries, concurrent writes, and legacy references. Do not claim exact author recovery for ambiguous legacy filenames without stored metadata.
+
+## Improvement: verify a fix commit by extracting its tree, not the working copy
+
+Condition:
+
+- When a bug fix already exists as a commit on an unmerged branch and you must document root cause, fix and verification without modifying code.
+
+Action:
+
+- Do git archive <sha> | tar -x -C .ept/tmp/<name> into a scratch tree and run probes against that tree with PYTHONPATH=src, plus the same probe against the parent commit's tree so the defect is shown present before and absent after. Never test through the working copy, which sits on main and does not contain the fix.
+
+## Improvement: system python may lack project deps; use the venv interpreter for probes
+
+Condition:
+
+- When a scratch tree's test or probe run fails at import with ModuleNotFoundError for a project dependency (e.g. toon_format), or the system interpreter only has an older SDK.
+
+Action:
+
+- Do rerun with the workspace venv interpreter (.venv/Scripts/python.exe) which carries the full dependency set, and record the SDK version in the evidence comment. Do not report the import failure as a defect in the fix.
+
+## Improvement: a reuse-free wire probe must supply schema-valid fixtures
+
+Condition:
+
+- When writing an independent CLI-to-wire probe for an SDK-calling CLI, with the intent of not reusing the branch's own test helpers.
+
+Action:
+
+- Do read the SDK schema or the branch fixtures for the exact request payload shape; a minimal placeholder config (e.g. {type: statusCheckConfig}) fails SDK validation, makes requests empty, and yields a false negative. Print exit code and captured stdout on the failure path so an empty capture is distinguishable from a real omission.
