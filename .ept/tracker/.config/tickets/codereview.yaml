@@ -63,7 +63,7 @@ allowed_transitions:
   Correction: [Corrected, Blocked, Canceled, Rejected, Duplicated]
   Corrected:  [Correction, Closed, Blocked, Canceled, Rejected, Duplicated]
   Blocked:    [Open, Correction, Corrected, Canceled, Rejected, Duplicated]
-  Closed:     []
+  Closed:     [Correction]
   Canceled:   []
   Rejected:   []
   Duplicated: []

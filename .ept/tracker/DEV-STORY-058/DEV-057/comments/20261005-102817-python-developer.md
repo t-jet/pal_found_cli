@@ -1,0 +1,5 @@
+Subject: Source audit, decisions and deliverables
+Created: 2026-10-05T10:28:17
+Updated: 2026-10-05T10:28:17
+---
+Modified files verified in workspace: pal_found_cli_skills/.agents/skills/pal-found-dev/references/ontology-compute.md and applications-branching-security.md. Both are new skill parts in the shared submodule. Official-source review: Ontology permissions confirms project model, existing-resource migration and Default Ontology exception; Compute execution modes confirms service-user versus scoped job-token behavior and same-project pipeline inputs/outputs; Developer Console permissions confirms browser user identity and backend service identity; Custom Widgets create/embedding confirms first release versus playground/Workshop dev preview; data branching and VS Code Global Branching confirm branch boundaries; Action webhooks confirms external write cannot be atomic with Ontology edits. Added local return links. Clarified TypeScript v1 unit-test references. Source URLs are linked near claims in the pages. No internal project references or packaging instructions. Central commit and peer review remain; no isolated commit in shared submodule.

@@ -16,6 +16,7 @@ from .index import (
     get_next_ticket_id,
     get_ticket,
     increment_counter,
+    interprocess_lock,
     read_canonical_index,
     read_index,
     ticket_exists,
@@ -111,7 +112,26 @@ def create_ticket(
     description: str = "",
     extra_fields: dict[str, str] | None = None,
 ) -> str:
-    """Create a new ticket and return its ID."""
+    """Create a ticket under a cross-process ID and index transaction."""
+    with interprocess_lock("tickets"):
+        return _create_ticket_locked(
+            ticket_type, title, author, priority, assignee, parent,
+            addressed_to, description, extra_fields,
+        )
+
+
+def _create_ticket_locked(
+    ticket_type: str,
+    title: str,
+    author: str,
+    priority: str,
+    assignee: str,
+    parent: str,
+    addressed_to: str,
+    description: str,
+    extra_fields: dict[str, str] | None,
+) -> str:
+    """Persist one ticket while the ticket creation lock is held."""
     cfg = get_runtime_config()
     paths = get_paths()
     validate_ticket_type(ticket_type)

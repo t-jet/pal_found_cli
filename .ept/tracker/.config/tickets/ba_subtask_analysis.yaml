@@ -61,8 +61,8 @@ allowed_transitions:
   Open:        [In Progress, Blocked, Canceled, Rejected, Duplicated]
   In Progress: [Resolved, Blocked, Canceled, Rejected, Duplicated]
   Blocked:     [Open, In Progress, Canceled, Rejected, Duplicated, Resolved]
-  Resolved:    [Closed, Canceled, Rejected, Duplicated, Blocked]
-  Closed:      []
+  Resolved:    [Closed, Canceled, Rejected, Duplicated, Blocked, In Progress]
+  Closed:      [Resolved]
   Canceled:    []
   Rejected:    []
   Duplicated:  []
@@ -190,9 +190,9 @@ ticket_instructions:
         dod_criteria:
           - Ticket not blocked (no active is-blocked-by links)
           - Ticket doesn't block others (all dependent tickets unblocked or resolved)
-          - SA-SUB and UX-SUB (if exists) in a terminal status (as determined by the ticket type workflow configuration)
+          - SA-ANA and UX-ANA (if exists) for the parent FEATURE in the Resolved or Closed status and all their approvals obtained (approval QUESTION tickets in terminal status)
           - All feedback from reviews addressed
-          - All approvals obtained (all created QUESTION tickets in terminal status)
+          - All approvals obtained (all created QUESTION tickets for this ticketin terminal status)
 
   Closed:
     instructions:

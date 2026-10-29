@@ -9,6 +9,7 @@ from .exceptions import ValidationError
 from .index import (
     get_next_link_id,
     increment_link_counter,
+    interprocess_lock,
     read_link_index,
     ticket_exists,
     write_link_index,
@@ -37,37 +38,37 @@ def create_link(
         raise ValidationError(f"Target ticket {target_id} does not exist")
     validate_link_type(link_type)
 
-    links = read_link_index()
-    duplicate = next(
-        (
-            lk
-            for lk in links
-            if lk["source_ticket"] == source_id
-            and lk["target_ticket"] == target_id
-            and lk["link_type"] == link_type
-        ),
-        None,
-    )
-    if duplicate:
-        raise ValidationError(f"Link already exists: {duplicate['link_id']}")
+    with interprocess_lock("links"):
+        links = read_link_index()
+        duplicate = next(
+            (
+                lk
+                for lk in links
+                if lk["source_ticket"] == source_id
+                and lk["target_ticket"] == target_id
+                and lk["link_type"] == link_type
+            ),
+            None,
+        )
+        if duplicate:
+            raise ValidationError(f"Link already exists: {duplicate['link_id']}")
 
-    link_id = get_next_link_id()
-    source_role, target_role = get_link_roles(link_type)
-
-    links.append({
-        "link_id": link_id,
-        "source_ticket": source_id,
-        "target_ticket": target_id,
-        "link_type": link_type,
-        "source_role": source_role,
-        "target_role": target_role,
-        "created": datetime.now().isoformat(),
-        "created_by": created_by,
-        "comment": comment,
-    })
-    write_link_index(links)
-    increment_link_counter()
-    return link_id
+        link_id = get_next_link_id()
+        source_role, target_role = get_link_roles(link_type)
+        links.append({
+            "link_id": link_id,
+            "source_ticket": source_id,
+            "target_ticket": target_id,
+            "link_type": link_type,
+            "source_role": source_role,
+            "target_role": target_role,
+            "created": datetime.now().isoformat(),
+            "created_by": created_by,
+            "comment": comment,
+        })
+        write_link_index(links)
+        increment_link_counter()
+        return link_id
 
 
 def list_links(
@@ -94,11 +95,15 @@ def list_links(
 
 def remove_link(link_id: str) -> bool:
     """Remove a link by ID.  Returns ``True`` on success."""
-    links = read_link_index()
-    if not any(lk["link_id"] == link_id for lk in links):
-        raise ValidationError(f"Link {link_id} not found")
-    write_link_index([lk for lk in links if lk["link_id"] != link_id])
-    return True
+    with interprocess_lock("links"):
+        links = read_link_index()
+        matches = [lk for lk in links if lk["link_id"] == link_id]
+        if not matches:
+            raise ValidationError(f"Link {link_id} not found")
+        if len(matches) > 1:
+            raise ValidationError(f"Link {link_id} is ambiguous: duplicate IDs")
+        write_link_index([lk for lk in links if lk["link_id"] != link_id])
+        return True
 
 
 def is_ticket_blocked(ticket_id: str) -> bool:

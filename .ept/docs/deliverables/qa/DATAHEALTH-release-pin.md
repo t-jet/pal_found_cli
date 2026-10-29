@@ -1,5 +1,21 @@
 # Data Health skills release pin
 
+## Revision 2026-10-23 — parent pin bump
+
+| Submodule | Pinned commit | Change |
+| --- | --- | --- |
+| Skills | `716a85bfd6a1a4e4532b390f3726532a8f24eaf1` | Was `04e860f3`; forward-only (27 commits), keeps the 2026-10-15 snapshot below. |
+| CLI tool | `a3a38ec434fdb046c329b850e716dc541fa87ecd` | Was `b9c5f8a1`; forward-only (10 commits) containing the BUG-034 preview fix and the related retry, timeout, output-format and wire-test changes. |
+| SDK | `2da67907be429c35f747eef565867ce81dd2cafc` | Unchanged. |
+
+The new skills pin is the merge of published skills `main` `04e860f3` with local `main` `419b261`. It is a strict descendant of the 2026-10-15 pin, so every Data Health contract and fixture from that snapshot is preserved. It also carries the Closed QUESTION-189 correction: the QA fixture moved out of `.agents/skills/pal-found-data-health/` into `tests/fixtures/offline/data-health/`, the reader guide is prose-only, and the doc-only gate rejects any `.py` file in a namespace skill folder.
+
+The new CLI tool pin is tool `main` after merging `feature015/data-health-preview-fix`. It is a strict descendant of the published `v0.1.5` commit `b9c5f8a1`, so the released `v0.1.5` content is preserved. It adds the required `preview=true` on all six Data Health operations (BUG-034, Closed), plus the shared retry, timeout, output-format and parser corrections already accepted through BUG-036 through BUG-045. The tool version metadata is unchanged; no new tag was created.
+
+Bumped under expert approval recorded on TASK-009 (skills) and TASK-011 (tool). The 2026-10-15 snapshot below is retained as history and is superseded by this revision.
+
+## Revision 2026-10-15 — original snapshot
+
 Snapshot: 2026-10-15. This parent candidate starts from published parent `ca32046a4b2a6dd2fc25f43423038a0b3e6fe9cd`.
 
 | Submodule | Pinned commit |
