@@ -3,6 +3,9 @@
 WORK-007 entries below record an earlier release and its distribution checks. For current skill instructions, use the pinned pal_found_cli_skills submodule. FEATURE-015 is still under review; its candidate is not a released baseline.
 
 - [FEATURE-015 draft release status](deliverables/qa/FEATURE-015-draft-release-status-2026-10-18.md): candidate commits, passing checks, open QA, and local checkout limits.
+- [FEATURE-015 paired draft CI checkpoint (2026-11-16)](deliverables/qa/FEATURE-015-skills-ci-3d5536c.json): exact skills commit `3d5536cfe024bed6d8dbfbdc27cc65f700b7e95f` passed GitHub validate on 2026-11-16. Paired tool main `223d2c0bfe3b4ed9a1f8aa35cc98a07cf2a3238f` has [eight successful CI checks observed on 2026-10-29](deliverables/qa/FEATURE-015-tool-ci-223d2c0.json). Both gitlinks advance prior main and draft pins by ancestry. G1-G7 release acceptance remains incomplete; DEVOPS-047 stays Open.
+- [FEATURE-015 draft skills CI checkpoint](deliverables/qa/FEATURE-015-skills-ci-6df64cc.json): GitHub validate job succeeded for draft skills commit `6df64cce16bf0619bee124f831e1e8686c08cccf` on 2026-10-29. This checkpoint does not establish G1-G7 release acceptance.
+
 - [WORK-007 release pin verification](deliverables/qa/WORK-007-release-pin-plan.md): published parent and paired submodule revisions, fresh-clone checks, and CLI package publication.
 - [WORK-007 CLI candidate evidence (historical)](deliverables/qa/WORK-007-tool-candidate-evidence.md): isolated ten-file tool candidate, checksums, and full-suite result.
 - [WORK-007 skills candidate evidence (historical)](deliverables/qa/WORK-007-skills-candidate-evidence.md): isolated 83-file skills candidate, source-backed audit, copied-bundle checks, and [manifest](deliverables/qa/WORK-007-skills-candidate-manifest.json).
