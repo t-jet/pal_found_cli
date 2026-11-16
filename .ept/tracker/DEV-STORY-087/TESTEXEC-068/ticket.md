@@ -2,13 +2,14 @@
 id: TESTEXEC-068
 type: testexec
 title: DEV-STORY-087 testexec J14 AIP REST contracts
-status: Open
+status: Closed
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-29
 priority: High
 assignee: qa-engineer
 reporter: tech-lead
 estimated_hours: 10
+time_spent_hours: 0.00245845705555338
 ---
 
 # DEV-STORY-087 testexec

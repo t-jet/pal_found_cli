@@ -2,10 +2,11 @@
 id: BUG-SUB-025
 type: bug_subtask
 title: J12 guide lacks integrated transaction file verification and build outcome
-status: In Progress
+status: Closed
 created: 2026-10-09
-updated: 2026-10-11
+updated: 2026-10-28
 priority: High
+resolution: Done
 assignee: python-developer
 reporter: qa-engineer
 time_spent_hours: untracked

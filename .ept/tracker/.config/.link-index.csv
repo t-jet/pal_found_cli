@@ -1315,7 +1315,6 @@ LINK-01736,DEV-STORY-087,TESTCASE-068,Contains,Contains,Contained In,2026-10-06T
 LINK-01737,DEV-STORY-087,TESTEXEC-068,Contains,Contains,Contained In,2026-10-06T22:13:14.425175,tech-lead,
 LINK-01738,DEV-069,CODEREVIEW-069,RelatesTo,Relates To,Relates To,2026-10-06T22:13:15.042490,tech-lead,
 LINK-01739,CODEREVIEW-069,DEV-069,RelatesTo,Relates To,Relates To,2026-10-06T22:13:15.660970,tech-lead,
-LINK-01740,DEV-069,CODEREVIEW-069,Blocks,Blocks,Is Blocked By,2026-10-06T22:13:16.279611,tech-lead,
 LINK-01741,DEV-STORY-066,DESIGN-070,Contains,Contains,Contained In,2026-10-06T22:21:15.945186,tech-lead,
 LINK-01742,DEV-STORY-066,DEV-070,Contains,Contains,Contained In,2026-10-06T22:21:18.563142,tech-lead,
 LINK-01743,DEV-STORY-066,UNITTEST-069,Contains,Contains,Contained In,2026-10-06T22:21:21.186344,tech-lead,
@@ -1370,7 +1369,6 @@ LINK-01793,DEV-STORY-071,TESTCASE-074,Contains,Contains,Contained In,2026-10-07T
 LINK-01794,DEV-STORY-071,TESTEXEC-074,Contains,Contains,Contained In,2026-10-07T10:15:52.130525,tech-lead,
 LINK-01795,DEV-074,CODEREVIEW-075,RelatesTo,Relates To,Relates To,2026-10-07T10:15:52.768442,tech-lead,
 LINK-01796,CODEREVIEW-075,DEV-074,RelatesTo,Relates To,Relates To,2026-10-07T10:15:53.399494,tech-lead,
-LINK-01797,DEV-074,CODEREVIEW-075,Blocks,Blocks,Is Blocked By,2026-10-07T10:15:54.050680,tech-lead,
 LINK-01798,DEV-STORY-072,DESIGN-075,Contains,Contains,Contained In,2026-10-07T10:16:07.561459,tech-lead,
 LINK-01799,DEV-STORY-072,DEV-075,Contains,Contains,Contained In,2026-10-07T10:16:12.232670,tech-lead,
 LINK-01800,DEV-STORY-072,UNITTEST-075,Contains,Contains,Contained In,2026-10-07T10:16:16.954179,tech-lead,
@@ -1395,7 +1393,6 @@ LINK-01820,DEV-STORY-075,TESTCASE-077,Contains,Contains,Contained In,2026-10-07T
 LINK-01821,DEV-STORY-075,TESTEXEC-077,Contains,Contains,Contained In,2026-10-07T10:17:50.684219,tech-lead,
 LINK-01822,DEV-077,CODEREVIEW-078,RelatesTo,Relates To,Relates To,2026-10-07T10:17:51.331450,tech-lead,
 LINK-01823,CODEREVIEW-078,DEV-077,RelatesTo,Relates To,Relates To,2026-10-07T10:17:51.966582,tech-lead,
-LINK-01824,DEV-077,CODEREVIEW-078,Blocks,Blocks,Is Blocked By,2026-10-07T10:17:52.605230,tech-lead,
 LINK-01825,DEV-STORY-077,DESIGN-078,Contains,Contains,Contained In,2026-10-07T10:18:06.232566,tech-lead,
 LINK-01826,DEV-STORY-077,DEV-078,Contains,Contains,Contained In,2026-10-07T10:18:10.962243,tech-lead,
 LINK-01827,DEV-STORY-077,UNITTEST-078,Contains,Contains,Contained In,2026-10-07T10:18:15.753500,tech-lead,
@@ -1460,7 +1457,6 @@ LINK-01887,DEV-084,CODEREVIEW-085,RelatesTo,Relates To,Relates To,2026-10-07T16:
 LINK-01888,CODEREVIEW-085,DEV-084,RelatesTo,Relates To,Relates To,2026-10-07T16:02:19.122006,tech-lead,
 LINK-01889,DEV-084,CODEREVIEW-085,Blocks,Blocks,Is Blocked By,2026-10-07T16:02:19.801709,tech-lead,
 LINK-01893,BUG-SUB-025,DEV-STORY-074,RelatesTo,Relates To,Relates To,2026-10-09T09:29:15.651134,qa-engineer,J12 staged/committed Dataset File view fix coordinated with orchestration owner
-LINK-01894,BUG-SUB-025,TESTEXEC-064,Blocks,Blocks,Is Blocked By,2026-10-09T09:29:16.541781,qa-engineer,J12 integrated reader failure blocks complete REST acceptance until fresh blind retest
 LINK-01896,TASK-004,WORK-002,ParentChild,Is Parent Of,Is Child Of,2026-10-11T23:22:15.248747,devops-engineer,Register parent-child link for work item WORK-002 (parity with WORK-001 LINK-01468).
 LINK-01898,QUESTION-187,UNITTEST-044,Question,Asks About,Has Question,2026-10-12T00:56:51.705430,python-developer,
 LINK-01899,DEV-STORY-049,DEV-049,Contains,Contains,Contained In,2026-10-12T01:08:25.542913,tech-lead,Restore missing Contains link DEV-STORY-049 -> DEV-049 to match sibling stories
@@ -1515,8 +1511,6 @@ LINK-01953,BUG-032,BUG-031,RelatesTo,Relates To,Relates To,2026-10-14T17:07:32.8
 LINK-01955,BUG-033,TASK-006,RelatesTo,Relates To,Relates To,2026-10-14T17:15:01.181349,qa-engineer,BUG-032 independent QA regression during TASK-006
 LINK-01956,BUG-034,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-16T15:03:40.595098,qa-engineer,
 LINK-01957,BUG-034,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-16T15:03:45.922372,qa-engineer,
-LINK-01958,BUG-034,DEV-STORY-061,Blocks,Blocks,Is Blocked By,2026-10-16T15:03:49.391084,qa-engineer,
-LINK-01959,BUG-034,DEV-STORY-070,Blocks,Blocks,Is Blocked By,2026-10-16T15:03:52.702568,qa-engineer,
 LINK-01960,BUG-034,TESTEXEC-048,RelatesTo,Relates To,Relates To,2026-10-16T15:03:59.943795,qa-engineer,
 LINK-01961,BUG-SUB-027,TESTEXEC-074,RelatesTo,Relates To,Relates To,2026-10-16T15:04:26.253087,qa-engineer,Independent preflight finding; formal TESTEXEC-074 remains Open
 LINK-01962,BUG-SUB-028,TESTEXEC-074,RelatesTo,Relates To,Relates To,2026-10-16T15:04:29.910114,qa-engineer,Independent preflight finding; formal TESTEXEC-074 remains Open
@@ -1565,3 +1559,32 @@ LINK-02023,BUG-044,DEV-STORY-006,RelatesTo,Relates To,Relates To,2026-10-21T15:4
 LINK-02025,BUG-045,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-21T23:52:20.726188,project-manager,Preserve original ownership; independently discovered SQL CLI adapter defect.
 LINK-02026,BUG-045,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-21T23:52:21.462342,project-manager,Preserve original ownership; independently discovered SQL CLI adapter defect.
 LINK-02027,BUG-045,DEV-STORY-015,RelatesTo,Relates To,Relates To,2026-10-21T23:52:22.181710,project-manager,Preserve original ownership; independently discovered SQL CLI adapter defect.
+LINK-02029,TASK-009,TASK-008,RelatesTo,Relates To,Relates To,2026-10-23T17:21:44.194206,project-manager,Pin bump follows TASK-008 push of skills main 716a85b
+LINK-02030,TASK-010,BUG-034,RelatesTo,Relates To,Relates To,2026-10-23T20:12:08.393846,project-manager,Merge follows BUG-034 closure
+LINK-02031,TASK-011,TASK-010,RelatesTo,Relates To,Relates To,2026-10-23T21:57:45.154983,project-manager,Tool gitlink bump follows TASK-010 merge
+LINK-02032,QUESTION-194,BUG-035,Question,Asks About,Has Question,2026-10-25T22:32:04.567052,qa-engineer,
+LINK-02035,QUESTION-195,TASK-013,Question,Asks About,Has Question,2026-10-25T22:44:20.335052,project-manager,
+LINK-02039,CODEREVIEW-087,DEV-085,RelatesTo,Relates To,Relates To,2026-10-25T23:32:17.278687,project-manager,Review the DEV-085 merge
+LINK-02043,BUG-046,DEV-STORY-013,RelatesTo,Relates To,Relates To,2026-10-29T10:27:22.326753,project-manager,Original Models CLI implementation owns failing operation.
+LINK-02044,BUG-046,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-29T10:27:23.289082,project-manager,Independent offline skill audit found essential CLI runtime defect.
+LINK-02046,BUG-047,DEV-STORY-013,RelatesTo,Relates To,Relates To,2026-10-29T15:55:08.976729,qa-engineer,
+LINK-02047,BUG-047,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-29T15:55:09.936940,qa-engineer,
+LINK-02048,BUG-047,DEV-STORY-061,Blocks,Blocks,Is Blocked By,2026-10-29T15:55:10.895049,qa-engineer,
+LINK-02049,BUG-047,BUG-046,RelatesTo,Relates To,Relates To,2026-10-29T15:55:11.855104,qa-engineer,
+LINK-02050,TASK-014,DEVOPS-047,RelatesTo,Relates To,Relates To,2026-10-29T16:06:45.547063,devops-engineer,Draft parent checkpoint handoff; final publication remains DEVOPS-047 scope.
+LINK-02051,TASK-015,BUG-046,RelatesTo,Relates To,Relates To,2026-10-29T16:42:34.642194,devops-engineer,
+LINK-02052,TASK-015,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-29T16:42:35.603601,devops-engineer,
+LINK-02053,TASK-016,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-29T22:33:17.853324,hr,
+LINK-02054,TASK-017,DEVOPS-047,RelatesTo,Relates To,Relates To,2026-11-16T09:40:03.805162,devops-engineer,Draft checkpoint only; independent G1-G7 acceptance remains required for release.
+LINK-02055,TASK-018,FEATURE-015,RelatesTo,Relates To,Relates To,2026-11-16T09:45:45.104910,project-manager,
+LINK-02056,BUG-048,DEV-STORY-021,RelatesTo,Relates To,Relates To,2026-11-16T09:58:17.092299,qa-engineer,
+LINK-02057,BUG-048,FEATURE-012,RelatesTo,Relates To,Relates To,2026-11-16T09:58:18.027291,qa-engineer,
+LINK-02058,BUG-048,FEATURE-015,RelatesTo,Relates To,Relates To,2026-11-16T09:58:18.972382,qa-engineer,
+LINK-02059,BUG-048,DEV-STORY-070,Blocks,Blocks,Is Blocked By,2026-11-16T09:58:19.928330,qa-engineer,
+LINK-02060,BUG-049,FEATURE-015,RelatesTo,Relates To,Relates To,2026-11-16T09:58:20.872340,qa-engineer,
+LINK-02061,BUG-049,DEV-STORY-021,RelatesTo,Relates To,Relates To,2026-11-16T09:58:21.844155,qa-engineer,
+LINK-02062,BUG-049,DEV-STORY-061,Blocks,Blocks,Is Blocked By,2026-11-16T09:58:22.790179,qa-engineer,
+LINK-02063,BUG-049,DEV-STORY-070,Blocks,Blocks,Is Blocked By,2026-11-16T09:58:23.742865,qa-engineer,
+LINK-02064,BUG-049,BUG-048,RelatesTo,Relates To,Relates To,2026-11-16T09:58:24.672326,qa-engineer,
+LINK-02065,TASK-019,TASK-018,RelatesTo,Relates To,Relates To,2026-11-16T14:53:43.919411,devops-engineer,
+LINK-02066,TASK-019,TASK-014,RelatesTo,Relates To,Relates To,2026-11-16T14:53:44.866053,devops-engineer,

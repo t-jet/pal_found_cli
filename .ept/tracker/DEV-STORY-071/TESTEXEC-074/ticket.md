@@ -2,13 +2,15 @@
 id: TESTEXEC-074
 type: testexec
 title: DEV-STORY-071 testexec identity and membership lifecycle REST contracts
-status: Open
+status: Closed
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-28
 priority: High
+resolution: Done
 assignee: qa-engineer
 reporter: tech-lead
 estimated_hours: 10
+time_spent_hours: 0.0002647222222246152
 ---
 
 # DEV-STORY-071 testexec

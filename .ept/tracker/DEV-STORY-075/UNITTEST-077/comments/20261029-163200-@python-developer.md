@@ -1,0 +1,6 @@
+Subject: Closure verification after independent REST075 formal PASS
+Created: 2026-10-29T16:32:00
+Updated: 2026-10-29T16:32:00
+---
+## Closure evidence
+CODEREVIEW-078 is Closed; no active blocker remains. Independent TESTEXEC-077 formal attempt01 passed all 29 operations, 44 declared errors and 1012 checks. Source/asset bindings unchanged. Canonical `.ept/tmp/feature015_rest075_formal_qa.json` links exact approved cases/harness, independent reviews, retained rejected bundle and raw outcomes. No additional execution occurred. Existing DEV/UNIT measured frontmatter time preserved; QA frontmatter records measured formal machine runtime only, with contributor effort unmeasured. BUG-SUB-025, CASE077 and CR078 remain Closed and untouched. No live tenant or publication claim.
