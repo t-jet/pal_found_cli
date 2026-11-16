@@ -1,5 +1,7 @@
 # Project Documentation Index
 
+- [FEATURE-015 paired draft CI checkpoint (2026-11-16)](deliverables/qa/FEATURE-015-skills-ci-3d5536c.json): exact skills commit `3d5536cfe024bed6d8dbfbdc27cc65f700b7e95f` passed GitHub validate on 2026-11-16. Paired tool main `223d2c0bfe3b4ed9a1f8aa35cc98a07cf2a3238f` has [eight successful CI checks observed on 2026-10-29](deliverables/qa/FEATURE-015-tool-ci-223d2c0.json). Both gitlinks advance prior main and draft pins by ancestry. G1-G7 release acceptance remains incomplete; DEVOPS-047 stays Open.
+
 - [FEATURE-015 draft skills CI checkpoint](deliverables/qa/FEATURE-015-skills-ci-6df64cc.json): GitHub validate job succeeded for draft skills commit `6df64cce16bf0619bee124f831e1e8686c08cccf` on 2026-10-29. This checkpoint does not establish G1-G7 release acceptance.
 
 - [WORK-007 release pin verification](deliverables/qa/WORK-007-release-pin-plan.md): published parent and paired submodule revisions, fresh-clone checks, and CLI package publication.
