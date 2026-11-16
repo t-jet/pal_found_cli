@@ -2,11 +2,11 @@
 id: DEV-STORY-075
 type: dev_story
 title: 'Author offline REST SDK contracts: Pipeline orchestration checkpoints and health'
-status: Development
+status: Deployment
 feature_request: FEATURE-015
 epic: EPIC-015
 created: 2026-10-06
-updated: 2026-10-07
+updated: 2026-10-29
 priority: High
 assignee: python-developer
 reporter: ba

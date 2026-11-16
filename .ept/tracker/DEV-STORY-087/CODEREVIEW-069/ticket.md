@@ -2,9 +2,9 @@
 id: CODEREVIEW-069
 type: codereview
 title: DEV-STORY-087 codereview J14 AIP REST contracts
-status: Blocked
+status: Closed
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-29
 priority: High
 assignee: architect
 reporter: tech-lead

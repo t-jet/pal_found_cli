@@ -1,0 +1,19 @@
+Subject: Developer resolution: reviewed config-version bridge verified and merged
+Created: 2026-10-29T23:07:52
+Updated: 2026-10-29T23:07:52
+---
+## 2026-10-29 developer resolution
+
+Reviewed .ept/docs/document_index.md, DESIGN-013-models-cli.md and SA-DES-014 verification-and-delivery.md G6, all BUG-046 comments and links, and historical BUG-SUB-023 scope. CLI list found zero QUESTION children; links show no inbound implementation blocker. Historical Closed tickets remain unchanged.
+
+Root cause: SDK 1.101.0 validates config version as int, then passes that int to urllib.parse.quote during URL construction. Actual baseline a3a38ec434fdb046c329b850e716dc541fa87ecd CLI reproduction exits 1 with TypeError and zero HTTP requests. Independent baseline evidence: .ept/tmp/feature015_bug046_probe_sdk101.json.
+
+Implementation at db72226c97c55af290f09906dc04f53037513636 changes only Models CLI source and tests/test_models_config_version_sdk_wire.py. The bridge applies only to model_studio_config_version.get. Native SDK validation constructs RequestInfo; an invocation resource instance adapter copies path_params and converts only the validated integer version to its decimal string for the exact expected route. SDK response types, named/generic errors, headers, query, body and timeout remain SDK-owned. Finally restores original instance API client on success, failure and cancellation. Unexpected route fails closed. No global SDK patch, baseline upgrade, runtime policy or operation inventory change. All 23 Models operations remain present.
+
+Independent source review and QA PASS: .ept/tmp/feature015_bug046_independent_qa_20261029.json, SHA256 28c58a314e9a3ac52701d1af3420b618cff15d21b11df456d1d96bd0c0eb7274. Source SHA256 d8dcd02b8da0edb6e66595539ee964d5c856ac388fd889fea84b22cbecc39009; test SHA256 9b3421b36ee8225bf39b6fa2d6dc7215158a307cceed882e4937627d04c6529d. Rechecked both against clean shared worktree. For each SDK 1.101.0 and 1.111.0: 39 Models tests plus 14 independent cases PASS. Probe commands use .ept/tmp/feature015_shared_cli_qa_env/Scripts/python.exe and .ept/tmp/feature015_functions_sdk111_env/Scripts/python.exe with -B .ept/tmp/feature015_bug046_independent_probe.py and corresponding probe_sdk101.json/probe_sdk111.json outputs; full pytest commands are in independent report. Ruff and mypy PASS.
+
+Checks exercise actual CLI parser/main, typed success at exact GET /api/v2/models/modelStudios/{RID}/configVersions/27, JSON/TOON output, named 404 and generic 403 errors, four-call persistent 503 retry limit, invalid inputs, denied guard exit 8 with zero HTTP, unchanged latest route, resource restoration and cancellation. Timeout values stay 9; request query/body remain empty; response closure and tracing/attribution scope restoration verified. Socket network is denied; MockTransport evidence establishes serialization and local behavior only. Live Foundry enrollment/server acceptance is not established.
+
+PR https://github.com/t-jet/pal_found_cli_tool/pull/2 merged normally to main 223d2c0bfe3b4ed9a1f8aa35cc98a07cf2a3238f. Publication evidence .ept/tmp/feature015_tool_main_publication_20261029.json proves direct parents a3a38ec and db72226 and identical candidate/main tree 1b12d3b0881d04a6e3c7953149cd9167f0ca42a4. Exact candidate eight CI checks succeeded in .ept/tmp/feature015_tool_ci_db72226.json. Fresh main evidence .ept/tmp/feature015_tool_main_ci_223d2c0.json observed 2026-10-29T21:04:30Z shows all eight checks SUCCESS in https://github.com/t-jet/pal_found_cli_tool/actions/runs/40949790522. TASK-015 owns publication workflow reporting.
+
+In Progress DoD met: related documentation studied, bounded fix and tradeoffs reviewed, no unresolved questions, root cause and implementation recorded, fix independently tested and verified. Developer moves to Resolved for independent QA closure. LINK-02045 Blocks DEV-STORY-070 remains for QA disposition; BUG-047 content repair remains separate.

@@ -2,9 +2,9 @@
 id: CODEREVIEW-078
 type: codereview
 title: DEV-STORY-075 codereview build scheduling checkpoints and health lifecycle REST contracts
-status: Blocked
+status: Closed
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-29
 priority: High
 assignee: architect
 reporter: tech-lead

@@ -2,10 +2,11 @@
 id: CODEREVIEW-075
 type: codereview
 title: DEV-STORY-071 codereview identity and membership lifecycle REST contracts
-status: Blocked
+status: Closed
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-27
 priority: High
+resolution: Done
 assignee: architect
 reporter: tech-lead
 estimated_hours: 12

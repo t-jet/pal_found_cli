@@ -1,0 +1,9 @@
+Subject: Committed unit completion and measured execution boundary
+Created: 2026-10-29T01:19:31
+Updated: 2026-10-29T01:19:31
+---
+## Unit DoD evidence (2026-10-29)
+Current tests/test_offline_rest_075.py physically exists, compiles and is tracked with unchanged committed bytes in .ept/tmp/feature015_integration. Commit ad0580a includes test and independent maintainer/rest-domain-unit-review-075.json. Test SHA256 d81a04ec9b51a1e480f03570900509d02a293d60e79fba7cd9089b3310f72db3; review SHA256 a52842ec84b69023a9c105daf00f83aaf3bee519e63cd7a692a8e03f5b57047d.
+Independent execution recorded 214 passed in0.83s; command wall time1.4334663999907207s, ruff exit0 wall time0.021175499976379797s. Sum1.4546418999671005s =0.000404067194435306 hours. Frontmatter records only this measured machine execution time, with no unmeasured authoring or contributor hours inferred. Current compile time is recorded under DEV077 and excluded here.
+Coverage: original86 semantic/source/error/mutation checks,58 native-async/raw-async checks for all29,48 sync/async streaming checks for24 source-exposed methods,8 finite-page checks forfour operations,14 timeout cases forseven resources. Stream closure starts with open byte streams, consumes finite chunks, leaves third unread and closes response/transport. Actual AsyncResourceIterator remains distinct from awaitable model/raw responses. Five methods expose no streaming wrapper; no SSE API declared. Socket/DNS/native HTTP guard self-test passes. Synthetic results establish no server scheduling/filtering/authorization guarantee.
+Indexed authoring contract and approved BA-DES015/SA-DES014 revision2 remain unchanged; no new design deliverable. No unresolved linked QUESTION or blocker. All tests and evidence committed; no source edit during handoff. Formal QA case/execution and architect approval remain separate.

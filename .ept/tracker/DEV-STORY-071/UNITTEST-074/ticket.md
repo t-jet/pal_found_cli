@@ -2,13 +2,15 @@
 id: UNITTEST-074
 type: unittest
 title: DEV-STORY-071 unittest identity and membership lifecycle REST contracts
-status: In Progress
+status: Closed
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-28
 priority: High
+resolution: Done
 assignee: python-developer
 reporter: tech-lead
 estimated_hours: 8
+time_spent_hours: 0.0005472222222222222
 ---
 
 # DEV-STORY-071 unittest

@@ -1,0 +1,1594 @@
+link_id,source_ticket,target_ticket,link_type,source_role,target_role,created,created_by,comment
+LINK-00191,DEV-STORY-005,TESTEXEC-003,ParentChild,Is Parent Of,Is Child Of,2026-07-26T22:47:23.617710,manager,Register parent relationship for TESTEXEC-003 under DEV-STORY-005.
+LINK-00192,QUESTION-026,TESTCASE-004,Question,Asks About,Has Question,2026-07-26T22:50:07.547929,qa-engineer,
+LINK-00194,DEV-STORY-003,TESTEXEC-004,ParentChild,Is Parent Of,Is Child Of,2026-07-26T23:04:36.002395,manager,Register parent story relationship for TESTEXEC-004 QA execution.
+LINK-00195,FEATURE-001,DEV-STORY-005,Contains,Contains,Contained In,2026-07-26T23:09:29.973041,manager,Register DEV-STORY-005 under FEATURE-001 for closure DoD.
+LINK-00196,EPIC-002,DEV-STORY-005,EpicLink,Epic Link,Epic Link,2026-07-26T23:09:33.195534,manager,Register DEV-STORY-005 EpicLink for closure DoD.
+LINK-00197,DEV-STORY-005,DESIGN-003,ParentChild,Is Parent Of,Is Child Of,2026-07-26T23:09:36.251819,manager,Register closed child ticket for DEV-STORY-005 closure DoD.
+LINK-00198,DEV-STORY-005,DEV-003,ParentChild,Is Parent Of,Is Child Of,2026-07-26T23:09:39.898862,manager,Register closed child ticket for DEV-STORY-005 closure DoD.
+LINK-00199,DEV-STORY-005,CODEREVIEW-003,ParentChild,Is Parent Of,Is Child Of,2026-07-26T23:09:45.262890,manager,Register closed child ticket for DEV-STORY-005 closure DoD.
+LINK-00200,DEV-STORY-005,UNITTEST-003,ParentChild,Is Parent Of,Is Child Of,2026-07-26T23:09:48.685828,manager,Register closed child ticket for DEV-STORY-005 closure DoD.
+LINK-00201,DEV-STORY-005,TESTCASE-003,ParentChild,Is Parent Of,Is Child Of,2026-07-26T23:09:53.548458,manager,Register closed child ticket for DEV-STORY-005 closure DoD.
+LINK-00202,DEV-STORY-005,DEVOPS-004,ParentChild,Is Parent Of,Is Child Of,2026-07-26T23:09:56.711004,manager,Register closed child ticket for DEV-STORY-005 closure DoD.
+LINK-00203,DEV-STORY-005,QUESTION-009,ParentChild,Is Parent Of,Is Child Of,2026-07-26T23:10:00.026860,manager,Register closed child question for DEV-STORY-005 closure DoD.
+LINK-00204,FEATURE-001,DEV-STORY-003,Contains,Contains,Contained In,2026-07-26T23:11:36.241589,manager,Register DEV-STORY-003 under FEATURE-001 for closure DoD.
+LINK-00205,EPIC-001,DEV-STORY-003,EpicLink,Epic Link,Epic Link,2026-07-26T23:11:44.269697,manager,Register DEV-STORY-003 EpicLink for closure DoD.
+LINK-00206,DEV-STORY-003,DESIGN-004,ParentChild,Is Parent Of,Is Child Of,2026-07-26T23:11:48.993779,manager,Register closed child ticket for DEV-STORY-003 closure DoD.
+LINK-00207,DEV-STORY-003,DEV-004,ParentChild,Is Parent Of,Is Child Of,2026-07-26T23:11:53.618577,manager,Register closed child ticket for DEV-STORY-003 closure DoD.
+LINK-00208,DEV-STORY-003,UNITTEST-004,ParentChild,Is Parent Of,Is Child Of,2026-07-26T23:11:57.724083,manager,Register closed child ticket for DEV-STORY-003 closure DoD.
+LINK-00209,DEV-STORY-003,CODEREVIEW-004,ParentChild,Is Parent Of,Is Child Of,2026-07-26T23:12:03.150996,manager,Register closed child ticket for DEV-STORY-003 closure DoD.
+LINK-00210,DEV-STORY-003,TESTCASE-004,ParentChild,Is Parent Of,Is Child Of,2026-07-26T23:12:07.959391,manager,Register closed child ticket for DEV-STORY-003 closure DoD.
+LINK-00211,FEATURE-001,DEV-STORY-004,Contains,Contains,Contained In,2026-07-27T00:51:43.194553,manager,Feature contains implementation story.
+LINK-00212,EPIC-001,DEV-STORY-004,EpicLink,Epic Link,Epic Link,2026-07-27T00:51:50.243936,manager,Story belongs to core CLI infrastructure epic.
+LINK-00213,FEATURE-001,DEV-STORY-004,ParentChild,Is Parent Of,Is Child Of,2026-07-27T00:51:54.240292,manager,Explicitly mirrors the ticket parent relationship.
+LINK-00214,DEV-STORY-004,DESIGN-005,Contains,Contains,Contained In,2026-07-27T00:57:49.290130,manager,Story contains design work.
+LINK-00215,DEV-STORY-004,DESIGN-005,ParentChild,Is Parent Of,Is Child Of,2026-07-27T00:57:49.750686,manager,Mirrors design parent relationship.
+LINK-00216,DEV-STORY-004,DEV-005,Contains,Contains,Contained In,2026-07-27T00:58:04.169917,manager,Story contains implementation work.
+LINK-00217,DEV-STORY-004,DEV-005,ParentChild,Is Parent Of,Is Child Of,2026-07-27T00:58:04.630376,manager,Mirrors implementation parent relationship.
+LINK-00218,DEV-STORY-004,UNITTEST-005,Contains,Contains,Contained In,2026-07-27T00:58:18.158165,manager,Story contains paired unit-test work.
+LINK-00219,DEV-STORY-004,UNITTEST-005,ParentChild,Is Parent Of,Is Child Of,2026-07-27T00:58:18.618053,manager,Mirrors unit-test parent relationship.
+LINK-00220,DEV-005,UNITTEST-005,RelatesTo,Relates To,Relates To,2026-07-27T00:58:19.077174,manager,Pairs implementation with its unit-test work.
+LINK-00221,DEV-STORY-004,CODEREVIEW-005,Contains,Contains,Contained In,2026-07-27T00:58:39.150383,manager,Story contains independent code-review work.
+LINK-00222,DEV-STORY-004,CODEREVIEW-005,ParentChild,Is Parent Of,Is Child Of,2026-07-27T00:58:39.615558,manager,Mirrors code-review parent relationship.
+LINK-00223,CODEREVIEW-005,DEV-005,RelatesTo,Relates To,Relates To,2026-07-27T00:58:40.086403,manager,Pairs review with implementation.
+LINK-00224,CODEREVIEW-005,DEV-STORY-004,RelatesTo,Relates To,Relates To,2026-07-27T00:58:40.548336,manager,Links review to parent story context.
+LINK-00226,DEV-STORY-004,TESTCASE-005,Contains,Contains,Contained In,2026-07-27T00:58:53.412641,manager,Story contains QA test-design work.
+LINK-00227,DEV-STORY-004,TESTCASE-005,ParentChild,Is Parent Of,Is Child Of,2026-07-27T00:58:53.873169,manager,Mirrors test-case parent relationship.
+LINK-00228,DEV-STORY-004,TESTEXEC-005,Contains,Contains,Contained In,2026-07-27T00:59:06.366175,manager,Story contains QA execution work.
+LINK-00229,DEV-STORY-004,TESTEXEC-005,ParentChild,Is Parent Of,Is Child Of,2026-07-27T00:59:06.824314,manager,Mirrors test-execution parent relationship.
+LINK-00230,DEV-STORY-004,DEVOPS-005,Contains,Contains,Contained In,2026-07-27T00:59:17.693141,manager,Story contains CI and deployment-readiness work.
+LINK-00231,DEV-STORY-004,DEVOPS-005,ParentChild,Is Parent Of,Is Child Of,2026-07-27T00:59:18.165300,manager,Mirrors DevOps parent relationship.
+LINK-00232,QUESTION-027,DESIGN-005,Question,Asks About,Has Question,2026-07-27T01:09:23.922483,tech-lead,Consolidated contract decisions requested from architect.
+LINK-00234,FEATURE-001,DEV-STORY-007,Contains,Contains,Contained In,2026-07-27T11:56:26.348361,architect,Integrity repair: re-establishing Contains link from FEATURE-001 to DEV-STORY-007 as required by dev_story workflow New status DoD.
+LINK-00235,DEV-STORY-007,EPIC-003,EpicLink,Epic Link,Epic Link,2026-07-27T11:56:57.539049,architect,Integrity repair: re-establishing EpicLink from DEV-STORY-007 to EPIC-003 as required by dev_story workflow New status DoD.
+LINK-00236,FEATURE-001,DEV-STORY-006,Contains,Contains,Contained In,2026-07-27T13:24:20.831878,architect,New → Open DoD: register DEV-STORY-006 under parent FEATURE-001 (Contains link) as required by dev_story New status instructions and transition DoD.
+LINK-00237,DEV-STORY-006,EPIC-002,EpicLink,Epic Link,Epic Link,2026-07-27T13:25:00.633073,architect,New to Open DoD: link DEV-STORY-006 to its parent epic EPIC-002 (EpicLink) so the epic auto-transition rule (AT epic: first DEV-STORY Development to EPIC In Progress) is armed. Epic field on DEV-STORY-006 already populated as EPIC-002; this formal link matches it.
+LINK-00238,DEVOPS-005,TESTEXEC-005,DependsOn,Depends On,Is Dependency For,2026-07-27T13:57:11.096380,devops-engineer,"Triage dependency: DEVOPS-005 final CI verification (full suite + 80% coverage gate on Ubuntu+Windows) logically depends on TESTEXEC-005 closing the QA test set. DEVOPS-005 New->Open triage work (wheel contents inspection, CI workflow file audit, dependency-scan gate strictness check, packaging config review) can begin in parallel; the DependsOn link records the downstream execution dependency only."
+LINK-00239,CODEREVIEW-006,DEV-006,RelatesTo,Relates To,Relates To,2026-07-28T15:18:06.087239,architect,Pair code review with implementation task for DEV-STORY-007.
+LINK-00240,DEV-006,UNITTEST-006,RelatesTo,Relates To,Relates To,2026-07-28T15:18:17.949155,architect,Pair implementation task with unit test task for DEV-STORY-007.
+LINK-00241,TESTCASE-006,TESTEXEC-006,RelatesTo,Relates To,Relates To,2026-07-28T15:18:25.757580,architect,Pair QA test design with QA execution for DEV-STORY-007.
+LINK-00242,DEV-STORY-007,DESIGN-006,ParentChild,Is Parent Of,Is Child Of,2026-07-28T15:18:40.167677,architect,Register DESIGN-006 as child of DEV-STORY-007.
+LINK-00243,DEV-STORY-007,DEV-006,ParentChild,Is Parent Of,Is Child Of,2026-07-28T15:18:49.543650,architect,Register DEV-006 as child of DEV-STORY-007.
+LINK-00244,DEV-STORY-007,UNITTEST-006,ParentChild,Is Parent Of,Is Child Of,2026-07-28T15:18:53.601768,architect,Register UNITTEST-006 as child of DEV-STORY-007.
+LINK-00245,DEV-STORY-007,CODEREVIEW-006,ParentChild,Is Parent Of,Is Child Of,2026-07-28T15:18:57.899014,architect,Register CODEREVIEW-006 as child of DEV-STORY-007.
+LINK-00246,DEV-STORY-007,TESTCASE-006,ParentChild,Is Parent Of,Is Child Of,2026-07-28T15:19:02.070434,architect,Register TESTCASE-006 as child of DEV-STORY-007.
+LINK-00247,DEV-STORY-007,TESTEXEC-006,ParentChild,Is Parent Of,Is Child Of,2026-07-28T15:19:06.359769,architect,Register TESTEXEC-006 as child of DEV-STORY-007.
+LINK-00248,DEV-STORY-007,DEVOPS-006,ParentChild,Is Parent Of,Is Child Of,2026-07-28T15:19:12.219695,architect,Register DEVOPS-006 as child of DEV-STORY-007.
+LINK-00250,QUESTION-028,DEV-STORY-007,Question,Asks About,Has Question,2026-07-28T15:27:38.637230,architect,QUESTION-028 asks about DEV-STORY-007 grooming readiness.
+LINK-00252,QUESTION-029,DEV-STORY-007,Question,Asks About,Has Question,2026-07-28T15:27:59.986502,architect,QUESTION-029 asks about DEV-STORY-007 QA grooming readiness.
+LINK-00254,QUESTION-030,DEV-STORY-007,Question,Asks About,Has Question,2026-07-28T15:28:19.755411,architect,QUESTION-030 asks about DEV-STORY-007 DevOps grooming readiness.
+LINK-00255,FEATURE-001,DEV-STORY-006,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:12.438993,manager,Repair required dev_story hierarchy.
+LINK-00256,FEATURE-001,DEV-STORY-008,Contains,Contains,Contained In,2026-07-28T16:00:37.625422,manager,Repair required dev_story hierarchy.
+LINK-00257,FEATURE-001,DEV-STORY-008,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:37.885205,manager,Repair required dev_story hierarchy.
+LINK-00258,DEV-STORY-008,EPIC-003,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:38.141732,manager,Repair required dev_story epic hierarchy.
+LINK-00259,FEATURE-001,DEV-STORY-009,Contains,Contains,Contained In,2026-07-28T16:00:38.906534,manager,Repair required dev_story hierarchy.
+LINK-00260,FEATURE-001,DEV-STORY-009,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:39.164251,manager,Repair required dev_story hierarchy.
+LINK-00261,DEV-STORY-009,EPIC-004,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:39.421548,manager,Repair required dev_story epic hierarchy.
+LINK-00262,FEATURE-001,DEV-STORY-010,Contains,Contains,Contained In,2026-07-28T16:00:40.173669,manager,Repair required dev_story hierarchy.
+LINK-00263,FEATURE-001,DEV-STORY-010,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:40.430074,manager,Repair required dev_story hierarchy.
+LINK-00264,DEV-STORY-010,EPIC-004,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:40.689606,manager,Repair required dev_story epic hierarchy.
+LINK-00265,FEATURE-001,DEV-STORY-011,Contains,Contains,Contained In,2026-07-28T16:00:41.447417,manager,Repair required dev_story hierarchy.
+LINK-00266,FEATURE-001,DEV-STORY-011,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:41.703715,manager,Repair required dev_story hierarchy.
+LINK-00267,DEV-STORY-011,EPIC-005,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:41.961248,manager,Repair required dev_story epic hierarchy.
+LINK-00268,FEATURE-001,DEV-STORY-012,Contains,Contains,Contained In,2026-07-28T16:00:42.726306,manager,Repair required dev_story hierarchy.
+LINK-00269,FEATURE-001,DEV-STORY-012,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:42.983350,manager,Repair required dev_story hierarchy.
+LINK-00270,DEV-STORY-012,EPIC-005,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:43.240885,manager,Repair required dev_story epic hierarchy.
+LINK-00271,FEATURE-001,DEV-STORY-013,Contains,Contains,Contained In,2026-07-28T16:00:43.996299,manager,Repair required dev_story hierarchy.
+LINK-00272,FEATURE-001,DEV-STORY-013,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:44.254373,manager,Repair required dev_story hierarchy.
+LINK-00273,DEV-STORY-013,EPIC-005,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:44.511335,manager,Repair required dev_story epic hierarchy.
+LINK-00274,FEATURE-001,DEV-STORY-014,Contains,Contains,Contained In,2026-07-28T16:00:45.272262,manager,Repair required dev_story hierarchy.
+LINK-00275,FEATURE-001,DEV-STORY-014,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:45.529614,manager,Repair required dev_story hierarchy.
+LINK-00276,DEV-STORY-014,EPIC-006,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:45.787632,manager,Repair required dev_story epic hierarchy.
+LINK-00277,FEATURE-001,DEV-STORY-015,Contains,Contains,Contained In,2026-07-28T16:00:46.542824,manager,Repair required dev_story hierarchy.
+LINK-00278,FEATURE-001,DEV-STORY-015,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:46.799806,manager,Repair required dev_story hierarchy.
+LINK-00279,DEV-STORY-015,EPIC-006,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:47.057350,manager,Repair required dev_story epic hierarchy.
+LINK-00280,FEATURE-001,DEV-STORY-016,Contains,Contains,Contained In,2026-07-28T16:00:47.816423,manager,Repair required dev_story hierarchy.
+LINK-00281,FEATURE-001,DEV-STORY-016,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:48.072438,manager,Repair required dev_story hierarchy.
+LINK-00282,DEV-STORY-016,EPIC-006,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:48.328887,manager,Repair required dev_story epic hierarchy.
+LINK-00283,FEATURE-001,DEV-STORY-017,Contains,Contains,Contained In,2026-07-28T16:00:49.075554,manager,Repair required dev_story hierarchy.
+LINK-00284,FEATURE-001,DEV-STORY-017,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:49.334715,manager,Repair required dev_story hierarchy.
+LINK-00285,DEV-STORY-017,EPIC-006,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:49.589575,manager,Repair required dev_story epic hierarchy.
+LINK-00286,FEATURE-001,DEV-STORY-018,Contains,Contains,Contained In,2026-07-28T16:00:50.346086,manager,Repair required dev_story hierarchy.
+LINK-00287,FEATURE-001,DEV-STORY-018,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:50.602221,manager,Repair required dev_story hierarchy.
+LINK-00288,DEV-STORY-018,EPIC-007,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:50.859822,manager,Repair required dev_story epic hierarchy.
+LINK-00289,FEATURE-001,DEV-STORY-019,Contains,Contains,Contained In,2026-07-28T16:00:51.608843,manager,Repair required dev_story hierarchy.
+LINK-00290,FEATURE-001,DEV-STORY-019,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:51.864955,manager,Repair required dev_story hierarchy.
+LINK-00291,DEV-STORY-019,EPIC-007,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:52.120193,manager,Repair required dev_story epic hierarchy.
+LINK-00292,FEATURE-001,DEV-STORY-020,Contains,Contains,Contained In,2026-07-28T16:00:52.871421,manager,Repair required dev_story hierarchy.
+LINK-00293,FEATURE-001,DEV-STORY-020,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:53.128435,manager,Repair required dev_story hierarchy.
+LINK-00294,DEV-STORY-020,EPIC-007,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:53.385962,manager,Repair required dev_story epic hierarchy.
+LINK-00295,FEATURE-001,DEV-STORY-021,Contains,Contains,Contained In,2026-07-28T16:00:54.143600,manager,Repair required dev_story hierarchy.
+LINK-00296,FEATURE-001,DEV-STORY-021,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:54.400161,manager,Repair required dev_story hierarchy.
+LINK-00297,DEV-STORY-021,EPIC-007,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:54.661519,manager,Repair required dev_story epic hierarchy.
+LINK-00298,FEATURE-001,DEV-STORY-022,Contains,Contains,Contained In,2026-07-28T16:00:55.409509,manager,Repair required dev_story hierarchy.
+LINK-00299,FEATURE-001,DEV-STORY-022,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:55.666527,manager,Repair required dev_story hierarchy.
+LINK-00300,DEV-STORY-022,EPIC-007,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:55.922333,manager,Repair required dev_story epic hierarchy.
+LINK-00301,FEATURE-001,DEV-STORY-023,Contains,Contains,Contained In,2026-07-28T16:00:56.668545,manager,Repair required dev_story hierarchy.
+LINK-00302,FEATURE-001,DEV-STORY-023,ParentChild,Is Parent Of,Is Child Of,2026-07-28T16:00:56.926337,manager,Repair required dev_story hierarchy.
+LINK-00303,DEV-STORY-023,EPIC-008,EpicLink,Epic Link,Epic Link,2026-07-28T16:00:57.182082,manager,Repair required dev_story epic hierarchy.
+LINK-00305,QUESTION-031,DEV-STORY-002,Question,Asks About,Has Question,2026-07-28T16:12:46.688529,manager,Question asks about DEV-STORY-002 closure criteria for Canceled DEVOPS-001 and missing/conflicting link registration.
+LINK-00306,CODEREVIEW-006,DEV-STORY-007,RelatesTo,Relates To,Relates To,2026-07-28T16:43:23.615718,manager,Code review start readiness: parent story context link required by CODEREVIEW New instructions.
+LINK-00307,DEV-007,CODEREVIEW-007,RelatesTo,Relates To,Relates To,2026-07-29T11:31:49.913494,architect,DEV↔CODEREVIEW pair for DEV-STORY-006
+LINK-00308,FEATURE-001,EPIC-003,FeatureContains,Feature Contains,Is Contained In Feature,2026-07-29T12:12:12.726062,ticket-helper,Restored required FeatureContains relationship for EPIC-003 structural validation: FEATURE-001 is source Feature Request; EPIC-003 is target Epic.
+LINK-00309,DEV-STORY-006,DESIGN-007,Contains,Contains,Contained In,2026-07-29T12:20:52.522046,tech-lead,Correction for DESIGN-007 DoD: register parent Story containment link.
+LINK-00310,DEV-STORY-006,DESIGN-007,ParentChild,Is Parent Of,Is Child Of,2026-07-29T12:20:56.693336,tech-lead,Correction for DESIGN-007 DoD: register explicit parent-child link to parent Story.
+LINK-00311,DEV-STORY-006,DEV-007,Contains,Contains,Contained In,2026-07-29T12:37:16.797467,architect,Manager correction: explicit story-to-child Contains link for DEV-STORY-006 grooming handoff.
+LINK-00312,DEV-STORY-006,DEV-007,ParentChild,Is Parent Of,Is Child Of,2026-07-29T12:37:20.343108,architect,Manager correction: explicit story-to-child ParentChild link for DEV-STORY-006 grooming handoff.
+LINK-00313,DEV-STORY-006,UNITTEST-007,Contains,Contains,Contained In,2026-07-29T12:37:28.026621,architect,Manager correction: explicit story-to-child Contains link for DEV-STORY-006 grooming handoff.
+LINK-00314,DEV-STORY-006,UNITTEST-007,ParentChild,Is Parent Of,Is Child Of,2026-07-29T12:37:28.047042,architect,Manager correction: explicit story-to-child ParentChild link for DEV-STORY-006 grooming handoff.
+LINK-00315,DEV-STORY-006,CODEREVIEW-007,Contains,Contains,Contained In,2026-07-29T12:37:35.851821,architect,Manager correction: explicit story-to-child Contains link for DEV-STORY-006 grooming handoff.
+LINK-00316,DEV-STORY-006,CODEREVIEW-007,ParentChild,Is Parent Of,Is Child Of,2026-07-29T12:37:35.864821,architect,Manager correction: explicit story-to-child ParentChild link for DEV-STORY-006 grooming handoff.
+LINK-00317,DEV-STORY-006,TESTCASE-007,Contains,Contains,Contained In,2026-07-29T12:37:45.353624,architect,Manager correction: explicit story-to-child Contains link for DEV-STORY-006 grooming handoff.
+andoff.,,,,,,,,
+LINK-00318,DEV-STORY-006,TESTCASE-007,ParentChild,Is Parent Of,Is Child Of,2026-07-29T12:37:58.286729,architect,Manager correction: explicit story-to-child ParentChild link for DEV-STORY-006 grooming handoff.
+LINK-00319,DEV-STORY-006,TESTEXEC-007,Contains,Contains,Contained In,2026-07-29T12:38:01.960117,architect,Manager correction: explicit story-to-child Contains link for DEV-STORY-006 grooming handoff.
+LINK-00320,DEV-STORY-006,TESTEXEC-007,ParentChild,Is Parent Of,Is Child Of,2026-07-29T12:38:05.280937,architect,Manager correction: explicit story-to-child ParentChild link for DEV-STORY-006 grooming handoff.
+LINK-00321,DEV-STORY-006,DEVOPS-007,Contains,Contains,Contained In,2026-07-29T12:38:09.972816,architect,Manager correction: explicit story-to-child Contains link for DEV-STORY-006 grooming handoff.
+LINK-00322,DEV-STORY-006,DEVOPS-007,ParentChild,Is Parent Of,Is Child Of,2026-07-29T12:38:13.420899,architect,Manager correction: explicit story-to-child ParentChild link for DEV-STORY-006 grooming handoff.
+LINK-00324,QUESTION-032,TESTCASE-007,Question,Asks About,Has Question,2026-07-29T13:09:29.508011,qa-engineer,Question link for TESTCASE-007 implementation availability blocker
+LINK-00326,QUESTION-033,TESTCASE-007,Question,Asks About,Has Question,2026-07-29T13:52:44.851905,qa-engineer,QUESTION-033 asks for Tech Lead review approval of TESTCASE-007 QA test case design deliverable.
+LINK-00328,DEV-STORY-008,DESIGN-008,Contains,Contains,Contained In,2026-07-29T15:43:01.940243,manager,
+LINK-00329,DEV-STORY-008,DESIGN-008,ParentChild,Is Parent Of,Is Child Of,2026-07-29T15:43:06.040061,manager,
+LINK-00330,DEV-STORY-008,DEV-008,Contains,Contains,Contained In,2026-07-29T15:43:09.315139,manager,
+LINK-00331,DEV-STORY-008,DEV-008,ParentChild,Is Parent Of,Is Child Of,2026-07-29T15:43:12.274458,manager,
+LINK-00332,DEV-STORY-008,UNITTEST-008,Contains,Contains,Contained In,2026-07-29T15:43:16.311202,manager,
+LINK-00333,DEV-STORY-008,UNITTEST-008,ParentChild,Is Parent Of,Is Child Of,2026-07-29T15:43:19.577553,manager,
+LINK-00334,DEV-STORY-008,CODEREVIEW-008,Contains,Contains,Contained In,2026-07-29T15:43:24.079196,manager,
+LINK-00335,DEV-STORY-008,CODEREVIEW-008,ParentChild,Is Parent Of,Is Child Of,2026-07-29T15:43:27.405024,manager,
+LINK-00336,DEV-STORY-008,TESTCASE-008,Contains,Contains,Contained In,2026-07-29T15:43:31.267888,manager,
+LINK-00337,DEV-STORY-008,TESTCASE-008,ParentChild,Is Parent Of,Is Child Of,2026-07-29T15:43:34.892948,manager,
+LINK-00338,DEV-STORY-008,TESTEXEC-008,Contains,Contains,Contained In,2026-07-29T15:43:38.324577,manager,
+LINK-00339,DEV-STORY-008,TESTEXEC-008,ParentChild,Is Parent Of,Is Child Of,2026-07-29T15:43:42.848446,manager,
+LINK-00340,DEV-STORY-008,DEVOPS-008,Contains,Contains,Contained In,2026-07-29T15:43:47.468263,manager,
+LINK-00341,DEV-STORY-008,DEVOPS-008,ParentChild,Is Parent Of,Is Child Of,2026-07-29T15:43:50.300106,manager,
+LINK-00342,DEV-008,CODEREVIEW-008,RelatesTo,Relates To,Relates To,2026-07-29T15:44:03.811425,manager,
+LINK-00343,CODEREVIEW-008,DEV-008,RelatesTo,Relates To,Relates To,2026-07-29T15:44:09.711849,manager,
+LINK-00344,DEV-STORY-009,DESIGN-009,Contains,Contains,Contained In,2026-07-29T16:27:49.360258,manager,
+LINK-00345,DEV-STORY-009,DESIGN-009,ParentChild,Is Parent Of,Is Child Of,2026-07-29T16:27:53.233518,manager,
+LINK-00346,DEV-STORY-009,DEV-009,Contains,Contains,Contained In,2026-07-29T16:27:58.378975,manager,
+LINK-00347,DEV-STORY-009,DEV-009,ParentChild,Is Parent Of,Is Child Of,2026-07-29T16:28:03.485072,manager,
+LINK-00348,DEV-STORY-009,UNITTEST-009,Contains,Contains,Contained In,2026-07-29T16:28:08.084697,manager,
+LINK-00349,DEV-STORY-009,UNITTEST-009,ParentChild,Is Parent Of,Is Child Of,2026-07-29T16:28:14.821656,manager,
+LINK-00350,DEV-STORY-009,CODEREVIEW-009,Contains,Contains,Contained In,2026-07-29T16:28:18.317207,manager,
+LINK-00351,DEV-STORY-009,CODEREVIEW-009,ParentChild,Is Parent Of,Is Child Of,2026-07-29T16:28:21.341386,manager,
+LINK-00352,DEV-STORY-009,TESTCASE-009,Contains,Contains,Contained In,2026-07-29T16:28:24.753489,manager,
+LINK-00353,DEV-STORY-009,TESTCASE-009,ParentChild,Is Parent Of,Is Child Of,2026-07-29T16:28:29.093569,manager,
+LINK-00354,DEV-STORY-009,TESTEXEC-009,Contains,Contains,Contained In,2026-07-29T16:28:32.703686,manager,
+LINK-00355,DEV-STORY-009,TESTEXEC-009,ParentChild,Is Parent Of,Is Child Of,2026-07-29T16:28:36.959780,manager,
+LINK-00356,DEV-STORY-009,DEVOPS-009,Contains,Contains,Contained In,2026-07-29T16:28:40.191447,manager,
+LINK-00357,DEV-STORY-009,DEVOPS-009,ParentChild,Is Parent Of,Is Child Of,2026-07-29T16:28:43.337500,manager,
+LINK-00358,DEV-009,CODEREVIEW-009,RelatesTo,Relates To,Relates To,2026-07-29T16:28:46.484729,manager,
+LINK-00359,CODEREVIEW-009,DEV-009,RelatesTo,Relates To,Relates To,2026-07-29T16:28:49.703066,manager,
+LINK-00361,DEV-STORY-010,QUESTION-034,ParentChild,Is Parent Of,Is Child Of,2026-07-30T10:43:13.019549,architect,Register QUESTION-034 as child of DEV-STORY-010.
+LINK-00362,QUESTION-034,DEV-STORY-010,Question,Asks About,Has Question,2026-07-30T10:43:13.489270,architect,QUESTION-034 asks DEV-STORY-010 tracing scope clarification.
+LINK-00366,RESOURCE-REQ-006,DEV-STORY-011,RelatesTo,Relates To,Relates To,2026-07-30T14:24:43.021558,workflow-manager,Operational readiness request is driven by repeated incomplete handoffs for DEV-STORY-011.
+LINK-00367,RESOURCE-REQ-006,DEV-STORY-012,RelatesTo,Relates To,Relates To,2026-07-30T14:24:52.579138,workflow-manager,Operational readiness request is driven by repeated incomplete handoffs for DEV-STORY-012.
+LINK-00368,RESOURCE-REQ-006,DEV-STORY-013,RelatesTo,Relates To,Relates To,2026-07-30T14:24:56.956343,workflow-manager,Operational readiness request is driven by repeated incomplete handoffs for DEV-STORY-013.
+LINK-00372,RESOURCE-REQ-006,DEV-STORY-014,RelatesTo,Relates To,Relates To,2026-07-30T14:46:50.830339,workflow-manager,Operational readiness request extends to the failed DEV-STORY-014 Architect handoff.
+LINK-00374,RESOURCE-REQ-006,DEV-STORY-015,RelatesTo,Relates To,Relates To,2026-07-30T14:48:17.584917,workflow-manager,Operational readiness request covers the same New-stage Architect/Tech Lead enrichment gap on DEV-STORY-015.
+LINK-00376,RESOURCE-REQ-006,DEV-STORY-016,RelatesTo,Relates To,Relates To,2026-07-30T14:48:18.405380,workflow-manager,Operational readiness request covers the same New-stage Architect/Tech Lead enrichment gap on DEV-STORY-016.
+LINK-00378,RESOURCE-REQ-006,DEV-STORY-017,RelatesTo,Relates To,Relates To,2026-07-30T14:48:19.224664,workflow-manager,Operational readiness request covers the same New-stage Architect/Tech Lead enrichment gap on DEV-STORY-017.
+LINK-00380,RESOURCE-REQ-006,DEV-STORY-018,RelatesTo,Relates To,Relates To,2026-07-30T14:48:20.013196,workflow-manager,Operational readiness request covers the same New-stage Architect/Tech Lead enrichment gap on DEV-STORY-018.
+LINK-00382,RESOURCE-REQ-006,DEV-STORY-019,RelatesTo,Relates To,Relates To,2026-07-30T14:48:20.801136,workflow-manager,Operational readiness request covers the same New-stage Architect/Tech Lead enrichment gap on DEV-STORY-019.
+LINK-00384,RESOURCE-REQ-006,DEV-STORY-020,RelatesTo,Relates To,Relates To,2026-07-30T14:48:21.591916,workflow-manager,Operational readiness request covers the same New-stage Architect/Tech Lead enrichment gap on DEV-STORY-020.
+LINK-00386,RESOURCE-REQ-006,DEV-STORY-021,RelatesTo,Relates To,Relates To,2026-07-30T14:48:22.399813,workflow-manager,Operational readiness request covers the same New-stage Architect/Tech Lead enrichment gap on DEV-STORY-021.
+LINK-00388,RESOURCE-REQ-006,DEV-STORY-022,RelatesTo,Relates To,Relates To,2026-07-30T14:48:23.222551,workflow-manager,Operational readiness request covers the same New-stage Architect/Tech Lead enrichment gap on DEV-STORY-022.
+LINK-00390,RESOURCE-REQ-006,DEV-STORY-023,RelatesTo,Relates To,Relates To,2026-07-30T14:48:24.066395,workflow-manager,Operational readiness request covers the same New-stage Architect/Tech Lead enrichment gap on DEV-STORY-023.
+LINK-00392,FEATURE-001,DEV-STORY-001,Contains,Contains,Contained In,2026-07-30T14:56:37.070904,workflow-manager,Field repair: DEV-STORY-001 parent and feature_request are FEATURE-001.
+LINK-00393,FEATURE-001,DEV-STORY-001,ParentChild,Is Parent Of,Is Child Of,2026-07-30T14:56:37.365502,workflow-manager,Field repair: DEV-STORY-001 parent is FEATURE-001.
+LINK-00394,DEV-STORY-001,EPIC-001,EpicLink,Epic Link,Epic Link,2026-07-30T14:56:37.638566,workflow-manager,Field repair: DEV-STORY-001 epic is EPIC-001.
+LINK-00395,FEATURE-001,DEV-STORY-002,Contains,Contains,Contained In,2026-07-30T14:56:37.912178,workflow-manager,Field repair: DEV-STORY-002 parent and feature_request are FEATURE-001.
+LINK-00396,FEATURE-001,DEV-STORY-002,ParentChild,Is Parent Of,Is Child Of,2026-07-30T14:56:38.190741,workflow-manager,Field repair: DEV-STORY-002 parent is FEATURE-001.
+LINK-00397,DEV-STORY-002,EPIC-001,EpicLink,Epic Link,Epic Link,2026-07-30T14:56:38.463779,workflow-manager,Field repair: DEV-STORY-002 epic is EPIC-001.
+LINK-00398,FEATURE-001,DEV-STORY-003,ParentChild,Is Parent Of,Is Child Of,2026-07-30T14:56:38.737938,workflow-manager,Field repair: DEV-STORY-003 parent is FEATURE-001.
+LINK-00399,FEATURE-001,DEV-STORY-005,ParentChild,Is Parent Of,Is Child Of,2026-07-30T14:56:39.004055,workflow-manager,Field repair: DEV-STORY-005 parent is FEATURE-001.
+LINK-00400,FEATURE-001,DEV-STORY-007,ParentChild,Is Parent Of,Is Child Of,2026-07-30T14:56:39.271141,workflow-manager,Field repair: DEV-STORY-007 parent is FEATURE-001.
+LINK-00401,FEATURE-001,EPIC-001,FeatureContains,Feature Contains,Is Contained In Feature,2026-07-30T14:56:39.536697,workflow-manager,Hierarchy repair supported by FEATURE-001 story fields pointing to EPIC-001.
+LINK-00402,FEATURE-001,EPIC-002,FeatureContains,Feature Contains,Is Contained In Feature,2026-07-30T14:56:39.802424,workflow-manager,Hierarchy repair supported by FEATURE-001 story fields pointing to EPIC-002.
+LINK-00403,FEATURE-001,EPIC-004,FeatureContains,Feature Contains,Is Contained In Feature,2026-07-30T14:56:40.073075,workflow-manager,Hierarchy repair supported by FEATURE-001 story fields pointing to EPIC-004.
+LINK-00404,FEATURE-001,EPIC-005,FeatureContains,Feature Contains,Is Contained In Feature,2026-07-30T14:56:40.341269,workflow-manager,Hierarchy repair supported by FEATURE-001 story fields pointing to EPIC-005.
+LINK-00405,FEATURE-001,EPIC-006,FeatureContains,Feature Contains,Is Contained In Feature,2026-07-30T14:56:40.607462,workflow-manager,Hierarchy repair supported by FEATURE-001 story fields pointing to EPIC-006.
+LINK-00406,FEATURE-001,EPIC-007,FeatureContains,Feature Contains,Is Contained In Feature,2026-07-30T14:56:40.872752,workflow-manager,Hierarchy repair supported by FEATURE-001 story fields pointing to EPIC-007.
+LINK-00407,FEATURE-001,EPIC-008,FeatureContains,Feature Contains,Is Contained In Feature,2026-07-30T14:56:41.142944,workflow-manager,Hierarchy repair supported by FEATURE-001 story fields pointing to EPIC-008.
+LINK-00415,BUG-003,FEATURE-001,RelatesTo,Relates To,Relates To,2026-07-30T15:04:55.919119,python-developer,"Tracker defect affects FEATURE-001 status reads and transition validation; relationship only, not a delivery blocker."
+LINK-00422,CODEREVIEW-010,DEV-010,RelatesTo,Relates To,Relates To,2026-08-01T19:18:57.903342,tech-lead,Required development-to-review relationship.
+LINK-00429,DEV-STORY-010,DESIGN-010,ParentChild,Is Parent Of,Is Child Of,2026-08-01T19:20:42.055843,tech-lead,Canonical parent-child relationship for the DEV-STORY-010 grooming package.
+LINK-00430,DEV-STORY-010,DEV-010,ParentChild,Is Parent Of,Is Child Of,2026-08-01T19:20:42.746384,tech-lead,Canonical parent-child relationship for the DEV-STORY-010 grooming package.
+LINK-00431,DEV-STORY-010,UNITTEST-010,ParentChild,Is Parent Of,Is Child Of,2026-08-01T19:20:43.415806,tech-lead,Canonical parent-child relationship for the DEV-STORY-010 grooming package.
+LINK-00432,DEV-STORY-010,CODEREVIEW-010,ParentChild,Is Parent Of,Is Child Of,2026-08-01T19:20:44.110896,tech-lead,Canonical parent-child relationship for the DEV-STORY-010 grooming package.
+LINK-00433,DEV-STORY-010,TESTCASE-010,ParentChild,Is Parent Of,Is Child Of,2026-08-01T19:20:44.795630,tech-lead,Canonical parent-child relationship for the DEV-STORY-010 grooming package.
+LINK-00434,DEV-STORY-010,TESTEXEC-010,ParentChild,Is Parent Of,Is Child Of,2026-08-01T19:20:45.483816,tech-lead,Canonical parent-child relationship for the DEV-STORY-010 grooming package.
+LINK-00435,DEV-STORY-010,DEVOPS-010,ParentChild,Is Parent Of,Is Child Of,2026-08-01T19:20:46.170121,tech-lead,Canonical parent-child relationship for the DEV-STORY-010 grooming package.
+LINK-00450,DEV-011,CODEREVIEW-011,RelatesTo,Relates To,Relates To,2026-08-09T11:27:23.112106,workflow-mgr,Paired implementation and review tasks.
+LINK-00451,CODEREVIEW-011,DEV-011,RelatesTo,Relates To,Relates To,2026-08-09T11:27:26.969330,workflow-mgr,Review task references its implementation task.
+LINK-00452,CODEREVIEW-011,DEV-STORY-011,RelatesTo,Relates To,Relates To,2026-08-09T11:27:30.605793,workflow-mgr,Review task references parent story context.
+LINK-00467,DEV-012,CODEREVIEW-012,RelatesTo,Relates To,Relates To,2026-08-09T14:02:01.536036,workflow-mgr,Implementation and independent review pair.
+LINK-00468,CODEREVIEW-012,DEV-012,RelatesTo,Relates To,Relates To,2026-08-09T14:02:01.879438,workflow-mgr,Independent review relates to its implementation.
+LINK-00469,CODEREVIEW-012,DEV-STORY-012,RelatesTo,Relates To,Relates To,2026-08-09T14:02:02.225087,workflow-mgr,Review covers the parent story acceptance contract.
+LINK-00472,DEV-STORY-012,BUG-SUB-011,ParentChild,Is Parent Of,Is Child Of,2026-08-09T15:04:54.526035,python-developer,Registers BUG-SUB-011 as the DEV-STORY-012 QA defect child.
+LINK-00473,DEV-STORY-013,DESIGN-013,Contains,Contains,Contained In,2026-08-09T19:44:15.340019,architect,
+LINK-00474,DEV-STORY-013,DESIGN-013,ParentChild,Is Parent Of,Is Child Of,2026-08-09T19:44:18.839731,architect,
+LINK-00475,DEV-STORY-013,DEV-013,Contains,Contains,Contained In,2026-08-09T19:44:21.886983,architect,
+LINK-00476,DEV-STORY-013,DEV-013,ParentChild,Is Parent Of,Is Child Of,2026-08-09T19:44:25.265918,architect,
+LINK-00477,DEV-STORY-013,UNITTEST-013,Contains,Contains,Contained In,2026-08-09T19:44:28.037761,architect,
+LINK-00478,DEV-STORY-013,UNITTEST-013,ParentChild,Is Parent Of,Is Child Of,2026-08-09T19:44:30.970217,architect,
+LINK-00479,DEV-STORY-013,CODEREVIEW-013,Contains,Contains,Contained In,2026-08-09T19:44:33.991850,architect,
+LINK-00480,DEV-STORY-013,CODEREVIEW-013,ParentChild,Is Parent Of,Is Child Of,2026-08-09T19:44:37.021851,architect,
+LINK-00481,DEV-STORY-013,TESTCASE-013,Contains,Contains,Contained In,2026-08-09T19:44:40.197451,architect,
+LINK-00482,DEV-STORY-013,TESTCASE-013,ParentChild,Is Parent Of,Is Child Of,2026-08-09T19:44:43.212824,architect,
+LINK-00483,DEV-STORY-013,TESTEXEC-013,Contains,Contains,Contained In,2026-08-09T19:44:46.100839,architect,
+LINK-00484,DEV-STORY-013,TESTEXEC-013,ParentChild,Is Parent Of,Is Child Of,2026-08-09T19:44:48.994950,architect,
+LINK-00485,DEV-STORY-013,DEVOPS-013,Contains,Contains,Contained In,2026-08-09T19:44:51.735354,architect,
+LINK-00486,DEV-STORY-013,DEVOPS-013,ParentChild,Is Parent Of,Is Child Of,2026-08-09T19:44:54.907437,architect,
+LINK-00487,CODEREVIEW-013,DEV-013,RelatesTo,Relates To,Relates To,2026-08-09T19:44:58.221587,architect,
+LINK-00488,DEV-013,CODEREVIEW-013,RelatesTo,Relates To,Relates To,2026-08-09T19:45:01.544116,architect,
+LINK-00489,CODEREVIEW-013,DEV-STORY-013,RelatesTo,Relates To,Relates To,2026-08-09T19:45:04.919131,architect,
+LINK-00490,DEV-013,CODEREVIEW-013,Blocks,Blocks,Is Blocked By,2026-08-09T19:45:08.602359,architect,
+LINK-00492,DEV-STORY-014,DESIGN-014,Contains,Contains,Contained In,2026-08-09T20:40:08.413422,architect,
+LINK-00493,DEV-STORY-014,DESIGN-014,ParentChild,Is Parent Of,Is Child Of,2026-08-09T20:40:11.542023,architect,
+LINK-00494,DEV-STORY-014,DEV-014,Contains,Contains,Contained In,2026-08-09T20:40:14.812316,architect,
+LINK-00495,DEV-STORY-014,DEV-014,ParentChild,Is Parent Of,Is Child Of,2026-08-09T20:40:18.881279,architect,
+LINK-00496,DEV-STORY-014,UNITTEST-014,Contains,Contains,Contained In,2026-08-09T20:40:22.124364,architect,
+LINK-00497,DEV-STORY-014,UNITTEST-014,ParentChild,Is Parent Of,Is Child Of,2026-08-09T20:40:25.528526,architect,
+LINK-00498,DEV-STORY-014,CODEREVIEW-014,Contains,Contains,Contained In,2026-08-09T20:40:28.845543,architect,
+LINK-00499,DEV-STORY-014,CODEREVIEW-014,ParentChild,Is Parent Of,Is Child Of,2026-08-09T20:40:32.256918,architect,
+LINK-00500,DEV-STORY-014,TESTCASE-014,Contains,Contains,Contained In,2026-08-09T20:40:35.697376,architect,
+LINK-00501,DEV-STORY-014,TESTCASE-014,ParentChild,Is Parent Of,Is Child Of,2026-08-09T20:40:39.404342,architect,
+LINK-00502,DEV-STORY-014,TESTEXEC-014,Contains,Contains,Contained In,2026-08-09T20:40:42.790028,architect,
+LINK-00503,DEV-STORY-014,TESTEXEC-014,ParentChild,Is Parent Of,Is Child Of,2026-08-09T20:40:46.239179,architect,
+LINK-00504,DEV-STORY-014,DEVOPS-014,Contains,Contains,Contained In,2026-08-09T20:40:49.397179,architect,
+LINK-00505,DEV-STORY-014,DEVOPS-014,ParentChild,Is Parent Of,Is Child Of,2026-08-09T20:40:52.482256,architect,
+LINK-00506,CODEREVIEW-014,DEV-014,RelatesTo,Relates To,Relates To,2026-08-09T20:40:55.744294,architect,
+LINK-00507,DEV-014,CODEREVIEW-014,RelatesTo,Relates To,Relates To,2026-08-09T20:40:58.840376,architect,
+LINK-00508,CODEREVIEW-014,DEV-STORY-014,RelatesTo,Relates To,Relates To,2026-08-09T20:41:03.526946,architect,
+LINK-00510,DEV-014,CODEREVIEW-014,Blocks,Blocks,Is Blocked By,2026-08-09T20:41:12.750805,architect,
+LINK-00511,QUESTION-036,TESTCASE-013,Question,Asks About,Has Question,2026-08-09T23:18:48.995642,qa-engineer,
+LINK-00513,QUESTION-037,TESTCASE-014,Question,Asks About,Has Question,2026-08-09T23:36:46.645673,qa-engineer,
+LINK-00517,DEV-STORY-015,DESIGN-015,Contains,Contains,Contained In,2026-08-10T01:39:15.428804,architect,
+LINK-00518,DEV-STORY-015,DESIGN-015,ParentChild,Is Parent Of,Is Child Of,2026-08-10T01:39:19.765793,architect,
+LINK-00519,DEV-STORY-015,DEV-015,Contains,Contains,Contained In,2026-08-10T01:39:22.949361,architect,
+LINK-00520,DEV-STORY-015,DEV-015,ParentChild,Is Parent Of,Is Child Of,2026-08-10T01:39:26.428004,architect,
+LINK-00521,DEV-STORY-015,UNITTEST-015,Contains,Contains,Contained In,2026-08-10T01:39:31.858996,architect,
+LINK-00522,DEV-STORY-015,UNITTEST-015,ParentChild,Is Parent Of,Is Child Of,2026-08-10T01:39:34.713522,architect,
+LINK-00523,DEV-STORY-015,CODEREVIEW-015,Contains,Contains,Contained In,2026-08-10T01:39:37.999377,architect,
+LINK-00524,DEV-STORY-015,CODEREVIEW-015,ParentChild,Is Parent Of,Is Child Of,2026-08-10T01:39:41.580361,architect,
+LINK-00525,DEV-STORY-015,TESTCASE-015,Contains,Contains,Contained In,2026-08-10T01:39:44.840922,architect,
+LINK-00526,DEV-STORY-015,TESTCASE-015,ParentChild,Is Parent Of,Is Child Of,2026-08-10T01:39:48.315281,architect,
+LINK-00527,DEV-STORY-015,TESTEXEC-015,Contains,Contains,Contained In,2026-08-10T01:39:52.489051,architect,
+LINK-00528,DEV-STORY-015,TESTEXEC-015,ParentChild,Is Parent Of,Is Child Of,2026-08-10T01:39:55.958909,architect,
+LINK-00529,DEV-STORY-015,DEVOPS-015,Contains,Contains,Contained In,2026-08-10T01:39:59.118344,architect,
+LINK-00530,DEV-STORY-015,DEVOPS-015,ParentChild,Is Parent Of,Is Child Of,2026-08-10T01:40:02.050346,architect,
+LINK-00531,DEV-015,CODEREVIEW-015,RelatesTo,Relates To,Relates To,2026-08-10T01:40:05.078476,architect,
+LINK-00532,CODEREVIEW-015,DEV-015,RelatesTo,Relates To,Relates To,2026-08-10T01:40:08.201921,architect,
+LINK-00533,CODEREVIEW-015,DEV-STORY-015,RelatesTo,Relates To,Relates To,2026-08-10T01:40:11.735484,architect,
+LINK-00534,DEV-015,CODEREVIEW-015,Blocks,Blocks,Is Blocked By,2026-08-10T01:40:15.154584,architect,
+LINK-00536,DEV-STORY-016,DESIGN-016,Contains,Contains,Contained In,2026-08-10T01:51:38.298547,architect,
+LINK-00537,DEV-STORY-016,DESIGN-016,ParentChild,Is Parent Of,Is Child Of,2026-08-10T01:51:41.442043,architect,
+LINK-00538,DEV-STORY-016,DEV-016,Contains,Contains,Contained In,2026-08-10T01:51:45.046409,architect,
+LINK-00539,DEV-STORY-016,DEV-016,ParentChild,Is Parent Of,Is Child Of,2026-08-10T01:51:48.560081,architect,
+LINK-00540,DEV-STORY-016,UNITTEST-016,Contains,Contains,Contained In,2026-08-10T01:51:52.595735,architect,
+LINK-00541,DEV-STORY-016,UNITTEST-016,ParentChild,Is Parent Of,Is Child Of,2026-08-10T01:51:55.695935,architect,
+LINK-00542,DEV-STORY-016,CODEREVIEW-016,Contains,Contains,Contained In,2026-08-10T01:51:58.770142,architect,
+LINK-00543,DEV-STORY-016,CODEREVIEW-016,ParentChild,Is Parent Of,Is Child Of,2026-08-10T01:52:01.745487,architect,
+LINK-00544,DEV-STORY-016,TESTCASE-016,Contains,Contains,Contained In,2026-08-10T01:52:04.868637,architect,
+LINK-00545,DEV-STORY-016,TESTCASE-016,ParentChild,Is Parent Of,Is Child Of,2026-08-10T01:52:07.854714,architect,
+LINK-00546,DEV-STORY-016,TESTEXEC-016,Contains,Contains,Contained In,2026-08-10T01:52:10.983081,architect,
+LINK-00547,DEV-STORY-016,TESTEXEC-016,ParentChild,Is Parent Of,Is Child Of,2026-08-10T01:52:14.676803,architect,
+LINK-00548,DEV-STORY-016,DEVOPS-016,Contains,Contains,Contained In,2026-08-10T01:52:18.109177,architect,
+LINK-00549,DEV-STORY-016,DEVOPS-016,ParentChild,Is Parent Of,Is Child Of,2026-08-10T01:52:21.360629,architect,
+LINK-00550,DEV-016,CODEREVIEW-016,RelatesTo,Relates To,Relates To,2026-08-10T01:52:24.443695,architect,
+LINK-00551,CODEREVIEW-016,DEV-016,RelatesTo,Relates To,Relates To,2026-08-10T01:52:28.026182,architect,
+LINK-00552,CODEREVIEW-016,DEV-STORY-016,RelatesTo,Relates To,Relates To,2026-08-10T01:52:31.132902,architect,
+LINK-00553,DEV-016,CODEREVIEW-016,Blocks,Blocks,Is Blocked By,2026-08-10T01:52:34.425131,architect,
+LINK-00555,QUESTION-038,TESTCASE-015,Question,Asks About,Has Question,2026-08-10T03:27:52.320147,qa-engineer,
+LINK-00557,QUESTION-039,TESTCASE-016,Question,Asks About,Has Question,2026-08-10T03:31:30.000520,qa-engineer,
+LINK-00559,DEV-STORY-017,DESIGN-017,Contains,Contains,Contained In,2026-08-10T10:33:02.660350,architect,
+LINK-00560,DEV-STORY-017,DESIGN-017,ParentChild,Is Parent Of,Is Child Of,2026-08-10T10:33:05.573280,architect,
+LINK-00561,DEV-STORY-017,DEV-017,Contains,Contains,Contained In,2026-08-10T10:33:08.494163,architect,
+LINK-00562,DEV-STORY-017,DEV-017,ParentChild,Is Parent Of,Is Child Of,2026-08-10T10:33:11.847404,architect,
+LINK-00563,DEV-STORY-017,UNITTEST-017,Contains,Contains,Contained In,2026-08-10T10:33:14.837775,architect,
+LINK-00564,DEV-STORY-017,UNITTEST-017,ParentChild,Is Parent Of,Is Child Of,2026-08-10T10:33:17.682389,architect,
+LINK-00565,DEV-STORY-017,CODEREVIEW-017,Contains,Contains,Contained In,2026-08-10T10:33:20.543213,architect,
+LINK-00566,DEV-STORY-017,CODEREVIEW-017,ParentChild,Is Parent Of,Is Child Of,2026-08-10T10:33:23.783410,architect,
+LINK-00567,DEV-STORY-017,TESTCASE-017,Contains,Contains,Contained In,2026-08-10T10:33:26.642082,architect,
+LINK-00568,DEV-STORY-017,TESTCASE-017,ParentChild,Is Parent Of,Is Child Of,2026-08-10T10:33:29.805948,architect,
+LINK-00569,DEV-STORY-017,TESTEXEC-017,Contains,Contains,Contained In,2026-08-10T10:33:32.827464,architect,
+LINK-00570,DEV-STORY-017,TESTEXEC-017,ParentChild,Is Parent Of,Is Child Of,2026-08-10T10:33:35.579447,architect,
+LINK-00571,DEV-STORY-017,DEVOPS-017,Contains,Contains,Contained In,2026-08-10T10:33:38.991056,architect,
+LINK-00572,DEV-STORY-017,DEVOPS-017,ParentChild,Is Parent Of,Is Child Of,2026-08-10T10:33:42.495827,architect,
+LINK-00573,CODEREVIEW-017,DEV-017,RelatesTo,Relates To,Relates To,2026-08-10T10:33:45.571568,architect,
+LINK-00574,DEV-017,CODEREVIEW-017,RelatesTo,Relates To,Relates To,2026-08-10T10:33:49.043233,architect,
+LINK-00575,CODEREVIEW-017,DEV-STORY-017,RelatesTo,Relates To,Relates To,2026-08-10T10:33:52.305572,architect,
+LINK-00576,DEV-017,CODEREVIEW-017,Blocks,Blocks,Is Blocked By,2026-08-10T10:33:55.224212,architect,
+LINK-00578,DEV-STORY-018,DESIGN-018,Contains,Contains,Contained In,2026-08-10T10:35:36.175291,architect,
+LINK-00579,DEV-STORY-018,DESIGN-018,ParentChild,Is Parent Of,Is Child Of,2026-08-10T10:35:39.131426,architect,
+LINK-00580,DEV-STORY-018,DEV-018,Contains,Contains,Contained In,2026-08-10T10:35:42.025497,architect,
+LINK-00581,DEV-STORY-018,DEV-018,ParentChild,Is Parent Of,Is Child Of,2026-08-10T10:35:45.515589,architect,
+LINK-00582,DEV-STORY-018,UNITTEST-018,Contains,Contains,Contained In,2026-08-10T10:35:48.546254,architect,
+LINK-00583,DEV-STORY-018,UNITTEST-018,ParentChild,Is Parent Of,Is Child Of,2026-08-10T10:35:51.912544,architect,
+LINK-00584,DEV-STORY-018,CODEREVIEW-018,Contains,Contains,Contained In,2026-08-10T10:35:55.064334,architect,
+LINK-00585,DEV-STORY-018,CODEREVIEW-018,ParentChild,Is Parent Of,Is Child Of,2026-08-10T10:35:58.294774,architect,
+LINK-00586,DEV-STORY-018,TESTCASE-018,Contains,Contains,Contained In,2026-08-10T10:36:01.213544,architect,
+LINK-00587,DEV-STORY-018,TESTCASE-018,ParentChild,Is Parent Of,Is Child Of,2026-08-10T10:36:04.312885,architect,
+LINK-00588,DEV-STORY-018,TESTEXEC-018,Contains,Contains,Contained In,2026-08-10T10:36:07.969628,architect,
+LINK-00589,DEV-STORY-018,TESTEXEC-018,ParentChild,Is Parent Of,Is Child Of,2026-08-10T10:36:10.959060,architect,
+LINK-00590,DEV-STORY-018,DEVOPS-018,Contains,Contains,Contained In,2026-08-10T10:36:14.133973,architect,
+LINK-00591,DEV-STORY-018,DEVOPS-018,ParentChild,Is Parent Of,Is Child Of,2026-08-10T10:36:17.036226,architect,
+LINK-00592,CODEREVIEW-018,DEV-018,RelatesTo,Relates To,Relates To,2026-08-10T10:36:20.019651,architect,
+LINK-00593,DEV-018,CODEREVIEW-018,RelatesTo,Relates To,Relates To,2026-08-10T10:36:22.949491,architect,
+LINK-00594,CODEREVIEW-018,DEV-STORY-018,RelatesTo,Relates To,Relates To,2026-08-10T10:36:26.178775,architect,
+LINK-00595,DEV-018,CODEREVIEW-018,Blocks,Blocks,Is Blocked By,2026-08-10T10:36:30.396275,architect,
+LINK-00597,QUESTION-040,TESTCASE-017,Question,Asks About,Has Question,2026-08-10T12:00:49.077248,qa-engineer,
+LINK-00599,QUESTION-041,TESTCASE-018,Question,Asks About,Has Question,2026-08-10T12:01:24.410089,qa-engineer,
+LINK-00601,DEV-STORY-019,DESIGN-019,Contains,Contains,Contained In,2026-08-10T17:21:44.433196,architect,
+LINK-00602,DEV-STORY-019,DEV-019,Contains,Contains,Contained In,2026-08-10T17:21:47.282903,architect,
+LINK-00603,DEV-STORY-019,UNITTEST-019,Contains,Contains,Contained In,2026-08-10T17:21:50.006889,architect,
+LINK-00604,DEV-STORY-019,CODEREVIEW-019,Contains,Contains,Contained In,2026-08-10T17:21:52.976135,architect,
+LINK-00605,DEV-STORY-019,TESTCASE-019,Contains,Contains,Contained In,2026-08-10T17:21:56.305489,architect,
+LINK-00606,DEV-STORY-019,TESTEXEC-019,Contains,Contains,Contained In,2026-08-10T17:21:59.418172,architect,
+LINK-00607,DEV-STORY-019,DEVOPS-019,Contains,Contains,Contained In,2026-08-10T17:22:02.519960,architect,
+LINK-00608,DEV-STORY-019,DESIGN-019,ParentChild,Is Parent Of,Is Child Of,2026-08-10T17:22:05.444343,architect,
+LINK-00609,DEV-STORY-019,DEV-019,ParentChild,Is Parent Of,Is Child Of,2026-08-10T17:22:08.484932,architect,
+LINK-00610,DEV-STORY-019,UNITTEST-019,ParentChild,Is Parent Of,Is Child Of,2026-08-10T17:22:11.515696,architect,
+LINK-00611,DEV-STORY-019,CODEREVIEW-019,ParentChild,Is Parent Of,Is Child Of,2026-08-10T17:22:14.823244,architect,
+LINK-00612,DEV-STORY-019,TESTCASE-019,ParentChild,Is Parent Of,Is Child Of,2026-08-10T17:22:17.981044,architect,
+LINK-00613,DEV-STORY-019,TESTEXEC-019,ParentChild,Is Parent Of,Is Child Of,2026-08-10T17:22:20.927563,architect,
+LINK-00614,DEV-STORY-019,DEVOPS-019,ParentChild,Is Parent Of,Is Child Of,2026-08-10T17:22:23.859269,architect,
+LINK-00615,CODEREVIEW-019,DEV-019,RelatesTo,Relates To,Relates To,2026-08-10T17:22:28.794076,architect,
+LINK-00616,DEV-019,CODEREVIEW-019,RelatesTo,Relates To,Relates To,2026-08-10T17:22:31.725778,architect,
+LINK-00617,CODEREVIEW-019,DEV-STORY-019,RelatesTo,Relates To,Relates To,2026-08-10T17:22:34.688724,architect,
+LINK-00618,DEV-019,CODEREVIEW-019,Blocks,Blocks,Is Blocked By,2026-08-10T17:22:37.575445,architect,
+LINK-00620,DEV-STORY-020,DESIGN-020,Contains,Contains,Contained In,2026-08-10T17:24:14.412585,architect,
+LINK-00621,DEV-STORY-020,DEV-020,Contains,Contains,Contained In,2026-08-10T17:24:17.657973,architect,
+LINK-00622,DEV-STORY-020,UNITTEST-020,Contains,Contains,Contained In,2026-08-10T17:24:20.829250,architect,
+LINK-00623,DEV-STORY-020,CODEREVIEW-020,Contains,Contains,Contained In,2026-08-10T17:24:23.844884,architect,
+LINK-00624,DEV-STORY-020,TESTCASE-020,Contains,Contains,Contained In,2026-08-10T17:24:26.796653,architect,
+LINK-00625,DEV-STORY-020,TESTEXEC-020,Contains,Contains,Contained In,2026-08-10T17:24:30.307108,architect,
+LINK-00626,DEV-STORY-020,DEVOPS-020,Contains,Contains,Contained In,2026-08-10T17:24:33.306887,architect,
+LINK-00627,DEV-STORY-020,DESIGN-020,ParentChild,Is Parent Of,Is Child Of,2026-08-10T17:24:36.335354,architect,
+LINK-00628,DEV-STORY-020,DEV-020,ParentChild,Is Parent Of,Is Child Of,2026-08-10T17:24:39.312461,architect,
+LINK-00629,DEV-STORY-020,UNITTEST-020,ParentChild,Is Parent Of,Is Child Of,2026-08-10T17:24:42.182541,architect,
+LINK-00630,DEV-STORY-020,CODEREVIEW-020,ParentChild,Is Parent Of,Is Child Of,2026-08-10T17:24:45.083530,architect,
+LINK-00631,DEV-STORY-020,TESTCASE-020,ParentChild,Is Parent Of,Is Child Of,2026-08-10T17:24:48.088435,architect,
+LINK-00632,DEV-STORY-020,TESTEXEC-020,ParentChild,Is Parent Of,Is Child Of,2026-08-10T17:24:51.059760,architect,
+LINK-00633,DEV-STORY-020,DEVOPS-020,ParentChild,Is Parent Of,Is Child Of,2026-08-10T17:24:54.181225,architect,
+LINK-00634,CODEREVIEW-020,DEV-020,RelatesTo,Relates To,Relates To,2026-08-10T17:24:56.877997,architect,
+LINK-00635,DEV-020,CODEREVIEW-020,RelatesTo,Relates To,Relates To,2026-08-10T17:25:00.164089,architect,
+LINK-00636,CODEREVIEW-020,DEV-STORY-020,RelatesTo,Relates To,Relates To,2026-08-10T17:25:03.068974,architect,
+LINK-00637,DEV-020,CODEREVIEW-020,Blocks,Blocks,Is Blocked By,2026-08-10T17:25:06.353844,architect,
+LINK-00639,DEV-STORY-021,DESIGN-021,Contains,Contains,Contained In,2026-08-10T18:01:53.634004,architect,
+LINK-00640,DEV-STORY-021,DESIGN-021,ParentChild,Is Parent Of,Is Child Of,2026-08-10T18:01:56.947287,architect,
+LINK-00641,DEV-STORY-021,DEV-021,Contains,Contains,Contained In,2026-08-10T18:02:00.148215,architect,
+LINK-00642,DEV-STORY-021,DEV-021,ParentChild,Is Parent Of,Is Child Of,2026-08-10T18:02:03.672976,architect,
+LINK-00643,DEV-STORY-021,UNITTEST-021,Contains,Contains,Contained In,2026-08-10T18:02:07.060450,architect,
+LINK-00644,DEV-STORY-021,UNITTEST-021,ParentChild,Is Parent Of,Is Child Of,2026-08-10T18:02:10.446422,architect,
+LINK-00645,DEV-STORY-021,CODEREVIEW-021,Contains,Contains,Contained In,2026-08-10T18:02:17.885289,architect,
+LINK-00646,DEV-STORY-021,CODEREVIEW-021,ParentChild,Is Parent Of,Is Child Of,2026-08-10T18:02:21.566609,architect,
+LINK-00647,DEV-STORY-021,TESTCASE-021,Contains,Contains,Contained In,2026-08-10T18:02:25.147353,architect,
+LINK-00648,DEV-STORY-021,TESTCASE-021,ParentChild,Is Parent Of,Is Child Of,2026-08-10T18:02:29.197150,architect,
+LINK-00649,DEV-STORY-021,TESTEXEC-021,Contains,Contains,Contained In,2026-08-10T18:02:32.918033,architect,
+LINK-00650,DEV-STORY-021,TESTEXEC-021,ParentChild,Is Parent Of,Is Child Of,2026-08-10T18:02:36.266001,architect,
+LINK-00651,DEV-STORY-021,DEVOPS-021,Contains,Contains,Contained In,2026-08-10T18:02:39.568342,architect,
+LINK-00652,DEV-STORY-021,DEVOPS-021,ParentChild,Is Parent Of,Is Child Of,2026-08-10T18:02:42.307305,architect,
+LINK-00653,CODEREVIEW-021,DEV-021,RelatesTo,Relates To,Relates To,2026-08-10T18:02:46.229452,architect,
+LINK-00654,DEV-021,CODEREVIEW-021,RelatesTo,Relates To,Relates To,2026-08-10T18:02:49.319891,architect,
+LINK-00655,CODEREVIEW-021,DEV-STORY-021,RelatesTo,Relates To,Relates To,2026-08-10T18:02:52.462837,architect,
+LINK-00656,DEV-021,CODEREVIEW-021,Blocks,Blocks,Is Blocked By,2026-08-10T18:02:55.519994,architect,
+LINK-00658,DEV-STORY-022,DESIGN-022,Contains,Contains,Contained In,2026-08-10T18:03:02.629688,architect,
+LINK-00659,DEV-STORY-022,DESIGN-022,ParentChild,Is Parent Of,Is Child Of,2026-08-10T18:03:06.674189,architect,
+LINK-00660,DEV-STORY-022,DEV-022,Contains,Contains,Contained In,2026-08-10T18:03:10.491292,architect,
+LINK-00661,DEV-STORY-022,DEV-022,ParentChild,Is Parent Of,Is Child Of,2026-08-10T18:03:14.063967,architect,
+LINK-00662,DEV-STORY-022,UNITTEST-022,Contains,Contains,Contained In,2026-08-10T18:03:20.742874,architect,
+LINK-00663,DEV-STORY-022,UNITTEST-022,ParentChild,Is Parent Of,Is Child Of,2026-08-10T18:03:24.211855,architect,
+LINK-00664,DEV-STORY-022,CODEREVIEW-022,Contains,Contains,Contained In,2026-08-10T18:03:27.510249,architect,
+LINK-00665,DEV-STORY-022,CODEREVIEW-022,ParentChild,Is Parent Of,Is Child Of,2026-08-10T18:03:30.861445,architect,
+LINK-00666,DEV-STORY-022,TESTCASE-022,Contains,Contains,Contained In,2026-08-10T18:03:33.868453,architect,
+LINK-00667,DEV-STORY-022,TESTCASE-022,ParentChild,Is Parent Of,Is Child Of,2026-08-10T18:03:37.038992,architect,
+LINK-00668,DEV-STORY-022,TESTEXEC-022,Contains,Contains,Contained In,2026-08-10T18:03:40.524820,architect,
+LINK-00669,DEV-STORY-022,TESTEXEC-022,ParentChild,Is Parent Of,Is Child Of,2026-08-10T18:03:43.572798,architect,
+LINK-00670,DEV-STORY-022,DEVOPS-022,Contains,Contains,Contained In,2026-08-10T18:03:46.192588,architect,
+LINK-00671,DEV-STORY-022,DEVOPS-022,ParentChild,Is Parent Of,Is Child Of,2026-08-10T18:03:49.420705,architect,
+LINK-00672,CODEREVIEW-022,DEV-022,RelatesTo,Relates To,Relates To,2026-08-10T18:03:52.633424,architect,
+LINK-00673,DEV-022,CODEREVIEW-022,RelatesTo,Relates To,Relates To,2026-08-10T18:03:55.956416,architect,
+LINK-00674,CODEREVIEW-022,DEV-STORY-022,RelatesTo,Relates To,Relates To,2026-08-10T18:03:59.288891,architect,
+LINK-00675,DEV-022,CODEREVIEW-022,Blocks,Blocks,Is Blocked By,2026-08-10T18:04:02.511479,architect,
+LINK-00679,DEV-STORY-023,DESIGN-023,Contains,Contains,Contained In,2026-08-11T01:22:21.465286,architect,
+LINK-00680,DEV-STORY-023,DESIGN-023,ParentChild,Is Parent Of,Is Child Of,2026-08-11T01:22:40.209742,architect,
+LINK-00681,DEV-STORY-023,DEV-023,Contains,Contains,Contained In,2026-08-11T01:23:31.547910,architect,
+LINK-00682,DEV-STORY-023,DEV-023,ParentChild,Is Parent Of,Is Child Of,2026-08-11T01:23:56.656563,architect,
+LINK-00683,DEV-STORY-023,UNITTEST-023,Contains,Contains,Contained In,2026-08-11T01:24:41.220232,architect,
+LINK-00684,DEV-STORY-023,UNITTEST-023,ParentChild,Is Parent Of,Is Child Of,2026-08-11T01:24:49.603912,architect,
+LINK-00685,DEV-STORY-023,CODEREVIEW-023,Contains,Contains,Contained In,2026-08-11T01:25:24.309276,architect,
+LINK-00686,DEV-STORY-023,CODEREVIEW-023,ParentChild,Is Parent Of,Is Child Of,2026-08-11T01:25:29.013773,architect,
+LINK-00687,DEV-STORY-023,TESTCASE-023,Contains,Contains,Contained In,2026-08-11T01:26:17.849790,architect,
+LINK-00688,DEV-STORY-023,TESTCASE-023,ParentChild,Is Parent Of,Is Child Of,2026-08-11T01:26:26.759919,architect,
+LINK-00689,DEV-STORY-023,TESTEXEC-023,Contains,Contains,Contained In,2026-08-11T01:27:14.769525,architect,
+LINK-00690,DEV-STORY-023,TESTEXEC-023,ParentChild,Is Parent Of,Is Child Of,2026-08-11T01:27:25.742077,architect,
+LINK-00691,DEV-STORY-023,DEVOPS-023,ParentChild,Is Parent Of,Is Child Of,2026-08-11T01:28:08.028323,architect,
+LINK-00692,DEV-STORY-023,DEVOPS-023,Contains,Contains,Contained In,2026-08-11T01:28:16.727800,architect,
+LINK-00693,DEV-023,CODEREVIEW-023,RelatesTo,Relates To,Relates To,2026-08-11T01:28:59.186102,architect,
+LINK-00694,CODEREVIEW-023,DEV-023,RelatesTo,Relates To,Relates To,2026-08-11T01:29:10.525908,architect,
+LINK-00695,CODEREVIEW-023,DEV-STORY-023,RelatesTo,Relates To,Relates To,2026-08-11T01:30:02.024012,architect,
+LINK-00696,DEV-023,CODEREVIEW-023,Blocks,Blocks,Is Blocked By,2026-08-11T01:30:26.705736,architect,
+LINK-00698,QUESTION-042,QUESTION-043,RelatesTo,Relates To,Relates To,2026-08-11T04:55:02.091659,tech-lead,
+LINK-00699,FEATURE-002,EPIC-010,FeatureContains,Feature Contains,Is Contained In Feature,2026-08-11T18:20:36.918480,workflow-mgr,
+LINK-00700,FEATURE-003,EPIC-010,FeatureContains,Feature Contains,Is Contained In Feature,2026-08-11T18:20:46.224611,workflow-mgr,
+LINK-00701,FEATURE-004,EPIC-010,FeatureContains,Feature Contains,Is Contained In Feature,2026-08-11T18:22:33.384152,workflow-mgr,
+LINK-00702,FEATURE-005,EPIC-010,FeatureContains,Feature Contains,Is Contained In Feature,2026-08-11T18:22:37.080742,workflow-mgr,
+LINK-00703,FEATURE-007,EPIC-009,FeatureContains,Feature Contains,Is Contained In Feature,2026-08-11T18:23:50.144845,workflow-mgr,
+LINK-00704,FEATURE-006,EPIC-009,FeatureContains,Feature Contains,Is Contained In Feature,2026-08-11T18:24:02.521712,workflow-mgr,
+LINK-00705,FEATURE-009,EPIC-009,FeatureContains,Feature Contains,Is Contained In Feature,2026-08-11T18:25:17.001365,workflow-mgr,
+LINK-00706,FEATURE-008,EPIC-009,FeatureContains,Feature Contains,Is Contained In Feature,2026-08-11T18:25:21.572985,workflow-mgr,
+LINK-00711,FEATURE-010,EPIC-009,FeatureContains,Feature Contains,Is Contained In Feature,2026-08-12T12:55:26.478124,workflow-mgr,
+LINK-00712,FEATURE-010,EPIC-010,FeatureContains,Feature Contains,Is Contained In Feature,2026-08-12T12:55:34.962940,workflow-mgr,
+LINK-00717,FEATURE-006,FEATURE-010,DependsOn,Depends On,Is Dependency For,2026-08-12T18:37:47.257359,workflow-mgr,
+LINK-00718,FEATURE-007,FEATURE-006,DependsOn,Depends On,Is Dependency For,2026-08-12T18:37:51.194494,workflow-mgr,
+LINK-00719,FEATURE-010,FEATURE-003,DependsOn,Depends On,Is Dependency For,2026-08-12T18:37:54.464660,workflow-mgr,
+LINK-00720,FEATURE-008,FEATURE-006,DependsOn,Depends On,Is Dependency For,2026-08-12T18:37:55.396604,workflow-mgr,
+LINK-00721,FEATURE-002,FEATURE-003,DependsOn,Depends On,Is Dependency For,2026-08-12T18:37:58.622411,workflow-mgr,
+LINK-00722,FEATURE-008,FEATURE-007,DependsOn,Depends On,Is Dependency For,2026-08-12T18:37:59.495370,workflow-mgr,
+LINK-00723,FEATURE-009,FEATURE-006,DependsOn,Depends On,Is Dependency For,2026-08-12T18:38:03.172434,workflow-mgr,
+LINK-00724,FEATURE-002,FEATURE-010,DependsOn,Depends On,Is Dependency For,2026-08-12T18:38:04.045158,workflow-mgr,
+LINK-00725,FEATURE-009,FEATURE-007,DependsOn,Depends On,Is Dependency For,2026-08-12T18:38:07.032845,workflow-mgr,
+LINK-00726,FEATURE-004,FEATURE-002,DependsOn,Depends On,Is Dependency For,2026-08-12T18:38:08.073076,workflow-mgr,
+LINK-00727,FEATURE-005,FEATURE-004,DependsOn,Depends On,Is Dependency For,2026-08-12T18:44:00.991617,workflow-mgr,
+LINK-00728,FEATURE-006,FEATURE-003,DependsOn,Depends On,Is Dependency For,2026-08-12T18:44:16.024894,workflow-mgr,
+LINK-00729,BA-DES-003,BA-DES-004,RelatesTo,Relates To,Relates To,2026-08-13T10:08:53.207242,ba,"BA-DES-003 is a duplicate of BA-DES-004 (same title, same parent FEATURE-003); BA-DES-004 is the canonical design sub-task."
+LINK-00730,FEATURE-003,DEV-STORY-024,Contains,Contains,Contained In,2026-08-13T10:49:04.520450,ba,
+LINK-00731,FEATURE-002,DEV-STORY-025,Contains,Contains,Contained In,2026-08-13T10:49:15.291247,ba,
+LINK-00732,FEATURE-004,DEV-STORY-026,Contains,Contains,Contained In,2026-08-13T10:50:09.218715,ba,
+LINK-00733,FEATURE-003,DEV-STORY-027,Contains,Contains,Contained In,2026-08-13T10:50:13.426257,ba,
+LINK-00734,FEATURE-005,DEV-STORY-028,Contains,Contains,Contained In,2026-08-13T10:51:05.153660,ba,
+LINK-00735,FEATURE-004,DEV-STORY-029,Contains,Contains,Contained In,2026-08-13T10:51:14.547030,ba,
+LINK-00736,FEATURE-006,DEV-STORY-031,Contains,Contains,Contained In,2026-08-13T10:52:35.472714,ba,
+LINK-00737,FEATURE-006,DEV-STORY-030,Contains,Contains,Contained In,2026-08-13T10:52:44.288750,ba,
+LINK-00738,FEATURE-008,DEV-STORY-032,Contains,Contains,Contained In,2026-08-13T10:53:51.521687,ba,
+LINK-00739,FEATURE-007,DEV-STORY-033,Contains,Contains,Contained In,2026-08-13T10:53:59.432157,ba,
+LINK-00740,FEATURE-009,DEV-STORY-035,Contains,Contains,Contained In,2026-08-13T10:55:24.647640,ba,
+LINK-00741,FEATURE-008,DEV-STORY-034,Contains,Contains,Contained In,2026-08-13T10:55:34.950305,ba,
+LINK-00742,FEATURE-010,DEV-STORY-037,Contains,Contains,Contained In,2026-08-13T10:56:40.266081,ba,
+LINK-00743,FEATURE-010,DEV-STORY-036,Contains,Contains,Contained In,2026-08-13T10:56:43.259127,ba,
+LINK-00744,DEV-STORY-024,EPIC-010,EpicLink,Epic Link,Epic Link,2026-08-13T10:57:48.183839,ba,
+LINK-00745,DEV-STORY-025,EPIC-010,EpicLink,Epic Link,Epic Link,2026-08-13T10:57:57.743630,ba,
+LINK-00746,DEV-STORY-027,EPIC-010,EpicLink,Epic Link,Epic Link,2026-08-13T10:58:54.884950,ba,
+LINK-00747,DEV-STORY-026,EPIC-010,EpicLink,Epic Link,Epic Link,2026-08-13T10:59:00.271076,ba,
+LINK-00748,DEV-STORY-029,EPIC-010,EpicLink,Epic Link,Epic Link,2026-08-13T10:59:59.186492,ba,
+LINK-00749,DEV-STORY-028,EPIC-010,EpicLink,Epic Link,Epic Link,2026-08-13T11:00:08.125951,ba,
+LINK-00750,DEV-STORY-030,EPIC-009,EpicLink,Epic Link,Epic Link,2026-08-13T11:01:02.669470,ba,
+LINK-00751,DEV-STORY-031,EPIC-009,EpicLink,Epic Link,Epic Link,2026-08-13T11:01:07.966253,ba,
+LINK-00752,DEV-STORY-032,EPIC-009,EpicLink,Epic Link,Epic Link,2026-08-13T11:01:59.096625,ba,
+LINK-00753,DEV-STORY-033,EPIC-009,EpicLink,Epic Link,Epic Link,2026-08-13T11:01:59.907016,ba,
+LINK-00754,DEV-STORY-034,EPIC-009,EpicLink,Epic Link,Epic Link,2026-08-13T11:02:57.994080,ba,
+LINK-00755,DEV-STORY-035,EPIC-009,EpicLink,Epic Link,Epic Link,2026-08-13T11:03:01.335113,ba,
+LINK-00756,DEV-STORY-036,EPIC-010,EpicLink,Epic Link,Epic Link,2026-08-13T11:04:02.496230,ba,
+LINK-00757,DEV-STORY-036,EPIC-009,EpicLink,Epic Link,Epic Link,2026-08-13T11:04:11.503876,ba,
+LINK-00758,DEV-STORY-037,EPIC-009,EpicLink,Epic Link,Epic Link,2026-08-13T11:05:08.088928,ba,
+LINK-00759,DEV-STORY-037,EPIC-010,EpicLink,Epic Link,Epic Link,2026-08-13T11:05:09.078736,ba,
+LINK-00760,QUESTION-089,QUESTION-090,RelatesTo,Relates To,Relates To,2026-08-13T12:44:03.898459,architect,
+LINK-00761,DEV-024,CODEREVIEW-024,RelatesTo,Relates To,Relates To,2026-08-13T18:29:03.018426,tech-lead,
+LINK-00762,CODEREVIEW-024,DEV-024,RelatesTo,Relates To,Relates To,2026-08-13T18:29:03.662620,tech-lead,
+LINK-00763,DEV-024,CODEREVIEW-024,Blocks,Blocks,Is Blocked By,2026-08-13T18:29:04.310476,tech-lead,
+LINK-00764,CODEREVIEW-024,DEV-STORY-024,RelatesTo,Relates To,Relates To,2026-08-13T18:29:04.976090,tech-lead,
+LINK-00765,DEV-025,CODEREVIEW-025,RelatesTo,Relates To,Relates To,2026-08-13T18:29:05.616497,tech-lead,
+LINK-00766,CODEREVIEW-025,DEV-025,RelatesTo,Relates To,Relates To,2026-08-13T18:29:06.263831,tech-lead,
+LINK-00767,DEV-025,CODEREVIEW-025,Blocks,Blocks,Is Blocked By,2026-08-13T18:29:06.900179,tech-lead,
+LINK-00768,CODEREVIEW-025,DEV-STORY-025,RelatesTo,Relates To,Relates To,2026-08-13T18:29:07.553130,tech-lead,
+LINK-00769,DEV-026,CODEREVIEW-026,RelatesTo,Relates To,Relates To,2026-08-13T18:29:08.236396,tech-lead,
+LINK-00770,CODEREVIEW-026,DEV-026,RelatesTo,Relates To,Relates To,2026-08-13T18:29:08.903685,tech-lead,
+LINK-00771,DEV-026,CODEREVIEW-026,Blocks,Blocks,Is Blocked By,2026-08-13T18:29:09.566944,tech-lead,
+LINK-00772,CODEREVIEW-026,DEV-STORY-026,RelatesTo,Relates To,Relates To,2026-08-13T18:29:10.209840,tech-lead,
+LINK-00773,DEV-027,CODEREVIEW-027,RelatesTo,Relates To,Relates To,2026-08-13T18:29:10.876853,tech-lead,
+LINK-00774,CODEREVIEW-027,DEV-027,RelatesTo,Relates To,Relates To,2026-08-13T18:29:11.516272,tech-lead,
+LINK-00775,DEV-027,CODEREVIEW-027,Blocks,Blocks,Is Blocked By,2026-08-13T18:29:12.159481,tech-lead,
+LINK-00776,CODEREVIEW-027,DEV-STORY-027,RelatesTo,Relates To,Relates To,2026-08-13T18:29:12.825344,tech-lead,
+LINK-00777,DEV-028,CODEREVIEW-028,RelatesTo,Relates To,Relates To,2026-08-13T18:29:13.495013,tech-lead,
+LINK-00778,CODEREVIEW-028,DEV-028,RelatesTo,Relates To,Relates To,2026-08-13T18:29:14.140946,tech-lead,
+LINK-00779,DEV-028,CODEREVIEW-028,Blocks,Blocks,Is Blocked By,2026-08-13T18:29:14.781427,tech-lead,
+LINK-00780,CODEREVIEW-028,DEV-STORY-028,RelatesTo,Relates To,Relates To,2026-08-13T18:29:15.451198,tech-lead,
+LINK-00781,DEV-029,CODEREVIEW-029,RelatesTo,Relates To,Relates To,2026-08-13T18:29:16.106563,tech-lead,
+LINK-00782,CODEREVIEW-029,DEV-029,RelatesTo,Relates To,Relates To,2026-08-13T18:29:16.745811,tech-lead,
+LINK-00783,DEV-029,CODEREVIEW-029,Blocks,Blocks,Is Blocked By,2026-08-13T18:29:17.392128,tech-lead,
+LINK-00784,CODEREVIEW-029,DEV-STORY-029,RelatesTo,Relates To,Relates To,2026-08-13T18:29:18.033462,tech-lead,
+LINK-00785,DEV-030,CODEREVIEW-030,RelatesTo,Relates To,Relates To,2026-08-13T18:29:18.675798,tech-lead,
+LINK-00786,CODEREVIEW-030,DEV-030,RelatesTo,Relates To,Relates To,2026-08-13T18:29:19.324991,tech-lead,
+LINK-00787,DEV-030,CODEREVIEW-030,Blocks,Blocks,Is Blocked By,2026-08-13T18:29:19.964682,tech-lead,
+LINK-00788,CODEREVIEW-030,DEV-STORY-033,RelatesTo,Relates To,Relates To,2026-08-13T18:29:20.603992,tech-lead,
+LINK-00789,DEV-STORY-024,DESIGN-024,Contains,Contains,Contained In,2026-08-13T18:32:43.728217,tech-lead,
+LINK-00790,DEV-STORY-024,DESIGN-024,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:32:44.374778,tech-lead,
+LINK-00791,DEV-STORY-024,DEV-024,Contains,Contains,Contained In,2026-08-13T18:32:45.025454,tech-lead,
+LINK-00792,DEV-STORY-024,DEV-024,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:32:45.677182,tech-lead,
+LINK-00793,DEV-STORY-024,UNITTEST-024,Contains,Contains,Contained In,2026-08-13T18:32:46.317104,tech-lead,
+LINK-00794,DEV-STORY-024,UNITTEST-024,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:32:46.956825,tech-lead,
+LINK-00795,DEV-STORY-024,CODEREVIEW-024,Contains,Contains,Contained In,2026-08-13T18:32:47.612415,tech-lead,
+LINK-00796,DEV-STORY-024,CODEREVIEW-024,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:32:48.265756,tech-lead,
+LINK-00797,DEV-STORY-024,TESTCASE-024,Contains,Contains,Contained In,2026-08-13T18:32:48.916111,tech-lead,
+LINK-00798,DEV-STORY-024,TESTCASE-024,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:32:49.610217,tech-lead,
+LINK-00799,DEV-STORY-024,TESTEXEC-024,Contains,Contains,Contained In,2026-08-13T18:32:50.307598,tech-lead,
+LINK-00800,DEV-STORY-024,TESTEXEC-024,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:32:50.982906,tech-lead,
+LINK-00801,DEV-STORY-024,DEVOPS-024,Contains,Contains,Contained In,2026-08-13T18:32:51.657452,tech-lead,
+LINK-00802,DEV-STORY-024,DEVOPS-024,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:32:52.308220,tech-lead,
+LINK-00803,DEV-STORY-025,DESIGN-025,Contains,Contains,Contained In,2026-08-13T18:32:52.958576,tech-lead,
+LINK-00804,DEV-STORY-025,DESIGN-025,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:32:53.608346,tech-lead,
+LINK-00805,DEV-STORY-025,DEV-025,Contains,Contains,Contained In,2026-08-13T18:32:54.255589,tech-lead,
+LINK-00806,DEV-STORY-025,DEV-025,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:32:54.951926,tech-lead,
+LINK-00807,DEV-STORY-025,UNITTEST-025,Contains,Contains,Contained In,2026-08-13T18:32:55.607516,tech-lead,
+LINK-00808,DEV-STORY-025,UNITTEST-025,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:32:56.257167,tech-lead,
+LINK-00809,DEV-STORY-025,CODEREVIEW-025,Contains,Contains,Contained In,2026-08-13T18:32:56.915655,tech-lead,
+LINK-00810,DEV-STORY-025,CODEREVIEW-025,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:32:57.571201,tech-lead,
+LINK-00811,DEV-STORY-025,TESTCASE-025,Contains,Contains,Contained In,2026-08-13T18:32:58.220872,tech-lead,
+LINK-00812,DEV-STORY-025,TESTCASE-025,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:32:58.869586,tech-lead,
+LINK-00813,DEV-STORY-025,TESTEXEC-025,Contains,Contains,Contained In,2026-08-13T18:32:59.519975,tech-lead,
+LINK-00814,DEV-STORY-025,TESTEXEC-025,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:00.189445,tech-lead,
+LINK-00815,DEV-STORY-025,DEVOPS-025,Contains,Contains,Contained In,2026-08-13T18:33:00.839922,tech-lead,
+LINK-00816,DEV-STORY-025,DEVOPS-025,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:01.487480,tech-lead,
+LINK-00817,DEV-STORY-026,DESIGN-026,Contains,Contains,Contained In,2026-08-13T18:33:02.136208,tech-lead,
+LINK-00818,DEV-STORY-026,DESIGN-026,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:02.784383,tech-lead,
+LINK-00819,DEV-STORY-026,DEV-026,Contains,Contains,Contained In,2026-08-13T18:33:03.432705,tech-lead,
+LINK-00820,DEV-STORY-026,DEV-026,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:04.085390,tech-lead,
+LINK-00821,DEV-STORY-026,UNITTEST-026,Contains,Contains,Contained In,2026-08-13T18:33:04.738335,tech-lead,
+LINK-00822,DEV-STORY-026,UNITTEST-026,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:05.417056,tech-lead,
+LINK-00823,DEV-STORY-026,CODEREVIEW-026,Contains,Contains,Contained In,2026-08-13T18:33:06.066253,tech-lead,
+LINK-00824,DEV-STORY-026,CODEREVIEW-026,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:06.719638,tech-lead,
+LINK-00825,DEV-STORY-026,TESTCASE-026,Contains,Contains,Contained In,2026-08-13T18:33:07.372597,tech-lead,
+LINK-00826,DEV-STORY-026,TESTCASE-026,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:08.029389,tech-lead,
+LINK-00827,DEV-STORY-026,TESTEXEC-026,Contains,Contains,Contained In,2026-08-13T18:33:08.702978,tech-lead,
+LINK-00828,DEV-STORY-026,TESTEXEC-026,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:09.348949,tech-lead,
+LINK-00829,DEV-STORY-026,DEVOPS-026,Contains,Contains,Contained In,2026-08-13T18:33:09.991381,tech-lead,
+LINK-00830,DEV-STORY-026,DEVOPS-026,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:10.641633,tech-lead,
+LINK-00831,DEV-STORY-027,DESIGN-027,Contains,Contains,Contained In,2026-08-13T18:33:11.321453,tech-lead,
+LINK-00832,DEV-STORY-027,DESIGN-027,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:11.968866,tech-lead,
+LINK-00833,DEV-STORY-027,DEV-027,Contains,Contains,Contained In,2026-08-13T18:33:12.617847,tech-lead,
+LINK-00834,DEV-STORY-027,DEV-027,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:13.270284,tech-lead,
+LINK-00835,DEV-STORY-027,UNITTEST-027,Contains,Contains,Contained In,2026-08-13T18:33:13.920407,tech-lead,
+LINK-00836,DEV-STORY-027,UNITTEST-027,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:14.567588,tech-lead,
+LINK-00837,DEV-STORY-027,CODEREVIEW-027,Contains,Contains,Contained In,2026-08-13T18:33:15.211392,tech-lead,
+LINK-00838,DEV-STORY-027,CODEREVIEW-027,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:15.857315,tech-lead,
+LINK-00839,DEV-STORY-027,TESTCASE-027,Contains,Contains,Contained In,2026-08-13T18:33:16.525444,tech-lead,
+LINK-00840,DEV-STORY-027,TESTCASE-027,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:17.173751,tech-lead,
+LINK-00841,DEV-STORY-027,TESTEXEC-027,Contains,Contains,Contained In,2026-08-13T18:33:17.821372,tech-lead,
+LINK-00842,DEV-STORY-027,TESTEXEC-027,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:18.468237,tech-lead,
+LINK-00843,DEV-STORY-028,DESIGN-028,Contains,Contains,Contained In,2026-08-13T18:33:19.113537,tech-lead,
+LINK-00844,DEV-STORY-028,DESIGN-028,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:19.757212,tech-lead,
+LINK-00845,DEV-STORY-028,DEV-028,Contains,Contains,Contained In,2026-08-13T18:33:20.402186,tech-lead,
+LINK-00846,DEV-STORY-028,DEV-028,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:21.082827,tech-lead,
+LINK-00847,DEV-STORY-028,UNITTEST-028,Contains,Contains,Contained In,2026-08-13T18:33:21.731763,tech-lead,
+LINK-00848,DEV-STORY-028,UNITTEST-028,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:22.387052,tech-lead,
+LINK-00849,DEV-STORY-028,CODEREVIEW-028,Contains,Contains,Contained In,2026-08-13T18:33:23.034575,tech-lead,
+LINK-00850,DEV-STORY-028,CODEREVIEW-028,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:23.675920,tech-lead,
+LINK-00851,DEV-STORY-028,TESTCASE-028,Contains,Contains,Contained In,2026-08-13T18:33:24.321776,tech-lead,
+LINK-00852,DEV-STORY-028,TESTCASE-028,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:24.965864,tech-lead,
+LINK-00853,DEV-STORY-028,TESTEXEC-028,Contains,Contains,Contained In,2026-08-13T18:33:25.624038,tech-lead,
+LINK-00854,DEV-STORY-028,TESTEXEC-028,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:26.277183,tech-lead,
+LINK-00855,DEV-STORY-028,DEVOPS-027,Contains,Contains,Contained In,2026-08-13T18:33:26.918912,tech-lead,
+LINK-00856,DEV-STORY-028,DEVOPS-027,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:27.564622,tech-lead,
+LINK-00857,DEV-STORY-029,DESIGN-029,Contains,Contains,Contained In,2026-08-13T18:33:28.241315,tech-lead,
+LINK-00858,DEV-STORY-029,DESIGN-029,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:28.907930,tech-lead,
+LINK-00859,DEV-STORY-029,DEV-029,Contains,Contains,Contained In,2026-08-13T18:33:29.563687,tech-lead,
+LINK-00860,DEV-STORY-029,DEV-029,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:30.205621,tech-lead,
+LINK-00861,DEV-STORY-029,UNITTEST-029,Contains,Contains,Contained In,2026-08-13T18:33:30.849866,tech-lead,
+LINK-00862,DEV-STORY-029,UNITTEST-029,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:31.490107,tech-lead,
+LINK-00863,DEV-STORY-029,CODEREVIEW-029,Contains,Contains,Contained In,2026-08-13T18:33:32.138586,tech-lead,
+LINK-00864,DEV-STORY-029,CODEREVIEW-029,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:32.787466,tech-lead,
+LINK-00865,DEV-STORY-029,TESTCASE-029,Contains,Contains,Contained In,2026-08-13T18:33:33.450023,tech-lead,
+LINK-00866,DEV-STORY-029,TESTCASE-029,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:34.119681,tech-lead,
+LINK-00867,DEV-STORY-029,TESTEXEC-029,Contains,Contains,Contained In,2026-08-13T18:33:34.776941,tech-lead,
+LINK-00868,DEV-STORY-029,TESTEXEC-029,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:35.430319,tech-lead,
+LINK-00869,DEV-STORY-033,DESIGN-030,Contains,Contains,Contained In,2026-08-13T18:33:36.076144,tech-lead,
+LINK-00870,DEV-STORY-033,DESIGN-030,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:36.724276,tech-lead,
+LINK-00871,DEV-STORY-033,DEV-030,Contains,Contains,Contained In,2026-08-13T18:33:37.368568,tech-lead,
+LINK-00872,DEV-STORY-033,DEV-030,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:38.016075,tech-lead,
+LINK-00873,DEV-STORY-033,UNITTEST-030,Contains,Contains,Contained In,2026-08-13T18:33:38.663231,tech-lead,
+LINK-00874,DEV-STORY-033,UNITTEST-030,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:39.313147,tech-lead,
+LINK-00875,DEV-STORY-033,CODEREVIEW-030,Contains,Contains,Contained In,2026-08-13T18:33:39.963816,tech-lead,
+LINK-00876,DEV-STORY-033,CODEREVIEW-030,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:40.608523,tech-lead,
+LINK-00877,DEV-STORY-033,TESTCASE-030,Contains,Contains,Contained In,2026-08-13T18:33:41.280820,tech-lead,
+LINK-00878,DEV-STORY-033,TESTCASE-030,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:41.924376,tech-lead,
+LINK-00879,DEV-STORY-033,TESTEXEC-030,Contains,Contains,Contained In,2026-08-13T18:33:42.567184,tech-lead,
+LINK-00880,DEV-STORY-033,TESTEXEC-030,ParentChild,Is Parent Of,Is Child Of,2026-08-13T18:33:43.214183,tech-lead,
+LINK-00881,DEV-STORY-030,DESIGN-031,Contains,Contains,Contained In,2026-08-13T18:48:53.593266,tech_lead,
+LINK-00882,DEV-STORY-030,DEV-031,Contains,Contains,Contained In,2026-08-13T18:48:54.260914,tech_lead,
+LINK-00883,DEV-STORY-030,UNITTEST-031,Contains,Contains,Contained In,2026-08-13T18:48:54.921601,tech_lead,
+LINK-00884,DEV-STORY-030,CODEREVIEW-031,Contains,Contains,Contained In,2026-08-13T18:48:55.579374,tech_lead,
+LINK-00885,DEV-STORY-030,TESTCASE-031,Contains,Contains,Contained In,2026-08-13T18:48:56.242002,tech_lead,
+LINK-00886,DEV-STORY-030,TESTEXEC-031,Contains,Contains,Contained In,2026-08-13T18:48:56.899334,tech_lead,
+LINK-00887,DEV-031,CODEREVIEW-031,RelatesTo,Relates To,Relates To,2026-08-13T18:48:57.562230,tech_lead,
+LINK-00888,CODEREVIEW-031,DEV-031,RelatesTo,Relates To,Relates To,2026-08-13T18:48:58.240878,tech_lead,
+LINK-00890,DEV-STORY-031,DESIGN-032,Contains,Contains,Contained In,2026-08-13T18:49:00.699172,tech_lead,
+LINK-00891,DEV-STORY-031,DEV-032,Contains,Contains,Contained In,2026-08-13T18:49:01.374478,tech_lead,
+LINK-00892,DEV-STORY-031,UNITTEST-032,Contains,Contains,Contained In,2026-08-13T18:49:02.034534,tech_lead,
+LINK-00893,DEV-STORY-031,CODEREVIEW-032,Contains,Contains,Contained In,2026-08-13T18:49:02.698535,tech_lead,
+LINK-00894,DEV-STORY-031,TESTCASE-032,Contains,Contains,Contained In,2026-08-13T18:49:03.356257,tech_lead,
+LINK-00895,DEV-STORY-031,TESTEXEC-032,Contains,Contains,Contained In,2026-08-13T18:49:04.046673,tech_lead,
+LINK-00896,DEV-032,CODEREVIEW-032,RelatesTo,Relates To,Relates To,2026-08-13T18:49:04.713248,tech_lead,
+LINK-00897,CODEREVIEW-032,DEV-032,RelatesTo,Relates To,Relates To,2026-08-13T18:49:05.375956,tech_lead,
+LINK-00899,DEV-STORY-032,DESIGN-033,Contains,Contains,Contained In,2026-08-13T18:49:07.838002,tech_lead,
+LINK-00900,DEV-STORY-032,DEV-033,Contains,Contains,Contained In,2026-08-13T18:49:08.506401,tech_lead,
+LINK-00901,DEV-STORY-032,UNITTEST-033,Contains,Contains,Contained In,2026-08-13T18:49:09.170448,tech_lead,
+LINK-00902,DEV-STORY-032,CODEREVIEW-033,Contains,Contains,Contained In,2026-08-13T18:49:09.840696,tech_lead,
+LINK-00903,DEV-STORY-032,TESTCASE-033,Contains,Contains,Contained In,2026-08-13T18:49:10.505634,tech_lead,
+LINK-00904,DEV-STORY-032,TESTEXEC-033,Contains,Contains,Contained In,2026-08-13T18:49:11.171515,tech_lead,
+LINK-00905,DEV-033,CODEREVIEW-033,RelatesTo,Relates To,Relates To,2026-08-13T18:49:11.836329,tech_lead,
+LINK-00906,CODEREVIEW-033,DEV-033,RelatesTo,Relates To,Relates To,2026-08-13T18:49:12.506300,tech_lead,
+LINK-00908,DEV-STORY-034,DESIGN-034,Contains,Contains,Contained In,2026-08-13T18:49:14.996832,tech_lead,
+LINK-00909,DEV-STORY-034,DEV-034,Contains,Contains,Contained In,2026-08-13T18:49:15.661219,tech_lead,
+LINK-00910,DEV-STORY-034,UNITTEST-034,Contains,Contains,Contained In,2026-08-13T18:49:16.334266,tech_lead,
+LINK-00911,DEV-STORY-034,CODEREVIEW-034,Contains,Contains,Contained In,2026-08-13T18:49:16.995582,tech_lead,
+LINK-00912,DEV-STORY-034,TESTCASE-034,Contains,Contains,Contained In,2026-08-13T18:49:17.899151,tech_lead,
+LINK-00913,DEV-STORY-034,TESTEXEC-034,Contains,Contains,Contained In,2026-08-13T18:49:18.569660,tech_lead,
+LINK-00914,DEV-034,CODEREVIEW-034,RelatesTo,Relates To,Relates To,2026-08-13T18:49:19.237171,tech_lead,
+LINK-00915,CODEREVIEW-034,DEV-034,RelatesTo,Relates To,Relates To,2026-08-13T18:49:19.895245,tech_lead,
+LINK-00917,DEV-STORY-035,DESIGN-035,Contains,Contains,Contained In,2026-08-13T18:49:22.380350,tech_lead,
+LINK-00918,DEV-STORY-035,DEV-035,Contains,Contains,Contained In,2026-08-13T18:49:23.055307,tech_lead,
+LINK-00919,DEV-STORY-035,UNITTEST-035,Contains,Contains,Contained In,2026-08-13T18:49:23.721899,tech_lead,
+LINK-00920,DEV-STORY-035,CODEREVIEW-035,Contains,Contains,Contained In,2026-08-13T18:49:24.397436,tech_lead,
+LINK-00921,DEV-STORY-035,TESTCASE-035,Contains,Contains,Contained In,2026-08-13T18:49:25.072020,tech_lead,
+LINK-00922,DEV-STORY-035,TESTEXEC-035,Contains,Contains,Contained In,2026-08-13T18:49:25.770037,tech_lead,
+LINK-00923,DEV-035,CODEREVIEW-035,RelatesTo,Relates To,Relates To,2026-08-13T18:49:26.451691,tech_lead,
+LINK-00924,CODEREVIEW-035,DEV-035,RelatesTo,Relates To,Relates To,2026-08-13T18:49:27.134184,tech_lead,
+LINK-00926,DEV-STORY-036,DESIGN-036,Contains,Contains,Contained In,2026-08-13T18:49:29.669331,tech_lead,
+LINK-00927,DEV-STORY-036,DEV-036,Contains,Contains,Contained In,2026-08-13T18:49:30.342413,tech_lead,
+LINK-00928,DEV-STORY-036,UNITTEST-036,Contains,Contains,Contained In,2026-08-13T18:49:31.002690,tech_lead,
+LINK-00929,DEV-STORY-036,CODEREVIEW-036,Contains,Contains,Contained In,2026-08-13T18:49:31.666423,tech_lead,
+LINK-00930,DEV-STORY-036,TESTCASE-036,Contains,Contains,Contained In,2026-08-13T18:49:32.322586,tech_lead,
+LINK-00931,DEV-STORY-036,TESTEXEC-036,Contains,Contains,Contained In,2026-08-13T18:49:33.025618,tech_lead,
+LINK-00932,DEV-STORY-036,DEVOPS-028,Contains,Contains,Contained In,2026-08-13T18:49:33.689315,tech_lead,
+LINK-00933,DEV-036,CODEREVIEW-036,RelatesTo,Relates To,Relates To,2026-08-13T18:49:34.354295,tech_lead,
+LINK-00934,CODEREVIEW-036,DEV-036,RelatesTo,Relates To,Relates To,2026-08-13T18:49:35.020034,tech_lead,
+LINK-00936,DEV-STORY-037,DESIGN-037,Contains,Contains,Contained In,2026-08-13T18:49:37.462499,tech_lead,
+LINK-00937,DEV-STORY-037,DEV-037,Contains,Contains,Contained In,2026-08-13T18:49:38.166194,tech_lead,
+LINK-00938,DEV-STORY-037,UNITTEST-037,Contains,Contains,Contained In,2026-08-13T18:49:38.828089,tech_lead,
+LINK-00939,DEV-STORY-037,CODEREVIEW-037,Contains,Contains,Contained In,2026-08-13T18:49:39.495496,tech_lead,
+LINK-00940,DEV-STORY-037,TESTCASE-037,Contains,Contains,Contained In,2026-08-13T18:49:40.191377,tech_lead,
+LINK-00941,DEV-STORY-037,TESTEXEC-037,Contains,Contains,Contained In,2026-08-13T18:49:40.853612,tech_lead,
+LINK-00942,DEV-037,CODEREVIEW-037,RelatesTo,Relates To,Relates To,2026-08-13T18:49:41.510022,tech_lead,
+LINK-00943,CODEREVIEW-037,DEV-037,RelatesTo,Relates To,Relates To,2026-08-13T18:49:42.172999,tech_lead,
+LINK-00945,DEV-STORY-031,DEV-STORY-036,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:44.618927,tech_lead,Ordering: confirmed package/repository mapping (036) precedes physical skill-tree migration (031).
+LINK-00946,DEV-STORY-032,DEV-STORY-031,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:45.286201,tech_lead,Ordering: main-skill content targets final .agents/skills/pal-found path after layout migration.
+LINK-00947,DEV-STORY-032,DEV-STORY-036,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:45.948010,tech_lead,Ordering: main-skill content uses final pal-found naming from 036.
+LINK-00948,DEV-STORY-034,DEV-STORY-031,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:46.612280,tech_lead,Ordering: namespace capability content targets final .agents/skills/pal-found-* paths.
+LINK-00949,DEV-STORY-034,DEV-STORY-036,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:47.272744,tech_lead,Ordering: capability sections use final pal-found names.
+LINK-00950,DEV-STORY-035,DEV-STORY-034,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:47.933290,tech_lead,Ordering: JSON/parameter sections follow capability sections; preserve separate owned sections.
+LINK-00951,DEV-STORY-035,DEV-STORY-031,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:48.592470,tech_lead,Ordering: JSON/parameter work targets final migrated namespace paths.
+LINK-00952,DEV-STORY-035,DEV-STORY-036,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:49.253229,tech_lead,Ordering: JSON/parameter work uses final pal-found namespace names.
+LINK-00953,DEV-STORY-030,DEV-STORY-031,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:49.909614,tech_lead,Ordering: discovery verification runs after canonical layout migration.
+LINK-00954,DEV-STORY-030,DEV-STORY-032,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:50.568441,tech_lead,Ordering: discovery verifies final main-skill content.
+LINK-00955,DEV-STORY-030,DEV-STORY-034,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:51.227977,tech_lead,Ordering: discovery verifies final namespace capability content.
+LINK-00956,DEV-STORY-030,DEV-STORY-035,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:51.917080,tech_lead,Ordering: discovery verifies final namespace usage documentation.
+LINK-00957,DEV-STORY-030,DEV-STORY-036,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:52.582114,tech_lead,Ordering: discovery uses final confirmed names.
+LINK-00958,DEV-STORY-037,DEV-STORY-030,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:53.247553,tech_lead,Ordering: final sweep follows discovery evidence.
+LINK-00959,DEV-STORY-037,DEV-STORY-031,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:53.933869,tech_lead,Ordering: final sweep follows physical skill migration.
+LINK-00960,DEV-STORY-037,DEV-STORY-032,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:54.606912,tech_lead,Ordering: final sweep follows main-skill content.
+LINK-00961,DEV-STORY-037,DEV-STORY-034,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:55.271323,tech_lead,Ordering: final sweep follows capability content.
+LINK-00962,DEV-STORY-037,DEV-STORY-035,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:55.927683,tech_lead,Ordering: final sweep follows JSON/parameter content.
+LINK-00963,DEV-STORY-037,DEV-STORY-036,DependsOn,Depends On,Is Dependency For,2026-08-13T18:49:56.586113,tech_lead,Ordering: final sweep follows package/repository rename.
+LINK-00965,QUESTION-106,TESTCASE-035,Question,Asks About,Has Question,2026-08-13T22:43:30.010006,qa-engineer,QUESTION-106 asks whether canonical-only scope and the pre-existing dataset launcher Ruff debt satisfy TESTCASE-035 acceptance.
+LINK-00967,QUESTION-107,TESTEXEC-035,Question,Asks About,Has Question,2026-08-13T22:43:31.169989,qa-engineer,QUESTION-107 asks whether canonical-only scope and the pre-existing dataset launcher Ruff debt satisfy TESTEXEC-035 acceptance.
+LINK-00969,QUESTION-108,TESTCASE-036,Question,Asks About,Has Question,2026-08-13T22:43:32.325909,qa-engineer,QUESTION-108 asks whether canonical-only rename evidence and unrelated tracker-file dirt satisfy TESTCASE-036 acceptance.
+LINK-00971,QUESTION-109,TESTEXEC-036,Question,Asks About,Has Question,2026-08-13T22:43:33.473492,qa-engineer,QUESTION-109 asks whether canonical-only rename evidence and unrelated tracker-file dirt satisfy TESTEXEC-036 acceptance.
+LINK-00973,TESTEXEC-024,QUESTION-110,Question,Asks About,Has Question,2026-08-13T23:39:24.214527,qa-engineer,Records the blocker question for TESTEXEC-024.
+LINK-00975,DEVOPS-024,QUESTION-111,Question,Asks About,Has Question,2026-08-13T23:40:24.409695,qa-engineer,Records the blocker question for DEVOPS-024.
+LINK-00977,TESTCASE-025,QUESTION-112,Question,Asks About,Has Question,2026-08-13T23:40:26.278658,qa-engineer,Records the blocker question for TESTCASE-025.
+LINK-00979,TESTEXEC-025,QUESTION-113,Question,Asks About,Has Question,2026-08-13T23:40:28.173909,qa-engineer,Records the blocker question for TESTEXEC-025.
+LINK-00981,DEVOPS-025,QUESTION-114,Question,Asks About,Has Question,2026-08-13T23:40:30.042882,qa-engineer,Records the blocker question for DEVOPS-025.
+LINK-00983,TESTEXEC-026,QUESTION-115,Question,Asks About,Has Question,2026-08-13T23:40:31.915905,qa-engineer,Records the blocker question for TESTEXEC-026.
+LINK-00985,DEVOPS-026,QUESTION-116,Question,Asks About,Has Question,2026-08-13T23:40:33.784530,qa-engineer,Records the blocker question for DEVOPS-026.
+LINK-00987,TESTEXEC-027,QUESTION-117,Question,Asks About,Has Question,2026-08-13T23:40:35.658345,qa-engineer,Records the blocker question for TESTEXEC-027.
+LINK-00989,TESTCASE-028,QUESTION-118,Question,Asks About,Has Question,2026-08-13T23:40:37.524114,qa-engineer,Records the blocker question for TESTCASE-028.
+LINK-00991,TESTEXEC-028,QUESTION-119,Question,Asks About,Has Question,2026-08-13T23:40:39.386970,qa-engineer,Records the blocker question for TESTEXEC-028.
+LINK-00993,DEVOPS-027,QUESTION-120,Question,Asks About,Has Question,2026-08-13T23:40:41.251815,qa-engineer,Records the blocker question for DEVOPS-027.
+LINK-00995,TESTEXEC-029,QUESTION-121,Question,Asks About,Has Question,2026-08-13T23:40:43.134583,qa-engineer,Records the blocker question for TESTEXEC-029.
+LINK-00997,TESTCASE-030,QUESTION-122,Question,Asks About,Has Question,2026-08-13T23:40:45.062094,qa-engineer,Records the blocker question for TESTCASE-030.
+LINK-00999,TESTEXEC-030,QUESTION-123,Question,Asks About,Has Question,2026-08-13T23:40:46.947581,qa-engineer,Records the blocker question for TESTEXEC-030.
+LINK-01001,TESTCASE-031,QUESTION-124,Question,Asks About,Has Question,2026-08-13T23:40:48.819721,qa-engineer,Records the blocker question for TESTCASE-031.
+LINK-01003,TESTEXEC-031,QUESTION-125,Question,Asks About,Has Question,2026-08-13T23:40:50.704181,qa-engineer,Records the blocker question for TESTEXEC-031.
+LINK-01005,TESTCASE-032,QUESTION-126,Question,Asks About,Has Question,2026-08-13T23:40:52.612918,qa-engineer,Records the blocker question for TESTCASE-032.
+LINK-01007,TESTEXEC-032,QUESTION-127,Question,Asks About,Has Question,2026-08-13T23:40:54.492975,qa-engineer,Records the blocker question for TESTEXEC-032.
+LINK-01009,DEVOPS-028,QUESTION-128,Question,Asks About,Has Question,2026-08-13T23:40:56.420762,qa-engineer,Records the blocker question for DEVOPS-028.
+LINK-01011,TESTCASE-037,QUESTION-129,Question,Asks About,Has Question,2026-08-13T23:40:58.320231,qa-engineer,Records the blocker question for TESTCASE-037.
+LINK-01013,TESTEXEC-037,QUESTION-130,Question,Asks About,Has Question,2026-08-13T23:41:00.204974,qa-engineer,Records the blocker question for TESTEXEC-037.
+LINK-01017,DEV-STORY-024,BUG-SUB-014,Contains,Contains,Contained In,2026-08-17T12:59:49.968051,workflow-mgr,Register BUG-SUB-014 as implementation defect child of DEV-STORY-024.
+LINK-01018,DEV-STORY-024,BUG-SUB-014,ParentChild,Is Parent Of,Is Child Of,2026-08-17T12:59:57.036286,workflow-mgr,Mirror BUG-SUB-014 parent nesting in the link index.
+LINK-01019,DEV-STORY-025,BUG-SUB-015,Contains,Contains,Contained In,2026-08-17T14:34:22.554512,workflow-mgr,Register BUG-SUB-015 under its parent story.
+LINK-01020,DEV-STORY-025,BUG-SUB-015,ParentChild,Is Parent Of,Is Child Of,2026-08-17T14:34:23.388457,workflow-mgr,Register BUG-SUB-015 parent-child hierarchy.
+LINK-01022,TESTEXEC-025,QUESTION-131,Contains,Contains,Contained In,2026-08-17T14:35:17.230368,workflow-mgr,Register QUESTION-131 under TESTEXEC-025.
+LINK-01023,TESTEXEC-025,QUESTION-131,ParentChild,Is Parent Of,Is Child Of,2026-08-17T14:35:18.083513,workflow-mgr,Register QUESTION-131 parent-child hierarchy.
+LINK-01024,TESTEXEC-025,QUESTION-131,Question,Asks About,Has Question,2026-08-17T14:35:18.952065,workflow-mgr,TESTEXEC-025 asks for controlled fixtures and owner evidence.
+LINK-01026,TESTEXEC-025,QUESTION-132,Contains,Contains,Contained In,2026-08-17T14:36:11.606556,workflow-mgr,Register QUESTION-132 under TESTEXEC-025.
+LINK-01027,TESTEXEC-025,QUESTION-132,ParentChild,Is Parent Of,Is ,,,
+Question,2026-08-17T14:36:13.312220,workflow-mgr,TESTEXEC-025 asks for separate rollback authorization.,,,,,
+LINK-01030,DEV-STORY-033,BUG-SUB-016,Contains,Contains,Contained In,2026-08-17T15:19:41.902607,workflow-mgr,Register the QA defect under its parent story.
+LINK-01031,DEV-STORY-033,BUG-SUB-016,ParentChild,Is Parent Of,Is Child Of,2026-08-17T15:19:42.756047,workflow-mgr,Record the explicit parent-child relationship.
+LINK-01038,QUESTION-135,QUESTION-134,RelatesTo,Relates To,Relates To,2026-09-28T04:01:38.259208,devops-engineer,"QUESTION-135 duplicates QUESTION-134 (same ANACONDA_API_TOKEN scope issue, created by interrupted retry)."
+LINK-01040,QUESTION-137,TESTEXEC-030,Question,Asks About,Has Question,2026-09-28T11:45:34.886868,qa-engineer,Question link for TESTCASE-030 wording reconciliation
+LINK-01044,TESTEXEC-025,QUESTION-139,Question,Asks About,Has Question,2026-09-28T12:29:44.233381,qa-engineer,
+LINK-01048,BA-ANA-012,FEATURE-011,Contains,Contains,Contained In,2026-09-30T13:37:17.385890,ba,
+LINK-01049,SA-ANA-012,FEATURE-011,Contains,Contains,Contained In,2026-09-30T13:37:17.877246,ba,
+LINK-01050,BA-ANA-011,BA-ANA-012,RelatesTo,Relates To,Relates To,2026-09-30T13:40:07.471517,ba,Duplicate of BA-ANA-012 (canonical). Identical title and parent FEATURE-011. Orphan created in error; FEATURE-011 Contains links only to BA-ANA-012.
+LINK-01051,SA-ANA-011,SA-ANA-012,RelatesTo,Relates To,Relates To,2026-09-30T13:40:12.003929,ba,Duplicate of SA-ANA-012 (canonical). Identical title and parent FEATURE-011. Orphan created in error; FEATURE-011 Contains links only to SA-ANA-012.
+LINK-01052,FEATURE-011,EPIC-011,FeatureContains,Feature Contains,Is Contained In Feature,2026-09-30T13:40:48.309124,ba,Bidirectional FeatureContains link: FEATURE-011 (Feature Contains) <-> EPIC-011 (Is Contained In Feature). New Epic for documentation-only skill model and command migration to tool.
+LINK-01054,QUESTION-141,BA-ANA-012,Question,Asks About,Has Question,2026-09-30T13:47:21.302180,ba,
+LINK-01055,BA-DES-012,FEATURE-011,Contains,Contains,Contained In,2026-09-30T13:59:25.430100,ba,BA design sub-task links to parent FEATURE-011
+LINK-01056,SA-DES-011,FEATURE-011,Contains,Contains,Contained In,2026-09-30T13:59:25.926543,ba,SA design sub-task links to parent FEATURE-011
+LINK-01057,FEATURE-011,DEV-STORY-038,Contains,Contains,Contained In,2026-09-30T14:04:51.231488,ba,
+LINK-01058,DEV-STORY-038,EPIC-011,EpicLink,Epic Link,Epic Link,2026-09-30T14:04:51.827889,ba,
+LINK-01059,FEATURE-011,DEV-STORY-039,Contains,Contains,Contained In,2026-09-30T14:04:52.337954,ba,
+LINK-01060,DEV-STORY-039,EPIC-011,EpicLink,Epic Link,Epic Link,2026-09-30T14:04:53.275040,ba,
+LINK-01061,FEATURE-011,DEV-STORY-040,Contains,Contains,Contained In,2026-09-30T14:04:53.783600,ba,
+LINK-01062,DEV-STORY-040,EPIC-011,EpicLink,Epic Link,Epic Link,2026-09-30T14:04:54.287337,ba,
+LINK-01064,QUESTION-142,SA-ANA-012,Question,Asks About,Has Question,2026-09-30T14:12:31.941196,ba,
+LINK-01067,QUESTION-143,BA-DES-012,Question,Asks About,Has Question,2026-09-30T14:12:50.775647,ba,
+LINK-01068,QUESTION-144,BA-DES-012,Question,Asks About,Has Question,2026-09-30T14:12:51.345338,ba,
+LINK-01070,QUESTION-145,BA-ANA-012,Question,Asks About,Has Question,2026-09-30T14:16:01.595243,architect,Asks about BA-ANA-012 analysis approval
+LINK-01072,QUESTION-146,SA-DES-011,Question,Asks About,Has Question,2026-09-30T14:16:12.145637,architect,Asks about SA-DES-011 design approval
+LINK-01074,QUESTION-147,SA-DES-011,Question,Asks About,Has Question,2026-09-30T14:16:21.781693,architect,Asks about SA-DES-011 design approval
+LINK-01075,DEV-STORY-038,DESIGN-038,Contains,Contains,Contained In,2026-10-01T14:12:33.112563,tech-lead,
+LINK-01076,DEV-STORY-038,DEV-038,Contains,Contains,Contained In,2026-10-01T14:12:33.619944,tech-lead,
+LINK-01077,DEV-STORY-038,UNITTEST-038,Contains,Contains,Contained In,2026-10-01T14:12:34.121325,tech-lead,
+LINK-01078,DEV-STORY-038,CODEREVIEW-038,Contains,Contains,Contained In,2026-10-01T14:12:34.618099,tech-lead,
+LINK-01079,DEV-STORY-038,TESTCASE-038,Contains,Contains,Contained In,2026-10-01T14:12:35.111685,tech-lead,
+LINK-01080,DEV-STORY-038,TESTEXEC-038,Contains,Contains,Contained In,2026-10-01T14:12:35.609205,tech-lead,
+LINK-01081,DEV-038,CODEREVIEW-038,RelatesTo,Relates To,Relates To,2026-10-01T14:12:41.650129,tech-lead,
+LINK-01082,CODEREVIEW-038,DEV-038,RelatesTo,Relates To,Relates To,2026-10-01T14:12:42.154388,tech-lead,
+LINK-01083,DEV-STORY-039,DESIGN-039,Contains,Contains,Contained In,2026-10-01T14:12:48.791753,tech-lead,
+LINK-01084,DEV-STORY-039,DEV-039,Contains,Contains,Contained In,2026-10-01T14:12:49.312859,tech-lead,
+LINK-01085,DEV-STORY-039,UNITTEST-039,Contains,Contains,Contained In,2026-10-01T14:12:49.814161,tech-lead,
+LINK-01086,DEV-STORY-039,CODEREVIEW-039,Contains,Contains,Contained In,2026-10-01T14:12:50.318240,tech-lead,
+LINK-01087,DEV-STORY-039,TESTCASE-039,Contains,Contains,Contained In,2026-10-01T14:12:50.825597,tech-lead,
+LINK-01088,DEV-STORY-039,TESTEXEC-039,Contains,Contains,Contained In,2026-10-01T14:12:51.333363,tech-lead,
+LINK-01089,DEV-039,CODEREVIEW-039,RelatesTo,Relates To,Relates To,2026-10-01T14:12:51.832869,tech-lead,
+LINK-01090,CODEREVIEW-039,DEV-039,RelatesTo,Relates To,Relates To,2026-10-01T14:12:52.339281,tech-lead,
+LINK-01091,DEV-STORY-040,DESIGN-040,Contains,Contains,Contained In,2026-10-01T14:12:57.929960,tech-lead,
+LINK-01092,DEV-STORY-040,DEV-040,Contains,Contains,Contained In,2026-10-01T14:12:58.435627,tech-lead,
+LINK-01093,DEV-STORY-040,UNITTEST-040,Contains,Contains,Contained In,2026-10-01T14:12:58.943562,tech-lead,
+LINK-01094,DEV-STORY-040,CODEREVIEW-040,Contains,Contains,Contained In,2026-10-01T14:12:59.450409,tech-lead,
+LINK-01095,DEV-STORY-040,TESTCASE-040,Contains,Contains,Contained In,2026-10-01T14:12:59.958060,tech-lead,
+LINK-01096,DEV-STORY-040,TESTEXEC-040,Contains,Contains,Contained In,2026-10-01T14:13:00.470418,tech-lead,
+LINK-01097,DEV-040,CODEREVIEW-040,RelatesTo,Relates To,Relates To,2026-10-01T14:13:00.974160,tech-lead,
+LINK-01098,CODEREVIEW-040,DEV-040,RelatesTo,Relates To,Relates To,2026-10-01T14:13:01.473409,tech-lead,
+LINK-01099,DEV-039,CODEREVIEW-039,Blocks,Blocks,Is Blocked By,2026-10-01T14:22:56.793152,tech-lead,
+LINK-01100,DEV-040,CODEREVIEW-040,Blocks,Blocks,Is Blocked By,2026-10-01T14:30:27.749788,tech-lead,
+LINK-01101,DEV-038,CODEREVIEW-038,Blocks,Blocks,Is Blocked By,2026-10-01T14:35:10.018330,tech-lead,
+LINK-01102,DEV-STORY-038,DEVOPS-029,Contains,Contains,Contained In,2026-10-01T15:20:41.653760,devops-engineer,Contains link for Deployment-stage DEVOPS sub-task
+LINK-01103,DEV-STORY-039,DEVOPS-030,Contains,Contains,Contained In,2026-10-01T15:20:42.161146,devops-engineer,Contains link for Deployment-stage DEVOPS sub-task
+LINK-01104,DEV-STORY-040,DEVOPS-031,Contains,Contains,Contained In,2026-10-01T15:20:42.672955,devops-engineer,Contains link for Deployment-stage DEVOPS sub-task
+LINK-01105,FEATURE-012,EPIC-012,FeatureContains,Feature Contains,Is Contained In Feature,2026-10-03T01:52:53.852343,project-manager,Offline Foundry skill use case
+LINK-01106,FEATURE-012,BA-ANA-013,ParentChild,Is Parent Of,Is Child Of,2026-10-03T01:54:29.680890,project-manager,
+LINK-01107,FEATURE-012,SA-ANA-013,ParentChild,Is Parent Of,Is Child Of,2026-10-03T01:54:30.381545,project-manager,
+LINK-01109,QUESTION-152,SA-ANA-013,Question,Asks About,Has Question,2026-10-03T02:00:08.513873,architect,Project Owner decision requested on offline content packaging.
+LINK-01111,QUESTION-153,BA-ANA-013,Question,Asks About,Has Question,2026-10-03T02:01:22.201439,ba,
+LINK-01114,QUESTION-155,BA-ANA-013,Question,Asks About,Has Question,2026-10-03T02:05:40.651395,ba,
+LINK-01115,QUESTION-154,SA-ANA-013,Question,Asks About,Has Question,2026-10-03T02:05:41.535060,architect,BA review of SA-ANA-013 analysis.
+LINK-01116,FEATURE-012,FEATURE-008,RelatesTo,Relates To,Relates To,2026-10-03T10:51:49.305506,project-manager,Extends brief platform and capability descriptions
+LINK-01117,FEATURE-012,FEATURE-009,RelatesTo,Relates To,Relates To,2026-10-03T10:51:50.020159,project-manager,Adds Foundry semantics to documented formats and variants
+LINK-01118,FEATURE-012,FEATURE-011,RelatesTo,Relates To,Relates To,2026-10-03T10:51:50.738613,project-manager,Approved local Markdown parts refine the single-file skill design; CLI-only execution remains
+LINK-01119,QUESTION-156,SA-ANA-013,Question,Asks About,Has Question,2026-10-03T10:54:25.873308,architect,Project Owner approval review of resolved SA analysis.
+LINK-01121,QUESTION-157,FEATURE-012,Question,Asks About,Has Question,2026-10-03T11:00:21.052192,project-manager,Project Owner workflow decision for BA-ANA-013 and SA-ANA-013 closure.
+LINK-01123,QUESTION-158,FEATURE-012,Question,Asks About,Has Question,2026-10-03T11:44:06.774702,project-manager,Project Owner workflow wording clarification.
+LINK-01124,FEATURE-012,BA-DES-013,ParentChild,Is Parent Of,Is Child Of,2026-10-03T12:02:39.332219,project-manager,BA design handoff for approved analysis.
+LINK-01125,FEATURE-012,SA-DES-012,ParentChild,Is Parent Of,Is Child Of,2026-10-03T12:02:40.057720,project-manager,SA design handoff for approved analysis.
+LINK-01126,FEATURE-012,DEV-STORY-041,Contains,Contains,Contained In,2026-10-03T16:01:36.404180,ba,
+LINK-01127,DEV-STORY-041,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:01:37.123140,ba,
+LINK-01129,FEATURE-012,DEV-STORY-042,Contains,Contains,Contained In,2026-10-03T16:02:41.545333,ba,
+LINK-01130,DEV-STORY-042,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:02:42.263532,ba,
+LINK-01131,FEATURE-012,DEV-STORY-043,Contains,Contains,Contained In,2026-10-03T16:02:43.822556,ba,
+LINK-01132,DEV-STORY-043,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:02:44.559234,ba,
+LINK-01133,FEATURE-012,DEV-STORY-044,Contains,Contains,Contained In,2026-10-03T16:02:46.035531,ba,
+LINK-01134,DEV-STORY-044,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:02:46.753535,ba,
+LINK-01135,FEATURE-012,DEV-STORY-045,Contains,Contains,Contained In,2026-10-03T16:02:48.236551,ba,
+LINK-01136,DEV-STORY-045,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:02:48.955830,ba,
+LINK-01137,FEATURE-012,DEV-STORY-046,Contains,Contains,Contained In,2026-10-03T16:02:50.425902,ba,
+LINK-01138,DEV-STORY-046,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:02:51.141702,ba,
+LINK-01139,FEATURE-012,DEV-STORY-047,Contains,Contains,Contained In,2026-10-03T16:02:52.592990,ba,
+LINK-01140,DEV-STORY-047,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:02:53.322629,ba,
+LINK-01141,FEATURE-012,DEV-STORY-048,Contains,Contains,Contained In,2026-10-03T16:02:54.803994,ba,
+LINK-01142,DEV-STORY-048,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:02:55.521408,ba,
+LINK-01143,FEATURE-012,DEV-STORY-049,Contains,Contains,Contained In,2026-10-03T16:02:56.996868,ba,
+LINK-01144,DEV-STORY-049,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:02:57.716688,ba,
+LINK-01145,FEATURE-012,DEV-STORY-050,Contains,Contains,Contained In,2026-10-03T16:02:59.189432,ba,
+LINK-01146,DEV-STORY-050,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:02:59.917933,ba,
+LINK-01147,FEATURE-012,DEV-STORY-051,Contains,Contains,Contained In,2026-10-03T16:03:01.388079,ba,
+LINK-01148,DEV-STORY-051,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:03:02.110229,ba,
+LINK-01149,FEATURE-012,DEV-STORY-052,Contains,Contains,Contained In,2026-10-03T16:03:03.584723,ba,
+LINK-01150,DEV-STORY-052,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:03:04.307236,ba,
+LINK-01151,FEATURE-012,DEV-STORY-053,Contains,Contains,Contained In,2026-10-03T16:03:05.779947,ba,
+LINK-01152,DEV-STORY-053,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:03:06.520012,ba,
+LINK-01153,FEATURE-012,DEV-STORY-054,Contains,Contains,Contained In,2026-10-03T16:03:08.008744,ba,
+LINK-01154,DEV-STORY-054,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:03:08.724922,ba,
+LINK-01155,FEATURE-012,DEV-STORY-055,Contains,Contains,Contained In,2026-10-03T16:03:10.187326,ba,
+LINK-01156,DEV-STORY-055,EPIC-012,EpicLink,Epic Link,Epic Link,2026-10-03T16:03:10.908162,ba,
+LINK-01157,DEV-STORY-042,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:06:54.751006,ba,
+LINK-01158,DEV-STORY-043,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:06:55.482911,ba,
+LINK-01159,DEV-STORY-044,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:06:56.198230,ba,
+LINK-01160,DEV-STORY-045,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:06:56.920809,ba,
+LINK-01161,DEV-STORY-046,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:06:57.633013,ba,
+LINK-01162,DEV-STORY-047,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:06:58.345736,ba,
+LINK-01163,DEV-STORY-048,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:06:59.071123,ba,
+LINK-01164,DEV-STORY-049,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:06:59.790369,ba,
+LINK-01165,DEV-STORY-050,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:00.510651,ba,
+LINK-01166,DEV-STORY-051,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:01.229193,ba,
+LINK-01167,DEV-STORY-052,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:01.944279,ba,
+LINK-01168,DEV-STORY-053,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:02.660163,ba,
+LINK-01169,DEV-STORY-054,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:03.379177,ba,
+LINK-01170,DEV-STORY-043,DEV-STORY-042,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:04.103322,ba,
+LINK-01171,DEV-STORY-047,DEV-STORY-046,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:04.834738,ba,
+LINK-01172,DEV-STORY-055,DEV-STORY-041,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:05.548874,ba,
+LINK-01173,DEV-STORY-055,DEV-STORY-042,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:06.267774,ba,
+LINK-01174,DEV-STORY-055,DEV-STORY-043,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:06.979280,ba,
+LINK-01175,DEV-STORY-055,DEV-STORY-044,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:07.707346,ba,
+LINK-01176,DEV-STORY-055,DEV-STORY-045,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:08.426296,ba,
+LINK-01177,DEV-STORY-055,DEV-STORY-046,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:09.148553,ba,
+LINK-01178,DEV-STORY-055,DEV-STORY-047,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:09.865766,ba,
+LINK-01179,DEV-STORY-055,DEV-STORY-048,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:10.586576,ba,
+LINK-01180,DEV-STORY-055,DEV-STORY-049,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:11.296987,ba,
+LINK-01181,DEV-STORY-055,DEV-STORY-050,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:12.010342,ba,
+LINK-01182,DEV-STORY-055,DEV-STORY-051,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:12.723170,ba,
+LINK-01183,DEV-STORY-055,DEV-STORY-052,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:13.439718,ba,
+LINK-01184,DEV-STORY-055,DEV-STORY-053,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:14.152265,ba,
+LINK-01185,DEV-STORY-055,DEV-STORY-054,DependsOn,Depends On,Is Dependency For,2026-10-03T16:07:14.864690,ba,
+LINK-01190,DEV-STORY-041,DESIGN-041,Contains,Contains,Contained In,2026-10-03T16:58:34.121634,tech-lead,DESIGN sub-task under DEV-STORY-041
+LINK-01191,DEV-STORY-041,DEV-041,Contains,Contains,Contained In,2026-10-03T16:58:40.029020,tech-lead,DEV sub-task under DEV-STORY-041
+LINK-01192,DEV-STORY-041,CODEREVIEW-041,Contains,Contains,Contained In,2026-10-03T16:58:45.309678,tech-lead,CODEREVIEW sub-task under DEV-STORY-041
+LINK-01193,DEV-STORY-041,UNITTEST-041,Contains,Contains,Contained In,2026-10-03T16:58:50.328440,tech-lead,UNITTEST sub-task under DEV-STORY-041
+LINK-01194,DEV-STORY-041,TESTCASE-041,Contains,Contains,Contained In,2026-10-03T16:58:55.407164,tech-lead,TESTCASE sub-task under DEV-STORY-041
+LINK-01195,DEV-STORY-041,TESTEXEC-041,Contains,Contains,Contained In,2026-10-03T16:59:01.911361,tech-lead,TESTEXEC sub-task under DEV-STORY-041
+LINK-01196,DEV-STORY-041,DEVOPS-032,Contains,Contains,Contained In,2026-10-03T16:59:06.806504,tech-lead,DEVOPS sub-task under DEV-STORY-041
+LINK-01197,DEV-041,CODEREVIEW-041,RelatesTo,Relates To,Relates To,2026-10-03T16:59:12.533481,tech-lead,DEV-041 relates to CODEREVIEW-041
+LINK-01198,CODEREVIEW-041,DEV-041,RelatesTo,Relates To,Relates To,2026-10-03T16:59:13.063976,tech-lead,CODEREVIEW-041 relates to DEV-041
+LINK-01200,CODEREVIEW-041,DEV-STORY-041,RelatesTo,Relates To,Relates To,2026-10-03T16:59:23.974649,tech-lead,CODEREVIEW-041 relates to parent Story DEV-STORY-041
+LINK-01201,DEV-STORY-042,DESIGN-042,Contains,Contains,Contained In,2026-10-03T17:10:10.054940,tech-lead,
+LINK-01202,DEV-STORY-042,DEV-042,Contains,Contains,Contained In,2026-10-03T17:10:10.593575,tech-lead,
+LINK-01203,DEV-STORY-042,CODEREVIEW-042,Contains,Contains,Contained In,2026-10-03T17:10:11.160462,tech-lead,
+LINK-01204,DEV-STORY-042,UNITTEST-042,Contains,Contains,Contained In,2026-10-03T17:10:11.703056,tech-lead,
+LINK-01205,DEV-STORY-042,TESTCASE-042,Contains,Contains,Contained In,2026-10-03T17:10:17.963611,tech-lead,
+LINK-01206,DEV-STORY-042,TESTEXEC-042,Contains,Contains,Contained In,2026-10-03T17:10:18.506539,tech-lead,
+LINK-01207,DEV-STORY-042,DEVOPS-033,Contains,Contains,Contained In,2026-10-03T17:10:19.077274,tech-lead,
+LINK-01208,DEV-042,CODEREVIEW-042,RelatesTo,Relates To,Relates To,2026-10-03T17:10:25.900835,tech-lead,
+LINK-01209,CODEREVIEW-042,DEV-042,RelatesTo,Relates To,Relates To,2026-10-03T17:10:26.447624,tech-lead,
+LINK-01211,CODEREVIEW-042,DEV-STORY-042,RelatesTo,Relates To,Relates To,2026-10-03T17:10:27.529546,tech-lead,
+LINK-01212,DEV-STORY-043,DESIGN-043,Contains,Contains,Contained In,2026-10-03T17:14:00.228465,tech-lead,
+LINK-01213,DEV-STORY-043,DEV-043,Contains,Contains,Contained In,2026-10-03T17:14:00.769747,tech-lead,
+LINK-01214,DEV-STORY-043,CODEREVIEW-043,Contains,Contains,Contained In,2026-10-03T17:14:01.317433,tech-lead,
+LINK-01215,DEV-STORY-043,UNITTEST-043,Contains,Contains,Contained In,2026-10-03T17:14:01.852966,tech-lead,
+LINK-01216,DEV-STORY-043,TESTCASE-043,Contains,Contains,Contained In,2026-10-03T17:14:02.388929,tech-lead,
+LINK-01217,DEV-STORY-043,TESTEXEC-043,Contains,Contains,Contained In,2026-10-03T17:14:02.916068,tech-lead,
+LINK-01218,DEV-STORY-043,DEVOPS-034,Contains,Contains,Contained In,2026-10-03T17:14:03.444391,tech-lead,
+LINK-01219,DEV-043,CODEREVIEW-043,RelatesTo,Relates To,Relates To,2026-10-03T17:14:09.057995,tech-lead,
+LINK-01220,CODEREVIEW-043,DEV-043,RelatesTo,Relates To,Relates To,2026-10-03T17:14:09.597350,tech-lead,
+LINK-01222,CODEREVIEW-043,DEV-STORY-043,RelatesTo,Relates To,Relates To,2026-10-03T17:14:10.678409,tech-lead,
+LINK-01223,DEV-STORY-044,DESIGN-044,Contains,Contains,Contained In,2026-10-03T17:15:58.223060,tech-lead,
+LINK-01224,DEV-STORY-044,DEV-044,Contains,Contains,Contained In,2026-10-03T17:15:58.761520,tech-lead,
+LINK-01225,DEV-STORY-044,CODEREVIEW-044,Contains,Contains,Contained In,2026-10-03T17:15:59.318217,tech-lead,
+LINK-01226,DEV-STORY-044,UNITTEST-044,Contains,Contains,Contained In,2026-10-03T17:15:59.860581,tech-lead,
+LINK-01227,DEV-STORY-044,TESTCASE-044,Contains,Contains,Contained In,2026-10-03T17:16:00.398864,tech-lead,
+LINK-01228,DEV-STORY-044,TESTEXEC-044,Contains,Contains,Contained In,2026-10-03T17:16:00.938123,tech-lead,
+LINK-01229,DEV-STORY-044,DEVOPS-035,Contains,Contains,Contained In,2026-10-03T17:16:01.479088,tech-lead,
+LINK-01230,DEV-044,CODEREVIEW-044,RelatesTo,Relates To,Relates To,2026-10-03T17:16:07.447326,tech-lead,
+LINK-01231,CODEREVIEW-044,DEV-044,RelatesTo,Relates To,Relates To,2026-10-03T17:16:07.993923,tech-lead,
+LINK-01233,CODEREVIEW-044,DEV-STORY-044,RelatesTo,Relates To,Relates To,2026-10-03T17:16:09.075469,tech-lead,
+LINK-01234,DEV-STORY-045,DESIGN-045,Contains,Contains,Contained In,2026-10-03T17:17:29.740121,tech-lead,
+LINK-01235,DEV-STORY-045,DEV-045,Contains,Contains,Contained In,2026-10-03T17:17:30.278448,tech-lead,
+LINK-01236,DEV-STORY-045,CODEREVIEW-045,Contains,Contains,Contained In,2026-10-03T17:17:30.850267,tech-lead,
+LINK-01237,DEV-STORY-045,UNITTEST-045,Contains,Contains,Contained In,2026-10-03T17:17:31.395851,tech-lead,
+LINK-01238,DEV-STORY-045,TESTCASE-045,Contains,Contains,Contained In,2026-10-03T17:17:31.931766,tech-lead,
+LINK-01239,DEV-STORY-045,TESTEXEC-045,Contains,Contains,Contained In,2026-10-03T17:17:32.475505,tech-lead,
+LINK-01240,DEV-STORY-045,DEVOPS-036,Contains,Contains,Contained In,2026-10-03T17:17:33.008601,tech-lead,
+LINK-01241,DEV-045,CODEREVIEW-045,RelatesTo,Relates To,Relates To,2026-10-03T17:17:33.546237,tech-lead,
+LINK-01242,CODEREVIEW-045,DEV-045,RelatesTo,Relates To,Relates To,2026-10-03T17:17:34.095256,tech-lead,
+LINK-01244,CODEREVIEW-045,DEV-STORY-045,RelatesTo,Relates To,Relates To,2026-10-03T17:17:35.184825,tech-lead,
+LINK-01245,DEV-STORY-046,DESIGN-046,Contains,Contains,Contained In,2026-10-03T17:18:53.207467,tech-lead,
+LINK-01246,DEV-STORY-046,DEV-046,Contains,Contains,Contained In,2026-10-03T17:18:53.770888,tech-lead,
+LINK-01247,DEV-STORY-046,CODEREVIEW-046,Contains,Contains,Contained In,2026-10-03T17:18:54.352821,tech-lead,
+LINK-01248,DEV-STORY-046,UNITTEST-046,Contains,Contains,Contained In,2026-10-03T17:18:54.893556,tech-lead,
+LINK-01249,DEV-STORY-046,TESTCASE-046,Contains,Contains,Contained In,2026-10-03T17:18:55.435896,tech-lead,
+LINK-01250,DEV-STORY-046,TESTEXEC-046,Contains,Contains,Contained In,2026-10-03T17:18:55.978693,tech-lead,
+LINK-01251,DEV-STORY-046,DEVOPS-037,Contains,Contains,Contained In,2026-10-03T17:18:56.524017,tech-lead,
+LINK-01252,DEV-046,CODEREVIEW-046,RelatesTo,Relates To,Relates To,2026-10-03T17:18:57.058382,tech-lead,
+LINK-01253,CODEREVIEW-046,DEV-046,RelatesTo,Relates To,Relates To,2026-10-03T17:18:57.601798,tech-lead,
+LINK-01255,CODEREVIEW-046,DEV-STORY-046,RelatesTo,Relates To,Relates To,2026-10-03T17:18:58.681696,tech-lead,
+LINK-01256,DEV-STORY-047,DESIGN-047,Contains,Contains,Contained In,2026-10-03T17:20:18.615686,tech-lead,
+LINK-01257,DEV-STORY-047,DEV-047,Contains,Contains,Contained In,2026-10-03T17:20:19.159918,tech-lead,
+LINK-01258,DEV-STORY-047,CODEREVIEW-047,Contains,Contains,Contained In,2026-10-03T17:20:19.724275,tech-lead,
+LINK-01259,DEV-STORY-047,UNITTEST-047,Contains,Contains,Contained In,2026-10-03T17:20:20.270301,tech-lead,
+LINK-01260,DEV-STORY-047,TESTCASE-047,Contains,Contains,Contained In,2026-10-03T17:20:20.806171,tech-lead,
+LINK-01261,DEV-STORY-047,TESTEXEC-047,Contains,Contains,Contained In,2026-10-03T17:20:21.348475,tech-lead,
+LINK-01262,DEV-STORY-047,DEVOPS-038,Contains,Contains,Contained In,2026-10-03T17:20:21.894002,tech-lead,
+LINK-01263,DEV-047,CODEREVIEW-047,RelatesTo,Relates To,Relates To,2026-10-03T17:20:22.432655,tech-lead,
+LINK-01264,CODEREVIEW-047,DEV-047,RelatesTo,Relates To,Relates To,2026-10-03T17:20:22.974612,tech-lead,
+LINK-01266,CODEREVIEW-047,DEV-STORY-047,RelatesTo,Relates To,Relates To,2026-10-03T17:20:24.046642,tech-lead,
+LINK-01267,DEV-STORY-048,DESIGN-048,Contains,Contains,Contained In,2026-10-03T17:21:47.384873,tech-lead,
+LINK-01268,DEV-STORY-048,DEV-048,Contains,Contains,Contained In,2026-10-03T17:21:47.945839,tech-lead,
+LINK-01269,DEV-STORY-048,CODEREVIEW-048,Contains,Contains,Contained In,2026-10-03T17:21:48.509258,tech-lead,
+LINK-01270,DEV-STORY-048,UNITTEST-048,Contains,Contains,Contained In,2026-10-03T17:21:49.066029,tech-lead,
+LINK-01271,DEV-STORY-048,TESTCASE-048,Contains,Contains,Contained In,2026-10-03T17:21:49.609456,tech-lead,
+LINK-01272,DEV-STORY-048,TESTEXEC-048,Contains,Contains,Contained In,2026-10-03T17:21:50.149960,tech-lead,
+LINK-01273,DEV-STORY-048,DEVOPS-039,Contains,Contains,Contained In,2026-10-03T17:21:50.697470,tech-lead,
+LINK-01274,DEV-048,CODEREVIEW-048,RelatesTo,Relates To,Relates To,2026-10-03T17:21:51.245729,tech-lead,
+LINK-01275,CODEREVIEW-048,DEV-048,RelatesTo,Relates To,Relates To,2026-10-03T17:21:51.796817,tech-lead,
+LINK-01277,CODEREVIEW-048,DEV-STORY-048,RelatesTo,Relates To,Relates To,2026-10-03T17:21:52.886991,tech-lead,
+LINK-01278,DEV-STORY-049,DESIGN-049,Contains,Contains,Cont,,,
+LINK-01612,FEATURE-015,DEV-STORY-092,Contains,Contains,Contained In,2026-10-06T16:23:58.207947,ba,
+ned In,2026-10-03T17:23:02.300217,tech-lead,,,,,,
+LINK-01280,DEV-STORY-049,CODEREVIEW-049,Contains,Contains,Contained In,2026-10-03T17:23:02.857266,tech-lead,
+LINK-01281,DEV-STORY-049,UNITTEST-049,Contains,Contains,Contained In,2026-10-03T17:23:03.410202,tech-lead,
+LINK-01282,DEV-STORY-049,TESTCASE-049,Contains,Contains,Contained In,2026-10-03T17:23:03.961890,tech-lead,
+LINK-01283,DEV-STORY-049,TESTEXEC-049,Contains,Contains,Contained In,2026-10-03T17:23:04.500675,tech-lead,
+LINK-01284,DEV-STORY-049,DEVOPS-040,Contains,Contains,Contained In,2026-10-03T17:23:05.050300,tech-lead,
+LINK-01285,DEV-049,CODEREVIEW-049,RelatesTo,Relates To,Relates To,2026-10-03T17:23:13.697243,tech-lead,
+LINK-01286,CODEREVIEW-049,DEV-049,RelatesTo,Relates To,Relates To,2026-10-03T17:23:14.260975,tech-lead,
+LINK-01288,CODEREVIEW-049,DEV-STORY-049,RelatesTo,Relates To,Relates To,2026-10-03T17:23:15.395915,tech-lead,
+LINK-01289,DEV-STORY-050,DESIGN-050,Contains,Contains,Contained In,2026-10-03T17:24:32.829826,tech-lead,
+LINK-01290,DEV-STORY-050,DEV-050,Contains,Contains,Contained In,2026-10-03T17:24:33.389135,tech-lead,
+LINK-01291,DEV-STORY-050,CODEREVIEW-050,Contains,Contains,Contained In,2026-10-03T17:24:33.975420,tech-lead,
+LINK-01292,DEV-STORY-050,UNITTEST-050,Contains,Contains,Contained In,2026-10-03T17:24:34.532562,tech-lead,
+LINK-01293,DEV-STORY-050,TESTCASE-050,Contains,Contains,Contained In,2026-10-03T17:24:35.084323,tech-lead,
+LINK-01294,DEV-STORY-050,TESTEXEC-050,Contains,Contains,Contained In,2026-10-03T17:24:35.637799,tech-lead,
+LINK-01295,DEV-STORY-050,DEVOPS-041,Contains,Contains,Contained In,2026-10-03T17:24:36.185615,tech-lead,
+LINK-01296,DEV-050,CODEREVIEW-050,RelatesTo,Relates To,Relates To,2026-10-03T17:24:44.670494,tech-lead,
+LINK-01297,CODEREVIEW-050,DEV-050,RelatesTo,Relates To,Relates To,2026-10-03T17:24:45.234135,tech-lead,
+LINK-01299,CODEREVIEW-050,DEV-STORY-050,RelatesTo,Relates To,Relates To,2026-10-03T17:24:46.379434,tech-lead,
+LINK-01300,DEV-STORY-051,DESIGN-051,Contains,Contains,Contained In,2026-10-03T17:25:53.764711,tech-lead,
+LINK-01301,DEV-STORY-051,DEV-051,Contains,Contains,Contained In,2026-10-03T17:25:54.343468,tech-lead,
+LINK-01302,DEV-STORY-051,CODEREVIEW-051,Contains,Contains,Contained In,2026-10-03T17:25:54.937735,tech-lead,
+LINK-01303,DEV-STORY-051,UNITTEST-051,Contains,Contains,Contained In,2026-10-03T17:25:55.494926,tech-lead,
+LINK-01304,DEV-STORY-051,TESTCASE-051,Contains,Contains,Contained In,2026-10-03T17:25:56.059123,tech-lead,
+LINK-01305,DEV-STORY-051,TESTEXEC-051,Contains,Contains,Contained In,2026-10-03T17:25:56.612458,tech-lead,
+LINK-01306,DEV-STORY-051,DEVOPS-042,Contains,Contains,Contained In,2026-10-03T17:25:57.171468,tech-lead,
+LINK-01307,DEV-051,CODEREVIEW-051,RelatesTo,Relates To,Relates To,2026-10-03T17:26:06.814057,tech-lead,
+LINK-01308,CODEREVIEW-051,DEV-051,RelatesTo,Relates To,Relates To,2026-10-03T17:26:07.372870,tech-lead,
+LINK-01310,CODEREVIEW-051,DEV-STORY-051,RelatesTo,Relates To,Relates To,2026-10-03T17:26:08.496658,tech-lead,
+LINK-01311,DEV-STORY-052,DESIGN-052,Contains,Contains,Contained In,2026-10-03T17:27:11.115259,tech-lead,
+LINK-01312,DEV-STORY-052,DEV-052,Contains,Contains,Contained In,2026-10-03T17:27:11.682494,tech-lead,
+LINK-01313,DEV-STORY-052,CODEREVIEW-052,Contains,Contains,Contained In,2026-10-03T17:27:12.263417,tech-lead,
+LINK-01314,DEV-STORY-052,UNITTEST-052,Contains,Contains,Contained In,2026-10-03T17:27:12.815371,tech-lead,
+LINK-01315,DEV-STORY-052,TESTCASE-052,Contains,Contains,Contained In,2026-10-03T17:27:13.381844,tech-lead,
+LINK-01316,DEV-STORY-052,TESTEXEC-052,Contains,Contains,Contained In,2026-10-03T17:27:13.935504,tech-lead,
+LINK-01317,DEV-STORY-052,DEVOPS-043,Contains,Contains,Contained In,2026-10-03T17:27:14.495979,tech-lead,
+LINK-01318,DEV-052,CODEREVIEW-052,RelatesTo,Relates To,Relates To,2026-10-03T17:27:25.151968,tech-lead,
+LINK-01319,CODEREVIEW-052,DEV-052,RelatesTo,Relates To,Relates To,2026-10-03T17:27:25.721119,tech-lead,
+LINK-01321,CODEREVIEW-052,DEV-STORY-052,RelatesTo,Relates To,Relates To,2026-10-03T17:27:26.847567,tech-lead,
+LINK-01322,DEV-STORY-053,DESIGN-053,Contains,Contains,Contained In,2026-10-03T17:28:30.902433,tech-lead,
+LINK-01323,DEV-STORY-053,DEV-053,Contains,Contains,Contained In,2026-10-03T17:28:31.461753,tech-lead,
+LINK-01324,DEV-STORY-053,CODEREVIEW-053,Contains,Contains,Contained In,2026-10-03T17:28:32.031857,tech-lead,
+LINK-01325,DEV-STORY-053,UNITTEST-053,Contains,Contains,Contained In,2026-10-03T17:28:32.585430,tech-lead,
+LINK-01326,DEV-STORY-053,TESTCASE-053,Contains,Contains,Contained In,2026-10-03T17:28:33.156937,tech-lead,
+LINK-01327,DEV-STORY-053,TESTEXEC-053,Contains,Contains,Contained In,2026-10-03T17:28:33.714790,tech-lead,
+LINK-01328,DEV-STORY-053,DEVOPS-044,Contains,Contains,Contained In,2026-10-03T17:28:34.274118,tech-lead,
+LINK-01329,DEV-053,CODEREVIEW-053,RelatesTo,Relates To,Relates To,2026-10-03T17:28:43.129478,tech-lead,
+LINK-01330,CODEREVIEW-053,DEV-053,RelatesTo,Relates To,Relates To,2026-10-03T17:28:43.687907,tech-lead,
+LINK-01332,CODEREVIEW-053,DEV-STORY-053,RelatesTo,Relates To,Relates To,2026-10-03T17:28:44.812681,tech-lead,
+LINK-01333,DEV-STORY-054,DESIGN-054,Contains,Contains,Contained In,2026-10-03T17:29:53.350363,tech-lead,
+LINK-01334,DEV-STORY-054,DEV-054,Contains,Contains,Contained In,2026-10-03T17:29:53.906188,tech-lead,
+LINK-01335,DEV-STORY-054,CODEREVIEW-054,Contains,Contains,Contained In,2026-10-03T17:29:54.467217,tech-lead,
+LINK-01336,DEV-STORY-054,UNITTEST-054,Contains,Contains,Contained In,2026-10-03T17:29:55.024291,tech-lead,
+LINK-01337,DEV-STORY-054,TESTCASE-054,Contains,Contains,Contained In,2026-10-03T17:29:55.614023,tech-lead,
+LINK-01338,DEV-STORY-054,TESTEXEC-054,Contains,Contains,Contained In,2026-10-03T17:29:56.199777,tech-lead,
+LINK-01339,DEV-STORY-054,DEVOPS-045,Contains,Contains,Contained In,2026-10-03T17:29:56.754280,tech-lead,
+LINK-01340,DEV-054,CODEREVIEW-054,RelatesTo,Relates To,Relates To,2026-10-03T17:30:07.067428,tech-lead,
+LINK-01341,CODEREVIEW-054,DEV-054,RelatesTo,Relates To,Relates To,2026-10-03T17:30:07.634922,tech-lead,
+LINK-01343,CODEREVIEW-054,DEV-STORY-054,RelatesTo,Relates To,Relates To,2026-10-03T17:30:08.776663,tech-lead,
+LINK-01344,DEV-STORY-055,DESIGN-055,Contains,Contains,Contained In,2026-10-03T17:31:34.595182,tech-lead,
+LINK-01345,DEV-STORY-055,DEV-055,Contains,Contains,Contained In,2026-10-03T17:31:35.154144,tech-lead,
+LINK-01346,DEV-STORY-055,CODEREVIEW-055,Contains,Contains,Contained In,2026-10-03T17:31:35.733192,tech-lead,
+LINK-01347,DEV-STORY-055,UNITTEST-055,Contains,Contains,Contained In,2026-10-03T17:31:36.310804,tech-lead,
+LINK-01348,DEV-STORY-055,TESTCASE-055,Contains,Contains,Contained In,2026-10-03T17:31:36.869181,tech-lead,
+LINK-01349,DEV-STORY-055,TESTEXEC-055,Contains,Contains,Contained In,2026-10-03T17:31:37.430113,tech-lead,
+LINK-01350,DEV-STORY-055,DEVOPS-046,Contains,Contains,Contained In,2026-10-03T17:31:37.980869,tech-lead,
+LINK-01351,DEV-055,CODEREVIEW-055,RelatesTo,Relates To,Relates To,2026-10-03T17:31:50.085985,tech-lead,
+LINK-01352,CODEREVIEW-055,DEV-055,RelatesTo,Relates To,Relates To,2026-10-03T17:31:50.646677,tech-lead,
+LINK-01354,CODEREVIEW-055,DEV-STORY-055,RelatesTo,Relates To,Relates To,2026-10-03T17:31:51.799496,tech-lead,
+LINK-01355,DEV-STORY-044,BUG-SUB-019,Contains,Contains,Contained In,2026-10-04T10:36:22.871877,project-manager,Dataset CLI iterator defect discovered during skill verification
+LINK-01357,FEATURE-013,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-04T12:40:08.712613,project-manager,New user-facing development skill and cleanup extends the offline skill work.
+LINK-01358,FEATURE-013,BA-ANA-014,ParentChild,Is Parent Of,Is Child Of,2026-10-04T12:41:16.154808,project-manager,
+LINK-01359,FEATURE-013,SA-ANA-014,ParentChild,Is Parent Of,Is Child Of,2026-10-04T12:41:22.181157,project-manager,
+LINK-01361,QUESTION-164,BA-ANA-014,Question,Asks About,Has Question,2026-10-04T21:08:46.882953,ba,Architect review of BA-ANA-014 requirements
+LINK-01363,QUESTION-165,BA-ANA-014,Question,Asks About,Has Question,2026-10-04T21:09:35.216043,ba,Project Owner review of BA-ANA-014 requirements
+LINK-01365,QUESTION-166,SA-ANA-014,Question,Asks About,Has Question,2026-10-04T21:09:53.923888,architect,Review architecture against business analysis
+LINK-01367,QUESTION-167,SA-ANA-014,Question,Asks About,Has Question,2026-10-04T21:10:46.434256,architect,Project Owner architecture review
+LINK-01368,FEATURE-013,BA-DES-014,ParentChild,Is Parent Of,Is Child Of,2026-10-04T21:58:24.314645,project-manager,
+LINK-01369,FEATURE-013,SA-DES-013,ParentChild,Is Parent Of,Is Child Of,2026-10-04T21:58:28.409933,project-manager,
+LINK-01370,FEATURE-013,EPIC-013,FeatureContains,Feature Contains,Is Contained In Feature,2026-10-04T22:02:44.979324,ba,End-to-end development-guidance use case for FEATURE-013
+LINK-01371,FEATURE-013,DEV-STORY-056,Contains,Contains,Contained In,2026-10-04T22:04:15.057091,ba,
+LINK-01372,DEV-STORY-056,EPIC-013,EpicLink,Epic Link,Epic Link,2026-10-04T22:04:15.834648,ba,
+LINK-01373,FEATURE-013,DEV-STORY-057,Contains,Contains,Contained In,2026-10-04T22:04:16.613698,ba,
+LINK-01374,DEV-STORY-057,EPIC-013,EpicLink,Epic Link,Epic Link,2026-10-04T22:04:17.381001,ba,
+LINK-01375,FEATURE-013,DEV-STORY-058,Contains,Contains,Contained In,2026-10-04T22:04:18.135732,ba,
+LINK-01376,DEV-STORY-058,EPIC-013,EpicLink,Epic Link,Epic Link,2026-10-04T22:04:18.895775,ba,
+LINK-01377,FEATURE-013,DEV-STORY-059,Contains,Contains,Contained In,2026-10-04T22:04:19.707724,ba,
+LINK-01378,DEV-STORY-059,EPIC-013,EpicLink,Epic Link,Epic Link,2026-10-04T22:04:20.466410,ba,
+LINK-01379,FEATURE-013,DEV-STORY-060,Contains,Contains,Contained In,2026-10-04T22:04:21.212246,ba,
+LINK-01380,DEV-STORY-060,EPIC-013,EpicLink,Epic Link,Epic Link,2026-10-04T22:04:21.973795,ba,
+LINK-01381,DEV-STORY-060,DEV-STORY-056,DependsOn,Depends On,Is Dependency For,2026-10-04T22:04:32.728656,ba,
+LINK-01382,DEV-STORY-060,DEV-STORY-057,DependsOn,Depends On,Is Dependency For,2026-10-04T22:04:33.503410,ba,
+LINK-01383,DEV-STORY-060,DEV-STORY-058,DependsOn,Depends On,Is Dependency For,2026-10-04T22:04:34.250912,ba,
+LINK-01384,DEV-STORY-060,DEV-STORY-059,DependsOn,Depends On,Is Dependency For,2026-10-04T22:04:35.002514,ba,
+LINK-01386,QUESTION-168,BA-DES-014,Question,Asks About,Has Question,2026-10-04T22:06:51.058640,ba,
+LINK-01388,QUESTION-169,BA-DES-014,Question,Asks About,Has Question,2026-10-04T22:06:52.589358,ba,
+LINK-01390,QUESTION-170,BA-DES-014,Question,Asks About,Has Question,2026-10-04T22:06:54.110491,ba,
+LINK-01392,QUESTION-171,SA-DES-013,Question,Asks About,Has Question,2026-10-04T22:07:02.323093,architect,Required design approval
+LINK-01394,QUESTION-172,SA-DES-013,Question,Asks About,Has Question,2026-10-04T22:07:03.841116,architect,Required design approval
+LINK-01396,QUESTION-173,SA-DES-013,Question,Asks About,Has Question,2026-10-04T22:07:05.370147,architect,Required design approval
+LINK-01397,DEV-STORY-057,DESIGN-056,Contains,Contains,Contained In,2026-10-05T10:10:15.897729,project-manager,
+LINK-01398,DEV-STORY-057,DEV-056,Contains,Contains,Contained In,2026-10-05T10:10:16.680432,project-manager,
+LINK-01399,DEV-STORY-057,UNITTEST-056,Contains,Contains,Contained In,2026-10-05T10:10:17.451092,project-manager,
+LINK-01400,DEV-STORY-057,CODEREVIEW-056,Contains,Contains,Contained In,2026-10-05T10:10:18.221600,project-manager,
+LINK-01401,DEV-STORY-057,TESTCASE-056,Contains,Contains,Contained In,2026-10-05T10:10:19.001943,project-manager,
+LINK-01402,DEV-STORY-057,TESTEXEC-056,Contains,Contains,Contained In,2026-10-05T10:10:19.776937,project-manager,
+LINK-01403,DEV-STORY-058,DESIGN-057,Contains,Contains,Contained In,2026-10-05T10:10:20.572466,project-manager,
+LINK-01404,DEV-STORY-058,DEV-057,Contains,Contains,Contained In,2026-10-05T10:10:21.347931,project-manager,
+LINK-01405,DEV-STORY-058,UNITTEST-057,Contains,Contains,Contained In,2026-10-05T10:10:22.126376,project-manager,
+LINK-01406,DEV-STORY-058,CODEREVIEW-057,Contains,Contains,Contained In,2026-10-05T10:10:22.908006,project-manager,
+LINK-01407,DEV-STORY-058,TESTCASE-057,Contains,Contains,Contained In,2026-10-05T10:10:23.685052,project-manager,
+LINK-01408,DEV-STORY-058,TESTEXEC-057,Contains,Contains,Contained In,2026-10-05T10:10:24.458940,project-manager,
+LINK-01409,DEV-STORY-056,DESIGN-058,ParentChild,Is Parent Of,Is Child Of,2026-10-05T10:10:28.208379,project-manager,
+LINK-01410,DEV-STORY-056,DEV-058,ParentChild,Is Parent Of,Is Child Of,2026-10-05T10:10:29.001317,project-manager,
+LINK-01411,DEV-STORY-056,UNITTEST-058,ParentChild,Is Parent Of,Is Child Of,2026-10-05T10:10:29.779224,project-manager,
+LINK-01412,DEV-STORY-056,CODEREVIEW-058,ParentChild,Is Parent Of,Is Child Of,2026-10-05T10:10:30.557437,project-manager,
+LINK-01413,DEV-STORY-056,TESTCASE-058,ParentChild,Is Parent Of,Is Child Of,2026-10-05T10:10:31.339116,project-manager,
+LINK-01414,DEV-STORY-056,TESTEXEC-058,ParentChild,Is Parent Of,Is Child Of,2026-10-05T10:10:32.126716,project-manager,
+LINK-01415,CODEREVIEW-056,DEV-056,RelatesTo,Relates To,Relates To,2026-10-05T10:10:36.414642,project-manager,
+LINK-01416,DEV-056,CODEREVIEW-056,RelatesTo,Relates To,Relates To,2026-10-05T10:10:37.222326,project-manager,
+LINK-01418,CODEREVIEW-057,DEV-057,RelatesTo,Relates To,Relates To,2026-10-05T10:10:38.769219,project-manager,
+LINK-01419,DEV-057,CODEREVIEW-057,RelatesTo,Relates To,Relates To,2026-10-05T10:10:39.547098,project-manager,
+LINK-01421,DEV-058,CODEREVIEW-058,RelatesTo,Relates To,Relates To,2026-10-05T10:10:42.150302,project-manager,Architect reviews cleanup implementation after DEV-058 resolves.
+LINK-01423,DEV-STORY-059,DESIGN-059,Contains,Contains,Contained In,2026-10-05T10:10:57.235001,project-manager,
+LINK-01424,DEV-STORY-059,DEV-059,Contains,Contains,Contained In,2026-10-05T10:10:58.016187,project-manager,
+LINK-01425,DEV-STORY-059,UNITTEST-059,Contains,Contains,Contained In,2026-10-05T10:10:58.790426,project-manager,
+LINK-01426,DEV-STORY-059,CODEREVIEW-059,Contains,Contains,Contained In,2026-10-05T10:10:59.569080,project-manager,
+LINK-01427,DEV-STORY-059,TESTCASE-059,Contains,Contains,Contained In,2026-10-05T10:11:00.367725,project-manager,
+LINK-01428,DEV-STORY-059,TESTEXEC-059,Contains,Contains,Contained In,2026-10-05T10:11:01.140200,project-manager,
+LINK-01429,CODEREVIEW-059,DEV-059,RelatesTo,Relates To,Relates To,2026-10-05T10:11:01.913852,project-manager,
+LINK-01430,DEV-059,CODEREVIEW-059,RelatesTo,Relates To,Relates To,2026-10-05T10:11:02.688323,project-manager,
+LINK-01431,CODEREVIEW-059,DEV-STORY-059,RelatesTo,Relates To,Relates To,2026-10-05T10:11:03.466090,project-manager,
+LINK-01433,DEV-STORY-060,DESIGN-060,Contains,Contains,Contained In,2026-10-05T10:11:05.017010,project-manager,
+LINK-01434,DEV-STORY-060,DEV-060,Contains,Contains,Contained In,2026-10-05T10:11:05.804274,project-manager,
+LINK-01435,DEV-STORY-060,UNITTEST-060,Contains,Contains,Contained In,2026-10-05T10:11:06.579262,project-manager,
+LINK-01436,DEV-STORY-060,CODEREVIEW-060,Contains,Contains,Contained In,2026-10-05T10:11:07.364360,project-manager,
+LINK-01437,DEV-STORY-060,TESTCASE-060,Contains,Contains,Contained In,2026-10-05T10:11:08.158788,project-manager,
+LINK-01438,DEV-STORY-060,TESTEXEC-060,Contains,Contains,Contained In,2026-10-05T10:11:08.957990,project-manager,
+LINK-01439,CODEREVIEW-060,DEV-060,RelatesTo,Relates To,Relates To,2026-10-05T10:11:09.742135,project-manager,
+LINK-01440,DEV-060,CODEREVIEW-060,RelatesTo,Relates To,Relates To,2026-10-05T10:11:10.517004,project-manager,
+LINK-01441,CODEREVIEW-060,DEV-STORY-060,RelatesTo,Relates To,Relates To,2026-10-05T10:11:11.296313,project-manager,
+LINK-01443,CODEREVIEW-058,DEV-058,RelatesTo,Relates To,Relates To,2026-10-05T10:11:22.679419,project-manager,
+LINK-01444,CODEREVIEW-058,DEV-STORY-056,RelatesTo,Relates To,Relates To,2026-10-05T10:11:30.936773,project-manager,
+LINK-01450,CODEREVIEW-061,DEV-059,RelatesTo,Relates To,Relates To,2026-10-05T17:00:19.365026,architect,
+LINK-01451,CODEREVIEW-061,DEV-STORY-059,RelatesTo,Relates To,Relates To,2026-10-05T17:00:20.166095,architect,
+LINK-01452,DEV-STORY-059,CODEREVIEW-061,ParentChild,Is Parent Of,Is Child Of,2026-10-05T17:00:20.946750,architect,
+LINK-01453,CODEREVIEW-061,CODEREVIEW-059,RelatesTo,Relates To,Relates To,2026-10-05T17:00:21.732527,architect,
+LINK-01455,DEV-STORY-060,BUG-SUB-020,ParentChild,Is Parent Of,Is Child Of,2026-10-05T22:09:47.457731,qa-engineer,
+LINK-01457,DEV-STORY-059,BUG-SUB-021,ParentChild,Is Parent Of,Is Child Of,2026-10-05T22:12:23.066607,qa-engineer,
+LINK-01459,TASK-004,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-05T22:33:41.247709,project-manager,
+LINK-01460,TASK-004,FEATURE-004,RelatesTo,Relates To,Relates To,2026-10-05T22:33:42.050021,project-manager,
+LINK-01461,TASK-004,FEATURE-005,RelatesTo,Relates To,Relates To,2026-10-05T22:33:42.847617,project-manager,
+LINK-01463,FEATURE-014,FEATURE-007,RelatesTo,Relates To,Relates To,2026-10-05T22:34:37.431652,project-manager,
+LINK-01464,FEATURE-014,FEATURE-013,RelatesTo,Relates To,Relates To,2026-10-05T22:34:38.227220,project-manager,
+LINK-01465,FEATURE-014,BA-ANA-015,ParentChild,Is Parent Of,Is Child Of,2026-10-05T22:36:25.669590,project-manager,
+LINK-01466,FEATURE-014,SA-ANA-015,ParentChild,Is Parent Of,Is Child Of,2026-10-05T22:36:26.467469,project-manager,
+LINK-01467,FEATURE-014,EPIC-014,FeatureContains,Feature Contains,Is Contained In Feature,2026-10-05T22:38:57.842235,project-manager,
+LINK-01468,TASK-004,WORK-001,ParentChild,Is Parent Of,Is Child Of,2026-10-05T22:42:31.205309,devops-engineer,
+LINK-01469,TASK-005,FEATURE-013,RelatesTo,Relates To,Relates To,2026-10-06T09:56:17.642980,devops-engineer,
+LINK-01470,TASK-005,FEATURE-014,RelatesTo,Relates To,Relates To,2026-10-06T09:56:18.441313,devops-engineer,
+LINK-01472,BUG-004,FEATURE-013,RelatesTo,Relates To,Relates To,2026-10-06T10:01:37.635675,devops-engineer,
+LINK-01474,FEATURE-015,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-06T14:52:38.106774,project-manager,
+LINK-01475,FEATURE-015,FEATURE-013,RelatesTo,Relates To,Relates To,2026-10-06T14:52:38.909380,project-manager,
+LINK-01476,FEATURE-015,EPIC-015,FeatureContains,Feature Contains,Is Contained In Feature,2026-10-06T14:52:56.410944,project-manager,
+LINK-01477,FEATURE-015,BA-ANA-016,ParentChild,Is Parent Of,Is Child Of,2026-10-06T14:54:44.659519,project-manager,
+LINK-01478,FEATURE-015,SA-ANA-016,ParentChild,Is Parent Of,Is Child Of,2026-10-06T14:54:45.462612,project-manager,
+LINK-01483,FEATURE-015,BA-DES-015,ParentChild,Is Parent Of,Is Child Of,2026-10-06T15:19:10.481726,project-manager,
+LINK-01484,FEATURE-015,SA-DES-014,ParentChild,Is Parent Of,Is Child Of,2026-10-06T15:19:13.248155,project-manager,
+LINK-01485,FEATURE-015,DEV-STORY-061,Contains,Contains,Contained In,2026-10-06T15:23:40.249144,ba,
+LINK-01486,EPIC-015,DEV-STORY-061,EpicLink,Epic Link,Epic Link,2026-10-06T15:23:41.052749,ba,
+LINK-01487,FEATURE-015,DEV-STORY-062,Contains,Contains,Contained In,2026-10-06T15:23:43.188627,ba,
+LINK-01488,EPIC-015,DEV-STORY-062,EpicLink,Epic Link,Epic Link,2026-10-06T15:23:44.002147,ba,
+LINK-01489,FEATURE-015,DEV-STORY-063,Contains,Contains,Contained In,2026-10-06T15:23:46.148187,ba,
+LINK-01490,EPIC-015,DEV-STORY-063,EpicLink,Epic Link,Epic Link,2026-10-06T15:23:46.962469,ba,
+LINK-01491,FEATURE-015,DEV-STORY-064,Contains,Contains,Contained In,2026-10-06T15:23:49.094504,ba,
+LINK-01492,EPIC-015,DEV-STORY-064,EpicLink,Epic Link,Epic Link,2026-10-06T15:23:49.906592,ba,
+LINK-01493,FEATURE-015,DEV-STORY-065,Contains,Contains,Contained In,2026-10-06T15:23:52.047908,ba,
+LINK-01494,EPIC-015,DEV-STORY-065,EpicLink,Epic Link,Epic Link,2026-10-06T15:23:52.854414,ba,
+LINK-01495,FEATURE-015,DEV-STORY-066,Contains,Contains,Contained In,2026-10-06T15:23:54.984309,ba,
+LINK-01496,EPIC-015,DEV-STORY-066,EpicLink,Epic Link,Epic Link,2026-10-06T15:23:55.796162,ba,
+LINK-01497,FEATURE-015,DEV-STORY-067,Contains,Contains,Contained In,2026-10-06T15:23:57.920574,ba,
+LINK-01498,EPIC-015,DEV-STORY-067,EpicLink,Epic Link,Epic Link,2026-10-06T15:23:58.732720,ba,
+LINK-01499,FEATURE-015,DEV-STORY-068,Contains,Contains,Contained In,2026-10-06T15:24:00.857072,ba,
+LINK-01500,EPIC-015,DEV-STORY-068,EpicLink,Epic Link,Epic Link,2026-10-06T15:24:01.670661,ba,
+LINK-01501,FEATURE-015,DEV-STORY-069,Contains,Contains,Contained In,2026-10-06T15:24:03.818986,ba,
+LINK-01502,EPIC-015,DEV-STORY-069,EpicLink,Epic Link,Epic Link,2026-10-06T15:24:04.631246,ba,
+LINK-01503,FEATURE-015,DEV-STORY-070,Contains,Contains,Contained In,2026-10-06T15:24:06.797837,ba,
+LINK-01504,EPIC-015,DEV-STORY-070,EpicLink,Epic Link,Epic Link,2026-10-06T15:24:07.622108,ba,
+LINK-01505,DEV-STORY-062,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T15:24:18.354585,ba,
+LINK-01506,DEV-STORY-063,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T15:24:19.224605,ba,
+LINK-01507,DEV-STORY-064,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T15:24:20.084607,ba,
+LINK-01508,DEV-STORY-065,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T15:24:20.911640,ba,
+LINK-01509,DEV-STORY-066,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T15:24:21.724190,ba,
+LINK-01510,DEV-STORY-067,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T15:24:22.531563,ba,
+LINK-01511,DEV-STORY-068,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T15:24:23.334988,ba,
+LINK-01512,DEV-STORY-069,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T15:24:24.146011,ba,
+LINK-01513,DEV-STORY-067,DEV-STORY-062,DependsOn,Depends On,Is Dependency For,2026-10-06T15:24:24.956443,ba,
+LINK-01514,DEV-STORY-067,DEV-STORY-064,DependsOn,Depends On,Is Dependency For,2026-10-06T15:24:25.761010,ba,
+LINK-01515,DEV-STORY-067,DEV-STORY-065,DependsOn,Depends On,Is Dependency For,2026-10-06T15:24:26.588721,ba,
+LINK-01516,DEV-STORY-067,DEV-STORY-066,DependsOn,Depends On,Is Dependency For,2026-10-06T15:24:27.398883,ba,
+LINK-01517,DEV-STORY-069,DEV-STORY-062,DependsOn,Depends On,Is Dependency For,2026-10-06T15:24:28.204561,ba,
+LINK-01518,DEV-STORY-070,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T15:24:29.010286,ba,
+LINK-01519,DEV-STORY-070,DEV-STORY-062,DependsOn,Depends On,Is Dependency For,2026-10-06T15:24:29.815601,ba,
+LINK-01520,DEV-STORY-070,DEV-STORY-063,DependsOn,Depends On,Is Dependency For,2026-10-06T15:24:30.624235,ba,
+LINK-01521,DEV-STORY-070,DEV-STORY-064,DependsOn,Depends On,Is Dependency For,2026-10-06T15:24:31.441731,ba,
+LINK-01522,DEV-STORY-070,DEV-STORY-065,DependsOn,Depends On,Is Dependency For,2026-10-06T15:24:32.267642,ba,
+LINK-01523,DEV-STORY-070,DEV-STORY-066,DependsOn,Depends On,Is Dependency For,2026-10-06T15:24:33.080295,ba,
+LINK-01524,DEV-STORY-070,DEV-STORY-067,DependsOn,Depends On,Is Dependency For,2026-10-06T15:24:33.888648,ba,
+LINK-01525,DEV-STORY-070,DEV-STORY-068,DependsOn,Depends On,Is Dependency For,2026-10-06T15:24:34.698206,ba,
+LINK-01526,DEV-STORY-070,DEV-STORY-069,DependsOn,Depends On,Is Dependency For,2026-10-06T15:24:35.515082,ba,
+LINK-01527,DEV-STORY-061,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-06T15:24:36.328252,ba,
+LINK-01528,DEV-STORY-070,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-06T15:24:37.142800,ba,
+LINK-01534,FEATURE-015,WORK-003,ParentChild,Is Parent Of,Is Child Of,2026-10-06T16:10:20.021425,project-manager,Ticketed scope revision under permitted Feature workitem hierarchy
+LINK-01535,FEATURE-015,WORK-004,ParentChild,Is Parent Of,Is Child Of,2026-10-06T16:10:20.827647,project-manager,Ticketed scope revision under permitted Feature workitem hierarchy
+LINK-01536,FEATURE-015,DEV-STORY-071,Contains,Contains,Contained In,2026-10-06T16:23:17.479583,ba,
+LINK-01537,EPIC-015,DEV-STORY-071,EpicLink,Epic Link,Epic Link,2026-10-06T16:23:18.080764,ba,
+LINK-01538,DEV-STORY-071,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:18.666657,ba,
+LINK-01539,DEV-STORY-071,DEV-STORY-069,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:19.255982,ba,
+LINK-01540,FEATURE-015,DEV-STORY-072,Contains,Contains,Contained In,2026-10-06T16:23:20.735126,ba,
+LINK-01541,EPIC-015,DEV-STORY-072,EpicLink,Epic Link,Epic Link,2026-10-06T16:23:21.324010,ba,
+LINK-01542,DEV-STORY-072,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:21.911339,ba,
+LINK-01543,DEV-STORY-072,DEV-STORY-069,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:22.506936,ba,
+LINK-01544,FEATURE-015,DEV-STORY-073,Contains,Contains,Contained In,2026-10-06T16:23:23.968969,ba,
+LINK-01545,EPIC-015,DEV-STORY-073,EpicLink,Epic Link,Epic Link,2026-10-06T16:23:24.568865,ba,
+LINK-01546,DEV-STORY-073,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:25.164793,ba,
+LINK-01547,DEV-STORY-073,DEV-STORY-069,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:25.756276,ba,
+LINK-01548,FEATURE-015,DEV-STORY-074,Contains,Contains,Contained In,2026-10-06T16:23:27.223208,ba,
+LINK-01549,EPIC-015,DEV-STORY-074,EpicLink,Epic Link,Epic Link,2026-10-06T16:23:27.819217,ba,
+LINK-01550,DEV-STORY-074,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:28.410254,ba,
+LINK-01551,DEV-STORY-074,DEV-STORY-069,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:29.003072,ba,
+LINK-01552,FEATURE-015,DEV-STORY-075,Contains,Contains,Contained In,2026-10-06T16:23:30.457175,ba,
+LINK-01553,EPIC-015,DEV-STORY-075,EpicLink,Epic Link,Epic Link,2026-10-06T16:23:31.047954,ba,
+LINK-01554,DEV-STORY-075,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:31.642125,ba,
+LINK-01555,FEATURE-015,DEV-STORY-076,Contains,Contains,Contained In,2026-10-06T16:23:31.778142,ba,
+LINK-01556,DEV-STORY-075,DEV-STORY-069,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:32.237228,ba,
+LINK-01557,EPIC-015,DEV-STORY-076,EpicLink,Epic Link,Epic Link,2026-10-06T16:23:32.369741,ba,
+LINK-01558,DEV-STORY-076,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:32.961933,ba,
+LINK-01559,DEV-STORY-076,DEV-STORY-069,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:33.563335,ba,
+LINK-01560,FEATURE-015,DEV-STORY-077,Contains,Contains,Contained In,2026-10-06T16:23:33.721352,ba,
+LINK-01561,EPIC-015,DEV-STORY-077,EpicLink,Epic Link,Epic Link,2026-10-06T16:23:34.338785,ba,
+LINK-01562,DEV-STORY-077,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:34.962482,ba,
+LINK-01563,FEATURE-015,DEV-STORY-078,Contains,Contains,Contained In,2026-10-06T16:23:35.087122,ba,
+LINK-01564,DEV-STORY-077,DEV-STORY-069,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:35.571551,ba,
+LINK-01565,EPIC-015,DEV-STORY-078,EpicLink,Epic Link,Epic Link,2026-10-06T16:23:35.688206,ba,
+LINK-01566,DEV-STORY-078,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:36.284087,ba,
+LINK-01567,DEV-STORY-078,DEV-STORY-069,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:36.899317,ba,
+LINK-01568,FEATURE-015,DEV-STORY-079,Contains,Contains,Contained In,2026-10-06T16:23:37.080463,ba,
+LINK-01569,EPIC-015,DEV-STORY-079,EpicLink,Epic Link,Epic Link,2026-10-06T16:23:37.686992,ba,
+LINK-01570,DEV-STORY-079,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:38.293078,ba,
+LINK-01571,FEATURE-015,DEV-STORY-080,Contains,Contains,Contained In,2026-10-06T16:23:38.391207,ba,
+LINK-01572,DEV-STORY-079,DEV-STORY-069,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:38.900447,ba,
+LINK-01573,EPIC-015,DEV-STORY-080,EpicLink,Epic Link,Epic Link,2026-10-06T16:23:38.990325,ba,
+LINK-01574,DEV-STORY-080,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:39.591268,ba,
+LINK-01575,DEV-STORY-080,DEV-STORY-069,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:40.211307,ba,
+LINK-01576,FEATURE-015,DEV-STORY-081,Contains,Contains,Contained In,2026-10-06T16:23:40.412122,ba,
+LINK-01577,EPIC-015,DEV-STORY-081,EpicLink,Epic Link,Epic Link,2026-10-06T16:23:41.012976,ba,
+LINK-01578,DEV-STORY-081,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:41.617344,ba,
+LINK-01579,FEATURE-015,DEV-STORY-082,Contains,Contains,Contained In,2026-10-06T16:23:41.684857,ba,
+LINK-01580,DEV-STORY-081,DEV-STORY-069,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:42.220427,ba,
+LINK-01581,EPIC-015,DEV-STORY-082,EpicLink,Epic Link,Epic Link,2026-10-06T16:23:42.281453,ba,
+LINK-01582,DEV-STORY-082,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:42.881020,ba,
+LINK-01583,DEV-STORY-082,DEV-STORY-069,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:43.493096,ba,
+LINK-01584,FEATURE-015,DEV-STORY-083,Contains,Contains,Contained In,2026-10-06T16:23:43.733117,ba,
+LINK-01585,EPIC-015,DEV-STORY-083,EpicLink,Epic Link,Epic Link,2026-10-06T16:23:44.330257,ba,
+LINK-01586,DEV-STORY-083,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:44.950837,ba,
+LINK-01587,FEATURE-015,DEV-STORY-084,Contains,Contains,Contained In,2026-10-06T16:23:44.986342,ba,
+LINK-01588,DEV-STORY-083,DEV-STORY-069,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:45.585689,ba,
+LINK-01589,EPIC-015,DEV-STORY-084,EpicLink,Epic Link,Epic Link,2026-10-06T16:23:45.603690,ba,
+LINK-01590,DEV-STORY-084,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:46.195260,ba,
+LINK-01591,DEV-STORY-084,DEV-STORY-069,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:46.799805,ba,
+LINK-01592,FEATURE-015,DEV-STORY-085,Contains,Contains,Contained In,2026-10-06T16:23:47.061848,ba,
+LINK-01593,EPIC-015,DEV-STORY-085,EpicLink,Epic Link,Epic Link,2026-10-06T16:23:47.662742,ba,
+LINK-01594,FEATURE-015,DEV-STORY-086,Contains,Contains,Contained In,2026-10-06T16:23:48.262937,ba,
+2937,ba,,,,,,,
+LINK-01595,DEV-STORY-085,DEV-STORY-069,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:48.876041,ba,
+LINK-01596,DEV-STORY-086,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:49.481526,ba,
+LINK-01597,DEV-STORY-086,DEV-STORY-069,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:50.078089,ba,
+LINK-01598,FEATURE-015,DEV-STORY-087,Contains,Contains,Contained In,2026-10-06T16:23:50.353618,ba,
+LINK-01599,EPIC-015,DEV-STORY-087,EpicLink,Epic Link,Epic Link,2026-10-06T16:23:50.961513,ba,
+LINK-01600,DEV-STORY-087,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:51.580908,ba,
+LINK-01601,DEV-STORY-087,DEV-STORY-069,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:52.182427,ba,
+LINK-01602,DEV-STORY-088,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:52.791287,ba,
+LINK-01603,DEV-STORY-088,DEV-STORY-069,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:53.391506,ba,
+LINK-01604,FEATURE-015,DEV-STORY-089,Contains,Contains,Contained In,2026-10-06T16:23:53.670736,ba,
+LINK-01605,EPIC-015,DEV-STORY-089,EpicLink,Epic Link,Epic Link,2026-10-06T16:23:54.276698,ba,
+LINK-01606,DEV-STORY-089,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:54.900304,ba,
+LINK-01607,EPIC-015,DEV-STORY-090,EpicLink,Epic Link,Epic Link,2026-10-06T16:23:55.502029,ba,
+55.502029,ba,,,,,,,
+LINK-01608,DEV-STORY-090,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:56.115613,ba,
+LINK-01609,DEV-STORY-090,DEV-STORY-069,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:56.723700,ba,
+LINK-01610,FEATURE-015,DEV-STORY-091,Contains,Contains,Contained In,2026-10-06T16:23:57.004739,ba,
+LINK-01611,EPIC-015,DEV-STORY-091,EpicLink,Epic Link,Epic Link,2026-10-06T16:23:57.608850,ba,
+LINK-01612,DEV-STORY-091,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T16:23:58.206946,ba,
+LINK-01613,DEV-STORY-076,DEV-STORY-071,RelatesTo,Relates To,Relates To,2026-10-06T16:24:36.802787,ba,
+LINK-01614,DEV-STORY-078,DEV-STORY-072,RelatesTo,Relates To,Relates To,2026-10-06T16:24:38.191278,ba,
+LINK-01615,DEV-STORY-080,DEV-STORY-073,RelatesTo,Relates To,Relates To,2026-10-06T16:24:39.571960,ba,
+LINK-01616,DEV-STORY-082,DEV-STORY-074,RelatesTo,Relates To,Relates To,2026-10-06T16:24:40.960222,ba,
+LINK-01617,DEV-STORY-084,DEV-STORY-075,RelatesTo,Relates To,Relates To,2026-10-06T16:24:42.348057,ba,
+LINK-01618,DEV-STORY-086,DEV-STORY-077,RelatesTo,Relates To,Relates To,2026-10-06T16:24:43.721637,ba,
+LINK-01619,DEV-STORY-088,DEV-STORY-079,RelatesTo,Relates To,Relates To,2026-10-06T16:24:45.111116,ba,
+LINK-01620,DEV-STORY-090,DEV-STORY-081,RelatesTo,Relates To,Relates To,2026-10-06T16:24:46.503318,ba,
+LINK-01621,DEV-STORY-092,DEV-STORY-083,RelatesTo,Relates To,Relates To,2026-10-06T16:24:47.883998,ba,
+LINK-01622,DEV-STORY-085,DEV-STORY-061,DependsOn,Depends On,Is Dependency For,2026-10-06T16:24:53.750862,ba,
+LINK-01623,DEV-STORY-089,DEV-STORY-069,DependsOn,Depends On,Is Dependency For,2026-10-06T16:24:55.353947,ba,
+LINK-01624,DEV-STORY-091,DEV-STORY-069,DependsOn,Depends On,Is Dependency For,2026-10-06T16:24:56.456999,ba,
+LINK-01628,FEATURE-015,DEV-STORY-093,Contains,Contains,Contained In,2026-10-06T16:27:54.471108,ba,
+LINK-01629,EPIC-015,DEV-STORY-093,EpicLink,Epic Link,Epic Link,2026-10-06T16:27:55.085353,ba,
+LINK-01630,DEV-STORY-093,DEV-STORY-069,DependsOn,Depends On,Is Dependency For,2026-10-06T16:27:55.682744,ba,
+LINK-01631,DEV-STORY-093,DEV-STORY-071,DependsOn,Depends On,Is Dependency For,2026-10-06T16:27:56.283362,ba,
+LINK-01632,DEV-STORY-093,DEV-STORY-072,DependsOn,Depends On,Is Dependency For,2026-10-06T16:27:56.880328,ba,
+LINK-01633,DEV-STORY-093,DEV-STORY-073,DependsOn,Depends On,Is Dependency For,2026-10-06T16:27:57.520645,ba,
+LINK-01634,DEV-STORY-093,DEV-STORY-074,DependsOn,Depends On,Is Dependency For,2026-10-06T16:27:58.121230,ba,
+LINK-01635,DEV-STORY-093,DEV-STORY-075,DependsOn,Depends On,Is Dependency For,2026-10-06T16:27:58.730743,ba,
+LINK-01636,DEV-STORY-093,DEV-STORY-077,DependsOn,Depends On,Is Dependency For,2026-10-06T16:27:59.327865,ba,
+LINK-01637,DEV-STORY-093,DEV-STORY-079,DependsOn,Depends On,Is Dependency For,2026-10-06T16:27:59.957515,ba,
+LINK-01638,DEV-STORY-093,DEV-STORY-081,DependsOn,Depends On,Is Dependency For,2026-10-06T16:28:00.563622,ba,
+LINK-01639,DEV-STORY-093,DEV-STORY-083,DependsOn,Depends On,Is Dependency For,2026-10-06T16:28:01.162694,ba,
+LINK-01640,DEV-STORY-093,DEV-STORY-085,DependsOn,Depends On,Is Dependency For,2026-10-06T16:28:01.755978,ba,
+LINK-01641,DEV-STORY-093,DEV-STORY-087,DependsOn,Depends On,Is Dependency For,2026-10-06T16:28:02.351713,ba,
+LINK-01642,DEV-STORY-093,DEV-STORY-089,DependsOn,Depends On,Is Dependency For,2026-10-06T16:28:03.005868,ba,
+LINK-01643,DEV-STORY-093,DEV-STORY-091,DependsOn,Depends On,Is Dependency For,2026-10-06T16:28:03.603363,ba,
+LINK-01644,DEV-STORY-070,DEV-STORY-093,DependsOn,Depends On,Is Dependency For,2026-10-06T16:28:04.205357,ba,
+LINK-01646,WORK-003,BA-DES-015,RelatesTo,Relates To,Relates To,2026-10-06T16:32:14.144383,ba,
+LINK-01647,BUG-005,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-06T16:32:21.517574,project-manager,Observed while recording design approval; workaround permits continued design finalization
+LINK-01648,DEV-STORY-061,DESIGN-061,Contains,Contains,Contained In,2026-10-06T16:53:37.578956,tech-lead,
+LINK-01649,DEV-STORY-061,DEV-061,Contains,Contains,Contained In,2026-10-06T16:53:42.759476,tech-lead,
+LINK-01650,DEV-061,DESIGN-061,DependsOn,Depends On,Is Dependency For,2026-10-06T16:53:48.366682,tech-lead,
+LINK-01651,DEV-STORY-061,UNITTEST-061,Contains,Contains,Contained In,2026-10-06T16:53:49.595573,tech-lead,
+LINK-01652,UNITTEST-061,DESIGN-061,DependsOn,Depends On,Is Dependency For,2026-10-06T16:53:55.204262,tech-lead,
+LINK-01653,DEV-STORY-061,CODEREVIEW-062,Contains,Contains,Contained In,2026-10-06T16:53:56.770424,tech-lead,
+LINK-01654,DEV-STORY-061,TESTCASE-061,Contains,Contains,Contained In,2026-10-06T16:54:00.634763,tech-lead,
+LINK-01655,DEV-STORY-061,TESTEXEC-061,Contains,Contains,Contained In,2026-10-06T16:54:05.851747,tech-lead,
+LINK-01656,DEV-STORY-093,DESIGN-062,Contains,Contains,Contained In,2026-10-06T16:54:07.966454,qa-engineer,
+LINK-01657,TESTEXEC-061,DESIGN-061,DependsOn,Depends On,Is Dependency For,2026-10-06T16:54:11.478763,tech-lead,
+LINK-01658,DEV-061,CODEREVIEW-062,RelatesTo,Relates To,Relates To,2026-10-06T16:54:12.080567,tech-lead,
+LINK-01659,CODEREVIEW-062,DEV-061,RelatesTo,Relates To,Relates To,2026-10-06T16:54:12.692544,tech-lead,
+LINK-01660,DEV-061,CODEREVIEW-062,Blocks,Blocks,Is Blocked By,2026-10-06T16:54:13.737453,tech-lead,
+LINK-01661,CODEREVIEW-062,DEV-STORY-061,RelatesTo,Relates To,Relates To,2026-10-06T16:54:14.347186,tech-lead,
+LINK-01662,DEV-STORY-062,DESIGN-063,Contains,Contains,Contained In,2026-10-06T16:54:23.380440,tech-lead,
+LINK-01663,DEV-STORY-062,DEV-062,Contains,Contains,Contained In,2026-10-06T16:54:28.564435,tech-lead,
+LINK-01664,DEV-062,DESIGN-063,DependsOn,Depends On,Is Dependency For,2026-10-06T16:54:34.174585,tech-lead,
+LINK-01665,DEV-STORY-062,UNITTEST-062,Contains,Contains,Contained In,2026-10-06T16:54:35.412638,tech-lead,
+LINK-01666,UNITTEST-062,DESIGN-063,DependsOn,Depends On,Is Dependency For,2026-10-06T16:54:41.053087,tech-lead,
+LINK-01667,DEV-STORY-062,CODEREVIEW-063,Contains,Contains,Contained In,2026-10-06T16:54:42.674646,tech-lead,
+LINK-01668,DEV-STORY-062,TESTCASE-062,Contains,Contains,Contained In,2026-10-06T16:54:46.560677,tech-lead,
+LINK-01669,DEV-STORY-062,TESTEXEC-062,Contains,Contains,Contained In,2026-10-06T16:54:51.811230,tech-lead,
+LINK-01670,TESTEXEC-062,DESIGN-063,DependsOn,Depends On,Is Dependency For,2026-10-06T16:54:57.439535,tech-lead,
+LINK-01671,DEV-062,CODEREVIEW-063,RelatesTo,Relates To,Relates To,2026-10-06T16:54:58.068662,tech-lead,
+LINK-01672,CODEREVIEW-063,DEV-062,RelatesTo,Relates To,Relates To,2026-10-06T16:54:58.677715,tech-lead,
+LINK-01674,CODEREVIEW-063,DEV-STORY-062,RelatesTo,Relates To,Relates To,2026-10-06T16:55:00.362709,tech-lead,
+LINK-01675,DEV-STORY-063,DESIGN-064,Contains,Contains,Contained In,2026-10-06T16:55:09.444776,tech-lead,
+LINK-01676,DEV-STORY-063,DEV-063,Contains,Contains,Contained In,2026-10-06T16:55:14.664449,tech-lead,
+LINK-01677,DEV-064,CODEREVIEW-064,RelatesTo,Relates To,Relates To,2026-10-06T16:57:31.142876,tech-lead,
+LINK-01678,CODEREVIEW-064,DEV-064,RelatesTo,Relates To,Relates To,2026-10-06T16:57:31.977594,tech-lead,
+LINK-01679,DEV-064,CODEREVIEW-064,Blocks,Blocks,Is Blocked By,2026-10-06T16:57:32.813305,tech-lead,
+LINK-01680,DEV-STORY-069,DESIGN-065,Contains,Contains,Contained In,2026-10-06T17:02:13.647902,tech-lead,
+LINK-01681,DEV-STORY-069,DEV-064,Contains,Contains,Contained In,2026-10-06T17:02:14.975276,tech-lead,
+LINK-01682,DEV-STORY-069,UNITTEST-063,Contains,Contains,Contained In,2026-10-06T17:02:16.293310,tech-lead,
+LINK-01683,DEV-STORY-069,CODEREVIEW-064,Contains,Contains,Contained In,2026-10-06T17:02:17.636067,tech-lead,
+LINK-01684,DEV-STORY-069,TESTCASE-063,Contains,Contains,Contained In,2026-10-06T17:02:18.967453,tech-lead,
+LINK-01685,DEV-STORY-069,TESTEXEC-063,Contains,Contains,Contained In,2026-10-06T17:02:20.287813,tech-lead,
+LINK-01686,DEV-STORY-093,DEV-065,Contains,Contains,Contained In,2026-10-06T17:03:01.123305,qa-engineer,
+LINK-01687,DEV-STORY-093,UNITTEST-064,Contains,Contains,Contained In,2026-10-06T17:03:04.897419,qa-engineer,
+LINK-01688,DEV-STORY-093,CODEREVIEW-065,Contains,Contains,Contained In,2026-10-06T17:03:08.494861,qa-engineer,
+LINK-01689,DEV-STORY-093,TESTCASE-064,Contains,Contains,Contained In,2026-10-06T17:03:12.283545,qa-engineer,
+LINK-01690,DEV-STORY-093,TESTEXEC-064,Contains,Contains,Contained In,2026-10-06T17:03:16.077431,qa-engineer,
+LINK-01691,DEV-STORY-070,DESIGN-066,Contains,Contains,Contained In,2026-10-06T17:03:19.838031,qa-engineer,
+LINK-01692,DEV-STORY-070,DEV-066,Contains,Contains,Contained In,2026-10-06T17:03:23.603081,qa-engineer,
+LINK-01693,DEV-STORY-070,UNITTEST-065,Contains,Contains,Contained In,2026-10-06T17:03:27.379551,qa-engineer,
+LINK-01694,DEV-STORY-070,CODEREVIEW-066,Contains,Contains,Contained In,2026-10-06T17:03:30.973439,qa-engineer,
+LINK-01695,DEV-STORY-070,TESTCASE-065,Contains,Contains,Contained In,2026-10-06T17:03:34.774313,qa-engineer,
+LINK-01696,DEV-STORY-070,TESTEXEC-065,Contains,Contains,Contained In,2026-10-06T17:03:38.581521,qa-engineer,
+LINK-01697,DEV-STORY-070,DEVOPS-047,Contains,Contains,Contained In,2026-10-06T17:03:42.403038,qa-engineer,
+LINK-01698,DEV-065,CODEREVIEW-065,RelatesTo,Relates To,Relates To,2026-10-06T17:03:44.123497,qa-engineer,
+LINK-01699,CODEREVIEW-065,DEV-065,RelatesTo,Relates To,Relates To,2026-10-06T17:03:44.744459,qa-engineer,
+LINK-01700,CODEREVIEW-065,DEV-STORY-093,RelatesTo,Relates To,Relates To,2026-10-06T17:03:45.377532,qa-engineer,
+LINK-01701,DEV-065,CODEREVIEW-065,Blocks,Blocks,Is Blocked By,2026-10-06T17:03:45.992924,qa-engineer,
+LINK-01702,UNITTEST-064,DEV-065,RelatesTo,Relates To,Relates To,2026-10-06T17:03:47.955679,qa-engineer,
+LINK-01703,TESTCASE-064,TESTEXEC-064,RelatesTo,Relates To,Relates To,2026-10-06T17:03:48.574904,qa-engineer,
+LINK-01704,DEV-066,CODEREVIEW-066,RelatesTo,Relates To,Relates To,2026-10-06T17:03:49.197813,qa-engineer,
+LINK-01705,CODEREVIEW-066,DEV-066,RelatesTo,Relates To,Relates To,2026-10-06T17:03:49.812590,qa-engineer,
+LINK-01706,CODEREVIEW-066,DEV-STORY-070,RelatesTo,Relates To,Relates To,2026-10-06T17:03:50.432278,qa-engineer,
+LINK-01707,DEV-066,CODEREVIEW-066,Blocks,Blocks,Is Blocked By,2026-10-06T17:03:51.044429,qa-engineer,
+LINK-01708,UNITTEST-065,DEV-066,RelatesTo,Relates To,Relates To,2026-10-06T17:03:53.008450,qa-engineer,
+LINK-01709,TESTCASE-065,TESTEXEC-065,RelatesTo,Relates To,Relates To,2026-10-06T17:03:53.628643,qa-engineer,
+LINK-01710,DEV-STORY-048,BUG-SUB-022,Contains,Contains,Contained In,2026-10-06T22:06:29.778628,tech-lead,
+LINK-01713,DEV-STORY-064,DESIGN-067,Contains,Contains,Contained In,2026-10-06T22:08:12.553974,tech-lead,
+LINK-01714,DEV-STORY-064,DEV-067,Contains,Contains,Contained In,2026-10-06T22:08:15.148227,tech-lead,
+LINK-01715,DEV-STORY-064,UNITTEST-066,Contains,Contains,Contained In,2026-10-06T22:08:17.751142,tech-lead,
+LINK-01716,DEV-STORY-064,CODEREVIEW-067,Contains,Contains,Contained In,2026-10-06T22:08:20.668093,tech-lead,
+LINK-01717,DEV-STORY-064,TESTCASE-066,Contains,Contains,Contained In,2026-10-06T22:08:23.268953,tech-lead,
+LINK-01718,DEV-STORY-064,TESTEXEC-066,Contains,Contains,Contained In,2026-10-06T22:08:25.880031,tech-lead,
+LINK-01719,DEV-067,CODEREVIEW-067,RelatesTo,Relates To,Relates To,2026-10-06T22:08:26.495780,tech-lead,
+LINK-01720,CODEREVIEW-067,DEV-067,RelatesTo,Relates To,Relates To,2026-10-06T22:08:27.106849,tech-lead,
+LINK-01721,DEV-067,CODEREVIEW-067,Blocks,Blocks,Is Blocked By,2026-10-06T22:08:28.162317,tech-lead,
+LINK-01722,CODEREVIEW-067,DEV-STORY-064,RelatesTo,Relates To,Relates To,2026-10-06T22:08:28.772779,tech-lead,
+LINK-01723,DEV-STORY-073,DESIGN-068,Contains,Contains,Contained In,2026-10-06T22:12:12.079465,tech-lead,
+LINK-01724,DEV-STORY-073,DEV-068,Contains,Contains,Contained In,2026-10-06T22:12:16.697120,tech-lead,
+LINK-01725,DEV-STORY-073,UNITTEST-067,Contains,Contains,Contained In,2026-10-06T22:12:21.356450,tech-lead,
+LINK-01726,DEV-STORY-073,CODEREVIEW-068,Contains,Contains,Contained In,2026-10-06T22:12:26.343103,tech-lead,
+LINK-01727,DEV-STORY-073,TESTCASE-067,Contains,Contains,Contained In,2026-10-06T22:12:31.001702,tech-lead,
+LINK-01728,DEV-STORY-073,TESTEXEC-067,Contains,Contains,Contained In,2026-10-06T22:12:35.651610,tech-lead,
+LINK-01729,DEV-068,CODEREVIEW-068,RelatesTo,Relates To,Relates To,2026-10-06T22:12:36.266032,tech-lead,
+LINK-01730,CODEREVIEW-068,DEV-068,RelatesTo,Relates To,Relates To,2026-10-06T22:12:36.881008,tech-lead,
+LINK-01731,DEV-068,CODEREVIEW-068,Blocks,Blocks,Is Blocked By,2026-10-06T22:12:37.489850,tech-lead,
+LINK-01732,DEV-STORY-087,DESIGN-069,Contains,Contains,Contained In,2026-10-06T22:12:50.888608,tech-lead,
+LINK-01733,DEV-STORY-087,DEV-069,Contains,Contains,Contained In,2026-10-06T22:12:55.512566,tech-lead,
+LINK-01734,DEV-STORY-087,UNITTEST-068,Contains,Contains,Contained In,2026-10-06T22:13:00.139715,tech-lead,
+LINK-01735,DEV-STORY-087,CODEREVIEW-069,Contains,Contains,Contained In,2026-10-06T22:13:05.135450,tech-lead,
+LINK-01736,DEV-STORY-087,TESTCASE-068,Contains,Contains,Contained In,2026-10-06T22:13:09.778273,tech-lead,
+LINK-01737,DEV-STORY-087,TESTEXEC-068,Contains,Contains,Contained In,2026-10-06T22:13:14.425175,tech-lead,
+LINK-01738,DEV-069,CODEREVIEW-069,RelatesTo,Relates To,Relates To,2026-10-06T22:13:15.042490,tech-lead,
+LINK-01739,CODEREVIEW-069,DEV-069,RelatesTo,Relates To,Relates To,2026-10-06T22:13:15.660970,tech-lead,
+LINK-01741,DEV-STORY-066,DESIGN-070,Contains,Contains,Contained In,2026-10-06T22:21:15.945186,tech-lead,
+LINK-01742,DEV-STORY-066,DEV-070,Contains,Contains,Contained In,2026-10-06T22:21:18.563142,tech-lead,
+LINK-01743,DEV-STORY-066,UNITTEST-069,Contains,Contains,Contained In,2026-10-06T22:21:21.186344,tech-lead,
+LINK-01744,DEV-STORY-066,CODEREVIEW-070,Contains,Contains,Contained In,2026-10-06T22:21:24.127356,tech-lead,
+LINK-01745,DEV-STORY-066,TESTCASE-069,Contains,Contains,Contained In,2026-10-06T22:21:26.756036,tech-lead,
+LINK-01746,DEV-STORY-066,TESTEXEC-069,Contains,Contains,Contained In,2026-10-06T22:21:29.379611,tech-lead,
+LINK-01747,DEV-070,CODEREVIEW-070,RelatesTo,Relates To,Relates To,2026-10-06T22:21:30.010182,tech-lead,
+LINK-01748,CODEREVIEW-070,DEV-070,RelatesTo,Relates To,Relates To,2026-10-06T22:21:30.632649,tech-lead,
+LINK-01750,CODEREVIEW-070,DEV-STORY-066,RelatesTo,Relates To,Relates To,2026-10-06T22:21:32.323980,tech-lead,
+LINK-01751,DEV-STORY-063,UNITTEST-070,Contains,Contains,Contained In,2026-10-06T22:23:49.803592,tech-lead,
+LINK-01752,DEV-STORY-063,CODEREVIEW-071,Contains,Contains,Contained In,2026-10-06T22:23:53.156685,tech-lead,
+LINK-01753,DEV-STORY-063,TESTCASE-070,Contains,Contains,Contained In,2026-10-06T22:23:56.172810,tech-lead,
+LINK-01754,DEV-STORY-063,TESTEXEC-070,Contains,Contains,Contained In,2026-10-06T22:23:59.217746,tech-lead,
+LINK-01755,DEV-063,CODEREVIEW-071,RelatesTo,Relates To,Relates To,2026-10-06T22:23:59.859876,tech-lead,
+LINK-01756,CODEREVIEW-071,DEV-063,RelatesTo,Relates To,Relates To,2026-10-06T22:24:00.511793,tech-lead,
+LINK-01758,CODEREVIEW-071,DEV-STORY-063,RelatesTo,Relates To,Relates To,2026-10-06T22:24:02.195208,tech-lead,
+LINK-01759,DEV-STORY-065,DESIGN-071,Contains,Contains,Contained In,2026-10-06T22:24:13.989266,tech-lead,
+LINK-01760,DEV-STORY-065,DEV-071,Contains,Contains,Contained In,2026-10-06T22:24:16.974968,tech-lead,
+LINK-01761,DEV-STORY-065,UNITTEST-071,Contains,Contains,Contained In,2026-10-06T22:24:19.965981,tech-lead,
+LINK-01762,DEV-STORY-065,CODEREVIEW-072,Contains,Contains,Contained In,2026-10-06T22:24:23.329881,tech-lead,
+LINK-01763,DEV-STORY-065,TESTCASE-071,Contains,Contains,Contained In,2026-10-06T22:24:26.342828,tech-lead,
+LINK-01764,DEV-STORY-065,TESTEXEC-071,Contains,Contains,Contained In,2026-10-06T22:24:29.365901,tech-lead,
+LINK-01765,DEV-071,CODEREVIEW-072,RelatesTo,Relates To,Relates To,2026-10-06T22:24:29.987790,tech-lead,
+LINK-01766,CODEREVIEW-072,DEV-071,RelatesTo,Relates To,Relates To,2026-10-06T22:24:30.615066,tech-lead,
+LINK-01767,DEV-071,CODEREVIEW-072,Blocks,Blocks,Is Blocked By,2026-10-06T22:24:31.678246,tech-lead,
+LINK-01768,CODEREVIEW-072,DEV-STORY-065,RelatesTo,Relates To,Relates To,2026-10-06T22:24:32.303067,tech-lead,
+LINK-01769,DEV-STORY-067,DESIGN-072,Contains,Contains,Contained In,2026-10-07T10:10:52.312269,tech-lead,
+LINK-01770,DEV-STORY-067,DEV-072,Contains,Contains,Contained In,2026-10-07T10:10:55.370954,tech-lead,
+LINK-01771,DEV-STORY-067,UNITTEST-072,Contains,Contains,Contained In,2026-10-07T10:10:58.413807,tech-lead,
+LINK-01772,DEV-STORY-067,CODEREVIEW-073,Contains,Contains,Contained In,2026-10-07T10:11:01.857109,tech-lead,
+LINK-01773,DEV-STORY-067,TESTCASE-072,Contains,Contains,Contained In,2026-10-07T10:11:04.979541,tech-lead,
+LINK-01774,DEV-STORY-067,TESTEXEC-072,Contains,Contains,Contained In,2026-10-07T10:11:08.657019,tech-lead,
+LINK-01775,DEV-072,CODEREVIEW-073,RelatesTo,Relates To,Relates To,2026-10-07T10:11:09.321100,tech-lead,
+LINK-01776,CODEREVIEW-073,DEV-072,RelatesTo,Relates To,Relates To,2026-10-07T10:11:09.979907,tech-lead,
+LINK-01777,DEV-072,CODEREVIEW-073,Blocks,Blocks,Is Blocked By,2026-10-07T10:11:11.030938,tech-lead,
+LINK-01778,CODEREVIEW-073,DEV-STORY-067,RelatesTo,Relates To,Relates To,2026-10-07T10:11:11.693909,tech-lead,
+LINK-01779,DEV-STORY-068,DESIGN-073,Contains,Contains,Contained In,2026-10-07T10:11:23.882096,tech-lead,
+LINK-01780,DEV-STORY-068,DEV-073,Contains,Contains,Contained In,2026-10-07T10:11:27.008719,tech-lead,
+LINK-01781,DEV-STORY-068,UNITTEST-073,Contains,Contains,Contained In,2026-10-07T10:11:30.142841,tech-lead,
+LINK-01782,DEV-STORY-068,CODEREVIEW-074,Contains,Contains,Contained In,2026-10-07T10:11:33.677341,tech-lead,
+LINK-01783,DEV-STORY-068,TESTCASE-073,Contains,Contains,Contained In,2026-10-07T10:11:36.840042,tech-lead,
+LINK-01784,DEV-STORY-068,TESTEXEC-073,Contains,Contains,Contained In,2026-10-07T10:11:39.964308,tech-lead,
+LINK-01785,DEV-073,CODEREVIEW-074,RelatesTo,Relates To,Relates To,2026-10-07T10:11:40.629104,tech-lead,
+LINK-01786,CODEREVIEW-074,DEV-073,RelatesTo,Relates To,Relates To,2026-10-07T10:11:41.291025,tech-lead,
+LINK-01787,DEV-073,CODEREVIEW-074,Blocks,Blocks,Is Blocked By,2026-10-07T10:11:42.354436,tech-lead,
+LINK-01788,CODEREVIEW-074,DEV-STORY-068,RelatesTo,Relates To,Relates To,2026-10-07T10:11:43.007361,tech-lead,
+LINK-01789,DEV-STORY-071,DESIGN-074,Contains,Contains,Contained In,2026-10-07T10:15:28.249943,tech-lead,
+LINK-01790,DEV-STORY-071,DEV-074,Contains,Contains,Contained In,2026-10-07T10:15:32.940066,tech-lead,
+LINK-01791,DEV-STORY-071,UNITTEST-074,Contains,Contains,Contained In,2026-10-07T10:15:37.631238,tech-lead,
+LINK-01792,DEV-STORY-071,CODEREVIEW-075,Contains,Contains,Contained In,2026-10-07T10:15:42.707171,tech-lead,
+LINK-01793,DEV-STORY-071,TESTCASE-074,Contains,Contains,Contained In,2026-10-07T10:15:47.396982,tech-lead,
+LINK-01794,DEV-STORY-071,TESTEXEC-074,Contains,Contains,Contained In,2026-10-07T10:15:52.130525,tech-lead,
+LINK-01795,DEV-074,CODEREVIEW-075,RelatesTo,Relates To,Relates To,2026-10-07T10:15:52.768442,tech-lead,
+LINK-01796,CODEREVIEW-075,DEV-074,RelatesTo,Relates To,Relates To,2026-10-07T10:15:53.399494,tech-lead,
+LINK-01798,DEV-STORY-072,DESIGN-075,Contains,Contains,Contained In,2026-10-07T10:16:07.561459,tech-lead,
+LINK-01799,DEV-STORY-072,DEV-075,Contains,Contains,Contained In,2026-10-07T10:16:12.232670,tech-lead,
+LINK-01800,DEV-STORY-072,UNITTEST-075,Contains,Contains,Contained In,2026-10-07T10:16:16.954179,tech-lead,
+LINK-01801,DEV-STORY-072,CODEREVIEW-076,Contains,Contains,Contained In,2026-10-07T10:16:22.028979,tech-lead,
+LINK-01802,DEV-STORY-072,TESTCASE-075,Contains,Contains,Contained In,2026-10-07T10:16:26.773707,tech-lead,
+LINK-01803,DEV-STORY-072,TESTEXEC-075,Contains,Contains,Contained In,2026-10-07T10:16:31.497735,tech-lead,
+LINK-01804,DEV-075,CODEREVIEW-076,RelatesTo,Relates To,Relates To,2026-10-07T10:16:32.149307,tech-lead,
+LINK-01805,CODEREVIEW-076,DEV-075,RelatesTo,Relates To,Relates To,2026-10-07T10:16:32.798775,tech-lead,
+LINK-01807,DEV-STORY-074,DESIGN-076,Contains,Contains,Contained In,2026-10-07T10:16:47.076114,tech-lead,
+LINK-01808,DEV-STORY-074,DEV-076,Contains,Contains,Contained In,2026-10-07T10:16:51.764451,tech-lead,
+LINK-01809,DEV-STORY-074,UNITTEST-076,Contains,Contains,Contained In,2026-10-07T10:16:56.524373,tech-lead,
+LINK-01810,DEV-STORY-074,CODEREVIEW-077,Contains,Contains,Contained In,2026-10-07T10:17:01.674531,tech-lead,
+LINK-01811,DEV-STORY-074,TESTCASE-076,Contains,Contains,Contained In,2026-10-07T10:17:06.384361,tech-lead,
+LINK-01812,DEV-STORY-074,TESTEXEC-076,Contains,Contains,Contained In,2026-10-07T10:17:11.152237,tech-lead,
+LINK-01813,DEV-076,CODEREVIEW-077,RelatesTo,Relates To,Relates To,2026-10-07T10:17:11.796546,tech-lead,
+LINK-01814,CODEREVIEW-077,DEV-076,RelatesTo,Relates To,Relates To,2026-10-07T10:17:12.430782,tech-lead,
+LINK-01816,DEV-STORY-075,DESIGN-077,Contains,Contains,Contained In,2026-10-07T10:17:26.701276,tech-lead,
+LINK-01817,DEV-STORY-075,DEV-077,Contains,Contains,Contained In,2026-10-07T10:17:31.453795,tech-lead,
+LINK-01818,DEV-STORY-075,UNITTEST-077,Contains,Contains,Contained In,2026-10-07T10:17:36.137164,tech-lead,
+LINK-01819,DEV-STORY-075,CODEREVIEW-078,Contains,Contains,Contained In,2026-10-07T10:17:41.220595,tech-lead,
+LINK-01820,DEV-STORY-075,TESTCASE-077,Contains,Contains,Contained In,2026-10-07T10:17:45.932523,tech-lead,
+LINK-01821,DEV-STORY-075,TESTEXEC-077,Contains,Contains,Contained In,2026-10-07T10:17:50.684219,tech-lead,
+LINK-01822,DEV-077,CODEREVIEW-078,RelatesTo,Relates To,Relates To,2026-10-07T10:17:51.331450,tech-lead,
+LINK-01823,CODEREVIEW-078,DEV-077,RelatesTo,Relates To,Relates To,2026-10-07T10:17:51.966582,tech-lead,
+LINK-01825,DEV-STORY-077,DESIGN-078,Contains,Contains,Contained In,2026-10-07T10:18:06.232566,tech-lead,
+LINK-01826,DEV-STORY-077,DEV-078,Contains,Contains,Contained In,2026-10-07T10:18:10.962243,tech-lead,
+LINK-01827,DEV-STORY-077,UNITTEST-078,Contains,Contains,Contained In,2026-10-07T10:18:15.753500,tech-lead,
+LINK-01828,DEV-STORY-077,CODEREVIEW-079,Contains,Contains,Contained In,2026-10-07T10:18:20.887205,tech-lead,
+LINK-01829,DEV-STORY-077,TESTCASE-078,Contains,Contains,Contained In,2026-10-07T10:18:25.687497,tech-lead,
+LINK-01830,DEV-STORY-077,TESTEXEC-078,Contains,Contains,Contained In,2026-10-07T10:18:30.446924,tech-lead,
+LINK-01831,DEV-078,CODEREVIEW-079,RelatesTo,Relates To,Relates To,2026-10-07T10:18:31.108190,tech-lead,
+LINK-01832,CODEREVIEW-079,DEV-078,RelatesTo,Relates To,Relates To,2026-10-07T10:18:31.758810,tech-lead,
+LINK-01833,DEV-078,CODEREVIEW-079,Blocks,Blocks,Is Blocked By,2026-10-07T10:18:32.406893,tech-lead,
+LINK-01834,DEV-STORY-087,BUG-SUB-023,Contains,Contains,Contained In,2026-10-07T15:43:33.917543,tech-lead,
+LINK-01836,DEV-STORY-079,DESIGN-079,Contains,Contains,Contained In,2026-10-07T15:58:33.320613,tech-lead,
+LINK-01837,DEV-STORY-079,DEV-079,Contains,Contains,Contained In,2026-10-07T15:58:38.086655,tech-lead,
+LINK-01838,DEV-STORY-079,UNITTEST-079,Contains,Contains,Contained In,2026-10-07T15:58:42.859585,tech-lead,
+LINK-01839,DEV-STORY-079,CODEREVIEW-080,Contains,Contains,Contained In,2026-10-07T15:58:48.005623,tech-lead,
+LINK-01840,DEV-STORY-079,TESTCASE-079,Contains,Contains,Contained In,2026-10-07T15:58:52.817377,tech-lead,
+LINK-01841,DEV-STORY-079,TESTEXEC-079,Contains,Contains,Contained In,2026-10-07T15:58:57.634639,tech-lead,
+LINK-01842,DEV-079,CODEREVIEW-080,RelatesTo,Relates To,Relates To,2026-10-07T15:58:58.309735,tech-lead,
+LINK-01843,CODEREVIEW-080,DEV-079,RelatesTo,Relates To,Relates To,2026-10-07T15:58:58.981718,tech-lead,
+LINK-01844,DEV-079,CODEREVIEW-080,Blocks,Blocks,Is Blocked By,2026-10-07T15:58:59.697769,tech-lead,
+LINK-01845,DEV-STORY-081,DESIGN-080,Contains,Contains,Contained In,2026-10-07T15:59:13.466567,tech-lead,
+LINK-01846,DEV-STORY-081,DEV-080,Contains,Contains,Contained In,2026-10-07T15:59:18.264870,tech-lead,
+LINK-01847,DEV-STORY-081,UNITTEST-080,Contains,Contains,Contained In,2026-10-07T15:59:23.062910,tech-lead,
+LINK-01848,DEV-STORY-081,CODEREVIEW-081,Contains,Contains,Contained In,2026-10-07T15:59:28.284962,tech-lead,
+LINK-01849,DEV-STORY-081,TESTCASE-080,Contains,Contains,Contained In,2026-10-07T15:59:33.146506,tech-lead,
+LINK-01850,DEV-STORY-081,TESTEXEC-080,Contains,Contains,Contained In,2026-10-07T15:59:37.948741,tech-lead,
+LINK-01851,DEV-080,CODEREVIEW-081,RelatesTo,Relates To,Relates To,2026-10-07T15:59:38.612243,tech-lead,
+LINK-01852,CODEREVIEW-081,DEV-080,RelatesTo,Relates To,Relates To,2026-10-07T15:59:39.282377,tech-lead,
+LINK-01853,DEV-080,CODEREVIEW-081,Blocks,Blocks,Is Blocked By,2026-10-07T15:59:39.947835,tech-lead,
+LINK-01854,DEV-STORY-083,DESIGN-081,Contains,Contains,Contained In,2026-10-07T15:59:53.689142,tech-lead,
+LINK-01855,DEV-STORY-083,DEV-081,Contains,Contains,Contained In,2026-10-07T15:59:58.446984,tech-lead,
+LINK-01856,DEV-STORY-083,UNITTEST-081,Contains,Contains,Contained In,2026-10-07T16:00:03.185721,tech-lead,
+LINK-01857,DEV-STORY-083,CODEREVIEW-082,Contains,Contains,Contained In,2026-10-07T16:00:08.312837,tech-lead,
+LINK-01858,DEV-STORY-083,TESTCASE-081,Contains,Contains,Contained In,2026-10-07T16:00:13.110335,tech-lead,
+LINK-01859,DEV-STORY-083,TESTEXEC-081,Contains,Contains,Contained In,2026-10-07T16:00:17.873085,tech-lead,
+LINK-01860,DEV-081,CODEREVIEW-082,RelatesTo,Relates To,Relates To,2026-10-07T16:00:18.531647,tech-lead,
+LINK-01861,CODEREVIEW-082,DEV-081,RelatesTo,Relates To,Relates To,2026-10-07T16:00:19.184986,tech-lead,
+LINK-01862,DEV-081,CODEREVIEW-082,Blocks,Blocks,Is Blocked By,2026-10-07T16:00:19.849533,tech-lead,
+LINK-01863,DEV-STORY-085,DESIGN-082,Contains,Contains,Contained In,2026-10-07T16:00:33.480294,tech-lead,
+LINK-01864,DEV-STORY-085,DEV-082,Contains,Contains,Contained In,2026-10-07T16:00:38.223715,tech-lead,
+LINK-01865,DEV-STORY-085,UNITTEST-082,Contains,Contains,Contained In,2026-10-07T16:00:42.969362,tech-lead,
+LINK-01866,DEV-STORY-085,CODEREVIEW-083,Contains,Contains,Contained In,2026-10-07T16:00:48.120127,tech-lead,
+LINK-01867,DEV-STORY-085,TESTCASE-082,Contains,Contains,Contained In,2026-10-07T16:00:52.900179,tech-lead,
+LINK-01868,DEV-STORY-085,TESTEXEC-082,Contains,Contains,Contained In,2026-10-07T16:00:57.681891,tech-lead,
+LINK-01869,DEV-082,CODEREVIEW-083,RelatesTo,Relates To,Relates To,2026-10-07T16:00:58.356147,tech-lead,
+LINK-01870,CODEREVIEW-083,DEV-082,RelatesTo,Relates To,Relates To,2026-10-07T16:00:59.021557,tech-lead,
+LINK-01872,DEV-STORY-089,DESIGN-083,Contains,Contains,Contained In,2026-10-07T16:01:13.302082,tech-lead,
+LINK-01873,DEV-STORY-089,DEV-083,Contains,Contains,Contained In,2026-10-07T16:01:18.050704,tech-lead,
+LINK-01874,DEV-STORY-089,UNITTEST-083,Contains,Contains,Contained In,2026-10-07T16:01:22.807362,tech-lead,
+LINK-01875,DEV-STORY-089,CODEREVIEW-084,Contains,Contains,Contained In,2026-10-07T16:01:28.008285,tech-lead,
+LINK-01876,DEV-STORY-089,TESTCASE-083,Contains,Contains,Contained In,2026-10-07T16:01:32.771472,tech-lead,
+LINK-01877,DEV-STORY-089,TESTEXEC-083,Contains,Contains,Contained In,2026-10-07T16:01:37.546415,tech-lead,
+LINK-01878,DEV-083,CODEREVIEW-084,RelatesTo,Relates To,Relates To,2026-10-07T16:01:38.218545,tech-lead,
+LINK-01879,CODEREVIEW-084,DEV-083,RelatesTo,Relates To,Relates To,2026-10-07T16:01:38.892749,tech-lead,
+LINK-01880,DEV-083,CODEREVIEW-084,Blocks,Blocks,Is Blocked By,2026-10-07T16:01:39.548167,tech-lead,
+LINK-01881,DEV-STORY-091,DESIGN-084,Contains,Contains,Contained In,2026-10-07T16:01:53.503711,tech-lead,
+LINK-01882,DEV-STORY-091,DEV-084,Contains,Contains,Contained In,2026-10-07T16:01:58.247775,tech-lead,
+LINK-01883,DEV-STORY-091,UNITTEST-084,Contains,Contains,Contained In,2026-10-07T16:02:02.987981,tech-lead,
+LINK-01884,DEV-STORY-091,CODEREVIEW-085,Contains,Contains,Contained In,2026-10-07T16:02:08.123494,tech-lead,
+LINK-01885,DEV-STORY-091,TESTCASE-084,Contains,Contains,Contained In,2026-10-07T16:02:13.000960,tech-lead,
+LINK-01886,DEV-STORY-091,TESTEXEC-084,Contains,Contains,Contained In,2026-10-07T16:02:17.779732,tech-lead,
+LINK-01887,DEV-084,CODEREVIEW-085,RelatesTo,Relates To,Relates To,2026-10-07T16:02:18.453066,tech-lead,
+LINK-01888,CODEREVIEW-085,DEV-084,RelatesTo,Relates To,Relates To,2026-10-07T16:02:19.122006,tech-lead,
+LINK-01889,DEV-084,CODEREVIEW-085,Blocks,Blocks,Is Blocked By,2026-10-07T16:02:19.801709,tech-lead,
+LINK-01893,BUG-SUB-025,DEV-STORY-074,RelatesTo,Relates To,Relates To,2026-10-09T09:29:15.651134,qa-engineer,J12 staged/committed Dataset File view fix coordinated with orchestration owner
+LINK-01896,TASK-004,WORK-002,ParentChild,Is Parent Of,Is Child Of,2026-10-11T23:22:15.248747,devops-engineer,Register parent-child link for work item WORK-002 (parity with WORK-001 LINK-01468).
+LINK-01898,QUESTION-187,UNITTEST-044,Question,Asks About,Has Question,2026-10-12T00:56:51.705430,python-developer,
+LINK-01899,DEV-STORY-049,DEV-049,Contains,Contains,Contained In,2026-10-12T01:08:25.542913,tech-lead,Restore missing Contains link DEV-STORY-049 -> DEV-049 to match sibling stories
+LINK-01901,QUESTION-188,DEVOPS-037,Question,Asks About,Has Question,2026-10-12T02:16:07.883028,devops-engineer,
+LINK-01903,QUESTION-188,DEVOPS-038,Question,Asks About,Has Question,2026-10-12T02:16:09.209062,devops-engineer,
+LINK-01905,QUESTION-188,DEVOPS-046,Question,Asks About,Has Question,2026-10-12T02:16:10.534240,devops-engineer,
+LINK-01907,QUESTION-189,DEVOPS-039,Question,Asks About,Has Question,2026-10-12T02:16:11.862457,devops-engineer,
+LINK-01909,QUESTION-189,DEVOPS-046,Question,Asks About,Has Question,2026-10-12T02:16:13.191454,devops-engineer,
+LINK-01910,TASK-006,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-12T11:02:31.577346,project-manager,Independent acceptance QA follow-up for DEV-STORY-041..055
+LINK-01911,BUG-008,BUG-005,RelatesTo,Relates To,Relates To,2026-10-12T11:03:59.511637,project-manager,Independent QA regression found while verifying BUG-005
+LINK-01912,BUG-008,BUG-007,RelatesTo,Relates To,Relates To,2026-10-12T11:06:19.716968,project-manager,BUG-008 duplicates earlier BUG-007; keep BUG-007 as primary defect
+LINK-01913,BUG-009,TASK-006,RelatesTo,Relates To,Relates To,2026-10-12T11:11:27.954282,project-manager,Found during additional FEATURE-012 acceptance QA
+LINK-01914,TASK-006,WORK-005,ParentChild,Is Parent Of,Is Child Of,2026-10-12T11:13:23.371569,project-manager,Independent QA work item
+LINK-01915,TASK-006,WORK-006,ParentChild,Is Parent Of,Is Child Of,2026-10-12T11:13:24.420553,project-manager,Independent QA work item
+LINK-01916,TASK-006,WORK-007,ParentChild,Is Parent Of,Is Child Of,2026-10-12T11:13:25.501116,project-manager,Independent QA work item
+LINK-01917,BUG-010,TASK-006,RelatesTo,Relates To,Relates To,2026-10-12T16:01:24.055395,project-manager,Found in WORK-005 semantic audit
+LINK-01918,BUG-011,TASK-006,RelatesTo,Relates To,Relates To,2026-10-12T16:05:57.772965,project-manager,Ontology runtime defect found during WORK-005 audit
+LINK-01919,BUG-012,TASK-006,RelatesTo,Relates To,Relates To,2026-10-12T16:08:25.243943,project-manager,Found during independent pagination review
+LINK-01920,BUG-014,TASK-006,RelatesTo,Relates To,Relates To,2026-10-12T16:12:25.041175,project-manager,Grouped Dataset and Filesystem source review findings
+LINK-01921,TASK-006,BUG-013,RelatesTo,Relates To,Relates To,2026-10-12T22:36:58.396533,project-manager,Independent FEATURE-012 QA finding
+LINK-01922,TASK-006,BUG-015,RelatesTo,Relates To,Relates To,2026-10-12T22:37:02.687161,project-manager,Independent FEATURE-012 QA finding
+LINK-01923,BUG-016,TASK-006,RelatesTo,Relates To,Relates To,2026-10-12T22:37:39.201568,qa-engineer,Independent FEATURE-012 ontology semantic QA finding
+LINK-01924,BUG-016,BUG-013,RelatesTo,Relates To,Relates To,2026-10-12T22:37:42.575581,qa-engineer,Record correction for object primary key accompanies CLI fix
+LINK-01925,BUG-017,TASK-006,RelatesTo,Relates To,Relates To,2026-10-12T22:38:02.469639,qa-engineer,Independent FEATURE-012 ontology semantic QA finding
+LINK-01926,BUG-018,TASK-006,RelatesTo,Relates To,Relates To,2026-10-13T11:33:54.168978,qa-engineer,Independent Ontology QA found SDK 403 exit-code mismatch.
+LINK-01927,BUG-018,BUG-011,RelatesTo,Relates To,Relates To,2026-10-13T11:33:59.474684,qa-engineer,Discovered during Ontology pagination correction QA; separate error-classification defect.
+LINK-01928,BUG-019,TASK-006,RelatesTo,Relates To,Relates To,2026-10-13T17:24:28.648850,qa-engineer,Independent FEATURE-012 semantic audit finding
+LINK-01929,BUG-020,TASK-006,RelatesTo,Relates To,Relates To,2026-10-13T17:24:45.954962,qa-engineer,Independent FEATURE-012 semantic QA finding
+LINK-01930,BUG-020,DEV-STORY-050,RelatesTo,Relates To,Relates To,2026-10-13T17:24:46.865580,qa-engineer,Models skill correction after archived story
+LINK-01931,BUG-021,TASK-006,RelatesTo,Relates To,Relates To,2026-10-13T17:24:51.811346,qa-engineer,
+LINK-01932,BUG-021,BUG-017,RelatesTo,Relates To,Relates To,2026-10-13T17:24:52.749679,qa-engineer,
+LINK-01933,BUG-022,TASK-006,RelatesTo,Relates To,Relates To,2026-10-13T17:25:10.110977,qa-engineer,Independent FEATURE-012 semantic QA finding
+LINK-01934,BUG-022,DEV-STORY-051,RelatesTo,Relates To,Relates To,2026-10-13T17:25:11.017320,qa-engineer,Orchestration skill correction after archived story
+LINK-01935,BUG-023,TASK-006,RelatesTo,Relates To,Relates To,2026-10-13T17:26:56.204264,qa-engineer,Found during 67-operation Ontology semantic review.
+LINK-01936,BUG-023,BUG-016,RelatesTo,Relates To,Relates To,2026-10-13T17:27:01.643736,qa-engineer,Ontology skill required-input wording must be reconciled with parser fix.
+LINK-01937,BUG-024,TASK-006,RelatesTo,Relates To,Relates To,2026-10-13T17:27:12.367120,qa-engineer,
+LINK-01938,BUG-025,TASK-006,RelatesTo,Relates To,Relates To,2026-10-13T17:28:05.389060,tech-lead,
+LINK-01939,BUG-025,BUG-011,RelatesTo,Relates To,Relates To,2026-10-13T17:28:06.305302,tech-lead,
+LINK-01940,BUG-026,TASK-006,RelatesTo,Relates To,Relates To,2026-10-13T17:28:07.201026,tech-lead,
+LINK-01941,BUG-026,BUG-011,RelatesTo,Relates To,Relates To,2026-10-13T17:28:08.110333,tech-lead,
+LINK-01942,BUG-026,BUG-012,RelatesTo,Relates To,Relates To,2026-10-13T17:28:09.004159,tech-lead,
+LINK-01943,BUG-027,TASK-006,RelatesTo,Relates To,Relates To,2026-10-13T17:28:09.897217,tech-lead,
+LINK-01944,BUG-027,BUG-012,RelatesTo,Relates To,Relates To,2026-10-13T17:28:10.800862,tech-lead,
+LINK-01945,BUG-028,TASK-006,RelatesTo,Relates To,Relates To,2026-10-13T17:29:34.234415,qa-engineer,
+LINK-01946,BUG-029,TASK-006,RelatesTo,Relates To,Relates To,2026-10-13T23:32:35.751223,qa-engineer,
+LINK-01947,BUG-030,TASK-006,RelatesTo,Relates To,Relates To,2026-10-13T23:32:41.353460,qa-engineer,Three Ontology semantic rows lose SDK response metadata.
+LINK-01948,BUG-030,BUG-011,RelatesTo,Relates To,Relates To,2026-10-13T23:32:44.710188,qa-engineer,Pagination normalization currently drops object-set response metadata.
+LINK-01950,BUG-031,TASK-006,RelatesTo,Relates To,Relates To,2026-10-14T09:32:57.356007,project-manager,
+LINK-01951,BUG-031,DEV-STORY-042,RelatesTo,Relates To,Relates To,2026-10-14T09:32:58.284303,project-manager,
+LINK-01952,BUG-032,TASK-006,RelatesTo,Relates To,Relates To,2026-10-14T17:07:31.997366,project-manager,
+LINK-01953,BUG-032,BUG-031,RelatesTo,Relates To,Relates To,2026-10-14T17:07:32.841582,project-manager,
+LINK-01955,BUG-033,TASK-006,RelatesTo,Relates To,Relates To,2026-10-14T17:15:01.181349,qa-engineer,BUG-032 independent QA regression during TASK-006
+LINK-01956,BUG-034,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-16T15:03:40.595098,qa-engineer,
+LINK-01957,BUG-034,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-16T15:03:45.922372,qa-engineer,
+LINK-01960,BUG-034,TESTEXEC-048,RelatesTo,Relates To,Relates To,2026-10-16T15:03:59.943795,qa-engineer,
+LINK-01961,BUG-SUB-027,TESTEXEC-074,RelatesTo,Relates To,Relates To,2026-10-16T15:04:26.253087,qa-engineer,Independent preflight finding; formal TESTEXEC-074 remains Open
+LINK-01962,BUG-SUB-028,TESTEXEC-074,RelatesTo,Relates To,Relates To,2026-10-16T15:04:29.910114,qa-engineer,Independent preflight finding; formal TESTEXEC-074 remains Open
+LINK-01963,BUG-034,DESIGN-020,RelatesTo,Relates To,Relates To,2026-10-16T15:05:31.183965,architect,BUG-034 corrects DESIGN-020 preview exclusion for six Data Health operations
+LINK-01964,BUG-034,DEV-STORY-020,RelatesTo,Relates To,Relates To,2026-10-16T15:05:34.118853,architect,Original six-operation CLI story; regression affects released implementation
+LINK-01965,BUG-034,DEV-STORY-048,RelatesTo,Relates To,Relates To,2026-10-16T15:05:37.030791,architect,Offline Data Health guidance needs correction and independent retest after CLI fix
+LINK-01966,BUG-SUB-029,TESTEXEC-075,RelatesTo,Relates To,Relates To,2026-10-16T20:05:35.553846,qa-engineer,Independent preflight finding; formal TESTEXEC-075 Open
+LINK-01967,BUG-SUB-030,TESTEXEC-075,RelatesTo,Relates To,Relates To,2026-10-16T20:05:38.444694,qa-engineer,Independent preflight finding; formal TESTEXEC-075 Open
+LINK-01968,BUG-SUB-031,TESTEXEC-075,RelatesTo,Relates To,Relates To,2026-10-16T20:05:42.147389,qa-engineer,Independent preflight finding; formal TESTEXEC-075 Open
+LINK-01969,BUG-SUB-030,BUG-SUB-028,RelatesTo,Relates To,Relates To,2026-10-16T20:05:45.596034,qa-engineer,Same empty get_batch result fixture pattern in separate owned partitions
+LINK-01971,BUG-035,DEV-STORY-061,Blocks,Blocks,Is Blocked By,2026-10-16T20:06:08.255923,qa-engineer,Audit skill access prerequisites block independent offline closure
+LINK-01972,BUG-035,DEV-STORY-043,RelatesTo,Relates To,Relates To,2026-10-16T20:06:11.903429,qa-engineer,Historical Audit skill authoring scope
+LINK-01973,BUG-035,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-16T20:06:14.817198,qa-engineer,Offline development prerequisite criterion
+LINK-01975,DEV-STORY-071,BUG-SUB-027,Contains,Contains,Contained In,2026-10-17T01:09:24.678829,qa-engineer,Defect subtask in identity REST partition
+LINK-01976,DEV-STORY-071,BUG-SUB-028,Contains,Contains,Contained In,2026-10-17T01:09:27.450420,qa-engineer,Defect subtask in identity REST partition
+LINK-01977,DEV-STORY-072,BUG-SUB-029,Contains,Contains,Contained In,2026-10-17T01:09:30.806899,qa-engineer,Defect subtask in governance REST partition
+LINK-01978,DEV-STORY-072,BUG-SUB-030,Contains,Contains,Contained In,2026-10-17T01:09:34.178111,qa-engineer,Defect subtask in governance REST partition
+LINK-01979,DEV-STORY-072,BUG-SUB-031,Contains,Contains,Contained In,2026-10-17T01:09:37.717343,qa-engineer,Defect subtask in governance REST partition
+LINK-01982,TESTEXEC-085,TESTCASE-085,RelatesTo,Relates To,Relates To,2026-10-18T11:56:55.261905,qa-engineer,Execution follows Tech Lead approved DHT-TC-021 case
+LINK-01983,QUESTION-190,UNITTEST-082,Question,Asks About,Has Question,2026-10-18T22:46:53.510546,python-developer,
+LINK-01985,QUESTION-190,DEV-082,Question,Asks About,Has Question,2026-10-18T22:47:06.433313,python-developer,
+LINK-01988,QUESTION-191,TESTCASE-082,Question,Asks About,Has Question,2026-10-19T12:55:47.640070,qa-engineer,Formal review request for TESTCASE-082
+LINK-01990,BUG-036,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-20T10:26:37.153913,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
+LINK-01991,BUG-036,DEV-STORY-002,RelatesTo,Relates To,Relates To,2026-10-20T10:26:37.877795,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
+LINK-01993,BUG-037,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-20T10:26:40.152288,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
+LINK-01994,BUG-037,DEV-STORY-002,RelatesTo,Relates To,Relates To,2026-10-20T10:26:40.874038,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
+LINK-01996,BUG-037,QUESTION-012,RelatesTo,Relates To,Relates To,2026-10-20T10:26:42.321434,project-manager,Existing approved TOON decision remains authoritative; no waiver or duplicate design question.
+LINK-01997,BUG-038,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-20T10:26:43.877372,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
+LINK-01998,BUG-038,DEV-STORY-002,RelatesTo,Relates To,Relates To,2026-10-20T10:26:44.592617,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
+LINK-02000,BUG-039,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-20T10:26:46.874200,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
+LINK-02001,BUG-039,DEV-STORY-002,RelatesTo,Relates To,Relates To,2026-10-20T10:26:47.626170,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
+LINK-02003,BUG-040,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-20T10:26:49.904110,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
+LINK-02004,BUG-040,DEV-STORY-002,RelatesTo,Relates To,Relates To,2026-10-20T10:26:50.628172,project-manager,Shared tool requirement defect; affected FEATURE-015 audit and release acceptance remains pending correction and independent retest.
+LINK-02007,QUESTION-192,BUG-039,Question,Asks About,Has Question,2026-10-20T10:27:25.979618,project-manager,
+LINK-02009,BUG-041,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-20T10:28:56.047659,project-manager,Distinct tool correction scope; affected shared guidance acceptance remains pending independently verified fix.
+LINK-02011,BUG-041,BUG-034,RelatesTo,Relates To,Relates To,2026-10-20T10:28:57.538866,project-manager,Distinct tool correction scope; affected shared guidance acceptance remains pending independently verified fix.
+LINK-02012,BUG-042,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-20T10:28:59.197568,project-manager,Distinct tool correction scope; affected shared guidance acceptance remains pending independently verified fix.
+LINK-02014,BUG-042,BUG-022,RelatesTo,Relates To,Relates To,2026-10-20T10:29:00.725976,project-manager,Distinct tool correction scope; affected shared guidance acceptance remains pending independently verified fix.
+LINK-02017,BUG-043,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-21T10:08:00.955500,qa-engineer,Existing Functions CLI defect; preserve archived ownership and original requirements.
+LINK-02018,BUG-043,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-21T10:08:01.695587,qa-engineer,Existing Functions CLI defect; preserve archived ownership and original requirements.
+LINK-02019,BUG-043,DEV-STORY-008,RelatesTo,Relates To,Relates To,2026-10-21T10:08:02.620484,qa-engineer,Existing Functions CLI defect; preserve archived ownership and original requirements.
+LINK-02021,BUG-044,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-21T15:47:14.834424,python-developer,Filesystem positional JSON adapter defect; preserve archived ownership and current feature scope.
+LINK-02022,BUG-044,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-21T15:47:15.578091,python-developer,Filesystem positional JSON adapter defect; preserve archived ownership and current feature scope.
+LINK-02023,BUG-044,DEV-STORY-006,RelatesTo,Relates To,Relates To,2026-10-21T15:47:16.311713,python-developer,Filesystem positional JSON adapter defect; preserve archived ownership and current feature scope.
+LINK-02025,BUG-045,FEATURE-012,RelatesTo,Relates To,Relates To,2026-10-21T23:52:20.726188,project-manager,Preserve original ownership; independently discovered SQL CLI adapter defect.
+LINK-02026,BUG-045,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-21T23:52:21.462342,project-manager,Preserve original ownership; independently discovered SQL CLI adapter defect.
+LINK-02027,BUG-045,DEV-STORY-015,RelatesTo,Relates To,Relates To,2026-10-21T23:52:22.181710,project-manager,Preserve original ownership; independently discovered SQL CLI adapter defect.
+LINK-02029,TASK-009,TASK-008,RelatesTo,Relates To,Relates To,2026-10-23T17:21:44.194206,project-manager,Pin bump follows TASK-008 push of skills main 716a85b
+LINK-02030,TASK-010,BUG-034,RelatesTo,Relates To,Relates To,2026-10-23T20:12:08.393846,project-manager,Merge follows BUG-034 closure
+LINK-02031,TASK-011,TASK-010,RelatesTo,Relates To,Relates To,2026-10-23T21:57:45.154983,project-manager,Tool gitlink bump follows TASK-010 merge
+LINK-02032,QUESTION-194,BUG-035,Question,Asks About,Has Question,2026-10-25T22:32:04.567052,qa-engineer,
+LINK-02035,QUESTION-195,TASK-013,Question,Asks About,Has Question,2026-10-25T22:44:20.335052,project-manager,
+LINK-02039,CODEREVIEW-087,DEV-085,RelatesTo,Relates To,Relates To,2026-10-25T23:32:17.278687,project-manager,Review the DEV-085 merge
+LINK-02043,BUG-046,DEV-STORY-013,RelatesTo,Relates To,Relates To,2026-10-29T10:27:22.326753,project-manager,Original Models CLI implementation owns failing operation.
+LINK-02044,BUG-046,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-29T10:27:23.289082,project-manager,Independent offline skill audit found essential CLI runtime defect.
+LINK-02046,BUG-047,DEV-STORY-013,RelatesTo,Relates To,Relates To,2026-10-29T15:55:08.976729,qa-engineer,
+LINK-02047,BUG-047,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-29T15:55:09.936940,qa-engineer,
+LINK-02048,BUG-047,DEV-STORY-061,Blocks,Blocks,Is Blocked By,2026-10-29T15:55:10.895049,qa-engineer,
+LINK-02049,BUG-047,BUG-046,RelatesTo,Relates To,Relates To,2026-10-29T15:55:11.855104,qa-engineer,
+LINK-02050,TASK-014,DEVOPS-047,RelatesTo,Relates To,Relates To,2026-10-29T16:06:45.547063,devops-engineer,Draft parent checkpoint handoff; final publication remains DEVOPS-047 scope.
+LINK-02051,TASK-015,BUG-046,RelatesTo,Relates To,Relates To,2026-10-29T16:42:34.642194,devops-engineer,
+LINK-02052,TASK-015,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-29T16:42:35.603601,devops-engineer,
+LINK-02053,TASK-016,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-29T22:33:17.853324,hr,
+LINK-02054,TASK-017,DEVOPS-047,RelatesTo,Relates To,Relates To,2026-11-16T09:40:03.805162,devops-engineer,Draft checkpoint only; independent G1-G7 acceptance remains required for release.
+LINK-02055,TASK-018,FEATURE-015,RelatesTo,Relates To,Relates To,2026-11-16T09:45:45.104910,project-manager,
+LINK-02056,BUG-048,DEV-STORY-021,RelatesTo,Relates To,Relates To,2026-11-16T09:58:17.092299,qa-engineer,
+LINK-02057,BUG-048,FEATURE-012,RelatesTo,Relates To,Relates To,2026-11-16T09:58:18.027291,qa-engineer,
+LINK-02058,BUG-048,FEATURE-015,RelatesTo,Relates To,Relates To,2026-11-16T09:58:18.972382,qa-engineer,
+LINK-02059,BUG-048,DEV-STORY-070,Blocks,Blocks,Is Blocked By,2026-11-16T09:58:19.928330,qa-engineer,
+LINK-02060,BUG-049,FEATURE-015,RelatesTo,Relates To,Relates To,2026-11-16T09:58:20.872340,qa-engineer,
+LINK-02061,BUG-049,DEV-STORY-021,RelatesTo,Relates To,Relates To,2026-11-16T09:58:21.844155,qa-engineer,
+LINK-02062,BUG-049,DEV-STORY-061,Blocks,Blocks,Is Blocked By,2026-11-16T09:58:22.790179,qa-engineer,
+LINK-02063,BUG-049,DEV-STORY-070,Blocks,Blocks,Is Blocked By,2026-11-16T09:58:23.742865,qa-engineer,
+LINK-02064,BUG-049,BUG-048,RelatesTo,Relates To,Relates To,2026-11-16T09:58:24.672326,qa-engineer,
+LINK-02065,TASK-019,TASK-018,RelatesTo,Relates To,Relates To,2026-11-16T14:53:43.919411,devops-engineer,
+LINK-02066,TASK-019,TASK-014,RelatesTo,Relates To,Relates To,2026-11-16T14:53:44.866053,devops-engineer,
