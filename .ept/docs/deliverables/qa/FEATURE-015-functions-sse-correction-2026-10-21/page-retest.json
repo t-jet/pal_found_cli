@@ -1,0 +1,173 @@
+{
+  "reviewed_at_utc": "2026-10-21T12:35:52.927946+00:00",
+  "status": "PASS",
+  "scope": "Independent whole-page review of six integrated Functions Markdown pages and all seven examples against exact CLI candidate; no source, docs, ledger or tracker edits.",
+  "reviewer_role": "independent QA/retest",
+  "skills_head_at_review": "e5c0dabd3ecee8ea758ec2775d94d7cc4ee56e7d",
+  "cli_head_at_review": "ddfab5d13bd01a1f244a4446cd10764c9091f65a",
+  "sdk": {
+    "version": "1.101.0",
+    "source_commit": "168d51910570b6966afa2320333ab36f6a3f7ccf",
+    "query_sha256": "5242d695ca2cc7ae2ea0afccc814bece3f3d77bea98a5c11beb53ec2e4dedcde",
+    "query_hash_matches_frozen_formal085": true,
+    "compatibility_boundary": "Independent Functions wire/wrapper tests also pass installed1.111.0; this does not establish all SDK versions."
+  },
+  "pages": [
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-functions\\SKILL.md",
+      "relative_path": "SKILL.md",
+      "sha256": "7c2471233bcecedec912e4b7bb90cfaa74657899e9688fbdc7bd04aba89ddec7",
+      "status": "PASS",
+      "review_scope": "whole page",
+      "checks": [
+        "Read complete capability, API-name/RID guidance, execution/version/ontology scope, SSE buffering/error/timeout contract, usage/common options, index and parameter guidance. Seven operations match candidate OP_SPECS. Removed obsolete execute status; SSE is SDK protocol and NDJSON is buffered CLI output."
+      ],
+      "findings": [],
+      "uncertainty": []
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-functions\\references\\01-query.md",
+      "relative_path": "references/01-query.md",
+      "sha256": "30d882f6b46ed7e839f235c4c060f1d9ae4279ba007a946aef0265978c03857d",
+      "status": "PASS",
+      "review_scope": "whole page",
+      "checks": [
+        "Read complete index. Three local links resolve to query, value-type and version-id operation records covering seven operations."
+      ],
+      "findings": [],
+      "uncertainty": []
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-functions\\references\\inputs.md",
+      "relative_path": "references/inputs.md",
+      "sha256": "dbe0fb68e0e3c67fedc3da7891479486d3a1d7a501028b675eea5a703de8c95a",
+      "status": "PASS",
+      "review_scope": "whole page",
+      "checks": [
+        "Read complete identifier, parameters, attribution, branch/version/prerelease, transaction, ontology and stream guidance. JSON object parameters/plain attribution, max100/filtering, global versus ontology scope, transaction read semantics and delayed NDJSON match frozen SDK and actual candidate."
+      ],
+      "findings": [],
+      "uncertainty": []
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-functions\\references\\query.md",
+      "relative_path": "references/query.md",
+      "sha256": "5efbd2d76c17620f5ec5dc0bf70de0dec5a48a0084b4c146f90ce050750bbaef",
+      "status": "PASS",
+      "review_scope": "whole page",
+      "checks": [
+        "Read all five whole operation records including purpose, every input, preconditions, result, failure and example. All five examples parse and serialize through real frozen SDK. Stream example consumes typed SSE data/error and returns complete UTF-8 NDJSON. SDK confirms branch/default/prerelease/RID/batch semantics. Timeout, cancellation and transport failure suppress partial stdout; retried attempts do not duplicate data."
+      ],
+      "findings": [],
+      "uncertainty": []
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-functions\\references\\value-type.md",
+      "relative_path": "references/value-type.md",
+      "sha256": "5693968867b57e5944f490ae188c349047b2750fd73ab9af795ca339e78b0f50",
+      "status": "PASS",
+      "review_scope": "whole page",
+      "checks": [
+        "Read complete record. Required RID, preview, latest metadata result, no execution and errors match frozen SDK. Example parses and reaches real SDK HTTP serialization."
+      ],
+      "findings": [],
+      "uncertainty": []
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_integration\\.agents\\skills\\pal-found-functions\\references\\version-id.md",
+      "relative_path": "references/version-id.md",
+      "sha256": "5f360b171586827a480162f4cdd56cae4c2620c502165bd9058244ca6a3cbbf4",
+      "status": "PASS",
+      "review_scope": "whole page",
+      "checks": [
+        "Read complete record. Required RID and UUID version ID dispatch through ValueType.VersionId; versionId source is latest value-type metadata or known UUID. Corrected UUID example parses and reaches real SDK HTTP serialization."
+      ],
+      "findings": [],
+      "uncertainty": []
+    }
+  ],
+  "findings": [],
+  "resolved_initial_findings": [
+    {
+      "id": "FUNCTIONS-WP-01",
+      "status": "PASS"
+    },
+    {
+      "id": "FUNCTIONS-WP-02",
+      "status": "PASS"
+    },
+    {
+      "id": "FUNCTIONS-WP-03",
+      "status": "PASS"
+    },
+    {
+      "id": "FUNCTIONS-WP-04",
+      "status": "PASS"
+    },
+    {
+      "id": "FUNCTIONS-WP-05",
+      "status": "PASS"
+    },
+    {
+      "id": "FUNCTIONS-WP-06",
+      "status": "PASS"
+    }
+  ],
+  "initial_review": {
+    "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_functions_pages_initial_review.json",
+    "sha256": "2b48ada72956795411aa5191b2f72eb03371b283e8961ccd0d38990fde853f9a",
+    "status": "FAIL",
+    "preserved": true
+  },
+  "source_files": [
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\src\\pal_found_cli\\functions\\scripts\\pal_found_functions_cli.py",
+      "sha256": "ab7bdadfdd063ccba01ae5908d8b6aa51d95b5838f9c0fe4d9b93328b73d07ef"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_functions_streaming_wire.py",
+      "sha256": "bec77b2ef8bb89d9ada2aba871fa7e44cf1b53a9861a7f19ab17d372154c5be7"
+    },
+    {
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_pal_found_functions_cli.py",
+      "sha256": "2c152ae968dc784a7673fa98165cbacfe0b25cf4e29be0b3a3385a07058fb025"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\v2\\functions\\query.py",
+      "sha256": "5242d695ca2cc7ae2ea0afccc814bece3f3d77bea98a5c11beb53ec2e4dedcde"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\v2\\functions\\value_type.py",
+      "sha256": "780378bcab6eba283c8d17b36d725ebdd7cd2492e8a9d39126a43da2e18966d8"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\v2\\functions\\version_id.py",
+      "sha256": "6ac45540f6f850eaf9c54017c799ddb1196c41e811d35b231e92233c756aa1ba"
+    },
+    {
+      "path": "D:\\app\\python\\Lib\\site-packages\\foundry_sdk\\_core\\sse.py",
+      "sha256": "546cb6b7c9c998fd832c68346564450ad40ca4440d0602dda0071e03b4626313"
+    }
+  ],
+  "actual_probes": [
+    {
+      "command": ".ept/tmp/feature015_shared_cli_qa_env/Scripts/python.exe .ept/tmp/feature015_functions_independent_probe.py",
+      "result": "7/7 examples pass parser and actual SDK HTTP serialization; streaming data/error SSE converts to NDJSON; baseline ddfab5d^ reproduces AttributeError before HTTP."
+    },
+    {
+      "command": "SDK1.101 pytest Functions wire + Functions CLI + console wrapper + retry timeout contract",
+      "result": "103 passed in1.89s"
+    },
+    {
+      "command": "SDK1.111 isolated environment with candidate src PYTHONPATH; pytest Functions wire + Functions CLI + console wrapper",
+      "result": "46 passed in1.66s"
+    }
+  ],
+  "limitations": [
+    "All transport fixtures are offline MockTransport, no live Foundry request.",
+    "Six nonstreaming examples verify request validation/serialization; tenant authorization, resource existence and successful server responses are not exercised.",
+    "SDK1.101 is frozen source oracle; SDK1.111 is separately tested compatibility point. No general all-version claim.",
+    "Buffered stream output uses memory proportional to completed stream payload.",
+    "BUG043 status and page promotion remain root-owned pending CI; this report changes neither."
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "reviewer": "Independent QA /root/corrected_tool_guidance_retest",
+  "review_date": "2026-10-20",
+  "status": "complete",
+  "scope": "Independent whole-page acceptance only; not release approval. Read all exact working pages. No production source edits or live Foundry calls.",
+  "skills": [
+    "caveman ultra internal/full chat",
+    "humanizer embedded prose review"
+  ],
+  "skills_head": "f1b5db8abcc293e7b822ddeeb40a484fe291c0d0",
+  "tool_head": "657215f37a242889c8b36d104e15bff49587ffb4",
+  "sdk_version": "1.101.0",
+  "toon_version": "1.2.0",
+  "pages": [
+    {
+      "path": "pal-found/references/02-identifiers-auth-access.md",
+      "sha256": "56950f5aa94905fb7f8969c7bc5c6434e5cef465b7c29615e2101df7067923ed",
+      "lines": 108,
+      "reviewed_range": "1-108",
+      "verdict": "PASS",
+      "checks": [
+        "Whole page: identifiers, positional project RID, config search/override, ACL precedence and early write permits, local versus platform authorization match corrected source; project compass RID matches official example. Bytes unchanged from earlier review; source continuity rechecked."
+      ],
+      "findings": []
+    },
+    {
+      "path": "pal-found/references/03-output-success-failure.md",
+      "sha256": "4d40ef7f32b83d08f87a65e9d5e083d7d870207e7bac0742cf09c4e4aa45acd0",
+      "lines": 116,
+      "reviewed_range": "1-116",
+      "verdict": "PASS",
+      "checks": [
+        "Whole page: auto format/env precedence, official TOON sample/fallback, stdout/stderr, exit taxonomy, all 18 sanitized parser boundaries, four total calls, effective timeout, logs, paging, size limits, asynchronous completion guidance checked."
+      ],
+      "findings": []
+    },
+    {
+      "path": "pal-found/references/04-shared-options.md",
+      "sha256": "bcfcd0d5f6b5a696f8ea8e431cd13fcc1d5129e2d27964f05f75c0ef78b8c501",
+      "lines": 70,
+      "reviewed_range": "1-70",
+      "verdict": "PASS",
+      "checks": [
+        "Whole page: timeout integer limits/override/default/clamp, output selection, optional pagination/body flags and operation-specific acceptance checked."
+      ],
+      "findings": []
+    },
+    {
+      "path": "pal-found-checkpoints/SKILL.md",
+      "sha256": "e56cc86018673338886d9d8a41e123393d078cc86c60e0016a5c5691d4f27a44",
+      "lines": 60,
+      "reviewed_range": "1-60",
+      "verdict": "PASS",
+      "checks": [
+        "Whole page: capability/context, three operations, exact internal preview set, no flag, paging precedence, batch visibility and shared helpers checked."
+      ],
+      "findings": []
+    },
+    {
+      "path": "pal-found-checkpoints/references/01-record.md",
+      "sha256": "b1f0f14773cc90f12d9a204b26428db027da11404578425690f4619d23e0e8ec",
+      "lines": 39,
+      "reviewed_range": "1-39",
+      "verdict": "PASS",
+      "checks": [
+        "Whole page: all three operations, batch omission/100 bound, typed filter/creation order/default size, exact internal preview on every search page checked."
+      ],
+      "findings": []
+    },
+    {
+      "path": "pal-found-orchestration/SKILL.md",
+      "sha256": "bccff3be1b1d54cd5b4984eb16f0f02597f0bb3e2749c664e93c4ee7a2971fcd",
+      "lines": 67,
+      "reviewed_range": "1-67",
+      "verdict": "PASS",
+      "checks": [
+        "Whole page: build/job/schedule semantics and permissions, operation count/index, JSON requiredness, four exact internal preview operations and no flag checked."
+      ],
+      "findings": []
+    },
+    {
+      "path": "pal-found-orchestration/references/01-build-job.md",
+      "sha256": "ad78f8b1ed6409c1cdca609fc7028e5f86aa70fd90bddcdc615353f7b885213d",
+      "lines": 145,
+      "reviewed_range": "1-145",
+      "verdict": "PASS",
+      "checks": [
+        "Whole page: all eight build/job operations, SDK limits/results, async effects and recovery, required filter, parser examples, payloads, paging, exact job preview set and no flag checked. Root source fix independently verified through full CLI main and actual SDK mock HTTP over two pages."
+      ],
+      "findings": [],
+      "resolved_findings": [
+        "F015-QA-SEARCH-WHERE"
+      ]
+    },
+    {
+      "path": "pal-found-orchestration/references/02-schedule.md",
+      "sha256": "4a931041df639dd1a5f007f4b75a8886b25040aa3edc127c27b381f1a16b8d2c",
+      "lines": 175,
+      "reviewed_range": "1-175",
+      "verdict": "PASS",
+      "checks": [
+        "Whole page: all twelve schedule/version records, scope/action/trigger examples, replacement/run/async state, pause event reset, batch 1000 limit, paging and optional schedule result checked."
+      ],
+      "findings": []
+    }
+  ],
+  "findings": [
+    {
+      "id": "F015-QA-SEARCH-WHERE",
+      "severity": "blocking",
+      "page": "pal-found-orchestration/references/01-build-job.md",
+      "source": "pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py:_paginate_operation",
+      "observation": "The loop copies spec optional arguments only; required where is dropped. Independent raw-page spy with provided documented filter received page_size=100,page_token=None,request_timeout=30 and no where. SDK AsyncBuildClient.search requires where.",
+      "required_action": "Preserve required and optional non-page kwargs on every page; validate actual SDK request body over two pages. Keep documentation accurate; root owns source fix.",
+      "state": "resolved",
+      "resolved_at_tool_head": "657215f37a242889c8b36d104e15bff49587ffb4",
+      "resolution": "Root changed paging loop to required plus optional fields. Independent full cli.main -> actual SDK 1.101.0 -> httpx mock transport executed documented build.search filter with --all --timeout 120. Two POST /api/v2/orchestration/builds/search requests retained exact where; second body contained continuation review-next. Both HTTP read timeouts 120. CLI exited 0, stdout decoded [], stderr had metadata separator."
+    }
+  ],
+  "independent_probes": [
+    "All 18 real namespace subprocess entry points: unknown marker argument exits 1, valid JSON stdout, marker absent stdout/stderr with explicit FOUNDRY_INCLUDE_TRACEBACK=true.",
+    "Official TOON documented exact two-row sample, environment JSON versus explicit auto, encoder exception generic warning and JSON fallback passed.",
+    "Timeout environment malformed/default, negative/zero clamp to 1, high clamp to 3600, CLI 120 override passed. Retry max-attempts malformed=4, zero/negative=1, 1=one,4=four passed.",
+    "23 complete documented orchestration/checkpoint examples parse and input validate. 10 JSON arguments validate against SDK method type annotations.",
+    "Seven exact preview operations checked via six direct invocation spies and two pages of record.search. All calls preview=True and request_timeout=120. Both search pages retain required filter, second cursor NEXT. --preview rejected.",
+    "All relative markdown link targets exist. Four official context/reference URLs successfully opened and relevant content checked.",
+    "Independent full CLI/actual SDK two-page build.search regression retest PASS at clean 657215f37a242889c8b36d104e15bff49587ffb4; all eight document hashes and line counts unchanged after source fix."
+  ],
+  "local_sources": [
+    "common/config_loader.py",
+    "common/access_control_guard.py",
+    "common/output_formatter.py",
+    "common/error_serializer.py",
+    "common/cli_parser.py",
+    "common/retry.py",
+    "common/timeout_config.py",
+    "common/pagination_helper.py",
+    "common/log_setup.py",
+    "orchestration/scripts/pal_found_orchestration_cli.py",
+    "checkpoints/scripts/pal_found_checkpoints_cli.py",
+    "streams/scripts/pal_found_streams_cli.py",
+    "D:/app/Python/Lib/site-packages/foundry_sdk/v2/orchestration/{build,job,schedule,schedule_version}.py",
+    "D:/app/Python/Lib/site-packages/foundry_sdk/v2/checkpoints/record.py"
+  ],
+  "source_urls": [
+    "https://www.palantir.com/docs/foundry/checkpoints/overview",
+    "https://www.palantir.com/docs/foundry/data-integration/builds",
+    "https://www.palantir.com/docs/foundry/data-integration/schedules",
+    "https://www.palantir.com/docs/foundry/api/filesystem-v2-resources/projects/get-project"
+  ],
+  "historical_context": {
+    "prior_artifact": ".ept/tmp/feature015_core_schedule_final_review.json",
+    "prior_tool_baseline": "0963e6e006f82ad1997be0e22c6b750ed0bbce3b",
+    "note": "Prior acceptance retained as history only. Current corrected source independently checked; prior PASS did not establish current build.search page propagation."
+  },
+  "limits": [
+    "No live Foundry access, enrollment availability or authorization established.",
+    "Parser/model validation cannot establish server-side state or permissions.",
+    "QA Python uses system site packages; requests emits dependency compatibility warning before probes; functional assertions passed.",
+    "No tracker/ledger writes, commits, publication, or release approval."
+  ],
+  "initial_tool_head": "657215f37a242889c8b36d104e15bff49587ffb4",
+  "overall_verdict": "PASS",
+  "open_findings": []
+}

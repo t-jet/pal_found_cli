@@ -1,0 +1,227 @@
+{
+  "reviewer": "/root/shared_cli_independent_qa",
+  "date": "2026-10-20",
+  "candidate_sha": "657215f37a242889c8b36d104e15bff49587ffb4",
+  "verdict": "PASS",
+  "scope": "Independent code review and exact-head regression QA for shared tool corrections BUG-036 through BUG-042, including required build-search filter forwarding on every continuation page. This is not global FEATURE-015 release acceptance.",
+  "frozen_source": {
+    "clean_before": true,
+    "clean_after": true,
+    "head_after": "657215f37a242889c8b36d104e15bff49587ffb4",
+    "runtime_change_since_prior_acceptance": [
+      "Orchestration _paginate_operation copies required alongside optional fields; all other runtime Python bytes unchanged."
+    ]
+  },
+  "independent_contract_probes": {
+    "verdict": "PASS",
+    "total_original_checks": 330,
+    "counts": {
+      "probe": 271,
+      "retry": 20,
+      "timeout": 30,
+      "wire": 9
+    },
+    "additional_required_filter_probe": "PASS: previous23e raises real SDK ValidationError before any request; current simple and nested filters each persist across two actual SDK requests, with optional ordering, page size17, cursor and HTTP timeout120 preserved.",
+    "evidence": "feature015_orchestration_search_independent_qa.json"
+  },
+  "broad_regression": {
+    "verdict": "PASS",
+    "passed": 1684,
+    "failed": 0,
+    "skipped": 0,
+    "test_files": 47,
+    "all_prior1683_case_ids_preserved_in_relative_order": true,
+    "new_case_ids": [
+      [
+        "tests.test_orchestration_search_wire",
+        "test_build_search_preserves_required_filter_on_every_page"
+      ]
+    ],
+    "seconds": 116.672,
+    "command": [
+      "python",
+      "-m",
+      "pytest",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_access_control_guard.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_admin_console_wrapper.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_aip_agents_console_wrapper.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_audit_console_wrapper.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_binary_download.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_checkpoints_console_wrapper.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_cli_parser_contract.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_data_health_console_wrapper.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_datasets_console_wrapper.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_exec_common_components.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_exec_retry_error_output_log.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_filesystem_console_wrapper.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_functions_console_wrapper.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_language_models_console_wrapper.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_ontologies_console_wrapper.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_orchestration_search_wire.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_output_format_contract.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_pagination_helper.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_pal_found_admin_cli.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_pal_found_aip_agents_cli.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_pal_found_audit_cli.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_pal_found_checkpoints_cli.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_pal_found_connectivity_cli.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_pal_found_data_health_cli.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_pal_found_filesystem_cli.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_pal_found_functions_cli.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_pal_found_language_models_cli.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_pal_found_media_sets_cli.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_pal_found_models_cli.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_pal_found_ontologies_cli.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_pal_found_orchestration_cli.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_pal_found_sql_queries_cli.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_pal_found_streams_cli.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_pal_found_third_party_applications_cli.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_pal_found_widgets_cli.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_release_artifacts.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_rename_migration.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_repository_hygiene.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_required_preview_wire.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_retry_timeout_contract.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_session_manager.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_shared_cli_contracts.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_third_party_applications_console_wrapper.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_tracing_provider.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\test_widgets_console_wrapper.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\unit_test_common_components.py",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_fixes\\tests\\unit_test_retry_error_output_log.py",
+      "-q",
+      "--basetemp",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_qa_pytest_tmp_release",
+      "--junitxml",
+      "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_qa_suite_release.xml"
+    ],
+    "coverage": "All45 test_*.py files plus both legacy unit_test_*.py modules. No selection filters or deselection."
+  },
+  "test_patch_review": {
+    "verdict": "PASS",
+    "changed_lines": {
+      "insertions": 73,
+      "deletions": 53
+    },
+    "findings": [
+      "No test cases were removed or skipped;1683 exact case IDs and their order match historical run.",
+      "RetryHandler doubles now accept the required keyword and explicitly assert effective timeout_s; success and terminal-error assertions remain.",
+      "Parser tests assert sanitized CLIInputError with exit1; separate console matrix retains actual JSON stdout, help, raw-value privacy and pre-SDK rejection checks.",
+      "TOON tests replace obsolete aligned-table separators with handwritten canonical count/field/row strings and actual library decoding.",
+      "Environment fixture restores complete original environment, including dotenv-added keys; production timeout resolver remains unchanged.",
+      "Preview dispatch expectations now require preview=True, including existing positional/body checks.",
+      "Audit timeout precedence test sets actual canonical environment; required dependency installation runs for wheel/editable subprocess tests.",
+      "Async test helpers use asyncio.run, preserving expected invocation counts and failure assertions."
+    ]
+  },
+  "qa_environment": {
+    "python_executable": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_qa_env\\Scripts\\python.exe",
+    "python_version": "3.11.9",
+    "pytest": "8.3.5",
+    "sdk_distribution": "1.101.0",
+    "toon_distribution": "1.2.0",
+    "toon_module": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_shared_cli_qa_env\\Lib\\site-packages\\toon_format\\__init__.py",
+    "toon_wheel_sha256": "d94db4b088a281a7bbc85e75d7fbd24e6a0ec7bc110edb129285259eca6522c0",
+    "candidate_install": "Editable candidate in isolated --system-site-packages QA venv; PATH points to that venv console launchers. Final focused probes use installed TOON, without unpacked module shadowing."
+  },
+  "network_scope": "Parent test runner denies external socket connections; loopback remains allowed for Windows asyncio and local fixtures. Actual SDK request probes use httpx MockTransport. Dependency build/install subprocesses may access package indexes. No live Foundry endpoint or platform mutation was used.",
+  "historical_results_preserved": {
+    "earlier_candidate": "ea4f772b172e99283253d3f6e43573bcde038318",
+    "earlier_regression": {
+      "passed": 1574,
+      "failed": 109
+    },
+    "baseline0963_regression": {
+      "passed": 1523,
+      "failed": 5
+    },
+    "report": "feature015_shared_cli_independent_qa.json",
+    "classification": "feature015_shared_cli_qa_failure_classification.json"
+  },
+  "limits": [
+    "Formatting main probes replace auth, local payload validation and operation execution to isolate formatting; real SDK wire probes independently cover request forwarding.",
+    "Timeout main/dispatch probe uses recording SDK doubles for three representative namespaces; full suite and source review cover all18 shared timeout callsites.",
+    "QA does not infer Foundry enrollment, server authorization, production deployment, PyPI publication, private-mirror installation or acceptance of every FEATURE-015 skill/domain gate.",
+    "Tracker workflow transitions and final release publication remain PM responsibilities."
+  ],
+  "changed_file_sha256": {
+    ".github/workflows/publish.yml": "39479bb6818d22b459206bb8d420f158e822650a0ba97c208e628edd96ebd509",
+    "conda.recipe/meta.yaml": "11b9d9e8ce8a2c04c2165e6d27232edc94cc956e5b8461a8b9462b7450dd369d",
+    "conda.recipe/toon-format/meta.yaml": "5a56aca19ab5feda37ee65f1d4c92ad8c9640bb617ce03d8d781d2739aee3f96",
+    "pyproject.toml": "6cab6232880f66448ebfb752cd5d583d4093566116a39dad9e4023c8a30683be",
+    "src/pal_found_cli/admin/scripts/pal_found_admin_cli.py": "64f63914cb4b200a9de837aab8715dc96d414c2fa1319a824204a6bb211cbee6",
+    "src/pal_found_cli/aip_agents/scripts/pal_found_aip_agents_cli.py": "ba5e20290917f5b7845abbf2822c3fa1668d891b62694aa2324e99b506a89ccb",
+    "src/pal_found_cli/audit/scripts/pal_found_audit_cli.py": "c6157ccbad678429bfd41f92681d55382ac2f8cf8fea21dfd5a44a223f3b1664",
+    "src/pal_found_cli/checkpoints/scripts/pal_found_checkpoints_cli.py": "ba14171f2675956385cabaf1460c699cd6516c4eccfb8f5e82df95edbc13b399",
+    "src/pal_found_cli/common/cli_parser.py": "35a813c652ecb5cfb791479c73bd88a74189b7e97d94c4f409d9d373ef0a5f47",
+    "src/pal_found_cli/common/config_loader.py": "b7ccddda86b733302f1f8f1800dfd172207361bdc661045b64871ded0e8af7bc",
+    "src/pal_found_cli/common/output_formatter.py": "4b7f78a68cddb999a0474195f76545bd8f755d80ee18e71c9d0628c4718b7383",
+    "src/pal_found_cli/common/retry.py": "3464aa78aaeaf3a592e789e5f0fb612f4c14cbc412ad0b37919f9b4c4487dda0",
+    "src/pal_found_cli/common/timeout_config.py": "76b9896c096f689734e106b9be559ea59d2f22123799d423f39446172263e4c7",
+    "src/pal_found_cli/connectivity/scripts/pal_found_connectivity_cli.py": "d92b3a9127fefc4ea3b8d17ae90a6f5fe3983e6f9653af9f2fec3bbd8627e20d",
+    "src/pal_found_cli/data_health/scripts/pal_found_data_health_cli.py": "826f07a038eaaf2aecec3486d3cb744b3dcac8f5105ae3371a4fe58a23a8e3a0",
+    "src/pal_found_cli/datasets/scripts/pal_found_datasets_cli.py": "c6a1597371c8425f6649b718dfac1f2fa114609d764f1a976ca96951dc538829",
+    "src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py": "feea75e894ba263672feb3ec0a6250a900043620a47f35288df77c1d190ff596",
+    "src/pal_found_cli/functions/scripts/pal_found_functions_cli.py": "2d7c2b8e6ff7a40be2f3c7bd77e020083aa575c6bfd81ae1431f70667dbe2c9f",
+    "src/pal_found_cli/language_models/scripts/pal_found_language_models_cli.py": "cbec77f413460511456db7b0158c279240c467c6da0f809cad2102b1ee8acd85",
+    "src/pal_found_cli/media_sets/scripts/pal_found_media_sets_cli.py": "f70e1ed60ae9e4133bc4505d780e0a92fdf27f83fab58713daa3536e5ad25a03",
+    "src/pal_found_cli/models/scripts/pal_found_models_cli.py": "0aae43647a16423796675a3c0d019f1987c410e417d914193aa1f8352d0437fd",
+    "src/pal_found_cli/ontologies/scripts/pal_found_ontologies_cli.py": "6fd6d2c8981167a4f6037f2c693e526df50eff1c6b2d12e53125606046f02fd5",
+    "src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py": "8174661a2e8233ee01b5afa854493e0bdcfe2dfd23a4dd3134d45a948b90942a",
+    "src/pal_found_cli/sql_queries/scripts/pal_found_sql_queries_cli.py": "d7bc8f0efb218e48a3d8f10f5fb3c1291e8ee0ee40bbb9bda3e3e57562289017",
+    "src/pal_found_cli/streams/scripts/pal_found_streams_cli.py": "824c9b2a280ef564e7f99843195d2dd52baf2160a41e863a32956f977e6fc232",
+    "src/pal_found_cli/third_party_applications/scripts/pal_found_third_party_applications_cli.py": "b3a976e0c90c11fab60d0dca01dfd1baed37c4e6ecb24018bc085a9743aa4989",
+    "src/pal_found_cli/widgets/scripts/pal_found_widgets_cli.py": "905a6eee42d6e62bd577617dea43fda3f31045c3fc8bd9df824110f4538b41fa",
+    "tests/test_admin_console_wrapper.py": "138c70f2e6c4c9ba6cb839584be480122dc10f6905b6232d9a45874ef85b85d8",
+    "tests/test_audit_console_wrapper.py": "82ec98db03e2ba1ced428cf9f4585331bfffe149aeaee2d23203c94190a79273",
+    "tests/test_cli_parser_contract.py": "b146b6881893af666d600e0539a151c5d0f5cf51d1c88e43b2b606bf31bae741",
+    "tests/test_datasets_console_wrapper.py": "74bcead4b37e569277ba995383691278595825fb6883f478128349ce08d5e0e6",
+    "tests/test_exec_common_components.py": "347094692c38373f9ca5f023a88f12f4ee4bdee3191bf5e2f14a1e4792812797",
+    "tests/test_exec_retry_error_output_log.py": "6723647b0d57f7ae2b103669afdff1132e06051e8efb8d00db560a340d6d0e3a",
+    "tests/test_filesystem_console_wrapper.py": "5c4a4e79d4324c651521768921d5b5df44627d88817a4318a706267ded73a686",
+    "tests/test_functions_console_wrapper.py": "fba0e75f0fb85c6fb3be6ecaec717b28c7ccef6aa350f72ff15685a5d24ae4a0",
+    "tests/test_ontologies_console_wrapper.py": "c7721d560434984e88ef66c95519663d8401869dfc92b6c02db1118bba76c485",
+    "tests/test_orchestration_search_wire.py": "9a1990f50d5148da4351f6c5a19243c46d28a89d5dd140d7b18309d99a3d41d5",
+    "tests/test_output_format_contract.py": "f64096f6206dce727a127c260331deb295de5ba0297ab6c864e373a4aefea31d",
+    "tests/test_pal_found_admin_cli.py": "7737d09ff7c356e4cd1fb76269a6f783af9c34f3979d88ee2ddca4ad208e97e7",
+    "tests/test_pal_found_audit_cli.py": "7efa079b2b5c101ee827847726d4847a999f75285675b29105123eb09cdbc968",
+    "tests/test_pal_found_checkpoints_cli.py": "024f024c96bee4c688f3b56b93cd54cb34324851a8c4aa5497a0706dcc8d7082",
+    "tests/test_pal_found_filesystem_cli.py": "7c22454bafdafe86e7554fd8b8fb0a41e37bcedb1a8bed022db402a9a0eaacac",
+    "tests/test_pal_found_functions_cli.py": "c284de6012d84e27c0e6c4e1d38ed986f312a2d920dfe5a2cb11f1f8753acfdc",
+    "tests/test_pal_found_ontologies_cli.py": "50a413453ccce8c9f0cd68ed618bdd821c54c6e7877ee181331898400ae8655e",
+    "tests/test_pal_found_orchestration_cli.py": "d1007f3aae6b710b7ea0b23f6d389ace0701178a5e854cc122bb3e4fd9abd9d0",
+    "tests/test_required_preview_wire.py": "62d081e6b68ab0f1289e7c86273e18a33e944b324f2e7708a07f0460e8fa50c4",
+    "tests/test_retry_timeout_contract.py": "725f39c0b9e4f649b04c28e89e9ab7e701fd51411d36fd192bf5ed0eb9710078",
+    "tests/test_shared_cli_contracts.py": "fa237ac458748e939501f5bf1528f36d96bfe88d51c2c0e2a3c7c4654f60a1b0",
+    "tests/unit_test_common_components.py": "52cd7623a2c863b0b882a2db4eb9c642fe5f0b5ac8a709533ceb4763cf52ce6a",
+    "tests/unit_test_retry_error_output_log.py": "2c0854a7b9bff717b85c2f666ee16b7e0329b7080689827c6589644a004f9173"
+  },
+  "evidence_sha256": {
+    "feature015_shared_cli_probe_release_current.json": "88e4894dce2e2bb45a4a3b3ed0d95ab0a6e201102d316fb0c87b121ae6297b94",
+    "feature015_shared_cli_retry_release_current.json": "4bf589e62f033ff481e2bc58a2ffddae4d2fade09aad9f8fdbec4a2b85b5ba84",
+    "feature015_shared_cli_timeout_release_current.json": "f8af6ba19ff89a4fa4494488b74b0033456bf0600283374a6d27467e436883e6",
+    "feature015_shared_cli_wire_release_current.json": "2573cc25ea77d33c72ac93b8bfd3dfbf00cde9dd28f69d2fd41a616d7bac63f0",
+    "feature015_shared_cli_qa_suite_release.xml": "2a42775407269aea239169d067d2cad9b53840891916c225ca902a81c6d77184",
+    "feature015_shared_cli_qa_suite_result_release.json": "c17f20e24203ff00b9c2f61facd10c3e7394b03c5161fb44e7ac941ac4b5d796",
+    "feature015_shared_cli_qa_suite_release_stdout.txt": "73036363e61c875f386e0406816093df83f0a3b6a3136ee71a157352feedca39",
+    "feature015_orchestration_search_independent_qa.json": "3bec8db401275f130b11ec318b3d5bdbfef9a396598b2c498fe3040b9789239b",
+    "feature015_shared_cli_independent_qa_final.json": "cad4a991e9144b5b5e82ff4e8489a7cf0751a7af20cfd1b7f0449e37682b2d54",
+    "feature015_shared_cli_independent_qa.json": "136bb8885db8cd7e277db0c2238fecf0deba7976e51d8ebb49162cbe491c13e7"
+  },
+  "required_filter_delta_review": {
+    "verdict": "PASS",
+    "changed_paths": [
+      "src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py",
+      "tests/test_orchestration_search_wire.py"
+    ],
+    "source_change": "Loop extends from spec optional fields to required plus optional. Page token and size remain excluded from extra kwargs and managed by PaginationHelper.",
+    "new_test_review": "Actual installed SDK validates input and serializes both HTTP requests; handwritten assertions verify POST search route, exact filter body and second-page cursor. Test does not mirror an internal kwargs dictionary.",
+    "prior_acceptance_limit": "Prior23e acceptance did not include this real two-page build-search oracle. New discovery and correction are retained explicitly; prior report remains historical."
+  },
+  "prior_tool_acceptance": {
+    "sha": "23e1a2d3c2a86ac00599b447491000f91ae0c56d",
+    "report": "feature015_shared_cli_independent_qa_final.json",
+    "passed": 1683,
+    "focused_checks": 330
+  }
+}

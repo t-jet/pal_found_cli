@@ -2,7 +2,7 @@
 
 ## Scope
 
-These cases cover DEV-STORY-020 and the complete approved surface of `foundry-data-health`: the 6 public `foundry_sdk.v2.data_health` operations across the `Check` client (create, delete, get, replace) and its nested `Check.CheckReport` client (get, get_latest). They verify the exact catalog and parser, nested SDK routing through `client.data_health.Check` and `client.data_health.Check.CheckReport`, JSON argument validation (`--config-json`), the `CheckConfig` discriminated-union dispatch, the `--intent` optional, the bounded non-cursor `--limit` on `check-report get-latest`, the 3-operation write set with `replace`-class classification, the packaged 3-permitted/3-blocked metadata-only policy, `include_attribution=False`, B3 tracing, retry and error behavior, output and log contracts, privacy, packaging, and regression gates.
+These cases cover DEV-STORY-020 and the complete approved surface of `foundry-data-health`: the 6 public `foundry_sdk.v2.data_health` operations across the `Check` client (create, delete, get, replace) and its nested `Check.CheckReport` client (get, get_latest). They verify the exact catalog and parser, nested SDK routing through `client.data_health.Check` and `client.data_health.Check.CheckReport`, JSON argument validation (`--config-json`), the `CheckConfig` discriminated-union dispatch, the `--intent` optional, the bounded non-cursor `--limit` on `check-report get-latest`, internal `preview=True` and serialized `preview=true` on all 6 requests, the 3-operation write set with `replace`-class classification, the packaged 3-permitted/3-blocked metadata-only policy, `include_attribution=False`, B3 tracing, retry and error behavior, output and log contracts, privacy, packaging, and regression gates.
 
 > **Acceptance criteria note:** The DEV-STORY-020 ticket body's Acceptance Criteria field still carries the grooming template placeholder; the authoritative acceptance criteria for this story are the DESIGN-020 contract sections (operation catalog, paging contract, access and runtime policy), the story scope comment, and the populated `release_notes` field ("adds foundry-data-health CLI (6 operations corrected from stale 4: check create, check delete, check get, check replace, check-report get, check-report get-latest) with shared access control, write-set classification, B3 tracing, retry, output formatting, and packaged metadata-only policy (3 permitted / 3 blocked)").
 >
@@ -13,6 +13,7 @@ Routine acceptance uses mocked async SDK transport and real installed SDK except
 ## Source baseline
 
 - [DESIGN-020](../architecture/DESIGN-020-data-health-cli.md), completed and closed for DEV-STORY-020.
+- [DESIGN-020 preview correction](../architecture/DESIGN-020-preview-correction.md), the BUG-034 addendum that supersedes DESIGN-020's preview exclusion for all 6 operations. The released tool and this historical test specification omitted the required query parameter.
 - [DESIGN-005](../architecture/DESIGN-005-common-components.md), covering SDK-native B3 tracing and retry integration contracts.
 - [DESIGN-011](../architecture/DESIGN-011-aip-agents-cli.md), [DESIGN-012](../architecture/DESIGN-012-language-models-cli.md), [DESIGN-017](../architecture/DESIGN-017-connectivity-cli.md) — the sibling namespace patterns this story mirrors (immutable operation catalog, exact nested SDK dispatch, packaged policy, `replace`-class write classification).
 - [ADR-001](../architecture/adr/ADR-001-exit-code-taxonomy.md), [ADR-002](../architecture/adr/ADR-002-call-timeout-defaults.md), [ADR-004](../architecture/adr/ADR-004-format-auto-algorithm.md), [ADR-005](../architecture/adr/ADR-005-log-format.md), [ADR-006](../architecture/adr/ADR-006-env-file-search-path.md), [ADR-007](../architecture/adr/ADR-007-operation-level-readonly.md).
@@ -29,6 +30,7 @@ Routine acceptance uses mocked async SDK transport and real installed SDK except
 - No operation returns a `ResourceIterator` or a server cursor; no `PaginationHelper` may be invoked for any command. `check_report get_latest` takes an integer `--limit` (default 10, maximum 100) that bounds a single response.
 - `--config-json` fakes accept the decoded `CheckConfig` discriminated-union dict (`type` discriminator across all check config kinds) and record it; `replace` reuses the same validation path.
 - Use real installed SDK model validators for nested invalid-input checks and real `foundry_sdk._errors` classes for error taxonomy checks. Mock network transport; no service call is permitted.
+- For the preview correction, use the pinned SDK's request serialization with mock transport and inspect the URL of each of the 6 requests. No enrolled tenant is contacted.
 - Set retry delay to zero, disable jitter, and use two retries unless a case states otherwise. Capture attempt number, timeout, attribution, and B3 values.
 - Capture stdout, stderr, logs, SDK arguments, context variables, client/network constructors, and filesystem changes independently. Do not retain credential, token, JSON-body, or response sentinel values.
 - Packaging cases build a clean local archive with dependency resolution disabled, install with `--no-deps`, and run from an arbitrary empty working directory without `PYTHONPATH`.
@@ -60,7 +62,7 @@ Every inventory row is exercised by DHT-TC-001 through DHT-TC-003. Unless a case
 | `check-report get CHECK_RID CHECK_REPORT_RID` | `client.data_health.Check.CheckReport.get` | `check_rid`, `check_report_rid` | shared options |
 | `check-report get-latest CHECK_RID` | `client.data_health.Check.CheckReport.get_latest` | `check_rid` | `--limit`, shared options |
 
-No command may receive `attribution`, `preview`, `_sdk_internal`, an absent optional set to `None`, or any unsupported paging, stream, raw-response, or file flag. No pagination flags (`--page-size`, `--page-token`, `--all`, `--max-pages`) may exist in `OP_SPECS` or the parser. `--limit` is an integer flag on `check-report get-latest` only.
+No command may receive `attribution`, `_sdk_internal`, an absent optional set to `None`, or any unsupported paging, stream, raw-response, or file flag. Every SDK call must receive internal `preview=True`, which serializes as `preview=true` in the request URL. The CLI must not expose a user `--preview` flag. No pagination flags (`--page-size`, `--page-token`, `--all`, `--max-pages`) may exist in `OP_SPECS` or the parser. `--limit` is an integer flag on `check-report get-latest` only.
 
 ## Test cases
 
@@ -89,11 +91,11 @@ No command may receive `attribution`, `preview`, `_sdk_internal`, an absent opti
 ### DHT-TC-003 - Required inputs forwarded and absent optionals omitted
 
 - Type: positive, structural.
-- Given each inventory command, when dispatch runs, then required positionals/options reach the SDK call and every absent optional is omitted (never `None`).
+- Given each inventory command, when dispatch runs, then required positionals/options and internal `preview=True` reach the SDK call, while absent user optionals are omitted (never `None`).
 - Command/function: all 6 dispatches; `_build_kwargs()`.
 - Prerequisites/fixtures: recording SDK fakes.
 - Steps: run each command with only required inputs; run `check create` and `check replace` with and without `--intent`; run `check-report get-latest` with and without `--limit`; inspect the SDK call arguments.
-- Expected stdout/stderr/exit: `check.create` receives the decoded `config` dict and (when provided) `intent`; `check.replace` receives `check_rid` positionally plus `config`/`intent`; `check_report.get` receives both RIDs positionally; `check_report.get_latest` receives `check_rid` positionally and `limit` only when provided; absent optionals absent from kwargs; success exits `0`.
+- Expected stdout/stderr/exit: all 6 calls include `preview=True`; `check.create` receives the decoded `config` dict and (when provided) `intent`; `check.replace` receives `check_rid` positionally plus `config`/`intent`; `check_report.get` receives both RIDs positionally; `check_report.get_latest` receives `check_rid` positionally and `limit` only when provided; absent user optionals are absent from kwargs; success exits `0`.
 - Cleanup: clear fake call records.
 - Evidence mapping: DESIGN-020 operation catalog; story AC 1; `test_check_create_omits_absent_intent`, `test_check_report_get_latest_omits_absent_limit`, `test_check_create_dispatches_config_and_intent`, `test_check_replace_dispatches_with_config` (tests/test_foundry_data_health_cli.py).
 
@@ -284,11 +286,23 @@ No command may receive `attribution`, `preview`, `_sdk_internal`, an absent opti
 - Cleanup: delete isolated builds and environments; retain command output in TESTEXEC evidence only.
 - Evidence mapping: DESIGN-020 packaging and regression contract; story AC 14, 15; all `tests/test_foundry_data_health_cli.py` cases (27 tests) and the configured `pyproject.toml` gates; full-suite pass at HEAD `b0df380` (1267 tests, of which the checkpoints/data_health focused suites are 52).
 
+### DHT-TC-021 - Preview opt-in on all six serialized requests
+
+- Type: positive, request-contract, regression.
+- Given each of the 6 Data Health commands with valid inputs and the pinned SDK, when the CLI dispatches through mock transport, then its SDK call passes `preview=True` and the serialized request URL contains exactly one `preview=true` query value. The user cannot change or omit this value through a CLI flag.
+- Command/function: all 6 inventory commands; `_build_kwargs()`; SDK 1.101.0 request serialization with mock transport.
+- Preconditions/fixtures: fake responses of the correct SDK result shape; representative `CheckConfig`, check RID and report RID; `check create`/`check replace` with and without `--intent`; `check-report get-latest` with and without `--limit`; transport records method and URL without making a tenant request.
+- Steps: dispatch `check create`, `check delete`, `check get`, `check replace`, `check-report get`, and `check-report get-latest`; capture each SDK method call and outgoing URL. Repeat optional-input variants. Attempt `--preview false` and confirm parser rejection before client creation. Keep the metadata-only policy and the 3-operation write classification under their existing cases.
+- Expected stdout/stderr/exit: each valid case has one successful SDK call and exit `0`; every captured kwargs map contains `preview: True`, and every URL query contains `preview=true` once. The `get-latest --limit` variant also retains its limit query. The unsupported `--preview` flag exits `1` without network work. No attribution or `_sdk_internal` kwarg is forwarded.
+- Cleanup: clear transport records and captured streams; no tenant state or files are created.
+- Evidence mapping: [DESIGN-020 preview correction](../architecture/DESIGN-020-preview-correction.md), BUG-034, and the 6 linked Palantir endpoint references in that addendum. TESTEXEC must record each method, URL query, expected and actual result at the reviewed tool commit; a green fake-kwargs assertion alone does not prove wire serialization.
+
 ## Traceability matrix
 
 | Requirement area | Story/design criteria | Cases |
 | --- | --- | --- |
 | Exact 6 catalog (corrected from stale 4), no pagination, parser, help, nested routing, input omission | Story AC 1; scope comment and release_notes; operation catalog | DHT-TC-001 through 003 |
+| Internal preview opt-in on all 6 serialized requests | BUG-034; DESIGN-020 preview correction | DHT-TC-003, 021 |
 | JSON argument validation, pre-client rejection, CheckConfig discriminated union | Story AC 2 | DHT-TC-004 |
 | Check lifecycle: create/get/replace/delete; replace-class write classification | Story AC 1, 3 | DHT-TC-005 |
 | Nested CheckReport dispatch and bounded --limit | Story AC 1, 3 | DHT-TC-006 |
@@ -297,12 +311,12 @@ No command may receive `attribution`, `preview`, `_sdk_internal`, an absent opti
 | Retry (at-least-once disclosure for create/replace), error taxonomy | Story AC 11, 13 | DHT-TC-015, 016 |
 | Output formats, NDJSON, confidentiality | Story AC 12, 13 | DHT-TC-017, 018 |
 | Imports, console, launcher, wheel/editable, regression gates | Story AC 14, 15 | DHT-TC-019, 020 |
-| Positive, negative, boundary, security, resilience, structural, packaging | Complete design strategy | DHT-TC-001 through 020 |
+| Positive, negative, boundary, security, resilience, structural, packaging | Complete design strategy | DHT-TC-001 through 021 |
 
-All story acceptance criteria have at least one positive case and, where meaningful, a negative, boundary, security, or failure-path case. The 6-operation catalog is fully covered: `check create`/`check replace` via DHT-TC-001 through 005, 009, 015; `check get`/`check delete` via DHT-TC-001 through 003, 005, 009; `check-report get`/`check-report get-latest` via DHT-TC-001 through 003, 006, 009; all 6 via the ACL, attribution, tracing, output, and packaging cases.
+All story acceptance criteria have at least one positive case and, where meaningful, a negative, boundary, security, or failure-path case. The 6-operation catalog is fully covered: `check create`/`check replace` via DHT-TC-001 through 005, 009, 015; `check get`/`check delete` via DHT-TC-001 through 003, 005, 009; `check-report get`/`check-report get-latest` via DHT-TC-001 through 003, 006, 009; all 6 via the ACL, attribution, tracing, output, packaging, and preview request cases.
 
 ## Execution and approval criteria
 
-TESTEXEC-020 may begin only after DEV, UNITTEST, CODEREVIEW, and TESTCASE-020 reach their required completed states and the approved commit is available. Execute all 20 cases with no live network access unless an approved non-production smoke is explicitly authorized.
+TESTEXEC-020 may begin only after DEV, UNITTEST, CODEREVIEW, and TESTCASE-020 reach their required completed states and the approved commit is available. This correction adds DHT-TC-021 to the original 20 cases. Run it as part of BUG-034 verification with no live network access unless an approved non-production smoke is explicitly authorized.
 
 For every case, record PASS, FAIL, or BLOCKED with the exact command, environment, expected result, actual result, stdout, stderr, exit code, SDK calls, filesystem result, cleanup result, and linked evidence. Any failure requires a BUG-SUB before TESTEXEC-020 can close. Final QA sign-off also requires all linked defects to be terminal, every story acceptance criterion to have passing evidence, supported Python checks to pass, and repository branch coverage to remain at least 80%.

@@ -1,0 +1,941 @@
+{
+  "reviewer": "/root/final_tool_packaging_verify",
+  "candidate_sha": "657215f37a242889c8b36d104e15bff49587ffb4",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "candidate_commit",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_candidate_commit.log"
+    },
+    {
+      "name": "clone",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_clone.log"
+    },
+    {
+      "name": "checkout",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_checkout.log"
+    },
+    {
+      "name": "snapshot_clean",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_snapshot_clean.log"
+    },
+    {
+      "name": "build",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_build.log"
+    },
+    {
+      "name": "twine",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_twine.log"
+    },
+    {
+      "name": "311wheel_create_venv",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_311wheel_create_venv.log"
+    },
+    {
+      "name": "311wheel_before",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_311wheel_before.log"
+    },
+    {
+      "name": "311wheel_install",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_311wheel_install.log"
+    },
+    {
+      "name": "311wheel_pipcheck",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_311wheel_pipcheck.log"
+    },
+    {
+      "name": "311wheel_runtime",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_311wheel_runtime.log"
+    },
+    {
+      "name": "311wheel_flat_decode",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_311wheel_flat_decode.log"
+    },
+    {
+      "name": "311wheel_nested_decode",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_311wheel_nested_decode.log"
+    },
+    {
+      "name": "311sdist_create_venv",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_311sdist_create_venv.log"
+    },
+    {
+      "name": "311sdist_before",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_311sdist_before.log"
+    },
+    {
+      "name": "311sdist_install",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_311sdist_install.log"
+    },
+    {
+      "name": "311sdist_pipcheck",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_311sdist_pipcheck.log"
+    },
+    {
+      "name": "311sdist_runtime",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_311sdist_runtime.log"
+    },
+    {
+      "name": "311sdist_flat_decode",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_311sdist_flat_decode.log"
+    },
+    {
+      "name": "311sdist_nested_decode",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_311sdist_nested_decode.log"
+    },
+    {
+      "name": "312wheel_create_venv",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_312wheel_create_venv.log"
+    },
+    {
+      "name": "312wheel_before",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_312wheel_before.log"
+    },
+    {
+      "name": "312wheel_install",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_312wheel_install.log"
+    },
+    {
+      "name": "312wheel_pipcheck",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_312wheel_pipcheck.log"
+    },
+    {
+      "name": "312wheel_runtime",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_312wheel_runtime.log"
+    },
+    {
+      "name": "312wheel_flat_decode",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_312wheel_flat_decode.log"
+    },
+    {
+      "name": "312wheel_nested_decode",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_312wheel_nested_decode.log"
+    },
+    {
+      "name": "312sdist_create_venv",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_312sdist_create_venv.log"
+    },
+    {
+      "name": "312sdist_before",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_312sdist_before.log"
+    },
+    {
+      "name": "312sdist_install",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_312sdist_install.log"
+    },
+    {
+      "name": "312sdist_pipcheck",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_312sdist_pipcheck.log"
+    },
+    {
+      "name": "312sdist_runtime",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_312sdist_runtime.log"
+    },
+    {
+      "name": "312sdist_flat_decode",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_312sdist_flat_decode.log"
+    },
+    {
+      "name": "312sdist_nested_decode",
+      "exit_code": 0,
+      "log": ".ept\\tmp\\feature015_packaging\\657215f37a24_312sdist_nested_decode.log"
+    }
+  ],
+  "installations": [
+    {
+      "name": "311wheel",
+      "artifact": "pal_found_cli-0.1.6.dev6+g657215f37-py3-none-any.whl",
+      "runtime": {
+        "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+        "executable": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_packaging\\install311wheel_657215f37a24\\Scripts\\python.exe",
+        "package_file": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_packaging\\install311wheel_657215f37a24\\Lib\\site-packages\\pal_found_cli\\__init__.py",
+        "toon_file": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_packaging\\install311wheel_657215f37a24\\Lib\\site-packages\\toon_format\\__init__.py",
+        "distributions": {
+          "annotated-types": "0.8.0",
+          "anyio": "4.15.1",
+          "certifi": "2026.10.19",
+          "charset-normalizer": "3.5.2",
+          "foundry-platform-sdk": "1.111.0",
+          "h11": "0.16.0",
+          "httpcore": "1.0.9",
+          "httpx": "0.28.1",
+          "httpx-sse": "0.4.3",
+          "idna": "3.20",
+          "pal_found_cli": "0.1.6.dev6+g657215f37",
+          "pip": "24.0",
+          "pydantic": "2.14.1",
+          "pydantic_core": "2.50.1",
+          "python-dotenv": "1.2.4",
+          "PyYAML": "6.0.3",
+          "requests": "2.34.2",
+          "retrying": "1.4.2",
+          "setuptools": "65.5.0",
+          "toon-format": "1.2.0",
+          "typing_extensions": "4.16.0",
+          "typing-inspection": "0.4.4",
+          "urllib3": "2.8.0"
+        }
+      },
+      "console_probes": [
+        {
+          "case": "flat",
+          "exit_code": 0,
+          "roundtrip": "PASS",
+          "header": "[2]{rid,name,active,value}:",
+          "stdout_sha256": "693e6b77ca1a81c61b898c8284c04bdab3c73067741ca313874fc15a20b12b0d",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 2, \"page_size\": 100}\n"
+        },
+        {
+          "case": "nested",
+          "exit_code": 0,
+          "roundtrip": "PASS",
+          "header": "[2]:",
+          "stdout_sha256": "f1867d7ee101946937d784d09362865dd68ea7015b12988d18a7f9f72bdcedd0",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 2, \"page_size\": 100}\n"
+        }
+      ],
+      "pip_check": "PASS"
+    },
+    {
+      "name": "311sdist",
+      "artifact": "pal_found_cli-0.1.6.dev6+g657215f37.tar.gz",
+      "runtime": {
+        "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+        "executable": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_packaging\\install311sdist_657215f37a24\\Scripts\\python.exe",
+        "package_file": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_packaging\\install311sdist_657215f37a24\\Lib\\site-packages\\pal_found_cli\\__init__.py",
+        "toon_file": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_packaging\\install311sdist_657215f37a24\\Lib\\site-packages\\toon_format\\__init__.py",
+        "distributions": {
+          "annotated-types": "0.8.0",
+          "anyio": "4.15.1",
+          "certifi": "2026.10.19",
+          "charset-normalizer": "3.5.2",
+          "foundry-platform-sdk": "1.111.0",
+          "h11": "0.16.0",
+          "httpcore": "1.0.9",
+          "httpx": "0.28.1",
+          "httpx-sse": "0.4.3",
+          "idna": "3.20",
+          "pal_found_cli": "0.1.6.dev6+g657215f37",
+          "pip": "24.0",
+          "pydantic": "2.14.1",
+          "pydantic_core": "2.50.1",
+          "python-dotenv": "1.2.4",
+          "PyYAML": "6.0.3",
+          "requests": "2.34.2",
+          "retrying": "1.4.2",
+          "setuptools": "65.5.0",
+          "toon-format": "1.2.0",
+          "typing_extensions": "4.16.0",
+          "typing-inspection": "0.4.4",
+          "urllib3": "2.8.0"
+        }
+      },
+      "console_probes": [
+        {
+          "case": "flat",
+          "exit_code": 0,
+          "roundtrip": "PASS",
+          "header": "[2]{rid,name,active,value}:",
+          "stdout_sha256": "693e6b77ca1a81c61b898c8284c04bdab3c73067741ca313874fc15a20b12b0d",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 2, \"page_size\": 100}\n"
+        },
+        {
+          "case": "nested",
+          "exit_code": 0,
+          "roundtrip": "PASS",
+          "header": "[2]:",
+          "stdout_sha256": "f1867d7ee101946937d784d09362865dd68ea7015b12988d18a7f9f72bdcedd0",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 2, \"page_size\": 100}\n"
+        }
+      ],
+      "pip_check": "PASS"
+    },
+    {
+      "name": "312wheel",
+      "artifact": "pal_found_cli-0.1.6.dev6+g657215f37-py3-none-any.whl",
+      "runtime": {
+        "python": "3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]",
+        "executable": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_packaging\\install312wheel_657215f37a24\\Scripts\\python.exe",
+        "package_file": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_packaging\\install312wheel_657215f37a24\\Lib\\site-packages\\pal_found_cli\\__init__.py",
+        "toon_file": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_packaging\\install312wheel_657215f37a24\\Lib\\site-packages\\toon_format\\__init__.py",
+        "distributions": {
+          "annotated-types": "0.8.0",
+          "anyio": "4.15.1",
+          "certifi": "2026.10.19",
+          "charset-normalizer": "3.5.2",
+          "foundry-platform-sdk": "1.111.0",
+          "h11": "0.16.0",
+          "httpcore": "1.0.9",
+          "httpx": "0.28.1",
+          "httpx-sse": "0.4.3",
+          "idna": "3.20",
+          "pal_found_cli": "0.1.6.dev6+g657215f37",
+          "pip": "23.2.1",
+          "pydantic": "2.14.1",
+          "pydantic_core": "2.50.1",
+          "python-dotenv": "1.2.4",
+          "PyYAML": "6.0.3",
+          "requests": "2.34.2",
+          "retrying": "1.4.2",
+          "toon-format": "1.2.0",
+          "typing_extensions": "4.16.0",
+          "typing-inspection": "0.4.4",
+          "urllib3": "2.8.0"
+        }
+      },
+      "console_probes": [
+        {
+          "case": "flat",
+          "exit_code": 0,
+          "roundtrip": "PASS",
+          "header": "[2]{rid,name,active,value}:",
+          "stdout_sha256": "693e6b77ca1a81c61b898c8284c04bdab3c73067741ca313874fc15a20b12b0d",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 2, \"page_size\": 100}\n"
+        },
+        {
+          "case": "nested",
+          "exit_code": 0,
+          "roundtrip": "PASS",
+          "header": "[2]:",
+          "stdout_sha256": "f1867d7ee101946937d784d09362865dd68ea7015b12988d18a7f9f72bdcedd0",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 2, \"page_size\": 100}\n"
+        }
+      ],
+      "pip_check": "PASS"
+    },
+    {
+      "name": "312sdist",
+      "artifact": "pal_found_cli-0.1.6.dev6+g657215f37.tar.gz",
+      "runtime": {
+        "python": "3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]",
+        "executable": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_packaging\\install312sdist_657215f37a24\\Scripts\\python.exe",
+        "package_file": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_packaging\\install312sdist_657215f37a24\\Lib\\site-packages\\pal_found_cli\\__init__.py",
+        "toon_file": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_packaging\\install312sdist_657215f37a24\\Lib\\site-packages\\toon_format\\__init__.py",
+        "distributions": {
+          "annotated-types": "0.8.0",
+          "anyio": "4.15.1",
+          "certifi": "2026.10.19",
+          "charset-normalizer": "3.5.2",
+          "foundry-platform-sdk": "1.111.0",
+          "h11": "0.16.0",
+          "httpcore": "1.0.9",
+          "httpx": "0.28.1",
+          "httpx-sse": "0.4.3",
+          "idna": "3.20",
+          "pal_found_cli": "0.1.6.dev6+g657215f37",
+          "pip": "23.2.1",
+          "pydantic": "2.14.1",
+          "pydantic_core": "2.50.1",
+          "python-dotenv": "1.2.4",
+          "PyYAML": "6.0.3",
+          "requests": "2.34.2",
+          "retrying": "1.4.2",
+          "toon-format": "1.2.0",
+          "typing_extensions": "4.16.0",
+          "typing-inspection": "0.4.4",
+          "urllib3": "2.8.0"
+        }
+      },
+      "console_probes": [
+        {
+          "case": "flat",
+          "exit_code": 0,
+          "roundtrip": "PASS",
+          "header": "[2]{rid,name,active,value}:",
+          "stdout_sha256": "693e6b77ca1a81c61b898c8284c04bdab3c73067741ca313874fc15a20b12b0d",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 2, \"page_size\": 100}\n"
+        },
+        {
+          "case": "nested",
+          "exit_code": 0,
+          "roundtrip": "PASS",
+          "header": "[2]:",
+          "stdout_sha256": "f1867d7ee101946937d784d09362865dd68ea7015b12988d18a7f9f72bdcedd0",
+          "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 2, \"page_size\": 100}\n"
+        }
+      ],
+      "pip_check": "PASS"
+    }
+  ],
+  "scope": "Local Windows wheel and sdist installation; no release upload, Foundry access, Linux, private mirror, or air-gap deployment.",
+  "toon_upstream_provenance": {
+    "url": "https://files.pythonhosted.org/packages/06/9e/88b94e00ae3589130bb2bde233c60b55776deb670cc3d077657d6a8b9a2e/toon_format-1.2.0.tar.gz",
+    "sha256": "ed09c0cb8ba58f17372f876df1e43400d2d916aef67c641f152d8a28c5898669",
+    "license": null,
+    "license_expression": "MIT",
+    "project_urls": {
+      "Changelog": "https://github.com/toon-format/toon-python/blob/main/CHANGELOG.md",
+      "Documentation": "https://toon-format.readthedocs.io/en/stable/",
+      "Homepage": "https://toonformat.dev",
+      "Issues": "https://github.com/toon-format/toon-python/issues",
+      "Repository": "https://github.com/toon-format/toon-python",
+      "Specification": "https://github.com/toon-format/spec/blob/main/SPEC.md"
+    }
+  },
+  "private_mirror_procedure": [
+    "Download the reviewed CLI wheel and all declared dependencies with pip download --only-binary=:all: --dest wheelhouse <reviewed-CLI-wheel>; retain SHA256 manifests and licenses.",
+    "Populate the approved private package index with those exact reviewed artifacts, including toon-format==1.2.0. Configure index authentication outside source control.",
+    "For an isolated wheelhouse install, run python -m pip install --no-index --find-links wheelhouse <reviewed-CLI-wheel>, followed by python -m pip check and the TOON decode smoke check.",
+    "This report verifies public PyPI dependency resolution locally. Private mirror authentication and production air-gap installation require their own environment checks."
+  ],
+  "source_status_before_build": "",
+  "artifacts": [
+    {
+      "name": "pal_found_cli-0.1.6.dev6+g657215f37-py3-none-any.whl",
+      "sha256": "8309c0db7905ede55e80e8109397a9bcb48a5c3db87a914415c0ff329d91f97d",
+      "bytes": 165972
+    },
+    {
+      "name": "pal_found_cli-0.1.6.dev6+g657215f37.tar.gz",
+      "sha256": "693ba1d52c28a950fc7f61f989eefb3a0cd28de31f9c9ef39ee5ccce5f3aaf87",
+      "bytes": 254255
+    }
+  ],
+  "wheel_metadata": [
+    "Name: pal_found_cli",
+    "Version: 0.1.6.dev6+g657215f37",
+    "Requires-Python: >=3.11",
+    "Requires-Dist: foundry-platform-sdk>=1.0.0",
+    "Requires-Dist: python-dotenv>=1.0.0",
+    "Requires-Dist: requests>=2.31.0",
+    "Requires-Dist: toon-format==1.2.0",
+    "Requires-Dist: pytest>=8.0; extra == \"dev\"",
+    "Requires-Dist: pytest-asyncio>=0.24; extra == \"dev\"",
+    "Requires-Dist: pytest-cov>=5.0; extra == \"dev\"",
+    "Requires-Dist: mypy>=1.0; extra == \"dev\"",
+    "Requires-Dist: ruff>=0.4.0; extra == \"dev\"",
+    "Requires-Dist: bandit>=1.7.0; extra == \"dev\""
+  ],
+  "wheel_sdist_status": "PASS",
+  "conda": {
+    "status": "PASS",
+    "git_tag": "v0.1.6.dev6+g657215f37",
+    "build_python_variant": "3.11",
+    "artifacts": [
+      {
+        "path": ".ept\\tmp\\feature015_packaging\\conda-channel-657215f37a24\\noarch\\pal_found_cli-0.1.6.dev6+g657215f37-py_0.conda",
+        "sha256": "52fe597a669748ee94873f0b8d77bafc0696c47a9386d65f7f54377e7a990ae8",
+        "bytes": 85437
+      }
+    ],
+    "dependency": {
+      "path": ".ept\\tmp\\feature015_packaging\\conda-channel\\noarch\\toon-format-1.2.0-py_0.conda",
+      "sha256": "1ffc42a062a419004e7b69ecbffa00ec52c542d7e7498c47ed16f24eb01b0566"
+    },
+    "installations": [
+      {
+        "runtime": {
+          "python": "3.11.17 | packaged by conda-forge | (main, Oct 13 2026, 16:36:10) [MSC v.1944 64 bit (AMD64)]",
+          "executable": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_packaging\\conda-install311-657215f37a24\\python.exe",
+          "package_file": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_packaging\\conda-install311-657215f37a24\\Lib\\site-packages\\pal_found_cli\\__init__.py",
+          "toon_file": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_packaging\\conda-install311-657215f37a24\\Lib\\site-packages\\toon_format\\__init__.py",
+          "distributions": {
+            "annotated-types": "0.8.0",
+            "anyio": "4.15.1",
+            "backports.zstd": "1.8.0",
+            "Brotli": "1.2.0",
+            "certifi": "2026.10.19",
+            "charset-normalizer": "3.5.2",
+            "foundry-platform-sdk": "1.110.0",
+            "h11": "0.16.0",
+            "h2": "4.4.1",
+            "hpack": "4.2.0",
+            "httpcore": "1.0.9",
+            "httpx": "0.28.1",
+            "httpx-sse": "0.4.3",
+            "hyperframe": "6.1.0",
+            "idna": "3.20",
+            "packaging": "26.3",
+            "pal_found_cli": "0.1.6.dev6+g657215f37",
+            "pip": "26.2.1",
+            "pydantic": "2.14.1",
+            "pydantic_core": "2.50.1",
+            "PySocks": "1.7.1",
+            "python-dotenv": "1.2.4",
+            "PyYAML": "6.0.3",
+            "requests": "2.34.2",
+            "retrying": "1.4.2",
+            "setuptools": "84.2.0",
+            "sniffio": "1.3.1",
+            "toon-format": "1.2.0",
+            "typing_extensions": "4.16.0",
+            "typing-inspection": "0.4.4",
+            "urllib3": "2.8.0",
+            "wheel": "0.48.0",
+            "win_inet_pton": "1.1.0"
+          }
+        },
+        "conda_records": [
+          {
+            "name": "pal_found_cli",
+            "version": "0.1.6.dev6+g657215f37",
+            "build": "py_0",
+            "url": "file:///E:/learn/GenAI_Foundations_DA/git/foundry_cli/.ept/tmp/feature015_packaging/conda-channel-657215f37a24/noarch/pal_found_cli-0.1.6.dev6+g657215f37-py_0.conda",
+            "sha256": "52fe597a669748ee94873f0b8d77bafc0696c47a9386d65f7f54377e7a990ae8",
+            "depends": [
+              "foundry-platform-sdk >=1.0",
+              "python >=3.11",
+              "python-dotenv >=1.0",
+              "requests >=2.31",
+              "toon-format 1.2.0"
+            ]
+          },
+          {
+            "name": "toon-format",
+            "version": "1.2.0",
+            "build": "py_0",
+            "url": "file:///E:/learn/GenAI_Foundations_DA/git/foundry_cli/.ept/tmp/feature015_packaging/conda-channel/noarch/toon-format-1.2.0-py_0.conda",
+            "sha256": "1ffc42a062a419004e7b69ecbffa00ec52c542d7e7498c47ed16f24eb01b0566",
+            "depends": [
+              "python >=3.10"
+            ]
+          }
+        ],
+        "pip_check": "PASS",
+        "console_probes": [
+          {
+            "case": "flat",
+            "status": "PASS",
+            "stdout_sha256": "693e6b77ca1a81c61b898c8284c04bdab3c73067741ca313874fc15a20b12b0d",
+            "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 2, \"page_size\": 100}\n"
+          },
+          {
+            "case": "nested",
+            "status": "PASS",
+            "stdout_sha256": "f1867d7ee101946937d784d09362865dd68ea7015b12988d18a7f9f72bdcedd0",
+            "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 2, \"page_size\": 100}\n"
+          }
+        ]
+      },
+      {
+        "runtime": {
+          "python": "3.12.15 | packaged by conda-forge | (main, Oct 13 2026, 16:44:09) [MSC v.1944 64 bit (AMD64)]",
+          "executable": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_packaging\\conda-install312-657215f37a24\\python.exe",
+          "package_file": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_packaging\\conda-install312-657215f37a24\\Lib\\site-packages\\pal_found_cli\\__init__.py",
+          "toon_file": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\feature015_packaging\\conda-install312-657215f37a24\\Lib\\site-packages\\toon_format\\__init__.py",
+          "distributions": {
+            "python-dotenv": "1.2.4",
+            "annotated-types": "0.8.0",
+            "anyio": "4.15.1",
+            "backports.zstd": "1.8.0",
+            "Brotli": "1.2.0",
+            "certifi": "2026.10.19",
+            "charset-normalizer": "3.5.2",
+            "foundry-platform-sdk": "1.110.0",
+            "h11": "0.16.0",
+            "h2": "4.4.1",
+            "hpack": "4.2.0",
+            "httpcore": "1.0.9",
+            "httpx": "0.28.1",
+            "httpx-sse": "0.4.3",
+            "hyperframe": "6.1.0",
+            "idna": "3.20",
+            "packaging": "26.3",
+            "pal_found_cli": "0.1.6.dev6+g657215f37",
+            "pip": "26.2.1",
+            "pydantic": "2.14.1",
+            "pydantic_core": "2.50.1",
+            "PySocks": "1.7.1",
+            "PyYAML": "6.0.3",
+            "requests": "2.34.2",
+            "retrying": "1.4.2",
+            "setuptools": "84.2.0",
+            "sniffio": "1.3.1",
+            "toon-format": "1.2.0",
+            "typing_extensions": "4.16.0",
+            "typing-inspection": "0.4.4",
+            "urllib3": "2.8.0",
+            "wheel": "0.48.0",
+            "win_inet_pton": "1.1.0"
+          }
+        },
+        "conda_records": [
+          {
+            "name": "pal_found_cli",
+            "version": "0.1.6.dev6+g657215f37",
+            "build": "py_0",
+            "url": "file:///E:/learn/GenAI_Foundations_DA/git/foundry_cli/.ept/tmp/feature015_packaging/conda-channel-657215f37a24/noarch/pal_found_cli-0.1.6.dev6+g657215f37-py_0.conda",
+            "sha256": "52fe597a669748ee94873f0b8d77bafc0696c47a9386d65f7f54377e7a990ae8",
+            "depends": [
+              "foundry-platform-sdk >=1.0",
+              "python >=3.11",
+              "python-dotenv >=1.0",
+              "requests >=2.31",
+              "toon-format 1.2.0"
+            ]
+          },
+          {
+            "name": "toon-format",
+            "version": "1.2.0",
+            "build": "py_0",
+            "url": "file:///E:/learn/GenAI_Foundations_DA/git/foundry_cli/.ept/tmp/feature015_packaging/conda-channel/noarch/toon-format-1.2.0-py_0.conda",
+            "sha256": "1ffc42a062a419004e7b69ecbffa00ec52c542d7e7498c47ed16f24eb01b0566",
+            "depends": [
+              "python >=3.10"
+            ]
+          }
+        ],
+        "pip_check": "PASS",
+        "console_probes": [
+          {
+            "case": "flat",
+            "status": "PASS",
+            "stdout_sha256": "693e6b77ca1a81c61b898c8284c04bdab3c73067741ca313874fc15a20b12b0d",
+            "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 2, \"page_size\": 100}\n"
+          },
+          {
+            "case": "nested",
+            "status": "PASS",
+            "stdout_sha256": "f1867d7ee101946937d784d09362865dd68ea7015b12988d18a7f9f72bdcedd0",
+            "stderr": "# ---metadata-start---\n{\"pages_fetched\": 1, \"total_items\": 2, \"page_size\": 100}\n"
+          }
+        ]
+      }
+    ],
+    "installation_status": "PASS",
+    "build_log": ".ept/tmp/feature015_packaging/657215f37a24_conda_build.log",
+    "build_host_python": "3.11.17",
+    "recipe_test_python": "3.11.17",
+    "nonfatal_build_warnings": [
+      "Conda-build emitted a missing _build_env activation warning on Windows. Host pip install, package imports, console help, formatter round trip, and recipe test completed with exit 0. Fresh installed artifacts separately passed probes.",
+      "Exact meta.yaml selection emitted multiple-meta-file warnings; output contained only the requested CLI package and did not rebuild toon-format."
+    ],
+    "installed_artifact_identity": "PASS: both clean environments installed the exact CLI and original dependency artifact hashes recorded above."
+  },
+  "network_probe_policy": "SDK client creation replaced by synthetic offline factory. External socket.connect/create_connection forbidden; localhost allowed solely for Windows asyncio self-pipe.",
+  "artifact_source_continuity": {
+    "status": "PASS",
+    "files": 71,
+    "source_commit": "657215f37a242889c8b36d104e15bff49587ffb4",
+    "exception": "setuptools-scm regenerates src/pal_found_cli/_version.py; installed distribution metadata checked separately.",
+    "rows": [
+      {
+        "path": "src/pal_found_cli/__init__.py",
+        "sha256": "604a9340e02a299ddc26820eb770dbb24b8f43267b638eaaa01e2a7bd84e4f1a"
+      },
+      {
+        "path": "src/pal_found_cli/admin/__init__.py",
+        "sha256": "5224c7a86b21eb993485ea3395cd24546b7114dfa0753f6f988b80881f9ae28a"
+      },
+      {
+        "path": "src/pal_found_cli/admin/scripts/pal_found_admin_cli.py",
+        "sha256": "64f63914cb4b200a9de837aab8715dc96d414c2fa1319a824204a6bb211cbee6"
+      },
+      {
+        "path": "src/pal_found_cli/admin/scripts/__init__.py",
+        "sha256": "93446d3fe62b12815c6e928e86e7c70de268448772c7c07428b1d7faf436f678"
+      },
+      {
+        "path": "src/pal_found_cli/aip_agents/__init__.py",
+        "sha256": "0dc56d0e88c412c1271086f46d717067ed4e89bf47a696882542c976541ca5f3"
+      },
+      {
+        "path": "src/pal_found_cli/aip_agents/scripts/pal_found_aip_agents_cli.py",
+        "sha256": "ba5e20290917f5b7845abbf2822c3fa1668d891b62694aa2324e99b506a89ccb"
+      },
+      {
+        "path": "src/pal_found_cli/aip_agents/scripts/__init__.py",
+        "sha256": "63d9438d284ba7def83fe0bd6b647a235c10f5134768e1c11c3e9cac4eef40f0"
+      },
+      {
+        "path": "src/pal_found_cli/audit/__init__.py",
+        "sha256": "065a479b74c57f77a6b85319556f3dc3b7596f55871fb534f0f3d35194defb9b"
+      },
+      {
+        "path": "src/pal_found_cli/audit/scripts/pal_found_audit_cli.py",
+        "sha256": "c6157ccbad678429bfd41f92681d55382ac2f8cf8fea21dfd5a44a223f3b1664"
+      },
+      {
+        "path": "src/pal_found_cli/audit/scripts/__init__.py",
+        "sha256": "231617281ac4487ab3722a9d4bc6cbe2f8a94ae3e41f36a19115373681539c7c"
+      },
+      {
+        "path": "src/pal_found_cli/checkpoints/__init__.py",
+        "sha256": "7d4dd16d38518b5045f7afb4a5282035f586f73dd0866e9034b3ca5adce6f935"
+      },
+      {
+        "path": "src/pal_found_cli/checkpoints/scripts/pal_found_checkpoints_cli.py",
+        "sha256": "ba14171f2675956385cabaf1460c699cd6516c4eccfb8f5e82df95edbc13b399"
+      },
+      {
+        "path": "src/pal_found_cli/checkpoints/scripts/__init__.py",
+        "sha256": "7fa0dffd2d38c06d1eee95bd7cc2ef9d2f006c20e41d89d98ffca7501a77eb02"
+      },
+      {
+        "path": "src/pal_found_cli/common/access_control_guard.py",
+        "sha256": "62aca2ad1b1504dbcdf1b1cee92f8e025cb3870694f506971bb24eb23efead61"
+      },
+      {
+        "path": "src/pal_found_cli/common/async_client_factory.py",
+        "sha256": "6ca5c512a625ca019ff6070f8b4d9808db8946aa3dd18cce0268d0d3a62cd6b4"
+      },
+      {
+        "path": "src/pal_found_cli/common/auth_provider.py",
+        "sha256": "1cc1436999bb3b04b854bfdeff4c3d5aafdb38bb8f1f58ce43817869f62a253e"
+      },
+      {
+        "path": "src/pal_found_cli/common/binary_download_handler.py",
+        "sha256": "60918187fad8f0a195fab73f1dc61b5ff4df124f2a8f697822f7ac39e84ffcab"
+      },
+      {
+        "path": "src/pal_found_cli/common/cli_parser.py",
+        "sha256": "35a813c652ecb5cfb791479c73bd88a74189b7e97d94c4f409d9d373ef0a5f47"
+      },
+      {
+        "path": "src/pal_found_cli/common/config_loader.py",
+        "sha256": "b7ccddda86b733302f1f8f1800dfd172207361bdc661045b64871ded0e8af7bc"
+      },
+      {
+        "path": "src/pal_found_cli/common/error_serializer.py",
+        "sha256": "8ef68e5e0065411c297d7119d40ee0898693062c2f7df02d2318c679151ac02b"
+      },
+      {
+        "path": "src/pal_found_cli/common/log_setup.py",
+        "sha256": "17b980b160308b0b21569b63f07cf67da7ad4b5c7cf602d1bb44f7acdc3f9f6b"
+      },
+      {
+        "path": "src/pal_found_cli/common/output_formatter.py",
+        "sha256": "4b7f78a68cddb999a0474195f76545bd8f755d80ee18e71c9d0628c4718b7383"
+      },
+      {
+        "path": "src/pal_found_cli/common/pagination_helper.py",
+        "sha256": "b831ea4c2d64b48e5ed5a9558da2a19f4933d27d4290922d266030db1796e5db"
+      },
+      {
+        "path": "src/pal_found_cli/common/retry.py",
+        "sha256": "3464aa78aaeaf3a592e789e5f0fb612f4c14cbc412ad0b37919f9b4c4487dda0"
+      },
+      {
+        "path": "src/pal_found_cli/common/sdk_error_utils.py",
+        "sha256": "b5b34644179677b2cda83237c93e8b038583ba2c300764e2734e8d05392e2d4e"
+      },
+      {
+        "path": "src/pal_found_cli/common/session_manager.py",
+        "sha256": "bbc255c436c0f01e4ff29e61301475346c5766ee137afb39868513b0e7dc7f32"
+      },
+      {
+        "path": "src/pal_found_cli/common/timeout_config.py",
+        "sha256": "76b9896c096f689734e106b9be559ea59d2f22123799d423f39446172263e4c7"
+      },
+      {
+        "path": "src/pal_found_cli/common/tracing_provider.py",
+        "sha256": "0cdc2b00727b83b723329cc71ac6179bb73860e47f0c4fcf14a6fec7f3b1cc56"
+      },
+      {
+        "path": "src/pal_found_cli/common/__init__.py",
+        "sha256": "904005620458297d6171f98341a2d05d7ff7b1e1dffb5e2305036dc7cf9b9de7"
+      },
+      {
+        "path": "src/pal_found_cli/connectivity/__init__.py",
+        "sha256": "f565f7197b5f54d78a4364415b24bf7d24ef5e174d69dcd1166657a1d9c6f2c4"
+      },
+      {
+        "path": "src/pal_found_cli/connectivity/scripts/pal_found_connectivity_cli.py",
+        "sha256": "d92b3a9127fefc4ea3b8d17ae90a6f5fe3983e6f9653af9f2fec3bbd8627e20d"
+      },
+      {
+        "path": "src/pal_found_cli/connectivity/scripts/__init__.py",
+        "sha256": "676578db236cf9573887a15767ba0116b8d69b2250b2517149b26939704ffbc1"
+      },
+      {
+        "path": "src/pal_found_cli/datasets/__init__.py",
+        "sha256": "533ab157b069008d9e4ee727c1b4fc0619af99c452c852976990d177e5770f4f"
+      },
+      {
+        "path": "src/pal_found_cli/datasets/scripts/pal_found_datasets_cli.py",
+        "sha256": "c6a1597371c8425f6649b718dfac1f2fa114609d764f1a976ca96951dc538829"
+      },
+      {
+        "path": "src/pal_found_cli/datasets/scripts/__init__.py",
+        "sha256": "dc5be5dc6e838bc27d40c9db91fa0ab4cf90fa5fab1f2650ecbc0b66acd217bd"
+      },
+      {
+        "path": "src/pal_found_cli/data_health/__init__.py",
+        "sha256": "23bf0ee5ba78783afc1f2e780de7a02c387a38b030d14abcd36e0beb1ab8d67e"
+      },
+      {
+        "path": "src/pal_found_cli/data_health/scripts/pal_found_data_health_cli.py",
+        "sha256": "826f07a038eaaf2aecec3486d3cb744b3dcac8f5105ae3371a4fe58a23a8e3a0"
+      },
+      {
+        "path": "src/pal_found_cli/data_health/scripts/__init__.py",
+        "sha256": "eaa869396b9b3c3fcc98fc3626362155ff0b35c8e5e9f4d64d1d7ffd33da5c58"
+      },
+      {
+        "path": "src/pal_found_cli/filesystem/__init__.py",
+        "sha256": "92d9d2ef125d27bc7a09bf1d6fd63defa7f42784daac4e6fdb4c961d8e2eb952"
+      },
+      {
+        "path": "src/pal_found_cli/filesystem/scripts/pal_found_filesystem_cli.py",
+        "sha256": "feea75e894ba263672feb3ec0a6250a900043620a47f35288df77c1d190ff596"
+      },
+      {
+        "path": "src/pal_found_cli/filesystem/scripts/__init__.py",
+        "sha256": "67c76e321d92689d21de2d751e27ec56bcdd0fab69ec36b9b99b873f2daddbf8"
+      },
+      {
+        "path": "src/pal_found_cli/functions/__init__.py",
+        "sha256": "92f814f3795e256fca6f75f6c94dec168a778cb2216003459d6066a730d8250c"
+      },
+      {
+        "path": "src/pal_found_cli/functions/scripts/pal_found_functions_cli.py",
+        "sha256": "2d7c2b8e6ff7a40be2f3c7bd77e020083aa575c6bfd81ae1431f70667dbe2c9f"
+      },
+      {
+        "path": "src/pal_found_cli/functions/scripts/__init__.py",
+        "sha256": "e14693c4c077f1ad9f99d281bf8eb4af1c02ad100df9087016d23ffe0cab9da5"
+      },
+      {
+        "path": "src/pal_found_cli/language_models/__init__.py",
+        "sha256": "8e8ae4454c1c79124bfe8a4ef56d580b34b2df33abc127c0a15bfdb32ca8bc96"
+      },
+      {
+        "path": "src/pal_found_cli/language_models/scripts/pal_found_language_models_cli.py",
+        "sha256": "cbec77f413460511456db7b0158c279240c467c6da0f809cad2102b1ee8acd85"
+      },
+      {
+        "path": "src/pal_found_cli/language_models/scripts/__init__.py",
+        "sha256": "158fa392cd342e91c98d91c0300f53013bd40ff5b6c20fa54fd93cf65298a116"
+      },
+      {
+        "path": "src/pal_found_cli/media_sets/__init__.py",
+        "sha256": "d8944d9e4bd8f12ae7b4fd30446aef4fda098f38bd5713b1ca119a7b026f0f0a"
+      },
+      {
+        "path": "src/pal_found_cli/media_sets/scripts/pal_found_media_sets_cli.py",
+        "sha256": "f70e1ed60ae9e4133bc4505d780e0a92fdf27f83fab58713daa3536e5ad25a03"
+      },
+      {
+        "path": "src/pal_found_cli/media_sets/scripts/__init__.py",
+        "sha256": "759a81ec6e296ca6ff5abdab0c721533b8596b39a4d2b223b11179c804b961f7"
+      },
+      {
+        "path": "src/pal_found_cli/models/__init__.py",
+        "sha256": "a813cb3811902045631c35e22c39edf1469be841718945bb1ccba2b2d0a80d6d"
+      },
+      {
+        "path": "src/pal_found_cli/models/scripts/pal_found_models_cli.py",
+        "sha256": "0aae43647a16423796675a3c0d019f1987c410e417d914193aa1f8352d0437fd"
+      },
+      {
+        "path": "src/pal_found_cli/models/scripts/__init__.py",
+        "sha256": "e56219a54bec2eee6ba55a2b23c28ddc82ff4974d114f1d35e515da9653dd278"
+      },
+      {
+        "path": "src/pal_found_cli/ontologies/__init__.py",
+        "sha256": "107d43277f2ac427697a2113fd56ddc4c6761ffdef517017535cb9ab5c5e74be"
+      },
+      {
+        "path": "src/pal_found_cli/ontologies/scripts/pal_found_ontologies_cli.py",
+        "sha256": "6fd6d2c8981167a4f6037f2c693e526df50eff1c6b2d12e53125606046f02fd5"
+      },
+      {
+        "path": "src/pal_found_cli/ontologies/scripts/__init__.py",
+        "sha256": "8d9772bae4e969e4752f630d6a12210f99dcbb025c50a6bb701e0b8119538d31"
+      },
+      {
+        "path": "src/pal_found_cli/orchestration/__init__.py",
+        "sha256": "78746206d4d29998df075cd02d2f6c5d45743fe8f0abe3ebda2de7fdc6599135"
+      },
+      {
+        "path": "src/pal_found_cli/orchestration/scripts/pal_found_orchestration_cli.py",
+        "sha256": "8174661a2e8233ee01b5afa854493e0bdcfe2dfd23a4dd3134d45a948b90942a"
+      },
+      {
+        "path": "src/pal_found_cli/orchestration/scripts/__init__.py",
+        "sha256": "b10883cdf3758924105640a5c8e0decc4b84d3ecb4f09467ed7b8bf48cd7f791"
+      },
+      {
+        "path": "src/pal_found_cli/sql_queries/__init__.py",
+        "sha256": "bc74a7fec963d2c722a5681e653b7ddb88ce71885749e6308b554513e9f307cc"
+      },
+      {
+        "path": "src/pal_found_cli/sql_queries/scripts/pal_found_sql_queries_cli.py",
+        "sha256": "d7bc8f0efb218e48a3d8f10f5fb3c1291e8ee0ee40bbb9bda3e3e57562289017"
+      },
+      {
+        "path": "src/pal_found_cli/sql_queries/scripts/__init__.py",
+        "sha256": "e066471687f65d85d4ce0b68eca36764bff15fe519911299e785ebebe8b35f29"
+      },
+      {
+        "path": "src/pal_found_cli/streams/__init__.py",
+        "sha256": "d9dc8baccb7a230161e8421c2834126f0b4fc84c9ad7b6d38936285e8a7d73d9"
+      },
+      {
+        "path": "src/pal_found_cli/streams/scripts/pal_found_streams_cli.py",
+        "sha256": "824c9b2a280ef564e7f99843195d2dd52baf2160a41e863a32956f977e6fc232"
+      },
+      {
+        "path": "src/pal_found_cli/streams/scripts/__init__.py",
+        "sha256": "b4ba524a21a16fd17ecd3c5509284a36902ef4384981793ea4612e937de0ca98"
+      },
+      {
+        "path": "src/pal_found_cli/third_party_applications/__init__.py",
+        "sha256": "ff512ae28c1a7964a9ea68628da5e2ff96c9652592dc73b57d883de595e447bd"
+      },
+      {
+        "path": "src/pal_found_cli/third_party_applications/scripts/pal_found_third_party_applications_cli.py",
+        "sha256": "b3a976e0c90c11fab60d0dca01dfd1baed37c4e6ecb24018bc085a9743aa4989"
+      },
+      {
+        "path": "src/pal_found_cli/third_party_applications/scripts/__init__.py",
+        "sha256": "11c72ace135cd1f147b007e0d4be673791a751e1c9af5ea9ba610efb0af15c4d"
+      },
+      {
+        "path": "src/pal_found_cli/widgets/__init__.py",
+        "sha256": "e5e9c92ef8411cb909a214d5c9125ed421ec011a063a3f20d0b941d6ebdbd5ad"
+      },
+      {
+        "path": "src/pal_found_cli/widgets/scripts/pal_found_widgets_cli.py",
+        "sha256": "905a6eee42d6e62bd577617dea43fda3f31045c3fc8bd9df824110f4538b41fa"
+      },
+      {
+        "path": "src/pal_found_cli/widgets/scripts/__init__.py",
+        "sha256": "35a0588b1892c3959d69e1cdd0ff8e020d6b5c44dd4dd5cf2b787c4e192c03b9"
+      }
+    ]
+  },
+  "packaging_status": "PASS",
+  "release_approved": false,
+  "approval_scope": "Packaging verification only. Feature acceptance and release publication remain with the project manager.",
+  "summary": {
+    "clean_installations": 6,
+    "pip_checks_passed": 6,
+    "real_console_toon_roundtrips_passed": 12,
+    "wheel_sdist_status": "PASS",
+    "conda_status": "PASS"
+  }
+}
