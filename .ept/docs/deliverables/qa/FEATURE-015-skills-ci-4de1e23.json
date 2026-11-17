@@ -1,0 +1,33 @@
+{
+  "observed_at_utc": "2026-11-17T12:37:17.4462681Z",
+  "repository": "t-jet/pal_found_cli_skills",
+  "pull_request": "https://github.com/t-jet/pal_found_cli_skills/pull/1",
+  "state": "open",
+  "draft": true,
+  "candidate_sha": "4de1e23e98017536bcff0eef2aa1d057e576e056",
+  "remote_branch_sha": "4de1e23e98017536bcff0eef2aa1d057e576e056",
+  "pull_request_head_sha": "4de1e23e98017536bcff0eef2aa1d057e576e056",
+  "body": "This draft contains the reviewed FEATURE-015 checkpoint at `4de1e23e98017536bcff0eef2aa1d057e576e056`. All 425 operation semantics remain accepted. Formal acceptance now covers 229 operations, with 196 pending. Whole-page results remain 153 accepted and 39 pending, plus the overall audit gate. G1-G7 acceptance and a skills main merge remain outstanding.\r\n\r\nREST077 adds independent acceptance for 23 operations using the preserved November 16 execution evidence. The original executor recorded 597 checks: 587 operation checks and 10 annex checks. The source cases were Closed before that run. November 17 tracker recovery closed the execution record and advanced the story to Deployment; it did not create another test run. Original archive bytes, canonical manifest, inventory and 142 full comment bodies remain under `maintainer/evidence/rest077/`, together with independent acceptance and binding/diff proofs. Isolation evidence includes one actual `create_connection` probe and three patched entry points. CPU usage was not recorded; no live Foundry execution is claimed.\r\n\r\nREST079 and REST089 each add one independently reviewed test file. REST079 covers 32 operations in all six SDK forms, with 192 independent wire-mode checks and 320 detected path, cleanup and cancellation faults. REST089 covers 40 operations, 222 available success forms, 18 unsupported void forms, 143 named-error union entries, 816 named-error calls, 222 generic-error calls and 184 detected mutations. REST089 default Arrow decoding has independent evidence; its existing primary result placeholder remains qualified as transport-only, and its linked lifecycle requests and decodes CSV. These unit changes preserve all product skill and fixture bytes and do not add formal acceptance.\r\n\r\nOriginal author and independent peer reports, executable probes, JUnit, source bindings and mutation evidence are retained under `maintainer/evidence/unit079089-20261117/`. The manifest distinguishes four author/peer identities and labels the REST089 author provenance record as a publication-time record of the PM-confirmed handoff. Original probe paths and base preconditions are retained; archiving them is not another execution.\r\n\r\nLocal validation: 2,391 combined targeted tests and 44 metadata/acceptance gate guards passed. Ruff and byte/diff checks passed; 4,637 tracked product and fixture files match the previous published checkpoint. The release verifier reports only the expected 196 formal QA/provenance rows and 40 skill review gates. Earlier full-suite results belong to their original heads; fresh GitHub validation will check this head.\r\n\r\nThe workflow parser source remains tool main `1e2e61bc0a56afe9af75e77170358d93ff6cf9d1`, whose eight main CI checks passed: https://github.com/t-jet/pal_found_cli_tool/actions/runs/43951678939. The published tracker snapshot remains as of November 16, 2026 at 12:55; later source workflow is reported separately.\r\n\r\nKeep this PR open and draft pending remaining acceptance gates. No main merge, release tag or package publication is included.\r\n\r\nTwo legacy Geotemporal CLI names remain under separate compatibility review: enabled-path checks found their SDK methods absent in the two supported test versions. Classification against the approved feature-flag and availability contract is pending; no unsupported-operation waiver is accepted by this checkpoint.\r\n",
+  "checks": [
+    {
+      "name": "validate",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "4de1e23e98017536bcff0eef2aa1d057e576e056",
+      "html_url": "https://github.com/t-jet/pal_found_cli_skills/actions/runs/44084297861/job/134042578791",
+      "started_at": "2026-11-17T12:33:48Z",
+      "completed_at": "2026-11-17T12:35:25Z"
+    }
+  ],
+  "workflows": [
+    {
+      "id": 44084297861,
+      "name": "Validate skills",
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "4de1e23e98017536bcff0eef2aa1d057e576e056",
+      "html_url": "https://github.com/t-jet/pal_found_cli_skills/actions/runs/44084297861"
+    }
+  ]
+}
