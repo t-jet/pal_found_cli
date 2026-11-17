@@ -2,13 +2,14 @@
 id: DEV-069
 type: development
 title: DEV-STORY-087 development J14 AIP REST contracts
-status: In Progress
+status: Closed
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-29
 priority: High
 assignee: python-developer
 reporter: tech-lead
 estimated_hours: 32
+time_spent_hours: 1.4079138887e-05
 ---
 
 # DEV-STORY-087 development

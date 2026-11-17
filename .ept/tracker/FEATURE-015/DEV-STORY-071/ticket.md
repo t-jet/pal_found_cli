@@ -2,11 +2,11 @@
 id: DEV-STORY-071
 type: dev_story
 title: 'Author offline REST SDK contracts: Admin identity and membership'
-status: Development
+status: Deployment
 feature_request: FEATURE-015
 epic: EPIC-015
 created: 2026-10-06
-updated: 2026-10-07
+updated: 2026-10-28
 priority: High
 assignee: python-developer
 reporter: ba

@@ -271,6 +271,14 @@ def reconcile_index_statuses(*, apply: bool = False) -> list[dict[str, str]]:
     Reconciliation changes only the index ``status`` column. Ticket files,
     timestamps, comments, and links remain unchanged.
     """
+    if apply:
+        with interprocess_lock("tickets"):
+            return _reconcile_index_statuses(apply=True)
+    return _reconcile_index_statuses(apply=False)
+
+
+def _reconcile_index_statuses(*, apply: bool) -> list[dict[str, str]]:
+    """Read status drift and write corrections while caller holds any needed lock."""
     indexed = read_index()
     canonical_by_id = {ticket["id"]: ticket for ticket in read_canonical_index()}
     drift: list[dict[str, str]] = []
@@ -326,10 +334,15 @@ def read_link_index() -> list[dict[str, str]]:
                 if time.monotonic() >= deadline:
                     raise
                 time.sleep(0.01)
-    except FileNotFoundError:
-        with open(paths.link_index_file, "w", encoding="utf-8", newline="") as f:
-            csv.DictWriter(f, fieldnames=LINK_INDEX_FIELDNAMES).writeheader()
-        return []
+            except FileNotFoundError:
+                try:
+                    with open(paths.link_index_file, "x", encoding="utf-8", newline="") as f:
+                        csv.DictWriter(f, fieldnames=LINK_INDEX_FIELDNAMES).writeheader()
+                    return []
+                except FileExistsError:
+                    if time.monotonic() >= deadline:
+                        raise
+                    time.sleep(0.01)
     except Exception as e:
         raise FileOperationError(f"Failed to read link index: {e}")
 

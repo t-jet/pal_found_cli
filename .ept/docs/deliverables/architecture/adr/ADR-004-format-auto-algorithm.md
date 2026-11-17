@@ -1,5 +1,7 @@
 # ADR-004: Format Auto-Selection Algorithm
 
+Current dependency/API and retry/timeout corrections are recorded in the [2026-10-20 shared CLI contract amendment](../FEATURE-015-shared-cli-contract-amendment-2026-10-20.md). Original text below is retained as decision history.
+
 | Field | Value |
 |---|---|
 | **ID** | ADR-004 |

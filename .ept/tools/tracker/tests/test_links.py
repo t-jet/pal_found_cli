@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import builtins
+import csv
 import os
 import subprocess
 import sys
@@ -12,6 +13,7 @@ from pathlib import Path
 import pytest
 
 from tests.conftest import make_task
+from tracker.constants import LINK_INDEX_FIELDNAMES
 from tracker.exceptions import ValidationError
 from tracker.config import get_paths
 from tracker.index import load_id_counters, read_index, read_link_index, write_link_index
@@ -256,6 +258,110 @@ def test_parallel_ticket_and_link_creates_preserve_both_counters(
             if process.poll() is None:
                 process.kill()
                 process.communicate()
+
+
+def test_ticket_update_holds_index_lock_until_write(tracker_env: Path) -> None:
+    """A create cannot write a row while an update holds an older index view."""
+    ticket_id = make_task("Update target")
+    temp_dir = tracker_env / ".ept" / "tmp"
+    temp_dir.mkdir(parents=True, exist_ok=True)
+    update_ready = temp_dir / "update-read-index"
+    release_update = temp_dir / "release-update"
+    create_ready = temp_dir / "create-started"
+    env = os.environ.copy()
+    env["EPT_TRACKER_ROOT_PATH"] = str(tracker_env / ".ept" / "tracker")
+    env["PYTHONPATH"] = str(Path(__file__).resolve().parents[1])
+    update_script = (
+        "import sys, time\n"
+        "from pathlib import Path\n"
+        "from tracker import tickets\n"
+        "ticket_id, ready, gate = sys.argv[1:]\n"
+        "original_read = tickets.read_index\n"
+        "def paused_read():\n"
+        "    rows = original_read()\n"
+        "    Path(ready).write_text('ready', encoding='utf-8')\n"
+        "    while not Path(gate).exists(): time.sleep(0.005)\n"
+        "    return rows\n"
+        "tickets.read_index = paused_read\n"
+        "tickets.update_ticket(ticket_id, 'tester', priority='High')\n"
+    )
+    create_script = (
+        "import sys\n"
+        "from pathlib import Path\n"
+        "from tracker.tickets import create_ticket\n"
+        "Path(sys.argv[1]).write_text('ready', encoding='utf-8')\n"
+        "create_ticket('task', 'Created during update', 'tester')\n"
+    )
+    processes: list[subprocess.Popen[str]] = []
+    try:
+        updater = subprocess.Popen(
+            [sys.executable, "-c", update_script, ticket_id, str(update_ready),
+             str(release_update)],
+            cwd=Path(__file__).resolve().parents[1], env=env,
+            stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True,
+        )
+        processes.append(updater)
+        deadline = time.monotonic() + 20
+        while not update_ready.exists():
+            assert updater.poll() is None, "update worker exited before index read"
+            assert time.monotonic() < deadline, "update worker did not read index"
+            time.sleep(0.01)
+
+        creator = subprocess.Popen(
+            [sys.executable, "-c", create_script, str(create_ready)],
+            cwd=Path(__file__).resolve().parents[1], env=env,
+            stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True,
+        )
+        processes.append(creator)
+        while not create_ready.exists():
+            assert creator.poll() is None, "create worker exited before starting"
+            assert time.monotonic() < deadline, "create worker did not start"
+            time.sleep(0.01)
+
+        with pytest.raises(subprocess.TimeoutExpired):
+            creator.wait(timeout=0.5)
+
+        release_update.write_text("go", encoding="utf-8")
+        for process in processes:
+            _, stderr = process.communicate(timeout=30)
+            assert process.returncode == 0, stderr
+
+        rows = read_index()
+        assert len(rows) == 2
+        assert next(row for row in rows if row["id"] == ticket_id)["priority"] == "High"
+        assert any(row["title"] == "Created during update" for row in rows)
+    finally:
+        release_update.write_text("go", encoding="utf-8")
+        for process in processes:
+            if process.poll() is None:
+                process.kill()
+                process.communicate()
+
+
+def test_missing_link_index_reader_preserves_concurrent_initializer(
+    tracker_env: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """A reader must not truncate a file created after its first missing read."""
+    link_path = get_paths().link_index_file
+    link_path.unlink()
+    real_open = builtins.open
+    injected = False
+
+    def racing_open(file, mode="r", *args, **kwargs):
+        nonlocal injected
+        if Path(file) == link_path and mode == "r" and not injected:
+            injected = True
+            with real_open(link_path, "w", encoding="utf-8", newline="") as handle:
+                writer = csv.DictWriter(handle, fieldnames=LINK_INDEX_FIELDNAMES)
+                writer.writeheader()
+                writer.writerow({"link_id": "LINK-00001", "source_ticket": "TASK-001",
+                                 "target_ticket": "TASK-002", "link_type": "RelatesTo"})
+            raise FileNotFoundError(link_path)
+        return real_open(file, mode, *args, **kwargs)
+
+    monkeypatch.setattr(builtins, "open", racing_open)
+    assert read_link_index()[0]["link_id"] == "LINK-00001"
+    assert injected
 
 
 @pytest.mark.parametrize(

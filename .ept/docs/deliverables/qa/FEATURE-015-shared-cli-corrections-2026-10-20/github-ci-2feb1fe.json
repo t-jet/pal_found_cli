@@ -1,0 +1,73 @@
+{
+  "observed_at_utc": "2026-10-21T07:00:51.3028020Z",
+  "repository": "t-jet/pal_found_cli_tool",
+  "pull_request": "https://github.com/t-jet/pal_found_cli_tool/pull/1",
+  "draft": true,
+  "candidate_sha": "2feb1fed64406ddc987d036ce7ae667d3bd11d9d",
+  "checks": [
+    {
+      "name": "Build Package",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/t-jet/pal_found_cli_tool/actions/runs/39558542133/job/119085492564",
+      "started_at": "2026-10-21T07:00:23Z",
+      "completed_at": "2026-10-21T07:00:38Z"
+    },
+    {
+      "name": "Security Scan",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/t-jet/pal_found_cli_tool/actions/runs/39558542133/job/119085277228",
+      "started_at": "2026-10-21T06:59:48Z",
+      "completed_at": "2026-10-21T07:00:21Z"
+    },
+    {
+      "name": "Test (Python 3.11 on ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/t-jet/pal_found_cli_tool/actions/runs/39558542133/job/119084298751",
+      "started_at": "2026-10-21T06:57:00Z",
+      "completed_at": "2026-10-21T06:58:55Z"
+    },
+    {
+      "name": "Test (Python 3.12 on windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/t-jet/pal_found_cli_tool/actions/runs/39558542133/job/119084298699",
+      "started_at": "2026-10-21T06:57:01Z",
+      "completed_at": "2026-10-21T06:59:26Z"
+    },
+    {
+      "name": "Test (Python 3.12 on ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/t-jet/pal_found_cli_tool/actions/runs/39558542133/job/119084298658",
+      "started_at": "2026-10-21T06:57:00Z",
+      "completed_at": "2026-10-21T06:58:15Z"
+    },
+    {
+      "name": "Test (Python 3.11 on windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/t-jet/pal_found_cli_tool/actions/runs/39558542133/job/119084298643",
+      "started_at": "2026-10-21T06:57:01Z",
+      "completed_at": "2026-10-21T06:59:46Z"
+    },
+    {
+      "name": "Type Check (mypy)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/t-jet/pal_found_cli_tool/actions/runs/39558542133/job/119084125896",
+      "started_at": "2026-10-21T06:56:30Z",
+      "completed_at": "2026-10-21T06:56:58Z"
+    },
+    {
+      "name": "Lint (Ruff)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/t-jet/pal_found_cli_tool/actions/runs/39558542133/job/119083995320",
+      "started_at": "2026-10-21T06:56:08Z",
+      "completed_at": "2026-10-21T06:56:28Z"
+    }
+  ]
+}

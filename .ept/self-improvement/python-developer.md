@@ -198,6 +198,36 @@ Action:
 
 - Do extract IDs from actual distributed operation headings and compare exact sorted hash; don't hash another frozen constant as the "actual" result.
 
+## Improvement: prove a merge conflict resolution is byte-exact
+
+Condition:
+
+- When resolving a merge conflict by taking one side wholesale (e.g. `git checkout --theirs -- <path>`).
+
+Action:
+
+- Do prove the resolved file equals the intended side's blob: `git hash-object <path>` and `git ls-files -s <path>` (stage 0) must match the blob sha that `git merge-tree --write-tree --messages <ours> <theirs>` reported for that side. Then scan the whole tree with `git grep -E '^(<<<<<<<|>>>>>>>)'` and confirm `git diff --name-only --diff-filter=U` is empty. Also record why the resolution is safe by diffing both conflict sides, not by asserting it.
+
+## Improvement: classify a post-merge test failure before attributing it to the merge
+
+Condition:
+
+- When a full test suite run after a merge fails on a test outside the conflict.
+
+Action:
+
+- Do reproduce the failing test on the pristine pre-merge base in a throwaway worktree (`git worktree add <tmp> <base-sha> --detach`, run, then `git worktree remove --force` + `git worktree prune`). Identical failure there proves it pre-exists. Also confirm the merge did not touch the failing path via `git rev-parse <ref1>:<path> <ref2>:<path>` (equal blob = untouched). Don't report it as a regression.
+
+## Improvement: don't force a blocked review ticket open to satisfy a DoD
+
+Condition:
+
+- When a Development DoD requires a CodeReview sub-task with a relates-to link, but the only candidate review ticket is paired to a different, still-open DEV ticket (holds a Blocks link) and is therefore Blocked.
+
+Action:
+
+- Do create the bidirectional RelatesTo and the Blocks links to the candidate review, then document in a handoff comment that the review cannot be opened without violating its own gate, and recommend the scoping decision to the manager. Don't move the blocked review to Open and don't create a duplicate review ticket unilaterally.
+
 ## Improvement: uncertain REST write fixture
 
 Condition:

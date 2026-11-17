@@ -2,13 +2,15 @@
 id: DEV-074
 type: development
 title: DEV-STORY-071 development identity and membership lifecycle REST contracts
-status: In Progress
+status: Closed
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-28
 priority: High
+resolution: Done
 assignee: python-developer
 reporter: tech-lead
 estimated_hours: 32
+time_spent_hours: 0.0005338888888864959
 ---
 
 # DEV-STORY-071 development

@@ -1,0 +1,321 @@
+{
+  "result": "PASS",
+  "verified_at_utc": "2026-11-16T13:08:56.025740+00:00",
+  "scope": "Frozen as-of source publication only. Later live workflow changes excluded. No new engine test result or feature acceptance.",
+  "candidate_parent": "3ae09324cb54890e623370c21da7f32d01b81bf9",
+  "candidate_root_tree": "4825ec29c58990f822caf665a579e565ecbebe06",
+  "candidate_tracker_tree": "afb9986836b50317116c0448bac91f652b4bb105",
+  "raw_root_tree": "06aa22840a60e8bf66ebf199ca983784edcc6b19",
+  "raw_tracker_tree": "c51d575c87d392c4acb7958d8af2cedbfb908c91",
+  "manifest_sha256": "b015d88cc9bd04f9c4300808008e08a509f0f9d7b657eec3cdee55d8e7ee3e7b",
+  "manifest_git_blob": "7ec10c5fe2dfd31afbb1349e97c66a0ab04fe8da",
+  "archive_git_blob": "83699c37ebb00ef380ce5f8aae749d1f2366c159",
+  "raw_tar_sha256": "7188f231887d8448c34d9d9f0c2ac5de2a3529d98a1a770152ff7d6081924493",
+  "observations": [
+    "Embedded repair diff preserves the capture author Windows text serialization, which adds blank presentation lines. It is not a byte-preserving executable patch. Exact source and candidate bytes were independently checked by Git blob IDs and SHA256 for every file."
+  ],
+  "checks": [
+    {
+      "name": "candidate_parent",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "capture_root_stability",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "raw_tracker_tree_binding",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "raw_tar_hash",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "every_raw_tar_file_matches_git_object",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "every_candidate_export_matches_git_object",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "raw_manifest_all_file_hashes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "candidate_manifest_all_file_hashes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "only_reviewed_source_changes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "file_and_comment_counts",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "ticket_counts",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "repair_hash_bindings",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "six_reviewed_repairs_equal_baseline",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "lost_history_not_reconstructed",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "remapped_collision",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "six_repairs_only_semantic_changes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "removed_fragments_match_declaration",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "embedded_repair_diff_matches_windows_text_serialization",
+      "passed": true,
+      "details": "Display diff went through Windows write_text and universal-newline read_text. Embedded diff is presentation evidence, not a byte-preserving patch; per-file SHA256 checks validate exact source bytes."
+    },
+    {
+      "name": "legacy_archive_exact_git_blob",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "canonical_nested_ticket_preserved",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "CODE002_proof_CODEREVIEW-002/ticket.md",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "CODE002_proof_DEV-STORY-002/CODEREVIEW-002/ticket.md",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "unique_ticket_csv_ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "csv_paths_cover_all_active_ticket_files",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "csv_ticket_id_and_type_match",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "csv_statuses_match_canonical",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "parent_references_exist",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "unique_well_formed_links",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "link_endpoints_exist",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "current_CLI_config_read_succeeded",
+      "passed": true,
+      "details": {
+        "command": [
+          "python",
+          ".ept/tools/tracker/tracker_cli.py",
+          "--help-toon"
+        ],
+        "exit_code": 0,
+        "stdout_sha256": "381fa1ffe0685feb667c0ce0cab9d79047f01d2049c24f60e513097c65013227"
+      }
+    },
+    {
+      "name": "published_link_types_allowed_by_CLI",
+      "passed": true,
+      "details": [
+        "Blocks",
+        "DependsOn",
+        "RelatesTo",
+        "Contains",
+        "EpicLink",
+        "FeatureContains",
+        "BugFeature",
+        "Question",
+        "ParentChild"
+      ]
+    },
+    {
+      "name": "published_types_and_statuses_allowed_by_CLI",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "no_duplicate_link_relations",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "counters_at_least_all_published_ids",
+      "passed": true,
+      "details": {
+        "counters": {
+          "bug": 49,
+          "feature": 15,
+          "development": 85,
+          "epic": 15,
+          "sa_subtask_analysis": 16,
+          "link": 2066,
+          "ux_subtask_analysis": 0,
+          "codereview": 87,
+          "sa_subtask_design": 14,
+          "design": 84,
+          "bug_subtask": 34,
+          "question": 195,
+          "resource_req": 6,
+          "testexec": 85,
+          "testcase": 85,
+          "ux_subtask_design": 0,
+          "devops": 47,
+          "workitem": 7,
+          "ba_subtask_analysis": 16,
+          "unittest": 84,
+          "task": 19,
+          "ba_subtask_design": 15,
+          "dev_story": 93
+        },
+        "maxima": {
+          "codereview": 87,
+          "bug_subtask": 34,
+          "bug": 49,
+          "sa_subtask_design": 14,
+          "development": 85,
+          "testcase": 85,
+          "task": 19,
+          "ba_subtask_analysis": 16,
+          "unittest": 84,
+          "resource_req": 6,
+          "question": 195,
+          "devops": 47,
+          "feature": 15,
+          "sa_subtask_analysis": 16,
+          "dev_story": 93,
+          "ba_subtask_design": 15,
+          "design": 84,
+          "testexec": 85,
+          "workitem": 7,
+          "epic": 15,
+          "link": 2066
+        }
+      }
+    },
+    {
+      "name": "engine_45_files_unchanged",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "CLI_binding_all-tickets",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "CLI_binding_nonterminal",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "CLI_binding_TASK-019",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "CLI_binding_TASK-018",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "CLI_binding_TASK-014",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "CLI_binding_FEATURE-015",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "CLI_binding_DEVOPS-047",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "CLI_binding_BUG-048",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "CLI_binding_BUG-049",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "every_captured_CLI_status_matches_frozen_csv",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "CLI_count_matches_snapshot",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "post_capture_canonical_path_separate",
+      "passed": true,
+      "details": null
+    }
+  ]
+}

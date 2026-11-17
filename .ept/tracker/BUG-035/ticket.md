@@ -5,7 +5,7 @@ title: Audit skill omits required log API permission and OAuth scope
 status: Resolved
 affected_version: f30c97242c8fef553b72984bdaf02b3fe52d34db
 created: 2026-10-16
-updated: 2026-10-22
+updated: 2026-10-26
 priority: High
 assignee: python-developer
 reporter: qa-engineer

@@ -1,0 +1,33 @@
+{
+  "observed_at_utc": "2026-11-16T20:48:49.7121613Z",
+  "repository": "t-jet/pal_found_cli_skills",
+  "pull_request": "https://github.com/t-jet/pal_found_cli_skills/pull/1",
+  "state": "open",
+  "draft": true,
+  "candidate_sha": "77b101fb7c5e51fa5f785b2147d97cdfff703133",
+  "remote_branch_sha": "77b101fb7c5e51fa5f785b2147d97cdfff703133",
+  "pull_request_head_sha": "77b101fb7c5e51fa5f785b2147d97cdfff703133",
+  "body": "This draft contains the reviewed FEATURE-015 offline guidance checkpoint at `77b101fb7c5e51fa5f785b2147d97cdfff703133`. All 425 operation semantics remain accepted; 219 formal operation reviews and 40 page/overall checks remain pending. Release acceptance and a skills main merge remain outstanding.\n\nThe two third-party application pages now include standalone identity, configuration, resource acquisition, archive preparation, result checks and recovery. Independent native SDK 1.101.0 and 1.111.0 QA accepted their exact bytes after 102 CLI cases, 18 console runs and two help checks. Whole-page counts are 153 PASS and 39 UNCERTAIN, plus the overall audit gate. All 3,251 model records, 36 topic records and existing 425 operation objects retain their prior acceptance metadata. Formal execution is separate from semantic acceptance.\n\nThe workflow parser source is pinned to tool main `1e2e61bc0a56afe9af75e77170358d93ff6cf9d1`. Tool PR #3 was normally merged with approved source/test bytes intact; all eight candidate checks and all eight fresh main checks passed. Main CI: https://github.com/t-jet/pal_found_cli_tool/actions/runs/43951678939.\n\nValidation: 17 targeted skills tests passed using the prepared SDK 1.101.0 environment and the reviewed parser tree; Ruff, local-link/leaf/preservation checks and the diff check passed. The release verifier reports only the expected 219 formal review/provenance rows and 40 page/overall checks. The prior 1,323-test result belongs to an earlier head; fresh GitHub validation tests this checkpoint. Independent root metadata audit passed before publication.\n\nEvidence is retained under `maintainer/evidence/thirdparty-20261116/`: 48 byte-verified archive members include original FAIL evidence, intermediate conflict-recovery failure, final exact-page PASS evidence, raw SDK/process/consoles, source bindings and separate tool candidate/main CI proofs. Archive SHA-256: `44d82e88589fa1e2ec0cfd537a77afcba1b0d86ab1f0c1c0308724f286ea8b28`. Final tool main CI proof SHA-256: `52e3aec53e6c51dd6846daf97878ec276c909c2c52c75d40142ae0123257a1d7`. Synthetic offline fixtures establish the stated source and execution contracts; live tenant behavior and final release approval remain outside this evidence.\n\nKeep this PR open and draft pending the remaining acceptance gates. No tag or package publication is included.",
+  "checks": [
+    {
+      "name": "validate",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "77b101fb7c5e51fa5f785b2147d97cdfff703133",
+      "html_url": "https://github.com/t-jet/pal_found_cli_skills/actions/runs/43953389684/job/133601482187",
+      "started_at": "2026-11-16T20:47:26Z",
+      "completed_at": "2026-11-16T20:48:30Z"
+    }
+  ],
+  "workflows": [
+    {
+      "id": 43953389684,
+      "name": "Validate skills",
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "77b101fb7c5e51fa5f785b2147d97cdfff703133",
+      "html_url": "https://github.com/t-jet/pal_found_cli_skills/actions/runs/43953389684"
+    }
+  ]
+}

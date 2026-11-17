@@ -1,0 +1,17 @@
+{
+  "scope": "Frozen source capture at 2026-11-16T12:54:42Z through 12:55:13Z. Subsequent workflow changes are excluded.",
+  "independent_qa_report": "FEATURE-015-tracker-capture-2026-11-16-independent-qa.json",
+  "independent_qa_sha256": "96c2a119f64cad4450486f79563bfac4dce82ef0eb427f97a73ee23bf55ffdec",
+  "checks_passed": 47,
+  "verifier_source": "FEATURE-015-tracker-capture-2026-11-16-verify.py",
+  "verifier_context": "Original workspace verifier source retained byte-for-byte. Its temporary paths identify the original independent execution context. The accepted report and manifest preserve the resulting per-file evidence.",
+  "raw_link_csv": "FEATURE-015-tracker-capture-2026-11-16-raw-link-index.csv",
+  "raw_link_csv_sha256": "2de6eb8eeb332180005e9b61d288f9643674a38b0bd35835759d6ef05f3d6925",
+  "raw_link_csv_git_blob": "cc460c270f6a556d832027a145ab01e909f15173",
+  "raw_tracker_tree": "c51d575c87d392c4acb7958d8af2cedbfb908c91",
+  "published_tracker_tree": "afb9986836b50317116c0448bac91f652b4bb105",
+  "manifest_sha256": "b015d88cc9bd04f9c4300808008e08a509f0f9d7b657eec3cdee55d8e7ee3e7b",
+  "manifest_git_blob": "7ec10c5fe2dfd31afbb1349e97c66a0ab04fe8da",
+  "canonical_ticket_count_all_statuses": 1051,
+  "new_engine_test_run": false
+}

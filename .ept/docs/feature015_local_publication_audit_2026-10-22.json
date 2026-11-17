@@ -1,0 +1,21 @@
+{
+  "matched_files": 473,
+  "unmatched_files": [
+    ".ept/tracker/.config/.link-index.csv"
+  ],
+  "submodule_pointers": [],
+  "total_entries": 474,
+  "observed_at_utc": "2026-10-21T21:08:04.602152+00:00",
+  "scope": "Only dirty live working-tree entries; not a full source-tree equivalence assertion.",
+  "live_head": "281681d5a7b9d85f59bed2668674dc2f6f3cafc2",
+  "live_branch": "main",
+  "ahead_behind_origin_main": [
+    "11",
+    "7"
+  ],
+  "compared_working_drafts": [
+    "feature015_parent_integration",
+    "feature015_parent_agent_config"
+  ],
+  "exception": "The live malformed link CSV differs from the independently verified repaired draft capture; no other dirty file is unmatched."
+}

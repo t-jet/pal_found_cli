@@ -1,0 +1,18 @@
+{
+  "observed_at_utc": "2026-11-16T07:42:14.6214566Z",
+  "repository": "t-jet/pal_found_cli_skills",
+  "pull_request": "https://github.com/t-jet/pal_found_cli_skills/pull/1",
+  "draft": true,
+  "state": "open",
+  "candidate_sha": "3d5536cfe024bed6d8dbfbdc27cc65f700b7e95f",
+  "checks": [
+    {
+      "name": "validate",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/t-jet/pal_found_cli_skills/actions/runs/43825527620/job/133158354238",
+      "started_at": "2026-11-16T07:41:02Z",
+      "completed_at": "2026-11-16T07:42:02Z"
+    }
+  ]
+}

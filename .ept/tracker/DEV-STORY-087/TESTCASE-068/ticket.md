@@ -2,13 +2,14 @@
 id: TESTCASE-068
 type: testcase
 title: DEV-STORY-087 testcase J14 AIP REST contracts
-status: Open
+status: Closed
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-29
 priority: High
 assignee: qa-engineer
 reporter: tech-lead
 estimated_hours: 6
+time_spent_hours: 0.009354803083334
 ---
 
 # DEV-STORY-087 testcase
