@@ -2,13 +2,14 @@
 id: UNITTEST-068
 type: unittest
 title: DEV-STORY-087 unittest J14 AIP REST contracts
-status: Open
+status: Closed
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-29
 priority: High
 assignee: python-developer
 reporter: tech-lead
 estimated_hours: 8
+time_spent_hours: 0.000524071277776
 ---
 
 # DEV-STORY-087 unittest

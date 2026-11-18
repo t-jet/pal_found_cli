@@ -1311,7 +1311,6 @@ LINK-01727,DEV-STORY-073,TESTCASE-067,Contains,Contains,Contained In,2026-10-06T
 LINK-01728,DEV-STORY-073,TESTEXEC-067,Contains,Contains,Contained In,2026-10-06T22:12:35.651610,tech-lead,
 LINK-01729,DEV-068,CODEREVIEW-068,RelatesTo,Relates To,Relates To,2026-10-06T22:12:36.266032,tech-lead,
 LINK-01730,CODEREVIEW-068,DEV-068,RelatesTo,Relates To,Relates To,2026-10-06T22:12:36.881008,tech-lead,
-LINK-01731,DEV-068,CODEREVIEW-068,Blocks,Blocks,Is Blocked By,2026-10-06T22:12:37.489850,tech-lead,
 LINK-01732,DEV-STORY-087,DESIGN-069,Contains,Contains,Contained In,2026-10-06T22:12:50.888608,tech-lead,
 LINK-01733,DEV-STORY-087,DEV-069,Contains,Contains,Contained In,2026-10-06T22:12:55.512566,tech-lead,
 LINK-01734,DEV-STORY-087,UNITTEST-068,Contains,Contains,Contained In,2026-10-06T22:13:00.139715,tech-lead,
@@ -1320,7 +1319,6 @@ LINK-01736,DEV-STORY-087,TESTCASE-068,Contains,Contains,Contained In,2026-10-06T
 LINK-01737,DEV-STORY-087,TESTEXEC-068,Contains,Contains,Contained In,2026-10-06T22:13:14.425175,tech-lead,
 LINK-01738,DEV-069,CODEREVIEW-069,RelatesTo,Relates To,Relates To,2026-10-06T22:13:15.042490,tech-lead,
 LINK-01739,CODEREVIEW-069,DEV-069,RelatesTo,Relates To,Relates To,2026-10-06T22:13:15.660970,tech-lead,
-LINK-01740,DEV-069,CODEREVIEW-069,Blocks,Blocks,Is Blocked By,2026-10-06T22:13:16.279611,tech-lead,
 LINK-01741,DEV-STORY-066,DESIGN-070,Contains,Contains,Contained In,2026-10-06T22:21:15.945186,tech-lead,
 LINK-01742,DEV-STORY-066,DEV-070,Contains,Contains,Contained In,2026-10-06T22:21:18.563142,tech-lead,
 LINK-01743,DEV-STORY-066,UNITTEST-069,Contains,Contains,Contained In,2026-10-06T22:21:21.186344,tech-lead,
@@ -1375,7 +1373,6 @@ LINK-01793,DEV-STORY-071,TESTCASE-074,Contains,Contains,Contained In,2026-10-07T
 LINK-01794,DEV-STORY-071,TESTEXEC-074,Contains,Contains,Contained In,2026-10-07T10:15:52.130525,tech-lead,
 LINK-01795,DEV-074,CODEREVIEW-075,RelatesTo,Relates To,Relates To,2026-10-07T10:15:52.768442,tech-lead,
 LINK-01796,CODEREVIEW-075,DEV-074,RelatesTo,Relates To,Relates To,2026-10-07T10:15:53.399494,tech-lead,
-LINK-01797,DEV-074,CODEREVIEW-075,Blocks,Blocks,Is Blocked By,2026-10-07T10:15:54.050680,tech-lead,
 LINK-01798,DEV-STORY-072,DESIGN-075,Contains,Contains,Contained In,2026-10-07T10:16:07.561459,tech-lead,
 LINK-01799,DEV-STORY-072,DEV-075,Contains,Contains,Contained In,2026-10-07T10:16:12.232670,tech-lead,
 LINK-01800,DEV-STORY-072,UNITTEST-075,Contains,Contains,Contained In,2026-10-07T10:16:16.954179,tech-lead,
@@ -1400,7 +1397,6 @@ LINK-01820,DEV-STORY-075,TESTCASE-077,Contains,Contains,Contained In,2026-10-07T
 LINK-01821,DEV-STORY-075,TESTEXEC-077,Contains,Contains,Contained In,2026-10-07T10:17:50.684219,tech-lead,
 LINK-01822,DEV-077,CODEREVIEW-078,RelatesTo,Relates To,Relates To,2026-10-07T10:17:51.331450,tech-lead,
 LINK-01823,CODEREVIEW-078,DEV-077,RelatesTo,Relates To,Relates To,2026-10-07T10:17:51.966582,tech-lead,
-LINK-01824,DEV-077,CODEREVIEW-078,Blocks,Blocks,Is Blocked By,2026-10-07T10:17:52.605230,tech-lead,
 LINK-01825,DEV-STORY-077,DESIGN-078,Contains,Contains,Contained In,2026-10-07T10:18:06.232566,tech-lead,
 LINK-01826,DEV-STORY-077,DEV-078,Contains,Contains,Contained In,2026-10-07T10:18:10.962243,tech-lead,
 LINK-01827,DEV-STORY-077,UNITTEST-078,Contains,Contains,Contained In,2026-10-07T10:18:15.753500,tech-lead,
@@ -1409,7 +1405,6 @@ LINK-01829,DEV-STORY-077,TESTCASE-078,Contains,Contains,Contained In,2026-10-07T
 LINK-01830,DEV-STORY-077,TESTEXEC-078,Contains,Contains,Contained In,2026-10-07T10:18:30.446924,tech-lead,
 LINK-01831,DEV-078,CODEREVIEW-079,RelatesTo,Relates To,Relates To,2026-10-07T10:18:31.108190,tech-lead,
 LINK-01832,CODEREVIEW-079,DEV-078,RelatesTo,Relates To,Relates To,2026-10-07T10:18:31.758810,tech-lead,
-LINK-01833,DEV-078,CODEREVIEW-079,Blocks,Blocks,Is Blocked By,2026-10-07T10:18:32.406893,tech-lead,
 LINK-01834,DEV-STORY-087,BUG-SUB-023,Contains,Contains,Contained In,2026-10-07T15:43:33.917543,tech-lead,
 LINK-01836,DEV-STORY-079,DESIGN-079,Contains,Contains,Contained In,2026-10-07T15:58:33.320613,tech-lead,
 LINK-01837,DEV-STORY-079,DEV-079,Contains,Contains,Contained In,2026-10-07T15:58:38.086655,tech-lead,
@@ -1419,7 +1414,6 @@ LINK-01840,DEV-STORY-079,TESTCASE-079,Contains,Contains,Contained In,2026-10-07T
 LINK-01841,DEV-STORY-079,TESTEXEC-079,Contains,Contains,Contained In,2026-10-07T15:58:57.634639,tech-lead,
 LINK-01842,DEV-079,CODEREVIEW-080,RelatesTo,Relates To,Relates To,2026-10-07T15:58:58.309735,tech-lead,
 LINK-01843,CODEREVIEW-080,DEV-079,RelatesTo,Relates To,Relates To,2026-10-07T15:58:58.981718,tech-lead,
-LINK-01844,DEV-079,CODEREVIEW-080,Blocks,Blocks,Is Blocked By,2026-10-07T15:58:59.697769,tech-lead,
 LINK-01845,DEV-STORY-081,DESIGN-080,Contains,Contains,Contained In,2026-10-07T15:59:13.466567,tech-lead,
 LINK-01846,DEV-STORY-081,DEV-080,Contains,Contains,Contained In,2026-10-07T15:59:18.264870,tech-lead,
 LINK-01847,DEV-STORY-081,UNITTEST-080,Contains,Contains,Contained In,2026-10-07T15:59:23.062910,tech-lead,
@@ -1454,7 +1448,6 @@ LINK-01876,DEV-STORY-089,TESTCASE-083,Contains,Contains,Contained In,2026-10-07T
 LINK-01877,DEV-STORY-089,TESTEXEC-083,Contains,Contains,Contained In,2026-10-07T16:01:37.546415,tech-lead,
 LINK-01878,DEV-083,CODEREVIEW-084,RelatesTo,Relates To,Relates To,2026-10-07T16:01:38.218545,tech-lead,
 LINK-01879,CODEREVIEW-084,DEV-083,RelatesTo,Relates To,Relates To,2026-10-07T16:01:38.892749,tech-lead,
-LINK-01880,DEV-083,CODEREVIEW-084,Blocks,Blocks,Is Blocked By,2026-10-07T16:01:39.548167,tech-lead,
 LINK-01881,DEV-STORY-091,DESIGN-084,Contains,Contains,Contained In,2026-10-07T16:01:53.503711,tech-lead,
 LINK-01882,DEV-STORY-091,DEV-084,Contains,Contains,Contained In,2026-10-07T16:01:58.247775,tech-lead,
 LINK-01883,DEV-STORY-091,UNITTEST-084,Contains,Contains,Contained In,2026-10-07T16:02:02.987981,tech-lead,
@@ -1465,7 +1458,6 @@ LINK-01887,DEV-084,CODEREVIEW-085,RelatesTo,Relates To,Relates To,2026-10-07T16:
 LINK-01888,CODEREVIEW-085,DEV-084,RelatesTo,Relates To,Relates To,2026-10-07T16:02:19.122006,tech-lead,
 LINK-01889,DEV-084,CODEREVIEW-085,Blocks,Blocks,Is Blocked By,2026-10-07T16:02:19.801709,tech-lead,
 LINK-01893,BUG-SUB-025,DEV-STORY-074,RelatesTo,Relates To,Relates To,2026-10-09T09:29:15.651134,qa-engineer,J12 staged/committed Dataset File view fix coordinated with orchestration owner
-LINK-01894,BUG-SUB-025,TESTEXEC-064,Blocks,Blocks,Is Blocked By,2026-10-09T09:29:16.541781,qa-engineer,J12 integrated reader failure blocks complete REST acceptance until fresh blind retest
 LINK-01896,TASK-004,WORK-002,ParentChild,Is Parent Of,Is Child Of,2026-10-11T23:22:15.248747,devops-engineer,Register parent-child link for work item WORK-002 (parity with WORK-001 LINK-01468).
 LINK-01898,QUESTION-187,UNITTEST-044,Question,Asks About,Has Question,2026-10-12T00:56:51.705430,python-developer,
 LINK-01899,DEV-STORY-049,DEV-049,Contains,Contains,Contained In,2026-10-12T01:08:25.542913,tech-lead,Restore missing Contains link DEV-STORY-049 -> DEV-049 to match sibling stories
@@ -1570,3 +1562,55 @@ LINK-02027,BUG-045,DEV-STORY-015,RelatesTo,Relates To,Relates To,2026-10-21T23:5
 LINK-02029,TASK-009,TASK-008,RelatesTo,Relates To,Relates To,2026-10-23T17:21:44.194206,project-manager,Pin bump follows TASK-008 push of skills main 716a85b
 LINK-02030,TASK-010,BUG-034,RelatesTo,Relates To,Relates To,2026-10-23T20:12:08.393846,project-manager,Merge follows BUG-034 closure
 LINK-02031,TASK-011,TASK-010,RelatesTo,Relates To,Relates To,2026-10-23T21:57:45.154983,project-manager,Tool gitlink bump follows TASK-010 merge
+LINK-02032,QUESTION-194,BUG-035,Question,Asks About,Has Question,2026-10-25T22:32:04.567052,qa-engineer,
+LINK-02035,QUESTION-195,TASK-013,Question,Asks About,Has Question,2026-10-25T22:44:20.335052,project-manager,
+LINK-02039,CODEREVIEW-087,DEV-085,RelatesTo,Relates To,Relates To,2026-10-25T23:32:17.278687,project-manager,Review the DEV-085 merge
+LINK-02043,BUG-046,DEV-STORY-013,RelatesTo,Relates To,Relates To,2026-10-29T10:27:22.326753,project-manager,Original Models CLI implementation owns failing operation.
+LINK-02044,BUG-046,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-29T10:27:23.289082,project-manager,Independent offline skill audit found essential CLI runtime defect.
+LINK-02046,BUG-047,DEV-STORY-013,RelatesTo,Relates To,Relates To,2026-10-29T15:55:08.976729,qa-engineer,
+LINK-02047,BUG-047,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-29T15:55:09.936940,qa-engineer,
+LINK-02049,BUG-047,BUG-046,RelatesTo,Relates To,Relates To,2026-10-29T15:55:11.855104,qa-engineer,
+LINK-02050,TASK-014,DEVOPS-047,RelatesTo,Relates To,Relates To,2026-10-29T16:06:45.547063,devops-engineer,Draft parent checkpoint handoff; final publication remains DEVOPS-047 scope.
+LINK-02051,TASK-015,BUG-046,RelatesTo,Relates To,Relates To,2026-10-29T16:42:34.642194,devops-engineer,
+LINK-02052,TASK-015,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-29T16:42:35.603601,devops-engineer,
+LINK-02053,TASK-016,FEATURE-015,RelatesTo,Relates To,Relates To,2026-10-29T22:33:17.853324,hr,
+LINK-02054,TASK-017,DEVOPS-047,RelatesTo,Relates To,Relates To,2026-11-16T09:40:03.805162,devops-engineer,Draft checkpoint only; independent G1-G7 acceptance remains required for release.
+LINK-02055,TASK-018,FEATURE-015,RelatesTo,Relates To,Relates To,2026-11-16T09:45:45.104910,project-manager,
+LINK-02056,BUG-048,DEV-STORY-021,RelatesTo,Relates To,Relates To,2026-11-16T09:58:17.092299,qa-engineer,
+LINK-02057,BUG-048,FEATURE-012,RelatesTo,Relates To,Relates To,2026-11-16T09:58:18.027291,qa-engineer,
+LINK-02058,BUG-048,FEATURE-015,RelatesTo,Relates To,Relates To,2026-11-16T09:58:18.972382,qa-engineer,
+LINK-02060,BUG-049,FEATURE-015,RelatesTo,Relates To,Relates To,2026-11-16T09:58:20.872340,qa-engineer,
+LINK-02061,BUG-049,DEV-STORY-021,RelatesTo,Relates To,Relates To,2026-11-16T09:58:21.844155,qa-engineer,
+LINK-02064,BUG-049,BUG-048,RelatesTo,Relates To,Relates To,2026-11-16T09:58:24.672326,qa-engineer,
+LINK-02065,TASK-019,TASK-018,RelatesTo,Relates To,Relates To,2026-11-16T14:53:43.919411,devops-engineer,
+LINK-02066,TASK-019,TASK-014,RelatesTo,Relates To,Relates To,2026-11-16T14:53:44.866053,devops-engineer,
+LINK-02068,TASK-020,BUG-048,RelatesTo,Relates To,Relates To,2026-11-16T15:09:31.210825,devops-engineer,
+LINK-02069,TASK-020,BUG-049,RelatesTo,Relates To,Relates To,2026-11-16T15:09:32.152379,devops-engineer,
+LINK-02070,TASK-020,FEATURE-015,RelatesTo,Relates To,Relates To,2026-11-16T15:09:33.100001,devops-engineer,
+LINK-02071,TASK-020,DEVOPS-047,RelatesTo,Relates To,Relates To,2026-11-16T15:09:34.061511,devops-engineer,
+LINK-02072,TASK-021,FEATURE-015,RelatesTo,Relates To,Relates To,2026-11-17T09:49:26.850337,devops-engineer,
+LINK-02073,TASK-021,DEVOPS-047,RelatesTo,Relates To,Relates To,2026-11-17T09:49:27.794819,devops-engineer,
+LINK-02074,TASK-021,DEV-STORY-077,RelatesTo,Relates To,Relates To,2026-11-17T09:49:28.730892,devops-engineer,
+LINK-02075,TASK-021,DEV-STORY-079,RelatesTo,Relates To,Relates To,2026-11-17T09:49:29.658439,devops-engineer,
+LINK-02076,TASK-021,DEV-STORY-089,RelatesTo,Relates To,Relates To,2026-11-17T09:49:30.594290,devops-engineer,
+LINK-02078,BUG-050,DEV-STORY-070,Blocks,Blocks,Is Blocked By,2026-11-17T14:55:04.115019,project-manager,Retained CLI compatibility defect blocks G6 preservation acceptance pending independent repair verification.
+LINK-02079,BUG-050,FEATURE-015,RelatesTo,Relates To,Relates To,2026-11-17T14:55:05.074441,project-manager,
+LINK-02080,BUG-050,FEATURE-012,RelatesTo,Relates To,Relates To,2026-11-17T14:55:06.062769,project-manager,
+LINK-02081,BUG-050,DEV-STORY-007,RelatesTo,Relates To,Relates To,2026-11-17T14:55:07.028916,project-manager,
+LINK-02082,BUG-050,QUESTION-196,RelatesTo,Relates To,Relates To,2026-11-17T14:55:07.970492,project-manager,
+LINK-02084,CODEREVIEW-084,DEV-STORY-089,RelatesTo,Relates To,Relates To,2026-11-17T14:59:44.521833,python-developer,Required independent review to parent Story relation; existing paired DEV links preserved.
+LINK-02086,TASK-022,BUG-050,RelatesTo,Relates To,Relates To,2026-11-17T19:47:46.105965,devops-engineer,
+LINK-02087,TASK-022,FEATURE-015,RelatesTo,Relates To,Relates To,2026-11-17T19:47:47.046978,devops-engineer,
+LINK-02088,TASK-022,DEVOPS-047,RelatesTo,Relates To,Relates To,2026-11-17T19:47:47.992243,devops-engineer,
+LINK-02089,TASK-022,UNITTEST-067,RelatesTo,Relates To,Relates To,2026-11-17T19:47:48.936978,devops-engineer,
+LINK-02090,TASK-022,TASK-021,RelatesTo,Relates To,Relates To,2026-11-17T19:47:49.884119,devops-engineer,
+LINK-02091,CODEREVIEW-068,DEV-068,Blocks,Blocks,Is Blocked By,2026-11-18T01:25:29.197548,python-developer,Independent Architect review required before DEV closure; prior DEV status Resolved. Replaces removed LINK-01731.
+LINK-02092,BUG-051,FEATURE-015,RelatesTo,Relates To,Relates To,2026-11-18T08:04:26.109115,project-manager,
+LINK-02093,BUG-051,TASK-022,RelatesTo,Relates To,Relates To,2026-11-18T08:04:27.085950,project-manager,
+LINK-02094,BUG-051,BUG-006,RelatesTo,Relates To,Relates To,2026-11-18T08:04:28.035183,project-manager,
+LINK-02095,BUG-051,BUG-050,RelatesTo,Relates To,Relates To,2026-11-18T08:04:29.000010,project-manager,
+LINK-02096,BUG-051,BUG-050,Blocks,Blocks,Is Blocked By,2026-11-18T08:04:29.945648,project-manager,
+LINK-02097,QUESTION-197,TESTEXEC-079,Blocks,Blocks,Is Blocked By,2026-11-18T08:05:49.585600,project-manager,
+LINK-02098,QUESTION-197,TESTEXEC-079,Question,Asks About,Has Question,2026-11-18T08:05:51.078392,project-manager,
+LINK-02099,QUESTION-198,BUG-051,Blocks,Blocks,Is Blocked By,2026-11-18T08:10:31.495363,devops-engineer,Unsupported published Safety filelock bound requires Architect decision; BUG-051 prior Open. TASK-022 stays unblocked.
+LINK-02100,QUESTION-198,BUG-051,Question,Asks About,Has Question,2026-11-18T08:10:32.928783,devops-engineer,Research and supported scanner remediation decision for BUG-051.

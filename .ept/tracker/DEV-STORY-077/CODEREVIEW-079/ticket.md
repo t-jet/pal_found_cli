@@ -2,13 +2,15 @@
 id: CODEREVIEW-079
 type: codereview
 title: DEV-STORY-077 codereview v1 Ontology schema object Action and Query lifecycle REST contracts
-status: Blocked
+status: Closed
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-11-16
 priority: High
+resolution: Approved
 assignee: architect
 reporter: tech-lead
 estimated_hours: 12
+time_spent_hours: 0.000294817722222231
 ---
 
 # DEV-STORY-077 codereview

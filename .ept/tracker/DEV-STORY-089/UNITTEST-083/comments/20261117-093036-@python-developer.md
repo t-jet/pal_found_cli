@@ -1,0 +1,9 @@
+Subject: Source-derived test plan and Open readiness
+Created: 2026-11-17T09:30:36
+Updated: 2026-11-17T09:30:36
+---
+2026-11-17: Read UNITTEST-083, DEV-083, DEV-STORY-089, Closed DESIGN-083 and CODEREVIEW-084 instructions/comments/links; no UNITTEST Question links. DEV-083 In Progress is ready for tests. Studied document_index.md, REST authoring contract, exact partition JSON, and SDK1.101.0 commit168d51910570b6966afa2320333ab36f6a3f7ccf source. Preserve existing52 semantic regressions and accepted40-operation review/product bytes.
+
+Plan: modify only isolated tests/test_offline_rest_089.py from clean77b101fb7c5e51fa5f785b2147d97cdfff703133. Independently derive request/response/error expectations from SDK AST/runtime; exercise all40 sync/async ordinary/raw forms,31 available streaming wrappers in both forms, nine absent streaming methods with zero HTTP, all143 source-declared error entries plus generic403. Cover finite two pagers, timeout/cancel/stream cleanup, validation before HTTP and request mutations. Enforce denied DNS/native HTTP; prepare Windows event loop self-pipe before guards. SDK AsyncApiResponse.decode is synchronous; aclose asynchronous; ordinary async list returns iterator directly.
+
+Unit-only Arrow cases use real pyarrow23.0.0 IPC bytes and decode/row/byte checks independently. get_results registered transport fixture hash a1e588b0c6bc8ddb51633d59c29350962b0eef62974553d7cdff81490003905e remains unchanged; accepted review qualifies linked lifecycle explicitCSV parsing. Source defaultArrow and explicitCSV boundaries stay distinct. First3 fixture checkpoint passed Connection.create0.122s, Stream.publish_record0.076s, execute_ontology3.639s; runtime observations are fixture timing only. No capacity ambiguity requires new Question. Fresh independent peer/QA required before acceptance; no commit/push/status completion/time estimate claim.

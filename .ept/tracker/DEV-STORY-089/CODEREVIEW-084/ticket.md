@@ -2,9 +2,9 @@
 id: CODEREVIEW-084
 type: codereview
 title: DEV-STORY-089 codereview connectivity stream and SQL query lifecycle REST contracts
-status: Blocked
+status: Closed
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-11-17
 priority: High
 assignee: architect
 reporter: tech-lead

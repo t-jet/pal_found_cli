@@ -1,0 +1,12 @@
+Subject: Frozen implementation retained; approved Conda metadata correction and verification scope
+Created: 2026-11-18T00:35:55
+Updated: 2026-11-18T00:35:55
+---
+## Frozen implementation evidence
+Original implementation remains staged in .ept/tmp/bug050_geotemporal_fix_20261117 at base 1e2e61bc0a56afe9af75e77170358d93ff6cf9d1, tree 8c38471c81a6feccd3ce86c94eea517f9270c511. Six file SHA256 values and staged blobs match preserved manifest .ept/tmp/bug050_candidate_manifest_20261117.json (SHA256 659f49bf8f1e915013b9e2bee832a24048e1a3b5b86193879095f6a202e6baca); unstaged diff empty. Original author runtime evidence reports native SDK 1.101.0:98 PASS, 1.111.0:98 PASS (41 new tests plus 57 existing regressions each), 1.79.0:41 PASS. These are author results pending independent exact-candidate QA. Historical isolated wheel/sdist builds and license/source-byte audit remain preserved under bug050_build_final and original manifest. Earlier no-isolation build failure used old environment setuptools unable to parse baseline MIT string; isolated build succeeded without build-requirement change.
+
+## Approved seventh file
+Root approved only conda.recipe/meta.yaml about.license = MIT AND Apache-2.0 and about.license_file YAML list containing LICENSE and LICENSE.foundry-sdk. Current recipe still declares MIT although adapted legacy SDK model closure includes Apache source. This worker owns metadata finalization; original six-file implementation authorship remains unchanged. Freeze original six bytes, root MIT, runtime dependencies, SDK support declaration and existing policy. No runtime edits, global SDK patch, commit or push.
+
+## Verification scope
+Verify recipe metadata against official conda-build documentation and available tooling, check exact diff, stage seventh file, rerun Ruff on frozen Python files. Rebuild sdist because prior sdist includes recipe; inspect final metadata, full MIT/Apache license bytes and source bytes. Create separate Nov18 machine audit/manifest binding old six hashes, seventh file, final staged tree and build artifacts; preserve old evidence. Reuse old runtime results only with explicit unchanged-source qualification. No Conda package build claim unless performed. Independent review resumes against final seven-file freeze. BUG stays In Progress; no final QA, release, tenant/backend availability, all-SDK support or G6 acceptance claimed. Public console context restoration evidence remains distinct from direct awaited main same-Task preexisting attribution boundary.

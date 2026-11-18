@@ -2,9 +2,9 @@
 id: TESTCASE-079
 type: testcase
 title: DEV-STORY-079 testcase v2 Ontology schema and interface lifecycle REST contracts
-status: Open
+status: In Progress
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-11-17
 priority: High
 assignee: qa-engineer
 reporter: tech-lead

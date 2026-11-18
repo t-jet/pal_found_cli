@@ -781,7 +781,7 @@ DEV-STORY-066,dev_story,Author local React OSDK and Workshop widget development 
 DEV-STORY-067,dev_story,Author local branch and cross-platform security decision procedures,Development,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-067,2026-10-06,2026-10-07
 DEV-STORY-068,dev_story,Author local production lineage monitoring and support procedures,Development,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-068,2026-10-06,2026-10-07
 DEV-STORY-069,dev_story,Author bounded local REST and SDK recipe contracts,Development,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-069,2026-10-06,2026-10-06
-DEV-STORY-070,dev_story,Verify offline semantic development completeness and publish reviewed skills,Development,High,qa-engineer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-070,2026-10-06,2026-10-06
+DEV-STORY-070,dev_story,Verify offline semantic development completeness and publish reviewed skills,Blocked,High,qa-engineer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-070,2026-10-06,2026-11-17
 QUESTION-178,question,BA approval of SA-DES-014 offline development technical design,Closed,High,ba,architect,SA-DES-014,ba,SA-DES-014/QUESTION-178,2026-10-06,2026-10-06
 QUESTION-179,question,Project Owner approval of SA-DES-014 offline development technical design,Closed,High,Project Owner,architect,SA-DES-014,Project Owner,SA-DES-014/QUESTION-179,2026-10-06,2026-10-06
 QUESTION-180,question,Architect approval of BA-DES-015 offline development business design,Closed,High,architect,ba,BA-DES-015,architect,BA-DES-015/QUESTION-180,2026-10-06,2026-10-06
@@ -789,15 +789,15 @@ QUESTION-181,question,Lead Developer approval of BA-DES-015 story scope and acce
 QUESTION-182,question,Project Owner approval of BA-DES-015 offline development business design,Closed,High,project-owner,ba,BA-DES-015,project-owner,BA-DES-015/QUESTION-182,2026-10-06,2026-10-06
 WORK-003,workitem,Revise offline REST business scope for all SDK operations,Closed,High,ba,project-manager,FEATURE-015,,FEATURE-015/WORK-003,2026-10-06,2026-10-06
 WORK-004,workitem,Revise offline REST architecture for all SDK operations,Closed,High,architect,project-manager,FEATURE-015,,FEATURE-015/WORK-004,2026-10-06,2026-10-06
-DEV-STORY-071,dev_story,Author offline REST SDK contracts: Admin identity and membership,Development,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-071,2026-10-06,2026-10-07
+DEV-STORY-071,dev_story,Author offline REST SDK contracts: Admin identity and membership,Deployment,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-071,2026-10-06,2026-10-28
 DEV-STORY-072,dev_story,Author offline REST SDK contracts: Admin organization authorization and markings,Deployment,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-072,2026-10-06,2026-10-21
 DEV-STORY-073,dev_story,Author offline REST SDK contracts: Filesystem governance audit and application registration,Development,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-073,2026-10-06,2026-10-06
 DEV-STORY-074,dev_story,Author offline REST SDK contracts: Datasets across both API versions,Deployment,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-074,2026-10-06,2026-10-21
-DEV-STORY-075,dev_story,Author offline REST SDK contracts: Pipeline orchestration checkpoints and health,Development,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-075,2026-10-06,2026-10-07
+DEV-STORY-075,dev_story,Author offline REST SDK contracts: Pipeline orchestration checkpoints and health,Deployment,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-075,2026-10-06,2026-10-29
 DEV-STORY-076,dev_story,Author offline REST SDK contracts: Admin identity and membership,Duplicated,High,ba,ba,FEATURE-015,,FEATURE-015/DEV-STORY-076,2026-10-06,2026-10-06
-DEV-STORY-077,dev_story,Author offline REST SDK contracts: Legacy v1 Ontology contracts,Development,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-077,2026-10-06,2026-10-07
+DEV-STORY-077,dev_story,Author offline REST SDK contracts: Legacy v1 Ontology contracts,Deployment,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-077,2026-10-06,2026-11-17
 DEV-STORY-078,dev_story,Author offline REST SDK contracts: Admin organization authorization and markings,Duplicated,High,ba,ba,FEATURE-015,,FEATURE-015/DEV-STORY-078,2026-10-06,2026-10-06
-DEV-STORY-079,dev_story,Author offline REST SDK contracts: v2 Ontology schema and interface contracts,Development,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-079,2026-10-06,2026-10-07
+DEV-STORY-079,dev_story,Author offline REST SDK contracts: v2 Ontology schema and interface contracts,QA,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-079,2026-10-06,2026-11-17
 DEV-STORY-080,dev_story,Author offline REST SDK contracts: Filesystem governance audit and application registration,Duplicated,High,ba,ba,FEATURE-015,,FEATURE-015/DEV-STORY-080,2026-10-06,2026-10-06
 DEV-STORY-081,dev_story,Author offline REST SDK contracts: v2 Ontology objects sets scenarios and transactions,Development,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-081,2026-10-06,2026-10-07
 DEV-STORY-082,dev_story,Author offline REST SDK contracts: Datasets across both API versions,Duplicated,High,ba,ba,FEATURE-015,,FEATURE-015/DEV-STORY-082,2026-10-06,2026-10-06
@@ -805,9 +805,9 @@ DEV-STORY-083,dev_story,Author offline REST SDK contracts: v2 Ontology actions q
 DEV-STORY-084,dev_story,Author offline REST SDK contracts: Pipeline orchestration checkpoints and health,Duplicated,High,ba,ba,FEATURE-015,,FEATURE-015/DEV-STORY-084,2026-10-06,2026-10-06
 DEV-STORY-085,dev_story,Author offline REST SDK contracts: Functions REST invocation and metadata,Deployment,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-085,2026-10-06,2026-10-20
 DEV-STORY-086,dev_story,Author offline REST SDK contracts: Legacy v1 Ontology contracts,Duplicated,High,ba,ba,FEATURE-015,,FEATURE-015/DEV-STORY-086,2026-10-06,2026-10-06
-DEV-STORY-087,dev_story,Author offline REST SDK contracts: AIP agents language and model operations,Development,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-087,2026-10-06,2026-10-06
+DEV-STORY-087,dev_story,Author offline REST SDK contracts: AIP agents language and model operations,Deployment,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-087,2026-10-06,2026-10-29
 DEV-STORY-088,dev_story,Author offline REST SDK contracts: v2 Ontology schema and interface contracts,Duplicated,High,ba,ba,FEATURE-015,,FEATURE-015/DEV-STORY-088,2026-10-06,2026-10-06
-DEV-STORY-089,dev_story,Author offline REST SDK contracts: Connectivity streams and SQL queries,Development,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-089,2026-10-06,2026-10-07
+DEV-STORY-089,dev_story,Author offline REST SDK contracts: Connectivity streams and SQL queries,QA,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-089,2026-10-06,2026-11-17
 DEV-STORY-090,dev_story,Author offline REST SDK contracts: v2 Ontology objects sets scenarios and transactions,Duplicated,High,ba,ba,FEATURE-015,,FEATURE-015/DEV-STORY-090,2026-10-06,2026-10-06
 DEV-STORY-091,dev_story,Author offline REST SDK contracts: Media Sets and Widgets REST contracts,Development,High,python-developer,ba,FEATURE-015,,FEATURE-015/DEV-STORY-091,2026-10-06,2026-10-07
 DEV-STORY-092,dev_story,Author offline REST SDK contracts: v2 Ontology actions query attachments and typed properties,Duplicated,High,ba,ba,FEATURE-015,,FEATURE-015/DEV-STORY-092,2026-10-06,2026-10-06
@@ -858,17 +858,17 @@ CODEREVIEW-067,codereview,DEV-STORY-064: Review Ontology source fidelity,New,Hig
 TESTCASE-066,testcase,DEV-STORY-064: Define independent Ontology cases,Open,High,qa-engineer,tech-lead,DEV-STORY-064,,DEV-STORY-064/TESTCASE-066,2026-10-06,2026-10-06
 TESTEXEC-066,testexec,DEV-STORY-064: Execute independent offline Ontology acceptance,Open,High,qa-engineer,tech-lead,DEV-STORY-064,,DEV-STORY-064/TESTEXEC-066,2026-10-06,2026-10-06
 DESIGN-068,design,DEV-STORY-073 design J13 governance REST contracts,Closed,High,tech-lead,tech-lead,DEV-STORY-073,,DEV-STORY-073/DESIGN-068,2026-10-06,2026-10-06
-DEV-068,development,DEV-STORY-073 development J13 governance REST contracts,In Progress,High,python-developer,tech-lead,DEV-STORY-073,,DEV-STORY-073/DEV-068,2026-10-06,2026-10-06
-UNITTEST-067,unittest,DEV-STORY-073 unittest J13 governance REST contracts,Open,High,python-developer,tech-lead,DEV-STORY-073,,DEV-STORY-073/UNITTEST-067,2026-10-06,2026-10-06
-CODEREVIEW-068,codereview,DEV-STORY-073 codereview J13 governance REST contracts,Blocked,High,architect,tech-lead,DEV-STORY-073,,DEV-STORY-073/CODEREVIEW-068,2026-10-06,2026-10-06
+DEV-068,development,DEV-STORY-073 development J13 governance REST contracts,Blocked,High,python-developer,tech-lead,DEV-STORY-073,,DEV-STORY-073/DEV-068,2026-10-06,2026-11-18
+UNITTEST-067,unittest,DEV-STORY-073 unittest J13 governance REST contracts,Resolved,High,python-developer,tech-lead,DEV-STORY-073,,DEV-STORY-073/UNITTEST-067,2026-10-06,2026-11-18
+CODEREVIEW-068,codereview,DEV-STORY-073 codereview J13 governance REST contracts,Corrected,High,architect,tech-lead,DEV-STORY-073,,DEV-STORY-073/CODEREVIEW-068,2026-10-06,2026-11-18
 TESTCASE-067,testcase,DEV-STORY-073 testcase J13 governance REST contracts,Open,High,qa-engineer,tech-lead,DEV-STORY-073,,DEV-STORY-073/TESTCASE-067,2026-10-06,2026-10-06
 TESTEXEC-067,testexec,DEV-STORY-073 testexec J13 governance REST contracts,Open,High,qa-engineer,tech-lead,DEV-STORY-073,,DEV-STORY-073/TESTEXEC-067,2026-10-06,2026-10-06
 DESIGN-069,design,DEV-STORY-087 design J14 AIP REST contracts,Closed,High,tech-lead,tech-lead,DEV-STORY-087,,DEV-STORY-087/DESIGN-069,2026-10-06,2026-10-06
-DEV-069,development,DEV-STORY-087 development J14 AIP REST contracts,In Progress,High,python-developer,tech-lead,DEV-STORY-087,,DEV-STORY-087/DEV-069,2026-10-06,2026-10-06
-UNITTEST-068,unittest,DEV-STORY-087 unittest J14 AIP REST contracts,Open,High,python-developer,tech-lead,DEV-STORY-087,,DEV-STORY-087/UNITTEST-068,2026-10-06,2026-10-06
-CODEREVIEW-069,codereview,DEV-STORY-087 codereview J14 AIP REST contracts,Blocked,High,architect,tech-lead,DEV-STORY-087,,DEV-STORY-087/CODEREVIEW-069,2026-10-06,2026-10-06
-TESTCASE-068,testcase,DEV-STORY-087 testcase J14 AIP REST contracts,Open,High,qa-engineer,tech-lead,DEV-STORY-087,,DEV-STORY-087/TESTCASE-068,2026-10-06,2026-10-06
-TESTEXEC-068,testexec,DEV-STORY-087 testexec J14 AIP REST contracts,Open,High,qa-engineer,tech-lead,DEV-STORY-087,,DEV-STORY-087/TESTEXEC-068,2026-10-06,2026-10-06
+DEV-069,development,DEV-STORY-087 development J14 AIP REST contracts,Closed,High,python-developer,tech-lead,DEV-STORY-087,,DEV-STORY-087/DEV-069,2026-10-06,2026-10-29
+UNITTEST-068,unittest,DEV-STORY-087 unittest J14 AIP REST contracts,Closed,High,python-developer,tech-lead,DEV-STORY-087,,DEV-STORY-087/UNITTEST-068,2026-10-06,2026-10-29
+CODEREVIEW-069,codereview,DEV-STORY-087 codereview J14 AIP REST contracts,Closed,High,architect,tech-lead,DEV-STORY-087,,DEV-STORY-087/CODEREVIEW-069,2026-10-06,2026-10-29
+TESTCASE-068,testcase,DEV-STORY-087 testcase J14 AIP REST contracts,Closed,High,qa-engineer,tech-lead,DEV-STORY-087,,DEV-STORY-087/TESTCASE-068,2026-10-06,2026-10-29
+TESTEXEC-068,testexec,DEV-STORY-087 testexec J14 AIP REST contracts,Closed,High,qa-engineer,tech-lead,DEV-STORY-087,,DEV-STORY-087/TESTEXEC-068,2026-10-06,2026-10-29
 DESIGN-070,design,DEV-STORY-066: Finalize technical grooming,Closed,High,tech-lead,tech-lead,DEV-STORY-066,,DEV-STORY-066/DESIGN-070,2026-10-06,2026-10-06
 DEV-070,development,DEV-STORY-066: Author offline applications and widgets,Closed,High,python-developer,tech-lead,DEV-STORY-066,,DEV-STORY-066/DEV-070,2026-10-06,2026-10-08
 UNITTEST-069,unittest,DEV-STORY-066: Verify application and widget examples,Closed,High,python-developer,tech-lead,DEV-STORY-066,,DEV-STORY-066/UNITTEST-069,2026-10-06,2026-10-08
@@ -898,11 +898,11 @@ CODEREVIEW-074,codereview,DEV-STORY-068: Review Production operations source fid
 TESTCASE-073,testcase,DEV-STORY-068: Define independent Production operations cases,Open,High,qa-engineer,tech-lead,DEV-STORY-068,,DEV-STORY-068/TESTCASE-073,2026-10-07,2026-10-07
 TESTEXEC-073,testexec,DEV-STORY-068: Execute offline Production operations acceptance,Open,High,qa-engineer,tech-lead,DEV-STORY-068,,DEV-STORY-068/TESTEXEC-073,2026-10-07,2026-10-07
 DESIGN-074,design,DEV-STORY-071 design identity and membership lifecycle REST contracts,Closed,High,tech-lead,tech-lead,DEV-STORY-071,,DEV-STORY-071/DESIGN-074,2026-10-07,2026-10-07
-DEV-074,development,DEV-STORY-071 development identity and membership lifecycle REST contracts,In Progress,High,python-developer,tech-lead,DEV-STORY-071,,DEV-STORY-071/DEV-074,2026-10-07,2026-10-07
-UNITTEST-074,unittest,DEV-STORY-071 unittest identity and membership lifecycle REST contracts,In Progress,High,python-developer,tech-lead,DEV-STORY-071,,DEV-STORY-071/UNITTEST-074,2026-10-07,2026-10-07
-CODEREVIEW-075,codereview,DEV-STORY-071 codereview identity and membership lifecycle REST contracts,Blocked,High,architect,tech-lead,DEV-STORY-071,,DEV-STORY-071/CODEREVIEW-075,2026-10-07,2026-10-07
-TESTCASE-074,testcase,DEV-STORY-071 testcase identity and membership lifecycle REST contracts,Open,High,qa-engineer,tech-lead,DEV-STORY-071,,DEV-STORY-071/TESTCASE-074,2026-10-07,2026-10-07
-TESTEXEC-074,testexec,DEV-STORY-071 testexec identity and membership lifecycle REST contracts,Open,High,qa-engineer,tech-lead,DEV-STORY-071,,DEV-STORY-071/TESTEXEC-074,2026-10-07,2026-10-07
+DEV-074,development,DEV-STORY-071 development identity and membership lifecycle REST contracts,Closed,High,python-developer,tech-lead,DEV-STORY-071,,DEV-STORY-071/DEV-074,2026-10-07,2026-10-28
+UNITTEST-074,unittest,DEV-STORY-071 unittest identity and membership lifecycle REST contracts,Closed,High,python-developer,tech-lead,DEV-STORY-071,,DEV-STORY-071/UNITTEST-074,2026-10-07,2026-10-28
+CODEREVIEW-075,codereview,DEV-STORY-071 codereview identity and membership lifecycle REST contracts,Closed,High,architect,tech-lead,DEV-STORY-071,,DEV-STORY-071/CODEREVIEW-075,2026-10-07,2026-10-27
+TESTCASE-074,testcase,DEV-STORY-071 testcase identity and membership lifecycle REST contracts,Closed,High,qa-engineer,tech-lead,DEV-STORY-071,,DEV-STORY-071/TESTCASE-074,2026-10-07,2026-10-27
+TESTEXEC-074,testexec,DEV-STORY-071 testexec identity and membership lifecycle REST contracts,Closed,High,qa-engineer,tech-lead,DEV-STORY-071,,DEV-STORY-071/TESTEXEC-074,2026-10-07,2026-10-28
 DESIGN-075,design,DEV-STORY-072 design authorization policy and marking lifecycle REST contracts,Closed,High,tech-lead,tech-lead,DEV-STORY-072,,DEV-STORY-072/DESIGN-075,2026-10-07,2026-10-07
 DEV-075,development,DEV-STORY-072 development authorization policy and marking lifecycle REST contracts,Closed,High,python-developer,tech-lead,DEV-STORY-072,,DEV-STORY-072/DEV-075,2026-10-07,2026-10-21
 UNITTEST-075,unittest,DEV-STORY-072 unittest authorization policy and marking lifecycle REST contracts,Closed,High,python-developer,tech-lead,DEV-STORY-072,,DEV-STORY-072/UNITTEST-075,2026-10-07,2026-10-21
@@ -916,24 +916,24 @@ CODEREVIEW-077,codereview,DEV-STORY-074 codereview versioned dataset branch and 
 TESTCASE-076,testcase,DEV-STORY-074 testcase versioned dataset branch and transaction lifecycle REST contracts,Closed,High,qa-engineer,tech-lead,DEV-STORY-074,,DEV-STORY-074/TESTCASE-076,2026-10-07,2026-10-21
 TESTEXEC-076,testexec,DEV-STORY-074 testexec versioned dataset branch and transaction lifecycle REST contracts,Closed,High,qa-engineer,tech-lead,DEV-STORY-074,,DEV-STORY-074/TESTEXEC-076,2026-10-07,2026-10-21
 DESIGN-077,design,DEV-STORY-075 design build scheduling checkpoints and health lifecycle REST contracts,Closed,High,tech-lead,tech-lead,DEV-STORY-075,,DEV-STORY-075/DESIGN-077,2026-10-07,2026-10-07
-DEV-077,development,DEV-STORY-075 development build scheduling checkpoints and health lifecycle REST contracts,In Progress,High,python-developer,tech-lead,DEV-STORY-075,,DEV-STORY-075/DEV-077,2026-10-07,2026-10-07
-UNITTEST-077,unittest,DEV-STORY-075 unittest build scheduling checkpoints and health lifecycle REST contracts,In Progress,High,python-developer,tech-lead,DEV-STORY-075,,DEV-STORY-075/UNITTEST-077,2026-10-07,2026-10-07
-CODEREVIEW-078,codereview,DEV-STORY-075 codereview build scheduling checkpoints and health lifecycle REST contracts,Blocked,High,architect,tech-lead,DEV-STORY-075,,DEV-STORY-075/CODEREVIEW-078,2026-10-07,2026-10-07
-TESTCASE-077,testcase,DEV-STORY-075 testcase build scheduling checkpoints and health lifecycle REST contracts,Open,High,qa-engineer,tech-lead,DEV-STORY-075,,DEV-STORY-075/TESTCASE-077,2026-10-07,2026-10-07
-TESTEXEC-077,testexec,DEV-STORY-075 testexec build scheduling checkpoints and health lifecycle REST contracts,Open,High,qa-engineer,tech-lead,DEV-STORY-075,,DEV-STORY-075/TESTEXEC-077,2026-10-07,2026-10-07
+DEV-077,development,DEV-STORY-075 development build scheduling checkpoints and health lifecycle REST contracts,Closed,High,python-developer,tech-lead,DEV-STORY-075,,DEV-STORY-075/DEV-077,2026-10-07,2026-10-29
+UNITTEST-077,unittest,DEV-STORY-075 unittest build scheduling checkpoints and health lifecycle REST contracts,Closed,High,python-developer,tech-lead,DEV-STORY-075,,DEV-STORY-075/UNITTEST-077,2026-10-07,2026-10-29
+CODEREVIEW-078,codereview,DEV-STORY-075 codereview build scheduling checkpoints and health lifecycle REST contracts,Closed,High,architect,tech-lead,DEV-STORY-075,,DEV-STORY-075/CODEREVIEW-078,2026-10-07,2026-10-29
+TESTCASE-077,testcase,DEV-STORY-075 testcase build scheduling checkpoints and health lifecycle REST contracts,Closed,High,qa-engineer,tech-lead,DEV-STORY-075,,DEV-STORY-075/TESTCASE-077,2026-10-07,2026-10-29
+TESTEXEC-077,testexec,DEV-STORY-075 testexec build scheduling checkpoints and health lifecycle REST contracts,Closed,High,qa-engineer,tech-lead,DEV-STORY-075,,DEV-STORY-075/TESTEXEC-077,2026-10-07,2026-10-29
 DESIGN-078,design,DEV-STORY-077 design v1 Ontology schema object Action and Query lifecycle REST contracts,Closed,High,tech-lead,tech-lead,DEV-STORY-077,,DEV-STORY-077/DESIGN-078,2026-10-07,2026-10-07
-DEV-078,development,DEV-STORY-077 development v1 Ontology schema object Action and Query lifecycle REST contracts,In Progress,High,python-developer,tech-lead,DEV-STORY-077,,DEV-STORY-077/DEV-078,2026-10-07,2026-10-07
-UNITTEST-078,unittest,DEV-STORY-077 unittest v1 Ontology schema object Action and Query lifecycle REST contracts,In Progress,High,python-developer,tech-lead,DEV-STORY-077,,DEV-STORY-077/UNITTEST-078,2026-10-07,2026-10-07
-CODEREVIEW-079,codereview,DEV-STORY-077 codereview v1 Ontology schema object Action and Query lifecycle REST contracts,Blocked,High,architect,tech-lead,DEV-STORY-077,,DEV-STORY-077/CODEREVIEW-079,2026-10-07,2026-10-07
-TESTCASE-078,testcase,DEV-STORY-077 testcase v1 Ontology schema object Action and Query lifecycle REST contracts,Open,High,qa-engineer,tech-lead,DEV-STORY-077,,DEV-STORY-077/TESTCASE-078,2026-10-07,2026-10-07
-TESTEXEC-078,testexec,DEV-STORY-077 testexec v1 Ontology schema object Action and Query lifecycle REST contracts,Open,High,qa-engineer,tech-lead,DEV-STORY-077,,DEV-STORY-077/TESTEXEC-078,2026-10-07,2026-10-07
+DEV-078,development,DEV-STORY-077 development v1 Ontology schema object Action and Query lifecycle REST contracts,Closed,High,python-developer,tech-lead,DEV-STORY-077,,DEV-STORY-077/DEV-078,2026-10-07,2026-11-16
+UNITTEST-078,unittest,DEV-STORY-077 unittest v1 Ontology schema object Action and Query lifecycle REST contracts,Closed,High,python-developer,tech-lead,DEV-STORY-077,,DEV-STORY-077/UNITTEST-078,2026-10-07,2026-11-16
+CODEREVIEW-079,codereview,DEV-STORY-077 codereview v1 Ontology schema object Action and Query lifecycle REST contracts,Closed,High,architect,tech-lead,DEV-STORY-077,,DEV-STORY-077/CODEREVIEW-079,2026-10-07,2026-11-16
+TESTCASE-078,testcase,DEV-STORY-077 testcase v1 Ontology schema object Action and Query lifecycle REST contracts,Closed,High,qa-engineer,tech-lead,DEV-STORY-077,,DEV-STORY-077/TESTCASE-078,2026-10-07,2026-11-16
+TESTEXEC-078,testexec,DEV-STORY-077 testexec v1 Ontology schema object Action and Query lifecycle REST contracts,Closed,High,qa-engineer,tech-lead,DEV-STORY-077,,DEV-STORY-077/TESTEXEC-078,2026-10-07,2026-11-17
 BUG-SUB-023,bug_subtask,Document and bridge SDK1.101 ModelStudio config-version integer path failure,Closed,High,python-developer,tech-lead,DEV-STORY-087,,DEV-STORY-087/BUG-SUB-023,2026-10-07,2026-10-07
 DESIGN-079,design,DEV-STORY-079 design v2 Ontology schema and interface lifecycle REST contracts,Closed,High,tech-lead,tech-lead,DEV-STORY-079,,DEV-STORY-079/DESIGN-079,2026-10-07,2026-10-07
-DEV-079,development,DEV-STORY-079 development v2 Ontology schema and interface lifecycle REST contracts,In Progress,High,python-developer,tech-lead,DEV-STORY-079,,DEV-STORY-079/DEV-079,2026-10-07,2026-10-07
-UNITTEST-079,unittest,DEV-STORY-079 unittest v2 Ontology schema and interface lifecycle REST contracts,Open,High,python-developer,tech-lead,DEV-STORY-079,,DEV-STORY-079/UNITTEST-079,2026-10-07,2026-10-07
-CODEREVIEW-080,codereview,DEV-STORY-079 codereview v2 Ontology schema and interface lifecycle REST contracts,Blocked,High,architect,tech-lead,DEV-STORY-079,,DEV-STORY-079/CODEREVIEW-080,2026-10-07,2026-10-07
-TESTCASE-079,testcase,DEV-STORY-079 testcase v2 Ontology schema and interface lifecycle REST contracts,Open,High,qa-engineer,tech-lead,DEV-STORY-079,,DEV-STORY-079/TESTCASE-079,2026-10-07,2026-10-07
-TESTEXEC-079,testexec,DEV-STORY-079 testexec v2 Ontology schema and interface lifecycle REST contracts,Open,High,qa-engineer,tech-lead,DEV-STORY-079,,DEV-STORY-079/TESTEXEC-079,2026-10-07,2026-10-07
+DEV-079,development,DEV-STORY-079 development v2 Ontology schema and interface lifecycle REST contracts,Closed,High,python-developer,tech-lead,DEV-STORY-079,,DEV-STORY-079/DEV-079,2026-10-07,2026-11-17
+UNITTEST-079,unittest,DEV-STORY-079 unittest v2 Ontology schema and interface lifecycle REST contracts,Closed,High,python-developer,tech-lead,DEV-STORY-079,,DEV-STORY-079/UNITTEST-079,2026-10-07,2026-11-17
+CODEREVIEW-080,codereview,DEV-STORY-079 codereview v2 Ontology schema and interface lifecycle REST contracts,Closed,High,architect,tech-lead,DEV-STORY-079,,DEV-STORY-079/CODEREVIEW-080,2026-10-07,2026-11-17
+TESTCASE-079,testcase,DEV-STORY-079 testcase v2 Ontology schema and interface lifecycle REST contracts,In Progress,High,qa-engineer,tech-lead,DEV-STORY-079,,DEV-STORY-079/TESTCASE-079,2026-10-07,2026-11-17
+TESTEXEC-079,testexec,DEV-STORY-079 testexec v2 Ontology schema and interface lifecycle REST contracts,Blocked,High,qa-engineer,tech-lead,DEV-STORY-079,,DEV-STORY-079/TESTEXEC-079,2026-10-07,2026-11-18
 DESIGN-080,design,DEV-STORY-081 design v2 Ontology object set scenario and transaction lifecycle REST contracts,Closed,High,tech-lead,tech-lead,DEV-STORY-081,,DEV-STORY-081/DESIGN-080,2026-10-07,2026-10-07
 DEV-080,development,DEV-STORY-081 development v2 Ontology object set scenario and transaction lifecycle REST contracts,In Progress,High,python-developer,tech-lead,DEV-STORY-081,,DEV-STORY-081/DEV-080,2026-10-07,2026-10-07
 UNITTEST-080,unittest,DEV-STORY-081 unittest v2 Ontology object set scenario and transaction lifecycle REST contracts,Open,High,python-developer,tech-lead,DEV-STORY-081,,DEV-STORY-081/UNITTEST-080,2026-10-07,2026-10-07
@@ -953,9 +953,9 @@ CODEREVIEW-083,codereview,DEV-STORY-085 codereview Function execution value type
 TESTCASE-082,testcase,DEV-STORY-085 testcase Function execution value type and version lifecycle REST contracts,Closed,High,qa-engineer,tech-lead,DEV-STORY-085,,DEV-STORY-085/TESTCASE-082,2026-10-07,2026-10-20
 TESTEXEC-082,testexec,DEV-STORY-085 testexec Function execution value type and version lifecycle REST contracts,Closed,High,qa-engineer,tech-lead,DEV-STORY-085,,DEV-STORY-085/TESTEXEC-082,2026-10-07,2026-10-20
 DESIGN-083,design,DEV-STORY-089 design connectivity stream and SQL query lifecycle REST contracts,Closed,High,tech-lead,tech-lead,DEV-STORY-089,,DEV-STORY-089/DESIGN-083,2026-10-07,2026-10-07
-DEV-083,development,DEV-STORY-089 development connectivity stream and SQL query lifecycle REST contracts,In Progress,High,python-developer,tech-lead,DEV-STORY-089,,DEV-STORY-089/DEV-083,2026-10-07,2026-10-07
-UNITTEST-083,unittest,DEV-STORY-089 unittest connectivity stream and SQL query lifecycle REST contracts,Open,High,python-developer,tech-lead,DEV-STORY-089,,DEV-STORY-089/UNITTEST-083,2026-10-07,2026-10-07
-CODEREVIEW-084,codereview,DEV-STORY-089 codereview connectivity stream and SQL query lifecycle REST contracts,Blocked,High,architect,tech-lead,DEV-STORY-089,,DEV-STORY-089/CODEREVIEW-084,2026-10-07,2026-10-07
+DEV-083,development,DEV-STORY-089 development connectivity stream and SQL query lifecycle REST contracts,Closed,High,python-developer,tech-lead,DEV-STORY-089,,DEV-STORY-089/DEV-083,2026-10-07,2026-11-17
+UNITTEST-083,unittest,DEV-STORY-089 unittest connectivity stream and SQL query lifecycle REST contracts,Closed,High,python-developer,tech-lead,DEV-STORY-089,,DEV-STORY-089/UNITTEST-083,2026-10-07,2026-11-17
+CODEREVIEW-084,codereview,DEV-STORY-089 codereview connectivity stream and SQL query lifecycle REST contracts,Closed,High,architect,tech-lead,DEV-STORY-089,,DEV-STORY-089/CODEREVIEW-084,2026-10-07,2026-11-17
 TESTCASE-083,testcase,DEV-STORY-089 testcase connectivity stream and SQL query lifecycle REST contracts,Open,High,qa-engineer,tech-lead,DEV-STORY-089,,DEV-STORY-089/TESTCASE-083,2026-10-07,2026-10-07
 TESTEXEC-083,testexec,DEV-STORY-089 testexec connectivity stream and SQL query lifecycle REST contracts,Open,High,qa-engineer,tech-lead,DEV-STORY-089,,DEV-STORY-089/TESTEXEC-083,2026-10-07,2026-10-07
 DESIGN-084,design,DEV-STORY-091 design Media Set and widget development release lifecycle REST contracts,Closed,High,tech-lead,tech-lead,DEV-STORY-091,,DEV-STORY-091/DESIGN-084,2026-10-07,2026-10-07
@@ -965,7 +965,7 @@ CODEREVIEW-085,codereview,DEV-STORY-091 codereview Media Set and widget developm
 TESTCASE-084,testcase,DEV-STORY-091 testcase Media Set and widget development release lifecycle REST contracts,Open,High,qa-engineer,tech-lead,DEV-STORY-091,,DEV-STORY-091/TESTCASE-084,2026-10-07,2026-10-07
 TESTEXEC-084,testexec,DEV-STORY-091 testexec Media Set and widget development release lifecycle REST contracts,Open,High,qa-engineer,tech-lead,DEV-STORY-091,,DEV-STORY-091/TESTEXEC-084,2026-10-07,2026-10-07
 BUG-SUB-024,bug_subtask,Dataset File guide omits composed SDK client path,Closed,High,python-developer,qa-engineer,DEV-STORY-074,,DEV-STORY-074/BUG-SUB-024,2026-10-09,2026-10-11
-BUG-SUB-025,bug_subtask,J12 guide lacks integrated transaction file verification and build outcome,In Progress,High,python-developer,qa-engineer,DEV-STORY-075,,DEV-STORY-075/BUG-SUB-025,2026-10-09,2026-10-11
+BUG-SUB-025,bug_subtask,J12 guide lacks integrated transaction file verification and build outcome,Closed,High,python-developer,qa-engineer,DEV-STORY-075,,DEV-STORY-075/BUG-SUB-025,2026-10-09,2026-10-28
 BUG-SUB-026,bug_subtask,Audit LogFile list guide cannot complete bounded pagination,Closed,High,python-developer,qa-engineer,DEV-STORY-073,,DEV-STORY-073/BUG-SUB-026,2026-10-09,2026-10-11
 BUG-006,bug,Security Scan job fails: safety dependency scan reports nltk 3.10.3 path-traversal vulnerability,Closed,High,qa-engineer,project-manager,,,BUG-006,2026-10-11,2026-10-11
 QUESTION-187,question,UNITTEST-044: parent DEV-STORY-044 still Blocked after BUG-SUB-019 closed - proceed or wait?,Closed,Medium,python-developer,python-developer,UNITTEST-044,tech-lead,UNITTEST-044/QUESTION-187,2026-10-12,2026-10-12
@@ -1003,13 +1003,13 @@ BUG-031,bug,Admin search counts response envelopes instead of search results,Clo
 BUG-032,bug,Concurrent link creation assigns duplicate IDs and makes removal ambiguous,Closed,High,project-manager,project-manager,,,BUG-032,2026-10-14,2026-10-14
 BUG-033,bug,Windows counter-file replace causes concurrent tracker read failure,Closed,High,project-manager,qa-engineer,,,BUG-033,2026-10-14,2026-10-14
 BUG-034,bug,Data Health CLI omits required preview query on six endpoints,Closed,High,python-developer,qa-engineer,,,BUG-034,2026-10-16,2026-10-23
-BUG-SUB-027,bug_subtask,Admin membership expiration example sends empty replacement,Open,High,python-developer,qa-engineer,DEV-STORY-071,,DEV-STORY-071/BUG-SUB-027,2026-10-16,2026-10-16
-BUG-SUB-028,bug_subtask,Admin get_batch examples accept empty results for requested IDs,Open,High,python-developer,qa-engineer,DEV-STORY-071,,DEV-STORY-071/BUG-SUB-028,2026-10-16,2026-10-22
+BUG-SUB-027,bug_subtask,Admin membership expiration example sends empty replacement,Closed,High,python-developer,qa-engineer,DEV-STORY-071,,DEV-STORY-071/BUG-SUB-027,2026-10-16,2026-10-28
+BUG-SUB-028,bug_subtask,Admin get_batch examples accept empty results for requested IDs,Closed,High,python-developer,qa-engineer,DEV-STORY-071,,DEV-STORY-071/BUG-SUB-028,2026-10-16,2026-10-28
 BUG-SUB-029,bug_subtask,CBAC examples omit marking IDs while asserting marking-specific results,Closed,High,python-developer,qa-engineer,DEV-STORY-072,,DEV-STORY-072/BUG-SUB-029,2026-10-16,2026-10-18
 BUG-SUB-030,bug_subtask,Admin marking and role batch examples accept empty results,Closed,Medium,python-developer,qa-engineer,DEV-STORY-072,,DEV-STORY-072/BUG-SUB-030,2026-10-16,2026-10-18
 BUG-SUB-031,bug_subtask,Classification parser example loses requested string outcome,Closed,High,python-developer,qa-engineer,DEV-STORY-072,,DEV-STORY-072/BUG-SUB-031,2026-10-16,2026-10-18
 BUG-SUB-032,bug_subtask,DEV-STORY-081 beta REST fixtures omit preview query,Closed,High,python-developer,qa-engineer,DEV-STORY-081,,DEV-STORY-081/BUG-SUB-032,2026-10-16,2026-10-18
-BUG-035,bug,Audit skill omits required log API permission and OAuth scope,Resolved,High,python-developer,qa-engineer,,,BUG-035,2026-10-16,2026-10-22
+BUG-035,bug,Audit skill omits required log API permission and OAuth scope,Resolved,High,python-developer,qa-engineer,,,BUG-035,2026-10-16,2026-10-26
 BUG-SUB-033,bug_subtask,DEV-STORY-081 object and link examples lack meaningful result and error checks,Closed,High,python-developer,qa-engineer,DEV-STORY-081,,DEV-STORY-081/BUG-SUB-033,2026-10-16,2026-10-18
 TESTCASE-085,testcase,Review DHT-TC-021 Data Health preview cases,Closed,High,qa-engineer,project-manager,BUG-034,,BUG-034/TESTCASE-085,2026-10-18,2026-10-18
 TESTEXEC-085,testexec,Execute DHT-TC-021 against reviewed release candidates,Closed,High,qa-engineer,project-manager,BUG-034,,BUG-034/TESTEXEC-085,2026-10-18,2026-10-18
@@ -1034,3 +1034,27 @@ TASK-009,task,Bump parent submodule pin for pal_found_cli_skills to merged main 
 CODEREVIEW-086,codereview,BUG-034: Review Data Health preview fix 56ec439,Canceled,High,project-manager,project-manager,BUG-034,,BUG-034/CODEREVIEW-086,2026-10-23,2026-10-23
 TASK-010,task,Merge feature015/data-health-preview-fix into pal_found_cli_tool main,Closed,High,project-manager,project-manager,,,TASK-010,2026-10-23,2026-10-23
 TASK-011,task,Bump parent submodule pin for pal_found_cli_tool to main a3a38ec,Closed,High,project-manager,project-manager,,,TASK-011,2026-10-23,2026-10-23
+TASK-012,task,Report current in-progress activities,Closed,High,project-manager,project-manager,,,TASK-012,2026-10-25,2026-10-25
+TASK-013,task,Manage completion of open BUG and BUG-SUB tasks,In Progress,High,project-manager,project-manager,,,TASK-013,2026-10-25,2026-11-17
+QUESTION-194,question,BUG-035 fix not deployable: land Audit correction 2190c40 into skills main and re-pin submodule,Closed,High,qa-engineer,qa-engineer,BUG-035,python-developer,BUG-035/QUESTION-194,2026-10-25,2026-10-26
+QUESTION-195,question,How should the three un-merged FEATURE-015 bug fixes reach skills main: merge integration or cherry-pick?,Closed,High,architect,project-manager,TASK-013,architect,TASK-013/QUESTION-195,2026-10-25,2026-10-27
+DEV-085,development,Merge feature015/integration into skills main and resolve the doc-only gate conflict,Closed,High,project-manager,project-manager,DEV-STORY-070,,DEV-STORY-070/DEV-085,2026-10-25,2026-10-25
+CODEREVIEW-087,codereview,DEV-085: Review feature015/integration merge into skills main,Closed,High,project-manager,project-manager,DEV-STORY-070,,DEV-STORY-070/CODEREVIEW-087,2026-10-25,2026-10-25
+BUG-046,bug,Models CLI config-version get fails before HTTP on SDK 1.101.0,Closed,High,python-developer,project-manager,,,BUG-046,2026-10-29,2026-10-29
+BUG-047,bug,Models standalone guidance lacks required contracts and uses invalid trainer ID,Closed,High,python-developer,qa-engineer,,,BUG-047,2026-10-29,2026-11-16
+TASK-014,task,Prepare FEATURE-015 parent draft checkpoint,Closed,High,devops-engineer,devops-engineer,,,TASK-014,2026-10-29,2026-11-17
+TASK-015,task,Publish reviewed BUG-046 tool fix through PR 2,Closed,High,devops-engineer,devops-engineer,,,TASK-015,2026-10-29,2026-10-29
+TASK-016,task,Refresh parent agent configuration and contributor notes for PR 7,Closed,High,hr,hr,,,TASK-016,2026-10-29,2026-10-29
+TASK-017,task,Publish reviewed FEATURE-015 skills draft checkpoint,Closed,High,devops-engineer,devops-engineer,,,TASK-017,2026-10-29,2026-11-16
+TASK-018,task,Refresh FEATURE-015 combined draft and publication status,Closed,High,project-manager,project-manager,,,TASK-018,2026-11-16,2026-11-17
+BUG-048,bug,Third-party Website and Version CLI routes omit ThirdPartyApplication SDK parent,Closed,High,python-developer,qa-engineer,,,BUG-048,2026-11-16,2026-11-16
+BUG-049,bug,Third-party application standalone pages omit setup identity and recovery contracts,Closed,High,python-developer,qa-engineer,,,BUG-049,2026-11-16,2026-11-16
+TASK-019,task,Capture current FEATURE-015 tracker publication snapshot,Closed,High,devops-engineer,devops-engineer,,,TASK-019,2026-11-16,2026-11-16
+TASK-020,task,Publish reviewed BUG-048 tool fix and third-party skills draft checkpoint,Closed,High,devops-engineer,devops-engineer,,,TASK-020,2026-11-16,2026-11-17
+TASK-021,task,Publish REST077 formal acceptance and reviewed REST079 REST089 unit checkpoint,Closed,High,devops-engineer,devops-engineer,,,TASK-021,2026-11-17,2026-11-17
+QUESTION-196,question,Classify legacy Geotemporal CLI availability under supported SDK versions,Closed,High,project-manager,project-manager,DEV-STORY-070,architect,DEV-STORY-070/QUESTION-196,2026-11-17,2026-11-17
+BUG-050,bug,Restore retained Geotemporal latest and historic CLI contracts on admitted SDK versions,Blocked,High,python-developer,project-manager,,,BUG-050,2026-11-17,2026-11-18
+TASK-022,task,Publish reviewed REST073 unit coverage and BUG050 tool correction with paired draft pins,In Progress,High,devops-engineer,devops-engineer,,,TASK-022,2026-11-17,2026-11-18
+BUG-051,bug,CI Security Scan fails on filelock advisories for reviewed tool release candidate,Blocked,High,devops-engineer,project-manager,,,BUG-051,2026-11-18,2026-11-18
+QUESTION-197,question,Confirm TESTEXEC gate interpretation for already Closed implementation tasks,Open,High,project-manager,project-manager,TESTEXEC-079,architect,TESTEXEC-079/QUESTION-197,2026-11-18,2026-11-18
+QUESTION-198,question,Clarify supported CI dependency scanner remediation for Safety filelock conflict,Open,High,devops-engineer,devops-engineer,BUG-051,architect,BUG-051/QUESTION-198,2026-11-18,2026-11-18

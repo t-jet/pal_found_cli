@@ -2,13 +2,14 @@
 id: DEV-083
 type: development
 title: DEV-STORY-089 development connectivity stream and SQL query lifecycle REST contracts
-status: In Progress
+status: Closed
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-11-17
 priority: High
 assignee: python-developer
 reporter: tech-lead
 estimated_hours: 32
+time_spent_hours: 1.68858e-05
 ---
 
 # DEV-STORY-089 development

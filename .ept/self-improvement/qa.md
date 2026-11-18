@@ -293,3 +293,37 @@ Condition:
 Action:
 
 - Do remove the link IDs owned by the fixed bug once the fix is verified, keep every `RelatesTo`, and leave other bugs' `Blocks` links to the same story alone. Record the instruction clause, the dependent acceptance criteria and any sibling closure precedent in one comment, then re-check each dependent's Blocked flag and report it. Do not treat a fix awaiting merge to main as a reason to keep the ticket open.
+
+## Improvement: verify a doc/skill fix hash at the DEPLOYABLE pin, not a branch snapshot
+
+Condition:
+
+- When QA verifies a bug whose fix is a doc/skill page and the developer quotes a page SHA256 plus an accepted whole-page report
+
+Action:
+
+- Do compute the page hash at the deployable pin (parent `git ls-tree HEAD pal_found_cli_skills` for the gitlink, then skills `git rev-parse HEAD` + sha256 the page), and compare to the quoted hash; match only counts when the quoted hash equals the page hash at that pin.
+- Do prove the fix commit is merged with `git merge-base --is-ancestor <fixcommit> <skillsHEAD>` (exit 1 = unmerged) and `git grep <required-string> <skillsHEAD> -- .agents` (0 matches = fix absent).
+- Don't accept a hash that matches only an unmerged branch worktree (e.g. `.ept/tmp/feature015_integration` or `origin/feature015/*`); a merge can regress HEAD back to the original broken hash, so re-hash HEAD after any merge before closing.
+- Do treat "hash matches an unmerged branch snapshot" as a failed verification: keep the outbound `Blocks` link, leave status Resolved, and escalate via a QUESTION to the fix owner.
+
+## Improvement: QUESTION auto-block needs a Blocks link, not just the Question link
+
+Condition:
+
+- When QA raises a QUESTION sub-task and expects the parent to auto-block (AT-4)
+
+Action:
+
+- Do create BOTH links from the question to the parent: `Question` (Asks About) AND `Blocks`; only the `Blocks` link triggers `child_blocker_created`, saving `prior_status` and moving the parent to Blocked.
+- Don't assume the parent blocks on question creation or on the Question link alone; verify with `get` that the parent shows Blocked and the restored `prior_status`.
+
+## Improvement: tracker `^C` echo after a mutation is display noise
+
+Condition:
+
+- When a tracker `create`/`update` prints `^C` and returns no YAML
+
+Action:
+
+- Do re-run `get` (or `list --parent <id>`) exactly once to confirm the mutation landed before retrying; the operation usually succeeded. Don't create a duplicate ticket or comment on the next attempt.

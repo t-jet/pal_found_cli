@@ -2,13 +2,15 @@
 id: TESTCASE-074
 type: testcase
 title: DEV-STORY-071 testcase identity and membership lifecycle REST contracts
-status: Open
+status: Closed
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-27
 priority: High
+resolution: Done
 assignee: qa-engineer
 reporter: tech-lead
 estimated_hours: 6
+time_spent_hours: 0.003741388888884103
 ---
 
 # DEV-STORY-071 testcase

@@ -2,11 +2,11 @@
 id: DEV-STORY-077
 type: dev_story
 title: 'Author offline REST SDK contracts: Legacy v1 Ontology contracts'
-status: Development
+status: Deployment
 feature_request: FEATURE-015
 epic: EPIC-015
 created: 2026-10-06
-updated: 2026-10-07
+updated: 2026-11-17
 priority: High
 assignee: python-developer
 reporter: ba

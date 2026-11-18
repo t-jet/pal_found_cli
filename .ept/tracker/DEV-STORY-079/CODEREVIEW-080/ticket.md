@@ -2,9 +2,9 @@
 id: CODEREVIEW-080
 type: codereview
 title: DEV-STORY-079 codereview v2 Ontology schema and interface lifecycle REST contracts
-status: Blocked
+status: Closed
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-11-17
 priority: High
 assignee: architect
 reporter: tech-lead

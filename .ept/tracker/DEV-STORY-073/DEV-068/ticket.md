@@ -2,13 +2,14 @@
 id: DEV-068
 type: development
 title: DEV-STORY-073 development J13 governance REST contracts
-status: In Progress
+status: Blocked
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-11-18
 priority: High
 assignee: python-developer
 reporter: tech-lead
 estimated_hours: 32
+time_spent_hours: 0.0024702875
 ---
 
 # DEV-STORY-073 development

@@ -2,13 +2,14 @@
 id: UNITTEST-078
 type: unittest
 title: DEV-STORY-077 unittest v1 Ontology schema object Action and Query lifecycle REST contracts
-status: In Progress
+status: Closed
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-11-16
 priority: High
 assignee: python-developer
 reporter: tech-lead
 estimated_hours: 8
+time_spent_hours: 0.001075
 ---
 
 # DEV-STORY-077 unittest

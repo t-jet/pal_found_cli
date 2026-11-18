@@ -2,13 +2,15 @@
 id: TESTCASE-078
 type: testcase
 title: DEV-STORY-077 testcase v1 Ontology schema object Action and Query lifecycle REST contracts
-status: Open
+status: Closed
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-11-16
 priority: High
+resolution: Approved
 assignee: qa-engineer
 reporter: tech-lead
 estimated_hours: 6
+time_spent_hours: 0.000224159083332
 ---
 
 # DEV-STORY-077 testcase

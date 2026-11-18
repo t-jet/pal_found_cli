@@ -2,9 +2,9 @@
 id: CODEREVIEW-068
 type: codereview
 title: DEV-STORY-073 codereview J13 governance REST contracts
-status: Blocked
+status: Corrected
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-11-18
 priority: High
 assignee: architect
 reporter: tech-lead

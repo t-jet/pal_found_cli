@@ -2,13 +2,14 @@
 id: TESTEXEC-077
 type: testexec
 title: DEV-STORY-075 testexec build scheduling checkpoints and health lifecycle REST contracts
-status: Open
+status: Closed
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-29
 priority: High
 assignee: qa-engineer
 reporter: tech-lead
 estimated_hours: 10
+time_spent_hours: 0.0004060805555555555
 ---
 
 # DEV-STORY-075 testexec

@@ -2,11 +2,11 @@
 id: DEV-STORY-070
 type: dev_story
 title: Verify offline semantic development completeness and publish reviewed skills
-status: Development
+status: Blocked
 feature_request: FEATURE-015
 epic: EPIC-015
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-11-17
 priority: High
 assignee: qa-engineer
 reporter: ba

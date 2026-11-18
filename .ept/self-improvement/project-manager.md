@@ -1,5 +1,25 @@
 # Self-Improvement Memory — Project Workflow Manager
 
+## Improvement: Bound discovery to public tracker interface
+
+Condition:
+
+- When locating role instructions or skill files beside tracker storage
+
+Action:
+
+- Do search only `.ept/resources`, `.ept/agents`, or exact instruction paths. Don't enumerate `.ept` recursively; tracker paths remain CLI-only.
+
+## Improvement: Remove generated ticket placeholders
+
+Condition:
+
+- When create inserts a complete authored description above generated TODO sections
+
+Action:
+
+- Do inspect CLI get output, replace body through documented `update --description-file`, then verify complete acceptance text without placeholder sections.
+
 ## Improvement: Handle failing GitHub check requests via BUG handoff
 
 Condition:

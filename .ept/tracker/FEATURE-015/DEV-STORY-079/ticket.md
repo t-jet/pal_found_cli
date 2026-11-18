@@ -2,11 +2,11 @@
 id: DEV-STORY-079
 type: dev_story
 title: 'Author offline REST SDK contracts: v2 Ontology schema and interface contracts'
-status: Development
+status: QA
 feature_request: FEATURE-015
 epic: EPIC-015
 created: 2026-10-06
-updated: 2026-10-07
+updated: 2026-11-17
 priority: High
 assignee: python-developer
 reporter: ba

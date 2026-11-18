@@ -2,13 +2,14 @@
 id: UNITTEST-083
 type: unittest
 title: DEV-STORY-089 unittest connectivity stream and SQL query lifecycle REST contracts
-status: Open
+status: Closed
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-11-17
 priority: High
 assignee: python-developer
 reporter: tech-lead
 estimated_hours: 8
+time_spent_hours: 1.7375e-06
 ---
 
 # DEV-STORY-089 unittest

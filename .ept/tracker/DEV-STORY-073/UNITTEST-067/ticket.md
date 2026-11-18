@@ -2,13 +2,14 @@
 id: UNITTEST-067
 type: unittest
 title: DEV-STORY-073 unittest J13 governance REST contracts
-status: Open
+status: Resolved
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-11-18
 priority: High
 assignee: python-developer
 reporter: tech-lead
 estimated_hours: 8
+time_spent_hours: 0.0710558333333333
 ---
 
 # DEV-STORY-073 unittest

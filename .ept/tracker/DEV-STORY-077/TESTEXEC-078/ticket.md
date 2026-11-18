@@ -2,13 +2,14 @@
 id: TESTEXEC-078
 type: testexec
 title: DEV-STORY-077 testexec v1 Ontology schema object Action and Query lifecycle REST contracts
-status: Open
+status: Closed
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-11-17
 priority: High
 assignee: qa-engineer
 reporter: tech-lead
 estimated_hours: 10
+time_spent_hours: 0.000221964166667
 ---
 
 # DEV-STORY-077 testexec

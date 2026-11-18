@@ -2,9 +2,9 @@
 id: TESTEXEC-079
 type: testexec
 title: DEV-STORY-079 testexec v2 Ontology schema and interface lifecycle REST contracts
-status: Open
+status: Blocked
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-11-18
 priority: High
 assignee: qa-engineer
 reporter: tech-lead
