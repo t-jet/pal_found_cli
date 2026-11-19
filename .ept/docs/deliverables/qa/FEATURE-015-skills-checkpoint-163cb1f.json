@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "kind": "Publication-time source/CI binding, not a new independent QA run",
+  "task": "TASK-024",
+  "observed_at_utc": "2026-11-18T22:05:08.181974+00:00",
+  "source_head": "163cb1f6d28f11eca51384f86c462761a69acd6f",
+  "source_tree": "f78a058f603eebbeca0a696556a7145bbdeab98b",
+  "publication_base": "51f594c08403ac49d848e0d8c4af9986377f64d2",
+  "remote_pr_ci": {
+    "observed_at_utc": "2026-11-18T22:04:17.1113160Z",
+    "repository": "t-jet/pal_found_cli_skills",
+    "pull_request": "https://github.com/t-jet/pal_found_cli_skills/pull/1",
+    "state": "open",
+    "draft": true,
+    "candidate_sha": "163cb1f6d28f11eca51384f86c462761a69acd6f",
+    "remote_branch_sha": "163cb1f6d28f11eca51384f86c462761a69acd6f",
+    "pull_request_head_sha": "163cb1f6d28f11eca51384f86c462761a69acd6f",
+    "body": "This draft contains the reviewed FEATURE-015 checkpoint at `163cb1f6d28f11eca51384f86c462761a69acd6f`. The register records 425 accepted semantic rows, including six fresh independently reviewed result-guidance bindings described below. Formal acceptance now covers 261 operations, with 164 pending. Whole-page results remain 153 accepted and 39 pending, plus the overall audit gate. G1-G7 acceptance and a skills main merge remain outstanding.\r\n\r\nREST077 adds independent acceptance for 23 operations using the preserved November 16 execution evidence. The original executor recorded 597 checks: 587 operation checks and 10 annex checks. The source cases were Closed before that run. November 17 tracker recovery closed the execution record and advanced the story to Deployment; it did not create another test run. Original archive bytes, canonical manifest, inventory and 142 full comment bodies remain under `maintainer/evidence/rest077/`, together with independent acceptance and binding/diff proofs. Isolation evidence includes one actual `create_connection` probe and three patched entry points. CPU usage was not recorded; no live Foundry execution is claimed.\r\n\r\nREST079 and REST089 each add one independently reviewed test file. REST079 covers 32 operations in all six SDK forms, with 192 independent wire-mode checks and 320 detected path, cleanup and cancellation faults. REST089 covers 40 operations, 222 available success forms, 18 unsupported void forms, 143 named-error union entries, 816 named-error calls, 222 generic-error calls and 184 detected mutations. REST089 default Arrow decoding has independent evidence; its existing primary result placeholder remains qualified as transport-only, and its linked lifecycle requests and decodes CSV. These unit changes preserve all product skill and fixture bytes and do not add formal acceptance.\r\n\r\nOriginal author and independent peer reports, executable probes, JUnit, source bindings and mutation evidence are retained under `maintainer/evidence/unit079089-20261117/`. The manifest distinguishes four author/peer identities and labels the REST089 author provenance record as a publication-time record of the PM-confirmed handoff. Original probe paths and base preconditions are retained; archiving them is not another execution.\r\n\r\nHistorical checkpoint `4de1e23` validation: 2,391 combined targeted tests and 44 metadata/acceptance gate guards passed. Ruff and byte/diff checks passed; 4,637 tracked product and fixture files match the previous published checkpoint. The release verifier reports only the expected 196 formal QA/provenance rows and 40 skill review gates. Earlier full-suite results belong to their original heads; GitHub validation for historical head `4de1e23` passed: https://github.com/t-jet/pal_found_cli_skills/actions/runs/44084297861.\r\n\r\nThe workflow parser source remains tool main `1e2e61bc0a56afe9af75e77170358d93ff6cf9d1`, whose eight main CI checks passed: https://github.com/t-jet/pal_found_cli_tool/actions/runs/43951678939. The published tracker snapshot remains as of November 16, 2026 at 12:55; later source workflow is reported separately.\r\n\r\nKeep this PR open and draft pending remaining acceptance gates. No main merge, release tag or package publication is included.\r\n\r\nArchitect classified the two enabled legacy Geotemporal CLI failures on SDK 1.101.0 and 1.111.0 as an SDK compatibility defect under the retained CLI contract. QUESTION-196 is Closed; High-priority BUG-050 is In Progress. Independent Architect and runtime QA accepted the corrected seven-file repair tree at tool `54dfbde`. Tool draft PR4 now has candidate `5da77b017c3690a062fe041ae07799ac428e2f1b` with all eight exact-head checks green under the independently reviewed, temporary scanner-only BUG-051 exception. Genuine Ubuntu live-database scanning passed with exactly three approved advisories ignored until December 2 UTC; residual vulnerabilities remain. Independent final candidate QA and root merge review passed. Tool PR4 merged normally at main `01cd9e91e98dc27ca03bfbf0031ee7807684a7ba` with exact reviewed tree and prior-main/candidate parents; fresh main CI is running. Parent pins remain unchanged. Both legacy identities, exact routes, typed results, guards and SDK transport remain required. With global ENABLED=false, both commands return exit 8 before SDK construction. Current loadEntries has a different contract; legacy backend availability remains unverified. G6 remains unresolved until independent repair acceptance; no unsupported-operation waiver is accepted by this checkpoint.\n\nREST073 adds independently reviewed native SDK mode and lifetime unit coverage in `tests/test_offline_rest_073.py` (SHA-256 `d61e7750211d7ef7bb688c46579e75ed732a340e5ccbe71cfe13a9894feece17`). Original author and distinct peer reports, source proof, author focused/full JUnit and full log, and executable independent probe plus peer results and JUnit are retained byte-for-byte under `maintainer/evidence/unit073-20261117/`. The hashed manifest preserves actual provenance, including unavailable original author command lines. Original author full-suite 6,134 and focused 1,911 passes and independent peer focused 1,911 passes remain separate historical runs. Peer evidence records 258 literal wire checks, 258 generic 403 checks, 357 detected faults and eleven SDK module byte proofs. Archiving these artifacts is not a new run; original executable paths and baseline preconditions remain qualified.\n\nHistorical unit-publication integration at test commit `b74dd080716f6ace16efb9dd13646dce4f4a13f7` passed 1,911 focused tests and 61 metadata/release/acceptance guard tests. Ruff passed. Evidence-only successor `ff70c30c99410b3b0784bcad934625b88d5e6e5c` preserves all validation input bytes. All 4,639 protected product, fixture and existing REST073 guard files, all other baseline files, registers and acceptance metadata remain unchanged. Original CRLF evidence bytes are retained; CRLF-aware diff checks pass. This unit checkpoint adds no formal acceptance or live Foundry claim. Historical exact-head GitHub validation passed at `ff70c30c99410b3b0784bcad934625b88d5e6e5c`: https://github.com/t-jet/pal_found_cli_skills/actions/runs/44198143320. The workflow runs Ruff and the full pytest suite; this run is separate from the preserved author and peer runs.\n\nTASK-022 remains In Progress. Parent draft pins remain at their previous published checkpoint while tool main publication and final acceptance gates are pending. No parent pin change accompanies this skills draft publication.\n\nReviewed CR-068 correction: commit `b601a40fe6a97ad5a66c400a5bfd5be5563fd4d1` changes exactly two third-party application guides, the six affected semantic bindings, and scoped proof `maintainer/rest-domain-independent-review-073-result-guidance-20261118.json`. `ThirdPartyApplication` returns only `rid`; `Version` returns only `version`. The guides retain selected application/version context from the request and obtain deployed-version/subdomain state from the composed Website client, rather than inferring unavailable response fields. Independent Architect review certifies the six affected operations at exact corrected guide hashes. Other 419 operation rows and historical reviews remain unchanged; no formal acceptance is added.\n\nMetadata-only successor `51f594c08403ac49d848e0d8c4af9986377f64d2` changes only the global candidate anchor to the real correction commit and the canonical REST input-bundle digest. The original 4,639-file preservation guarantee applies through `ff70c30`. After that checkpoint, exactly two approved guide files change; the other 4,637 protected files, all fixtures/tests/models/source and original evidence remain byte-for-byte unchanged. No generator regeneration or seven pre-existing generator differences are included.\n\nHistorical corrected-guide validation at `51f594c`: 1,911 REST073 focused tests and 61 metadata/release/acceptance guard tests passed, plus Ruff and CRLF-aware diff checks. Release diagnostic reports only 196 pending formal QA rows, 196 corresponding provenance gaps and 40 skill-review gates. Candidate, bundle, semantic and asset-hash checks introduce no new blockers. Earlier full-suite 6,134 results remain bound to original content; they are not corrected-guide runs. Fresh exact-head GitHub validation for `51f594c08403ac49d848e0d8c4af9986377f64d2` passed: https://github.com/t-jet/pal_found_cli_skills/actions/runs/44342950675. This workflow ran Ruff and the full pytest suite on corrected-guide content, separately from all preserved historical runs. REST079 formal execution is integrated by the later metadata checkpoint described below.\n\nTASK-024 current publication: `a1d0647f9bac67d2a17bf7f603bd7a633b22a5f5` retains the approved REST079 formal checkpoint, `fefe77f638c9f40e29280dcafd05ebfb1a419586` publishes REST081 native unit coverage, and `163cb1f6d28f11eca51384f86c462761a69acd6f` publishes REST083 native unit coverage. Exact scope is 49 approved paths: 24 REST079 files, two unit files, 17 unchanged original unit artifacts, four publication-time CLI provenance captures and two honest publisher manifests. All 5,308 other baseline blobs remain unchanged. Original failure XML whitespace is retained byte-for-byte in exactly two historical REST081 artifacts.\n\nREST079 formal acceptance adds 32 operations using the original distinct executor `/root/rest079_distinct_formal_executor_20261118` and original 1,564 PASS / 0 FAIL evidence, including 25 annex scenarios. This metadata/archive publication is not a new execution. Only the 32 corresponding QA status/executor pairs change; other 393 register rows and prior 229 accepted rows remain unchanged. Original PENDING proposal/history records remain preserved, with actual root approval in a separate final overlay. The historical whole 4,371-file executed bundle is not identical to current content: two foreign third-party guides were corrected later. Relevant REST079 inputs match, with independently reviewed affected-input binding. No whole-current-bundle execution or live Foundry claim is made.\n\nREST081 adds independently reviewed coverage for 22 operations and 132 native SDK forms. Original final author and peer runs each passed 1,019 tests; the peer killed five independent mutants. Earlier author iterations and failures remain retained with original boundaries. REST083 preserves its original 9,743-byte test prefix and adds 496 lines: original author/peer runs each passed 941 tests (79 baseline plus 862 new), independent probes passed 15 cases, and six author mutants were independently replayed and killed. These unit changes add no formal acceptance. Original agent identities are labeled PM-confirmed handoff provenance; new CLI exports are labeled publication-time captures. Original executable paths and replay limits remain explicit in each archive manifest.\n\nNo reader/product guide, example, model, fixture, contract source or prior archive bytes change. The real content anchor `b601a40fe6a97ad5a66c400a5bfd5be5563fd4d1` and canonical bundle digest `7c75d27f7c1558ffef6579df8025d1ed1b6f268d1a2d37f36754393967977d83` remain unchanged. Semantic register acceptance stays 425; formal acceptance is 261 accepted / 164 pending; page files remain 153 accepted / 39 pending plus one overall audit gate.\n\nFresh local integration passed 1,960 combined REST081/083 tests and 61 metadata/release/acceptance guards on the exact staged tree later committed unchanged. Ruff and bounded diff/preservation checks passed, with only the two preserved historical failure XML whitespace exceptions. Release diagnostic reports only 164 formal QA gaps, 164 corresponding provenance gaps and 40 skill-review gates. Fresh exact-head full GitHub validation for `163cb1f6d28f11eca51384f86c462761a69acd6f` passed: https://github.com/t-jet/pal_found_cli_skills/actions/runs/44407202903. All historical full/focused runs and previous CI proofs remain tied to their original heads. TASK-024 and TASK-022 remain In Progress; no main merge, parent pin update, tag or package upload is included.\n",
+    "checks": [
+      {
+        "name": "validate",
+        "status": "completed",
+        "conclusion": "success",
+        "head_sha": "163cb1f6d28f11eca51384f86c462761a69acd6f",
+        "html_url": "https://github.com/t-jet/pal_found_cli_skills/actions/runs/44407202903/job/135165498856",
+        "started_at": "2026-11-18T22:00:10Z",
+        "completed_at": "2026-11-18T22:02:47Z"
+      }
+    ],
+    "workflows": [
+      {
+        "id": 44407202903,
+        "name": "Validate skills",
+        "event": "pull_request",
+        "status": "completed",
+        "conclusion": "success",
+        "head_sha": "163cb1f6d28f11eca51384f86c462761a69acd6f",
+        "html_url": "https://github.com/t-jet/pal_found_cli_skills/actions/runs/44407202903"
+      }
+    ]
+  },
+  "remote_pr_ci_proof_sha256": "553bf21e1294bfc31adcac29c8931a0b07736ab5cc681ac5c7b6a348604105b7",
+  "counts": {
+    "semantic_register": {
+      "accepted": 425
+    },
+    "formal": {
+      "accepted": 261,
+      "pending": 164
+    },
+    "page_files": {
+      "accepted": 153,
+      "author context review; independent semantic review pending": 39
+    },
+    "overall_audit_pending": 1
+  },
+  "release_diagnostic": {
+    "operation_qa_pending": 164,
+    "operation_qa_provenance": 164,
+    "skill_review_pending": 40
+  },
+  "unchanged_global_anchors": {
+    "candidate_sha": "b601a40fe6a97ad5a66c400a5bfd5be5563fd4d1",
+    "input_bundle_sha256": "7c75d27f7c1558ffef6579df8025d1ed1b6f268d1a2d37f36754393967977d83"
+  },
+  "root_reviewed_allowlist": {
+    "path": ".ept\\tmp\\task024_precommit_allowlist_20261118.json",
+    "sha256": "89f5d022bd031c911e85c8742a7de7b5121a4157994e56d3a9971846a5fdf496",
+    "paths": 49,
+    "all_committed_hashes_match": true
+  },
+  "local_integration": {
+    "input_tree": "f78a058f603eebbeca0a696556a7145bbdeab98b",
+    "focused_tests_passed": 1960,
+    "metadata_guard_tests_passed": 61,
+    "ruff_passed": true,
+    "diff_boundary": "Only preserved historical rest081_author_run1.xml and run2.xml whitespace is excepted; raw original bytes match."
+  },
+  "fresh_github_full_validation": {
+    "workflow_id": 44407202903,
+    "job_id": 135165498856,
+    "ruff_passed": true,
+    "tests_passed": 8015,
+    "console_seconds": 117.34,
+    "original_job_log": ".ept/tmp/task024_skills_ci_163cb1f_20261119.log",
+    "original_job_log_sha256": "1a56fa49ca4d03aba838c44bd337367824d212dde3e1fd0c191e2c133e6b67a6"
+  },
+  "formal079_binding_boundary": {
+    "original_tests_passed": 1564,
+    "new_execution_claimed": false,
+    "whole_historical_4371_file_bundle_matches_current": false,
+    "relevant079_inputs_match": true,
+    "foreign_guide_differences": [
+      "ThirdPartyApplication.md",
+      "Version.md"
+    ],
+    "original_pending_history_preserved": true
+  },
+  "limits": [
+    "No skills main merge, tool status closure, parent pin update, tag or package publication.",
+    "Unit081/083 readiness adds no formal acceptance.",
+    "Earlier run/CI evidence remains bound to original heads and content."
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "kind": "Independent exact merged-main CI and security QA; not a new runtime execution",
+  "reviewer": "/root/qa_release_checkpoints_recovery_20261119",
+  "observed_at_utc": "2026-11-19T06:50:38.982357+00:00",
+  "verdict": "MAIN_CI_AND_BOUNDED_SECURITY_ACCEPTED_PARENT_PINS_PENDING",
+  "main_sha": "01cd9e91e98dc27ca03bfbf0031ee7807684a7ba",
+  "tree_sha": "fd73eff4cc59d0136383949385e9498e3ada0ba4",
+  "parents": [
+    "1e2e61bc0a56afe9af75e77170358d93ff6cf9d1",
+    "5da77b017c3690a062fe041ae07799ac428e2f1b"
+  ],
+  "independent_live_api_confirmed": true,
+  "reviewed_candidate_tree_equal": true,
+  "required_ci_names": [
+    "Lint (Ruff)",
+    "Type Check (mypy)",
+    "Test (Python 3.11 on ubuntu-latest)",
+    "Test (Python 3.12 on ubuntu-latest)",
+    "Test (Python 3.11 on windows-latest)",
+    "Test (Python 3.12 on windows-latest)",
+    "Security Scan",
+    "Build Package"
+  ],
+  "required_ci_checks": [
+    {
+      "name": "Build Package",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "01cd9e91e98dc27ca03bfbf0031ee7807684a7ba",
+      "html_url": "https://github.com/t-jet/pal_found_cli_tool/actions/runs/44407624639/job/135169074888",
+      "started_at": "2026-11-18T22:06:08Z",
+      "completed_at": "2026-11-18T22:06:28Z"
+    },
+    {
+      "name": "Security Scan",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "01cd9e91e98dc27ca03bfbf0031ee7807684a7ba",
+      "html_url": "https://github.com/t-jet/pal_found_cli_tool/actions/runs/44407624639/job/135168803228",
+      "started_at": "2026-11-18T22:05:40Z",
+      "completed_at": "2026-11-18T22:06:06Z"
+    },
+    {
+      "name": "Test (Python 3.12 on ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "01cd9e91e98dc27ca03bfbf0031ee7807684a7ba",
+      "html_url": "https://github.com/t-jet/pal_found_cli_tool/actions/runs/44407624639/job/135167511007",
+      "started_at": "2026-11-18T22:03:31Z",
+      "completed_at": "2026-11-18T22:05:01Z"
+    },
+    {
+      "name": "Test (Python 3.11 on windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "01cd9e91e98dc27ca03bfbf0031ee7807684a7ba",
+      "html_url": "https://github.com/t-jet/pal_found_cli_tool/actions/runs/44407624639/job/135167510905",
+      "started_at": "2026-11-18T22:03:32Z",
+      "completed_at": "2026-11-18T22:05:25Z"
+    },
+    {
+      "name": "Test (Python 3.11 on ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "01cd9e91e98dc27ca03bfbf0031ee7807684a7ba",
+      "html_url": "https://github.com/t-jet/pal_found_cli_tool/actions/runs/44407624639/job/135167510902",
+      "started_at": "2026-11-18T22:03:30Z",
+      "completed_at": "2026-11-18T22:05:06Z"
+    },
+    {
+      "name": "Test (Python 3.12 on windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "01cd9e91e98dc27ca03bfbf0031ee7807684a7ba",
+      "html_url": "https://github.com/t-jet/pal_found_cli_tool/actions/runs/44407624639/job/135167510868",
+      "started_at": "2026-11-18T22:03:31Z",
+      "completed_at": "2026-11-18T22:05:38Z"
+    },
+    {
+      "name": "Type Check (mypy)",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "01cd9e91e98dc27ca03bfbf0031ee7807684a7ba",
+      "html_url": "https://github.com/t-jet/pal_found_cli_tool/actions/runs/44407624639/job/135167204418",
+      "started_at": "2026-11-18T22:03:00Z",
+      "completed_at": "2026-11-18T22:03:28Z"
+    },
+    {
+      "name": "Lint (Ruff)",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "01cd9e91e98dc27ca03bfbf0031ee7807684a7ba",
+      "html_url": "https://github.com/t-jet/pal_found_cli_tool/actions/runs/44407624639/job/135166959375",
+      "started_at": "2026-11-18T22:02:34Z",
+      "completed_at": "2026-11-18T22:02:57Z"
+    }
+  ],
+  "additional_checks": [
+    {
+      "name": "update-pip-graph",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "01cd9e91e98dc27ca03bfbf0031ee7807684a7ba",
+      "html_url": "https://github.com/t-jet/pal_found_cli_tool/actions/runs/44407636559/job/135167011080",
+      "started_at": "2026-11-18T22:02:41Z",
+      "completed_at": "2026-11-18T22:03:22Z"
+    }
+  ],
+  "api_proof": {
+    "path": ".ept\\tmp\\feature015_tool_bug051_merged_main_ci_20261119.json",
+    "sha256": "30a60ddab33c38f094146312b437f4b3f83842db56123be8cb922b3badafd9af"
+  },
+  "main_security_log": {
+    "path": ".ept\\tmp\\task022_tool_main_security_01cd9e9_20261119.log",
+    "sha256": "6840ef1b3c96744d7cb41a9323e1a225cb61179be105e5b6674793ecf2f816b4",
+    "independent_live_download_sha256_match": true,
+    "runner": "GitHub-hosted Ubuntu26.04 Python3.11.18",
+    "scanner": "Safety3.8.1",
+    "filelock": "3.32.7",
+    "scope": "Full installed site-packages including scanner dependencies; live open-source vulnerability database; cache0; no package filter",
+    "packages": 70,
+    "reported": 0,
+    "ignored": 3,
+    "bandit": "No issues identified",
+    "pip_check": "No broken requirements found"
+  },
+  "main_matrices": [
+    {
+      "job_id": 135167510868,
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\qa_tool_main_matrix_135167510868_20261119.log",
+      "sha256": "ba646356a262ade99ae6fea4f83d26782d5bded4dd61a3b4e2fa745e0c045d5a",
+      "boundary_passes": 16,
+      "summary": [
+        "2026-11-18T22:05:35.5827692Z ================= 1506 passed, 6 warnings in 77.47s (0:01:17) ================="
+      ]
+    },
+    {
+      "job_id": 135167510902,
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\qa_tool_main_matrix_135167510902_20261119.log",
+      "sha256": "e274937c44b5a4591590a5683af67973dbb348aec3ca1e5bb27b2573cba5dc89",
+      "boundary_passes": 16,
+      "summary": [
+        "2026-11-18T22:05:00.7069350Z ====================== 1506 passed, 6 warnings in 59.31s ======================="
+      ]
+    },
+    {
+      "job_id": 135167510905,
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\qa_tool_main_matrix_135167510905_20261119.log",
+      "sha256": "2b5d21ebe1f2764a55f83b12976d7fb307c3c575454c5b9b025cc06bb1b8e233",
+      "boundary_passes": 16,
+      "summary": [
+        "2026-11-18T22:05:22.3358657Z ================= 1506 passed, 6 warnings in 68.22s (0:01:08) ================="
+      ]
+    },
+    {
+      "job_id": 135167511007,
+      "path": "E:\\learn\\GenAI_Foundations_DA\\git\\foundry_cli\\.ept\\tmp\\qa_tool_main_matrix_135167511007_20261119.log",
+      "sha256": "676b546e7582e495a56262dbf99f9c739d3ddbe5a23d2ad730cab6eaaf1c7350",
+      "boundary_passes": 16,
+      "summary": [
+        "2026-11-18T22:04:59.4719235Z ====================== 1506 passed, 6 warnings in 55.99s ======================="
+      ]
+    }
+  ],
+  "security_source_review": {
+    "main_script_sha256": "3d5bec5036f6608b242e151cedf50e6564da4d6dfb7734108b366d323c3ec056",
+    "remote_content_matches_reviewed_proposal": true,
+    "guarded_context": "Linux Ubuntu GitHub-hosted CI; exact scanner/filelock versions; product/dev dependency graph excludes filelock",
+    "full_scan_preserved": true,
+    "default_local_policy_unchanged": true,
+    "expiry_utc": "2026-12-02T00:00:00Z",
+    "ids": [
+      "SFTY-20261017-72390",
+      "SFTY-20261017-54654",
+      "SFTY-20261017-57659"
+    ],
+    "residual_vulnerabilities_unpatched": true
+  },
+  "limits": [
+    "Original 197 runtime checks remain historical evidence; no new runtime claim or formal rerun.",
+    "Prior Windows real-Safety backend negatives remain Windows evidence; no Linux negative rerun is claimed. Exact source/version/policy plus genuine Linux positive and 16 boundary cases in each fresh main matrix support acceptance.",
+    "TASK-025 High Open DevOps monitoring due2026-11-24; hard removal2026-12-02UTC, no auto-renewal.",
+    "Paired parent source/pin acceptance still pending; BUG-051 remains In Progress until AC satisfied."
+  ]
+}

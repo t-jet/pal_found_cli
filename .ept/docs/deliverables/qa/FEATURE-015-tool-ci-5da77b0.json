@@ -1,0 +1,96 @@
+{
+  "observed_at_utc": "2026-11-18T21:58:40.1460138Z",
+  "repository": "t-jet/pal_found_cli_tool",
+  "pull_request": "https://github.com/t-jet/pal_found_cli_tool/pull/4",
+  "state": "open",
+  "draft": true,
+  "candidate_sha": "5da77b017c3690a062fe041ae07799ac428e2f1b",
+  "remote_branch_sha": "5da77b017c3690a062fe041ae07799ac428e2f1b",
+  "pull_request_head_sha": "5da77b017c3690a062fe041ae07799ac428e2f1b",
+  "body": "The retained Geotemporal latest-value and historic-stream CLI commands fail when SDK 1.101.0 or 1.111.0 omits their native methods. This change preserves both legacy identities and exact routes through the resource's authenticated SDK transport. Native methods take precedence; fallback applies only to those two missing methods. `loadEntries` has a different contract.\n\nReviewed BUG-050 runtime candidate `54dfbdefe54820d0722474b7bd2b0095f2eb232e` has exact reviewed tree `46cdb36cc7ad14ed1c9367510db7c5a449dc43db`. Its direct parent is initial candidate `a8f23fd809921c0dad019a85d9f27b8b3e341a2a`, based directly on published main `1e2e61bc0a56afe9af75e77170358d93ff6cf9d1`. Seven-file total scope: two compatibility modules, existing ontology dispatch, one wire-test file, complete upstream Apache-2.0 license, and Python/Conda licensing metadata. The correction changes only compatibility-module typing casts and local response bindings; all other six files retain reviewed bytes. RequestInfo and executable behavior remain identical under independent AST comparison. The upstream SDK 1.79.0 adaptation carries attribution and `MIT AND Apache-2.0` licensing; root MIT bytes remain unchanged. CLI inventory remains 351 operations, including 67 ontology operations.\n\nInitial exact-head CI at `a8f23fd` failed four mypy `no-any-return` checks, after Ruff passed; downstream jobs were skipped: https://github.com/t-jet/pal_found_cli_tool/actions/runs/44199067392. That failed run and original source evidence remain preserved. Developer corrected only explicit typing. Local mypy 2.4.1 passed all 74 source files with SDK 1.101.0 and 1.111.0; Ruff 0.17.5 passed; 123 native wire tests passed (41 each on SDK 1.101.0, 1.111.0 and 1.79.0).\n\nIndependent Architect and renewed runtime QA accepted the corrected tree before this push. Renewed independent native SDK checks passed 197 cases: 66/66/65 across SDK 1.101.0/1.111.0/1.79.0, with 60/60/59 HTTP attempts. SDK 1.79.0 provides native-method positive control. Coverage includes literal routes/encoding, typed models, selectors/ranges, guard placement, errors, retry/timeout forwarding, JSON/TOON output, download bytes, cancellation and inventory. Original author JUnit 237 passes (98/98/41) remain historical evidence for the initial source; the corrected 123 author and 197 independent checks are separate runs.\n\nCorrected source manifest SHA-256: `495a9a49f80d7e008fb24b1a03d4be3ec856eb065de7bab42f5e7a980864c4e7`. Renewed independent binding SHA-256: `fbcf7bbfba9f4ed5bc63b9c391947600d916733c25820906bd3e1bc5dd969981`. The unchanged independent harness retains SHA-256 `dd0c2ace3bb53942604ade11ef29bdcffaacd32fc4ac34b21cc16b3ea7cc3123`; a bounded wrapper redirects only its original exact-manifest lookup to the corrected manifest.\n\nFresh isolated wheel/sdist builds match corrected source and full license bytes. Wheel SHA-256: `42a9e8cf99f3e381388ef3a46df95153816a62adff6ddec3147cecfe160a4ae6`; sdist SHA-256: `a42b2c0df153b060f158ba0f585943428bede3ff181a0fd2775d3888cc182de1`. Artifacts retain staged-build version `0.1.6.dev15+ga8f23fd80.d20261118`; they are separate from hosted CI artifacts. Prior artifacts remain historical. Conda metadata parsing with conda-build 26.7.0 passed, but full rendering failed because source acquisition was required. No Conda package build was verified. Historical exact-head CI for corrected runtime commit failed its dependency security check: https://github.com/t-jet/pal_found_cli_tool/actions/runs/44247425711. Ruff, mypy and all four Ubuntu/Windows Python 3.11/3.12 test jobs passed. Bandit high-severity scan found no issues. Safety exited 64 after reporting three advisories against installed `filelock 3.32.7`: CVE-2026-112910, CVE-2026-112908 and CVE-2026-112938. Build was skipped. Reviewed dependency remediation and another exact-head CI run are required before publication can advance.\n\nBackend availability, live tenant execution and compatibility with every SDK version remain unverified. BUG-050 and TASK-022 remain In Progress. Keep this PR draft pending root review of actual candidate and all eight fresh exact-head CI checks. Parent pins remain at their previous checkpoint. Skills documentation correction under CR-068 remains a separate reviewed lane; this tool PR adds no skills semantic acceptance. No main merge, force push, release tag or package upload is included in this publication.\n\nCurrent bounded CI candidate `5da77b017c3690a062fe041ae07799ac428e2f1b` has exact reviewed tree `fd73eff4cc59d0136383949385e9498e3ada0ba4` and direct parent `54dfbdefe54820d0722474b7bd2b0095f2eb232e`. It cherry-picks independently reviewed proposal `7d4a7fa9bfbe751c44ec0aa9a640fb982a8bac67`; only four additional files change: CI workflow, guarded scanner wrapper, committed CI-only exception data and boundary tests. All seven BUG-050 runtime/license/test files and default `.safety-policy.yml`, including its existing nltk policy, remain byte-identical.\n\nBUG-051 independent security review grants conditional risk/design approval for candidate CI testing only. Residual filelock vulnerabilities remain. Three exact scanner-only advisory exceptions have committed reasons and UTC expiry `2026-12-02`; wrapper refuses execution from that date onward. It requires actual Ubuntu/Linux GitHub-hosted context, Safety 3.8.1/filelock 3.32.7, a clean product/dev dependency closure, `pip check`, cache 0 and the full installed-environment scan. Bandit and strict failure remain enforced. No product dependency exception or local-policy change is included. Recheck upstream weekly and before expiry; remove earlier when supported patched Safety ships, without automatic extension.\n\nDevOps boundary tests passed 16 cases; independent review passed 10 checks and verified all eight preserved runtime/default-policy files. Real Safety backend evidence on Windows scanned 71 installed packages with synthetic local advisory data and cache 0: exact three exceptions returned 0, unrelated synthetic advisory returned 64, expired entry returned 64. These are synthetic-data backend policy checks, not genuine Linux or live-database results. Fresh exact-head CI at `5da77b017c3690a062fe041ae07799ac428e2f1b` passed all eight checks: https://github.com/t-jet/pal_found_cli_tool/actions/runs/44405810323. Genuine Ubuntu 26.04/Linux hosted-runner Safety 3.8.1 scanning against the live open-source database passed with zero reported and exactly three approved advisories temporarily ignored; pip check and Bandit passed. This positive Linux result is separate from the retained Windows synthetic unrelated/expired negative checks. Residual vulnerabilities and expiry obligations remain. Root/final QA acceptance, tool main merge, fresh main checks and paired parent pins remain separate gates.\n",
+  "checks": [
+    {
+      "name": "Build Package",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "5da77b017c3690a062fe041ae07799ac428e2f1b",
+      "html_url": "https://github.com/t-jet/pal_found_cli_tool/actions/runs/44405810323/job/135163492829",
+      "started_at": "2026-11-18T21:56:42Z",
+      "completed_at": "2026-11-18T21:57:03Z"
+    },
+    {
+      "name": "Security Scan",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "5da77b017c3690a062fe041ae07799ac428e2f1b",
+      "html_url": "https://github.com/t-jet/pal_found_cli_tool/actions/runs/44405810323/job/135163141638",
+      "started_at": "2026-11-18T21:56:07Z",
+      "completed_at": "2026-11-18T21:56:40Z"
+    },
+    {
+      "name": "Test (Python 3.11 on windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "5da77b017c3690a062fe041ae07799ac428e2f1b",
+      "html_url": "https://github.com/t-jet/pal_found_cli_tool/actions/runs/44405810323/job/135160999649",
+      "started_at": "2026-11-18T21:52:29Z",
+      "completed_at": "2026-11-18T21:56:04Z"
+    },
+    {
+      "name": "Test (Python 3.11 on ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "5da77b017c3690a062fe041ae07799ac428e2f1b",
+      "html_url": "https://github.com/t-jet/pal_found_cli_tool/actions/runs/44405810323/job/135160999644",
+      "started_at": "2026-11-18T21:52:30Z",
+      "completed_at": "2026-11-18T21:53:59Z"
+    },
+    {
+      "name": "Test (Python 3.12 on windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "5da77b017c3690a062fe041ae07799ac428e2f1b",
+      "html_url": "https://github.com/t-jet/pal_found_cli_tool/actions/runs/44405810323/job/135160999641",
+      "started_at": "2026-11-18T21:52:29Z",
+      "completed_at": "2026-11-18T21:54:42Z"
+    },
+    {
+      "name": "Test (Python 3.12 on ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "5da77b017c3690a062fe041ae07799ac428e2f1b",
+      "html_url": "https://github.com/t-jet/pal_found_cli_tool/actions/runs/44405810323/job/135160999612",
+      "started_at": "2026-11-18T21:52:29Z",
+      "completed_at": "2026-11-18T21:54:23Z"
+    },
+    {
+      "name": "Type Check (mypy)",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "5da77b017c3690a062fe041ae07799ac428e2f1b",
+      "html_url": "https://github.com/t-jet/pal_found_cli_tool/actions/runs/44405810323/job/135160767584",
+      "started_at": "2026-11-18T21:52:06Z",
+      "completed_at": "2026-11-18T21:52:27Z"
+    },
+    {
+      "name": "Lint (Ruff)",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "5da77b017c3690a062fe041ae07799ac428e2f1b",
+      "html_url": "https://github.com/t-jet/pal_found_cli_tool/actions/runs/44405810323/job/135160587191",
+      "started_at": "2026-11-18T21:51:48Z",
+      "completed_at": "2026-11-18T21:52:04Z"
+    }
+  ],
+  "workflows": [
+    {
+      "id": 44405810323,
+      "name": "CI",
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "5da77b017c3690a062fe041ae07799ac428e2f1b",
+      "html_url": "https://github.com/t-jet/pal_found_cli_tool/actions/runs/44405810323"
+    }
+  ]
+}
