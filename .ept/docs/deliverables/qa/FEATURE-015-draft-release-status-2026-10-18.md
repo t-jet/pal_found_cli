@@ -1,71 +1,79 @@
 # FEATURE-015 draft release status
 
-Last verified: 2026-11-17 (Europe/Sofia). FEATURE-015 remains Waiting for Implementation. Its 24 implementation stories remain nonterminal; nine historical duplicates remain terminal. The reviewed skills checkpoint is published for review. Final feature acceptance and skills main publication remain pending.
+Last source verification: 2026-11-19 UTC. FEATURE-015 final acceptance and skills-main publication remain pending. TASK-024 completed its bounded source publication; TASK-022 remains In Progress for the paired parent publication. These drafts do not establish a completed feature release.
 
-## Published revisions
+## Reviewed source pair
 
-| Repository | Published revision | Verification |
+| Repository | Revision | Verification |
 | --- | --- | --- |
-| Skills | Draft [PR #1](https://github.com/t-jet/pal_found_cli_skills/pull/1), `4de1e23e98017536bcff0eef2aa1d057e576e056` | [Exact-head validation passed](https://github.com/t-jet/pal_found_cli_skills/actions/runs/44084297861). The [immutable CI proof](FEATURE-015-skills-ci-4de1e23.json) preserves the 12:37 UTC observation and then-current PR body. All 425 operation meanings are accepted. |
-| CLI tool | Main `1e2e61bc0a56afe9af75e77170358d93ff6cf9d1`, merged [PR #3](https://github.com/t-jet/pal_found_cli_tool/pull/3) | Eight candidate checks and all eight [fresh main checks passed](https://github.com/t-jet/pal_found_cli_tool/actions/runs/43951678939). Main contains reviewed `9e5a83d` as a direct parent and has the same tree. |
-| Parent release draft | [PR #1](https://github.com/t-jet/pal_found_cli/pull/1), `a2215f5aa7607e29afe773ecdb32a47880cf0cc7` | Paired pins are skills `4de1e23` and tool `1e2e61bc`; both preserve prior main and draft ancestry. |
-| Tracker capture | [PR #5](https://github.com/t-jet/pal_found_cli/pull/5), `ef0c090d7b31999dab635a9fd492a95552385a36` | Independent source-capture QA passed 47 checks. The capture has a fixed timestamp boundary described below. |
-| Agent configuration | [PR #7](https://github.com/t-jet/pal_found_cli/pull/7), `b60555e85e927cca44d7a230d5911bef2ab2b839` | Sixteen committed note files matched the verified live snapshot; generator checks passed. TASK-016 is Closed. |
+| Skills | Draft [PR #1](https://github.com/t-jet/pal_found_cli_skills/pull/1), `163cb1f6d28f11eca51384f86c462761a69acd6f` | [Exact-head validation](https://github.com/t-jet/pal_found_cli_skills/actions/runs/44407202903) passed Ruff and 8,015 tests. [Original CI proof](FEATURE-015-skills-ci-163cb1f.json) and [immutable source checkpoint](FEATURE-015-skills-checkpoint-163cb1f.json) retain observation times and execution boundaries. |
+| CLI tool | Main `01cd9e91e98dc27ca03bfbf0031ee7807684a7ba`, normally merged [PR #4](https://github.com/t-jet/pal_found_cli_tool/pull/4) | All eight [fresh exact-main checks](https://github.com/t-jet/pal_found_cli_tool/actions/runs/44407624639) passed. [Main proof](FEATURE-015-tool-ci-01cd9e9.json), [independent QA](FEATURE-015-tool-main-independent-qa-01cd9e9.json) and [normal merge binding](FEATURE-015-tool-merge-01cd9e9.json) confirm exact reviewed tree and two direct parents. Additional `update-pip-graph` success is recorded separately. |
+| Parent release draft | [PR #1](https://github.com/t-jet/pal_found_cli/pull/1) | Carries paired skills `163cb1f`/tool `01cd9e9` pins and retained immutable evidence. Its final published commit is recorded in the publication-time remote proof and TASK-022 comment after review and push. |
+| Combined parent draft | [PR #6](https://github.com/t-jet/pal_found_cli/pull/6) | Integrates the release branch and this canonical status. Final published head is recorded after review and push; source pins do not imply final feature acceptance. |
+| Tracker capture | [PR #5](https://github.com/t-jet/pal_found_cli/pull/5), `ef0c090d7b31999dab635a9fd492a95552385a36` | Frozen November 16 capture; later workflow and selected publication-time exports remain outside it. |
+| Agent configuration | [PR #7](https://github.com/t-jet/pal_found_cli/pull/7), `b60555e85e927cca44d7a230d5911bef2ab2b839` | Reviewed configuration history retained. TASK-016 is Closed. |
 
-Combined [parent PR #6](https://github.com/t-jet/pal_found_cli/pull/6) integrates these reviewed histories and paired pins. Parent main remains `c87925c9921be68549da7537b88a162326ad2273`, with older skills `716a85b` and tool `a3a38ec` pins. Published draft revisions do not establish a completed feature release.
+Tool main tree `fd73eff4cc59d0136383949385e9498e3ada0ba4` equals candidate `5da77b017c3690a062fe041ae07799ac428e2f1b`. Its direct parents are prior main `1e2e61bc0a56afe9af75e77170358d93ff6cf9d1` and that candidate. [Candidate CI](FEATURE-015-tool-ci-5da77b0.json) remains a separate run. Parent main remains `c87925c9921be68549da7537b88a162326ad2273`; existing draft ancestry is retained.
 
 ## Accepted and pending QA
 
 | Acceptance group | Accepted | Remaining |
 | --- | --- | --- |
-| Operation meanings | 425 of 425 | 0 |
-| Formal operation QA | 229 of 425 | 196 |
-| Whole skill pages | 153 of 192 | 39 pages plus overall signoff: 40 items |
-| Non-REST development topics | 36 of 36 | Other integrated workflow and journey gates remain separate. |
-| Model meanings | 3,251 definitions | Accepted source and dependency closure retained; this does not replace formal operation QA. |
+| Operation meanings | 425 of 425 register entries|0|
+| Formal operation QA | 261 of 425|164|
+| Whole skill pages | 153 of 192|39 page files plus overall signoff: 40 gates|
+| Non-REST development topics | 36 of 36|Integrated workflow/journey gates remain separate|
+| Model meanings | 3,251 definitions|Source/dependency closure does not replace formal operation QA|
 
-The release verifier reports the expected 196 formal operation items and 40 page/signoff items. Source, asset, candidate, model and topic checks have no additional errors at the published checkpoint. No pending item is an approved exception.
+The release diagnostic retains 164 formal QA gaps,164 corresponding provenance gaps and 40 skill-review gates. Candidate, bundle and asset checks add no new blockers. G1-G7 are not waived. All 20 skill identities and 351 existing CLI operation records remain preserved.
 
-| Story | Accepted formal evidence | Workflow boundary |
-| --- | --- | --- |
-| DEV-STORY-071 | 27 operations, 486 checks, 74 declared errors. | Deployment |
-| DEV-STORY-072 | 40 operations, 612 checks, 113 declared errors. | Deployment |
-| DEV-STORY-074 | 52 operations, 1,060 assertion rows, 288 declared errors. | Deployment |
-| DEV-STORY-075 | 29 operations, 1,012 checks, 44 declared errors. | Deployment |
-| DEV-STORY-077 | 23 operations, 597 checks: 587 operation checks and ten annex checks. Original formal run on November 16. | Deployment |
-| DEV-STORY-085 | Eleven operations and 91 checks. | Deployment |
-| DEV-STORY-087 | 47 operations, 894 checks, 171 declared errors. | Deployment |
+| Story | Accepted formal evidence |
+| --- | --- |
+| DEV-STORY-071 |27 operations,486 checks, 74 declared errors|
+| DEV-STORY-072 |40 operations,612 checks,113 declared errors|
+| DEV-STORY-074 |52 operations, 1,060 assertion rows,288 declared errors|
+| DEV-STORY-075 |29 operations, 1,012 checks, 44 declared errors|
+| DEV-STORY-077 |23 operations,597 checks: 587 operation checks and 10 annex checks; original November 16 formal run|
+| DEV-STORY-079 |32 operations,original 1,564 PASS/0 FAIL including 25 annex scenarios; separate approval overlay|
+| DEV-STORY-085 |11 operations, 91 checks|
+| DEV-STORY-087 |47 operations,894 checks,171 declared errors|
 
-REST-077 implementation, unit work, architect review, formal cases and execution are Closed. Independent acceptance covers its 23 operations using the original November 16 formal execution. The source cases were Closed before that run. November 17 workflow recovery closed the execution record and advanced the story to Deployment; it did not rerun the tests. The earlier case dry run and peer controls remain separate from the formal result. Original archive bytes, canonical manifest, inventory and 142 full comment bodies are retained under the pinned skills `maintainer/evidence/rest077/`, with acceptance and source-binding proofs. Isolation evidence includes one actual `create_connection` probe and three patched entry points; CPU usage was not recorded.
+REST077 recovery on November 17 closed its execution record and advanced the story to Deployment without another run. Original archive, canonical manifest, inventory and 142 full comment bodies remain under pinned skills `maintainer/evidence/rest077/`. Isolation evidence includes one actual `create_connection` probe and three patched entry points; CPU usage was not recorded.
 
-REST-079 and REST-089 each add one independently reviewed unit test file with author, peer, executable probe, JUnit, source-binding and mutation evidence under `maintainer/evidence/unit079089-20261117/`. These test-only changes preserve product skill and fixture bytes. Their formal operation QA remains pending.
+REST079 metadata publication `a1d0647f9bac67d2a17bf7f603bd7a633b22a5f5` preserves the distinct original executor and original PENDING history, with actual approval in a separate overlay. Exactly 32 QA-status/executor pairs change;393 other rows remain unchanged. The historical 4,371-file executed bundle differs from current content in two corrected foreign guides; relevant 079 inputs match. This is not a formal rerun or whole-current-bundle execution.
 
-REST-073 restore guidance now explains the conflict between SDK no-op prose and ResourceNotDirectlyTrashed. The generated contract preserves the source quote and links the qualified recovery guidance. The semantic review passes; actual server policy remains unknown. Seven pre-existing generation differences were preserved; a baseline comparison proved the patch changes only the intended restore contract.
+REST081 `fefe77f638c9f40e29280dcafd05ebfb1a419586` and REST083 `163cb1f6d28f11eca51384f86c462761a69acd6f` publish independently reviewed native-unit coverage and original evidence. REST081 author and peer final runs each passed 1,019 tests; five independent mutants were killed. REST083 author and peer each passed 941 tests, plus 15 independent probe cases and six independently replayed mutants; its original 9,743-byte test prefix remains intact. Local publication integration passed 1,960 focused tests and 61 guards on the exact recorded tree. Unit publication adds no formal acceptance.
 
-Original failures remain archived. These include REST-087 harness normalization issues, REST-081 asynchronous response misuse in a review harness, the REST-091 invalid PNG CRC, Third-party conflict-status wording, and REST-077 case-control findings. Corrections retain separate authors, reviewers, exact hashes and evidence boundaries.
+Root reviewed 49 publication paths, 17 original unit artifacts and 5,308 unchanged baseline blobs. Historical failed REST081 XML whitespace remains byte-exact. Original identities, paths, provenance and replay limits remain explicit in the pinned archive manifests. Content anchor `b601a40fe6a97ad5a66c400a5bfd5be5563fd4d1` and bundle digest `7c75d27f7c1558ffef6579df8025d1ed1b6f268d1a2d37f36754393967977d83` are unchanged.
 
-BUG-SUB-025 is Closed after a separate J12 reader completed twelve synthetic offline scenarios and an independent grader passed all six criteria. Broader integrated journey acceptance remains separate. All requests in these reports used synthetic data and controlled transports; no live Foundry tenant acceptance is claimed.
+## Historical skills checkpoints and guidance
 
-## CLI and guidance corrections
+[4de1e23](FEATURE-015-skills-ci-4de1e23.json) retains the previous 229 formal acceptances and 2,391 targeted/44 guard publication results. [ff70c30](FEATURE-015-skills-ci-ff70c30.json) retains REST073 unit-only publication and its original focused/guard/full-CI boundaries. The author 6,134 full-suite and distinct peer 1,911 focused results are separate historical runs.
 
-BUG-034, BUG-036 through BUG-049 are Closed with their verified blocking links removed and other relationships preserved. BUG-035 remains Resolved and requires the final accepted skills main pin before QA closure. The Models and Third-party guidance bugs are accepted within the published draft scope; their closure does not complete FEATURE-015.
+[51f594c](FEATURE-015-skills-ci-51f594c.json) records the corrected REST073 guidance. Exactly two third-party guides change after the original 4,639-file preservation boundary; the other 4,637 protected files remain unchanged through that correction. `ThirdPartyApplication` returns only `rid`; `Version` returns only `version`. Request context and composed Website state supply the other information. Six affected semantic bindings received fresh independent review; other 419 rows and historical reviews remain unchanged. The reanchor changes only the global candidate and canonical bundle digest; seven pre-existing generator differences remain outside scope.
 
-The Models config-version fix preserves native validation and scopes integer-path conversion to the affected resource request. Independent QA passed 39 Models tests and fourteen additional cases on each supported SDK version. Fourteen Models pages passed 80 actual CLI probes; their hashes remain unchanged in the current draft.
+REST079/089 and REST073 native-unit archives remain in the pinned skills repository with original reports, JUnit, probes, source and mutation evidence. REST089 Arrow decoding evidence remains distinct from its transport-only placeholder and linked CSV lifecycle. REST073 restore guidance preserves the SDK docstring promising no effect for a nontrashed resource and qualifies its conflict with `ResourceNotDirectlyTrashed`. The SDK method does dispatch POST; the uncertainty concerns server behavior and the docstring's promised outcome.
 
-The Third-party fix adds the missing ThirdPartyApplication SDK parent for eight Website/Version commands. Independent QA passed 51 native CLI cases per SDK version, eighteen console subprocesses and two launcher checks. Both standalone pages passed review against the fixed runtime. Conflict recovery explicitly handles exit 1/ConflictError without a guaranteed http_status field. No SDK monkeypatch or new runtime policy was added.
+Original failures remain archived: REST087 harness normalization, REST081 asynchronous response misuse, REST091 invalid PNG CRC, Third-party conflict wording and REST077 case controls. BUG-SUB-025's separate J12 reader passed 12 synthetic scenarios and all six grading criteria; broader journeys remain separate. No live Foundry tenant acceptance is claimed.
 
-- [Shared CLI evidence](FEATURE-015-shared-cli-corrections-2026-10-20/README.md) records historical tests and six installation paths at tool `657215f`; those packaging results do not describe every later revision.
-- [Functions SSE correction](FEATURE-015-functions-sse-correction-2026-10-21/README.md) records SDK decoding, scoped retry/client handling and independent SDK checks.
-- [Filesystem and SQL corrections](FEATURE-015-filesystem-sql-corrections-2026-10-21/README.md) records query forwarding, JSON decoding and actual SDK wire checks.
+## CLI corrections and bounded security mitigation
 
-The current skills checkpoint passed 2,391 combined targeted tests and 44 metadata/acceptance guards, Ruff and byte/diff checks, followed by exact-head GitHub validation. All 4,637 tracked product and fixture files match the previous published checkpoint. The earlier 1,323-test result belongs to its original head.
+The retained Geotemporal latest-value and historic-stream commands now preserve both legacy operation identities, literal routes, typed results, guards and authenticated SDK transport on SDK 1.101.0/1.111.0, with SDK 1.79.0 native positive control. Native methods take precedence; fallback applies only when these two methods are absent. Current `loadEntries` has a different contract. Global `ENABLED=false` returns exit 8 before SDK construction. Legacy backend availability and every possible SDK version remain unverified.
 
-An earlier adapter scan had ten uncertain rows; eight Third-party paths were subsequently confirmed defective and corrected. Independent QA of the two legacy Geotemporal CLI commands found their enabled paths return exit 1 with `UserInputError` and an underlying `AttributeError` before HTTP on SDK 1.101.0 and 1.111.0. With global ENABLED=false, both commands return exit 8 before SDK construction. Both legacy methods exist in frozen SDK 1.79; the two supported test versions expose only `load_geotemporal_series_entries`. Architect classified the failure as an SDK compatibility defect under the retained CLI contract; no introducing CLI change was identified. QUESTION-196 is Closed. High-priority BUG-050 is Open with Python Developer to restore the retained latest-value and historic CLI contracts on admitted SDK versions. Its verified blocking link keeps DEV-STORY-070 Blocked from its prior Development status. The proposed scoped repair must preserve both legacy operation identities, exact routes, typed results, guards and SDK transport; current loadEntries has a different contract. G6 remains unresolved until the repair is independently accepted. Legacy backend availability remains unverified; no product correction or unsupported-operation waiver has been accepted.
+The [immutable tool evidence archive](FEATURE-015-tool-corrections-2026-11-19.zip) and [inventory](FEATURE-015-tool-corrections-2026-11-19-inventory.json) retain original harnesses, three corrected-candidate independent reports with 197 checks (66/66/65), literal route/model/error/retry/timeout/output/download/cancellation/inventory evidence, manifests, build logs, original wheel/sdist and full license bytes. The typing build used staged tree `46cdb36` with then-head `a8f23fd`; its version and source boundary remain historical. MIT and Apache-2.0 obligations are retained in Python and Conda metadata. Initial mypy failures and separate corrected checks are preserved.
 
-## Tracker and working copies
+The optional-body cases within the original 197 CLI checks used HTTP 200 empty bodies. A separate native decoder probe on all three SDK versions returns `None` for empty HTTP 200/204 and raises `ValidationError` for literal JSON `null`; it does not certify literal-null CLI success. The original probe, results and QA qualification remain archived without replay.
 
-The [capture manifest](FEATURE-015-tracker-capture-2026-11-16.json), [independent QA](FEATURE-015-tracker-capture-2026-11-16-independent-qa.json) and [evidence](FEATURE-015-tracker-capture-2026-11-16-evidence.json) describe the Git-native snapshot frozen on 2026-11-16 at 12:54:42-12:55:13 UTC. It contains 12,626 canonical source files, 1,051 indexed tickets across all statuses, 11,542 comments and 1,589 links. Later workflow changes, including current QA closures, are outside that snapshot.
+BUG-051 adds only four scanner/CI files after the accepted seven-file runtime/license candidate. Default local Safety policy and all seven runtime/license/test files remain byte-identical. Genuine Ubuntu/Linux live-database scanning with Safety 3.8.1/filelock 3.32.7 reports zero unsuppressed findings and exactly three temporarily ignored advisories. Residual vulnerabilities remain. Expiry is 2026-12-02 UTC; guarded CI refuses execution from that date. Unrelated findings and expired entries still fail; cache 0, full installed environment scanning, `pip check`, Bandit and strict failure remain enforced. The Windows synthetic-database exact/unrelated/expired backend checks are retained separately from genuine Linux scans.
 
-Six historical CSV repairs, the unrecoverable LINK-01279 boundary, exact raw link CSV and legacy CODE002 archive remain preserved. All 45 engine files are unchanged in the capture branch. The combined branch retains the newer reviewed engine; independent merge review confirmed that incoming functionality was preserved. No new engine test run is claimed for an unchanged engine.
+Fresh main CI passed 1,506 tests with six warnings in each of four Ubuntu/Windows Python 3.11/3.12 jobs, including 16 scanner-boundary tests per job. Independent main QA verified all eight required names, exact head/tree/parents and original security/matrix logs. TASK-025 remains Open, owned by DevOps, first upstream review due 2026-11-24. Remove the exceptions earlier when a supported patched Safety release resolves the dependency; no automatic renewal is authorized.
 
-The live parent checkout remains dirty, and later workflow records are not included in the frozen capture. Isolated release branches preserve those live edits. DEVOPS-047 remains Open until G1-G7 acceptance is complete; final skills main publication, accepted parent pin and G8 verification follow that work. No feature tag, package upload or live tenant deployment is claimed.
+Earlier Models and Third-party runtime fixes retain their original independent multi-SDK and CLI-page evidence. BUG-035 still requires an accepted skills-main pin for closure. [Shared CLI](FEATURE-015-shared-cli-corrections-2026-10-20/README.md), [Functions SSE](FEATURE-015-functions-sse-correction-2026-10-21/README.md), and [Filesystem/SQL](FEATURE-015-filesystem-sql-corrections-2026-10-21/README.md) archives retain their original heads and installation/test limits. Later evidence does not relabel those runs.
+
+## Frozen tracker and remaining release work
+
+The [capture manifest](FEATURE-015-tracker-capture-2026-11-16.json), [independent QA](FEATURE-015-tracker-capture-2026-11-16-independent-qa.json) and [evidence](FEATURE-015-tracker-capture-2026-11-16-evidence.json) describe only the November 16 12:54:42-12:55:13 UTC snapshot: 12,626 source files, 1,051 tickets across all statuses, 11,542 comments and 1,589 links. Its tree remains `afb9986836b50317116c0448bac91f652b4bb105`. Later workflow closures and selected CLI exports in the tool archive are publication-time captures outside it.
+
+Six historical CSV repairs, the unrecoverable LINK-01279 boundary, raw link CSV and legacy CODE002 archive remain preserved. Engine bytes remain equal to reviewed commit `0b94163c:.ept/tools/tracker`; `0b94163c` identifies a commit, not a tree. No new engine execution is claimed. Configuration and prior integration ancestry remain retained.
+
+The live parent checkout remains dirty and is outside these isolated release edits. DEVOPS-047 stays Open until G1-G7 acceptance is complete. Final skills-main publication, accepted parent pin and G8 verification follow the owning release work. No feature tag, package upload or live tenant deployment is included.
