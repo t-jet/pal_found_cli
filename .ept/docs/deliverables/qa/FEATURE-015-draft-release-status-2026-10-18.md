@@ -13,19 +13,19 @@ Last source verification: 2026-11-19 UTC. FEATURE-015 final acceptance and skill
 | Tracker capture | [PR #5](https://github.com/t-jet/pal_found_cli/pull/5), `ef0c090d7b31999dab635a9fd492a95552385a36` | Frozen November 16 capture; later workflow and selected publication-time exports remain outside it. |
 | Agent configuration | [PR #7](https://github.com/t-jet/pal_found_cli/pull/7), `b60555e85e927cca44d7a230d5911bef2ab2b839` | Reviewed configuration history retained. TASK-016 is Closed. |
 
-Tool main tree `fd73eff4cc59d0136383949385e9498e3ada0ba4` equals candidate `5da77b017c3690a062fe041ae07799ac428e2f1b`. Its direct parents are prior main `1e2e61bc0a56afe9af75e77170358d93ff6cf9d1` and that candidate. [Candidate CI](FEATURE-015-tool-ci-5da77b0.json) remains a separate run. Parent main remains `c87925c9921be68549da7537b88a162326ad2273`; existing draft ancestry is retained.
+Tool main tree `fd73eff4cc59d0136383949385e9498e3ada0ba4` equals candidate `5da77b017c3690a062fe041ae07799ac428e2f1b`. Its direct parents are prior main `1e2e61bc0a56afe9af75e77170358d93ff6cf9d1` and that candidate. [Candidate CI](FEATURE-015-tool-ci-5da77b0.json) remains a separate run. Current parent main is external user checkpoint `66ae4b5e3a39aaf8fc41963b670060998af29243`, outside this bounded source-pair update. `c87925c9921be68549da7537b88a162326ad2273` is the historical parent baseline; existing draft ancestry is retained. These open drafts are not a final merge into current parent main.
 
 ## Accepted and pending QA
 
 | Acceptance group | Accepted | Remaining |
 | --- | --- | --- |
-| Operation meanings | 425 of 425 register entries|0|
+| Operation meanings | 425 of 425 register entries at source checkpoint|Fresh whole-G7 approval pending after CODEREVIEW-081 correction|
 | Formal operation QA | 261 of 425|164|
 | Whole skill pages | 153 of 192|39 page files plus overall signoff: 40 gates|
 | Non-REST development topics | 36 of 36|Integrated workflow/journey gates remain separate|
 | Model meanings | 3,251 definitions|Source/dependency closure does not replace formal operation QA|
 
-The release diagnostic retains 164 formal QA gaps,164 corresponding provenance gaps and 40 skill-review gates. Candidate, bundle and asset checks add no new blockers. G1-G7 are not waived. All 20 skill identities and 351 existing CLI operation records remain preserved.
+The release diagnostic retains 164 formal QA gaps,164 corresponding provenance gaps and 40 skill-review gates. Candidate, bundle and asset checks add no new blockers. CODEREVIEW-081 now assigns a correction to the Python developer: `LinkedObject.md` lines 41-54 and `OntologyObject.md` lines 73-85 use unbounded `while True` pagination and repeat duplicate 100-item pages under an external guard. Finite page/item/deadline or seen-token limits and a partial outcome preserving close or empty continuation are pending. The 425 semantic count describes the pinned register checkpoint, not fresh whole-G7 approval. G1-G7 are not waived. All 20 skill identities and 351 existing CLI operation records remain preserved.
 
 | Story | Accepted formal evidence |
 | --- | --- |
