@@ -1,0 +1,849 @@
+{
+  "schema_version": 1,
+  "kind": "Publication-time bounded evidence retention; not a new execution or frozen tracker snapshot",
+  "task": "TASK-022",
+  "skills_sha": "163cb1f6d28f11eca51384f86c462761a69acd6f",
+  "tool_main_sha": "01cd9e91e98dc27ca03bfbf0031ee7807684a7ba",
+  "archive": {
+    "file": "FEATURE-015-tool-corrections-2026-11-19.zip",
+    "sha256": "69ca26183de52b384d1f06c6d8d523d5c261d58c5f484a6e59c36eaa0e0ede5d",
+    "entries": 92
+  },
+  "files": [
+    {
+      "archive_path": "git-source/01cd9e91e98dc27ca03bfbf0031ee7807684a7ba/.github/safety-ci-exceptions.yml",
+      "bytes": 924,
+      "sha256": "78a14981e45b5e888cb8274f33d7a7ad8bfa281439f0b6146c3c8ce3c3203b7c",
+      "kind": "published Git source bytes",
+      "commit": "01cd9e91e98dc27ca03bfbf0031ee7807684a7ba",
+      "source_path": ".github/safety-ci-exceptions.yml"
+    },
+    {
+      "archive_path": "git-source/01cd9e91e98dc27ca03bfbf0031ee7807684a7ba/.github/scripts/check_safety.py",
+      "bytes": 3639,
+      "sha256": "3d5bec5036f6608b242e151cedf50e6564da4d6dfb7734108b366d323c3ec056",
+      "kind": "published Git source bytes",
+      "commit": "01cd9e91e98dc27ca03bfbf0031ee7807684a7ba",
+      "source_path": ".github/scripts/check_safety.py"
+    },
+    {
+      "archive_path": "git-source/01cd9e91e98dc27ca03bfbf0031ee7807684a7ba/.github/workflows/ci.yml",
+      "bytes": 4245,
+      "sha256": "7671dacd0a836c8dfe4af3977a5de79839875bcea6fc65ecf9cd153dd9f039d6",
+      "kind": "published Git source bytes",
+      "commit": "01cd9e91e98dc27ca03bfbf0031ee7807684a7ba",
+      "source_path": ".github/workflows/ci.yml"
+    },
+    {
+      "archive_path": "git-source/01cd9e91e98dc27ca03bfbf0031ee7807684a7ba/.safety-policy.yml",
+      "bytes": 1068,
+      "sha256": "3878da90a7b6607a64f0e57f27dd9f576c866a1b4add5492fa36b15bc55c438a",
+      "kind": "published Git source bytes",
+      "commit": "01cd9e91e98dc27ca03bfbf0031ee7807684a7ba",
+      "source_path": ".safety-policy.yml"
+    },
+    {
+      "archive_path": "git-source/01cd9e91e98dc27ca03bfbf0031ee7807684a7ba/LICENSE",
+      "bytes": 1081,
+      "sha256": "0be4b9532b8020379e088ec725e7f525e4ca00ec10a50ba6ecc55a7c1563a547",
+      "kind": "published Git source bytes",
+      "commit": "01cd9e91e98dc27ca03bfbf0031ee7807684a7ba",
+      "source_path": "LICENSE"
+    },
+    {
+      "archive_path": "git-source/01cd9e91e98dc27ca03bfbf0031ee7807684a7ba/LICENSE.foundry-sdk",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "kind": "published Git source bytes",
+      "commit": "01cd9e91e98dc27ca03bfbf0031ee7807684a7ba",
+      "source_path": "LICENSE.foundry-sdk"
+    },
+    {
+      "archive_path": "git-source/01cd9e91e98dc27ca03bfbf0031ee7807684a7ba/conda.recipe/meta.yaml",
+      "bytes": 3075,
+      "sha256": "ce5d5cbfbdf4bda43aef4c8802c9fe15945b059e13d4c998851731fc3e281d49",
+      "kind": "published Git source bytes",
+      "commit": "01cd9e91e98dc27ca03bfbf0031ee7807684a7ba",
+      "source_path": "conda.recipe/meta.yaml"
+    },
+    {
+      "archive_path": "git-source/01cd9e91e98dc27ca03bfbf0031ee7807684a7ba/pyproject.toml",
+      "bytes": 6351,
+      "sha256": "a1604712f225e9faa6d48d9dcf587ae35b29628bcd617160531f6eb33965c557",
+      "kind": "published Git source bytes",
+      "commit": "01cd9e91e98dc27ca03bfbf0031ee7807684a7ba",
+      "source_path": "pyproject.toml"
+    },
+    {
+      "archive_path": "git-source/01cd9e91e98dc27ca03bfbf0031ee7807684a7ba/src/pal_found_cli/ontologies/_geotemporal_compat.py",
+      "bytes": 5375,
+      "sha256": "4b63847ea02df9ab018fb6f29bd66b12803a8d226a1800873064ec8698453a81",
+      "kind": "published Git source bytes",
+      "commit": "01cd9e91e98dc27ca03bfbf0031ee7807684a7ba",
+      "source_path": "src/pal_found_cli/ontologies/_geotemporal_compat.py"
+    },
+    {
+      "archive_path": "git-source/01cd9e91e98dc27ca03bfbf0031ee7807684a7ba/src/pal_found_cli/ontologies/_legacy_geotemporal_models.py",
+      "bytes": 3229,
+      "sha256": "8b5d1798d481be7f3f8677d915a349dfac189f23b7b7dc782831be91a9664488",
+      "kind": "published Git source bytes",
+      "commit": "01cd9e91e98dc27ca03bfbf0031ee7807684a7ba",
+      "source_path": "src/pal_found_cli/ontologies/_legacy_geotemporal_models.py"
+    },
+    {
+      "archive_path": "git-source/01cd9e91e98dc27ca03bfbf0031ee7807684a7ba/src/pal_found_cli/ontologies/scripts/pal_found_ontologies_cli.py",
+      "bytes": 40036,
+      "sha256": "12e887a044607b5426a07df4afe8789c666ec7ae32a3312b3797e50a6dc1998e",
+      "kind": "published Git source bytes",
+      "commit": "01cd9e91e98dc27ca03bfbf0031ee7807684a7ba",
+      "source_path": "src/pal_found_cli/ontologies/scripts/pal_found_ontologies_cli.py"
+    },
+    {
+      "archive_path": "git-source/01cd9e91e98dc27ca03bfbf0031ee7807684a7ba/tests/test_ci_safety.py",
+      "bytes": 4390,
+      "sha256": "49e811bf8e6156675b40119ce1fddef6f71d4a57fd295248b18b4bdd12c567c7",
+      "kind": "published Git source bytes",
+      "commit": "01cd9e91e98dc27ca03bfbf0031ee7807684a7ba",
+      "source_path": "tests/test_ci_safety.py"
+    },
+    {
+      "archive_path": "git-source/01cd9e91e98dc27ca03bfbf0031ee7807684a7ba/tests/test_geotemporal_sdk_wire.py",
+      "bytes": 17188,
+      "sha256": "4e62f04e9bb86ac6420ffbb8b6a0c10e2c610668d62b69dc223f299a53d21db5",
+      "kind": "published Git source bytes",
+      "commit": "01cd9e91e98dc27ca03bfbf0031ee7807684a7ba",
+      "source_path": "tests/test_geotemporal_sdk_wire.py"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug050_candidate_manifest_20261117.json",
+      "bytes": 3387,
+      "sha256": "659f49bf8f1e915013b9e2bee832a24048e1a3b5b86193879095f6a202e6baca",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug050_candidate_manifest_20261117.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug050_candidate_manifest_20261118.json",
+      "bytes": 5194,
+      "sha256": "feb798d922b35941b1104a4c52961b780c566b47e99a568c36751cb19c353140",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug050_candidate_manifest_20261118.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug050_extended_runtime_finish_20261118b.py",
+      "bytes": 21008,
+      "sha256": "dd0c2ace3bb53942604ade11ef29bdcffaacd32fc4ac34b21cc16b3ea7cc3123",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug050_extended_runtime_finish_20261118b.py"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug050_independent_runtime_qa_finish_20261118b/101final/result.json",
+      "bytes": 196494,
+      "sha256": "7f17d184ffb0933abdd970db9d1a484c816624caf74bcaa6bb59ed8c5a465f55",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug050_independent_runtime_qa_finish_20261118b/101final/result.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug050_independent_runtime_qa_finish_20261118b/101typing/result.json",
+      "bytes": 196505,
+      "sha256": "1da70111dacf6a2655e6ff823dbe7ba4338d0c642126a0623eda7ca67d911a15",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug050_independent_runtime_qa_finish_20261118b/101typing/result.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug050_independent_runtime_qa_finish_20261118b/111final/result.json",
+      "bytes": 204942,
+      "sha256": "45b2844e5e66c77984a58b815126671822dbd2692b7d5dd955cfded24ec0c8de",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug050_independent_runtime_qa_finish_20261118b/111final/result.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug050_independent_runtime_qa_finish_20261118b/111typing/result.json",
+      "bytes": 204953,
+      "sha256": "4ef7d757c91bb1a8b89906b51a126e1f7a289c3a68c8899316049865f2ccc724",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug050_independent_runtime_qa_finish_20261118b/111typing/result.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug050_independent_runtime_qa_finish_20261118b/179final/result.json",
+      "bytes": 197489,
+      "sha256": "37383d0978bdbc0ade1d3885c093da0b7073e3320149381f54f1556d68b9e73d",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug050_independent_runtime_qa_finish_20261118b/179final/result.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug050_independent_runtime_qa_finish_20261118b/179typing/result.json",
+      "bytes": 197500,
+      "sha256": "c72e15539aed0941496ae3cccf488f0335f9b52ba020018cca249c846db84b98",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug050_independent_runtime_qa_finish_20261118b/179typing/result.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug050_independent_runtime_qa_finish_20261118b/binding.json",
+      "bytes": 6094,
+      "sha256": "a11d4620040b8fa971e58ea2ee28fb79987cc9b10127040f8d895c9e1b0a170b",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug050_independent_runtime_qa_finish_20261118b/binding.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug050_independent_runtime_qa_finish_20261118b/typing-binding.json",
+      "bytes": 5364,
+      "sha256": "fbcf7bbfba9f4ed5bc63b9c391947600d916733c25820906bd3e1bc5dd969981",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug050_independent_runtime_qa_finish_20261118b/typing-binding.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug050_optional_body_clarification_1.101.0_20261118.json",
+      "bytes": 3425,
+      "sha256": "7445c9e916f4f6ca745eef82a99ab48e1fdb42caf63686eff1ac1c10ca0855e7",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug050_optional_body_clarification_1.101.0_20261118.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug050_optional_body_clarification_1.111.0_20261118.json",
+      "bytes": 3503,
+      "sha256": "926967a102547f81bb091051b4093adb397ceb5d9c1b891160846797ef052db0",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug050_optional_body_clarification_1.111.0_20261118.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug050_optional_body_clarification_1.79.0_20261118.json",
+      "bytes": 3751,
+      "sha256": "5618775976e863dcd97284ad49ab737ac1b9117bd76bb5316d6e6a09c9afb10f",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug050_optional_body_clarification_1.79.0_20261118.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug050_optional_body_clarification_20261118.py",
+      "bytes": 2610,
+      "sha256": "a3edc2c914b78636d7a2e5e86025b8c013e7e199f63936b5d9beff2b13d898f2",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug050_optional_body_clarification_20261118.py"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug050_typing_build_20261118.log",
+      "bytes": 57151,
+      "sha256": "a2f549d7fc4f69c6c0cce870d74091a4d0e8ba2b19e022ee65d162a30c35271f",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug050_typing_build_20261118.log"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug050_typing_build_20261118/pal_found_cli-0.1.6.dev15+ga8f23fd80.d20261118-py3-none-any.whl",
+      "bytes": 174724,
+      "sha256": "42a9e8cf99f3e381388ef3a46df95153816a62adff6ddec3147cecfe160a4ae6",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug050_typing_build_20261118/pal_found_cli-0.1.6.dev15+ga8f23fd80.d20261118-py3-none-any.whl"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug050_typing_build_20261118/pal_found_cli-0.1.6.dev15+ga8f23fd80.d20261118.tar.gz",
+      "bytes": 274763,
+      "sha256": "a42b2c0df153b060f158ba0f585943428bede3ff181a0fd2775d3888cc182de1",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug050_typing_build_20261118/pal_found_cli-0.1.6.dev15+ga8f23fd80.d20261118.tar.gz"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug050_typing_build_audit_20261118.py",
+      "bytes": 4170,
+      "sha256": "46c24fcc80d4c7db294dcb232519b5b9eb5b6a81806e5dd57e3ef798d42f50b2",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug050_typing_build_audit_20261118.py"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug050_typing_build_proof_20261118.json",
+      "bytes": 2097,
+      "sha256": "30a0f7a5e5915a75832fc185745d0742f162e57b3ebf101e564fae8ab6088c4f",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug050_typing_build_proof_20261118.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug050_typing_candidate_manifest_20261118.json",
+      "bytes": 5577,
+      "sha256": "495a9a49f80d7e008fb24b1a03d4be3ec856eb065de7bab42f5e7a980864c4e7",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug050_typing_candidate_manifest_20261118.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug050_typing_runtime_wrapper_20261118.py",
+      "bytes": 1048,
+      "sha256": "56097ffacafec0eacb93c52dd19ff32eb3e90b2553f90f8a97b4abbf99f4f96c",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug050_typing_runtime_wrapper_20261118.py"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug051_backend_20261118/active-policy.yml",
+      "bytes": 1022,
+      "sha256": "123b4f565a48b19afda1dd442e8b52d7a9e08650a0d6c90ca7a3030c1ae4c181",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug051_backend_20261118/active-policy.yml"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug051_backend_20261118/exact.log",
+      "bytes": 5908,
+      "sha256": "0b81a20e6bcbffb9d1c68854f6d95f2d1c4a5b30e266dc16d7135210eae64ac4",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug051_backend_20261118/exact.log"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug051_backend_20261118/exact/insecure.json",
+      "bytes": 146,
+      "sha256": "ee2d9f19d2e69120517654b2ea0cb1c5005b294accb37d406b50a0a4a2832b2f",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug051_backend_20261118/exact/insecure.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug051_backend_20261118/exact/insecure_full.json",
+      "bytes": 752,
+      "sha256": "8a2c0c1fa258d1b1932d7f7d75ce7c36ad45becc4c5c3f1473f1def3f47de802",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug051_backend_20261118/exact/insecure_full.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug051_backend_20261118/exact/policy.yml",
+      "bytes": 1022,
+      "sha256": "123b4f565a48b19afda1dd442e8b52d7a9e08650a0d6c90ca7a3030c1ae4c181",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug051_backend_20261118/exact/policy.yml"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug051_backend_20261118/expired.log",
+      "bytes": 6166,
+      "sha256": "cb4e662f5dfde3eb603205ccdc3b19f9397862bd3223cd38e3e51242d4811e3c",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug051_backend_20261118/expired.log"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug051_backend_20261118/expired/insecure.json",
+      "bytes": 146,
+      "sha256": "ee2d9f19d2e69120517654b2ea0cb1c5005b294accb37d406b50a0a4a2832b2f",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug051_backend_20261118/expired/insecure.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug051_backend_20261118/expired/insecure_full.json",
+      "bytes": 752,
+      "sha256": "8a2c0c1fa258d1b1932d7f7d75ce7c36ad45becc4c5c3f1473f1def3f47de802",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug051_backend_20261118/expired/insecure_full.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug051_backend_20261118/expired/policy.yml",
+      "bytes": 1022,
+      "sha256": "c29ca450948f0992f035745afe6f41357ebfdfca1f22b42c0b17dc998ed7c035",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug051_backend_20261118/expired/policy.yml"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug051_backend_20261118/pytest-boundaries.log",
+      "bytes": 854,
+      "sha256": "a6dc4f47ed92c2f40b97caf640116567d0f85775106ad6e3ea5cf1a6de2d6977",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug051_backend_20261118/pytest-boundaries.log"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug051_backend_20261118/results.json",
+      "bytes": 188,
+      "sha256": "c834ac0afa7cb054fcaa3984a4a6e9cc2b7e42746a459cff22ddd1d24812cf05",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug051_backend_20261118/results.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug051_backend_20261118/source-proof.json",
+      "bytes": 1842,
+      "sha256": "1e8ae92c3d0cfc986d1687d3f77b7b2512a630166b9a16f0efab512484f35712",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug051_backend_20261118/source-proof.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug051_backend_20261118/unrelated.log",
+      "bytes": 6660,
+      "sha256": "5425530d2c5311b850db53f80787d04fcb250eb78f97a12a51063253ee8eae04",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug051_backend_20261118/unrelated.log"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug051_backend_20261118/unrelated/insecure.json",
+      "bytes": 146,
+      "sha256": "ee2d9f19d2e69120517654b2ea0cb1c5005b294accb37d406b50a0a4a2832b2f",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug051_backend_20261118/unrelated/insecure.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug051_backend_20261118/unrelated/insecure_full.json",
+      "bytes": 958,
+      "sha256": "dabae235900396be716138b5fa38ecbf5833c720a23b629f2fd1c19a949c2a64",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug051_backend_20261118/unrelated/insecure_full.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug051_backend_20261118/unrelated/policy.yml",
+      "bytes": 1022,
+      "sha256": "123b4f565a48b19afda1dd442e8b52d7a9e08650a0d6c90ca7a3030c1ae4c181",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug051_backend_20261118/unrelated/policy.yml"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug051_backend_harness_20261118.py",
+      "bytes": 2132,
+      "sha256": "55c68fc7a0114ee50ed7510a76108f1ebeb10d4f7071af3d224fd5d05f57e60e",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug051_backend_harness_20261118.py"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug051_security_triage_20261118/conflict.log",
+      "bytes": 1335,
+      "sha256": "9d11debb6043faed1c7a04dc9dd3012605d8be4c2bb26b09f85cd5069da2d5fb",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug051_security_triage_20261118/conflict.log"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug051_security_triage_20261118/filelock-pypi.json",
+      "bytes": 210881,
+      "sha256": "d218227bb0c3e796ee17e95fa8ba6e097ce8c3e4148624fa2b184c9a23501101",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug051_security_triage_20261118/filelock-pypi.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug051_security_triage_20261118/pip-check.log",
+      "bytes": 31,
+      "sha256": "672aec65a45bed50e70229c70934a7eebf0462595c459b83023027645d57cccf",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug051_security_triage_20261118/pip-check.log"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug051_security_triage_20261118/pip-inspect.json",
+      "bytes": 1513947,
+      "sha256": "adfc9ae4258b1834e7f1e6a8aab83cc028c90cbfdb5ff1f60960e00764f86ab3",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug051_security_triage_20261118/pip-inspect.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug051_security_triage_20261118/project-install.json",
+      "bytes": 1214682,
+      "sha256": "3f7a2ef7e8051c0be9c5bdb1d84043b464123246ea056be475eaa67fc4d95b0c",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug051_security_triage_20261118/project-install.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug051_security_triage_20261118/project-install.log",
+      "bytes": 11777,
+      "sha256": "80a789a2a288a1fe5050dffcce944bdffcf66674ce8b3bae09faa1e6297e6dda",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug051_security_triage_20261118/project-install.log"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug051_security_triage_20261118/safety-check.log",
+      "bytes": 8093,
+      "sha256": "b0f4696fefbcb4edb8ab6c582fb4909fe5736d0095197631ce6e21308a641703",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug051_security_triage_20261118/safety-check.log"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug051_security_triage_20261118/safety-pypi.json",
+      "bytes": 194464,
+      "sha256": "07c7307438747e3f84419f811d62a595599f6dd79ec99c1a36d494c7c24952d4",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug051_security_triage_20261118/safety-pypi.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug051_security_triage_20261118/scanner-install.json",
+      "bytes": 299322,
+      "sha256": "e57c0c1f2bfaf1a534d74a976d987d48a539f7c273acdfda34488e1ac325dfd3",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug051_security_triage_20261118/scanner-install.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/bug051_security_triage_20261118/scanner-install.log",
+      "bytes": 8319,
+      "sha256": "1c29145e561f994eeb7e11ebe419bcc1eee5c3163098af2cd5bc379f353907f2",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/bug051_security_triage_20261118/scanner-install.log"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/feature015_tool_bug050_candidate_ci_20261118.json",
+      "bytes": 6382,
+      "sha256": "5e7d2e57b401d8e04c22ff1c52692bffd82fec45b0202260edd1e2f1963e5cef",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/feature015_tool_bug050_candidate_ci_20261118.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/feature015_tool_bug050_corrected_ci_20261118.json",
+      "bytes": 8236,
+      "sha256": "a74b8cfddc129464cfe70db2bfcc154a692ba3917ddec49b4195a0f3578a87c8",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/feature015_tool_bug050_corrected_ci_20261118.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/feature015_tool_bug051_candidate_ci_20261118.json",
+      "bytes": 10650,
+      "sha256": "f2ec22c9e0a375ee108c31155a167a76d4668a9efba593d9ba7923e45b9ad299",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/feature015_tool_bug051_candidate_ci_20261118.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/feature015_tool_bug051_merged_main_ci_20261119.json",
+      "bytes": 8688,
+      "sha256": "30a60ddab33c38f094146312b437f4b3f83842db56123be8cb922b3badafd9af",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/feature015_tool_bug051_merged_main_ci_20261119.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/qa_tool_main_acceptance_20261119.json",
+      "bytes": 8199,
+      "sha256": "2fb9bae04b3cf02004034012c74d27a34ffeeb3ec97a6ed30f23c2203c0ceeef",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/qa_tool_main_acceptance_20261119.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/qa_tool_main_matrix_135167510868_20261119.log",
+      "bytes": 258893,
+      "sha256": "ba646356a262ade99ae6fea4f83d26782d5bded4dd61a3b4e2fa745e0c045d5a",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/qa_tool_main_matrix_135167510868_20261119.log"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/qa_tool_main_matrix_135167510902_20261119.log",
+      "bytes": 294249,
+      "sha256": "e274937c44b5a4591590a5683af67973dbb348aec3ca1e5bb27b2573cba5dc89",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/qa_tool_main_matrix_135167510902_20261119.log"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/qa_tool_main_matrix_135167510905_20261119.log",
+      "bytes": 259478,
+      "sha256": "2b5d21ebe1f2764a55f83b12976d7fb307c3c575454c5b9b025cc06bb1b8e233",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/qa_tool_main_matrix_135167510905_20261119.log"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/qa_tool_main_matrix_135167511007_20261119.log",
+      "bytes": 259196,
+      "sha256": "676b546e7582e495a56262dbf99f9c739d3ddbe5a23d2ad730cab6eaaf1c7350",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/qa_tool_main_matrix_135167511007_20261119.log"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/qa_tool_main_matrix_summary_20261119.json",
+      "bytes": 1679,
+      "sha256": "a57cef220bce3f0d4098863fe87f62db060e9bc0066cbb2b03c0c42750ccd6e9",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/qa_tool_main_matrix_summary_20261119.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/task022_tool_bug051_linux_security_20261118.log",
+      "bytes": 57788,
+      "sha256": "6af4a625fad940463a4b102b9a51eed9658be281b2f9ded9d6161778995588e3",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/task022_tool_bug051_linux_security_20261118.log"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/task022_tool_bug051_merge_binding_20261119.json",
+      "bytes": 651,
+      "sha256": "5e918f98a92012d7e0eb99e327ac947feef3bf3d590a41fd70691f872ffdb0eb",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/task022_tool_bug051_merge_binding_20261119.json"
+    },
+    {
+      "archive_path": "originals/.ept/tmp/task022_tool_main_security_01cd9e9_20261119.log",
+      "bytes": 56694,
+      "sha256": "6840ef1b3c96744d7cb41a9323e1a225cb61179be105e5b6674793ecf2f816b4",
+      "kind": "original artifact",
+      "original_path": ".ept/tmp/task022_tool_main_security_01cd9e9_20261119.log"
+    },
+    {
+      "archive_path": "publication-time-cli/BUG-050/20261118-075106-@architect.txt",
+      "bytes": 4543,
+      "sha256": "ee8a80452e24030f087c6b34c344bb9b375556bc93c378760396a6e4959a5e4f",
+      "kind": "publication-time CLI capture",
+      "command": [
+        "python",
+        ".ept/tools/tracker/tracker_cli.py",
+        "comment",
+        "get",
+        "BUG-050",
+        "20261118-075106-@architect",
+        "--author",
+        "devops-engineer"
+      ],
+      "exit_code": 0
+    },
+    {
+      "archive_path": "publication-time-cli/BUG-050/20261118-075212-@qa-engineer.txt",
+      "bytes": 3752,
+      "sha256": "a85148b99f3e62b250f4e5c7509a958f91de03148d32560a532f8bc98f731c83",
+      "kind": "publication-time CLI capture",
+      "command": [
+        "python",
+        ".ept/tools/tracker/tracker_cli.py",
+        "comment",
+        "get",
+        "BUG-050",
+        "20261118-075212-@qa-engineer",
+        "--author",
+        "devops-engineer"
+      ],
+      "exit_code": 0
+    },
+    {
+      "archive_path": "publication-time-cli/BUG-050/20261119-085137-@qa-engineer.txt",
+      "bytes": 2417,
+      "sha256": "5c601258ca171794015f9d791e79c08c9565ee6eebd53e057ef761ad460029b4",
+      "kind": "publication-time CLI capture",
+      "command": [
+        "python",
+        ".ept/tools/tracker/tracker_cli.py",
+        "comment",
+        "get",
+        "BUG-050",
+        "20261119-085137-@qa-engineer",
+        "--author",
+        "devops-engineer"
+      ],
+      "exit_code": 0
+    },
+    {
+      "archive_path": "publication-time-cli/BUG-050/links.txt",
+      "bytes": 949,
+      "sha256": "44afc16ce09ea28fc9c8c47bb69fd8caebe5a6ba8023fd2b539dd259a52e2000",
+      "kind": "publication-time CLI capture",
+      "command": [
+        "python",
+        ".ept/tools/tracker/tracker_cli.py",
+        "link",
+        "list",
+        "BUG-050",
+        "--direction",
+        "all",
+        "--author",
+        "devops-engineer"
+      ],
+      "exit_code": 0
+    },
+    {
+      "archive_path": "publication-time-cli/BUG-050/ticket.txt",
+      "bytes": 6562,
+      "sha256": "66ece488340b7958f99db2e093c6b74c7f85cc20e3ee7f3c848ecdfac7c4dac8",
+      "kind": "publication-time CLI capture",
+      "command": [
+        "python",
+        ".ept/tools/tracker/tracker_cli.py",
+        "get",
+        "BUG-050",
+        "--author",
+        "devops-engineer"
+      ],
+      "exit_code": 0
+    },
+    {
+      "archive_path": "publication-time-cli/BUG-051/20261118-234841-@qa-engineer.txt",
+      "bytes": 3935,
+      "sha256": "683b7191871bb3a73268873e4b475e47abc6bef7bac5d2214c6756c5257e67fe",
+      "kind": "publication-time CLI capture",
+      "command": [
+        "python",
+        ".ept/tools/tracker/tracker_cli.py",
+        "comment",
+        "get",
+        "BUG-051",
+        "20261118-234841-@qa-engineer",
+        "--author",
+        "devops-engineer"
+      ],
+      "exit_code": 0
+    },
+    {
+      "archive_path": "publication-time-cli/BUG-051/20261119-000019-@qa-engineer.txt",
+      "bytes": 4854,
+      "sha256": "b553ef0bcf99a3b405fc8c272e91dd298c2fa316d8877ce482f06e17b2743e4a",
+      "kind": "publication-time CLI capture",
+      "command": [
+        "python",
+        ".ept/tools/tracker/tracker_cli.py",
+        "comment",
+        "get",
+        "BUG-051",
+        "20261119-000019-@qa-engineer",
+        "--author",
+        "devops-engineer"
+      ],
+      "exit_code": 0
+    },
+    {
+      "archive_path": "publication-time-cli/BUG-051/20261119-000408-@devops-engineer.txt",
+      "bytes": 3338,
+      "sha256": "c22c6ed08481722eaf25f19eff81b3230748bb90f19548e756d43721f7409d1b",
+      "kind": "publication-time CLI capture",
+      "command": [
+        "python",
+        ".ept/tools/tracker/tracker_cli.py",
+        "comment",
+        "get",
+        "BUG-051",
+        "20261119-000408-@devops-engineer",
+        "--author",
+        "devops-engineer"
+      ],
+      "exit_code": 0
+    },
+    {
+      "archive_path": "publication-time-cli/BUG-051/20261119-085056-@qa-engineer.txt",
+      "bytes": 2672,
+      "sha256": "663a2d008659a1dd758f88223476427677c03520521667c294f0a9776bce0736",
+      "kind": "publication-time CLI capture",
+      "command": [
+        "python",
+        ".ept/tools/tracker/tracker_cli.py",
+        "comment",
+        "get",
+        "BUG-051",
+        "20261119-085056-@qa-engineer",
+        "--author",
+        "devops-engineer"
+      ],
+      "exit_code": 0
+    },
+    {
+      "archive_path": "publication-time-cli/BUG-051/links.txt",
+      "bytes": 872,
+      "sha256": "20363efc0aa1051e94bebdc0c40489fb670654e50debccd001215f99e0a73cb1",
+      "kind": "publication-time CLI capture",
+      "command": [
+        "python",
+        ".ept/tools/tracker/tracker_cli.py",
+        "link",
+        "list",
+        "BUG-051",
+        "--direction",
+        "all",
+        "--author",
+        "devops-engineer"
+      ],
+      "exit_code": 0
+    },
+    {
+      "archive_path": "publication-time-cli/BUG-051/ticket.txt",
+      "bytes": 6033,
+      "sha256": "408f9beb8ee2a20b623a9e217ecfb6e395237f58112a8911889be4af6af07cdd",
+      "kind": "publication-time CLI capture",
+      "command": [
+        "python",
+        ".ept/tools/tracker/tracker_cli.py",
+        "get",
+        "BUG-051",
+        "--author",
+        "devops-engineer"
+      ],
+      "exit_code": 0
+    },
+    {
+      "archive_path": "publication-time-cli/TASK-022/20261119-084928-@devops-engineer.txt",
+      "bytes": 2946,
+      "sha256": "0e3437b826419eb80d549a39917b1f1854dceb3dda77cf40d699e921351dd45d",
+      "kind": "publication-time CLI capture",
+      "command": [
+        "python",
+        ".ept/tools/tracker/tracker_cli.py",
+        "comment",
+        "get",
+        "TASK-022",
+        "20261119-084928-@devops-engineer",
+        "--author",
+        "devops-engineer"
+      ],
+      "exit_code": 0
+    },
+    {
+      "archive_path": "publication-time-cli/TASK-024/20261119-084607-@devops-engineer.txt",
+      "bytes": 3612,
+      "sha256": "1ca9c320e4e1eea3c2c682e2893b2e9f2095b0e87ea0a15875cf73cf34abda73",
+      "kind": "publication-time CLI capture",
+      "command": [
+        "python",
+        ".ept/tools/tracker/tracker_cli.py",
+        "comment",
+        "get",
+        "TASK-024",
+        "20261119-084607-@devops-engineer",
+        "--author",
+        "devops-engineer"
+      ],
+      "exit_code": 0
+    },
+    {
+      "archive_path": "publication-time-cli/TASK-024/20261119-084626-@devops-engineer.txt",
+      "bytes": 1082,
+      "sha256": "bb6633dbed713ac673124651519c0d862c174d7cf2a5f9dee621fe136f5c357c",
+      "kind": "publication-time CLI capture",
+      "command": [
+        "python",
+        ".ept/tools/tracker/tracker_cli.py",
+        "comment",
+        "get",
+        "TASK-024",
+        "20261119-084626-@devops-engineer",
+        "--author",
+        "devops-engineer"
+      ],
+      "exit_code": 0
+    },
+    {
+      "archive_path": "publication-time-cli/TASK-025/20261119-000330-@devops-engineer.txt",
+      "bytes": 1399,
+      "sha256": "0bbe3e7a50431b95c2dc1647df551966cf301d273c246b553cfafa507948c70a",
+      "kind": "publication-time CLI capture",
+      "command": [
+        "python",
+        ".ept/tools/tracker/tracker_cli.py",
+        "comment",
+        "get",
+        "TASK-025",
+        "20261119-000330-@devops-engineer",
+        "--author",
+        "devops-engineer"
+      ],
+      "exit_code": 0
+    },
+    {
+      "archive_path": "publication-time-cli/TASK-025/links.txt",
+      "bytes": 553,
+      "sha256": "c9b1eab0bd5aa2240474fdb60c5a2c82296ababc5882fccf14a3c5de79b4c6b4",
+      "kind": "publication-time CLI capture",
+      "command": [
+        "python",
+        ".ept/tools/tracker/tracker_cli.py",
+        "link",
+        "list",
+        "TASK-025",
+        "--direction",
+        "all",
+        "--author",
+        "devops-engineer"
+      ],
+      "exit_code": 0
+    },
+    {
+      "archive_path": "publication-time-cli/TASK-025/ticket.txt",
+      "bytes": 5097,
+      "sha256": "cc9bcb37f167d5bde7e59d443e4bafeddce0ef385913603b8d52e8848d3ec994",
+      "kind": "publication-time CLI capture",
+      "command": [
+        "python",
+        ".ept/tools/tracker/tracker_cli.py",
+        "get",
+        "TASK-025",
+        "--author",
+        "devops-engineer"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "boundaries": [
+    "BUG-050 original 197 corrected-candidate independent checks are 66/66/65 on SDK 1.101.0/1.111.0/1.79.0; no replay is claimed.",
+    "Earlier b3fc candidate, failures, and original build version remain historical. Typing build used staged tree46cdb with then-head a8f23fd; it is not a build from merged main.",
+    "Optional native decoding probe distinguishes HTTP200/204 empty body returning None from literal JSON null causing ValidationError; optional-body cases within original197 CLI checks used empty-body fixture.",
+    "Original harnesses retain exact paths and environment assumptions. Replay requires matching source checkout, SDK environments and original path layout; the archive is evidence retention, not a standalone runner.",
+    "BUG-051 Windows synthetic advisory database cases are policy-boundary checks: exact0, unrelated64, expired64. Genuine Linux live-database CI is separate.",
+    "Safety3.8.1/filelock3.32.7 remain vulnerable; exactly three CI-only advisories expire2026-12-02 UTC, with no automatic extension. TASK-025 upstream review due2026-11-24.",
+    "All CLI exports are newly captured full bodies/context through documented tracker CLI, outside frozen November16 snapshot; no internal tracker storage is accessed.",
+    "No unavailable historical command is invented. Original reports preserve recorded command and provenance limits.",
+    "No live Foundry/backend availability or all-SDK-version claim. No final FEATURE-015 or G1-G7 acceptance."
+  ]
+}

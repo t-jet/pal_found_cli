@@ -1,0 +1,18 @@
+{
+  "observed_at_utc": "2026-11-18T22:02:32.5234885Z",
+  "repository": "t-jet/pal_found_cli_tool",
+  "pull_request": "https://github.com/t-jet/pal_found_cli_tool/pull/4",
+  "state": "closed",
+  "draft": false,
+  "merged": true,
+  "merged_at": "2026-11-18T22:02:29Z",
+  "candidate_sha": "5da77b017c3690a062fe041ae07799ac428e2f1b",
+  "main_sha": "01cd9e91e98dc27ca03bfbf0031ee7807684a7ba",
+  "tree_sha": "fd73eff4cc59d0136383949385e9498e3ada0ba4",
+  "parents": [
+    "1e2e61bc0a56afe9af75e77170358d93ff6cf9d1",
+    "5da77b017c3690a062fe041ae07799ac428e2f1b"
+  ],
+  "merge_method": "normal merge commit",
+  "fresh_main_ci": "pending"
+}
