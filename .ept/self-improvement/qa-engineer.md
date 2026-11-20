@@ -773,3 +773,20 @@ Condition:
 Action:
 
 - Do derive executable method and wire assertions from pinned SDK source; use current official pages for explicit preview and permission context, mark newer fields as version drift, and require tenant verification for live behavior. Keep diagnostic reviewer records separate from formal TESTCASE approval.
+
+## Improvement: prove proxy routing with local sockets
+
+Condition:
+- When verifying SDK proxy environment regression and constructor arguments appear correct
+
+Action:
+- Do run local proxy with unresolvable target; assert CONNECT observed. Do run local direct listener for NO_PROXY/IP bypass; assert TLS ClientHello observed and proxy untouched. Use distinct temporary CA files for concurrent TLS probes. Pin source and installed factory hashes before verdict.
+
+## Improvement: freeze Conda channel before install QA
+
+Condition:
+- When independent Conda install runs while another worker builds into same local channel
+
+Action:
+- Do copy finished packages into separate indexed channel, verify hashes, then install with own package cache. Don't classify PathNotFound from concurrent channel mutation as product defect; retry once from frozen channel.
+

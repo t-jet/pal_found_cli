@@ -2,9 +2,9 @@
 id: CODEREVIEW-082
 type: codereview
 title: DEV-STORY-083 codereview v2 Ontology Action Query attachment and timeseries lifecycle REST contracts
-status: Blocked
+status: Open
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-11-19
 priority: High
 assignee: architect
 reporter: tech-lead

@@ -2,13 +2,14 @@
 id: UNITTEST-080
 type: unittest
 title: DEV-STORY-081 unittest v2 Ontology object set scenario and transaction lifecycle REST contracts
-status: Open
+status: Resolved
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-11-19
 priority: High
 assignee: python-developer
 reporter: tech-lead
 estimated_hours: 8
+time_spent_hours: 0.0015502777777777778
 ---
 
 # DEV-STORY-081 unittest

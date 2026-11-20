@@ -2,9 +2,9 @@
 id: TESTCASE-083
 type: testcase
 title: DEV-STORY-089 testcase connectivity stream and SQL query lifecycle REST contracts
-status: Open
+status: In Progress
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-11-18
 priority: High
 assignee: qa-engineer
 reporter: tech-lead

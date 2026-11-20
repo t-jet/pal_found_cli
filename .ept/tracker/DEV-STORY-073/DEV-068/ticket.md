@@ -2,7 +2,7 @@
 id: DEV-068
 type: development
 title: DEV-STORY-073 development J13 governance REST contracts
-status: Blocked
+status: Closed
 created: 2026-10-06
 updated: 2026-11-18
 priority: High

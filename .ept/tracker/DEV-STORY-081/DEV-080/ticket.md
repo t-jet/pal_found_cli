@@ -2,13 +2,14 @@
 id: DEV-080
 type: development
 title: DEV-STORY-081 development v2 Ontology object set scenario and transaction lifecycle REST contracts
-status: In Progress
+status: Resolved
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-11-19
 priority: High
 assignee: python-developer
 reporter: tech-lead
 estimated_hours: 32
+time_spent_hours: 0.00022014186111240028
 ---
 
 # DEV-STORY-081 development

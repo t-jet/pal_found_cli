@@ -558,3 +558,33 @@ Condition:
 Action:
 
 - Do run lint, type check, coverage test, SAST, dependency scan in a clean environment, build, metadata check, and fresh wheel command smoke before tagging. If lint/type fixes alter source files used by a hash-based skills review, refresh those review hashes and rerun the paired audit before pinning or publishing.
+
+## Improvement: preserve index line endings across parent draft merges
+
+Condition:
+
+- When same long document-index entry needs qualification in separate release and integration clones with mixed line endings
+
+Action:
+
+- Do edit only target line bytes, run `git diff --check`, and merge qualified release commit normally into integration. Resolve index conflict from integration `HEAD` bytes plus release's qualified line; verify other bytes and merge parents before push. Don't rewrite whole index through text-mode serialization.
+
+## Improvement: verify PR base separately from live main
+
+Condition:
+
+- When a draft PR API reports an old base SHA after a new user commit lands on `main`
+
+Action:
+
+- Do verify `main` with `git ls-remote`, record PR API base SHA and mergeability as separately observed fields, and keep draft conflict status explicit. Don't infer current main from the PR API's cached base SHA or claim merge readiness from successful draft pushes.
+
+## Improvement: freeze Conda artifacts before parallel install QA
+
+Condition:
+
+- When Conda build can rebuild packages while another agent installs from local output channel
+
+Action:
+
+- Do copy hash-verified packages to separate immutable QA channel, index it, then hand off path and hashes. Don't run rebuilds against QA channel; build may delete package between solver and download.

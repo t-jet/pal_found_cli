@@ -2,13 +2,14 @@
 id: UNITTEST-081
 type: unittest
 title: DEV-STORY-083 unittest v2 Ontology Action Query attachment and timeseries lifecycle REST contracts
-status: Open
+status: Resolved
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-11-19
 priority: High
 assignee: python-developer
 reporter: tech-lead
 estimated_hours: 8
+time_spent_hours: 0.000758611111111111
 ---
 
 # DEV-STORY-083 unittest

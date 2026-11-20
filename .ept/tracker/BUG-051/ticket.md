@@ -2,7 +2,7 @@
 id: BUG-051
 type: bug
 title: CI Security Scan fails on filelock advisories for reviewed tool release candidate
-status: Blocked
+status: In Progress
 affected_version: 54dfbdefe54820d0722474b7bd2b0095f2eb232e
 created: 2026-11-18
 updated: 2026-11-18
@@ -27,8 +27,8 @@ Inspect the exact run at https://github.com/t-jet/pal_found_cli_tool/actions/run
 ## Acceptance criteria
 
 - Reproduce the failing CI install and record exact dependency parent, resolver constraints, Python version and installed package graph. Explain why filelock 3.32.7 is selected before implementing remediation.
-- Select supported nonvulnerable dependencies and demonstrate successful resolution plus pip check. Preserve existing supported runtime/SDK compatibility and packaging behavior. Do not ignore advisories, add suppressions, weaken scanners or create a new global policy.
-- Obtain independent security and compatibility review of the proposed dependency change and evidence. Preserve Bandit's gate and all lint, type and test gates.
+- Prefer supported nonvulnerable dependencies and demonstrate successful resolution plus pip check. Preserve existing supported runtime/SDK compatibility and packaging behavior. Where no supported patched Safety dependency resolution exists, permit a proposal through the existing reviewed, time-bound scanner-only exception process solely for Safety IDs 72390, 54654 and 57659 in filelock 3.32.7 pulled by Safety 3.8.1. Proposed expiry is 2026-12-02, with earlier removal when patched supported Safety ships. This is permission to propose, not implementation approval or a package-patch claim. No wildcard or permanent ignore, forced filelock 4.x, downgrade, fork, scanner weakening or new global policy.
+- Obtain independent security, compatibility and risk review before any implementation approval. A proposed exception must retain the full installed-environment scan including scanner dependencies, Bandit's gate, continue-on-vulnerability-error: False and all lint/type/test gates. New unrelated vulnerabilities and expired entries must block. Record exact scope, reason, expiry/removal trigger and reachability limits; scanner-only does not mean zero risk.
 - Publish reviewed changes through the normal tool workflow. Record fresh all-eight-check CI success at the exact candidate and exact merged main revision, ancestry/tree evidence, and paired parent source/pin proof. Independent QA must verify before closure; retain immutable evidence and hashes.
 
 ## Scope and relationships

@@ -2,13 +2,14 @@
 id: QUESTION-198
 type: question
 title: Clarify supported CI dependency scanner remediation for Safety filelock conflict
-status: Open
+status: Closed
 addressed_to: architect
 created: 2026-11-18
 updated: 2026-11-18
 priority: High
 assignee: devops-engineer
 reporter: devops-engineer
+time_spent_hours: 0.0005336
 ---
 
 # QUESTION-198: Clarify supported CI dependency scanner remediation for Safety filelock conflict

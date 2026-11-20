@@ -1,5 +1,13 @@
 # Tech Lead — Improvement Memory
 
+## Improvement: prove SDK proxy routing through actual transport
+
+Condition:
+- When SDK client builds custom httpx transport and CLI must honor proxy env vars
+
+Action:
+- Do test local unresolvable target through controlled proxy CONNECT, plus bypass direct path, across supported SDK versions. Use public SDK Config and stdlib environment proxy precedence. Run mypy with the same installed SDK interpreter as CI, including `Literal` proxy-scheme keys; typeshed may omit a public stdlib helper. Run full suite with installed CLI launchers and dependencies in same isolated interpreter; global launchers can yield false missing-dependency failures.
+
 ## Improvement: audit every reader and writer of shared tracker state
 
 Condition:

@@ -2,13 +2,14 @@
 id: DEV-081
 type: development
 title: DEV-STORY-083 development v2 Ontology Action Query attachment and timeseries lifecycle REST contracts
-status: In Progress
+status: Resolved
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-11-19
 priority: High
 assignee: python-developer
 reporter: tech-lead
 estimated_hours: 32
+time_spent_hours: 6.713499994172404e-06
 ---
 
 # DEV-STORY-083 development

@@ -2,7 +2,7 @@
 id: UNITTEST-067
 type: unittest
 title: DEV-STORY-073 unittest J13 governance REST contracts
-status: Resolved
+status: Closed
 created: 2026-10-06
 updated: 2026-11-18
 priority: High

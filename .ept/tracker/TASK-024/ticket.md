@@ -1,0 +1,23 @@
+---
+id: TASK-024
+type: task
+title: Publish accepted REST079 formal checkpoint and reviewed REST081 REST083 native unit coverage
+status: Closed
+priority: High
+assignee: devops-engineer
+reporter: devops-engineer
+created: 2026-11-18
+updated: 2026-11-19
+---
+
+## Scope and acceptance criteria
+- Publish approved REST079 formal acceptance from isolated TASK-023 proposal based on skills51f594c08403ac49d848e0d8c4af9986377f64d2. Promote only exact24paths and hashes in .ept/tmp/rest079_acceptance_20261118/final_approval_summary.json, including final root approval overlay SHA-256 e9e41f2b697649596a6c965baa314d32dc0283f495770641b2c83641b41f6369. Preserve original PENDING proposal/history records and add actual approval through the separate overlay; retain original executor identity and original1564PASS execution boundaries.
+- Register delta is exactly32REST079 rows, only independent_qa_status pending to accepted and independent_qa_agent null to /root/rest079_distinct_formal_executor_20261118. Preserve other393 rows and prior229 accepted rows,425 semantic register entries,3251models,36topics and153accepted and39pending page files plus one overall audit gate (40pending gates total). Formal261accepted/164pending applies after approved metadata integration. Whole historical4371file bundle is not current: exactly two corrected third-party guides differ, while relevant079inputs match. Do not claim a new formal run or whole-current-bundle execution.
+- Publish only accepted native unit files tests/test_offline_rest_081.py SHA-256 ca2b92fd7d72ac43ce625e21bcb650a37bbf7dea2a697edf00c7c221a4ef0c12 and tests/test_offline_rest_083.py SHA-256 fa1045d8c3c6b7e714dd43f4534555d88ee633b76589af97c08a7ffbe57611ec. Preserve083original9743byte prefix. Retain original author/peer reports, JUnit, independent source/probe and mutation executables/results under separate maintainer/evidence/unit081-20261118 and unit083-20261118 archives with publisher manifests identifying original paths, hashes, distinct identities, actual run heads and qualified replay boundaries. CLI-derived provenance exports must be labeled publication-time captures. Do not invent missing commands or conflate author/peer/integration results.
+- Preserve all distributed reader guides, examples, fixtures, models, SDK/contract sources, existing archives and other tests byte-for-byte against51f594c. Unit081/083 add no formal or reader semantic acceptance. Retain candidate_sha b601a40fe6a97ad5a66c400a5bfd5be5563fd4d1 and input_bundle_sha256 7c75d27f7c1558ffef6579df8025d1ed1b6f268d1a2d37f36754393967977d83 unchanged; no needless reanchor, regeneration or existing seven generator drifts.
+- Before source commits, submit exact26promoted paths plus new original archives/manifests and bounded preservation/hash checks for root final file review. Commit accepted079metadata/archive and each native unit/archive in isolated commits only after that gate. Run appropriate focused integration, metadata/release guards, Ruff and byte/diff checks. Release diagnostic must retain only164formal QA gaps,164corresponding provenance gaps and40skill review gates. Normally publish existing skills draft only after root publication approval, then verify exact remote/head/open-draft state and fresh full CI. Preserve previous51f594c/ff70 proofs and original result-head boundaries.
+- Keep this task separate from TASK-022 tool remediation/publication and paired parent work. No tool source/scanner policy edits, tool main merge, parent pin update, FEATURE015 closure, G1-G7 waiver, live tenant claim, force push, admin bypass, tag or package upload. Default previous parent pins remain until accepted tool main has eight fresh exact-head checks and root separately transfers/approves parent work. Preserve frozen November16 tracker/configuration/engine snapshot and prior ancestry; later tracker workflow is not a new engine result.
+- Record exact source commits, reviews, archive hashes, validation and draft state in ticket comments through serialized tracker ownership. Resolve only after all scoped publication criteria and independent root acceptance are met; terminal unit/formal ticket transitions remain their responsible owners' work.
+
+## Related documentation and ownership
+Reviewed .ept/docs/document_index.md, REST authoring contract and exact partitions, approved verification-and-delivery design, TASK-021 publication precedent, TASK-022 source boundaries and TASK-023 acceptance evidence. Root owns final source/commit/publication gates. DevOps owns only explicitly transferred shared skills publication scope. Source authors/independent peers retain distinct attribution. All temporary files remain under parent .ept/tmp.

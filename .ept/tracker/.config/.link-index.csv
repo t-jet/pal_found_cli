@@ -1422,7 +1422,6 @@ LINK-01849,DEV-STORY-081,TESTCASE-080,Contains,Contains,Contained In,2026-10-07T
 LINK-01850,DEV-STORY-081,TESTEXEC-080,Contains,Contains,Contained In,2026-10-07T15:59:37.948741,tech-lead,
 LINK-01851,DEV-080,CODEREVIEW-081,RelatesTo,Relates To,Relates To,2026-10-07T15:59:38.612243,tech-lead,
 LINK-01852,CODEREVIEW-081,DEV-080,RelatesTo,Relates To,Relates To,2026-10-07T15:59:39.282377,tech-lead,
-LINK-01853,DEV-080,CODEREVIEW-081,Blocks,Blocks,Is Blocked By,2026-10-07T15:59:39.947835,tech-lead,
 LINK-01854,DEV-STORY-083,DESIGN-081,Contains,Contains,Contained In,2026-10-07T15:59:53.689142,tech-lead,
 LINK-01855,DEV-STORY-083,DEV-081,Contains,Contains,Contained In,2026-10-07T15:59:58.446984,tech-lead,
 LINK-01856,DEV-STORY-083,UNITTEST-081,Contains,Contains,Contained In,2026-10-07T16:00:03.185721,tech-lead,
@@ -1431,7 +1430,6 @@ LINK-01858,DEV-STORY-083,TESTCASE-081,Contains,Contains,Contained In,2026-10-07T
 LINK-01859,DEV-STORY-083,TESTEXEC-081,Contains,Contains,Contained In,2026-10-07T16:00:17.873085,tech-lead,
 LINK-01860,DEV-081,CODEREVIEW-082,RelatesTo,Relates To,Relates To,2026-10-07T16:00:18.531647,tech-lead,
 LINK-01861,CODEREVIEW-082,DEV-081,RelatesTo,Relates To,Relates To,2026-10-07T16:00:19.184986,tech-lead,
-LINK-01862,DEV-081,CODEREVIEW-082,Blocks,Blocks,Is Blocked By,2026-10-07T16:00:19.849533,tech-lead,
 LINK-01863,DEV-STORY-085,DESIGN-082,Contains,Contains,Contained In,2026-10-07T16:00:33.480294,tech-lead,
 LINK-01864,DEV-STORY-085,DEV-082,Contains,Contains,Contained In,2026-10-07T16:00:38.223715,tech-lead,
 LINK-01865,DEV-STORY-085,UNITTEST-082,Contains,Contains,Contained In,2026-10-07T16:00:42.969362,tech-lead,
@@ -1604,13 +1602,30 @@ LINK-02087,TASK-022,FEATURE-015,RelatesTo,Relates To,Relates To,2026-11-17T19:47
 LINK-02088,TASK-022,DEVOPS-047,RelatesTo,Relates To,Relates To,2026-11-17T19:47:47.992243,devops-engineer,
 LINK-02089,TASK-022,UNITTEST-067,RelatesTo,Relates To,Relates To,2026-11-17T19:47:48.936978,devops-engineer,
 LINK-02090,TASK-022,TASK-021,RelatesTo,Relates To,Relates To,2026-11-17T19:47:49.884119,devops-engineer,
-LINK-02091,CODEREVIEW-068,DEV-068,Blocks,Blocks,Is Blocked By,2026-11-18T01:25:29.197548,python-developer,Independent Architect review required before DEV closure; prior DEV status Resolved. Replaces removed LINK-01731.
 LINK-02092,BUG-051,FEATURE-015,RelatesTo,Relates To,Relates To,2026-11-18T08:04:26.109115,project-manager,
 LINK-02093,BUG-051,TASK-022,RelatesTo,Relates To,Relates To,2026-11-18T08:04:27.085950,project-manager,
 LINK-02094,BUG-051,BUG-006,RelatesTo,Relates To,Relates To,2026-11-18T08:04:28.035183,project-manager,
 LINK-02095,BUG-051,BUG-050,RelatesTo,Relates To,Relates To,2026-11-18T08:04:29.000010,project-manager,
 LINK-02096,BUG-051,BUG-050,Blocks,Blocks,Is Blocked By,2026-11-18T08:04:29.945648,project-manager,
-LINK-02097,QUESTION-197,TESTEXEC-079,Blocks,Blocks,Is Blocked By,2026-11-18T08:05:49.585600,project-manager,
 LINK-02098,QUESTION-197,TESTEXEC-079,Question,Asks About,Has Question,2026-11-18T08:05:51.078392,project-manager,
-LINK-02099,QUESTION-198,BUG-051,Blocks,Blocks,Is Blocked By,2026-11-18T08:10:31.495363,devops-engineer,Unsupported published Safety filelock bound requires Architect decision; BUG-051 prior Open. TASK-022 stays unblocked.
 LINK-02100,QUESTION-198,BUG-051,Question,Asks About,Has Question,2026-11-18T08:10:32.928783,devops-engineer,Research and supported scanner remediation decision for BUG-051.
+LINK-02102,QUESTION-199,QUESTION-197,Question,Asks About,Has Question,2026-11-18T13:10:20.453095,project-manager,
+LINK-02103,TASK-023,FEATURE-015,RelatesTo,Relates To,Relates To,2026-11-18T18:18:21.599959,qa-engineer,
+LINK-02104,TASK-023,DEV-STORY-079,RelatesTo,Relates To,Relates To,2026-11-18T18:18:22.549715,qa-engineer,
+LINK-02105,TASK-023,TESTEXEC-079,RelatesTo,Relates To,Relates To,2026-11-18T18:18:23.499511,qa-engineer,
+LINK-02106,TASK-023,TASK-022,RelatesTo,Relates To,Relates To,2026-11-18T18:18:24.439522,qa-engineer,
+LINK-02107,CODEREVIEW-068,DEV-STORY-073,RelatesTo,Relates To,Relates To,2026-11-18T19:17:20.699371,architect,Register missing explicit parent Story relationship required by CodeReview instructions; existing Contains and DEV relationships preserved.
+LINK-02108,TASK-024,FEATURE-015,RelatesTo,Relates To,Relates To,2026-11-18T19:21:24.763219,devops-engineer,
+LINK-02109,TASK-024,TASK-023,RelatesTo,Relates To,Relates To,2026-11-18T19:21:25.505780,devops-engineer,
+LINK-02110,TASK-024,TASK-022,RelatesTo,Relates To,Relates To,2026-11-18T19:21:26.236708,devops-engineer,
+LINK-02111,TASK-024,DEV-STORY-081,RelatesTo,Relates To,Relates To,2026-11-18T19:21:26.983551,devops-engineer,
+LINK-02112,TASK-024,DEV-STORY-083,RelatesTo,Relates To,Relates To,2026-11-18T19:21:27.739955,devops-engineer,
+LINK-02113,TASK-024,TESTEXEC-079,RelatesTo,Relates To,Relates To,2026-11-18T19:21:28.531538,devops-engineer,
+LINK-02114,TASK-025,BUG-051,RelatesTo,Relates To,Relates To,2026-11-19T00:03:28.002776,devops-engineer,
+LINK-02115,TASK-025,TASK-022,RelatesTo,Relates To,Relates To,2026-11-19T00:03:29.005623,devops-engineer,
+LINK-02116,TASK-025,FEATURE-015,RelatesTo,Relates To,Relates To,2026-11-19T00:03:29.961199,devops-engineer,
+LINK-02117,CODEREVIEW-081,DEV-080,Blocks,Blocks,Is Blocked By,2026-11-19T08:54:40.116806,python-developer,Independent review now blocks DEV closure after committed implementation reached Resolved; replaces completed implementation prerequisite.
+LINK-02118,CODEREVIEW-081,DEV-STORY-081,RelatesTo,Relates To,Relates To,2026-11-19T08:54:40.862991,python-developer,Register required review-to-parent Story relationship.
+LINK-02119,CODEREVIEW-082,DEV-081,Blocks,Blocks,Is Blocked By,2026-11-19T08:54:42.684031,python-developer,Independent review now blocks DEV closure after committed implementation reached Resolved; replaces completed implementation prerequisite.
+LINK-02120,CODEREVIEW-082,DEV-STORY-083,RelatesTo,Relates To,Relates To,2026-11-19T08:54:43.463609,python-developer,Register required review-to-parent Story relationship.
+LINK-02121,TASK-026,BUG-052,RelatesTo,Relates To,Relates To,2026-11-19T19:29:16.686859,devops-engineer,Urgent source fix and release scope share acceptance evidence.

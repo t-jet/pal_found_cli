@@ -405,3 +405,13 @@ Condition:
 Action:
 
 - Do read the SDK schema or the branch fixtures for the exact request payload shape; a minimal placeholder config (e.g. {type: statusCheckConfig}) fails SDK validation, makes requests empty, and yields a false negative. Print exit code and captured stdout on the failure path so an empty capture is distinguishable from a real omission.
+
+## Improvement: changed guide hashes need pending review without rewriting history
+
+Condition:
+
+- When updating a domain authoring register after correcting a shared behavior guide used by several operations.
+
+Action:
+
+- Do update current behavior hashes and mark every row bound to that guide pending; keep nested historical review evidence and its old hash untouched. Compare JSON against HEAD to prove only affected rows changed. In CRLF trees, preserve unchanged lines and use LF for added lines so `git diff --check` passes.

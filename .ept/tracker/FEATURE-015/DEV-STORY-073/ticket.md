@@ -2,11 +2,11 @@
 id: DEV-STORY-073
 type: dev_story
 title: 'Author offline REST SDK contracts: Filesystem governance audit and application registration'
-status: Development
+status: QA
 feature_request: FEATURE-015
 epic: EPIC-015
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-11-18
 priority: High
 assignee: python-developer
 reporter: ba

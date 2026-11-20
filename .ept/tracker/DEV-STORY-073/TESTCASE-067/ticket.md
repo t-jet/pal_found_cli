@@ -2,9 +2,9 @@
 id: TESTCASE-067
 type: testcase
 title: DEV-STORY-073 testcase J13 governance REST contracts
-status: Open
+status: In Progress
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-11-19
 priority: High
 assignee: qa-engineer
 reporter: tech-lead

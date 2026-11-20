@@ -2,9 +2,9 @@
 id: UNITTEST-084
 type: unittest
 title: DEV-STORY-091 unittest Media Set and widget development release lifecycle REST contracts
-status: Open
+status: In Progress
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-11-19
 priority: High
 assignee: python-developer
 reporter: tech-lead

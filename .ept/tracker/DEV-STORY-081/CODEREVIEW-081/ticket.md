@@ -2,11 +2,11 @@
 id: CODEREVIEW-081
 type: codereview
 title: DEV-STORY-081 codereview v2 Ontology object set scenario and transaction lifecycle REST contracts
-status: Blocked
+status: Correction
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-11-19
 priority: High
-assignee: architect
+assignee: python-developer
 reporter: tech-lead
 estimated_hours: 12
 ---
